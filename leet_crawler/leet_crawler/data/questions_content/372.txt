@@ -1,0 +1,28 @@
+---CONTENT_BEGIN---
+
+Your task is to calculate ab mod 1337 where a is a positive integer and b is an extremely large positive integer given in the form of an array.
+
+
+Example1:
+
+a = 2
+b = [3]
+
+Result: 8
+
+
+
+Example2:
+
+a = 2
+b = [1,0]
+
+Result: 1024
+
+
+
+Credits:Special thanks to @Stomach_ache for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int superPow(int a, vector<int>& b) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int superPow(int a, int[] b) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def superPow(self, a, b):         '''         :type a: int         :type b: List[int]         :rtype: int         '''         "}, {"text": "C", "value": "c", "defaultCode": "int superPow(int a, int* b, int bSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int SuperPow(int a, int[] b) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number} a  * @param {number[]} b  * @return {number}  */ var superPow = function(a, b) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer} a # @param {Integer[]} b # @return {Integer} def super_pow(a, b)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func superPow(_ a: Int, _ b: [Int]) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func superPow(a int, b []int) int {      }"}]
+---SCRIPT_END---

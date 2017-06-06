@@ -1,0 +1,21 @@
+---CONTENT_BEGIN---
+
+Given a string, find the first non-repeating character in it and return it's index. If it doesn't exist, return -1.
+
+Examples:
+
+s = "leetcode"
+return 0.
+
+s = "loveleetcode",
+return 2.
+
+
+
+
+Note: You may assume the string contain only lowercase letters.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int firstUniqChar(string s) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int firstUniqChar(String s) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def firstUniqChar(self, s):         '''         :type s: str         :rtype: int         '''         "}, {"text": "C", "value": "c", "defaultCode": "int firstUniqChar(char* s) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int FirstUniqChar(string s) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {string} s  * @return {number}  */ var firstUniqChar = function(s) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {String} s # @return {Integer} def first_uniq_char(s)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func firstUniqChar(_ s: String) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func firstUniqChar(s string) int {      }"}]
+---SCRIPT_END---

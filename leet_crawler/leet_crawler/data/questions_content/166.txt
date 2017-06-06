@@ -1,0 +1,18 @@
+---CONTENT_BEGIN---
+Given two integers representing the numerator and denominator of a fraction, return the fraction in string format.
+
+If the fractional part is repeating, enclose the repeating part in parentheses.
+
+For example,
+
+Given numerator = 1, denominator = 2, return "0.5".
+Given numerator = 2, denominator = 1, return "2".
+Given numerator = 2, denominator = 3, return "0.(6)".
+
+
+
+Credits:Special thanks to @Shangrila for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     string fractionToDecimal(int numerator, int denominator) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public String fractionToDecimal(int numerator, int denominator) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def fractionToDecimal(self, numerator, denominator):         '''         :type numerator: int         :type denominator: int         :rtype: str         '''"}, {"text": "C", "value": "c", "defaultCode": "char* fractionToDecimal(int numerator, int denominator) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public string FractionToDecimal(int numerator, int denominator) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number} numerator  * @param {number} denominator  * @return {string}  */ var fractionToDecimal = function(numerator, denominator) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer} numerator # @param {Integer} denominator # @return {String} def fraction_to_decimal(numerator, denominator)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func fractionToDecimal(_ numerator: Int, _ denominator: Int) -> String {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func fractionToDecimal(numerator int, denominator int) string {      }"}]
+---SCRIPT_END---

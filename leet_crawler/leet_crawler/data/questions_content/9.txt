@@ -1,0 +1,20 @@
+---CONTENT_BEGIN---
+Determine whether an integer is a palindrome. Do this without extra space.
+
+click to show spoilers.
+
+Some hints:
+
+Could negative integers be palindromes? (ie, -1)
+
+If you are thinking of converting the integer to string, note the restriction of using extra space.
+
+You could also try reversing an integer. However, if you have solved the problem "Reverse Integer", you know that the reversed integer might overflow. How would you handle such case?
+
+There is a more generic way of solving this problem.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     bool isPalindrome(int x) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public boolean isPalindrome(int x) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def isPalindrome(self, x):         '''         :type x: int         :rtype: bool         '''         "}, {"text": "C", "value": "c", "defaultCode": "bool isPalindrome(int x) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public bool IsPalindrome(int x) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number} x  * @return {boolean}  */ var isPalindrome = function(x) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer} x # @return {Boolean} def is_palindrome(x)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func isPalindrome(_ x: Int) -> Bool {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func isPalindrome(x int) bool {      }"}]
+---SCRIPT_END---

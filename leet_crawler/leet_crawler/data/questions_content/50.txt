@@ -1,0 +1,7 @@
+---CONTENT_BEGIN---
+Implement pow(x, n).
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     double myPow(double x, int n) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public double myPow(double x, int n) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def myPow(self, x, n):         '''         :type x: float         :type n: int         :rtype: float         '''         "}, {"text": "C", "value": "c", "defaultCode": "double myPow(double x, int n) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public double MyPow(double x, int n) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number} x  * @param {number} n  * @return {number}  */ var myPow = function(x, n) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Float} x # @param {Integer} n # @return {Float} def my_pow(x, n)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func myPow(_ x: Double, _ n: Int) -> Double {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func myPow(x float64, n int) float64 {      }"}]
+---SCRIPT_END---

@@ -1,0 +1,27 @@
+---CONTENT_BEGIN---
+
+Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, add spaces in s to construct a sentence where each word is a valid dictionary word. You may assume the dictionary does not contain duplicate words.
+
+
+
+Return all such possible sentences.
+
+
+
+For example, given
+s = "catsanddog",
+dict = ["cat", "cats", "and", "sand", "dog"].
+
+
+
+A solution is ["cats and dog", "cat sand dog"].
+
+
+
+UPDATE (2017/1/4):
+The wordDict parameter had been changed to a list of strings (instead of a set of strings). Please reload the code definition to get the latest changes.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     vector<string> wordBreak(string s, vector<string>& wordDict) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public List<String> wordBreak(String s, List<String> wordDict) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def wordBreak(self, s, wordDict):         '''         :type s: str         :type wordDict: List[str]         :rtype: List[str]         '''         "}, {"text": "C", "value": "c", "defaultCode": "/**  * Return an array of size *returnSize.  * Note: The returned array must be malloced, assume caller calls free().  */ char** wordBreak(char* s, char** wordDict, int wordDictSize, int* returnSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public IList<string> WordBreak(string s, IList<string> wordDict) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {string} s  * @param {string[]} wordDict  * @return {string[]}  */ var wordBreak = function(s, wordDict) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {String} s # @param {String[]} word_dict # @return {String[]} def word_break(s, word_dict)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func wordBreak(_ s: String, _ wordDict: [String]) -> [String] {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func wordBreak(s string, wordDict []string) []string {      }"}]
+---SCRIPT_END---

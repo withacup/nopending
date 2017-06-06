@@ -1,0 +1,13 @@
+---CONTENT_BEGIN---
+
+Given a linked list, determine if it has a cycle in it.
+
+
+
+Follow up:
+Can you solve it without using extra space?
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "/**  * Definition for singly-linked list.  * struct ListNode {  *     int val;  *     ListNode *next;  *     ListNode(int x) : val(x), next(NULL) {}  * };  */ class Solution { public:     bool hasCycle(ListNode *head) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "/**  * Definition for singly-linked list.  * class ListNode {  *     int val;  *     ListNode next;  *     ListNode(int x) {  *         val = x;  *         next = null;  *     }  * }  */ public class Solution {     public boolean hasCycle(ListNode head) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "# Definition for singly-linked list. # class ListNode(object): #     def __init__(self, x): #         self.val = x #         self.next = None  class Solution(object):     def hasCycle(self, head):         '''         :type head: ListNode         :rtype: bool         '''         "}, {"text": "C", "value": "c", "defaultCode": "/**  * Definition for singly-linked list.  * struct ListNode {  *     int val;  *     struct ListNode *next;  * };  */ bool hasCycle(struct ListNode *head) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "/**  * Definition for singly-linked list.  * public class ListNode {  *     public int val;  *     public ListNode next;  *     public ListNode(int x) {  *         val = x;  *         next = null;  *     }  * }  */ public class Solution {     public bool HasCycle(ListNode head) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * Definition for singly-linked list.  * function ListNode(val) {  *     this.val = val;  *     this.next = null;  * }  */  /**  * @param {ListNode} head  * @return {boolean}  */ var hasCycle = function(head) {      };"}]
+---SCRIPT_END---

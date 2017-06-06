@@ -1,0 +1,17 @@
+---CONTENT_BEGIN---
+Determine if a Sudoku is valid, according to: Sudoku Puzzles - The Rules.
+
+The Sudoku board could be partially filled, where empty cells are filled with the character '.'.
+
+
+
+A partially filled sudoku which is valid.
+
+
+Note:
+A valid Sudoku board (partially filled) is not necessarily solvable. Only the filled cells need to be validated.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     bool isValidSudoku(vector<vector<char>>& board) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public boolean isValidSudoku(char[][] board) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def isValidSudoku(self, board):         '''         :type board: List[List[str]]         :rtype: bool         '''"}, {"text": "C", "value": "c", "defaultCode": "bool isValidSudoku(char** board, int boardRowSize, int boardColSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public bool IsValidSudoku(char[,] board) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {character[][]} board  * @return {boolean}  */ var isValidSudoku = function(board) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Character[][]} board # @return {Boolean} def is_valid_sudoku(board)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func isValidSudoku(_ board: [[Character]]) -> Bool {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func isValidSudoku(board [][]byte) bool {      }"}]
+---SCRIPT_END---

@@ -1,0 +1,20 @@
+---CONTENT_BEGIN---
+
+Given an array nums containing n + 1 integers where each integer is between 1 and n (inclusive), prove that at least one duplicate number must exist. Assume that there is only one duplicate number, find the duplicate one.
+
+
+
+Note:
+
+You must not modify the array (assume the array is read only).
+You must use only constant, O(1) extra space.
+Your runtime complexity should be less than O(n2).
+There is only one duplicate number in the array, but it could be repeated more than once.
+
+
+
+Credits:Special thanks to @jianchao.li.fighter for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int findDuplicate(vector<int>& nums) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int findDuplicate(int[] nums) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def findDuplicate(self, nums):         '''         :type nums: List[int]         :rtype: int         '''"}, {"text": "C", "value": "c", "defaultCode": "int findDuplicate(int* nums, int numsSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int FindDuplicate(int[] nums) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number[]} nums  * @return {number}  */ var findDuplicate = function(nums) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer[]} nums # @return {Integer} def find_duplicate(nums)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func findDuplicate(_ nums: [Int]) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func findDuplicate(nums []int) int {      }"}]
+---SCRIPT_END---

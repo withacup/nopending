@@ -1,0 +1,17 @@
+---CONTENT_BEGIN---
+
+Given a non-empty array of integers, return the k most frequent elements.
+
+For example,
+Given [1,1,1,2,2,3] and k = 2, return [1,2].
+
+
+Note: 
+
+You may assume k is always valid, 1 â¤ k â¤ number of unique elements.
+Your algorithm's time complexity must be better than O(n log n), where n is the array's size.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     vector<int> topKFrequent(vector<int>& nums, int k) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public List<Integer> topKFrequent(int[] nums, int k) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def topKFrequent(self, nums, k):         '''         :type nums: List[int]         :type k: int         :rtype: List[int]         '''         "}, {"text": "C", "value": "c", "defaultCode": "/**  * Return an array of size *returnSize.  * Note: The returned array must be malloced, assume caller calls free().  */ int* topKFrequent(int* nums, int numsSize, int k, int* returnSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public IList<int> TopKFrequent(int[] nums, int k) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number[]} nums  * @param {number} k  * @return {number[]}  */ var topKFrequent = function(nums, k) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer[]} nums # @param {Integer} k # @return {Integer[]} def top_k_frequent(nums, k)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func topKFrequent(_ nums: [Int], _ k: Int) -> [Int] {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func topKFrequent(nums []int, k int) []int {      }"}]
+---SCRIPT_END---

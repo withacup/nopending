@@ -1,0 +1,24 @@
+---CONTENT_BEGIN---
+
+Given n non-negative integers representing the histogram's bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.
+
+
+
+
+Above is a histogram where width of each bar is 1, given height = [2,1,5,6,2,3].
+
+
+
+
+The largest rectangle is shown in the shaded area, which has area = 10 unit.
+
+
+
+For example,
+Given heights = [2,1,5,6,2,3],
+return 10.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int largestRectangleArea(vector<int>& heights) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int largestRectangleArea(int[] heights) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def largestRectangleArea(self, heights):         '''         :type heights: List[int]         :rtype: int         '''         "}, {"text": "C", "value": "c", "defaultCode": "int largestRectangleArea(int* heights, int heightsSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int LargestRectangleArea(int[] heights) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number[]} heights  * @return {number}  */ var largestRectangleArea = function(heights) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer[]} heights # @return {Integer} def largest_rectangle_area(heights)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func largestRectangleArea(_ heights: [Int]) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func largestRectangleArea(heights []int) int {      }"}]
+---SCRIPT_END---

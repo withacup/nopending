@@ -1,0 +1,24 @@
+---CONTENT_BEGIN---
+
+    Given an integer array nums, return the number of range sums that lie in [lower, upper] inclusive.
+
+    Range sum S(i, j) is defined as the sum of the elements in nums between indices i and 
+    j (i â¤ j), inclusive.
+
+
+
+    Note:
+    A naive algorithm of O(n2) is trivial. You MUST do better than that.
+
+
+    Example:
+    Given nums = [-2, 5, -1], lower = -2, upper = 2,
+    Return 3.
+    The three ranges are : [0, 0], [2, 2], [0, 2] and their respective sums are: -2, -1, 2.
+
+
+Credits:Special thanks to @dietpepsi for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int countRangeSum(vector<int>& nums, int lower, int upper) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int countRangeSum(int[] nums, int lower, int upper) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def countRangeSum(self, nums, lower, upper):         '''         :type nums: List[int]         :type lower: int         :type upper: int         :rtype: int         '''         "}, {"text": "C", "value": "c", "defaultCode": "int countRangeSum(int* nums, int numsSize, int lower, int upper) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int CountRangeSum(int[] nums, int lower, int upper) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number[]} nums  * @param {number} lower  * @param {number} upper  * @return {number}  */ var countRangeSum = function(nums, lower, upper) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer[]} nums # @param {Integer} lower # @param {Integer} upper # @return {Integer} def count_range_sum(nums, lower, upper)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func countRangeSum(_ nums: [Int], _ lower: Int, _ upper: Int) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func countRangeSum(nums []int, lower int, upper int) int {      }"}]
+---SCRIPT_END---

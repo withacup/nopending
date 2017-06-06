@@ -1,0 +1,23 @@
+---CONTENT_BEGIN---
+
+    Given a list of unique words, find all pairs of distinct indices (i, j) in the given list, so that the concatenation of the two words, i.e. words[i] + words[j] is a palindrome.
+
+
+
+    Example 1:
+    Given words = ["bat", "tab", "cat"]
+    Return [[0, 1], [1, 0]]
+    The palindromes are ["battab", "tabbat"]
+
+
+    Example 2:
+    Given words = ["abcd", "dcba", "lls", "s", "sssll"]
+    Return [[0, 1], [1, 0], [3, 2], [2, 4]]
+    The palindromes are ["dcbaabcd", "abcddcba", "slls", "llssssll"]
+
+
+Credits:Special thanks to @dietpepsi for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     vector<vector<int>> palindromePairs(vector<string>& words) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public List<List<Integer>> palindromePairs(String[] words) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def palindromePairs(self, words):         '''         :type words: List[str]         :rtype: List[List[int]]         '''         "}, {"text": "C", "value": "c", "defaultCode": "/**  * Return an array of arrays of size *returnSize.  * The sizes of the arrays are returned as *columnSizes array.  * Note: Both returned array and *columnSizes array must be malloced, assume caller calls free().  */ int** palindromePairs(char** words, int wordsSize, int** columnSizes, int* returnSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public IList<IList<int>> PalindromePairs(string[] words) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {string[]} words  * @return {number[][]}  */ var palindromePairs = function(words) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {String[]} words # @return {Integer[][]} def palindrome_pairs(words)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func palindromePairs(_ words: [String]) -> [[Int]] {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func palindromePairs(words []string) [][]int {      }"}]
+---SCRIPT_END---

@@ -1,0 +1,19 @@
+---CONTENT_BEGIN---
+
+Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
+
+
+For example, given the array [-2,1,-3,4,-1,2,1,-5,4],
+the contiguous subarray [4,-1,2,1] has the largest sum = 6.
+
+
+click to show more practice.
+
+More practice:
+
+If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int maxSubArray(vector<int>& nums) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int maxSubArray(int[] nums) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def maxSubArray(self, nums):         '''         :type nums: List[int]         :rtype: int         '''"}, {"text": "C", "value": "c", "defaultCode": "int maxSubArray(int* nums, int numsSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int MaxSubArray(int[] nums) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number[]} nums  * @return {number}  */ var maxSubArray = function(nums) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer[]} nums # @return {Integer} def max_sub_array(nums)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func maxSubArray(_ nums: [Int]) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func maxSubArray(nums []int) int {      }"}]
+---SCRIPT_END---

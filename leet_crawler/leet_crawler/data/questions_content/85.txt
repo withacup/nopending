@@ -1,0 +1,18 @@
+---CONTENT_BEGIN---
+
+Given a 2D binary matrix filled with 0's and 1's, find the largest rectangle containing only 1's and return its area.
+
+
+For example, given the following matrix:
+
+1 0 1 0 0
+1 0 1 1 1
+1 1 1 1 1
+1 0 0 1 0
+
+Return 6.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int maximalRectangle(vector<vector<char>>& matrix) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int maximalRectangle(char[][] matrix) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def maximalRectangle(self, matrix):         '''         :type matrix: List[List[str]]         :rtype: int         '''         "}, {"text": "C", "value": "c", "defaultCode": "int maximalRectangle(char** matrix, int matrixRowSize, int matrixColSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int MaximalRectangle(char[,] matrix) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {character[][]} matrix  * @return {number}  */ var maximalRectangle = function(matrix) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Character[][]} matrix # @return {Integer} def maximal_rectangle(matrix)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func maximalRectangle(_ matrix: [[Character]]) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func maximalRectangle(matrix [][]byte) int {      }"}]
+---SCRIPT_END---

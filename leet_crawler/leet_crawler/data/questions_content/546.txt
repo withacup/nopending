@@ -1,0 +1,32 @@
+---CONTENT_BEGIN---
+Given several boxes with different colors represented by different positive numbers. 
+You may experience several rounds to remove boxes until there is no box left. Each time you can choose some continuous boxes with the same color (composed of k boxes, k >= 1), remove them and get k*k points.
+Find the maximum points you can get.
+
+
+Example 1:
+Input: 
+
+[1, 3, 2, 2, 2, 3, 4, 3, 1]
+
+Output:
+
+23
+
+Explanation: 
+
+[1, 3, 2, 2, 2, 3, 4, 3, 1] 
+----> [1, 3, 3, 4, 3, 1] (3*3=9 points) 
+----> [1, 3, 3, 3, 1] (1*1=1 points) 
+----> [1, 1] (3*3=9 points) 
+----> [] (2*2=4 points)
+
+
+
+Note:
+The number of boxes n would not exceed 100.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int removeBoxes(vector<int>& boxes) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int removeBoxes(int[] boxes) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def removeBoxes(self, boxes):         '''         :type boxes: List[int]         :rtype: int         '''"}, {"text": "C", "value": "c", "defaultCode": "int removeBoxes(int* boxes, int boxesSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int RemoveBoxes(int[] boxes) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number[]} boxes  * @return {number}  */ var removeBoxes = function(boxes) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer[]} boxes # @return {Integer} def remove_boxes(boxes)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func removeBoxes(_ boxes: [Int]) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func removeBoxes(boxes []int) int {      }"}]
+---SCRIPT_END---

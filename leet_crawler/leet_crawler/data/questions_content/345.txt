@@ -1,0 +1,21 @@
+---CONTENT_BEGIN---
+Write a function that takes a string as input and reverse only the vowels of a string.
+
+
+Example 1:
+Given s = "hello", return "holle".
+
+
+
+Example 2:
+Given s = "leetcode", return "leotcede".
+
+
+
+Note:
+The vowels does not include the letter "y".
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     string reverseVowels(string s) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public String reverseVowels(String s) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def reverseVowels(self, s):         '''         :type s: str         :rtype: str         '''         "}, {"text": "C", "value": "c", "defaultCode": "char* reverseVowels(char* s) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public string ReverseVowels(string s) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {string} s  * @return {string}  */ var reverseVowels = function(s) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {String} s # @return {String} def reverse_vowels(s)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func reverseVowels(_ s: String) -> String {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func reverseVowels(s string) string {      }"}]
+---SCRIPT_END---

@@ -1,0 +1,14 @@
+---CONTENT_BEGIN---
+
+Given an array of n integers where n > 1, nums, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].
+
+Solve it without division and in O(n).
+
+For example, given [1,2,3,4], return [24,12,8,6].
+
+Follow up:
+Could you solve it with constant space complexity? (Note: The output array does not count as extra space for the purpose of space complexity analysis.)
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     vector<int> productExceptSelf(vector<int>& nums) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int[] productExceptSelf(int[] nums) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def productExceptSelf(self, nums):         '''         :type nums: List[int]         :rtype: List[int]         '''         "}, {"text": "C", "value": "c", "defaultCode": "/**  * Return an array of size *returnSize.  * Note: The returned array must be malloced, assume caller calls free().  */ int* productExceptSelf(int* nums, int numsSize, int* returnSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int[] ProductExceptSelf(int[] nums) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number[]} nums  * @return {number[]}  */ var productExceptSelf = function(nums) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer[]} nums # @return {Integer[]} def product_except_self(nums)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func productExceptSelf(_ nums: [Int]) -> [Int] {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func productExceptSelf(nums []int) []int {      }"}]
+---SCRIPT_END---

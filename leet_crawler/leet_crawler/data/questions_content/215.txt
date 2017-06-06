@@ -1,0 +1,15 @@
+---CONTENT_BEGIN---
+Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.
+
+For example,
+Given [3,2,1,5,6,4] and k = 2, return 5.
+
+
+Note: 
+You may assume k is always valid, 1 â¤ k â¤ array's length.
+
+Credits:Special thanks to @mithmatt for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int findKthLargest(vector<int>& nums, int k) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int findKthLargest(int[] nums, int k) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def findKthLargest(self, nums, k):         '''         :type nums: List[int]         :type k: int         :rtype: int         '''         "}, {"text": "C", "value": "c", "defaultCode": "int findKthLargest(int* nums, int numsSize, int k) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int FindKthLargest(int[] nums, int k) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number[]} nums  * @param {number} k  * @return {number}  */ var findKthLargest = function(nums, k) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer[]} nums # @param {Integer} k # @return {Integer} def find_kth_largest(nums, k)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func findKthLargest(_ nums: [Int], _ k: Int) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func findKthLargest(nums []int, k int) int {      }"}]
+---SCRIPT_END---

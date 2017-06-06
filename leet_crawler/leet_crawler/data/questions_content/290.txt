@@ -1,0 +1,23 @@
+---CONTENT_BEGIN---
+Given a pattern and a string str, find if str follows the same pattern.
+ Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in str.
+
+Examples:
+
+pattern = "abba", str = "dog cat cat dog" should return true.
+pattern = "abba", str = "dog cat cat fish" should return false.
+pattern = "aaaa", str = "dog cat cat dog" should return false.
+pattern = "abba", str = "dog dog dog dog" should return false.
+
+
+
+
+Notes:
+You may assume pattern contains only lowercase letters, and str contains lowercase letters separated by a single space.
+
+
+Credits:Special thanks to @minglotus6 for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     bool wordPattern(string pattern, string str) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public boolean wordPattern(String pattern, String str) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def wordPattern(self, pattern, str):         '''         :type pattern: str         :type str: str         :rtype: bool         '''         "}, {"text": "C", "value": "c", "defaultCode": "bool wordPattern(char* pattern, char* str) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public bool WordPattern(string pattern, string str) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {string} pattern  * @param {string} str  * @return {boolean}  */ var wordPattern = function(pattern, str) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {String} pattern # @param {String} str # @return {Boolean} def word_pattern(pattern, str)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func wordPattern(_ pattern: String, _ str: String) -> Bool {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func wordPattern(pattern string, str string) bool {      }"}]
+---SCRIPT_END---

@@ -1,0 +1,27 @@
+---CONTENT_BEGIN---
+
+Given an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue.
+
+
+
+Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.
+
+
+
+Note:
+You are not suppose to use the library's sort function for this problem.
+
+
+click to show follow up.
+
+
+Follow up:
+A rather straight forward solution is a two-pass algorithm using counting sort.
+First, iterate the array counting number of 0's, 1's, and 2's, then overwrite array with total number of 0's, then 1's and followed by 2's.
+Could you come up with an one-pass algorithm using only constant space?
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     void sortColors(vector<int>& nums) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public void sortColors(int[] nums) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def sortColors(self, nums):         '''         :type nums: List[int]         :rtype: void Do not return anything, modify nums in-place instead.         '''         "}, {"text": "C", "value": "c", "defaultCode": "void sortColors(int* nums, int numsSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public void SortColors(int[] nums) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number[]} nums  * @return {void} Do not return anything, modify nums in-place instead.  */ var sortColors = function(nums) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer[]} nums # @return {Void} Do not return anything, modify nums in-place instead. def sort_colors(nums)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func sortColors(_ nums: inout [Int]) {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func sortColors(nums []int)  {      }"}]
+---SCRIPT_END---

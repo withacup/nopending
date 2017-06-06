@@ -1,0 +1,15 @@
+---CONTENT_BEGIN---
+Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2.
+
+Note:
+
+The length of both num1 and num2 is < 110.
+Both num1 and num2 contains only digits 0-9.
+Both num1 and num2 does not contain any leading zero.
+You must not use any built-in BigInteger library or convert the inputs to integer directly.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     string multiply(string num1, string num2) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public String multiply(String num1, String num2) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def multiply(self, num1, num2):         '''         :type num1: str         :type num2: str         :rtype: str         '''         "}, {"text": "C", "value": "c", "defaultCode": "char* multiply(char* num1, char* num2) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public string Multiply(string num1, string num2) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {string} num1  * @param {string} num2  * @return {string}  */ var multiply = function(num1, num2) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {String} num1 # @param {String} num2 # @return {String} def multiply(num1, num2)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func multiply(_ num1: String, _ num2: String) -> String {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func multiply(num1 string, num2 string) string {      }"}]
+---SCRIPT_END---

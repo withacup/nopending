@@ -1,0 +1,25 @@
+---CONTENT_BEGIN---
+
+Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).
+
+
+
+For example,
+S = "ADOBECODEBANC"
+T = "ABC"
+
+
+Minimum window is "BANC".
+
+
+
+Note:
+If there is no such window in S that covers all characters in T, return the empty string "".
+
+
+If there are multiple such windows, you are guaranteed that there will always be only one unique minimum window in S.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     string minWindow(string s, string t) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public String minWindow(String s, String t) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def minWindow(self, s, t):         '''         :type s: str         :type t: str         :rtype: str         '''         "}, {"text": "C", "value": "c", "defaultCode": "char* minWindow(char* s, char* t) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public string MinWindow(string s, string t) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {string} s  * @param {string} t  * @return {string}  */ var minWindow = function(s, t) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {String} s # @param {String} t # @return {String} def min_window(s, t)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func minWindow(_ s: String, _ t: String) -> String {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func minWindow(s string, t string) string {      }"}]
+---SCRIPT_END---

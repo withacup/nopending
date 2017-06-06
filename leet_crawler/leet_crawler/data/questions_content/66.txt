@@ -1,0 +1,10 @@
+---CONTENT_BEGIN---
+Given a non-negative integer represented as a non-empty array of digits, plus one to the integer.
+
+You may assume the integer do not contain any leading zero, except the number 0 itself.
+
+The digits are stored such that the most significant digit is at the head of the list.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     vector<int> plusOne(vector<int>& digits) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int[] plusOne(int[] digits) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def plusOne(self, digits):         '''         :type digits: List[int]         :rtype: List[int]         '''         "}, {"text": "C", "value": "c", "defaultCode": "/**  * Return an array of size *returnSize.  * Note: The returned array must be malloced, assume caller calls free().  */ int* plusOne(int* digits, int digitsSize, int* returnSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int[] PlusOne(int[] digits) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number[]} digits  * @return {number[]}  */ var plusOne = function(digits) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer[]} digits # @return {Integer[]} def plus_one(digits)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func plusOne(_ digits: [Int]) -> [Int] {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func plusOne(digits []int) []int {      }"}]
+---SCRIPT_END---

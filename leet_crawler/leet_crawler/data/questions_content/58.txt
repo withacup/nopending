@@ -1,0 +1,16 @@
+---CONTENT_BEGIN---
+Given a string s consists of upper/lower-case alphabets and empty space characters ' ', return the length of last word in the string.
+
+If the last word does not exist, return 0.
+
+Note: A word is defined as a character sequence consists of non-space characters only.
+
+
+For example, 
+Given s = "Hello World",
+return 5.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int lengthOfLastWord(string s) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int lengthOfLastWord(String s) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def lengthOfLastWord(self, s):         '''         :type s: str         :rtype: int         '''         "}, {"text": "C", "value": "c", "defaultCode": "int lengthOfLastWord(char* s) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int LengthOfLastWord(string s) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {string} s  * @return {number}  */ var lengthOfLastWord = function(s) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {String} s # @return {Integer} def length_of_last_word(s)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func lengthOfLastWord(_ s: String) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func lengthOfLastWord(s string) int {      }"}]
+---SCRIPT_END---

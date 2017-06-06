@@ -1,0 +1,25 @@
+---CONTENT_BEGIN---
+
+You are given an integer array nums and you have to return a new counts array.
+The counts array has the property where counts[i] is 
+the number of smaller elements to the right of nums[i].
+
+
+Example:
+
+
+Given nums = [5, 2, 6, 1]
+
+To the right of 5 there are 2 smaller elements (2 and 1).
+To the right of 2 there is only 1 smaller element (1).
+To the right of 6 there is 1 smaller element (1).
+To the right of 1 there is 0 smaller element.
+
+
+
+Return the array [2, 1, 1, 0].
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     vector<int> countSmaller(vector<int>& nums) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public List<Integer> countSmaller(int[] nums) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def countSmaller(self, nums):         '''         :type nums: List[int]         :rtype: List[int]         '''         "}, {"text": "C", "value": "c", "defaultCode": "/**  * Return an array of size *returnSize.  * Note: The returned array must be malloced, assume caller calls free().  */ int* countSmaller(int* nums, int numsSize, int* returnSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public IList<int> CountSmaller(int[] nums) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number[]} nums  * @return {number[]}  */ var countSmaller = function(nums) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer[]} nums # @return {Integer[]} def count_smaller(nums)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func countSmaller(_ nums: [Int]) -> [Int] {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func countSmaller(nums []int) []int {      }"}]
+---SCRIPT_END---

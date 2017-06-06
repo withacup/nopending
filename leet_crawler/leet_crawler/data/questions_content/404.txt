@@ -1,0 +1,18 @@
+---CONTENT_BEGIN---
+Find the sum of all left leaves in a given binary tree.
+
+Example:
+
+    3
+   / \
+  9  20
+    /  \
+   15   7
+
+There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "/**  * Definition for a binary tree node.  * struct TreeNode {  *     int val;  *     TreeNode *left;  *     TreeNode *right;  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}  * };  */ class Solution { public:     int sumOfLeftLeaves(TreeNode* root) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "/**  * Definition for a binary tree node.  * public class TreeNode {  *     int val;  *     TreeNode left;  *     TreeNode right;  *     TreeNode(int x) { val = x; }  * }  */ public class Solution {     public int sumOfLeftLeaves(TreeNode root) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "# Definition for a binary tree node. # class TreeNode(object): #     def __init__(self, x): #         self.val = x #         self.left = None #         self.right = None  class Solution(object):     def sumOfLeftLeaves(self, root):         '''         :type root: TreeNode         :rtype: int         '''"}, {"text": "C", "value": "c", "defaultCode": "/**  * Definition for a binary tree node.  * struct TreeNode {  *     int val;  *     struct TreeNode *left;  *     struct TreeNode *right;  * };  */ int sumOfLeftLeaves(struct TreeNode* root) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "/**  * Definition for a binary tree node.  * public class TreeNode {  *     public int val;  *     public TreeNode left;  *     public TreeNode right;  *     public TreeNode(int x) { val = x; }  * }  */ public class Solution {     public int SumOfLeftLeaves(TreeNode root) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * Definition for a binary tree node.  * function TreeNode(val) {  *     this.val = val;  *     this.left = this.right = null;  * }  */ /**  * @param {TreeNode} root  * @return {number}  */ var sumOfLeftLeaves = function(root) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# Definition for a binary tree node. # class TreeNode #     attr_accessor :val, :left, :right #     def initialize(val) #         @val = val #         @left, @right = nil, nil #     end # end  # @param {TreeNode} root # @return {Integer} def sum_of_left_leaves(root)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "/**  * Definition for a binary tree node.  * public class TreeNode {  *     public var val: Int  *     public var left: TreeNode?  *     public var right: TreeNode?  *     public init(_ val: Int) {  *         self.val = val  *         self.left = nil  *         self.right = nil  *     }  * }  */ class Solution {     func sumOfLeftLeaves(_ root: TreeNode?) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "/**  * Definition for a binary tree node.  * type TreeNode struct {  *     Val int  *     Left *TreeNode  *     Right *TreeNode  * }  */ func sumOfLeftLeaves(root *TreeNode) int {      }"}]
+---SCRIPT_END---

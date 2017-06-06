@@ -1,0 +1,37 @@
+---CONTENT_BEGIN---
+You have a total of n coins that you want to form in a staircase shape, where every k-th row must have exactly k coins.
+ 
+Given n, find the total number of full staircase rows that can be formed.
+
+n is a non-negative integer and fits within the range of a 32-bit signed integer.
+
+Example 1:
+
+n = 5
+
+The coins can form the following rows:
+Â¤
+Â¤ Â¤
+Â¤ Â¤
+
+Because the 3rd row is incomplete, we return 2.
+
+
+
+Example 2:
+
+n = 8
+
+The coins can form the following rows:
+Â¤
+Â¤ Â¤
+Â¤ Â¤ Â¤
+Â¤ Â¤
+
+Because the 4th row is incomplete, we return 3.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int arrangeCoins(int n) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int arrangeCoins(int n) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def arrangeCoins(self, n):         '''         :type n: int         :rtype: int         '''"}, {"text": "C", "value": "c", "defaultCode": "int arrangeCoins(int n) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int ArrangeCoins(int n) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number} n  * @return {number}  */ var arrangeCoins = function(n) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer} n # @return {Integer} def arrange_coins(n)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func arrangeCoins(_ n: Int) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func arrangeCoins(n int) int {      }"}]
+---SCRIPT_END---

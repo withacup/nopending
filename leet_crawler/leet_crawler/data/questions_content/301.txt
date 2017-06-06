@@ -1,0 +1,21 @@
+---CONTENT_BEGIN---
+
+Remove the minimum number of invalid parentheses in order to make the input string valid. Return all possible results.
+
+Note: The input string may contain letters other than the parentheses ( and ). 
+
+
+
+Examples:
+
+"()())()" -> ["()()()", "(())()"]
+"(a)())()" -> ["(a)()()", "(a())()"]
+")(" -> [""]
+
+
+
+Credits:Special thanks to @hpplayer for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     vector<string> removeInvalidParentheses(string s) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public List<String> removeInvalidParentheses(String s) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def removeInvalidParentheses(self, s):         '''         :type s: str         :rtype: List[str]         '''         "}, {"text": "C", "value": "c", "defaultCode": "/**  * Return an array of size *returnSize.  * Note: The returned array must be malloced, assume caller calls free().  */ char** removeInvalidParentheses(char* s, int* returnSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public IList<string> RemoveInvalidParentheses(string s) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {string} s  * @return {string[]}  */ var removeInvalidParentheses = function(s) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {String} s # @return {String[]} def remove_invalid_parentheses(s)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func removeInvalidParentheses(_ s: String) -> [String] {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func removeInvalidParentheses(s string) []string {      }"}]
+---SCRIPT_END---

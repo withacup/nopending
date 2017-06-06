@@ -1,0 +1,12 @@
+---CONTENT_BEGIN---
+Given a range [m, n] where 0 <= m <= n <= 2147483647, return the bitwise AND of all numbers in this range, inclusive.
+
+
+For example, given the range [5, 7], you should return 4.
+
+
+Credits:Special thanks to @amrsaqr for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int rangeBitwiseAnd(int m, int n) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int rangeBitwiseAnd(int m, int n) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def rangeBitwiseAnd(self, m, n):         '''         :type m: int         :type n: int         :rtype: int         '''         "}, {"text": "C", "value": "c", "defaultCode": "int rangeBitwiseAnd(int m, int n) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int RangeBitwiseAnd(int m, int n) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number} m  * @param {number} n  * @return {number}  */ var rangeBitwiseAnd = function(m, n) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer} m # @param {Integer} n # @return {Integer} def range_bitwise_and(m, n)      end"}, {"text": "Go", "value": "golang", "defaultCode": "func rangeBitwiseAnd(m int, n int) int {      }"}]
+---SCRIPT_END---

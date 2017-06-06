@@ -1,0 +1,18 @@
+---CONTENT_BEGIN---
+
+Given an unsorted integer array, find the first missing positive integer.
+
+
+
+For example,
+Given [1,2,0] return 3,
+and [3,4,-1,1] return 2.
+
+
+
+Your algorithm should run in O(n) time and uses constant space.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int firstMissingPositive(vector<int>& nums) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int firstMissingPositive(int[] nums) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def firstMissingPositive(self, nums):         '''         :type nums: List[int]         :rtype: int         '''         "}, {"text": "C", "value": "c", "defaultCode": "int firstMissingPositive(int* nums, int numsSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int FirstMissingPositive(int[] nums) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number[]} nums  * @return {number}  */ var firstMissingPositive = function(nums) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer[]} nums # @return {Integer} def first_missing_positive(nums)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func firstMissingPositive(_ nums: [Int]) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func firstMissingPositive(nums []int) int {      }"}]
+---SCRIPT_END---

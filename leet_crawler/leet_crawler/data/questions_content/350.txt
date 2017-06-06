@@ -1,0 +1,27 @@
+---CONTENT_BEGIN---
+
+Given two arrays, write a function to compute their intersection.
+
+
+Example:
+Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2, 2].
+
+
+Note:
+
+Each element in the result should appear as many times as it shows in both arrays.
+The result can be in any order.
+
+
+
+Follow up:
+
+What if the given array is already sorted? How would you optimize your algorithm?
+What if nums1's size is small compared to nums2's size? Which algorithm is better?
+What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int[] intersect(int[] nums1, int[] nums2) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def intersect(self, nums1, nums2):         '''         :type nums1: List[int]         :type nums2: List[int]         :rtype: List[int]         '''         "}, {"text": "C", "value": "c", "defaultCode": "/**  * Return an array of size *returnSize.  * Note: The returned array must be malloced, assume caller calls free().  */ int* intersect(int* nums1, int nums1Size, int* nums2, int nums2Size, int* returnSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int[] Intersect(int[] nums1, int[] nums2) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number[]} nums1  * @param {number[]} nums2  * @return {number[]}  */ var intersect = function(nums1, nums2) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer[]} nums1 # @param {Integer[]} nums2 # @return {Integer[]} def intersect(nums1, nums2)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func intersect(_ nums1: [Int], _ nums2: [Int]) -> [Int] {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func intersect(nums1 []int, nums2 []int) []int {      }"}]
+---SCRIPT_END---

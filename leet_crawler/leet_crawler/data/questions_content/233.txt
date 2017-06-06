@@ -1,0 +1,12 @@
+---CONTENT_BEGIN---
+Given an integer n, count the total number of digit 1 appearing in all non-negative integers less than or equal to n.
+
+
+For example: 
+Given n = 13,
+Return 6, because digit 1 occurred in the following numbers: 1, 10, 11, 12, 13.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int countDigitOne(int n) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int countDigitOne(int n) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def countDigitOne(self, n):         '''         :type n: int         :rtype: int         '''         "}, {"text": "C", "value": "c", "defaultCode": "int countDigitOne(int n) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int CountDigitOne(int n) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number} n  * @return {number}  */ var countDigitOne = function(n) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer} n # @return {Integer} def count_digit_one(n)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func countDigitOne(_ n: Int) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func countDigitOne(n int) int {      }"}]
+---SCRIPT_END---

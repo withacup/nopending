@@ -1,0 +1,20 @@
+---CONTENT_BEGIN---
+
+Given a 2D binary matrix filled with 0's and 1's, find the largest square containing only 1's and return its area.
+
+
+For example, given the following matrix:
+
+1 0 1 0 0
+1 0 1 1 1
+1 1 1 1 1
+1 0 0 1 0
+
+Return 4.
+
+
+Credits:Special thanks to @Freezen for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int maximalSquare(vector<vector<char>>& matrix) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int maximalSquare(char[][] matrix) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def maximalSquare(self, matrix):         '''         :type matrix: List[List[str]]         :rtype: int         '''         "}, {"text": "C", "value": "c", "defaultCode": "int maximalSquare(char** matrix, int matrixRowSize, int matrixColSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int MaximalSquare(char[,] matrix) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {character[][]} matrix  * @return {number}  */ var maximalSquare = function(matrix) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Character[][]} matrix # @return {Integer} def maximal_square(matrix)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func maximalSquare(_ matrix: [[Character]]) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func maximalSquare(matrix [][]byte) int {      }"}]
+---SCRIPT_END---

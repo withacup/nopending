@@ -1,0 +1,29 @@
+---CONTENT_BEGIN---
+Median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value. So the median is the mean of the two middle value.
+Examples: 
+[2,3,4] , the median is 3
+[2,3], the median is (2 + 3) / 2 = 2.5 
+
+
+Design a data structure that supports the following two operations:
+
+
+void addNum(int num) - Add a integer number from the data stream to the data structure.
+double findMedian() - Return the median of all elements so far.
+
+
+
+For example:
+
+addNum(1)
+addNum(2)
+findMedian() -> 1.5
+addNum(3) 
+findMedian() -> 2
+
+
+Credits:Special thanks to @Louis1992 for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class MedianFinder { public:     /** initialize your data structure here. */     MedianFinder() {              }          void addNum(int num) {              }          double findMedian() {              } };  /**  * Your MedianFinder object will be instantiated and called as such:  * MedianFinder obj = new MedianFinder();  * obj.addNum(num);  * double param_2 = obj.findMedian();  */"}, {"text": "Java", "value": "java", "defaultCode": "public class MedianFinder {      /** initialize your data structure here. */     public MedianFinder() {              }          public void addNum(int num) {              }          public double findMedian() {              } }  /**  * Your MedianFinder object will be instantiated and called as such:  * MedianFinder obj = new MedianFinder();  * obj.addNum(num);  * double param_2 = obj.findMedian();  */"}, {"text": "Python", "value": "python", "defaultCode": "class MedianFinder(object):      def __init__(self):         '''         initialize your data structure here.         '''               def addNum(self, num):         '''         :type num: int         :rtype: void         '''               def findMedian(self):         '''         :rtype: float         '''            # Your MedianFinder object will be instantiated and called as such: # obj = MedianFinder() # obj.addNum(num) # param_2 = obj.findMedian()"}, {"text": "C", "value": "c", "defaultCode": "typedef struct {      } MedianFinder;  /** initialize your data structure here. */ MedianFinder* medianFinderCreate() {      }  void medianFinderAddNum(MedianFinder* obj, int num) {      }  double medianFinderFindMedian(MedianFinder* obj) {      }  void medianFinderFree(MedianFinder* obj) {      }  /**  * Your MedianFinder struct will be instantiated and called as such:  * struct MedianFinder* obj = medianFinderCreate();  * medianFinderAddNum(obj, num);  * double param_2 = medianFinderFindMedian(obj);  * medianFinderFree(obj);  */"}, {"text": "C#", "value": "csharp", "defaultCode": "public class MedianFinder {      /** initialize your data structure here. */     public MedianFinder() {              }          public void AddNum(int num) {              }          public double FindMedian() {              } }  /**  * Your MedianFinder object will be instantiated and called as such:  * MedianFinder obj = new MedianFinder();  * obj.AddNum(num);  * double param_2 = obj.FindMedian();  */"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * initialize your data structure here.  */ var MedianFinder = function() {      };  /**   * @param {number} num  * @return {void}  */ MedianFinder.prototype.addNum = function(num) {      };  /**  * @return {number}  */ MedianFinder.prototype.findMedian = function() {      };  /**   * Your MedianFinder object will be instantiated and called as such:  * var obj = Object.create(MedianFinder).createNew()  * obj.addNum(num)  * var param_2 = obj.findMedian()  */"}, {"text": "Ruby", "value": "ruby", "defaultCode": "class MedianFinder  =begin     initialize your data structure here. =end     def initialize()              end   =begin     :type num: Integer     :rtype: Void =end     def add_num(num)              end   =begin     :rtype: Float =end     def find_median()              end   end  # Your MedianFinder object will be instantiated and called as such: # obj = MedianFinder.new() # obj.add_num(num) # param_2 = obj.find_median()"}, {"text": "Go", "value": "golang", "defaultCode": "type MedianFinder struct {      }   /** initialize your data structure here. */ func Constructor() MedianFinder {      }   func (this *MedianFinder) AddNum(num int)  {      }   func (this *MedianFinder) FindMedian() float64 {      }   /**  * Your MedianFinder object will be instantiated and called as such:  * obj := Constructor();  * obj.AddNum(num);  * param_2 := obj.FindMedian();  */"}]
+---SCRIPT_END---

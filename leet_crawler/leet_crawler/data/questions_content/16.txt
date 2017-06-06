@@ -1,0 +1,12 @@
+---CONTENT_BEGIN---
+Given an array S of n integers, find three integers in S such that the sum is closest to a given number, target. Return the sum of the three integers. You may assume that each input would have exactly one solution.
+
+
+    For example, given array S = {-1 2 1 -4}, and target = 1.
+
+    The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int threeSumClosest(vector<int>& nums, int target) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int threeSumClosest(int[] nums, int target) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def threeSumClosest(self, nums, target):         '''         :type nums: List[int]         :type target: int         :rtype: int         '''         "}, {"text": "C", "value": "c", "defaultCode": "int threeSumClosest(int* nums, int numsSize, int target) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int ThreeSumClosest(int[] nums, int target) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number[]} nums  * @param {number} target  * @return {number}  */ var threeSumClosest = function(nums, target) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer[]} nums # @param {Integer} target # @return {Integer} def three_sum_closest(nums, target)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func threeSumClosest(_ nums: [Int], _ target: Int) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func threeSumClosest(nums []int, target int) int {      }"}]
+---SCRIPT_END---

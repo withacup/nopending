@@ -1,0 +1,38 @@
+---CONTENT_BEGIN---
+
+Given a 2D board and a list of words from the dictionary, find all words in the board.
+
+
+Each word must be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.
+
+
+
+For example,
+Given words = ["oath","pea","eat","rain"] and board = 
+
+[
+  ['o','a','a','n'],
+  ['e','t','a','e'],
+  ['i','h','k','r'],
+  ['i','f','l','v']
+]
+
+
+Return ["eat","oath"].
+
+
+
+Note:
+You may assume that all inputs are consist of lowercase letters a-z.
+
+
+click to show hint.
+
+You would need to optimize your backtracking to pass the larger test. Could you stop backtracking earlier?
+
+If the current candidate does not exist in all words' prefix, you could stop backtracking immediately. What kind of data structure could answer such query efficiently? Does a hash table work? Why or why not? How about a Trie? If you would like to learn how to implement a basic trie, please work on this problem: Implement Trie (Prefix Tree) first.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public List<String> findWords(char[][] board, String[] words) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def findWords(self, board, words):         '''         :type board: List[List[str]]         :type words: List[str]         :rtype: List[str]         '''         "}, {"text": "C", "value": "c", "defaultCode": "/**  * Return an array of size *returnSize.  * Note: The returned array must be malloced, assume caller calls free().  */ char** findWords(char** board, int boardRowSize, int boardColSize, char** words, int wordsSize, int* returnSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public IList<string> FindWords(char[,] board, string[] words) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {character[][]} board  * @param {string[]} words  * @return {string[]}  */ var findWords = function(board, words) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Character[][]} board # @param {String[]} words # @return {String[]} def find_words(board, words)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func findWords(_ board: [[Character]], _ words: [String]) -> [String] {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func findWords(board [][]byte, words []string) []string {      }"}]
+---SCRIPT_END---

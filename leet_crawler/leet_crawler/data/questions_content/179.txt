@@ -1,0 +1,12 @@
+---CONTENT_BEGIN---
+Given a list of non negative integers, arrange them such that they form the largest number.
+
+For example, given [3, 30, 34, 5, 9], the largest formed number is 9534330.
+
+Note: The result may be very large, so you need to return a string instead of an integer.
+
+Credits:Special thanks to @ts for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     string largestNumber(vector<int>& nums) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public String largestNumber(int[] nums) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution:     # @param {integer[]} nums     # @return {string}     def largestNumber(self, nums):"}, {"text": "C", "value": "c", "defaultCode": "char* largestNumber(int* nums, int numsSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public string LargestNumber(int[] nums) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number[]} nums  * @return {string}  */ var largestNumber = function(nums) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer[]} nums # @return {String} def largest_number(nums)      end"}, {"text": "Go", "value": "golang", "defaultCode": "func largestNumber(nums []int) string {      }"}]
+---SCRIPT_END---

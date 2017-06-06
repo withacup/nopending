@@ -1,0 +1,20 @@
+---CONTENT_BEGIN---
+Given two strings s and t, determine if they are isomorphic.
+
+Two strings are isomorphic if the characters in s can be replaced to get t.
+
+All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.
+
+For example,
+Given "egg", "add", return true.
+
+Given "foo", "bar", return false.
+
+Given "paper", "title", return true.
+
+Note:
+You may assume both s and t have the same length.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     bool isIsomorphic(string s, string t) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public boolean isIsomorphic(String s, String t) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def isIsomorphic(self, s, t):         '''         :type s: str         :type t: str         :rtype: bool         '''         "}, {"text": "C", "value": "c", "defaultCode": "bool isIsomorphic(char* s, char* t) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public bool IsIsomorphic(string s, string t) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {string} s  * @param {string} t  * @return {boolean}  */ var isIsomorphic = function(s, t) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {String} s # @param {String} t # @return {Boolean} def is_isomorphic(s, t)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func isIsomorphic(_ s: String, _ t: String) -> Bool {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func isIsomorphic(s string, t string) bool {      }"}]
+---SCRIPT_END---

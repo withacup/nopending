@@ -1,0 +1,15 @@
+---CONTENT_BEGIN---
+
+Given two binary strings, return their sum (also a binary string).
+
+
+
+For example,
+a = "11"
+b = "1"
+Return "100".
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     string addBinary(string a, string b) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public String addBinary(String a, String b) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def addBinary(self, a, b):         '''         :type a: str         :type b: str         :rtype: str         '''         "}, {"text": "C", "value": "c", "defaultCode": "char* addBinary(char* a, char* b) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public string AddBinary(string a, string b) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {string} a  * @param {string} b  * @return {string}  */ var addBinary = function(a, b) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {String} a # @param {String} b # @return {String} def add_binary(a, b)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func addBinary(_ a: String, _ b: String) -> String {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func addBinary(a string, b string) string {      }"}]
+---SCRIPT_END---

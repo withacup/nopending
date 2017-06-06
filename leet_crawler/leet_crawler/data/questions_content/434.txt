@@ -1,0 +1,15 @@
+---CONTENT_BEGIN---
+Count the number of segments in a string, where a segment is defined to be a contiguous sequence of non-space characters.
+
+Please note that the string does not contain any non-printable characters.
+
+Example:
+
+Input: "Hello, my name is John"
+Output: 5
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int countSegments(string s) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int countSegments(String s) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def countSegments(self, s):         '''         :type s: str         :rtype: int         '''"}, {"text": "C", "value": "c", "defaultCode": "int countSegments(char* s) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int CountSegments(string s) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {string} s  * @return {number}  */ var countSegments = function(s) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {String} s # @return {Integer} def count_segments(s)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func countSegments(_ s: String) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func countSegments(s string) int {      }"}]
+---SCRIPT_END---

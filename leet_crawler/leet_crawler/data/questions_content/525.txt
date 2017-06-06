@@ -1,0 +1,27 @@
+---CONTENT_BEGIN---
+Given a binary array, find the maximum length of a contiguous subarray with equal number of 0 and 1. 
+
+
+Example 1:
+
+Input: [0,1]
+Output: 2
+Explanation: [0, 1] is the longest contiguous subarray with equal number of 0 and 1.
+
+
+
+Example 2:
+
+Input: [0,1,0]
+Output: 2
+Explanation: [0, 1] (or [1, 0]) is a longest contiguous subarray with equal number of 0 and 1.
+
+
+
+Note:
+The length of the given binary array will not exceed 50,000.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int findMaxLength(vector<int>& nums) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int findMaxLength(int[] nums) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def findMaxLength(self, nums):         '''         :type nums: List[int]         :rtype: int         '''"}, {"text": "C", "value": "c", "defaultCode": "int findMaxLength(int* nums, int numsSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int FindMaxLength(int[] nums) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number[]} nums  * @return {number}  */ var findMaxLength = function(nums) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer[]} nums # @return {Integer} def find_max_length(nums)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func findMaxLength(_ nums: [Int]) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func findMaxLength(nums []int) int {      }"}]
+---SCRIPT_END---

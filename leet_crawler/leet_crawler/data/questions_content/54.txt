@@ -1,0 +1,22 @@
+---CONTENT_BEGIN---
+Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
+
+
+
+For example,
+Given the following matrix:
+
+
+[
+ [ 1, 2, 3 ],
+ [ 4, 5, 6 ],
+ [ 7, 8, 9 ]
+]
+
+
+You should return [1,2,3,6,9,8,7,4,5].
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     vector<int> spiralOrder(vector<vector<int>>& matrix) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public List<Integer> spiralOrder(int[][] matrix) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def spiralOrder(self, matrix):         '''         :type matrix: List[List[int]]         :rtype: List[int]         '''         "}, {"text": "C", "value": "c", "defaultCode": "/**  * Note: The returned array must be malloced, assume caller calls free().  */ int* spiralOrder(int** matrix, int matrixRowSize, int matrixColSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public IList<int> SpiralOrder(int[,] matrix) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number[][]} matrix  * @return {number[]}  */ var spiralOrder = function(matrix) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer[][]} matrix # @return {Integer[]} def spiral_order(matrix)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func spiralOrder(_ matrix: [[Int]]) -> [Int] {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func spiralOrder(matrix [][]int) []int {      }"}]
+---SCRIPT_END---

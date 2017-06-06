@@ -1,0 +1,25 @@
+---CONTENT_BEGIN---
+Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.
+
+This is case sensitive, for example "Aa" is not considered a palindrome here.
+
+Note:
+Assume the length of given string will not exceed 1,010.
+
+
+Example: 
+
+Input:
+"abccccdd"
+
+Output:
+7
+
+Explanation:
+One longest palindrome that can be built is "dccaccd", whose length is 7.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int longestPalindrome(string s) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int longestPalindrome(String s) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def longestPalindrome(self, s):         '''         :type s: str         :rtype: int         '''"}, {"text": "C", "value": "c", "defaultCode": "int longestPalindrome(char* s) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int LongestPalindrome(string s) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {string} s  * @return {number}  */ var longestPalindrome = function(s) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {String} s # @return {Integer} def longest_palindrome(s)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func longestPalindrome(_ s: String) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func longestPalindrome(s string) int {      }"}]
+---SCRIPT_END---

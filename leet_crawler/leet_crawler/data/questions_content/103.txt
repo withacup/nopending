@@ -1,0 +1,28 @@
+---CONTENT_BEGIN---
+Given a binary tree, return the zigzag level order traversal of its nodes' values. (ie, from left to right, then right to left for the next level and alternate between).
+
+
+For example:
+Given binary tree [3,9,20,null,null,15,7],
+
+    3
+   / \
+  9  20
+    /  \
+   15   7
+
+
+
+return its zigzag level order traversal as:
+
+[
+  [3],
+  [20,9],
+  [15,7]
+]
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "/**  * Definition for a binary tree node.  * struct TreeNode {  *     int val;  *     TreeNode *left;  *     TreeNode *right;  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}  * };  */ class Solution { public:     vector<vector<int>> zigzagLevelOrder(TreeNode* root) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "/**  * Definition for a binary tree node.  * public class TreeNode {  *     int val;  *     TreeNode left;  *     TreeNode right;  *     TreeNode(int x) { val = x; }  * }  */ public class Solution {     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "# Definition for a binary tree node. # class TreeNode(object): #     def __init__(self, x): #         self.val = x #         self.left = None #         self.right = None  class Solution(object):     def zigzagLevelOrder(self, root):         '''         :type root: TreeNode         :rtype: List[List[int]]         '''         "}, {"text": "C", "value": "c", "defaultCode": "/**  * Definition for a binary tree node.  * struct TreeNode {  *     int val;  *     struct TreeNode *left;  *     struct TreeNode *right;  * };  */ /**  * Return an array of arrays of size *returnSize.  * The sizes of the arrays are returned as *columnSizes array.  * Note: Both returned array and *columnSizes array must be malloced, assume caller calls free().  */ int** zigzagLevelOrder(struct TreeNode* root, int** columnSizes, int* returnSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "/**  * Definition for a binary tree node.  * public class TreeNode {  *     public int val;  *     public TreeNode left;  *     public TreeNode right;  *     public TreeNode(int x) { val = x; }  * }  */ public class Solution {     public IList<IList<int>> ZigzagLevelOrder(TreeNode root) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * Definition for a binary tree node.  * function TreeNode(val) {  *     this.val = val;  *     this.left = this.right = null;  * }  */ /**  * @param {TreeNode} root  * @return {number[][]}  */ var zigzagLevelOrder = function(root) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# Definition for a binary tree node. # class TreeNode #     attr_accessor :val, :left, :right #     def initialize(val) #         @val = val #         @left, @right = nil, nil #     end # end  # @param {TreeNode} root # @return {Integer[][]} def zigzag_level_order(root)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "/**  * Definition for a binary tree node.  * public class TreeNode {  *     public var val: Int  *     public var left: TreeNode?  *     public var right: TreeNode?  *     public init(_ val: Int) {  *         self.val = val  *         self.left = nil  *         self.right = nil  *     }  * }  */ class Solution {     func zigzagLevelOrder(_ root: TreeNode?) -> [[Int]] {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "/**  * Definition for a binary tree node.  * type TreeNode struct {  *     Val int  *     Left *TreeNode  *     Right *TreeNode  * }  */ func zigzagLevelOrder(root *TreeNode) [][]int {      }"}]
+---SCRIPT_END---

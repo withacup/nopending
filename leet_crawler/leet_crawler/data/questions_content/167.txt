@@ -1,0 +1,15 @@
+---CONTENT_BEGIN---
+Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number.
+
+The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are not zero-based.
+
+You may assume that each input would have exactly one solution and you may not use the same element twice.
+
+
+Input: numbers={2, 7, 11, 15}, target=9
+Output: index1=1, index2=2
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     vector<int> twoSum(vector<int>& numbers, int target) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int[] twoSum(int[] numbers, int target) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def twoSum(self, numbers, target):         '''         :type numbers: List[int]         :type target: int         :rtype: List[int]         '''"}, {"text": "C", "value": "c", "defaultCode": "/**  * Return an array of size *returnSize.  * Note: The returned array must be malloced, assume caller calls free().  */ int* twoSum(int* numbers, int numbersSize, int target, int* returnSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int[] TwoSum(int[] numbers, int target) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number[]} numbers  * @param {number} target  * @return {number[]}  */ var twoSum = function(numbers, target) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer[]} numbers # @param {Integer} target # @return {Integer[]} def two_sum(numbers, target)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func twoSum(_ numbers: [Int], _ target: Int) -> [Int] {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func twoSum(numbers []int, target int) []int {      }"}]
+---SCRIPT_END---

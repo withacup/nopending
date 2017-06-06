@@ -1,0 +1,19 @@
+---CONTENT_BEGIN---
+Given an integer n, generate all structurally unique BST's (binary search trees) that store values 1...n.
+
+
+For example,
+Given n = 3, your program should return all 5 unique BST's shown below.
+
+
+   1         3     3      2      1
+    \       /     /      / \      \
+     3     2     1      1   3      2
+    /     /       \                 \
+   2     1         2                 3
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "/**  * Definition for a binary tree node.  * struct TreeNode {  *     int val;  *     TreeNode *left;  *     TreeNode *right;  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}  * };  */ class Solution { public:     vector<TreeNode*> generateTrees(int n) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "/**  * Definition for a binary tree node.  * public class TreeNode {  *     int val;  *     TreeNode left;  *     TreeNode right;  *     TreeNode(int x) { val = x; }  * }  */ public class Solution {     public List<TreeNode> generateTrees(int n) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "# Definition for a binary tree node. # class TreeNode(object): #     def __init__(self, x): #         self.val = x #         self.left = None #         self.right = None  class Solution(object):     def generateTrees(self, n):         '''         :type n: int         :rtype: List[TreeNode]         '''         "}, {"text": "C", "value": "c", "defaultCode": "/**  * Definition for a binary tree node.  * struct TreeNode {  *     int val;  *     struct TreeNode *left;  *     struct TreeNode *right;  * };  */ /**  * Return an array of size *returnSize.  * Note: The returned array must be malloced, assume caller calls free().  */ struct TreeNode** generateTrees(int n, int* returnSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "/**  * Definition for a binary tree node.  * public class TreeNode {  *     public int val;  *     public TreeNode left;  *     public TreeNode right;  *     public TreeNode(int x) { val = x; }  * }  */ public class Solution {     public IList<TreeNode> GenerateTrees(int n) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * Definition for a binary tree node.  * function TreeNode(val) {  *     this.val = val;  *     this.left = this.right = null;  * }  */ /**  * @param {number} n  * @return {TreeNode[]}  */ var generateTrees = function(n) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# Definition for a binary tree node. # class TreeNode #     attr_accessor :val, :left, :right #     def initialize(val) #         @val = val #         @left, @right = nil, nil #     end # end  # @param {Integer} n # @return {TreeNode[]} def generate_trees(n)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "/**  * Definition for a binary tree node.  * public class TreeNode {  *     public var val: Int  *     public var left: TreeNode?  *     public var right: TreeNode?  *     public init(_ val: Int) {  *         self.val = val  *         self.left = nil  *         self.right = nil  *     }  * }  */ class Solution {     func generateTrees(_ n: Int) -> [TreeNode?] {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "/**  * Definition for a binary tree node.  * type TreeNode struct {  *     Val int  *     Left *TreeNode  *     Right *TreeNode  * }  */ func generateTrees(n int) []*TreeNode {      }"}]
+---SCRIPT_END---

@@ -1,0 +1,35 @@
+---CONTENT_BEGIN---
+Given a 2D matrix matrix, find the sum of the elements inside the rectangle defined by its upper left corner (row1, col1) and lower right corner (row2, col2).
+
+
+
+The above rectangle (with the red border) is defined by (row1, col1) = (2, 1) and (row2, col2) = (4, 3), which contains sum = 8.
+
+
+Example:
+
+Given matrix = [
+  [3, 0, 1, 4, 2],
+  [5, 6, 3, 2, 1],
+  [1, 2, 0, 1, 5],
+  [4, 1, 0, 1, 7],
+  [1, 0, 3, 0, 5]
+]
+
+sumRegion(2, 1, 4, 3) -> 8
+sumRegion(1, 1, 2, 2) -> 11
+sumRegion(1, 2, 2, 4) -> 12
+
+
+
+Note:
+
+You may assume that the matrix does not change.
+There are many calls to sumRegion function.
+You may assume that row1 &le; row2 and col1 &le; col2.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class NumMatrix { public:     NumMatrix(vector<vector<int>> matrix) {              }          int sumRegion(int row1, int col1, int row2, int col2) {              } };  /**  * Your NumMatrix object will be instantiated and called as such:  * NumMatrix obj = new NumMatrix(matrix);  * int param_1 = obj.sumRegion(row1,col1,row2,col2);  */"}, {"text": "Java", "value": "java", "defaultCode": "public class NumMatrix {      public NumMatrix(int[][] matrix) {              }          public int sumRegion(int row1, int col1, int row2, int col2) {              } }  /**  * Your NumMatrix object will be instantiated and called as such:  * NumMatrix obj = new NumMatrix(matrix);  * int param_1 = obj.sumRegion(row1,col1,row2,col2);  */"}, {"text": "Python", "value": "python", "defaultCode": "class NumMatrix(object):      def __init__(self, matrix):         '''         :type matrix: List[List[int]]         '''               def sumRegion(self, row1, col1, row2, col2):         '''         :type row1: int         :type col1: int         :type row2: int         :type col2: int         :rtype: int         '''            # Your NumMatrix object will be instantiated and called as such: # obj = NumMatrix(matrix) # param_1 = obj.sumRegion(row1,col1,row2,col2)"}, {"text": "C", "value": "c", "defaultCode": "typedef struct {      } NumMatrix;  NumMatrix* numMatrixCreate(int** matrix, int matrixRowSize, int matrixColSize) {      }  int numMatrixSumRegion(NumMatrix* obj, int row1, int col1, int row2, int col2) {      }  void numMatrixFree(NumMatrix* obj) {      }  /**  * Your NumMatrix struct will be instantiated and called as such:  * struct NumMatrix* obj = numMatrixCreate(matrix, matrixRowSize, matrixColSize);  * int param_1 = numMatrixSumRegion(obj, row1, col1, row2, col2);  * numMatrixFree(obj);  */"}, {"text": "C#", "value": "csharp", "defaultCode": "public class NumMatrix {      public NumMatrix(int[,] matrix) {              }          public int SumRegion(int row1, int col1, int row2, int col2) {              } }  /**  * Your NumMatrix object will be instantiated and called as such:  * NumMatrix obj = new NumMatrix(matrix);  * int param_1 = obj.SumRegion(row1,col1,row2,col2);  */"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number[][]} matrix  */ var NumMatrix = function(matrix) {      };  /**   * @param {number} row1   * @param {number} col1   * @param {number} row2   * @param {number} col2  * @return {number}  */ NumMatrix.prototype.sumRegion = function(row1, col1, row2, col2) {      };  /**   * Your NumMatrix object will be instantiated and called as such:  * var obj = Object.create(NumMatrix).createNew(matrix)  * var param_1 = obj.sumRegion(row1,col1,row2,col2)  */"}, {"text": "Ruby", "value": "ruby", "defaultCode": "class NumMatrix  =begin     :type matrix: Integer[][] =end     def initialize(matrix)              end   =begin     :type row1: Integer     :type col1: Integer     :type row2: Integer     :type col2: Integer     :rtype: Integer =end     def sum_region(row1, col1, row2, col2)              end   end  # Your NumMatrix object will be instantiated and called as such: # obj = NumMatrix.new(matrix) # param_1 = obj.sum_region(row1,col1,row2,col2)"}, {"text": "Go", "value": "golang", "defaultCode": "type NumMatrix struct {      }   func Constructor(matrix [][]int) NumMatrix {      }   func (this *NumMatrix) SumRegion(row1 int, col1 int, row2 int, col2 int) int {      }   /**  * Your NumMatrix object will be instantiated and called as such:  * obj := Constructor(matrix);  * param_1 := obj.SumRegion(row1,col1,row2,col2);  */"}]
+---SCRIPT_END---

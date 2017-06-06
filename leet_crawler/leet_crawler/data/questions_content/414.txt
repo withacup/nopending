@@ -1,0 +1,37 @@
+---CONTENT_BEGIN---
+Given a non-empty array of integers, return the third maximum number in this array. If it does not exist, return the maximum number. The time complexity must be in O(n).
+
+Example 1:
+
+Input: [3, 2, 1]
+
+Output: 1
+
+Explanation: The third maximum is 1.
+
+
+
+Example 2:
+
+Input: [1, 2]
+
+Output: 2
+
+Explanation: The third maximum does not exist, so the maximum (2) is returned instead.
+
+
+
+Example 3:
+
+Input: [2, 2, 3, 1]
+
+Output: 1
+
+Explanation: Note that the third maximum here means the third maximum distinct number.
+Both numbers with value 2 are both considered as second maximum.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int thirdMax(vector<int>& nums) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int thirdMax(int[] nums) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def thirdMax(self, nums):         '''         :type nums: List[int]         :rtype: int         '''"}, {"text": "C", "value": "c", "defaultCode": "int thirdMax(int* nums, int numsSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int ThirdMax(int[] nums) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number[]} nums  * @return {number}  */ var thirdMax = function(nums) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer[]} nums # @return {Integer} def third_max(nums)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func thirdMax(_ nums: [Int]) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func thirdMax(nums []int) int {      }"}]
+---SCRIPT_END---

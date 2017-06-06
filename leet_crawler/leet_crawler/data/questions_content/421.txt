@@ -1,0 +1,20 @@
+---CONTENT_BEGIN---
+Given a non-empty array of numbers, a0, a1, a2, â¦ , an-1, where 0 &le; ai < 231.
+
+Find the maximum result of ai XOR aj, where 0 &le; i, j &lt; n.
+
+Could you do this in O(n) runtime?
+
+Example:
+
+Input: [3, 10, 5, 25, 2, 8]
+
+Output: 28
+
+Explanation: The maximum result is 5 ^ 25 = 28.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int findMaximumXOR(vector<int>& nums) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int findMaximumXOR(int[] nums) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def findMaximumXOR(self, nums):         '''         :type nums: List[int]         :rtype: int         '''"}, {"text": "C", "value": "c", "defaultCode": "int findMaximumXOR(int* nums, int numsSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int FindMaximumXOR(int[] nums) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number[]} nums  * @return {number}  */ var findMaximumXOR = function(nums) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer[]} nums # @return {Integer} def find_maximum_xor(nums)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func findMaximumXOR(_ nums: [Int]) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func findMaximumXOR(nums []int) int {      }"}]
+---SCRIPT_END---

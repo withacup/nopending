@@ -1,0 +1,8 @@
+---CONTENT_BEGIN---
+
+Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     bool containsDuplicate(vector<int>& nums) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public boolean containsDuplicate(int[] nums) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def containsDuplicate(self, nums):         '''         :type nums: List[int]         :rtype: bool         '''         "}, {"text": "C", "value": "c", "defaultCode": "bool containsDuplicate(int* nums, int numsSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public bool ContainsDuplicate(int[] nums) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number[]} nums  * @return {boolean}  */ var containsDuplicate = function(nums) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer[]} nums # @return {Boolean} def contains_duplicate(nums)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func containsDuplicate(_ nums: [Int]) -> Bool {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func containsDuplicate(nums []int) bool {      }"}]
+---SCRIPT_END---

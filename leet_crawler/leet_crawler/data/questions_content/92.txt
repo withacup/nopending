@@ -1,0 +1,21 @@
+---CONTENT_BEGIN---
+
+Reverse a linked list from position m to n. Do it in-place and in one-pass.
+
+
+
+For example:
+Given 1->2->3->4->5->NULL, m = 2 and n = 4,
+
+
+return 1->4->3->2->5->NULL.
+
+
+Note:
+Given m, n satisfy the following condition:
+1 â¤ m â¤ n â¤ length of list.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "/**  * Definition for singly-linked list.  * struct ListNode {  *     int val;  *     ListNode *next;  *     ListNode(int x) : val(x), next(NULL) {}  * };  */ class Solution { public:     ListNode* reverseBetween(ListNode* head, int m, int n) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "/**  * Definition for singly-linked list.  * public class ListNode {  *     int val;  *     ListNode next;  *     ListNode(int x) { val = x; }  * }  */ public class Solution {     public ListNode reverseBetween(ListNode head, int m, int n) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "# Definition for singly-linked list. # class ListNode(object): #     def __init__(self, x): #         self.val = x #         self.next = None  class Solution(object):     def reverseBetween(self, head, m, n):         '''         :type head: ListNode         :type m: int         :type n: int         :rtype: ListNode         '''         "}, {"text": "C", "value": "c", "defaultCode": "/**  * Definition for singly-linked list.  * struct ListNode {  *     int val;  *     struct ListNode *next;  * };  */ struct ListNode* reverseBetween(struct ListNode* head, int m, int n) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "/**  * Definition for singly-linked list.  * public class ListNode {  *     public int val;  *     public ListNode next;  *     public ListNode(int x) { val = x; }  * }  */ public class Solution {     public ListNode ReverseBetween(ListNode head, int m, int n) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * Definition for singly-linked list.  * function ListNode(val) {  *     this.val = val;  *     this.next = null;  * }  */ /**  * @param {ListNode} head  * @param {number} m  * @param {number} n  * @return {ListNode}  */ var reverseBetween = function(head, m, n) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# Definition for singly-linked list. # class ListNode #     attr_accessor :val, :next #     def initialize(val) #         @val = val #         @next = nil #     end # end  # @param {ListNode} head # @param {Integer} m # @param {Integer} n # @return {ListNode} def reverse_between(head, m, n)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "/**  * Definition for singly-linked list.  * public class ListNode {  *     public var val: Int  *     public var next: ListNode?  *     public init(_ val: Int) {  *         self.val = val  *         self.next = nil  *     }  * }  */ class Solution {     func reverseBetween(_ head: ListNode?, _ m: Int, _ n: Int) -> ListNode? {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "/**  * Definition for singly-linked list.  * type ListNode struct {  *     Val int  *     Next *ListNode  * }  */ func reverseBetween(head *ListNode, m int, n int) *ListNode {      }"}]
+---SCRIPT_END---

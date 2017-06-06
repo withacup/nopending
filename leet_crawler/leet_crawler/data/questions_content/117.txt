@@ -1,0 +1,32 @@
+---CONTENT_BEGIN---
+Follow up for problem "Populating Next Right Pointers in Each Node".
+What if the given tree could be any binary tree? Would your previous solution still work?
+
+Note:
+You may only use constant extra space.
+
+
+For example,
+Given the following binary tree,
+
+         1
+       /  \
+      2    3
+     / \    \
+    4   5    7
+
+
+
+After calling your function, the tree should look like:
+
+         1 -> NULL
+       /  \
+      2 -> 3 -> NULL
+     / \    \
+    4-> 5 -> 7 -> NULL
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "/**  * Definition for binary tree with next pointer.  * struct TreeLinkNode {  *  int val;  *  TreeLinkNode *left, *right, *next;  *  TreeLinkNode(int x) : val(x), left(NULL), right(NULL), next(NULL) {}  * };  */ class Solution { public:     void connect(TreeLinkNode *root) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "/**  * Definition for binary tree with next pointer.  * public class TreeLinkNode {  *     int val;  *     TreeLinkNode left, right, next;  *     TreeLinkNode(int x) { val = x; }  * }  */ public class Solution {     public void connect(TreeLinkNode root) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "# Definition for binary tree with next pointer. # class TreeLinkNode: #     def __init__(self, x): #         self.val = x #         self.left = None #         self.right = None #         self.next = None  class Solution:     # @param root, a tree link node     # @return nothing     def connect(self, root):"}, {"text": "C", "value": "c", "defaultCode": "/**  * Definition for binary tree with next pointer.  * struct TreeLinkNode {  *  int val;  *  struct TreeLinkNode *left, *right, *next;  * };  *  */ void connect(struct TreeLinkNode *root) {      }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * Definition for binary tree with next pointer.  * function TreeLinkNode(val) {  *     this.val = val;  *     this.left = this.right = this.next = null;  * }  */  /**  * @param {TreeLinkNode} root  * @return {void} Do not return anything, modify tree in-place instead.  */ var connect = function(root) {      };"}]
+---SCRIPT_END---

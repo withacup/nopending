@@ -1,0 +1,32 @@
+---CONTENT_BEGIN---
+
+Given a string s, find the longest palindromic subsequence's length in s. You may assume that the maximum length of s is 1000.
+
+
+Example 1:
+Input: 
+
+"bbbab"
+
+Output: 
+
+4
+
+One possible longest palindromic subsequence is "bbbb".
+
+
+Example 2:
+Input:
+
+"cbbd"
+
+Output:
+
+2
+
+One possible longest palindromic subsequence is "bb".
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int longestPalindromeSubseq(string s) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int longestPalindromeSubseq(String s) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def longestPalindromeSubseq(self, s):         '''         :type s: str         :rtype: int         '''"}, {"text": "C", "value": "c", "defaultCode": "int longestPalindromeSubseq(char* s) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int LongestPalindromeSubseq(string s) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {string} s  * @return {number}  */ var longestPalindromeSubseq = function(s) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {String} s # @return {Integer} def longest_palindrome_subseq(s)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func longestPalindromeSubseq(_ s: String) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func longestPalindromeSubseq(s string) int {      }"}]
+---SCRIPT_END---

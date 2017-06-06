@@ -1,0 +1,16 @@
+---CONTENT_BEGIN---
+
+Given an unsorted array of integers, find the length of the longest consecutive elements sequence.
+
+
+For example,
+Given [100, 4, 200, 1, 3, 2],
+The longest consecutive elements sequence is [1, 2, 3, 4]. Return its length: 4.
+
+
+Your algorithm should run in O(n) complexity.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int longestConsecutive(vector<int>& nums) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int longestConsecutive(int[] nums) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def longestConsecutive(self, nums):         '''         :type nums: List[int]         :rtype: int         '''         "}, {"text": "C", "value": "c", "defaultCode": "int longestConsecutive(int* nums, int numsSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int LongestConsecutive(int[] nums) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number[]} nums  * @return {number}  */ var longestConsecutive = function(nums) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer[]} nums # @return {Integer} def longest_consecutive(nums)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func longestConsecutive(_ nums: [Int]) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func longestConsecutive(nums []int) int {      }"}]
+---SCRIPT_END---

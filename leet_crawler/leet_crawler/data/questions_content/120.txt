@@ -1,0 +1,26 @@
+---CONTENT_BEGIN---
+Given a triangle, find the minimum path sum from top to bottom. Each step you may move to adjacent numbers on the row below.
+
+
+For example, given the following triangle
+
+[
+     [2],
+    [3,4],
+   [6,5,7],
+  [4,1,8,3]
+]
+
+
+
+The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).
+
+
+
+Note:
+Bonus point if you are able to do this using only O(n) extra space, where n is the total number of rows in the triangle.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int minimumTotal(vector<vector<int>>& triangle) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int minimumTotal(List<List<Integer>> triangle) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def minimumTotal(self, triangle):         '''         :type triangle: List[List[int]]         :rtype: int         '''         "}, {"text": "C", "value": "c", "defaultCode": "int minimumTotal(int** triangle, int triangleRowSize, int *triangleColSizes) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int MinimumTotal(IList<IList<int>> triangle) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number[][]} triangle  * @return {number}  */ var minimumTotal = function(triangle) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer[][]} triangle # @return {Integer} def minimum_total(triangle)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func minimumTotal(_ triangle: [[Int]]) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func minimumTotal(triangle [][]int) int {      }"}]
+---SCRIPT_END---

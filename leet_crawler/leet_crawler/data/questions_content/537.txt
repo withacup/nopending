@@ -1,0 +1,34 @@
+---CONTENT_BEGIN---
+
+Given two strings representing two complex numbers.
+
+
+You need to return a string representing their multiplication. Note i2 = -1 according to the definition.
+
+
+Example 1:
+
+Input: "1+1i", "1+1i"
+Output: "0+2i"
+Explanation: (1 + i) * (1 + i) = 1 + i2 + 2 * i = 2i, and you need convert it to the form of 0+2i.
+
+
+
+Example 2:
+
+Input: "1+-1i", "1+-1i"
+Output: "0+-2i"
+Explanation: (1 - i) * (1 - i) = 1 + i2 - 2 * i = -2i, and you need convert it to the form of 0+-2i.
+
+
+
+Note:
+
+The input strings will not have extra blank.
+The input strings will be given in the form of a+bi, where the integer a and b will both belong to the range of [-100, 100]. And the output should be also in this form.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     string complexNumberMultiply(string a, string b) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public String complexNumberMultiply(String a, String b) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def complexNumberMultiply(self, a, b):         '''         :type a: str         :type b: str         :rtype: str         '''"}, {"text": "C", "value": "c", "defaultCode": "char* complexNumberMultiply(char* a, char* b) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public string ComplexNumberMultiply(string a, string b) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {string} a  * @param {string} b  * @return {string}  */ var complexNumberMultiply = function(a, b) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {String} a # @param {String} b # @return {String} def complex_number_multiply(a, b)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func complexNumberMultiply(_ a: String, _ b: String) -> String {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func complexNumberMultiply(a string, b string) string {      }"}]
+---SCRIPT_END---

@@ -1,0 +1,21 @@
+---CONTENT_BEGIN---
+
+Given a non-negative integer num, repeatedly add all its digits until the result has only one digit. 
+
+
+
+For example:
+
+
+Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it.
+
+
+Follow up:
+Could you do it without any loop/recursion in O(1) runtime?
+
+
+Credits:Special thanks to @jianchao.li.fighter for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int addDigits(int num) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int addDigits(int num) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def addDigits(self, num):         '''         :type num: int         :rtype: int         '''         "}, {"text": "C", "value": "c", "defaultCode": "int addDigits(int num) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int AddDigits(int num) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number} num  * @return {number}  */ var addDigits = function(num) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer} num # @return {Integer} def add_digits(num)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func addDigits(_ num: Int) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func addDigits(num int) int {      }"}]
+---SCRIPT_END---

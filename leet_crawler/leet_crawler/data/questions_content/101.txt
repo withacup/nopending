@@ -1,0 +1,32 @@
+---CONTENT_BEGIN---
+Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).
+
+
+For example, this binary tree [1,2,2,3,4,4,3] is symmetric:
+
+    1
+   / \
+  2   2
+ / \ / \
+3  4 4  3
+
+
+
+But the following [1,2,2,null,3,null,3]  is not:
+
+    1
+   / \
+  2   2
+   \   \
+   3    3
+
+
+
+
+Note:
+Bonus points if you could solve it both recursively and iteratively.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "/**  * Definition for a binary tree node.  * struct TreeNode {  *     int val;  *     TreeNode *left;  *     TreeNode *right;  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}  * };  */ class Solution { public:     bool isSymmetric(TreeNode* root) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "/**  * Definition for a binary tree node.  * public class TreeNode {  *     int val;  *     TreeNode left;  *     TreeNode right;  *     TreeNode(int x) { val = x; }  * }  */ public class Solution {     public boolean isSymmetric(TreeNode root) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "# Definition for a binary tree node. # class TreeNode(object): #     def __init__(self, x): #         self.val = x #         self.left = None #         self.right = None  class Solution(object):     def isSymmetric(self, root):         '''         :type root: TreeNode         :rtype: bool         '''         "}, {"text": "C", "value": "c", "defaultCode": "/**  * Definition for a binary tree node.  * struct TreeNode {  *     int val;  *     struct TreeNode *left;  *     struct TreeNode *right;  * };  */ bool isSymmetric(struct TreeNode* root) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "/**  * Definition for a binary tree node.  * public class TreeNode {  *     public int val;  *     public TreeNode left;  *     public TreeNode right;  *     public TreeNode(int x) { val = x; }  * }  */ public class Solution {     public bool IsSymmetric(TreeNode root) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * Definition for a binary tree node.  * function TreeNode(val) {  *     this.val = val;  *     this.left = this.right = null;  * }  */ /**  * @param {TreeNode} root  * @return {boolean}  */ var isSymmetric = function(root) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# Definition for a binary tree node. # class TreeNode #     attr_accessor :val, :left, :right #     def initialize(val) #         @val = val #         @left, @right = nil, nil #     end # end  # @param {TreeNode} root # @return {Boolean} def is_symmetric(root)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "/**  * Definition for a binary tree node.  * public class TreeNode {  *     public var val: Int  *     public var left: TreeNode?  *     public var right: TreeNode?  *     public init(_ val: Int) {  *         self.val = val  *         self.left = nil  *         self.right = nil  *     }  * }  */ class Solution {     func isSymmetric(_ root: TreeNode?) -> Bool {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "/**  * Definition for a binary tree node.  * type TreeNode struct {  *     Val int  *     Left *TreeNode  *     Right *TreeNode  * }  */ func isSymmetric(root *TreeNode) bool {      }"}]
+---SCRIPT_END---

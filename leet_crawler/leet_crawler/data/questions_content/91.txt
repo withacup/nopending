@@ -1,0 +1,29 @@
+---CONTENT_BEGIN---
+
+A message containing letters from A-Z is being encoded to numbers using the following mapping:
+
+
+
+'A' -> 1
+'B' -> 2
+...
+'Z' -> 26
+
+
+
+Given an encoded message containing digits, determine the total number of ways to decode it.
+
+
+
+For example,
+Given encoded message "12",
+it could be decoded as "AB" (1 2) or "L" (12).
+
+
+
+The number of ways decoding "12" is 2.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int numDecodings(string s) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int numDecodings(String s) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def numDecodings(self, s):         '''         :type s: str         :rtype: int         '''         "}, {"text": "C", "value": "c", "defaultCode": "int numDecodings(char* s) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int NumDecodings(string s) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {string} s  * @return {number}  */ var numDecodings = function(s) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {String} s # @return {Integer} def num_decodings(s)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func numDecodings(_ s: String) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func numDecodings(s string) int {      }"}]
+---SCRIPT_END---

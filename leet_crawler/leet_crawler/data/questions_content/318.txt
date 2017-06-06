@@ -1,0 +1,37 @@
+---CONTENT_BEGIN---
+
+    Given a string array words, find the maximum value of length(word[i]) * length(word[j]) where the two words do not share common letters.
+    You may assume that each word will contain only lower case letters.
+    If no such two words exist, return 0.
+
+
+
+    Example 1:
+
+
+    Given ["abcw", "baz", "foo", "bar", "xtfn", "abcdef"]
+    Return 16
+    The two words can be "abcw", "xtfn".
+
+
+    Example 2:
+
+
+    Given ["a", "ab", "abc", "d", "cd", "bcd", "abcd"]
+    Return 4
+    The two words can be "ab", "cd".
+
+
+    Example 3:
+
+
+    Given ["a", "aa", "aaa", "aaaa"]
+    Return 0
+    No such pair of words.    
+
+
+Credits:Special thanks to @dietpepsi for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int maxProduct(vector<string>& words) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int maxProduct(String[] words) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def maxProduct(self, words):         '''         :type words: List[str]         :rtype: int         '''         "}, {"text": "C", "value": "c", "defaultCode": "int maxProduct(char** words, int wordsSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int MaxProduct(string[] words) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {string[]} words  * @return {number}  */ var maxProduct = function(words) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {String[]} words # @return {Integer} def max_product(words)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func maxProduct(_ words: [String]) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func maxProduct(words []string) int {      }"}]
+---SCRIPT_END---

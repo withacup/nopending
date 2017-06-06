@@ -1,0 +1,14 @@
+---CONTENT_BEGIN---
+
+    Given an integer, write a function to determine if it is a power of three.
+
+
+    Follow up:
+    Could you do it without using any loop / recursion?
+
+
+Credits:Special thanks to @dietpepsi for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     bool isPowerOfThree(int n) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public boolean isPowerOfThree(int n) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def isPowerOfThree(self, n):         '''         :type n: int         :rtype: bool         '''         "}, {"text": "C", "value": "c", "defaultCode": "bool isPowerOfThree(int n) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public bool IsPowerOfThree(int n) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number} n  * @return {boolean}  */ var isPowerOfThree = function(n) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer} n # @return {Boolean} def is_power_of_three(n)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func isPowerOfThree(_ n: Int) -> Bool {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func isPowerOfThree(n int) bool {      }"}]
+---SCRIPT_END---

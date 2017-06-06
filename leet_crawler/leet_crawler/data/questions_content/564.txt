@@ -1,0 +1,22 @@
+---CONTENT_BEGIN---
+Given an integer n, find the closest integer (not including itself), which is a palindrome. 
+
+The 'closest' is defined as absolute difference minimized between two integers.
+
+Example 1:
+
+Input: "123"
+Output: "121"
+
+
+
+Note:
+
+The input n is a positive integer represented by string, whose length will not exceed 18.
+If there is a tie, return the smaller one as answer.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     string nearestPalindromic(string n) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public String nearestPalindromic(String n) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def nearestPalindromic(self, n):         '''         :type n: str         :rtype: str         '''"}, {"text": "C", "value": "c", "defaultCode": "char* nearestPalindromic(char* n) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public string NearestPalindromic(string n) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {string} n  * @return {string}  */ var nearestPalindromic = function(n) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {String} n # @return {String} def nearest_palindromic(n)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func nearestPalindromic(_ n: String) -> String {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func nearestPalindromic(n string) string {      }"}]
+---SCRIPT_END---

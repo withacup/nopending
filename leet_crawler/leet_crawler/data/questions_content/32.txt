@@ -1,0 +1,13 @@
+---CONTENT_BEGIN---
+Given a string containing just the characters '(' and ')', find the length of the longest valid (well-formed) parentheses substring.
+
+
+For "(()", the longest valid parentheses substring is "()", which has length = 2.
+
+
+Another example is ")()())", where the longest valid parentheses substring is "()()", which has length = 4.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int longestValidParentheses(string s) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int longestValidParentheses(String s) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def longestValidParentheses(self, s):         '''         :type s: str         :rtype: int         '''         "}, {"text": "C", "value": "c", "defaultCode": "int longestValidParentheses(char* s) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int LongestValidParentheses(string s) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {string} s  * @return {number}  */ var longestValidParentheses = function(s) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {String} s # @return {Integer} def longest_valid_parentheses(s)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func longestValidParentheses(_ s: String) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func longestValidParentheses(s string) int {      }"}]
+---SCRIPT_END---

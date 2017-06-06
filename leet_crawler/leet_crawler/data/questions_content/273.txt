@@ -1,0 +1,14 @@
+---CONTENT_BEGIN---
+
+Convert a non-negative integer to its english words representation. Given input is guaranteed to be less than 231 - 1.
+
+
+For example,
+
+123 -> "One Hundred Twenty Three"
+12345 -> "Twelve Thousand Three Hundred Forty Five"
+1234567 -> "One Million Two Hundred Thirty Four Thousand Five Hundred Sixty Seven"
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     string numberToWords(int num) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public String numberToWords(int num) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def numberToWords(self, num):         '''         :type num: int         :rtype: str         '''         "}, {"text": "C", "value": "c", "defaultCode": "char* numberToWords(int num) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public string NumberToWords(int num) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number} num  * @return {string}  */ var numberToWords = function(num) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer} num # @return {String} def number_to_words(num)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func numberToWords(_ num: Int) -> String {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func numberToWords(num int) string {      }"}]
+---SCRIPT_END---

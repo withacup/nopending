@@ -1,0 +1,28 @@
+---CONTENT_BEGIN---
+Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:
+
+
+
+Integers in each row are sorted from left to right.
+The first integer of each row is greater than the last integer of the previous row.
+
+
+
+
+For example,
+
+Consider the following matrix:
+
+
+[
+  [1,   3,  5,  7],
+  [10, 11, 16, 20],
+  [23, 30, 34, 50]
+]
+
+
+Given target = 3, return true.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     bool searchMatrix(vector<vector<int>>& matrix, int target) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public boolean searchMatrix(int[][] matrix, int target) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def searchMatrix(self, matrix, target):         '''         :type matrix: List[List[int]]         :type target: int         :rtype: bool         '''         "}, {"text": "C", "value": "c", "defaultCode": "bool searchMatrix(int** matrix, int matrixRowSize, int matrixColSize, int target) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public bool SearchMatrix(int[,] matrix, int target) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number[][]} matrix  * @param {number} target  * @return {boolean}  */ var searchMatrix = function(matrix, target) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer[][]} matrix # @param {Integer} target # @return {Boolean} def search_matrix(matrix, target)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func searchMatrix(_ matrix: [[Int]], _ target: Int) -> Bool {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func searchMatrix(matrix [][]int, target int) bool {      }"}]
+---SCRIPT_END---

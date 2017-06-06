@@ -1,0 +1,18 @@
+---CONTENT_BEGIN---
+
+All DNA is composed of a series of nucleotides abbreviated as A, C, G, and T, for example: "ACGAATTCCG". When studying DNA, it is sometimes useful to identify repeated sequences within the DNA.
+
+Write a function to find all the 10-letter-long sequences (substrings) that occur more than once in a DNA molecule.
+
+
+For example,
+
+Given s = "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT",
+
+Return:
+["AAAAACCCCC", "CCCCCAAAAA"].
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     vector<string> findRepeatedDnaSequences(string s) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public List<String> findRepeatedDnaSequences(String s) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def findRepeatedDnaSequences(self, s):         '''         :type s: str         :rtype: List[str]         '''         "}, {"text": "C", "value": "c", "defaultCode": "/**  * Return an array of size *returnSize.  * Note: The returned array must be malloced, assume caller calls free().  */ char** findRepeatedDnaSequences(char* s, int* returnSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public IList<string> FindRepeatedDnaSequences(string s) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {string} s  * @return {string[]}  */ var findRepeatedDnaSequences = function(s) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {String} s # @return {String[]} def find_repeated_dna_sequences(s)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func findRepeatedDnaSequences(_ s: String) -> [String] {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func findRepeatedDnaSequences(s string) []string {      }"}]
+---SCRIPT_END---

@@ -1,0 +1,23 @@
+---CONTENT_BEGIN---
+
+Given two words word1 and word2, find the minimum number of steps required to make word1 and word2 the same, where in each step you can delete one character in either string.
+
+
+Example 1:
+
+Input: "sea", "eat"
+Output: 2
+Explanation: You need one step to make "sea" to "ea" and another step to make "eat" to "ea".
+
+
+
+Note:
+
+The length of given words won't exceed 500.
+Characters in given words can only be lower-case letters.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int minDistance(string word1, string word2) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int minDistance(String word1, String word2) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def minDistance(self, word1, word2):         '''         :type word1: str         :type word2: str         :rtype: int         '''"}, {"text": "Python3", "value": "python3", "defaultCode": "class Solution:     def minDistance(self, word1, word2):         '''         :type word1: str         :type word2: str         :rtype: int         '''"}, {"text": "C", "value": "c", "defaultCode": "int minDistance(char* word1, char* word2) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int MinDistance(string word1, string word2) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {string} word1  * @param {string} word2  * @return {number}  */ var minDistance = function(word1, word2) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {String} word1 # @param {String} word2 # @return {Integer} def min_distance(word1, word2)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func minDistance(_ word1: String, _ word2: String) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func minDistance(word1 string, word2 string) int {      }"}]
+---SCRIPT_END---

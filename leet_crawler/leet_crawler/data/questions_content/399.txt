@@ -1,0 +1,24 @@
+---CONTENT_BEGIN---
+
+Equations are given in the format A / B = k, where  A and B are variables represented as strings, and k is a real number (floating point number). Given some queries, return the answers. If the answer does not exist, return -1.0.
+
+Example:
+Given  a / b = 2.0, b / c = 3.0. queries are:  a / c = ?,  b / a = ?, a / e = ?,  a / a = ?, x / x = ? . return  [6.0, 0.5, -1.0, 1.0, -1.0 ].
+
+
+The input is:  vector&lt;pair&lt;string, string&gt;&gt; equations, vector&lt;double&gt;&amp; values, vector&lt;pair&lt;string, string&gt;&gt; queries , where equations.size() == values.size(), and the values are positive. This represents the equations. Return  vector&lt;double&gt;.
+
+
+According to the example above:
+equations = [ ["a", "b"], ["b", "c"] ],
+values = [2.0, 3.0],
+queries = [ ["a", "c"], ["b", "a"], ["a", "e"], ["a", "a"], ["x", "x"] ]. 
+
+
+
+The input is always valid. You may assume that evaluating the queries will result in no division by zero and there is no contradiction.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     vector<double> calcEquation(vector<pair<string, string>> equations, vector<double>& values, vector<pair<string, string>> queries) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public double[] calcEquation(String[][] equations, double[] values, String[][] queries) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def calcEquation(self, equations, values, queries):         '''         :type equations: List[List[str]]         :type values: List[float]         :type queries: List[List[str]]         :rtype: List[float]         '''         "}, {"text": "C", "value": "c", "defaultCode": "/**  * Return an array of size *returnSize.  * Note: The returned array must be malloced, assume caller calls free().  */ double* calcEquation(char*** equations, int equationsRowSize, int equationsColSize, double* values, int valuesSize, char*** queries, int queriesRowSize, int queriesColSize, int* returnSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public double[] CalcEquation(string[,] equations, double[] values, string[,] queries) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {string[][]} equations  * @param {number[]} values  * @param {string[][]} queries  * @return {number[]}  */ var calcEquation = function(equations, values, queries) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {string[][]} equations # @param {Float[]} values # @param {string[][]} queries # @return {Float[]} def calc_equation(equations, values, queries)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func calcEquation(_ equations: [[String]], _ values: [Double], _ queries: [[String]]) -> [Double] {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func calcEquation(equations [][]string, values []float64, queries [][]string) []float64 {      }"}]
+---SCRIPT_END---

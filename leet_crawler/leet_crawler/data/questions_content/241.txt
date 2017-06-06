@@ -1,0 +1,23 @@
+---CONTENT_BEGIN---
+Given a string of numbers and operators, return all possible results from computing all the different possible ways to group numbers and operators. The valid operators are +, - and *.
+
+Example 1
+Input: "2-1-1". 
+((2-1)-1) = 0
+(2-(1-1)) = 2
+Output: [0, 2]
+
+Example 2
+Input: "2*3-4*5" 
+(2*(3-(4*5))) = -34
+((2*3)-(4*5)) = -14
+((2*(3-4))*5) = -10
+(2*((3-4)*5)) = -10
+(((2*3)-4)*5) = 10
+Output: [-34, -14, -10, -10, 10] 
+
+Credits:Special thanks to @mithmatt for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     vector<int> diffWaysToCompute(string input) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public List<Integer> diffWaysToCompute(String input) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def diffWaysToCompute(self, input):         '''         :type input: str         :rtype: List[int]         '''         "}, {"text": "C", "value": "c", "defaultCode": "/**  * Return an array of size *returnSize.  * Note: The returned array must be malloced, assume caller calls free().  */ int* diffWaysToCompute(char* input, int* returnSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public IList<int> DiffWaysToCompute(string input) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {string} input  * @return {number[]}  */ var diffWaysToCompute = function(input) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {String} input # @return {Integer[]} def diff_ways_to_compute(input)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func diffWaysToCompute(_ input: String) -> [Int] {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func diffWaysToCompute(input string) []int {      }"}]
+---SCRIPT_END---

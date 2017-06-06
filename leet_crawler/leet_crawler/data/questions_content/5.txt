@@ -1,0 +1,24 @@
+---CONTENT_BEGIN---
+Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
+
+Example:
+
+Input: "babad"
+
+Output: "bab"
+
+Note: "aba" is also a valid answer.
+
+
+
+Example:
+
+Input: "cbbd"
+
+Output: "bb"
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     string longestPalindrome(string s) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public String longestPalindrome(String s) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def longestPalindrome(self, s):         '''         :type s: str         :rtype: str         '''         "}, {"text": "C", "value": "c", "defaultCode": "char* longestPalindrome(char* s) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public string LongestPalindrome(string s) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {string} s  * @return {string}  */ var longestPalindrome = function(s) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {String} s # @return {String} def longest_palindrome(s)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func longestPalindrome(_ s: String) -> String {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func longestPalindrome(s string) string {      }"}]
+---SCRIPT_END---

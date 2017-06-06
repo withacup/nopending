@@ -1,0 +1,9 @@
+---CONTENT_BEGIN---
+Given an integer, convert it to a roman numeral.
+
+
+Input is guaranteed to be within the range from 1 to 3999.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     string intToRoman(int num) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public String intToRoman(int num) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def intToRoman(self, num):         '''         :type num: int         :rtype: str         '''         "}, {"text": "C", "value": "c", "defaultCode": "char* intToRoman(int num) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public string IntToRoman(int num) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number} num  * @return {string}  */ var intToRoman = function(num) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer} num # @return {String} def int_to_roman(num)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func intToRoman(_ num: Int) -> String {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func intToRoman(num int) string {      }"}]
+---SCRIPT_END---

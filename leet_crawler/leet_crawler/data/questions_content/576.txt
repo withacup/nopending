@@ -1,0 +1,32 @@
+---CONTENT_BEGIN---
+There is an m by n grid with a ball. Given the start coordinate (i,j) of the ball, you can move the ball to adjacent cell or cross the grid boundary in four directions (up, down, left, right). However, you can at most move N times. Find out the number of paths to move the ball out of grid boundary. The answer may be very large, return it after mod 109 + 7.
+
+Example 1:
+
+Input:m = 2, n = 2, N = 2, i = 0, j = 0
+Output: 6
+Explanation:
+
+
+
+
+Example 2:
+
+Input:m = 1, n = 3, N = 3, i = 0, j = 1
+Output: 12
+Explanation:
+
+
+
+
+Note:
+
+Once you move the ball out of boundary, you cannot move it back.
+The length and height of the grid is in range [1,50].
+N is in range [0,50].
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int findPaths(int m, int n, int N, int i, int j) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int findPaths(int m, int n, int N, int i, int j) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def findPaths(self, m, n, N, i, j):         '''         :type m: int         :type n: int         :type N: int         :type i: int         :type j: int         :rtype: int         '''"}, {"text": "Python3", "value": "python3", "defaultCode": "class Solution:     def findPaths(self, m, n, N, i, j):         '''         :type m: int         :type n: int         :type N: int         :type i: int         :type j: int         :rtype: int         '''"}, {"text": "C", "value": "c", "defaultCode": "int findPaths(int m, int n, int N, int i, int j) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int FindPaths(int m, int n, int N, int i, int j) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number} m  * @param {number} n  * @param {number} N  * @param {number} i  * @param {number} j  * @return {number}  */ var findPaths = function(m, n, N, i, j) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer} m # @param {Integer} n # @param {Integer} n # @param {Integer} i # @param {Integer} j # @return {Integer} def find_paths(m, n, n, i, j)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func findPaths(_ m: Int, _ n: Int, _ N: Int, _ i: Int, _ j: Int) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func findPaths(m int, n int, N int, i int, j int) int {      }"}]
+---SCRIPT_END---

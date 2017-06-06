@@ -1,0 +1,19 @@
+---CONTENT_BEGIN---
+Given n, how many structurally unique BST's (binary search trees) that store values 1...n?
+
+
+For example,
+Given n = 3, there are a total of 5 unique BST's.
+
+
+   1         3     3      2      1
+    \       /     /      / \      \
+     3     2     1      1   3      2
+    /     /       \                 \
+   2     1         2                 3
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int numTrees(int n) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int numTrees(int n) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def numTrees(self, n):         '''         :type n: int         :rtype: int         '''         "}, {"text": "C", "value": "c", "defaultCode": "int numTrees(int n) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int NumTrees(int n) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number} n  * @return {number}  */ var numTrees = function(n) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer} n # @return {Integer} def num_trees(n)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func numTrees(_ n: Int) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func numTrees(n int) int {      }"}]
+---SCRIPT_END---

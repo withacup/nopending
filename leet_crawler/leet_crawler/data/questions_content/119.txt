@@ -1,0 +1,16 @@
+---CONTENT_BEGIN---
+Given an index k, return the kth row of the Pascal's triangle.
+
+
+For example, given k = 3,
+Return [1,3,3,1].
+
+
+
+Note:
+Could you optimize your algorithm to use only O(k) extra space?
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     vector<int> getRow(int rowIndex) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public List<Integer> getRow(int rowIndex) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def getRow(self, rowIndex):         '''         :type rowIndex: int         :rtype: List[int]         '''"}, {"text": "C", "value": "c", "defaultCode": "/**  * Return an array of size *returnSize.  * Note: The returned array must be malloced, assume caller calls free().  */ int* getRow(int rowIndex, int* returnSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public IList<int> GetRow(int rowIndex) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number} rowIndex  * @return {number[]}  */ var getRow = function(rowIndex) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer} row_index # @return {Integer[]} def get_row(row_index)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func getRow(_ rowIndex: Int) -> [Int] {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func getRow(rowIndex int) []int {      }"}]
+---SCRIPT_END---

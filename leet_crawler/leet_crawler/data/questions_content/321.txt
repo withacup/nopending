@@ -1,0 +1,40 @@
+---CONTENT_BEGIN---
+
+    Given two arrays of length m and n with digits 0-9 representing two numbers.
+    Create the maximum number of length k <= m + n from digits of the two. The relative order of the digits
+    from the same array must be preserved. Return an array of the k digits. You should try to optimize your time and space complexity.
+
+
+
+    Example 1:
+
+
+    nums1 = [3, 4, 6, 5]
+    nums2 = [9, 1, 2, 5, 8, 3]
+    k = 5
+    return [9, 8, 6, 5, 3]
+
+
+    Example 2:
+
+
+    nums1 = [6, 7]
+    nums2 = [6, 0, 4]
+    k = 5
+    return [6, 7, 6, 0, 4]
+
+
+    Example 3:
+
+
+    nums1 = [3, 9]
+    nums2 = [8, 9]
+    k = 3
+    return [9, 8, 9]
+
+
+Credits:Special thanks to @dietpepsi for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     vector<int> maxNumber(vector<int>& nums1, vector<int>& nums2, int k) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int[] maxNumber(int[] nums1, int[] nums2, int k) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def maxNumber(self, nums1, nums2, k):         '''         :type nums1: List[int]         :type nums2: List[int]         :type k: int         :rtype: List[int]         '''         "}, {"text": "C", "value": "c", "defaultCode": "/**  * Return an array of size *returnSize.  * Note: The returned array must be malloced, assume caller calls free().  */ int* maxNumber(int* nums1, int nums1Size, int* nums2, int nums2Size, int k, int* returnSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int[] MaxNumber(int[] nums1, int[] nums2, int k) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number[]} nums1  * @param {number[]} nums2  * @param {number} k  * @return {number[]}  */ var maxNumber = function(nums1, nums2, k) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer[]} nums1 # @param {Integer[]} nums2 # @param {Integer} k # @return {Integer[]} def max_number(nums1, nums2, k)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func maxNumber(_ nums1: [Int], _ nums2: [Int], _ k: Int) -> [Int] {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func maxNumber(nums1 []int, nums2 []int, k int) []int {      }"}]
+---SCRIPT_END---

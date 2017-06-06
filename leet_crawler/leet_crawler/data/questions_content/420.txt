@@ -1,0 +1,16 @@
+---CONTENT_BEGIN---
+A password is considered strong if below conditions are all met:
+
+
+ It has at least 6 characters and at most 20 characters. 
+ It must contain at least one lowercase letter, at least one uppercase letter, and at least one digit. 
+ It must NOT contain three repeating characters in a row ("...aaa..." is weak, but "...aa...a..." is strong, assuming other conditions are met). 
+
+
+Write a function strongPasswordChecker(s), that takes a string s as input, and return the MINIMUM change required to make s a strong password. If s is already strong, return 0.
+
+Insertion, deletion or replace of any one character are all considered as one change.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     int strongPasswordChecker(string s) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public int strongPasswordChecker(String s) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def strongPasswordChecker(self, s):         '''         :type s: str         :rtype: int         '''         "}, {"text": "C", "value": "c", "defaultCode": "int strongPasswordChecker(char* s) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public int StrongPasswordChecker(string s) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {string} s  * @return {number}  */ var strongPasswordChecker = function(s) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {String} s # @return {Integer} def strong_password_checker(s)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func strongPasswordChecker(_ s: String) -> Int {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func strongPasswordChecker(s string) int {      }"}]
+---SCRIPT_END---

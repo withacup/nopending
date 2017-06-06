@@ -1,0 +1,29 @@
+---CONTENT_BEGIN---
+
+Given a set of distinct positive integers, find the largest subset such that every pair (Si, Sj) of elements in this subset satisfies: Si % Sj = 0 or Sj % Si = 0.
+
+
+If there are multiple solutions, return any subset is fine.
+
+
+Example 1:
+
+nums: [1,2,3]
+
+Result: [1,2] (of course, [1,3] will also be ok)
+
+
+
+Example 2:
+
+nums: [1,2,4,8]
+
+Result: [1,2,4,8]
+
+
+
+Credits:Special thanks to @Stomach_ache for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"text": "C++", "value": "cpp", "defaultCode": "class Solution { public:     vector<int> largestDivisibleSubset(vector<int>& nums) {              } };"}, {"text": "Java", "value": "java", "defaultCode": "public class Solution {     public List<Integer> largestDivisibleSubset(int[] nums) {              } }"}, {"text": "Python", "value": "python", "defaultCode": "class Solution(object):     def largestDivisibleSubset(self, nums):         '''         :type nums: List[int]         :rtype: List[int]         '''         "}, {"text": "C", "value": "c", "defaultCode": "/**  * Return an array of size *returnSize.  * Note: The returned array must be malloced, assume caller calls free().  */ int* largestDivisibleSubset(int* nums, int numsSize, int* returnSize) {      }"}, {"text": "C#", "value": "csharp", "defaultCode": "public class Solution {     public IList<int> LargestDivisibleSubset(int[] nums) {              } }"}, {"text": "JavaScript", "value": "javascript", "defaultCode": "/**  * @param {number[]} nums  * @return {number[]}  */ var largestDivisibleSubset = function(nums) {      };"}, {"text": "Ruby", "value": "ruby", "defaultCode": "# @param {Integer[]} nums # @return {Integer[]} def largest_divisible_subset(nums)      end"}, {"text": "Swift", "value": "swift", "defaultCode": "class Solution {     func largestDivisibleSubset(_ nums: [Int]) -> [Int] {              } }"}, {"text": "Go", "value": "golang", "defaultCode": "func largestDivisibleSubset(nums []int) []int {      }"}]
+---SCRIPT_END---
