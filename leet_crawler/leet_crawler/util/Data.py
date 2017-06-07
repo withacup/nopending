@@ -119,10 +119,11 @@ class QuestionContent:
         s = s.replace('\r\n', ' ').replace('\n', ' ').replace('\t', '    ').replace("'", "====").replace('"', "'").replace("====", '"')[:-2] + "]"
         s = re.sub('\w+(")s', "'", s)
         match_obj = re.match('.*"(.)".*', s)
-        s = re.sub('("[^Cc]{1}")', ''{0}''.format(match_obj.group(1)), s)
+        s = re.sub('("[^Cc]{1}")', "'{0}'".format(match_obj.group(1)), s)
         return s
 
     def set_content(self, content):
+        # html contains escaped unicode character
         content = content.encode('utf-8').decode('unicode_escape')
         self.content = content
 
@@ -130,6 +131,7 @@ class QuestionContent:
         Usage: get script from leetcode.com and parse it to json then store to data
     """
     def set_script(self, script):
+        # html contains escaped unicode character
         script = script.encode('utf-8').decode('unicode_escape')
         clear_script = self.clearString(script)
         try:

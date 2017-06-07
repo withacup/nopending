@@ -34,26 +34,34 @@ class SolutionsSpiderSpider(scrapy.Spider):
 
         problems_metas = response_dict['stat_status_pairs']
 
+        # only update new problems
+        new_problems = {}
+
         for problem_meta in problems_metas:
             problem_id = problem_meta['stat']['question_id']
-            mm.set_problem(problem_id=problem_id, new_problem_meta=problem_meta)
+            if str(problem_id) not in mm.meta_dict:
+                new_problems[problem_id] = problem_meta
+                mm.set_problem(problem_id=problem_id, new_problem_meta=problem_meta)
 
-        for problem_id, problem in mm.meta_dict.items():
+        for problem_id, problem in new_problems.items():
             if problem["paid_only"]:
                 print("problem {0} is locked".format(problem_id))
                 with open('data/questions_content/{0}.txt'.format(problem_id), 'w') as f:
                     f.write("locked")
             else:
-                yield Request(url="https://leetcode.com/problems/{0}".format(problem['stat']['question__title_slug']),
-                          meta={"problem_id":problem_id,},
-                          callback=self.parse_problem
-                          )
+                yield Request(
+                    url="https://leetcode.com/problems/{0}".format(problem['stat']['question__title_slug']),
+                    meta={"problem_id":problem_id,},
+                    callback=self.parse_problem
+                    )
+
 
     def parse_problem(self, response):
 
+        solutions_url = "https://discuss.leetcode.com/api/category/{0}".format(response.css('div#tab-view-app::attr(data-notebbcid)').extract_first())
+
         problem_id = response.meta.get('problem_id')
         problem_content = response.css('head > meta[name="description"]::attr(content)').extract_first()
-        # match_obj = re.match('.*?<script>.*var pageData = (.*?)</script>.*', response.text, re.DOTALL)
         match_obj = re.match('.*codeDefinition:(.*),.*enableTestMode.*', response.text, re.DOTALL)
 
         if match_obj:
@@ -61,56 +69,45 @@ class SolutionsSpiderSpider(scrapy.Spider):
         else:
             print('[ERROR]: Cannot find problem script for problem' + str(problem_id))
 
-        # html contains escaped unicode character
-        # problem_content = problem_content.encode('utf-8').decode('unicode_escape')
-        # self.problems[problem_id]["question-content"] = problem_content
-        # problem_script = problem_script.encode('utf-8').decode('unicode_escape')
-        # self.problems[problem_id]["problem_script"] = problem_script
         cm = QuestionContent()
         cm.load(problem_id, new=True)
         cm.set_content(problem_content)
         cm.set_script(problem_script)
         cm.save()
 
-        # sep = QuestionContent.sep
-        #
-        # with open('data/questions_content/{0}.txt'.format(problem_id), 'w') as f:
-        #         # f.write("---CONTENT_BEGIN---\n" + problem_content + "\n---CONTENT_END---\n" + "---SCRIPT_BEGIN---\n" + problem_script + "\n---SCRIPT_END---\n")
-        #         f.write("".join(sep.format("CONTENT", problem_content), sep.format("SCRIPT", problem_script)))
-        # print(response.text)
+        # TODO: for every post, get a topic requests
 
+        yield Request(
+            url=solutions_url,
+            # meta={"topic_url": topic_url},
+            callback=self.parse_topic
+            )
+
+        pass
+
+    def parse_topic(self, response):
+        topics = json.loads(response.text)['topics']
+        for topic in topics:
+            topic_url = "https://discuss.leetcode.com/api/topic/{0}".format(topic)
+
+        pass
+
+
+    def parse_solution(self, response):
         pass
 
     def close(spider, reason):
         spider.metaManager.save()
         print('done with spider: {0}'.format(spider.name))
-        # with open('data/questions_content/.json', 'w') as f:
-        #     f.write(json.dumps(spider.problems))
         print('writes ok')
-    # def parse(self, response):
-    #
-    #     response_json = json.loads(response.text)
-    #     num_of_questions = len(response_json['stat_status_pairs'])
-    #     print("num of questions: {0}".format(num_of_questions))
-    #
-    #
-    #     # I use problem variable name because I'm more used to it than question
-    #     # self.problems = {}
-    #     # for problem_id, question in get_questions():
-    #     #     self.problems[question['stat']['question_id']] = question
-    #
-    #     self.problems = get_questions()
-    #
-    #
-    #     # save question information for future use
-    #     with open('data/question_titles.json', 'w') as f:
-    #         f.write(json.dumps(self.problems, indent=4))
-    #
-    #     for problem_id, problem in self.problems:
-    #         yield Request(url="https://leetcode.com/problems/{0}".format(problem['stat']['question__title_slug']),
-    #                       meta={"problem_id":problem_id},
-    #                       callback=self.parse_problem
-    #                       )
-    #
-    #     pass
+
+
+
+
+
+
+
+
+
+
 
