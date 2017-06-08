@@ -66,6 +66,9 @@ class QuestionContent:
         self.is_locked = False
         self.problem_id = None
 
+    def __str__(self):
+        return str(self.problem_id) + ".txt"
+
     def load(self, problem_id, new=False):
 
         if self.problem_id != None:
@@ -190,6 +193,7 @@ class QuestionContent:
 
         pass
 
+
 '''
 TODO:
     1. use static variable to manage all QuestionSolution objects
@@ -203,12 +207,29 @@ class QuestionSolutionService:
 
     # store all problems and their corresponding solutions
     problem_table = {}
+    '''
+    problem_table {
+        problem_id:{
+            qc: QuestionContent object
+            posts: [
+                {
+                    is_locked: bool
+                    cpp: string | none
+                    java: string | none
+                    python: string | none
+                },
+                ...
+            ]
+        },
+        ...
+    }
+    '''
 
     # lang_type | l_type
     CPP = 'cpp'
     JAVA = 'java'
     PYTHON = 'python'
-    NAL = 'NOTALANGUAGE'
+    NAL = 'notalanguage'
 
     def __init__(self):
         pass
@@ -223,35 +244,46 @@ class QuestionSolutionService:
             qc.load(problem_id)
             cls.problem_table[problem_id] = {}
             cls.problem_table[problem_id]['qc'] = qc
-
-        if cls.problem_table[problem_id]['qc'].is_locked:
-            # TODO: the content is locked, need to specify that in solution data file
-            return
-
-        code_arr = Selector(text=post_content_str).css('pre > code::text').extract()
-        code_arr = list(map(html.unescape, code_arr)) # resolve html escaped charaters
+            cls.problem_table[problem_id]['posts'] = []
 
         # store three languages into the current post dict
-        post = {cls.JAVA:None, cls.CPP:None, cls.PYTHON: None}
+        post = {'is_locked': False, cls.JAVA:None, cls.CPP:None, cls.PYTHON: None}
 
-        for code in code_arr:
-            if cls.__verify_code(code, problem_id):
-                lang_type = cls.__analyse_lang(code)
-                code = cls.__wrap_class(code, lang_type, problem_id)
-                post[lang_type] = code
+        if cls.problem_table[problem_id]['qc'].is_locked:
+            post['is_locked'] = True
+        else:
+            code_arr = Selector(text=post_content_str).css('pre > code::text').extract()
+            code_arr = list(map(html.unescape, code_arr)) # resolve html escaped charaters
+
+            for code in code_arr:
+                if cls.__verify_code(code, problem_id):
+                    lang_type = cls.__analyse_lang(code)
+                    code = cls.__wrap_class(code, lang_type, problem_id)
+                    post[lang_type] = code
 
         # store this post to problem table
-        if 'posts' not in cls.problem_table[problem_id]:
-            cls.problem_table[problem_id]['posts'] = []
         cls.problem_table[problem_id]['posts'].append(post)
         pass
 
     """
         save all posts(solutions) to data/question_solution
-        should be called when solutions updated
+        should be called when there are solutions updated
     """
-    def save_all(self):
+    @classmethod
+    def save_all(cls):
+        for problem_id, solution in cls.problem_table.items():
+            solution['qc'] = problem_id + '.txt'
+            with open(join(DATA_SOLUTION_PATH, problem_id + '.txt'), 'w') as f:
+                f.write(json.dumps(solution, indent=4))
         pass
+
+    @staticmethod
+    def read_solution(problem_id, l_type):
+        with open(join(DATA_SOLUTION_PATH, problem_id + '.txt'), 'r') as f:
+            # [post for post in json.loads(f.read())['posts']]
+            posts = json.loads(f.read())['posts']
+            return [recover_newline_tab(post[l_type]) for post in posts if post[l_type]]
+
 
     # method below should not be used by outside
     @classmethod
@@ -301,11 +333,14 @@ class QuestionSolutionService:
 
     @staticmethod
     def __extract_class_name(code):
-        match_obj = re.match('^class (.*?)\(.*', code, flags=re.DOTALL)
-        if match_obj:
-            return match_obj.group(1)
-        else:
-            elog("Data error", "Connot extract class name from code: {0}".format(code))
+        # remove comments
+        # code = re.sub('//.*?$|/\*.*?\*/|\'(?:\\.|[^\\\'])*\'|"(?:\\.|[^\\"])*"', '', code)
+        for line in code.split(NEW_LINE):
+            if line and line[0] != '#':
+                match_obj = re.match('^class (.*?)[(|:].*', line, flags=re.DOTALL)
+                if match_obj:
+                    return match_obj.group(1)
+        elog("Data error", "Connot extract class name from code: {0}".format(code))
 
     @classmethod
     def __wrap_class(cls, code, l_type, problem_id):
@@ -315,15 +350,18 @@ class QuestionSolutionService:
         python_script = qc.get_script(cls.PYTHON)
 
         class_default_name = cls.__extract_class_name(python_script)
-        # wraping python code is not solved
-        if 'class' in code:
-            return code
-        if l_type == cls.CPP:
-            return "class " + class_default_name + " { public: " + code + " }"
-        if l_type == cls.JAVA:
-            return "public class " + class_default_name + " { " + code + " }"
-        # python
-        return "class " + class_default_name + " : " + code
+        try:
+            if 'class' in code:
+                return code
+            if l_type == cls.CPP: # need to indent code
+                return "class " + class_default_name + " {" + NEW_LINE + "public:" + NEW_LINE + "    " + code.replace(NEW_LINE, NEW_LINE + "    ") + NEW_LINE + "}"
+            if l_type == cls.JAVA:
+                return "public class " + class_default_name + " {" + NEW_LINE + "    " + code.replace(NEW_LINE, NEW_LINE + "    ") +  NEW_LINE + "}"
+            # python
+            return "class " + class_default_name + " :" + NEW_LINE + "    " + code.replace(NEW_LINE, NEW_LINE + "    ")
+        except TypeError as err:
+            elog(err, "Fuck")
+            pass
 
     # @classmethod
     # def classify_code(cls, post, code, l_type):

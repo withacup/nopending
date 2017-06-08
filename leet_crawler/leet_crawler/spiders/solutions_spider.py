@@ -116,6 +116,8 @@ class SolutionsSpiderSpider(scrapy.Spider):
     def close(spider, reason):
         if not DEBUG:
             spider.metaManager.save()
+        print('saving solutions...')
+        spider.qservice.save_all()
         print('done with spider: {0}'.format(spider.name))
         print('writes ok')
 

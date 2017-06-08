@@ -19,4 +19,4 @@ NEW_LINE = '--newline--'
 TAB = '--tab--'
 
 # debug setting
-DEBUG = True
+DEBUG = False
