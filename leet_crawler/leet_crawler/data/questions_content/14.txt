@@ -1,7 +1,0 @@
----CONTENT_BEGIN---
-Write a function to find the longest common prefix string amongst an array of strings.
-
----CONTENT_END---
----SCRIPT_BEGIN---
-[{"value": "cpp", "defaultCode": "class Solution { public:     string longestCommonPrefix(vector<string>& strs) {              } };", "text": "C++"}, {"value": "java", "defaultCode": "public class Solution {     public String longestCommonPrefix(String[] strs) {              } }", "text": "Java"}, {"value": "python", "defaultCode": "class Solution(object):     def longestCommonPrefix(self, strs):         '''         :type strs: List[str]         :rtype: str         '''         ", "text": "Python"}, {"value": "c", "defaultCode": "char* longestCommonPrefix(char** strs, int strsSize) {      }", "text": "C"}, {"value": "csharp", "defaultCode": "public class Solution {     public string LongestCommonPrefix(string[] strs) {              } }", "text": "C#"}, {"value": "javascript", "defaultCode": "/**  * @param {string[]} strs  * @return {string}  */ var longestCommonPrefix = function(strs) {      };", "text": "JavaScript"}, {"value": "ruby", "defaultCode": "# @param {String[]} strs # @return {String} def longest_common_prefix(strs)      end", "text": "Ruby"}, {"value": "swift", "defaultCode": "class Solution {     func longestCommonPrefix(_ strs: [String]) -> String {              } }", "text": "Swift"}, {"value": "golang", "defaultCode": "func longestCommonPrefix(strs []string) string {      }", "text": "Go"}]
----SCRIPT_END---

@@ -1,9 +1,0 @@
----CONTENT_BEGIN---
-You are given an n x n 2D matrix representing an image.
-Rotate the image by 90 degrees (clockwise).
-Follow up:
-Could you do this in-place?
----CONTENT_END---
----SCRIPT_BEGIN---
-[{"value": "cpp", "defaultCode": "class Solution { public:     void rotate(vector<vector<int>>& matrix) {              } };", "text": "C++"}, {"value": "java", "defaultCode": "public class Solution {     public void rotate(int[][] matrix) {              } }", "text": "Java"}, {"value": "python", "defaultCode": "class Solution(object):     def rotate(self, matrix):         '''         :type matrix: List[List[int]]         :rtype: void Do not return anything, modify matrix in-place instead.         '''         ", "text": "Python"}, {"value": "c", "defaultCode": "void rotate(int** matrix, int matrixRowSize, int matrixColSize) {      }", "text": "C"}, {"value": "csharp", "defaultCode": "public class Solution {     public void Rotate(int[,] matrix) {              } }", "text": "C#"}, {"value": "javascript", "defaultCode": "/**  * @param {number[][]} matrix  * @return {void} Do not return anything, modify matrix in-place instead.  */ var rotate = function(matrix) {      };", "text": "JavaScript"}, {"value": "ruby", "defaultCode": "# @param {Integer[][]} matrix # @return {Void} Do not return anything, modify matrix in-place instead. def rotate(matrix)      end", "text": "Ruby"}, {"value": "swift", "defaultCode": "class Solution {     func rotate(_ matrix: inout [[Int]]) {              } }", "text": "Swift"}, {"value": "golang", "defaultCode": "func rotate(matrix [][]int)  {      }", "text": "Go"}]
----SCRIPT_END---

@@ -1,8 +1,12 @@
 import json
 from os.path import join
 from util.data_settings import *
-from util.common import log as mylog, elog
+from util.common import *
 import re
+
+from scrapy.selector import Selector # for select code part
+import html # for decode html escaped string
+
 
 """
     QuestionMeta manages questoins_meta file
@@ -59,9 +63,10 @@ class QuestionContent:
         self.f_text = ""
         self.content = ""
         self.script_arr = []
+        self.is_locked = False
         self.problem_id = None
 
-    def load(self, problem_id, new=True):
+    def load(self, problem_id, new=False):
 
         if self.problem_id != None:
             elog("Duplicate QuestionContent Loading Error", "question content with id: {0} is trying to load again".format(self.problem_id)) 
@@ -76,7 +81,8 @@ class QuestionContent:
                 with open(join(DATA_CONTENT_PATH, str(problem_id) + ".txt"), 'r') as content:
                     text = content.read()
                     if text == "locked":
-                        log('problem: {0} is locked'.format(self.probelm_id))
+                        print('problem: {0} is locked'.format(self.probelm_id))
+                        self.is_locked = True
                     self.f_text = text
             except IOError as err:
                 elog(err, "load question: {0} content failed".format(self.problem_id))
@@ -85,6 +91,8 @@ class QuestionContent:
         QuestionContent.is_loaded_table[self.problem_id] = True
 
     def get_content(self):
+        if self.is_locked:
+            return "locked"
         if self.content == "":
             if self.problem_id == None:
                 elog('Get Content Error', 'problem has not been loaded yet')
@@ -92,6 +100,8 @@ class QuestionContent:
         return self.content
 
     def get_script(self, s_type):
+        if self.is_locked:
+            return "locked"
         if self.script_arr == []:
             if self.problem_id == None:
                 elog('Get Script Error', 'problem has not been loaded yet')
@@ -110,16 +120,20 @@ class QuestionContent:
             elog("Problem Parsing Error", "Failed to parse " + p_type + " for problem: {0}".format(self.problem_id))
 
     def parse_content(self, f_text):
-        self.parser("CONTENT", f_text)
+        return self.parser("CONTENT", f_text)
 
     def parse_script(self, f_text):
-        self.parser("SCRIPT", f_text)
+        return self.parser("SCRIPT", f_text)
 
     def clearString(self, s):
-        s = s.replace('\r\n', ' ').replace('\n', ' ').replace('\t', '    ').replace("'", "====").replace('"', "'").replace("====", '"')[:-2] + "]"
+
+        s = replace_newline_tab(s).replace("'", "====").replace('"', "'").replace("====", '"')[:-2] + "]"
         s = re.sub('\w+(")s', "'", s)
         match_obj = re.match('.*"(.)".*', s)
-        s = re.sub('("[^Cc]{1}")', "'{0}'".format(match_obj.group(1)), s)
+        try:
+            s = re.sub('("[^Cc]{1}")', "'{0}'".format(match_obj.group(1)), s)
+        except:
+            print('no C default code')
         return s
 
     def set_content(self, content):
@@ -142,15 +156,24 @@ class QuestionContent:
                 f.write(clear_script)
             pass
 
+    """
+        Call this function when the problem is locked
+    """
+    def set_locked(self):
+        self.is_locked = True
+
     def save(self):
         if self.problem_id == None:
             elog('Save Content Error', 'problem has not been loaded yet')
 
-        self.f_text = ''.join(
-            [
-            QuestionContent.sep.format('CONTENT', self.content), 
-            QuestionContent.sep.format('SCRIPT', json.dumps(self.script_arr))
-            ])
+        if self.is_locked:
+            self.f_text = "locked"
+        else:
+            self.f_text = ''.join(
+                [
+                    QuestionContent.sep.format('CONTENT', self.content),
+                    QuestionContent.sep.format('SCRIPT', json.dumps(self.script_arr))
+                ])
 
         try:
             with open(join(DATA_CONTENT_PATH, self.problem_id + ".txt"), 'w') as content:
@@ -166,6 +189,145 @@ class QuestionContent:
         self.problem_id = None
 
         pass
+
+'''
+TODO:
+    1. use static variable to manage all QuestionSolution objects
+        , classify all solutions to their own problems
+        , guarantee every problem have only one solution file
+    2. analys solution syntax, get their programming language
+    3. for each language in each post, only get the last <pre><code>.*</code></pre> piece of code
+    3. save solutions data under question_solution directory`
+'''
+class QuestionSolutionService:
+
+    # store all problems and their corresponding solutions
+    problem_table = {}
+
+    # lang_type | l_type
+    CPP = 'cpp'
+    JAVA = 'java'
+    PYTHON = 'python'
+    NAL = 'NOTALANGUAGE'
+
+    def __init__(self):
+        pass
+
+    @classmethod
+    def load_post_to_problem(cls, problem_id, post_content_str):
+        problem_id = str(problem_id)
+        post_content_str = replace_newline_tab(post_content_str)
+
+        if problem_id not in cls.problem_table:
+            qc = QuestionContent()
+            qc.load(problem_id)
+            cls.problem_table[problem_id] = {}
+            cls.problem_table[problem_id]['qc'] = qc
+
+        if cls.problem_table[problem_id]['qc'].is_locked:
+            # TODO: the content is locked, need to specify that in solution data file
+            return
+
+        code_arr = Selector(text=post_content_str).css('pre > code::text').extract()
+        code_arr = list(map(html.unescape, code_arr)) # resolve html escaped charaters
+
+        # store three languages into the current post dict
+        post = {cls.JAVA:None, cls.CPP:None, cls.PYTHON: None}
+
+        for code in code_arr:
+            if cls.__verify_code(code, problem_id):
+                lang_type = cls.__analyse_lang(code)
+                code = cls.__wrap_class(code, lang_type, problem_id)
+                post[lang_type] = code
+
+        # store this post to problem table
+        if 'posts' not in cls.problem_table[problem_id]:
+            cls.problem_table[problem_id]['posts'] = []
+        cls.problem_table[problem_id]['posts'].append(post)
+        pass
+
+    """
+        save all posts(solutions) to data/question_solution
+        should be called when solutions updated
+    """
+    def save_all(self):
+        pass
+
+    # method below should not be used by outside
+    @classmethod
+    def __analyse_lang(cls, code):
+        # TODO: analyse the language used by this code
+        if 'def' in code and 'self' in code:
+            return cls.PYTHON
+        if 'vector' in code or 'unordered_map' in code or 'string' in code:
+            return cls.CPP
+        if 'ArrayList' in code or 'HashMap' in code or 'String' in code:
+            return cls.JAVA
+        if re.match('.*public *?[^:].*', code, flags=re.DOTALL):
+            return cls.JAVA
+        return cls.CPP
+
+    @classmethod
+    def __verify_code(cls, code, problem_id):
+
+        qc = cls.problem_table[problem_id]['qc']
+
+        default_python = qc.get_script(cls.PYTHON)
+        default_cpp = qc.get_script(cls.CPP)
+        # extract function name for this language
+        func_name_default = cls.__extract_func_name(default_python)
+        # remove comments and spaces in cpp and java
+        default_cpp = ' '.join(re.sub('//.*?$|/\*.*?\*/|\'(?:\\.|[^\\\'])*\'|"(?:\\.|[^\\"])*"', '', default_cpp, flags=re.DOTALL).split())
+
+        # remove comments in python (don't know how to write the regular expression)
+        # default_code = re.sub('.*(""".*?""").*', '', default_code)
+
+        if func_name_default not in code or len(code) < len(default_cpp):
+            return False
+        return True
+
+    """
+        only work for python default script
+        (because python is easier to analyse lol)
+    """
+    @staticmethod
+    def __extract_func_name(code):
+        # match the first function name
+        match_obj = re.match('.*def (.*?)\(.*?(def|$)', code)
+        if match_obj:
+            return match_obj.group(1)
+        else:
+            elog("Data error", "Connot extract function name from code: {0}".format(code))
+
+    @staticmethod
+    def __extract_class_name(code):
+        match_obj = re.match('^class (.*?)\(.*', code, flags=re.DOTALL)
+        if match_obj:
+            return match_obj.group(1)
+        else:
+            elog("Data error", "Connot extract class name from code: {0}".format(code))
+
+    @classmethod
+    def __wrap_class(cls, code, l_type, problem_id):
+
+        qc = cls.problem_table[problem_id]['qc']
+
+        python_script = qc.get_script(cls.PYTHON)
+
+        class_default_name = cls.__extract_class_name(python_script)
+        # wraping python code is not solved
+        if 'class' in code:
+            return code
+        if l_type == cls.CPP:
+            return "class " + class_default_name + " { public: " + code + " }"
+        if l_type == cls.JAVA:
+            return "public class " + class_default_name + " { " + code + " }"
+        # python
+        return "class " + class_default_name + " : " + code
+
+    # @classmethod
+    # def classify_code(cls, post, code, l_type):
+    #     post[l_type] = code        
 
 
 def test():

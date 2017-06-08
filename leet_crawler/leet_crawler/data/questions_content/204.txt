@@ -1,9 +1,0 @@
----CONTENT_BEGIN---
-Description:
-Count the number of prime numbers less than a non-negative number, n.
-
-Credits:Special thanks to @mithmatt for adding this problem and creating all test cases.
----CONTENT_END---
----SCRIPT_BEGIN---
-[{"value": "cpp", "defaultCode": "class Solution { public:     int countPrimes(int n) {              } };", "text": "C++"}, {"value": "java", "defaultCode": "public class Solution {     public int countPrimes(int n) {              } }", "text": "Java"}, {"value": "python", "defaultCode": "class Solution(object):     def countPrimes(self, n):         '''         :type n: int         :rtype: int         '''         ", "text": "Python"}, {"value": "c", "defaultCode": "int countPrimes(int n) {      }", "text": "C"}, {"value": "csharp", "defaultCode": "public class Solution {     public int CountPrimes(int n) {              } }", "text": "C#"}, {"value": "javascript", "defaultCode": "/**  * @param {number} n  * @return {number}  */ var countPrimes = function(n) {      };", "text": "JavaScript"}, {"value": "ruby", "defaultCode": "# @param {Integer} n # @return {Integer} def count_primes(n)      end", "text": "Ruby"}, {"value": "swift", "defaultCode": "class Solution {     func countPrimes(_ n: Int) -> Int {              } }", "text": "Swift"}, {"value": "golang", "defaultCode": "func countPrimes(n int) int {      }", "text": "Go"}]
----SCRIPT_END---

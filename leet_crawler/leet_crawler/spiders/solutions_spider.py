@@ -5,6 +5,9 @@ import json
 from scrapy import Request
 import re
 from util.Data import *
+from util.data_settings import *
+# from scrapy.selector import Selector # for select code part
+# import html # for decode html escaped string
 
 class SolutionsSpiderSpider(scrapy.Spider):
     name = 'solutions_spider'
@@ -17,11 +20,12 @@ class SolutionsSpiderSpider(scrapy.Spider):
         # only one manager in spider
         # self.contentManager = QuestionContent()
         self.metaManager = QuestionMeta()
+        self.qservice = QuestionSolutionService()
 
         for url in self.start_urls:
             yield Request(url=url,
                 callback=self.parse_meta
-                )
+                        )
 
     """
     Get questions_meta.json file from algorithms category
@@ -46,9 +50,13 @@ class SolutionsSpiderSpider(scrapy.Spider):
         for problem_id, problem in new_problems.items():
             if problem["paid_only"]:
                 print("problem {0} is locked".format(problem_id))
-                with open('data/questions_content/{0}.txt'.format(problem_id), 'w') as f:
-                    f.write("locked")
+                cm = QuestionContent()
+                cm.load(problem_id, new=True)
+                cm.set_locked()
+                cm.save()
             else:
+                # problems/{int problem_id} -> api/category/{int solution_num} -> api/topic/{int topic_id}/{str simplified-topic-title} 
+                # the post is in response[posts][0]
                 yield Request(
                     url="https://leetcode.com/problems/{0}".format(problem['stat']['question__title_slug']),
                     meta={"problem_id":problem_id,},
@@ -75,29 +83,39 @@ class SolutionsSpiderSpider(scrapy.Spider):
         cm.set_script(problem_script)
         cm.save()
 
-        # TODO: for every post, get a topic requests
-
         yield Request(
             url=solutions_url,
-            # meta={"topic_url": topic_url},
+            meta={"problem_id":problem_id,},
             callback=self.parse_topic
             )
 
-        pass
-
     def parse_topic(self, response):
+        problem_id = response.meta.get('problem_id')
         topics = json.loads(response.text)['topics']
+        # find 5 highest voted topics on this problem
+        if len(topics) > 5:
+            topics = topics[:5]
+
         for topic in topics:
-            topic_url = "https://discuss.leetcode.com/api/topic/{0}".format(topic)
-
-        pass
-
+            topic_url = "https://discuss.leetcode.com/api/topic/{0}".format(topic['slug'])
+            yield Request(
+                url=topic_url,
+                meta={"problem_id":problem_id,},
+                callback=self.parse_solution
+                )
 
     def parse_solution(self, response):
-        pass
+        problem_id = response.meta.get('problem_id')
+        res_dict = json.loads(response.text)
+
+        content = res_dict['posts'][0]['content']
+        post_title = res_dict['title']
+
+        self.qservice.load_post_to_problem(problem_id=problem_id, post_content_str=content)
 
     def close(spider, reason):
-        spider.metaManager.save()
+        if not DEBUG:
+            spider.metaManager.save()
         print('done with spider: {0}'.format(spider.name))
         print('writes ok')
 
