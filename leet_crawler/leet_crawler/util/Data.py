@@ -2,6 +2,7 @@ import json
 from os.path import join
 from util.data_settings import *
 from util.common import *
+from tools.formatter import format_python
 import re
 
 from scrapy.selector import Selector # for select code part
@@ -112,8 +113,12 @@ class QuestionContent:
                 elog('Get Script Error', 'script type: {0} not supported'.format(s_type))
             script_text = self.parse_script(self.f_text)
             self.script_arr = json.loads(script_text)
-
-        return list(filter(lambda script: script['value'] == s_type, self.script_arr))[0]['defaultCode']
+        res = "ERROR"
+        try:
+            res = list(filter(lambda script: script['value'] == s_type, self.script_arr))[0]['defaultCode']
+        except IndexError as err:
+            elog(err, "Failed to get default code")
+        return res
 
     def parser(self, p_type, f_text):
         match_obj = re.match(QuestionContent.reg.format(p_type), f_text, flags=re.DOTALL)
@@ -154,7 +159,7 @@ class QuestionContent:
         try:
             self.script_arr = json.loads(clear_script)
         except json.JSONDecodeError as err:
-            print("error when loads json string with id: {0}".format(self.problem_id))
+            elog(err, "error when loads json string with id: {0}".format(self.problem_id))
             with open('{0}-error.json'.format(self.problem_id), 'w') as f:
                 f.write(clear_script)
             pass
@@ -259,6 +264,9 @@ class QuestionSolutionService:
                 if cls.__verify_code(code, problem_id):
                     lang_type = cls.__analyse_lang(code)
                     code = cls.__wrap_class(code, lang_type, problem_id)
+                    # format python here
+                    if lang_type == QuestionSolutionService.PYTHON:
+                        code = format_python(code)
                     post[lang_type] = code
 
         # store this post to problem table
@@ -329,7 +337,7 @@ class QuestionSolutionService:
         if match_obj:
             return match_obj.group(1)
         else:
-            elog("Data error", "Connot extract function name from code: {0}".format(code))
+            elog("Data error", "Cannot extract function name from code: {0}".format(code))
 
     @staticmethod
     def __extract_class_name(code):
@@ -357,15 +365,11 @@ class QuestionSolutionService:
                 return "class " + class_default_name + " {" + NEW_LINE + "public:" + NEW_LINE + "    " + code.replace(NEW_LINE, NEW_LINE + "    ") + NEW_LINE + "}"
             if l_type == cls.JAVA:
                 return "public class " + class_default_name + " {" + NEW_LINE + "    " + code.replace(NEW_LINE, NEW_LINE + "    ") +  NEW_LINE + "}"
-            # python
+            # python need to be indented corrently, so I used format_python here
             return "class " + class_default_name + " :" + NEW_LINE + "    " + code.replace(NEW_LINE, NEW_LINE + "    ")
         except TypeError as err:
             elog(err, "Fuck")
-            pass
-
-    # @classmethod
-    # def classify_code(cls, post, code, l_type):
-    #     post[l_type] = code        
+            pass      
 
 
 def test():

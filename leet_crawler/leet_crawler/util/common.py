@@ -30,4 +30,4 @@ def replace_newline_tab(s):
     return s.replace('\r\n', NEW_LINE).replace('\n', NEW_LINE).replace('\t', TAB)
 
 def recover_newline_tab(s):
-    return s.replace(NEW_LINE, '\n').replace(TAB, '\t')
+    return s.replace(NEW_LINE, '\n').replace(TAB, '    ')
