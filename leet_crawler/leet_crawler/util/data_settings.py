@@ -13,6 +13,8 @@ DATA_BASE_PATH = "data/"
 DATA_META_PATH = join(DATA_BASE_PATH, "questions_meta.json")
 DATA_CONTENT_PATH = join(DATA_BASE_PATH, "question_content")
 DATA_SOLUTION_PATH = join(DATA_BASE_PATH, "question_solution")
+COOKIE_PATH = join(DATA_BASE_PATH, "session_cookie")
+DATA_TMP_PATH = join(DATA_BASE_PATH, 'tmp')
 
 # format string
 NEW_LINE = '--newline--'
@@ -20,3 +22,8 @@ TAB = '--tab--'
 
 # debug setting
 DEBUG = False
+
+# leetcode account
+USER = 'tyang8@stevens.edu'
+PASS = 'yangtianxiao'
+AGENT = "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0"

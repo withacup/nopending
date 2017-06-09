@@ -33,7 +33,9 @@ class QuestionMeta:
 
     def get_problem(self, problem_id):
         problem_id = str(problem_id)
-        return self.meta_dict[problem_id]
+        if problem_id in self.meta_dict:
+            return self.meta_dict[problem_id]
+        return None
 
     def set_problem(self, problem_id, new_problem_meta):
         self.meta_dict[problem_id] = new_problem_meta
@@ -291,7 +293,6 @@ class QuestionSolutionService:
             # [post for post in json.loads(f.read())['posts']]
             posts = json.loads(f.read())['posts']
             return [recover_newline_tab(post[l_type]) for post in posts if post[l_type]]
-
 
     # method below should not be used by outside
     @classmethod
