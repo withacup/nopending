@@ -1,12 +1,13 @@
 import json
+import re
+import html # for decode html escaped string
+
 from os.path import join
 from util.data_settings import *
 from util.common import *
 from tools.formatter import format_python
-import re
 
 from scrapy.selector import Selector # for select code part
-import html # for decode html escaped string
 
 
 """
@@ -14,15 +15,13 @@ import html # for decode html escaped string
 """
 class QuestionMeta:
 
-    # This class cannot be re-loaded when not saved
+    # This class cannot be saved when other object is loaded
     is_loaded = False
 
     def __init__(self):
         self.meta_dict = {}
         
     def load(self):
-        if QuestionMeta.is_loaded:
-            elog("Duplicate QuestionMeta Loading Error", "question meta is trying to load before other object save their data")
         QuestionMeta.is_loaded = True
 
         try:
@@ -41,7 +40,10 @@ class QuestionMeta:
         self.meta_dict[problem_id] = new_problem_meta
 
     def save(self):
-        QuestionMeta.is_loaded = False
+        # if QuestionMeta.is_loaded:
+        #     elog("Duplicate QuestionMeta Loading Error", "question meta is trying to save before other object save their data")
+        #
+        # QuestionMeta.is_loaded = False
 
         try:
             with open(DATA_META_PATH, 'w') as meta:
@@ -202,35 +204,40 @@ class QuestionContent:
 
 
 '''
-TODO:
+Usage:
+    There is hundreds of solutions files in data directory,
+    I don't want to load them all into memory, so I make this question solution class
+    a service class, every function in it is static function or class fucntion
+Description:
     1. use static variable to manage all QuestionSolution objects
         , classify all solutions to their own problems
         , guarantee every problem have only one solution file
     2. analys solution syntax, get their programming language
     3. for each language in each post, only get the last <pre><code>.*</code></pre> piece of code
     3. save solutions data under question_solution directory`
+    
+problem_table {
+    problem_id:{
+        qc: QuestionContent object
+        posts: [
+            {
+                topic_title: string
+                is_locked: bool
+                cpp: string | none
+                java: string | none
+                python: string | none
+            },
+            ...
+        ]
+    },
+    ...
+}
 '''
+
 class QuestionSolutionService:
 
     # store all problems and their corresponding solutions
     problem_table = {}
-    '''
-    problem_table {
-        problem_id:{
-            qc: QuestionContent object
-            posts: [
-                {
-                    is_locked: bool
-                    cpp: string | none
-                    java: string | none
-                    python: string | none
-                },
-                ...
-            ]
-        },
-        ...
-    }
-    '''
 
     # lang_type | l_type
     CPP = 'cpp'
@@ -242,7 +249,7 @@ class QuestionSolutionService:
         pass
 
     @classmethod
-    def load_post_to_problem(cls, problem_id, post_content_str):
+    def load_post_to_problem(cls, problem_id, post_content_str, topic_title, topic_id, max_topic=MAX_TOPIC):
         problem_id = str(problem_id)
         post_content_str = replace_newline_tab(post_content_str)
 
@@ -251,10 +258,14 @@ class QuestionSolutionService:
             qc.load(problem_id)
             cls.problem_table[problem_id] = {}
             cls.problem_table[problem_id]['qc'] = qc
-            cls.problem_table[problem_id]['posts'] = []
+            cls.problem_table[problem_id]['posts'] = [{}]*MAX_TOPIC
 
         # store three languages into the current post dict
-        post = {'is_locked': False, cls.JAVA:None, cls.CPP:None, cls.PYTHON: None}
+        post = {'is_locked': False,
+                cls.JAVA:None,
+                cls.CPP:None,
+                cls.PYTHON: None,
+                'topic_title':topic_title}
 
         if cls.problem_table[problem_id]['qc'].is_locked:
             post['is_locked'] = True
@@ -272,7 +283,7 @@ class QuestionSolutionService:
                     post[lang_type] = code
 
         # store this post to problem table
-        cls.problem_table[problem_id]['posts'].append(post)
+        cls.problem_table[problem_id]['posts'][topic_id] = post
         pass
 
     """
@@ -282,29 +293,41 @@ class QuestionSolutionService:
     @classmethod
     def save_all(cls):
         for problem_id, solution in cls.problem_table.items():
-            solution['qc'] = problem_id + '.txt'
-            with open(join(DATA_SOLUTION_PATH, problem_id + '.txt'), 'w') as f:
+            solution['qc'] = problem_id + '.json'
+            with open(join(DATA_SOLUTION_PATH, problem_id + '.json'), 'w') as f:
                 f.write(json.dumps(solution, indent=4))
         pass
 
+    """
+        return: 
+            A two-imensional array [ [ solution_code, l_type ], ... ]
+    """
     @staticmethod
-    def read_solution(problem_id, l_type):
-        with open(join(DATA_SOLUTION_PATH, problem_id + '.txt'), 'r') as f:
-            # [post for post in json.loads(f.read())['posts']]
+    def read_solution(problem_id, l_types):
+        problem_id = str(problem_id)
+        if type(l_types) is not list:
+            raise TypeError("l_types should be a list")
+
+        solutions = []
+        with open(join(DATA_SOLUTION_PATH, problem_id + '.json'), 'r') as f:
             posts = json.loads(f.read())['posts']
-            return [recover_newline_tab(post[l_type]) for post in posts if post[l_type]]
+            for l_type in l_types:
+                solutions.extend([ [ recover_newline_tab(post[l_type]), l_type ] for post in posts if l_type in post and post[l_type] ])
+        return solutions
 
     # method below should not be used by outside
     @classmethod
     def __analyse_lang(cls, code):
-        # TODO: analyse the language used by this code
+        if re.match('.*public *?[^:].*', code, flags=re.DOTALL):
+            return cls.JAVA
+        # spilt the code into word, in case their are something like lengthOfLongestSubstring
+        # and remove all empty strings
+        code = list(filter(lambda s: s and s != "newline" and s != 'tab', re.split('[^a-zA-Z]', code)))
         if 'def' in code and 'self' in code:
             return cls.PYTHON
         if 'vector' in code or 'unordered_map' in code or 'string' in code:
             return cls.CPP
         if 'ArrayList' in code or 'HashMap' in code or 'String' in code:
-            return cls.JAVA
-        if re.match('.*public *?[^:].*', code, flags=re.DOTALL):
             return cls.JAVA
         return cls.CPP
 
@@ -371,7 +394,70 @@ class QuestionSolutionService:
         except TypeError as err:
             elog(err, "Fuck")
             pass      
+'''
+solution_table = 
+{
+    problem_id: {
+        total_cases: int,
+        l_type: cs.l_type,
+        verified_code: string,
+        modified_code: string
+    },
+    ...
+}
+'''
 
+
+class VerifiedSolutionService:
+
+    solution_table = {}
+
+    CPP = 'cpp'
+    JAVA = 'java'
+    PYTHON = 'python'
+
+    def __init__(self):
+        pass
+
+    '''
+        only call this method with clean solution code string
+    '''
+    @classmethod
+    def load_solution_to_problem(cls, problem_id, solution_code, l_type, total_cases):
+
+        problem_id = str(problem_id)
+        l_type = str(l_type)
+        total_cases = int(total_cases)
+
+        cls.solution_table[problem_id] = {
+            "solution_code": replace_newline_tab(solution_code),
+            'l_type': l_type,
+            'total_cases': total_cases,
+            'modified_code': None
+        }
+
+    @classmethod
+    def save_all(cls):
+        print("saving all verified solutions... ")
+        for problem_id, solution in cls.solution_table.items():
+            with open(join(VERIFIED_SOLUTION_PATH, problem_id + '.json'), 'w') as f:
+                f.write(json.dumps(solution))
+
+    @classmethod
+    def save_problem(cls, problem_id):
+        problem_id = str(problem_id)
+        with open(join(VERIFIED_SOLUTION_PATH, problem_id + '.json'), 'w') as f:
+            f.write(json.dumps(cls.solution_table[problem_id]))
+
+    @staticmethod
+    def get_verified_code(problem_id):
+        with open(join(VERIFIED_SOLUTION_PATH, str(problem_id) + '.json'), 'r') as f:
+            return json.loads(recover_newline_tab(f.read()))['verified_code']
+
+    @staticmethod
+    def get_modified_code(problem_id):
+        with open(join(VERIFIED_SOLUTION_PATH, str(problem_id) + '.json'), 'r') as f:
+            return json.loads(recover_newline_tab(f.read()))['modified_code']
 
 def test():
     meta = QuestionMeta()

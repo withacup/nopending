@@ -1,24 +1,17 @@
 # -*- coding: utf-8 -*-
 import scrapy
-import json
-# from util.common import get_questions
 from scrapy import Request
-import re
 from util.Data import *
 from util.data_settings import *
-# from scrapy.selector import Selector # for select code part
-# import html # for decode html escaped string
 
 class SolutionsSpiderSpider(scrapy.Spider):
     name = 'solutions_spider'
     allowed_domains = ['leetcode.com']
-    # start_urls = ['http://https://www.jiuzhang.com/solution//']
     start_urls = ['https://leetcode.com/api/problems/algorithms/']
 
     def start_requests(self):
 
         # only one manager in spider
-        # self.contentManager = QuestionContent()
         self.metaManager = QuestionMeta()
         self.qservice = QuestionSolutionService()
 
@@ -93,25 +86,30 @@ class SolutionsSpiderSpider(scrapy.Spider):
         problem_id = response.meta.get('problem_id')
         topics = json.loads(response.text)['topics']
         # find 5 highest voted topics on this problem
-        if len(topics) > 5:
-            topics = topics[:5]
+        if len(topics) > MAX_TOPIC:
+            topics = topics[:MAX_TOPIC]
 
-        for topic in topics:
+        for topic_id, topic in enumerate(topics):
             topic_url = "https://discuss.leetcode.com/api/topic/{0}".format(topic['slug'])
             yield Request(
                 url=topic_url,
-                meta={"problem_id":problem_id,},
+                meta={"problem_id":problem_id, 'topic_id': topic_id},
                 callback=self.parse_solution
                 )
 
     def parse_solution(self, response):
         problem_id = response.meta.get('problem_id')
+        topic_id = response.meta.get('topic_id')
         res_dict = json.loads(response.text)
 
         content = res_dict['posts'][0]['content']
         post_title = res_dict['title']
 
-        self.qservice.load_post_to_problem(problem_id=problem_id, post_content_str=content)
+        self.qservice.load_post_to_problem(problem_id=problem_id,
+                                           post_content_str=content,
+                                           topic_id=topic_id,
+                                           max_topic=MAX_TOPIC,
+                                           topic_title=post_title)
 
     def close(spider, reason):
         if not DEBUG:
