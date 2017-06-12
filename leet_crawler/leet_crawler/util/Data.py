@@ -1,34 +1,46 @@
-import json
 import re
-import html # for decode html escaped string
+import html  # for decode html escaped string
 
-from os.path import join
-from util.data_settings import *
 from util.common import *
 from tools.formatter import format_python
 
-from scrapy.selector import Selector # for select code part
+from scrapy.selector import Selector  # for select code part
 
 
 """
     QuestionMeta manages questoins_meta file
 """
+
+
 class QuestionMeta:
 
     # This class cannot be saved when other object is loaded
-    is_loaded = False
+    counter = 0
 
     def __init__(self):
         self.meta_dict = {}
+        self._free_problem = []
+        self._locked_problem = []
+
+    def __iter__(self):
+        for key, value in self.meta_dict.items():
+            yield key, value
         
     def load(self):
-        QuestionMeta.is_loaded = True
+        QuestionMeta.counter += 1
 
         try:
             with open(DATA_META_PATH, 'r') as meta:
                 self.meta_dict = json.loads(meta.read())
         except IOError as err:
             elog(err, "load question meta failed")
+        except json.JSONDecodeError as err:
+            elog(err, "decode question meta failed")
+
+        for problem_id, meta in self.meta_dict.items():
+            if meta['paid_only']:
+                self._locked_problem.append(problem_id)
+            self._free_problem.append(problem_id)
 
     def get_problem(self, problem_id):
         problem_id = str(problem_id)
@@ -39,15 +51,25 @@ class QuestionMeta:
     def set_problem(self, problem_id, new_problem_meta):
         self.meta_dict[problem_id] = new_problem_meta
 
+    def is_free(self, problem_id):
+        if problem_id not in self.meta_dict:
+            elog('Meta Error', 'Cannot find problem {0} in meta'.format(problem_id))
+        return self.meta_dict[problem_id]['paid_only']
+
+    def get_free_problem(self):
+        return self._free_problem
+
+    def get_locked_problem(self):
+        return self._locked_problem
+
     def save(self):
-        # if QuestionMeta.is_loaded:
-        #     elog("Duplicate QuestionMeta Loading Error", "question meta is trying to save before other object save their data")
-        #
-        # QuestionMeta.is_loaded = False
+        if QuestionMeta.counter > 1:
+            elog('Duplicate saving Error', 'Question meta is trying to save when other qm object have not been saved')
+        QuestionMeta.counter -= 1
 
         try:
             with open(DATA_META_PATH, 'w') as meta:
-                meta.write(json.dumps(self.meta_dict))
+                meta.write(json.dumps(self.meta_dict, indent=4))
         except IOError as err:
             elog(err, "save question meta failed")
 
@@ -76,20 +98,21 @@ class QuestionContent:
 
     def load(self, problem_id, new=False):
 
-        if self.problem_id != None:
+        if self.problem_id is not None:
             elog("Duplicate QuestionContent Loading Error", "question content with id: {0} is trying to load again".format(self.problem_id)) 
 
-        if self.problem_id in QuestionContent.is_loaded_table and QuestionMeta.is_loaded_table[self.problem_id]:
+        if self.problem_id in QuestionContent.is_loaded_table and QuestionContent.is_loaded_table[self.problem_id]:
             elog("Duplicate QuestionContent Loading Error", "question content is trying to load before other object save their data")
 
         # only read content when the problem content is not new content
         if not new:
             try:
-                # this has to be str(problem_id), because self.problem_id is the identifier for this object, I have to set it at the end of the function
+                # this has to be str(problem_id), because self.problem_id is the identifier for this object,
+                # I have to set it at the end of the function
                 with open(join(DATA_CONTENT_PATH, str(problem_id) + ".txt"), 'r') as content:
                     text = content.read()
                     if text == "locked":
-                        print('problem: {0} is locked'.format(self.probelm_id))
+                        print('problem: {0} is locked'.format(self.problem_id))
                         self.is_locked = True
                     self.f_text = text
             except IOError as err:
@@ -102,7 +125,7 @@ class QuestionContent:
         if self.is_locked:
             return "locked"
         if self.content == "":
-            if self.problem_id == None:
+            if self.problem_id is None:
                 elog('Get Content Error', 'problem has not been loaded yet')
             self.content = self.parse_content(self.f_text)
         return self.content
@@ -110,8 +133,8 @@ class QuestionContent:
     def get_script(self, s_type):
         if self.is_locked:
             return "locked"
-        if self.script_arr == []:
-            if self.problem_id == None:
+        if not self.script_arr:
+            if self.problem_id is None:
                 elog('Get Script Error', 'problem has not been loaded yet')
             if s_type not in ['cpp', 'java', 'python']:
                 elog('Get Script Error', 'script type: {0} not supported'.format(s_type))
@@ -137,7 +160,8 @@ class QuestionContent:
     def parse_script(self, f_text):
         return self.parser("SCRIPT", f_text)
 
-    def clearString(self, s):
+    @staticmethod
+    def clear_string(s):
 
         s = replace_newline_tab(s).replace("'", "====").replace('"', "'").replace("====", '"')[:-2] + "]"
         s = re.sub('\w+(")s', "'", s)
@@ -159,7 +183,7 @@ class QuestionContent:
     def set_script(self, script):
         # html contains escaped unicode character
         script = script.encode('utf-8').decode('unicode_escape')
-        clear_script = self.clearString(script)
+        clear_script = self.clear_string(script)
         try:
             self.script_arr = json.loads(clear_script)
         except json.JSONDecodeError as err:
@@ -175,7 +199,7 @@ class QuestionContent:
         self.is_locked = True
 
     def save(self):
-        if self.problem_id == None:
+        if self.problem_id is None:
             elog('Save Content Error', 'problem has not been loaded yet')
 
         if self.is_locked:
@@ -234,6 +258,7 @@ problem_table {
 }
 '''
 
+
 class QuestionSolutionService:
 
     # store all problems and their corresponding solutions
@@ -258,20 +283,20 @@ class QuestionSolutionService:
             qc.load(problem_id)
             cls.problem_table[problem_id] = {}
             cls.problem_table[problem_id]['qc'] = qc
-            cls.problem_table[problem_id]['posts'] = [{}]*MAX_TOPIC
+            cls.problem_table[problem_id]['posts'] = [{}]*max_topic
 
         # store three languages into the current post dict
         post = {'is_locked': False,
-                cls.JAVA:None,
-                cls.CPP:None,
+                cls.JAVA: None,
+                cls.CPP: None,
                 cls.PYTHON: None,
-                'topic_title':topic_title}
+                'topic_title': topic_title}
 
         if cls.problem_table[problem_id]['qc'].is_locked:
             post['is_locked'] = True
         else:
             code_arr = Selector(text=post_content_str).css('pre > code::text').extract()
-            code_arr = list(map(html.unescape, code_arr)) # resolve html escaped charaters
+            code_arr = list(map(html.unescape, code_arr))   # resolve html escaped characters
 
             for code in code_arr:
                 if cls.__verify_code(code, problem_id):
@@ -312,7 +337,7 @@ class QuestionSolutionService:
         with open(join(DATA_SOLUTION_PATH, problem_id + '.json'), 'r') as f:
             posts = json.loads(f.read())['posts']
             for l_type in l_types:
-                solutions.extend([ [ recover_newline_tab(post[l_type]), l_type ] for post in posts if l_type in post and post[l_type] ])
+                solutions.extend([[recover_newline_tab(post[l_type]), l_type] for post in posts if l_type in post and post[l_type]])
         return solutions
 
     # method below should not be used by outside
@@ -385,8 +410,8 @@ class QuestionSolutionService:
         try:
             if 'class' in code:
                 return code
-            if l_type == cls.CPP: # need to indent code
-                return "class " + class_default_name + " {" + NEW_LINE + "public:" + NEW_LINE + "    " + code.replace(NEW_LINE, NEW_LINE + "    ") + NEW_LINE + "}"
+            if l_type == cls.CPP:  # need to indent code
+                return "class " + class_default_name + " {" + NEW_LINE + "public:" + NEW_LINE + "    " + code.replace(NEW_LINE, NEW_LINE + "    ") + NEW_LINE + "};"
             if l_type == cls.JAVA:
                 return "public class " + class_default_name + " {" + NEW_LINE + "    " + code.replace(NEW_LINE, NEW_LINE + "    ") +  NEW_LINE + "}"
             # python need to be indented corrently, so I used format_python here
@@ -451,13 +476,31 @@ class VerifiedSolutionService:
 
     @staticmethod
     def get_verified_code(problem_id):
-        with open(join(VERIFIED_SOLUTION_PATH, str(problem_id) + '.json'), 'r') as f:
-            return json.loads(recover_newline_tab(f.read()))['verified_code']
+        try:
+            with open(join(VERIFIED_SOLUTION_PATH, str(problem_id) + '.json'), 'r') as f:
+                return recover_newline_tab(json.loads(f.read())['solution_code'])
+        except IOError:
+            return None
+
+    @staticmethod
+    def get_verified_type(problem_id):
+        try:
+            with open(join(VERIFIED_SOLUTION_PATH, str(problem_id) + '.json'), 'r') as f:
+                return recover_newline_tab(json.loads(f.read())['l_type'])
+        except IOError as err:
+            return None
 
     @staticmethod
     def get_modified_code(problem_id):
         with open(join(VERIFIED_SOLUTION_PATH, str(problem_id) + '.json'), 'r') as f:
             return json.loads(recover_newline_tab(f.read()))['modified_code']
+
+    @classmethod
+    def is_verified(cls, problem_id):
+        if cls.get_verified_code(problem_id):
+            return True
+        return False
+
 
 def test():
     meta = QuestionMeta()
@@ -471,24 +514,9 @@ def test():
     print(content.get_script(QuestionContent.CPP))
     print(content.get_script(QuestionContent.JAVA))
 
-
     # cm = self.contentManager
     # cm.load(problem_id)
     # cm.set_content(problem_content)
     # cm.set_script(problem_script)
     # cm.save()
     pass
-
-
-
-
-
-
-
-
-
-
-
-
-
-

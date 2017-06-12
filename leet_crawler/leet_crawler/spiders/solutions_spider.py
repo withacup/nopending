@@ -12,7 +12,7 @@ class SolutionsSpiderSpider(scrapy.Spider):
     def start_requests(self):
 
         # only one manager in spider
-        self.metaManager = QuestionMeta()
+        self.qm = QuestionMeta()
         self.qservice = QuestionSolutionService()
 
         for url in self.start_urls:
@@ -26,8 +26,8 @@ class SolutionsSpiderSpider(scrapy.Spider):
     def parse_meta(self, response):
         
         response_dict = json.loads(response.text)
-        mm = self.metaManager
-        mm.load()
+        qm = self.qm
+        qm.load()
 
         problems_metas = response_dict['stat_status_pairs']
 
@@ -36,9 +36,9 @@ class SolutionsSpiderSpider(scrapy.Spider):
 
         for problem_meta in problems_metas:
             problem_id = problem_meta['stat']['question_id']
-            if str(problem_id) not in mm.meta_dict:
+            if str(problem_id) not in qm.meta_dict:
                 new_problems[problem_id] = problem_meta
-                mm.set_problem(problem_id=problem_id, new_problem_meta=problem_meta)
+                qm.set_problem(problem_id=problem_id, new_problem_meta=problem_meta)
 
         for problem_id, problem in new_problems.items():
             if problem["paid_only"]:
@@ -113,7 +113,7 @@ class SolutionsSpiderSpider(scrapy.Spider):
 
     def close(spider, reason):
         if not DEBUG:
-            spider.metaManager.save()
+            spider.qm.save()
         print('saving solutions...')
         spider.qservice.save_all()
         print('done with spider: {0}'.format(spider.name))
