@@ -5,7 +5,9 @@
 # @Last Modified time: 2017-06-11 19:19:31
 import queue, time
 
-from util.Data import QuestionSolutionService as qs, QuestionMeta as qm, VerifiedSolutionService as vs
+from util.questionsolutionservice import QuestionSolutionService as qs
+from util.questionmeta import QuestionMeta as qm
+from util.verifiedsolutionservice import VerifiedSolutionService as vs
 from util.leet_login import User
 from concurrent.futures import ThreadPoolExecutor
 

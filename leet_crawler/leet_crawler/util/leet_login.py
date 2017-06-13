@@ -9,8 +9,8 @@ import time
 
 from util.common import elog, log
 from util.data_settings import *
-from util.Data import QuestionMeta as qm
-from util.Data import QuestionSolutionService as qs
+from util.questionsolutionservice import QuestionSolutionService as qs
+from util.questionmeta import QuestionMeta as qm
 import requests
 from scrapy.selector import Selector
 
@@ -173,10 +173,9 @@ class User:
         try:
             return json.loads(response.text)
         except:
-            return {'error':"User is not authenticated"}
+            return {'error': "User is not authenticated"}
 
     def analyse_submission(self, submission_id):
-        result = self.__check_submission(submission_id)
 
         result_handler = {
             10: self.__accpeted_handler,
@@ -185,16 +184,19 @@ class User:
             11: self.__wrong_result_handler,
             14: self.__time_limit_exceeded_handler
         }
+        result = self.__check_submission(submission_id)
 
         while result['state'] != 'SUCCESS':
             time.sleep(1)
             result = self.__check_submission(submission_id)
 
         self._total_submission += 1
+
         try:
             status_code = result['status_code']
         except KeyError as err:
             print(err, result)
+
         if status_code not in result_handler:
             print("unknown status code")
 

@@ -1,7 +1,11 @@
 # -*- coding: utf-8 -*-
 import scrapy
 from scrapy import Request
-from util.Data import *
+import json
+import re
+from util.questionsolutionservice import QuestionSolutionService
+from util.questionmeta import QuestionMeta
+from util.questioncontent import QuestionContent
 from util.data_settings import *
 
 class SolutionsSpiderSpider(scrapy.Spider):
@@ -19,7 +23,6 @@ class SolutionsSpiderSpider(scrapy.Spider):
             yield Request(url=url,
                 callback=self.parse_meta
                         )
-
     """
     Get questions_meta.json file from algorithms category
     """

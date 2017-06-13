@@ -31,3 +31,6 @@ def replace_newline_tab(s):
 
 def recover_newline_tab(s):
     return s.replace(NEW_LINE, '\n').replace(TAB, '    ')
+
+def to_int(s):
+    return int(s)

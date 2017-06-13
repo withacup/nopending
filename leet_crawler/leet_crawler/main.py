@@ -9,9 +9,9 @@ from scrapy.cmdline import execute
 
 import sys
 import os
-from util.Data import QuestionSolutionService as qs
-from util.Data import QuestionMeta as qm
-from util.Data import VerifiedSolutionService as vs
+from util.questionsolutionservice import QuestionSolutionService as qs
+from util.questionmeta import QuestionMeta as qm
+from util.verifiedsolutionservice import VerifiedSolutionService as vs
 from tools.usermanager import UserManager
 
 accounts = [
@@ -27,11 +27,14 @@ accounts = [
     ['newproblemreminder@gmail.com', 'yangtianxiao'],
 ]
 
-um = UserManager(accounts)
+# um = UserManager(accounts)
 # um.start_verify_solution(['1', '2'])
-um.start_verify_solution()
-
-
+# um.start_verify_solution()
+# test()
+qm = qm()
+qm.load()
+# print(len(qm.get_free_problem()))
+vs.print_types(qm.get_free_problem())
 # execute(['scrapy', 'crawl', 'solutions_spider'])
 
 

@@ -2,8 +2,10 @@
 import scrapy
 # from util.leet_login import leet_login, leet_request
 from util.data_settings import *
-from util.Data import QuestionMeta as qm
-from util.Data import QuestionSolutionService as qs
+
+from util.questionsolutionservice import QuestionSolutionService as qs
+from util.questionmeta import QuestionMeta as qm
+from util.verifiedsolutionservice import VerifiedSolutionService as vs
 import re
 from scrapy import Request
 import json
