@@ -29,7 +29,7 @@ class UserManager:
             problem_ids: list of strings representing the problems to be verified, 
                 if this value is None, then all free solutions will be verified
     """
-    def start_verify_solution(self, problem_ids=None):
+    def start_verify_solution(self, problem_ids=None, solution_code=None, priority=None):
         users = self.users
 
         if problem_ids and type(problem_ids) is not list:
@@ -43,7 +43,7 @@ class UserManager:
         with ThreadPoolExecutor(len(users) + 1) as executor:
             workers = []
             for user in users:
-                workers.append(executor.submit(self.__login_submit, user))
+                workers.append(executor.submit(self.__login_submit, user=user, priority=priority))
             executor.submit(self.__print_problem_left)
 
             for worker in workers:
@@ -60,16 +60,19 @@ class UserManager:
     # qsize function is not accurate, it only returns a approximately size of the waiting queue
     def __print_problem_left(self):
         while not self.problem_waiting_queue.empty():
-            time.sleep(1)
+            time.sleep(10)
             print('--->> number of question left: {0}'.format(self.problem_waiting_queue.qsize()))
 
-    def __login_submit(self, user):
+    def __login_submit(self, user, priority=None):
         user.login()
+        if not priority:
+            priority = [qs.JAVA, qs.JAVA, qs.PYTHON]
+
         while not self.problem_waiting_queue.empty():
             start_time = time.time()
 
             problem_id = self.problem_waiting_queue.get()
-            solutions = qs.read_solution(problem_id=problem_id, l_types=[qs.JAVA, qs.CPP, qs.PYTHON])
+            solutions = qs.read_solution(problem_id=problem_id, l_types=priority)
 
             for solution_code, l_type in solutions:
                 # submit a single solution code 

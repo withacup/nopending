@@ -127,7 +127,6 @@ class User:
     """
 
     def __submit_solution(self, problem_id, l_type, solution_code=None, test_mode=False, test_case=""):
-        # TODO: need to determine the type of solution code
         problem_id = str(problem_id)
 
         if not solution_code:
@@ -195,7 +194,7 @@ class User:
         try:
             status_code = result['status_code']
         except KeyError as err:
-            print(err, result)
+            return self.__unknown_error_handler(result)
 
         if status_code not in result_handler:
             print("unknown status code")
@@ -242,6 +241,12 @@ class User:
         print("user {0}'s {1} question time limit exceeded".format(self.username, result['question_id']))
         self._failed.append(result['question_id'])
         return result, 5
+
+    def __unknown_error_handler(self, result):
+        print("user {0}'s submission unknown error, result from server: {1}".format(self.username, result))
+        if 'question_id' in result:
+            self._failed.append(result['question_id'])
+        return result, 6
 
     def __check_submission(self, submission_id):
         submission_id = str(submission_id)
