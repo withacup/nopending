@@ -1,0 +1,12 @@
+leet_crawler/leet_crawler/data/*
+.idea/*
+leet_crawler/leet_crawler/spiders/__pycache__/*
+leet_crawler/leet_crawler/util/__pycache__/*
+leet_crawler/leet_crawler/tools/__pycache__/*
+.Python
+selenium/
+pip-selfcheck.json
+bin/
+include/
+lib/
+leet_crawler/leet_crawler/__pycache__/*
