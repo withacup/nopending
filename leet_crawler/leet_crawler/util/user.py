@@ -9,8 +9,8 @@ import time
 
 from util.common import elog, log
 from util.data_settings import *
-from util.questionsolutionservice import QuestionSolutionService as qs
-from util.questionmeta import QuestionMeta as qm
+from util.questionsolutionservice import QuestionSolutionService
+from util.questionmeta import QuestionMeta
 import requests
 from scrapy.selector import Selector
 
@@ -38,10 +38,8 @@ class User:
         self.password = password
         self.username = None
         self.session = requests.session()
-        # self.x_csrftoken = None
-        self.qm = qm()
+        self.qm = QuestionMeta()
         self.qm.load()
-        # self._total_accpted = 0
         self._accepted = []
         self._failed = []
         self._total_submission = 0
@@ -49,15 +47,15 @@ class User:
     def login(self):
 
         post_data = {
-            "csrfmiddlewaretoken":self.__get_csrf(),
-            "login":self.account,
-            "password":self.password,
+            "csrfmiddlewaretoken": self.__get_csrf(),
+            "login": self.account,
+            "password" :self.password,
         }
 
         post_header = {
-            "Host":"leetcode.com",
-            "Referer":"https://leetcode.com/",
-            "User-Agent":AGENT,
+            "Host": "leetcode.com",
+            "Referer": "https://leetcode.com/",
+            "User-Agent": AGENT,
             "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
             "Accept-Language": "en-US,en;q=0.5",
             "Accept-Encoding": "gzip, deflate, br",
@@ -87,6 +85,7 @@ class User:
         html = self.session.get(LOGIN_URL).text
         selector = Selector(text=html)
         html_element = selector.css('#navbar-right .dropdown-toggle').extract_first()
+        match_obj = None
         try:
             match_obj = re.match('.*</span>(.*)<span.*', html_element, flags=re.DOTALL)
         except TypeError as err:
@@ -100,7 +99,7 @@ class User:
     def submit_solution(self, problem_id, l_type, solution_code=None, test_mode=False, test_case=""):
         result = self.__submit_solution(problem_id, l_type, solution_code, test_mode, test_case)
         # if there is not such code in solution
-        if result == None:
+        if not result:
             return None
 
         while 'error' in result:
@@ -130,17 +129,20 @@ class User:
         problem_id = str(problem_id)
 
         if not solution_code:
-            solution_arr = qs.read_solution(problem_id, [l_type])
+            solution_arr = QuestionSolutionService.get_solution(problem_id, [l_type])
             if not solution_arr:
                 print('cannot find {0} code for problem: {1}'.format(l_type, problem_id))
                 return None
             solution_code, l_type = solution_arr[0]
 
         meta_dict = self.qm.get_problem(problem_id)
+        if not meta_dict:
+            elog('', 'failed to load meta data for problem: {0}'.format(problem_id))
         problem_slug = meta_dict['stat']['question__title_slug']
 
         # this token is not the same with the csrftmiddlewaretoken exracted from html page,
         # this one is in cookies and is not guaranteed to be unchanged after login
+        X_CSRFToken = ""
         for cookie in self.session.cookies:
             if cookie.name == "csrftoken":
                 X_CSRFToken = cookie.value
@@ -193,7 +195,7 @@ class User:
 
         try:
             status_code = result['status_code']
-        except KeyError as err:
+        except KeyError:
             return self.__unknown_error_handler(result)
 
         if status_code not in result_handler:
@@ -258,7 +260,7 @@ class User:
             "Accept": "application/json, text/javascript, */*; q=0.01",
             "Accept-Language": "en-US,en;q=0.5",
             "Accept-Encoding": "gzip, deflate, br",
-            "Content-Type":"application/json",
+            "Content-Type": "application/json",
             "X-Requested-With": "XMLHttpRequest",
             "Connection": "keep-alive",
         }
@@ -274,10 +276,11 @@ class User:
             return match_obj.group(1)
         return None
 
+
 def test():
     u1 = User(account='tyang8@stevens.edu', password='yangtianxiao')
     u2 = User(account='yangtianxiao123@gmail.com', password='yangtianxiao')
     u1.login()
     u2.login()
-    print(u1.submit_solution(2,qs.JAVA))
-    print(u2.submit_solution(2,qs.JAVA))
+    print(u1.submit_solution(2, JAVA))
+    print(u2.submit_solution(2, JAVA))
