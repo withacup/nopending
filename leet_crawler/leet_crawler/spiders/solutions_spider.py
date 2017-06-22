@@ -7,6 +7,7 @@ from util.questionsolutionservice import QuestionSolutionService
 from util.questionmeta import QuestionMeta
 from util.questioncontent import QuestionContent
 from util.data_settings import *
+from util.common import *
 
 class SolutionsSpiderSpider(scrapy.Spider):
     name = 'solutions_spider'
@@ -17,7 +18,8 @@ class SolutionsSpiderSpider(scrapy.Spider):
 
         # only one manager in spider
         self.qm = QuestionMeta()
-        self.qservice = QuestionSolutionService()
+        self.qm.load()
+        self.qs = QuestionSolutionService()
 
         for url in self.start_urls:
             yield Request(url=url,
@@ -30,7 +32,6 @@ class SolutionsSpiderSpider(scrapy.Spider):
         
         response_dict = json.loads(response.text)
         qm = self.qm
-        qm.load()
 
         problems_metas = response_dict['stat_status_pairs']
 
@@ -43,8 +44,7 @@ class SolutionsSpiderSpider(scrapy.Spider):
                 new_problems[problem_id] = problem_meta
                 qm.set_problem(problem_id=problem_id, new_problem_meta=problem_meta)
 
-        if REFRESH_META:
-            qm.save()
+        print('new problem: {0}'.format(str(len(new_problems))))
 
         for problem_id, problem in new_problems.items():
             if problem["paid_only"]:
@@ -53,7 +53,7 @@ class SolutionsSpiderSpider(scrapy.Spider):
                 cm.load(problem_id, new=True)
                 cm.set_locked()
                 cm.save()
-            elif not REFRESH_META:
+            else:
                 # problems/{int problem_id} -> api/category/{int solution_num} -> api/topic/{int topic_id}/{str simplified-topic-title}
                 # the post is in response[posts][0]
                 yield Request(
@@ -74,7 +74,7 @@ class SolutionsSpiderSpider(scrapy.Spider):
         if match_obj:
             problem_script = match_obj.group(1)
         else:
-            print('[ERROR]: Cannot find problem script for problem' + str(problem_id))
+            elog('', '[ERROR]: Cannot find problem script for problem' + str(problem_id))
 
         qc = QuestionContent()
         qc.load(problem_id, new=True)
@@ -84,7 +84,7 @@ class SolutionsSpiderSpider(scrapy.Spider):
 
         yield Request(
             url=solutions_url,
-            meta={"problem_id":problem_id,},
+            meta={"problem_id": problem_id,},
             callback=self.parse_topic
             )
 
@@ -111,17 +111,17 @@ class SolutionsSpiderSpider(scrapy.Spider):
         content = res_dict['posts'][0]['content']
         post_title = res_dict['title']
 
-        self.qservice.load_post_to_problem(problem_id=problem_id,
-                                           post_content_str=content,
-                                           topic_id=topic_id,
-                                           max_topic=MAX_TOPIC,
-                                           topic_title=post_title)
+        self.qs.load_post_to_problem(problem_id=problem_id,
+                                     post_content_str=content,
+                                     topic_id=topic_id,
+                                     max_topic=MAX_TOPIC,
+                                     topic_title=post_title)
 
     def close(spider, reason):
         if not DEBUG:
             spider.qm.save()
         print('saving solutions...')
-        spider.qservice.save_all()
+        spider.qs.save_all()
         print('done with spider: {0}'.format(spider.name))
         print('writes ok')
 

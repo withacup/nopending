@@ -2,57 +2,58 @@
 # @Author: Tianxiao Yang
 # @Date:   2017-06-12 11:24:50
 # @Last Modified by:   Tianxiao Yang
-# @Last Modified time: 2017-06-13 12:42:04
+# @Last Modified time: 2017-06-20 15:28:18
 # from util.Data import  QuestionContent
-import re
 from util.common import *
 from util.data_settings import *
-from util.questioncontent import QuestionContent as qc
+from util.questioncontent import QuestionContent
 """
     Parse cpp code, extract its input type and output type
 """
+
+
 class SyntaxParser:
     def __init__(self, problem_id, l_type):
-
         self.FUNC = 'function'
         self.CLS = 'class'
 
         self.problem_id = problem_id
-        self.qc = qc()
+        self.qc = QuestionContent()
         self.qc.load(problem_id)
         self.encoded_code = self.qc.get_script(l_type).replace(TAB, '')
-        self.func_name = self.__get_func_name(self.qc.get_script(qc.PYTHON))
+        python_script = self.qc.get_script(PYTHON)
+        self.func_names = self.__get_func_name(remove_pycomment(python_script))
 
     '''
         return a output TypeTree object
     '''
     def get_output_type(self):
-        return self.__get_type('output')
+        return [(func_name, self.__get_type('output', func_name)) for func_name in self.func_names]
 
     '''
         return a input TypeTree object
     '''
     def get_input_type(self):
-        return self.__get_type('input')
+        return [(func_name, self.__get_type('intput', func_name)) for func_name in self.func_names]
 
     '''
         return a array of strings as parameter names
     '''
     def get_param_name(self):
-        return self.__get_type('params')
+        return [(func_name, self.__get_type('params', func_name)) for func_name in self.func_names]
 
     '''
         return a string representing main function's name,
             if the problem is a ood problem, it will return the class name
     '''
     def get_func_name(self):
-        return self.func_name
+        return self.func_names
 
-    def __get_type(self, io_type):
+    def __get_type(self, io_type, func_name):
         code_arr = self.encoded_code.split(NEW_LINE)
         source = ""
         for code_line in code_arr:
-            if self.func_name + "(" in code_line:
+            if func_name + "(" in code_line:
                 source = code_line
                 break
         if not source:
@@ -62,7 +63,7 @@ class SyntaxParser:
         # return output type
         # static keyword not handled(no static keyword in leetcode's defualt code)
         if io_type == "output":
-            o_str_arr = source.split(self.func_name + "(")[0].strip().split()
+            o_str_arr = source.split(func_name + "(")[0].strip().split()
             o_str = o_str_arr[0].strip()
             if o_str in ["public", "public:"] and len(o_str_arr) >= 2:
                 o_str = o_str_arr[1].strip()
@@ -86,27 +87,46 @@ class SyntaxParser:
         print('[ERROR]: cannot parse problem input type: {0} with its code: {1}'.format(self.problem_id, source))
         return None
 
-    # this function is different than the function in QuestionSolution class
+    # this function is different than the function in QuestionSolution class,
+    # if the function name is __init__, then this function will return class name instead of __init__
     def __get_func_name(self, python_code):
         return self.__get_name(python_code, self.FUNC)
 
     def __get_class_name(self, python_code):
         return self.__get_name(python_code, self.CLS)
 
+    """
+        This function will return a list of function names if n_type is self.FUNC,
+        will return a single class name if n_type is self.CLS
+    """
     def __get_name(self, python_code, n_type):
-        reg = '.*?def (.*?)\(.*?(def|$)'
-        if n_type is self.CLS:
-            reg = '^class (.*?)[(|:].*'
-        for line in python_code.split(NEW_LINE):
-            line = line.strip()
-            if line and line[0] != '#':
-                match_obj = re.match(reg, line, flags=re.DOTALL)
-                if match_obj:
-                    name = match_obj.group(1)
-                    if n_type is self.FUNC and name == '__init__':
-                        return self.__get_name(python_code, self.CLS)
-                    return match_obj.group(1)
-        elog("Data error", "Cannot extract {1} name from code: {0}".format(python_code, type))
+        cls_reg = '^class (.*?)[(|:].*'
+        # func_reg = '.*?def (.*?)\(.*?(def|$)'
+        func_reg = 'def (.*?)\('
+
+        if n_type == self.FUNC:
+            func_names = [m.group(1) for m in re.finditer(func_reg, python_code)]
+            for i in range(len(func_names)):
+                if func_names[i] == '__init__':
+                    func_names[i] = self.__get_name(python_code, self.CLS)
+            return func_names
+        # return a single class name
+        return re.match(cls_reg, python_code, flags=re.DOTALL).group(1)
+
+        # __________________
+
+        # if n_type is self.CLS:
+        #     reg = '^class (.*?)[(|:].*'
+        # for line in python_code.split(NEW_LINE):
+        #     line = line.strip()
+        #     if line and line[0] != '#':
+        #         match_obj = re.match(reg, line, flags=re.DOTALL)
+        #         if match_obj:
+        #             name = match_obj.group(1)
+        #             if n_type is self.FUNC and name == '__init__':
+        #                 return self.__get_name(python_code, self.CLS)
+        #             return match_obj.group(1)
+        # elog("Data error", "Cannot extract {1} name from code: {0}".format(python_code, type))
 
 """
     Works both for java and cpp
@@ -122,7 +142,7 @@ class TypeTree:
         self._root = self.TreeNode(type_str)
 
     def __str__(self):
-        return self.__inorder(self._root)
+        return self.__inorder()
 
     def get_param_name(self):
         return self._root.get_name()
@@ -133,10 +153,10 @@ class TypeTree:
     def get_root(self):
         return self._root
 
-    def __inorder(self, root):
+    def __inorder(self):
         return str(self._root)
 
-    class TreeNode():
+    class TreeNode:
         def __init__(self, type_str):
             type_str = type_str.strip()
             self._child = []
@@ -150,7 +170,6 @@ class TypeTree:
             elif type_str[len(type_str) - 1] == ']':
                 self._type = '[]'
                 self._child = [TypeTree.TreeNode(type_str[:-2])]
-
 
         """
             inorder traversal

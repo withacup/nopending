@@ -2,7 +2,7 @@
 # @Author: Tianxiao Yang
 # @Date:   2017-06-12 20:29:34
 # @Last Modified by:   Tianxiao Yang
-# @Last Modified time: 2017-06-14 17:03:33
+# @Last Modified time: 2017-06-20 16:03:42
 from util.common import *
 from tools.syntaxparser import SyntaxParser
 from tools.codegen import CodeGenerator
@@ -23,10 +23,6 @@ solution_table =
 class VerifiedSolutionService:
 
     solution_table = {}
-
-    CPP = 'cpp'
-    JAVA = 'java'
-    PYTHON = 'python'
 
     def __init__(self):
         pass
@@ -55,14 +51,20 @@ class VerifiedSolutionService:
     def save_all(cls):
         print("saving all verified solutions... ")
         for problem_id, solution in cls.solution_table.items():
-            with open(join(VERIFIED_SOLUTION_PATH, problem_id + '.json'), 'w') as f:
-                f.write(json.dumps(solution))
+            content = JSONDumps(solution)
+            if not content:
+                elog('', 'failed to dump solution for problem: {0}'.format(problem_id))
+            if not write_file(content, VERIFIED_SOLUTION_PATH, problem_id + '.json'):
+                print("Error failed to save all verified solutions")
 
     @classmethod
     def save_problem(cls, problem_id):
         problem_id = str(problem_id)
-        with open(join(VERIFIED_SOLUTION_PATH, problem_id + '.json'), 'w') as f:
-            f.write(json.dumps(cls.solution_table[problem_id]))
+        content = JSONDumps(cls.solution_table[problem_id])
+        if not content:
+            elog('', 'failed to dump solution for problem: {0}'.format(problem_id))
+        if not write_file(content, VERIFIED_SOLUTION_PATH, problem_id + '.json'):
+            print("Error failed to save problem: {0}".format(problem_id))
 
     """
         This method will return clean solution code
@@ -97,13 +99,12 @@ class VerifiedSolutionService:
                 return -1
             return "leetcode error"
         try:
-            with open(join(VERIFIED_SOLUTION_PATH, str(problem_id) + '.json'), 'r') as f:
-                info = json.loads(f.read())[attr]
-                if type(info) is int:
-                    return info
-                return recover_newline_tab(info)
-        except IOError:
-            return None
+            info = JSONLoads(read_file(VERIFIED_SOLUTION_PATH, str(problem_id) + '.json'))[attr]
+            if not info:
+                return None
+            if type(info) is int:
+                return info
+            return recover_newline_tab(info)
         except KeyError as err:
             elog(err, 'Cannot get key value from verified solutions')
 
@@ -114,7 +115,7 @@ class VerifiedSolutionService:
         return False
 
     """
-        Usage: analyse the defualt code for problem
+        Usage: analyse the default code for problem
         returns:
             array of tuples [(code, boolean describe if reach the end of test cases)]
     """
@@ -131,7 +132,7 @@ class VerifiedSolutionService:
             end = min(total_cases, end)
             # code generator, generate cases leaker
             cg = CodeGenerator(problem_id, l_type, total_cases)
-            func_name = cg.func_name
+            func_name = cg.get_function_names()[0]
             var = cg.generate_variable(offset=offset, end=end)
             func = cg.generate_function(boolean_value)
             # get the code that can pass all test cases, and merge case leaker into it
@@ -145,9 +146,11 @@ class VerifiedSolutionService:
             # find class keyword and insert my case leaker
             for i in range(len(v_code_arr)):
                 if 'class' in v_code_arr[i]:
-                    class_pos = i
+                    # class_pos = i
+                    line = v_code_arr[i] 
+                    pos = line.find('{') + 1
+                    v_code_arr[i] = line[:pos] + '\n'.join([var, func]) + line[pos:]
                     break
-            v_code_arr[class_pos] = '\n'.join([v_code_arr[class_pos], var, func])
             # join them back
             modified_code_result.append(('\n'.join(v_code_arr), (end == total_cases)))
         return modified_code_result
@@ -176,6 +179,6 @@ class VerifiedSolutionService:
         for problem_id in problem_ids:
             problem_id = str(problem_id)
             # only analyse cpp and java code
-            sp = SyntaxParser(problem_id, cls.JAVA)
+            sp = SyntaxParser(problem_id, JAVA)
             io_types.append((problem_id, sp.get_input_type(), sp.get_output_type(), sp.get_param_name(), sp.get_func_name()))
         return io_types

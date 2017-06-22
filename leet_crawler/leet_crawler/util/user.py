@@ -7,7 +7,7 @@ import json
 import re
 import time
 
-from util.common import elog, log
+from util.common import *
 from util.data_settings import *
 from util.questionsolutionservice import QuestionSolutionService
 from util.questionmeta import QuestionMeta
@@ -264,8 +264,10 @@ class User:
             "X-Requested-With": "XMLHttpRequest",
             "Connection": "keep-alive",
         }
-
-        res = json.loads(self.session.get(CHECK_URL.format(submission_id), headers=check_header).text)
+        json_str = self.session.get(CHECK_URL.format(submission_id), headers=check_header).text
+        res = JSONLoads(json_str)
+        if not res:
+            elog('', 'failed to check submission_id: {0} with response: {1}'.format(submission_id, json_str))
         return res
 
     def __get_csrf(self):

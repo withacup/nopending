@@ -2,18 +2,19 @@
 # @Author: Tianxiao Yang
 # @Date:   2017-06-05 13:36:10
 # @Last Modified by:   Tianxiao Yang
-# @Last Modified time: 2017-06-16 16:38:56
+# @Last Modified time: 2017-06-20 14:31:59
 
 from scrapy.cmdline import execute
 
-import sys, os, json
+import sys, os, json, re
 from util.questionsolutionservice import QuestionSolutionService as qs
 from util.questionmeta import QuestionMeta as qm
 from util.data_settings import *
 from util.verifiedsolutionservice import VerifiedSolutionService as vs
-from util.questioncontent import QuestionContent as qc
+from util.questioncontent import QuestionContent
 from tools.usermanager import UserManager
-from util.leet_login import User
+from util.user import User
+from util.common import *
 
 accounts = [
     ['txyang93@gmail.com', 'yangtianxiao'],
@@ -31,21 +32,53 @@ qm = qm()
 qm.load()
 from os import listdir
 # import os
-tough_guy = ['391', '575', '141', '142']
+tough_guy = ['391', '575', '141', '142', '284', '341']
 
 def get_not_modified():
     modified = listdir(TEST_CASES_PATH)
-    return list(filter(lambda _id: (_id + '.txt') not in modified, qm.get_free_problem()))
+    return list(filter(lambda _id: (_id + '.txt') not in modified and vs.get_verified_type(_id) == JAVA, qm.get_free_problem()))
+
+def solve_design_problem():
+    for problem_id in [208, 173, 304, 381, 225, 384, 211, 460, 146, 432, 307, 352, 295, 382, 303, 155, 398, 232, 355, 380,]:
+        qc = QuestionContent()
+        qc.load(problem_id, new=False)
+        print("----->>>> " + str(problem_id))
+        content = (qc.get_script(PYTHON))
+        content = re.sub('#.*?--newline--', '', content)
+        names = [m.group(1) for m in re.finditer('def (.*?)\(', content)]
+        for i in range(len(names)):
+            if names[i] == '__init__':
+                names[i] = 'className'
+        print(names)
+        # print(recover_newline_tab(content))
+        # print((content))
+        java_content = qc.get_script(JAVA)
+        match_obj = re.match('.*\/\*(.*?)\*\/', java_content)
+        if not match_obj:
+            print("description not found")
+            continue
+        print(recover_newline_tab(match_obj.group(1)))
+for _id in qm.get_free_problem():
+    if vs.get_verified_type(_id) == 'cpp':
+        print(_id)
+
+# solve_design_problem()
 
 # print(get_not_modified())
 # for code in vs.modify_solution(qm.get_free_problem()):
 
 # vs.print_types(qm.get_free_problem())
 # qm.load()
-um = UserManager(accounts=accounts)
-um.start_verify_modified_solution(list(filter(lambda _id: vs.get_verified_type(_id) == vs.JAVA and _id not in ['391', '575'], get_not_modified())))
+# qc = qc()
+# qc.load(623, new=False)
+# print(qc.get_content())
+# execute(['scrapy', 'crawl', 'solutions_spider'])
+# um = UserManager(accounts=accounts)
+# um.start_fetching_cases([386, 275, 222, 130, 240, 160,])
+# um.start_verify_solution(get_not_modified())
+# um.start_fetching_cases(get_not_modified())
+# um.start_verify_modified_solution(list(filter(lambda _id: vs.get_verified_type(_id) == vs.JAVA and _id not in ['391', '575'], get_not_modified())))
 # um.start_verify_modified_solution([594, 4, 452, 525, 84, 219, 135, 442, 575, 463, 391])
-# um.start_verify_modified_solution([493])
 # um.start_verify_solution(problem_ids=qm.get_free_problem(), priority=[vs.JAVA, vs.CPP, vs.PYTHON])
 
 # print(vs.get_verified_code(315))
@@ -81,7 +114,6 @@ um.start_verify_modified_solution(list(filter(lambda _id: vs.get_verified_type(_
 # print(len(qm.get_free_problem()))
 # vs.print_types(qm.get_free_problem())
 # print(vs.get_verified_code(31))
-# execute(['scrapy', 'crawl', 'solutions_spider'])
 
 
 

@@ -2,8 +2,7 @@
 # @Author: Tianxiao Yang
 # @Date:   2017-06-12 20:29:03
 # @Last Modified by:   Tianxiao Yang
-# @Last Modified time: 2017-06-12 20:30:10
-import re
+# @Last Modified time: 2017-06-19 14:46:35
 import html  # for decode html escaped string
 
 from util.common import *
@@ -47,12 +46,6 @@ class QuestionSolutionService:
     # store all problems and their corresponding solutions
     problem_table = {}
 
-    # lang_type | l_type
-    CPP = 'cpp'
-    JAVA = 'java'
-    PYTHON = 'python'
-    NAL = 'notalanguage'
-
     def __init__(self):
         pass
 
@@ -70,9 +63,9 @@ class QuestionSolutionService:
 
         # store three languages into the current post dict
         post = {'is_locked': False,
-                cls.JAVA: None,
-                cls.CPP: None,
-                cls.PYTHON: None,
+                JAVA: None,
+                CPP: None,
+                PYTHON: None,
                 'topic_title': topic_title}
 
         if cls.problem_table[problem_id]['qc'].is_locked:
@@ -86,7 +79,7 @@ class QuestionSolutionService:
                     lang_type = cls.__analyse_lang(code)
                     code = cls.__wrap_class(code, lang_type, problem_id)
                     # format python here
-                    if lang_type == QuestionSolutionService.PYTHON:
+                    if lang_type == PYTHON:
                         code = format_python(code)
                     post[lang_type] = code
 
@@ -102,50 +95,54 @@ class QuestionSolutionService:
     def save_all(cls):
         for problem_id, solution in cls.problem_table.items():
             solution['qc'] = problem_id + '.json'
-            with open(join(DATA_SOLUTION_PATH, problem_id + '.json'), 'w') as f:
-                f.write(json.dumps(solution, indent=4))
-        pass
+            content = JSONDumps(solution)
+            if not content:
+                print('', 'failed to dump solution content')
+            write_file(content, DATA_SOLUTION_PATH, problem_id + '.json')
 
     """
         return: 
-            A two-imensional array [ [ solution_code, l_type ], ... ]
+            A two-dimensional array [ [ solution_code, l_type ], ... ]
     """
     @staticmethod
-    def read_solution(problem_id, l_types):
+    def get_solution(problem_id, l_types):
         problem_id = str(problem_id)
         if type(l_types) is not list:
             raise TypeError("l_types should be a list")
 
         solutions = []
-        with open(join(DATA_SOLUTION_PATH, problem_id + '.json'), 'r') as f:
-            posts = json.loads(f.read())['posts']
-            for l_type in l_types:
-                solutions.extend([[recover_newline_tab(post[l_type]), l_type] for post in posts if l_type in post and post[l_type]])
+        solution_text = read_file(DATA_SOLUTION_PATH, problem_id + '.json')
+        solution_dict = JSONLoads(solution_text)
+        if not solution_dict:
+            elog('', 'failed  to load solution_text on problem: {0}'.format(problem_id))
+        posts = solution_dict['posts']
+        for l_type in l_types:
+            solutions.extend([[recover_newline_tab(post[l_type]), l_type] for post in posts if l_type in post and post[l_type]])
         return solutions
 
     # method below should not be used by outside
     @classmethod
     def __analyse_lang(cls, code):
         if re.match('.*public *?[^:].*', code, flags=re.DOTALL):
-            return cls.JAVA
+            return JAVA
         # spilt the code into word, in case their are something like lengthOfLongestSubstring
         # and remove all empty strings
         code = list(filter(lambda s: s and s != "newline" and s != 'tab', re.split('[^a-zA-Z]', code)))
         if 'def' in code and 'self' in code:
-            return cls.PYTHON
+            return PYTHON
         if 'vector' in code or 'unordered_map' in code or 'string' in code:
-            return cls.CPP
+            return CPP
         if 'ArrayList' in code or 'HashMap' in code or 'String' in code:
-            return cls.JAVA
-        return cls.CPP
+            return JAVA
+        return CPP
 
     @classmethod
     def __verify_code(cls, code, problem_id):
 
         qc = cls.problem_table[problem_id]['qc']
 
-        default_python = qc.get_script(cls.PYTHON)
-        default_cpp = qc.get_script(cls.CPP)
+        default_python = qc.get_script(PYTHON)
+        default_cpp = qc.get_script(CPP)
         # extract function name for this language
         func_name_default = cls.__extract_func_name(default_python)
         # remove comments and spaces in cpp and java
@@ -191,18 +188,17 @@ class QuestionSolutionService:
 
         qc = cls.problem_table[problem_id]['qc']
 
-        python_script = qc.get_script(cls.PYTHON)
+        python_script = qc.get_script(PYTHON)
 
         class_default_name = cls.__extract_class_name(python_script)
         try:
             if 'class' in code:
                 return code
-            if l_type == cls.CPP:  # need to indent code
+            if l_type == CPP:  # need to indent code
                 return "class " + class_default_name + " {" + NEW_LINE + "public:" + NEW_LINE + "    " + code.replace(NEW_LINE, NEW_LINE + "    ") + NEW_LINE + "};"
-            if l_type == cls.JAVA:
+            if l_type == JAVA:
                 return "public class " + class_default_name + " {" + NEW_LINE + "    " + code.replace(NEW_LINE, NEW_LINE + "    ") +  NEW_LINE + "}"
             # python need to be indented corrently, so I used format_python here
             return "class " + class_default_name + " :" + NEW_LINE + "    " + code.replace(NEW_LINE, NEW_LINE + "    ")
         except TypeError as err:
             elog(err, "Fuck")
-            pass      

@@ -2,10 +2,10 @@
 # @Author: Tianxiao Yang
 # @Date:   2017-06-12 20:28:21
 # @Last Modified by:   Tianxiao Yang
-# @Last Modified time: 2017-06-13 21:32:10
+# @Last Modified time: 2017-06-19 15:54:05
 from util.common import *
 """
-    QuestionMeta manages questoins_meta file
+    QuestionMeta manages questions_meta file
 """
 
 
@@ -26,13 +26,9 @@ class QuestionMeta:
     def load(self):
         QuestionMeta.counter += 1
 
-        try:
-            with open(DATA_META_PATH, 'r') as meta:
-                self.meta_dict = json.loads(meta.read())
-        except IOError as err:
-            elog(err, "load question meta failed")
-        except json.JSONDecodeError as err:
-            elog(err, "decode question meta failed")
+        self.meta_dict = JSONLoads(read_file(DATA_META_PATH, QUESTION_META_FILE))
+        if not self.meta_dict:
+            elog("", "failed to decode question meta json file")
 
         for problem_id, meta in self.meta_dict.items():
             if meta['paid_only']:
@@ -64,9 +60,7 @@ class QuestionMeta:
         if QuestionMeta.counter > 1:
             elog('Duplicate saving Error', 'Question meta is trying to save when other qm object have not been saved')
         QuestionMeta.counter -= 1
-
-        try:
-            with open(DATA_META_PATH, 'w') as meta:
-                meta.write(json.dumps(self.meta_dict, indent=4))
-        except IOError as err:
-            elog(err, "save question meta failed")
+        content = JSONDumps(self.meta_dict)
+        if not content:
+            elog("", "failed to dump meta dict to json file")
+        write_file(content, DATA_META_PATH, QUESTION_META_FILE)
