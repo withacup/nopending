@@ -12,7 +12,7 @@
 
 * 其他的一些服务性质的功能，比如和用户已经提交过的leetcode代码同步，还有从本地直接向lc提交代码并取得返回结果。
 
-##APPROACH
+## APPROACH
 
 普遍情况来说，lc每次都会生成一个Solution的instance，然后调用它的算法入口，输入case，判断输出。
 
