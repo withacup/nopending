@@ -1,0 +1,18 @@
+---CONTENT_BEGIN---
+
+You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones.
+
+
+
+Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap.
+
+
+
+For example, if there are 4 stones in the heap, then you will never win the game: no matter 1, 2, or 3 stones you remove, the last stone will always be removed by your friend.
+
+
+Credits:Special thanks to @jianchao.li.fighter for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    bool canWinNim(int n) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public boolean canWinNim(int n) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def canWinNim(self, n):--newline--        '''--newline--        :type n: int--newline--        :rtype: bool--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "bool canWinNim(int n) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public bool CanWinNim(int n) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} n--newline-- * @return {boolean}--newline-- */--newline--var canWinNim = function(n) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} n--newline--# @return {Boolean}--newline--def can_win_nim(n)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func canWinNim(_ n: Int) -> Bool {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func canWinNim(n int) bool {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

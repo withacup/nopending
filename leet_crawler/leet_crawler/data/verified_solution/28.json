@@ -1,0 +1,6 @@
+{
+    "solution_code": "public class Solution {--newline--    public int strStr(String haystack, String needle) {--newline--        int l1 = haystack.length(), l2 = needle.length();--newline--        if (l1 < l2) {--newline--            return -1;--newline--        } else if (l2 == 0) {--newline--            return 0;--newline--        }--newline--        int threshold = l1 - l2;--newline--        for (int i = 0; i <= threshold; ++i) {--newline--            if (haystack.substring(i,i+l2).equals(needle)) {--newline--                return i;--newline--            }--newline--        }--newline--        return -1;--newline--    }--newline--}",
+    "l_type": "java",
+    "modified_code": null,
+    "total_cases": 74
+}

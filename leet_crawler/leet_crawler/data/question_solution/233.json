@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int countDigitOne(int n) {--newline--        int ones = 0, m = 1, r = 1;--newline--        while (n > 0) {--newline--            ones += (n + 8) / 10 * m + (n % 10 == 1 ? r : 0);--newline--            r += n % 10 * m;--newline--            m *= 10;--newline--            n /= 10;--newline--        }--newline--        return ones;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int countDigitOne(int n) {--newline--        int ones = 0, m = 1, r = 1;--newline--        while (n > 0) {--newline--            ones += (n + 8) / 10 * m + (n % 10 == 1) * r;--newline--            r += n % 10 * m;--newline--            m *= 10;--newline--            n /= 10;--newline--        }--newline--        return ones;--newline--    }--newline--}",
+            "python": "class Solution :--newline----tab--    def countDigitOne(self, n):--newline----tab--        ones = 0--newline----tab--        m = r = 1--newline----tab--        while n > 0:--newline----tab--            ones += (n + 8) / 10 * m + (n % 10 == 1) * r--newline----tab--            r += n % 10 * m--newline----tab--            m *= 10--newline----tab--            n /= 10--newline----tab--        return ones--newline----tab--    ",
+            "topic_title": "4+ lines, O(log n), C++&#x2F;Java&#x2F;Python"
+        },
+        {
+            "java": "public class Solution {--newline--    public int countDigitOne(int n) {--newline--      int count = 0;--newline--        --newline--      for (long k = 1; k <= n; k *= 10) {--newline--        long r = n / k, m = n % k;--newline--        // sum up the count of ones on every place k--newline--        count += (r + 8) / 10 * k + (r % 10 == 1 ? m + 1 : 0);--newline--      }--newline--        --newline--      return count;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "AC short Java solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int countDigitOne(int n) {--newline--    --newline--        if (n <= 0) return 0;--newline--        int q = n, x = 1, ans = 0;--newline--        do {--newline--            int digit = q % 10;--newline--            q /= 10;--newline--            ans += q * x;--newline--            if (digit == 1) ans += n % x + 1;--newline--            if (digit >  1) ans += x;--newline--            x *= 10;--newline--        } while (q > 0);--newline--        return ans;--newline--    --newline--    }--newline--    --newline--    // 40 / 40 test cases passed.--newline--    // Status: Accepted--newline--    // Runtime: 0 ms--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def countDigitOne(self, n):--newline----tab--        if n <= 0:--newline----tab--            return 0--newline----tab--        q, x, ans = n, 1, 0--newline----tab--        while q > 0:--newline----tab--            digit = q % 10--newline----tab--            q /= 10--newline----tab--            ans += q * x--newline----tab--            if digit == 1:--newline----tab--                ans += n % x + 1--newline----tab--            elif digit > 1:--newline----tab--                ans += x--newline----tab--            x *= 10--newline----tab--        return ans--newline----tab--    --newline----tab--    # 40 / 40 test cases passed.--newline----tab--    # Status: Accepted--newline----tab--    # Runtime: 32 ms--newline----tab--    # 97.59%",
+            "topic_title": "Java&#x2F;Python one pass solution easy to understand"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int countDigitOne(int n) {--newline--            long long int res(0);--newline--            int highn(n), lowc(1), lown(0);--newline--            while(highn > 0){--newline--                int curn = highn % 10;--newline--                highn = highn / 10;--newline--                if(1 == curn){--newline--                    //higher: 0~(highn-1);  lower:  0 ~ (lowc-1)--newline--                    res += highn * lowc;--newline--                    //higher: highn ~ highn;     lower:0~lown--newline--                    res += lown + 1;--newline--                }else if(0 == curn){  --newline--                    //curn < 1--newline--                   //higher: 0~(highn-1);  lower:  0 ~ (lowc-1)--newline--                    res += highn * lowc;--newline--                }else{              --newline--                    //curn > 1--newline--                    res += (highn + 1) * lowc;--newline--                }--newline--                //update lown and lowc--newline--                lown = curn * lowc + lown;--newline--                lowc = lowc * 10;--newline--            }--newline--            return res;--newline--        }--newline--}",
+            "python": null,
+            "topic_title": "0ms o(lgn) accepted c++ solution using counting principle with explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int countDigitOne(int n) {--newline--        if(n<1) return 0;--newline--        if(n>=1 && n<10) return 1;--newline--        // x: first digit--newline--        int y=1, x=n;--newline--        while(!(x<10)){--newline--            x/=10;--newline--            y*=10;--newline--        }--newline--        if(x==1)--newline--            return n-y+1+countDigitOne(y-1)+countDigitOne(n%y);--newline--        else--newline--            return y+x*countDigitOne(y-1)+countDigitOne(n%y);--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "0 ms recursive solution"
+        }
+    ],
+    "qc": "233.json"
+}

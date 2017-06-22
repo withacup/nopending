@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my O(log(min(m,n)) solution with explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {--newline--        int N1 = nums1.size();--newline--        int N2 = nums2.size();--newline--        if (N1 < N2) return findMedianSortedArrays(nums2, nums1);--tab--// Make sure A2 is the shorter one.--newline--        --newline--        if (N2 == 0) return ((double)nums1[(N1-1)/2] + (double)nums1[N1/2])/2;  // If A2 is empty--newline--        --newline--        int lo = 0, hi = N2 * 2;--newline--        while (lo <= hi) {--newline--            int mid2 = (lo + hi) / 2;   // Try Cut 2 --newline--            int mid1 = N1 + N2 - mid2;  // Calculate Cut 1 accordingly--newline--            --newline--            double L1 = (mid1 == 0) ? INT_MIN : nums1[(mid1-1)/2];--tab--// Get L1, R1, L2, R2 respectively--newline--            double L2 = (mid2 == 0) ? INT_MIN : nums2[(mid2-1)/2];--newline--            double R1 = (mid1 == N1 * 2) ? INT_MAX : nums1[(mid1)/2];--newline--            double R2 = (mid2 == N2 * 2) ? INT_MAX : nums2[(mid2)/2];--newline--            --newline--            if (L1 > R2) lo = mid2 + 1;--tab----tab--// A1's lower half is too big; need to move C1 left (C2 right)--newline--            else if (L2 > R1) hi = mid2 - 1;--tab--// A2's lower half too big; need to move C2 left.--newline--            else return (max(L1,L2) + min(R1, R2)) / 2;--tab--// Otherwise, that's the right cut.--newline--        }--newline--        return -1;--newline--    } --newline--    --newline--}",
+            "python": null,
+            "topic_title": "Very concise O(log(min(M,N))) iterative solution with detailed explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int getkth(int s[], int m, int l[], int n, int k){--newline--        // let m <= n--newline--        if (m > n) --newline--            return getkth(l, n, s, m, k);--newline--        if (m == 0)--newline--            return l[k - 1];--newline--        if (k == 1)--newline--            return min(s[0], l[0]);--newline----newline--        int i = min(m, k / 2), j = min(n, k / 2);--newline--        if (s[i - 1] > l[j - 1])--newline--            return getkth(s, m, l + j, n - j, k - j);--newline--        else--newline--            return getkth(s + i, m - i, l, n, k - i);--newline--        return 0;--newline--    }--newline--    --newline--    double findMedianSortedArrays(int A[], int m, int B[], int n) {--newline--        int l = (m + n + 1) >> 1;--newline--        int r = (m + n + 2) >> 1;--newline--        return (getkth(A, m ,B, n, l) + getkth(A, m, B, n, r)) / 2.0;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Share my simple O(log(m+n)) solution for your reference"
+        },
+        {
+            "java": "public class Solution {--newline--        public double findMedianSortedArrays(int A[], int B[]) {--newline--        int n = A.length;--newline--        int m = B.length;--newline--        // the following call is to make sure len(A) <= len(B).--newline--        // yes, it calls itself, but at most once, shouldn't be--newline--        // consider a recursive solution--newline--        if (n > m)--newline--            return findMedianSortedArrays(B, A);--newline--    --newline--        // now, do binary search--newline--        int k = (n + m - 1) / 2;--newline--        int l = 0, r = Math.min(k, n); // r is n, NOT n-1, this is important!!--newline--        while (l < r) {--newline--            int midA = (l + r) / 2;--newline--            int midB = k - midA;--newline--            if (A[midA] < B[midB])--newline--                l = midA + 1;--newline--            else--newline--                r = midA;--newline--        }--newline--        --newline--        // after binary search, we almost get the median because it must be between--newline--        // these 4 numbers: A[l-1], A[l], B[k-l], and B[k-l+1] --newline--    --newline--        // if (n+m) is odd, the median is the larger one between A[l-1] and B[k-l].--newline--        // and there are some corner cases we need to take care of.--newline--        int a = Math.max(l > 0 ? A[l - 1] : Integer.MIN_VALUE, k - l >= 0 ? B[k - l] : Integer.MIN_VALUE);--newline--        if (((n + m) & 1) == 1)--newline--            return (double) a;--newline--    --newline--        // if (n+m) is even, the median can be calculated by --newline--        //      median = (max(A[l-1], B[k-l]) + min(A[l], B[k-l+1]) / 2.0--newline--        // also, there are some corner cases to take care of.--newline--        int b = Math.min(l < n ? A[l] : Integer.MAX_VALUE, k - l + 1 < m ? B[k - l + 1] : Integer.MAX_VALUE);--newline--        return (a + b) / 2.0;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my iterative solution with O(log(min(n, m)))"
+        },
+        {
+            "java": "public class Solution {--newline--    public double findMedianSortedArrays(int[] A, int[] B) {--newline--    --tab--    int m = A.length, n = B.length;--newline--    --tab--    int l = (m + n + 1) / 2;--newline--    --tab--    int r = (m + n + 2) / 2;--newline--    --tab--    return (getkth(A, 0, B, 0, l) + getkth(A, 0, B, 0, r)) / 2.0;--newline--    --tab--}--newline--    --newline--    public double getkth(int[] A, int aStart, int[] B, int bStart, int k) {--newline--    --tab--if (aStart > A.length - 1) return B[bStart + k - 1];            --newline--    --tab--if (bStart > B.length - 1) return A[aStart + k - 1];                --newline--    --tab--if (k == 1) return Math.min(A[aStart], B[bStart]);--newline--    --tab----newline--    --tab--int aMid = Integer.MAX_VALUE, bMid = Integer.MAX_VALUE;--newline--    --tab--if (aStart + k/2 - 1 < A.length) aMid = A[aStart + k/2 - 1]; --newline--    --tab--if (bStart + k/2 - 1 < B.length) bMid = B[bStart + k/2 - 1];        --newline--    --tab----newline--    --tab--if (aMid < bMid) --newline--    --tab--    return getkth(A, aStart + k/2, B, bStart,       k - k/2);// Check: aRight + bLeft --newline--    --tab--else --newline--    --tab--    return getkth(A, aStart,       B, bStart + k/2, k - k/2);// Check: bRight + aLeft--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Concise JAVA solution based on Binary Search"
+        }
+    ],
+    "qc": "4.json"
+}

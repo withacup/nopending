@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--public String getPermutation(int n, int k) {--newline--    int pos = 0;--newline--    List<Integer> numbers = new ArrayList<>();--newline--    int[] factorial = new int[n+1];--newline--    StringBuilder sb = new StringBuilder();--newline--    --newline--    // create an array of factorial lookup--newline--    int sum = 1;--newline--    factorial[0] = 1;--newline--    for(int i=1; i<=n; i++){--newline--        sum *= i;--newline--        factorial[i] = sum;--newline--    }--newline--    // factorial[] = {1, 1, 2, 6, 24, ... n!}--newline--    --newline--    // create a list of numbers to get indices--newline--    for(int i=1; i<=n; i++){--newline--        numbers.add(i);--newline--    }--newline--    // numbers = {1, 2, 3, 4}--newline--    --newline--    k--;--newline--    --newline--    for(int i = 1; i <= n; i++){--newline--        int index = k/factorial[n-i];--newline--        sb.append(String.valueOf(numbers.get(index)));--newline--        numbers.remove(index);--newline--        k-=index*factorial[n-i];--newline--    }--newline--    --newline--    return String.valueOf(sb);--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "&quot;Explain-like-I&#x27;m-five&quot; Java Solution in O(n)"
+        },
+        {
+            "java": "public class Solution {--newline--    public String getPermutation(int n, int k) {--newline--            List<Integer> num = new LinkedList<Integer>();--newline--            for (int i = 1; i <= n; i++) num.add(i);--newline--            int[] fact = new int[n];  // factorial--newline--            fact[0] = 1;--newline--            for (int i = 1; i < n; i++) fact[i] = i*fact[i-1];--newline--            k = k-1;--newline--            StringBuilder sb = new StringBuilder();--newline--            for (int i = n; i > 0; i--){--newline--                int ind = k/fact[i-1];--newline--                k = k%fact[i-1];--newline--                sb.append(num.get(ind));--newline--                num.remove(ind);--newline--            }--newline--            return sb.toString();--newline--        }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "An iterative solution for reference"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string getPermutation(int n, int k) {--newline--        int i,j,f=1;--newline--        // left part of s is partially formed permutation, right part is the leftover chars.--newline--        string s(n,'0');--newline--        for(i=1;i<=n;i++){--newline--            f*=i;--newline--            s[i-1]+=i; // make s become 1234...n--newline--        }--newline--        for(i=0,k--;i<n;i++){--newline--            f/=n-i;--newline--            j=i+k/f; // calculate index of char to put at s[i]--newline--            char c=s[j];--newline--            // remove c by shifting to cover up (adjust the right part).--newline--            for(;j>i;j--)--newline--                s[j]=s[j-1];--newline--            k%=f;--newline--            s[i]=c;--newline--        }--newline--        return s;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Most concise C++ solution, minimal memory required"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string getPermutation(int n, int k) {--newline--        int pTable[10] = {1};--newline--        for(int i = 1; i <= 9; i++){--newline--            pTable[i] = i * pTable[i - 1];--newline--        }--newline--        string result;--newline--        vector<char> numSet;--newline--        numSet.push_back('1');--newline--        numSet.push_back('2');--newline--        numSet.push_back('3');--newline--        numSet.push_back('4');--newline--        numSet.push_back('5');--newline--        numSet.push_back('6');--newline--        numSet.push_back('7');--newline--        numSet.push_back('8');--newline--        numSet.push_back('9');--newline--        while(n > 0){--newline--            int temp = (k - 1) / pTable[n - 1];--newline--            result += numSet[temp];--newline--            numSet.erase(numSet.begin() + temp);--newline--            k = k - temp * pTable[n - 1];--newline--            n--;--newline--        }--newline--        return result;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Sharing my straightforward C++ solution with explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "import math--newline--class Solution:--newline----tab--    # @param {integer} n--newline----tab--    # @param {integer} k--newline----tab--    # @return {string}--newline----tab--    def getPermutation(self, n, k):--newline----tab--        numbers = range(1, n+1)--newline----tab--        permutation = ''--newline----tab--        k -= 1--newline----tab--        while n > 0:--newline----tab--            n -= 1--newline----tab--            # get the index of current digit--newline----tab--            index, k = divmod(k, math.factorial(n))--newline----tab--            permutation += str(numbers[index])--newline----tab--            # remove handled number--newline----tab--            numbers.remove(numbers[index])--newline----tab----newline----tab--        return permutation",
+            "topic_title": "Share my Python solution with detailed explanation"
+        }
+    ],
+    "qc": "60.json"
+}

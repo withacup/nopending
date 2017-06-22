@@ -1,0 +1,25 @@
+---CONTENT_BEGIN---
+
+Given a collection of integers that might contain duplicates, nums, return all possible subsets.
+
+Note: The solution set must not contain duplicate subsets.
+
+
+For example,
+If nums = [1,2,2], a solution is:
+
+
+
+[
+  [2],
+  [1],
+  [1,2,2],
+  [2,2],
+  [1,2],
+  []
+]
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<vector<int>> subsetsWithDup(vector<int>& nums) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public List<List<Integer>> subsetsWithDup(int[] nums) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def subsetsWithDup(self, nums):--newline--        '''--newline--        :type nums: List[int]--newline--        :rtype: List[List[int]]--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Return an array of arrays of size *returnSize.--newline-- * The sizes of the arrays are returned as *columnSizes array.--newline-- * Note: Both returned array and *columnSizes array must be malloced, assume caller calls free().--newline-- */--newline--int** subsetsWithDup(int* nums, int numsSize, int** columnSizes, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public IList<IList<int>> SubsetsWithDup(int[] nums) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} nums--newline-- * @return {number[][]}--newline-- */--newline--var subsetsWithDup = function(nums) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} nums--newline--# @return {Integer[][]}--newline--def subsets_with_dup(nums)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func subsetsWithDup(_ nums: [Int]) -> [[Int]] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func subsetsWithDup(nums []int) [][]int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

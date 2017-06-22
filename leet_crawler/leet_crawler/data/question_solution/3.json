@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--       public int lengthOfLongestSubstring(String s) {--newline--            if (s.length()==0) return 0;--newline--            HashMap<Character, Integer> map = new HashMap<Character, Integer>();--newline--            int max=0;--newline--            for (int i=0, j=0; i<s.length(); ++i){--newline--                if (map.containsKey(s.charAt(i))){--newline--                    j = Math.max(j,map.get(s.charAt(i))+1);--newline--                }--newline--                map.put(s.charAt(i),i);--newline--                max = Math.max(max,i-j+1);--newline--            }--newline--            return max;--newline--        }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "11-line simple Java solution, O(n) with explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int lengthOfLongestSubstring(string s) {--newline--            vector<int> dict(256, -1);--newline--            int maxLen = 0, start = -1;--newline--            for (int i = 0; i != s.length(); i++) {--newline--                if (dict[s[i]] > start)--newline--                    start = dict[s[i]];--newline--                dict[s[i]] = i;--newline--                maxLen = max(maxLen, i - start);--newline--            }--newline--            return maxLen;--newline--        }--newline--}",
+            "python": null,
+            "topic_title": "C++ code in 9 lines."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    /**--newline--     * Solution (DP, O(n)):--newline--     * --newline--     * Assume L[i] = s[m...i], denotes the longest substring without repeating--newline--     * characters that ends up at s[i], and we keep a hashmap for every--newline--     * characters between m ... i, while storing <character, index> in the--newline--     * hashmap.--newline--     * We know that each character will appear only once.--newline--     * Then to find s[i+1]:--newline--     * 1) if s[i+1] does not appear in hashmap--newline--     *    we can just add s[i+1] to hash map. and L[i+1] = s[m...i+1]--newline--     * 2) if s[i+1] exists in hashmap, and the hashmap value (the index) is k--newline--     *    let m = max(m, k), then L[i+1] = s[m...i+1], we also need to update--newline--     *    entry in hashmap to mark the latest occurency of s[i+1].--newline--     * --newline--     * Since we scan the string for only once, and the 'm' will also move from--newline--     * beginning to end for at most once. Overall complexity is O(n).--newline--     *--newline--     * If characters are all in ASCII, we could use array to mimic hashmap.--newline--     */--newline--    --newline--    int lengthOfLongestSubstring(string s) {--newline--        // for ASCII char sequence, use this as a hashmap--newline--        vector<int> charIndex(256, -1);--newline--        int longest = 0, m = 0;--newline--    --newline--        for (int i = 0; i < s.length(); i++) {--newline--            m = max(charIndex[s[i]] + 1, m);    // automatically takes care of -1 case--newline--            charIndex[s[i]] = i;--newline--            longest = max(longest, i - m + 1);--newline--        }--newline--    --newline--        return longest;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Shortest O(n) DP solution with explanations"
+        },
+        {
+            "java": "public class Solution {--newline--    public int lengthOfLongestSubstring(String s) {--newline--        int i = 0, j = 0, max = 0;--newline--        Set<Character> set = new HashSet<>();--newline--        --newline--        while (j < s.length()) {--newline--            if (!set.contains(s.charAt(j))) {--newline--                set.add(s.charAt(j++));--newline--                max = Math.max(max, set.size());--newline--            } else {--newline--                set.remove(s.charAt(i++));--newline--            }--newline--        }--newline--        --newline--        return max;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my Java solution using HashSet"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab--    # @return an integer--newline----tab--    def lengthOfLongestSubstring(self, s):--newline----tab--        start = maxLength = 0--newline----tab--        usedChar = {}--newline----tab--        --newline----tab--        for i in range(len(s)):--newline----tab--            if s[i] in usedChar and start <= usedChar[s[i]]:--newline----tab--                start = usedChar[s[i]] + 1--newline----tab--            else:--newline----tab--                maxLength = max(maxLength, i - start + 1)--newline----tab----newline----tab--            usedChar[s[i]] = i--newline----tab----newline----tab--        return maxLength",
+            "topic_title": "A Python solution - 85ms - O(n)"
+        }
+    ],
+    "qc": "3.json"
+}

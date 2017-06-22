@@ -1,0 +1,24 @@
+---CONTENT_BEGIN---
+
+    Given an integer array nums, return the number of range sums that lie in [lower, upper] inclusive.
+
+    Range sum S(i, j) is defined as the sum of the elements in nums between indices i and 
+    j (i â¤ j), inclusive.
+
+
+
+    Note:
+    A naive algorithm of O(n2) is trivial. You MUST do better than that.
+
+
+    Example:
+    Given nums = [-2, 5, -1], lower = -2, upper = 2,
+    Return 3.
+    The three ranges are : [0, 0], [2, 2], [0, 2] and their respective sums are: -2, -1, 2.
+
+
+Credits:Special thanks to @dietpepsi for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int countRangeSum(vector<int>& nums, int lower, int upper) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int countRangeSum(int[] nums, int lower, int upper) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def countRangeSum(self, nums, lower, upper):--newline--        '''--newline--        :type nums: List[int]--newline--        :type lower: int--newline--        :type upper: int--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int countRangeSum(int* nums, int numsSize, int lower, int upper) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int CountRangeSum(int[] nums, int lower, int upper) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} nums--newline-- * @param {number} lower--newline-- * @param {number} upper--newline-- * @return {number}--newline-- */--newline--var countRangeSum = function(nums, lower, upper) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} nums--newline--# @param {Integer} lower--newline--# @param {Integer} upper--newline--# @return {Integer}--newline--def count_range_sum(nums, lower, upper)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func countRangeSum(_ nums: [Int], _ lower: Int, _ upper: Int) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func countRangeSum(nums []int, lower int, upper int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

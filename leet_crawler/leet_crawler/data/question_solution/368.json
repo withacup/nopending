@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> largestDivisibleSubset(vector<int>& nums) {--newline--        sort(nums.begin(), nums.end());--newline--        --newline--        vector<int> T(nums.size(), 0);--newline--        vector<int> parent(nums.size(), 0);--newline--        --newline--        int m = 0;--newline--        int mi = 0;--newline--        --newline--        // for(int i = 0; i < nums.size(); ++i) // if extending by larger elements--newline--        for(int i = nums.size() - 1; i >= 0; --i) // iterate from end to start since it's easier to track the answer index--newline--        {--newline--            // for(int j = i; j >=0; --j) // if extending by larger elements--newline--            for(int j = i; j < nums.size(); ++j)--newline--            {--newline--                // if(nums[i] % nums[j] == 0 && T[i] < 1 + T[j]) // if extending by larger elements--newline--                // check every a[j] that is larger than a[i]--newline--                if(nums[j] % nums[i] == 0 && T[i] < 1 + T[j])--newline--                {--newline--                    // if a[j] mod a[i] == 0, it means T[j] can form a larger subset by putting a[i] into T[j]--newline--                    T[i] = 1 + T[j];--newline--                    parent[i] = j;--newline--                    --newline--                    if(T[i] > m)--newline--                    {--newline--                        m = T[i];--newline--                        mi = i;--newline--                    }--newline--                }--newline--            }--newline--        }--newline--        --newline--        vector<int> ret;--newline--        --newline--        for(int i = 0; i < m; ++i)--newline--        {--newline--            ret.push_back(nums[mi]);--newline--            mi = parent[mi];--newline--        }--newline----newline--        // sort(ret.begin(), ret.end()); // if we go by extending larger ends, the largest \"answer\" element will come first since the candidate element we observe will become larger and larger as i increases in the outermost \"for\" loop above.--newline--       // alternatively, we can sort nums in decreasing order obviously. --newline--        --newline--        return ret;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "C++ Solution with Explanations"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def largestDivisibleSubset(self, nums):--newline----tab--        S = {-1: set()}--newline----tab--        for x in sorted(nums):--newline----tab--            S[x] = max((S[d] for d in S if x % d == 0), key=len) | {x}--newline----tab--        return list(max(S.values(), key=len))--newline----tab--    ",
+            "topic_title": "4 lines in Python"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<Integer> largestDivisibleSubset(int[] nums) {--newline--        int n = nums.length;--newline--        int[] count = new int[n];--newline--        int[] pre = new int[n];--newline--        Arrays.sort(nums);--newline--        int max = 0, index = -1;--newline--        for (int i = 0; i < n; i++) {--newline--            count[i] = 1;--newline--            pre[i] = -1;--newline--            for (int j = i - 1; j >= 0; j--) {--newline--                if (nums[i] % nums[j] == 0) {--newline--                    if (1 + count[j] > count[i]) {--newline--                        count[i] = count[j] + 1;--newline--                        pre[i] = j;--newline--                    }--newline--                }--newline--            }--newline--            if (count[i] > max) {--newline--                max = count[i];--newline--                index = i;--newline--            }--newline--        }--newline--        List<Integer> res = new ArrayList<>();--newline--        while (index != -1) {--newline--            res.add(nums[index]);--newline--            index = pre[index];--newline--        }--newline--        return res;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Classic DP solution similar to LIS, O(n^2)"
+        },
+        {
+            "java": "public class Solution {--newline--    public static List<Integer> largestDivisibleSubset(int[] nums) {--newline--        List<Integer> res = new ArrayList<Integer>();--newline--        if (nums == null || nums.length == 0) return res;--newline--        Arrays.sort(nums);--newline--        int[] dp = new int[nums.length];--newline--        dp[0] = 1;--newline--    --newline--        //for each element in nums, find the length of largest subset it has.--newline--        for (int i = 1; i < nums.length; i++){--newline--            for (int j = i-1; j >= 0; j--){--newline--                if (nums[i] % nums[j] == 0){--newline--                    dp[i] = Math.max(dp[i],dp[j] + 1);--newline--                }--newline--            }--newline--        }--newline--    --newline--        //pick the index of the largest element in dp.--newline--        int maxIndex = 0;--newline--        for (int i = 1; i < nums.length; i++){--newline--            maxIndex = dp[i] > dp[maxIndex] ?  i :  maxIndex;--newline--        }--newline--    --newline--        //from nums[maxIndex] to 0, add every element belongs to the largest subset.--newline--        int temp = nums[maxIndex];--newline--        int curDp = dp[maxIndex];--newline--        for (int i = maxIndex; i >= 0; i--){--newline--            if (temp % nums[i] == 0 && dp[i] == curDp){--newline--                res.add(nums[i]);--newline--                temp = nums[i];--newline--                curDp--;--newline--            }--newline--        }--newline--        return res;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy understood Java DP solution in 28ms with O(n^2) time"
+        },
+        {
+            "java": "public class Solution {--newline--    public int[] largestDivisibleSubset(int[] nums) {--newline--        if(nums.length < 2)--newline--            return nums;--newline--        else{--newline--            Arrays.sort(nums);--newline--            int[] parent = new int[nums.length];--newline--            int[] count = new int[nums.length];--newline--            int max = 0, maxind = -1;--newline--            for(int i = nums.length - 1; i >= 0; i--){--newline--                for(int j = i; j < nums.length; j++){--newline--                    if(nums[j] % nums[i] == 0 && count[i] < 1 + count[j] ){--newline--                        count[i] = 1 + count[j];--newline--                        parent[i] = j;--newline--                        if(count[i] > max){--newline--                            max = count[i];--newline--                            maxind = i;--newline--                        }--newline--                    }--newline--                }--newline--            }--newline--            int[] res = new int[max];--newline--            for(int i = 0; i < max; i++){--newline--                res[i] = nums[maxind];--newline--                maxind = parent[maxind];--newline--            }--newline--            return res;--newline--        }--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution in 32ms O(N^2) time, O(N) space"
+        }
+    ],
+    "qc": "368.json"
+}

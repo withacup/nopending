@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public void nextPermutation(int[] num) {--newline--        int n=num.length;--newline--        if(n<2)--newline--            return;--newline--        int index=n-1;        --newline--        while(index>0){--newline--            if(num[index-1]<num[index])--newline--                break;--newline--            index--;--newline--        }--newline--        if(index==0){--newline--            reverseSort(num,0,n-1);--newline--            return;--newline--        }--newline--        else{--newline--            int val=num[index-1];--newline--            int j=n-1;--newline--            while(j>=index){--newline--                if(num[j]>val)--newline--                    break;--newline--                j--;--newline--            }--newline--            swap(num,j,index-1);--newline--            reverseSort(num,index,n-1);--newline--            return;--newline--        }--newline--    }--newline--    --newline--    public void swap(int[] num, int i, int j){--newline--        int temp=0;--newline--        temp=num[i];--newline--        num[i]=num[j];--newline--        num[j]=temp;--newline--    }--newline--    --newline--    public void reverseSort(int[] num, int start, int end){   --newline--        if(start>end)--newline--            return;--newline--        for(int i=start;i<=(end+start)/2;i++)--newline--            swap(num,i,start+end-i);--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my O(n) time solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--    void nextPermutation(vector<int>& nums) {--newline--    --tab--int k = -1;--newline--    --tab--for (int i = nums.size() - 2; i >= 0; i--) {--newline--    --tab----tab--if (nums[i] < nums[i + 1]) {--newline--    --tab----tab----tab--k = i;--newline--    --tab----tab----tab--break;--newline--    --tab----tab--}--newline--    --tab--} --newline--    --tab--if (k == -1) {--newline--    --tab--    reverse(nums.begin(), nums.end());--newline--    --tab--    return;--newline--    --tab--}--newline--    --tab--int l = -1;--newline--    --tab--for (int i = nums.size() - 1; i > k; i--) {--newline--    --tab----tab--if (nums[i] > nums[k]) {--newline--    --tab----tab----tab--l = i;--newline--    --tab----tab----tab--break;--newline--    --tab----tab--} --newline--    --tab--} --newline--    --tab--swap(nums[k], nums[l]);--newline--    --tab--reverse(nums.begin() + k + 1, nums.end()); --newline--    }--newline--}; --newline--",
+            "python": null,
+            "topic_title": "A simple algorithm from Wikipedia with C++ implementation (can be used in Permutations and Permutations II)"
+        },
+        {
+            "java": "public class Solution {--newline--    public void nextPermutation(int[] nums) {--newline--      if(nums.length<=1){--newline--          return;--newline--      }--newline--      --newline--      int i= nums.length-1;--newline--      --newline--      for(;i>=1;i--){--newline--         --newline--         if(nums[i]>nums[i-1]){ //find first number which is smaller than it's after number--newline--             break;--newline--         }--newline--      }--newline--      --newline--      if(i!=0){--newline--          swap(nums,i-1); //if the number exist,which means that the nums not like{5,4,3,2,1}--newline--      }--newline--      --newline--      reverse(nums,i);    --newline--    }--newline--    --newline--    private void swap(int[] a,int i){--newline--        for(int j = a.length-1;j>i;j--){--newline--            if(a[j]>a[i]){--newline--                int t = a[j];--newline--                a[j] = a[i];--newline--                a[i] = t;--newline--                break;--newline--            }--newline--        }--newline--    }--newline--    --newline--    private void reverse(int[] a,int i){//reverse the number after the number we have found--newline--        int first = i;--newline--        int last = a.length-1;--newline--        while(first<last){--newline--            int t = a[first];--newline--            a[first] = a[last];--newline--            a[last] = t;--newline--            first ++;--newline--            last --;--newline--        }--newline--    }--newline--    --newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Sharing my clean and easy-understand java code with explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    void nextPermutation(vector<int> &num) --newline--    {--newline--        if (num.empty()) return;--newline--        --newline--        // in reverse order, find the first number which is in increasing trend (we call it violated number here)--newline--        int i;--newline--        for (i = num.size()-2; i >= 0; --i)--newline--        {--newline--            if (num[i] < num[i+1]) break;--newline--        }--newline--        --newline--        // reverse all the numbers after violated number--newline--        reverse(begin(num)+i+1, end(num));--newline--        // if violated number not found, because we have reversed the whole array, then we are done!--newline--        if (i == -1) return;--newline--        // else binary search find the first number larger than the violated number--newline--        auto itr = upper_bound(begin(num)+i+1, end(num), num[i]);--newline--        // swap them, done!--newline--        swap(num[i], *itr);--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "9 Lines of C++ code with Comments"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    void nextPermutation(vector<int>& nums) {--newline--        int i = nums.size() - 1, k = i, tmp;--newline--        while (i > 0 && nums[i-1] >= nums[i])--newline--            i--;--newline--        for (int j=i; j<k; j++, k--)--newline--            tmp = nums[j], nums[j] = nums[k], nums[k] = tmp;--newline--        if (i > 0) {--newline--            k = i--;--newline--            while (nums[k] <= nums[i])--newline--                k++;--newline--            tmp = nums[i], nums[i] = nums[k], nums[k] = tmp;--newline--        }--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "1, 4, 11 lines C++"
+        }
+    ],
+    "qc": "31.json"
+}

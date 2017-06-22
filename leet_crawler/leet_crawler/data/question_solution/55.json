@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool canJump(int A[], int n) {--newline--        int i = 0;--newline--        for (int reach = 0; i < n && i <= reach; ++i)--newline--            reach = max(i + A[i], reach);--newline--        return i == n;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Linear and simple solution in C++"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool canJump(int A[], int n) {--newline--        int last=n-1,i,j;--newline--        for(i=n-2;i>=0;i--){--newline--            if(i+A[i]>=last)last=i;--newline--        }--newline--        return last<=0;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Simplest O(N) solution with constant space"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean canJump(int[] A) {--newline--        int max = 0;--newline--        for(int i=0;i<A.length;i++){--newline--            if(i>max) {return false;}--newline--            max = Math.max(A[i]+i,max);--newline--        }--newline--        return true;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution easy to understand"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean canJump(int[] nums) {--newline--        int reachable = 0;--newline--        for (int i=0; i<nums.length; ++i) {--newline--            if (i > reachable) return false;--newline--            reachable = Math.max(reachable, i + nums[i]);--newline--        }--newline--        return true;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "6 line java solution in O(n)"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean canJump(int[] nums) {--newline--       if(nums.length < 2) return true;--newline--       --newline--       for(int curr = nums.length-2; curr>=0;curr--){--newline--           if(nums[curr] == 0){--newline--               int neededJumps = 1;--newline--               while(neededJumps > nums[curr]){--newline--                   neededJumps++;--newline--                   curr--;--newline--                   if(curr < 0) return false;--newline--               }--newline--           }--newline--       }--newline--       return true;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 98% Percentile Solution"
+        }
+    ],
+    "qc": "55.json"
+}

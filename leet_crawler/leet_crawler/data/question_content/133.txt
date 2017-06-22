@@ -1,0 +1,47 @@
+---CONTENT_BEGIN---
+
+Clone an undirected graph. Each node in the graph contains a label and a list of its neighbors.
+
+
+
+
+OJ's undirected graph serialization:
+
+
+Nodes are labeled uniquely.
+
+
+We use # as a separator for each node, and , as a separator for node label and each neighbor of the node.
+
+
+
+
+As an example, consider the serialized graph {0,1,2#1,2#2,2}.
+
+
+
+The graph has a total of three nodes, and therefore contains three parts as separated by #.
+
+First node is labeled as 0. Connect node 0 to both nodes 1 and 2.
+Second node is labeled as 1. Connect node 1 to node 2.
+Third node is labeled as 2. Connect node 2 to node 2 (itself), thus forming a self-cycle.
+
+
+
+
+Visually, the graph looks like the following:
+
+       1
+      / \
+     /   \
+    0 --- 2
+         / \
+         \_/
+
+
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "/**--newline-- * Definition for undirected graph.--newline-- * struct UndirectedGraphNode {--newline-- *     int label;--newline-- *     vector<UndirectedGraphNode *> neighbors;--newline-- *     UndirectedGraphNode(int x) : label(x) {};--newline-- * };--newline-- */--newline--class Solution {--newline--public:--newline--    UndirectedGraphNode *cloneGraph(UndirectedGraphNode *node) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "/**--newline-- * Definition for undirected graph.--newline-- * class UndirectedGraphNode {--newline-- *     int label;--newline-- *     List<UndirectedGraphNode> neighbors;--newline-- *     UndirectedGraphNode(int x) { label = x; neighbors = new ArrayList<UndirectedGraphNode>(); }--newline-- * };--newline-- */--newline--public class Solution {--newline--    public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "# Definition for a undirected graph node--newline--# class UndirectedGraphNode:--newline--#     def __init__(self, x):--newline--#         self.label = x--newline--#         self.neighbors = []--newline----newline--class Solution:--newline--    # @param node, a undirected graph node--newline--    # @return a undirected graph node--newline--    def cloneGraph(self, node):--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * #define NEIGHBORS_MAX_SIZE 100--newline-- * struct UndirectedGraphNode {--newline-- *     int label;--newline-- *     struct UndirectedGraphNode *neighbors[NEIGHBORS_MAX_SIZE];--newline-- *     int neighborsCount;--newline-- * };--newline-- */--newline--struct UndirectedGraphNode *cloneGraph(struct UndirectedGraphNode *graph) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "/**--newline-- * Definition for undirected graph.--newline-- * public class UndirectedGraphNode {--newline-- *     public int label;--newline-- *     public IList<UndirectedGraphNode> neighbors;--newline-- *     public UndirectedGraphNode(int x) { label = x; neighbors = new List<UndirectedGraphNode>(); }--newline-- * };--newline-- */--newline--public class Solution {--newline--    public UndirectedGraphNode CloneGraph(UndirectedGraphNode node) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * Definition for undirected graph.--newline-- * function UndirectedGraphNode(label) {--newline-- *     this.label = label;--newline-- *     this.neighbors = [];   // Array of UndirectedGraphNode--newline-- * }--newline-- */--newline----newline--/**--newline-- * @param {UndirectedGraphNode} graph--newline-- * @return {UndirectedGraphNode}--newline-- */--newline--var cloneGraph = function(graph) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}]
+---SCRIPT_END---

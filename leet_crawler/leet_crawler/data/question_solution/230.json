@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--      public int kthSmallest(TreeNode root, int k) {--newline--            Stack<TreeNode> st = new Stack<>();--newline--            --newline--            while (root != null) {--newline--                st.push(root);--newline--                root = root.left;--newline--            }--newline--                --newline--            while (k != 0) {--newline--                TreeNode n = st.pop();--newline--                k--;--newline--                if (k == 0) return n.val;--newline--                TreeNode right = n.right;--newline--                while (right != null) {--newline--                    st.push(right);--newline--                    right = right.left;--newline--                }--newline--            }--newline--            --newline--            return -1; // never hit if k is valid--newline--      }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def kthSmallest(self, root, k):--newline----tab--        \"\"\"--newline----tab--        :type root: TreeNode--newline----tab--        :type k: int--newline----tab--        :rtype: int--newline----tab--        \"\"\"--newline----tab--        count = []--newline----tab--        self.helper(root, count)--newline----tab--        return count[k-1]--newline----tab--        --newline----tab--    def helper(self, node, count):--newline----tab--        if not node:--newline----tab--            return--newline----tab--        --newline----tab--        self.helper(node.left, count)--newline----tab--        count.append(node.val)--newline----tab--        self.helper(node.right, count)--newline----tab--",
+            "topic_title": "3 ways implemented in JAVA (Python): Binary Search, in-order iterative &amp; recursive"
+        },
+        {
+            "java": "   public class Solution {--newline--        public int kthSmallest(TreeNode root, int k) {--newline--            TreeNodeWithCount rootWithCount = buildTreeWithCount(root);--newline--            return kthSmallest(rootWithCount, k);--newline--        }--newline--        --newline--        private TreeNodeWithCount buildTreeWithCount(TreeNode root) {--newline--            if (root == null) return null;--newline--            TreeNodeWithCount rootWithCount = new TreeNodeWithCount(root.val);--newline--            rootWithCount.left = buildTreeWithCount(root.left);--newline--            rootWithCount.right = buildTreeWithCount(root.right);--newline--            if (rootWithCount.left != null) rootWithCount.count += rootWithCount.left.count;--newline--            if (rootWithCount.right != null) rootWithCount.count += rootWithCount.right.count;--newline--            return rootWithCount;--newline--        }--newline--        --newline--        private int kthSmallest(TreeNodeWithCount rootWithCount, int k) {--newline--            if (k <= 0 || k > rootWithCount.count) return -1;--newline--            if (rootWithCount.left != null) {--newline--                if (rootWithCount.left.count >= k) return kthSmallest(rootWithCount.left, k);--newline--                if (rootWithCount.left.count == k-1) return rootWithCount.val;--newline--                return kthSmallest(rootWithCount.right, k-1-rootWithCount.left.count);--newline--            } else {--newline--                if (k == 1) return rootWithCount.val;--newline--                return kthSmallest(rootWithCount.right, k-1);--newline--            }--newline--        }--newline--        --newline--        class TreeNodeWithCount {--newline--            int val;--newline--            int count;--newline--            TreeNodeWithCount left;--newline--            TreeNodeWithCount right;--newline--            TreeNodeWithCount(int x) {val = x; count = 1;};--newline--        }--newline--    }",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "What if you could modify the BST node&#x27;s structure?"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int kthSmallest(TreeNode* root, int k) {--newline--        return find(root, k);--newline--    }--newline--    int find(TreeNode* root, int& k) {--newline--        if (root) {--newline--            int x = find(root->left, k);--newline--            return !k ? x : !--k ? root->val : find(root->right, k);--newline--        }--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "4 Lines in C++."
+        },
+        {
+            "java": "public class Solution {--newline--     public int kthSmallest(TreeNode root, int k) {--newline--         Stack<TreeNode> stack = new Stack<TreeNode>();--newline--         TreeNode p = root;--newline--         int count = 0;--newline--         --newline--         while(!stack.isEmpty() || p != null) {--newline--             if(p != null) {--newline--                 stack.push(p);  // Just like recursion--newline--                 p = p.left;   --newline--                 --newline--             } else {--newline--                TreeNode node = stack.pop();--newline--                if(++count == k) return node.val; --newline--                p = node.right;--newline--             }--newline--         }--newline--         --newline--         return Integer.MIN_VALUE;--newline--     }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Two Easiest In Order Traverse (Java)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int kthSmallest(TreeNode* root, int k) {--newline--        stack<TreeNode *> st;--newline--        TreeNode *p = root;--newline--        while(p || !st.empty())--newline--        {--newline--            while(p)--newline--            {--newline--                st.push(p);--newline--                p = p->left;--newline--            }--newline--            p = st.top();--newline--            if(--k == 0)--newline--                return p->val;--newline--            st.pop();--newline--            p = p->right;--newline--        }--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Share my C++ iterative ALG."
+        }
+    ],
+    "qc": "230.json"
+}

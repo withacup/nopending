@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int maxProduct(int[] A) {--newline--        if (A.length == 0) {--newline--            return 0;--newline--        }--newline--        --newline--        int maxherepre = A[0];--newline--        int minherepre = A[0];--newline--        int maxsofar = A[0];--newline--        int maxhere, minhere;--newline--        --newline--        for (int i = 1; i < A.length; i++) {--newline--            maxhere = Math.max(Math.max(maxherepre * A[i], minherepre * A[i]), A[i]);--newline--            minhere = Math.min(Math.min(maxherepre * A[i], minherepre * A[i]), A[i]);--newline--            maxsofar = Math.max(maxhere, maxsofar);--newline--            maxherepre = maxhere;--newline--            minherepre = minhere;--newline--        }--newline--        return maxsofar;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Sharing my solution: O(1) space, O(n) running time"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int maxProduct(int A[], int n) {--newline--        // store the result that is the max we have found so far--newline--        int r = A[0];--newline--    --newline--        // imax/imin stores the max/min product of--newline--        // subarray that ends with the current number A[i]--newline--        for (int i = 1, imax = r, imin = r; i < n; i++) {--newline--            // multiplied by a negative makes big number smaller, small number bigger--newline--            // so we redefine the extremums by swapping them--newline--            if (A[i] < 0)--newline--                swap(imax, imin);--newline--    --newline--            // max/min product for the current number is either the current number itself--newline--            // or the max/min by the previous number times the current one--newline--            imax = max(A[i], imax * A[i]);--newline--            imin = min(A[i], imin * A[i]);--newline--    --newline--            // the newly computed max value is a candidate for our global result--newline--            r = max(r, imax);--newline--        }--newline--        return r;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Possibly simplest solution with O(n) time complexity"
+        },
+        {
+            "java": "public class Solution {--newline--    public int maxProduct(int[] A) {--newline--        if (A == null || A.length == 0) {--newline--            return 0;--newline--        }--newline--        int max = A[0], min = A[0], result = A[0];--newline--        for (int i = 1; i < A.length; i++) {--newline--            int temp = max;--newline--            max = Math.max(Math.max(max * A[i], min * A[i]), A[i]);--newline--            min = Math.min(Math.min(temp * A[i], min * A[i]), A[i]);--newline--            if (max > result) {--newline--                result = max;--newline--            }--newline--        }--newline--        return result;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java code"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline-- // author : s2003zy--newline-- // weibo : http://weibo.com/574433433--newline-- // blog : http://s2003zy.com--newline-- // Time : O(n)--newline-- // Space : O(1)--newline-- public:--newline--    int maxProduct(int A[], int n) {--newline--    --tab--int frontProduct = 1;--newline--    --tab--int backProduct = 1;--newline--  --tab----tab--int ans = INT_MIN;--newline--  --tab----tab--for (int i = 0; i < n; ++i) {--newline--  --tab----tab----tab--frontProduct *= A[i];--newline--  --tab----tab----tab--backProduct *= A[n - i - 1];--newline--  --tab----tab----tab--ans = max(ans,max(frontProduct,backProduct));--newline--  --tab----tab--    frontProduct = frontProduct == 0 ? 1 : frontProduct;--newline--  --tab----tab--    backProduct = backProduct == 0 ? 1 : backProduct;--newline--        }--newline--        return ans;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Share my C++ solution, maybe is the simplest solution"
+        },
+        {
+            "java": "public class Solution {--newline--  public int maxProduct(int[] A) {--newline--    if (A == null || A.length == 0) {--newline--        return 0;--newline--    }--newline--    int[] f = new int[A.length];--newline--    int[] g = new int[A.length];--newline--    f[0] = A[0];--newline--    g[0] = A[0];--newline--    int res = A[0];--newline--    for (int i = 1; i < A.length; i++) {--newline--        f[i] = Math.max(Math.max(f[i - 1] * A[i], g[i - 1] * A[i]), A[i]);--newline--        g[i] = Math.min(Math.min(f[i - 1] * A[i], g[i - 1] * A[i]), A[i]);--newline--        res = Math.max(res, f[i]);--newline--    }--newline--    return res;--newline--  }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my DP code that got AC"
+        }
+    ],
+    "qc": "152.json"
+}

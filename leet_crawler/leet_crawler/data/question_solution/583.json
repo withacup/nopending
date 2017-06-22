@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int minDistance(String word1, String word2) {--newline--        int dp[][] = new int[word1.length()+1][word2.length()+1];--newline--        for(int i = 0; i <= word1.length(); i++) {--newline--            for(int j = 0; j <= word2.length(); j++) {--newline--                if(i == 0 || j == 0) dp[i][j] = 0;--newline--                else dp[i][j] = (word1.charAt(i-1) == word2.charAt(j-1)) ? dp[i-1][j-1] + 1--newline--                        : Math.max(dp[i-1][j], dp[i][j-1]);--newline--            }--newline--        }--newline--        int val =  dp[word1.length()][word2.length()];--newline--        return word1.length() - val + word2.length() - val;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java DP Solution (Longest Common Subsequence)"
+        },
+        {
+            "java": "public class Solution {--newline--    public int minDistance(String word1, String word2) {--newline--        int len1 = word1.length(), len2 = word2.length();--newline--        if (len1 == 0) return len2;--newline--        if (len2 == 0) return len1;--newline--        --newline--        // dp[i][j] stands for distance of first i chars of word1 and first j chars of word2--newline--        int[][] dp = new int[len1 + 1][len2 + 1];--newline--        for (int i = 0; i <= len1; i++)--newline--            dp[i][0] = i;--newline--        for (int j = 0; j <= len2; j++)--newline--            dp[0][j] = j;--newline--            --newline--        for (int i = 1; i <= len1; i++) {--newline--            for (int j = 1; j <= len2; j++) {--newline--                if (word1.charAt(i - 1) == word2.charAt(j - 1))--newline--                    dp[i][j] = dp[i - 1][j - 1];--newline--                else--newline--                    dp[i][j] = Math.min(Math.min(dp[i - 1][j - 1] + 2, dp[i - 1][j] + 1), dp[i][j - 1] + 1);--newline--            }--newline--        }--newline--        --newline--        return dp[len1][len2];--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java DP Solution, same as Edit Distance"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def minDistance(self, A, B):--newline----tab--        M, N = len(A), len(B)--newline----tab--        dp = [[0] * (N+1) for _ in xrange(M+1)]--newline----tab--        --newline----tab--        for i in xrange(M):--newline----tab--            dp[i][-1] = M-i--newline----tab--        for j in xrange(N):--newline----tab--            dp[-1][j] = N-j--newline----tab--            --newline----tab--        for i in xrange(M-1, -1, -1):--newline----tab--            for j in xrange(N-1, -1, -1):--newline----tab--                if A[i] == B[j]:--newline----tab--                    dp[i][j] = dp[i+1][j+1]--newline----tab--                else:--newline----tab--                    dp[i][j] = 1 + min(dp[i+1][j], dp[i][j+1])--newline----tab--        --newline----tab--        return dp[0][0]--newline----tab--    ",
+            "topic_title": "Python, Straightforward with Explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public int minDistance(String word1, String word2) {--newline--      int longest = findLongestCommonSubSequence(word1, word2);--newline--      return word1.length() - longest + word2.length() - longest;--newline--    }--newline--    --newline--    private int findLongestCommonSubSequence(String word1, String word2) {--newline--      int[][] matrix = new int[word1.length() + 1][word2.length() + 1];--newline--      int re = 0;--newline--      for (int i = 1; i <= word1.length(); i++) {--newline--        for (int j = 1; j <= word2.length(); j++) {--newline--          if (word1.charAt(i - 1) == word2.charAt(j - 1)) {--newline--            matrix[i][j] = matrix[i - 1][j - 1] + 1;--newline--          } else {--newline--    --tab--matrix[i][j] = Math.max(matrix[i - 1][j], matrix[i][j - 1]);--newline--          }--newline--          re = Math.max(matrix[i][j], re);--newline--          }--newline--        }--newline--      return re;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Longest Common Subsequence DP Java Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def minDistance(self, w1, w2):--newline----tab--            m, n = len(w1), len(w2)--newline----tab--            dp = [[0] * (n + 1) for i in range(m + 1)]--newline----tab--            for i in range(m):--newline----tab--                for j in range(n):--newline----tab--                    dp[i + 1][j + 1] = max(dp[i][j + 1], dp[i + 1][j], dp[i][j] + (w1[i] == w2[j]))--newline----tab--            return m + n - 2 * dp[m][n]",
+            "topic_title": "Python DP solution"
+        }
+    ],
+    "qc": "583.json"
+}

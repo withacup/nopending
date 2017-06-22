@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--        public int[] nextGreaterElement(int[] findNums, int[] nums) {--newline--            Map<Integer, Integer> map = new HashMap<>(); // map from x to next greater element of x--newline--            Stack<Integer> stack = new Stack<>();--newline--            for (int num : nums) {--newline--                while (!stack.isEmpty() && stack.peek() < num)--newline--                    map.put(stack.pop(), num);--newline--                stack.push(num);--newline--            }   --newline--            for (int i = 0; i < findNums.length; i++)--newline--                findNums[i] = map.getOrDefault(findNums[i], -1);--newline--            return findNums;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 10 lines linear time complexity O(n) with explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> nextGreaterElement(vector<int>& findNums, vector<int>& nums) {--newline--        stack<int> s;--newline--        unordered_map<int, int> m;--newline--        for (int n : nums) {--newline--            while (s.size() && s.top() < n) {--newline--                m[s.top()] = n;--newline--                s.pop();--newline--            }--newline--            s.push(n);--newline--        }--newline--        vector<int> ans;--newline--        for (int n : findNums) ans.push_back(m.count(n) ? m[n] : -1);--newline--        return ans;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ stack + unordered_map"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Python Solution with O(n)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Meh, 1000 is small"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def nextGreaterElement(self, findNums, nums):--newline----tab--        \"\"\"--newline----tab--        :type findNums: List[int]--newline----tab--        :type nums: List[int]--newline----tab--        :rtype: List[int]--newline----tab--        \"\"\"--newline----tab--        cache, st = {}, []--newline----tab--        for x in nums:--newline----tab--            while st and st[-1] < x:--newline----tab--                cache[st.pop()] = x--newline----tab--            st.append(x)--newline----tab--        result = [-1]*len(findNums)--newline----tab--        for idx,x in enumerate(findNums):--newline----tab--            if x in cache:--newline----tab--                result[idx] = cache[x]--newline----tab--        return result--newline----tab--",
+            "topic_title": "Python solution with detailed explanation"
+        }
+    ],
+    "qc": "496.json"
+}

@@ -1,0 +1,1 @@
+{"solution_code": "public class Solution {--newline--    public int arrangeCoins(int n) {--newline--        return (int) ((Math.sqrt(1 + 8.0 * n) - 1) / 2);--newline--    }--newline--}--newline--", "modified_code": null, "total_cases": 1336, "l_type": "java"}

@@ -1,0 +1,19 @@
+---CONTENT_BEGIN---
+
+You are given a string, s, and a list of words, words, that are all of the same length. Find all starting indices of substring(s) in s that is a concatenation of each word in words exactly once and without any intervening characters.
+
+
+
+For example, given:
+s: "barfoothefoobarman"
+words: ["foo", "bar"]
+
+
+
+You should return the indices: [0,9].
+(order does not matter).
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<int> findSubstring(string s, vector<string>& words) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public List<Integer> findSubstring(String s, String[] words) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def findSubstring(self, s, words):--newline--        '''--newline--        :type s: str--newline--        :type words: List[str]--newline--        :rtype: List[int]--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Return an array of size *returnSize.--newline-- * Note: The returned array must be malloced, assume caller calls free().--newline-- */--newline--int* findSubstring(char* s, char** words, int wordsSize, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public IList<int> FindSubstring(string s, string[] words) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} s--newline-- * @param {string[]} words--newline-- * @return {number[]}--newline-- */--newline--var findSubstring = function(s, words) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} s--newline--# @param {String[]} words--newline--# @return {Integer[]}--newline--def find_substring(s, words)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func findSubstring(_ s: String, _ words: [String]) -> [Int] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func findSubstring(s string, words []string) []int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

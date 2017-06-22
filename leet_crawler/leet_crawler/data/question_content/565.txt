@@ -1,0 +1,35 @@
+---CONTENT_BEGIN---
+A zero-indexed array A consisting of N different integers is given. The array contains all integers in the range [0, N - 1]. 
+
+Sets S[K] for 0 <= K < N are defined as follows:
+
+S[K] = { A[K], A[A[K]], A[A[A[K]]], ... }.
+
+Sets S[K] are finite for each K and should NOT contain duplicates.
+
+
+Write a function that given an array A consisting of N integers, return the size of the largest set S[K] for this array.
+
+
+Example 1:
+
+Input: A = [5,4,0,3,1,6,2]
+Output: 4
+Explanation: 
+A[0] = 5, A[1] = 4, A[2] = 0, A[3] = 3, A[4] = 1, A[5] = 6, A[6] = 2.
+One of the longest S[K]:
+S[0] = {A[0], A[5], A[6], A[2]} = {5, 6, 2, 0}
+
+
+
+Note:
+
+N is an integer within the range [1, 20,000].
+The elements of A are all distinct.
+Each element of array A is an integer within the range [0, N-1].
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int arrayNesting(vector<int>& nums) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int arrayNesting(int[] nums) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def arrayNesting(self, nums):--newline--        '''--newline--        :type nums: List[int]--newline--        :rtype: int--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "class Solution:--newline--    def arrayNesting(self, nums):--newline--        '''--newline--        :type nums: List[int]--newline--        :rtype: int--newline--        '''", "value": "python3", "text": "Python3"}, {"defaultCode": "int arrayNesting(int* nums, int numsSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int ArrayNesting(int[] nums) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} nums--newline-- * @return {number}--newline-- */--newline--var arrayNesting = function(nums) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} nums--newline--# @return {Integer}--newline--def array_nesting(nums)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func arrayNesting(_ nums: [Int]) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func arrayNesting(nums []int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

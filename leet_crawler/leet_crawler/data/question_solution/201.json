@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int rangeBitwiseAnd(int m, int n) {--newline--        if(m == 0){--newline--            return 0;--newline--        }--newline--        int moveFactor = 1;--newline--        while(m != n){--newline--            m >>= 1;--newline--            n >>= 1;--newline--            moveFactor <<= 1;--newline--        }--newline--        return m * moveFactor;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Bit operation solution(JAVA)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "One line C++ solution"
+        },
+        {
+            "java": "public class Solution {--newline--     public int rangeBitwiseAnd(int m, int n) {--newline--            while(m<n) n = n & (n-1);--newline--            return n;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "2 line Solution with detailed explanation"
+        },
+        {
+            "java": "public class Solution {--newline--public int rangeBitwiseAnd(int m, int n) {--newline--    int r=Integer.MAX_VALUE;--newline--    while((m&r)!=(n&r))  r=r<<1;--newline--    return n&r;--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My simple java solution(3 lines)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int rangeBitwiseAnd(int m, int n) {--newline--    --tab--int c=0;--newline--    --tab--while(m!=n){--newline--    --tab----tab--m>>=1;--newline--    --tab----tab--n>>=1;--newline--    --tab----tab--++c;--newline--    --tab--}--newline--    --tab--return n<<c;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Accepted C solution with simple explanation"
+        }
+    ],
+    "qc": "201.json"
+}

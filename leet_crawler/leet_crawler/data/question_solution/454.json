@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int fourSumCount(int[] A, int[] B, int[] C, int[] D) {--newline--        Map<Integer, Integer> map = new HashMap<>();--newline--        --newline--        for(int i=0; i<C.length; i++) {--newline--            for(int j=0; j<D.length; j++) {--newline--                int sum = C[i] + D[j];--newline--                map.put(sum, map.getOrDefault(sum, 0) + 1);--newline--            }--newline--        }--newline--        --newline--        int res=0;--newline--        for(int i=0; i<A.length; i++) {--newline--            for(int j=0; j<B.length; j++) {--newline--                res += map.getOrDefault(-1 * (A[i]+B[j]), 0);--newline--            }--newline--        }--newline--        --newline--        return res;--newline--    }--newline--    --newline--    Time complexity:  O(n^2)--newline--    Space complexity: O(n^2)--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Clean java solution O(n^2)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy 2 lines O(N^2) Python"
+        },
+        {
+            "java": "public class Solution {--newline--    public int fourSumCount(int[] A, int[] B, int[] C, int[] D) {--newline--    --tab--Map<Integer,Integer> sums = new HashMap<>();--newline--    --tab--int count = 0;--newline--    --tab--for(int i=0; i<A.length;i++) {--newline--    --tab----tab--for(int j=0;j<B.length;j++){--newline--    --tab----tab----tab--int sum = A[i]+B[j];--newline--    --tab----tab----tab--if(sums.containsKey(sum)) {--newline--    --tab----tab----tab----tab--sums.put(sum, sums.get(sum)+1);--newline--    --tab----tab----tab--} else {--newline--    --tab----tab----tab----tab--sums.put(sum, 1);--newline--    --tab----tab----tab--}--newline--    --tab----tab--}--newline--    --tab--}--newline--    --tab--for(int k=0; k<A.length;k++) {--newline--    --tab----tab--for(int z=0;z<C.length;z++){--newline--    --tab----tab----tab--int sum = -(C[k]+D[z]);--newline--    --tab----tab----tab--if(sums.containsKey(sum)) {--newline--    --tab----tab----tab----tab--count+=sums.get(sum);--newline--    --tab----tab----tab--}--newline--    --tab----tab--}--newline--    --tab--}--newline--    --tab--return count;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java Solution with Explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    void fillMap(vector<int>& A, vector<int>& B, unordered_map<int,int> &m)--newline--    {--newline--        int n = A.size();--newline--        for(int i = 0; i < n; ++i)--newline--        for(int j = 0; j < n; ++j)--newline--          ++m[A[i] + B[j]];--newline--          --newline--    }--newline--    int fourSumCount(vector<int>& A, vector<int>& B, vector<int>& C, vector<int>& D) {--newline--        unordered_map<int,int> m1, m2;--newline--        fillMap(A, B, m1);--newline--        fillMap(C, D, m2);--newline--        int res = 0;--newline--        for(auto it = m1.begin(); it != m1.end(); ++it)--newline--        {--newline--           auto it2 = m2.find(-it->first);--newline--           if(it2 != m2.end())--newline--             res += it->second*it2->second;--newline--        }--newline--        return res;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Concise hash map O(n^2) solution with explanation, c++"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--        int fourSumCount(vector<int>& A, vector<int>& B, vector<int>& C, vector<int>& D) {--newline--            unordered_map<int, int>  abSum;--newline--            for(auto a : A) {--newline--                for(auto b : B) {--newline--                    ++abSum[a+b];--newline--                }--newline--            }--newline--            int count = 0;--newline--            for(auto c : C) {--newline--                for(auto d : D) {--newline--                    auto it = abSum.find(0 - c - d);--newline--                    if(it != abSum.end()) {--newline--                        count += it->second;--newline--                    }--newline--                }--newline--            }--newline--            return count;--newline--        }--newline--}",
+            "python": null,
+            "topic_title": "Concise C++ 11 code beat 99.5%"
+        }
+    ],
+    "qc": "454.json"
+}

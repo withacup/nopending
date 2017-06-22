@@ -1,0 +1,32 @@
+---CONTENT_BEGIN---
+
+Given a string s, find the longest palindromic subsequence's length in s. You may assume that the maximum length of s is 1000.
+
+
+Example 1:
+Input: 
+
+"bbbab"
+
+Output: 
+
+4
+
+One possible longest palindromic subsequence is "bbbb".
+
+
+Example 2:
+Input:
+
+"cbbd"
+
+Output:
+
+2
+
+One possible longest palindromic subsequence is "bb".
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int longestPalindromeSubseq(string s) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int longestPalindromeSubseq(String s) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def longestPalindromeSubseq(self, s):--newline--        '''--newline--        :type s: str--newline--        :rtype: int--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "int longestPalindromeSubseq(char* s) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int LongestPalindromeSubseq(string s) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} s--newline-- * @return {number}--newline-- */--newline--var longestPalindromeSubseq = function(s) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} s--newline--# @return {Integer}--newline--def longest_palindrome_subseq(s)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func longestPalindromeSubseq(_ s: String) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func longestPalindromeSubseq(s string) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

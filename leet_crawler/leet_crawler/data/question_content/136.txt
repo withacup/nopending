@@ -1,0 +1,11 @@
+---CONTENT_BEGIN---
+Given an array of integers, every element appears twice except for one. Find that single one.
+
+
+Note:
+Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int singleNumber(vector<int>& nums) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int singleNumber(int[] nums) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def singleNumber(self, nums):--newline--        '''--newline--        :type nums: List[int]--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int singleNumber(int* nums, int numsSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int SingleNumber(int[] nums) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} nums--newline-- * @return {number}--newline-- */--newline--var singleNumber = function(nums) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} nums--newline--# @return {Integer}--newline--def single_number(nums)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func singleNumber(_ nums: [Int]) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func singleNumber(nums []int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public TreeNode buildTreePostIn(int[] inorder, int[] postorder) {--newline--    --tab--if (inorder == null || postorder == null || inorder.length != postorder.length)--newline--    --tab----tab--return null;--newline--    --tab--HashMap<Integer, Integer> hm = new HashMap<Integer,Integer>();--newline--    --tab--for (int i=0;i<inorder.length;++i)--newline--    --tab----tab--hm.put(inorder[i], i);--newline--    --tab--return buildTreePostIn(inorder, 0, inorder.length-1, postorder, 0, --newline--                              postorder.length-1,hm);--newline--    }--newline--    --newline--    private TreeNode buildTreePostIn(int[] inorder, int is, int ie, int[] postorder, int ps, int pe, --newline--                                     HashMap<Integer,Integer> hm){--newline--    --tab--if (ps>pe || is>ie) return null;--newline--    --tab--TreeNode root = new TreeNode(postorder[pe]);--newline--    --tab--int ri = hm.get(postorder[pe]);--newline--    --tab--TreeNode leftchild = buildTreePostIn(inorder, is, ri-1, postorder, ps, ps+ri-is-1, hm);--newline--    --tab--TreeNode rightchild = buildTreePostIn(inorder,ri+1, ie, postorder, ps+ri-is, pe-1, hm);--newline--    --tab--root.left = leftchild;--newline--    --tab--root.right = rightchild;--newline--    --tab--return root;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My recursive Java code with O(n) time and O(n) space"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    TreeNode *buildTree(vector<int> &inorder, vector<int> &postorder) {--newline--        if(inorder.size() == 0)return NULL;--newline--        TreeNode *p;--newline--        TreeNode *root;--newline--        stack<TreeNode *> stn;--newline--        --newline--        root = new TreeNode(postorder.back()); --newline--        stn.push(root); --newline--        postorder.pop_back(); --newline--        --newline--        while(true)--newline--        {--newline--            if(inorder.back() == stn.top()->val) --newline--            {--newline--                p = stn.top();--newline--                stn.pop(); --newline--                inorder.pop_back(); --newline--                if(inorder.size() == 0) break;--newline--                if(stn.size() && inorder.back() == stn.top()->val)--newline--                    continue;--newline--                p->left = new TreeNode(postorder.back()); --newline--                postorder.pop_back();--newline--                stn.push(p->left);--newline--            }--newline--            else --newline--            {--newline--                p = new TreeNode(postorder.back());--newline--                postorder.pop_back();--newline--                stn.top()->right = p; --newline--                stn.push(p); --newline--            }--newline--        }--newline--        return root;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "My comprehension of O(n) solution from &#64;hongzhi"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    TreeNode *buildTree(vector<int> &inorder, vector<int> &postorder) {--newline--        return create(inorder, postorder, 0, inorder.size() - 1, 0, postorder.size() - 1);--newline--    }--newline--    --newline--    TreeNode* create(vector<int> &inorder, vector<int> &postorder, int is, int ie, int ps, int pe){--newline--        if(ps > pe){--newline--            return nullptr;--newline--        }--newline--        TreeNode* node = new TreeNode(postorder[pe]);--newline--        int pos;--newline--        for(int i = is; i <= ie; i++){--newline--            if(inorder[i] == node->val){--newline--                pos = i;--newline--                break;--newline--            }--newline--        }--newline--        node->left = create(inorder, postorder, is, pos - 1, ps, ps + pos - is - 1);--newline--        node->right = create(inorder, postorder, pos + 1, ie, pe - ie + pos, pe - 1);--newline--        return node;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Sharing my straightforward recursive solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public TreeNode buildTree(int[] inorder, int[] postorder) {--newline--        if (inorder.length == 0 || postorder.length == 0) return null;--newline--        int ip = inorder.length - 1;--newline--        int pp = postorder.length - 1;--newline--        --newline--        Stack<TreeNode> stack = new Stack<TreeNode>();--newline--        TreeNode prev = null;--newline--        TreeNode root = new TreeNode(postorder[pp]);--newline--        stack.push(root);--newline--        pp--;--newline--        --newline--        while (pp >= 0) {--newline--            while (!stack.isEmpty() && stack.peek().val == inorder[ip]) {--newline--                prev = stack.pop();--newline--                ip--;--newline--            }--newline--            TreeNode newNode = new TreeNode(postorder[pp]);--newline--            if (prev != null) {--newline--                prev.left = newNode;--newline--            } else if (!stack.isEmpty()) {--newline--                TreeNode currTop = stack.peek();--newline--                currTop.right = newNode;--newline--            }--newline--            stack.push(newNode);--newline--            prev = null;--newline--            pp--;--newline--        }--newline--        --newline--        return root;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java iterative solution with explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "# Definition for a  binary tree node--newline--# class TreeNode:--newline--#     def __init__(self, x):--newline--#         self.val = x--newline--#         self.left = None--newline--#         self.right = None--newline----newline--class Solution:--newline----tab--    # @param inorder, a list of integers--newline----tab--    # @param postorder, a list of integers--newline----tab--    # @return a tree node--newline----tab--    # 12:00--newline----tab--    def buildTree(self, inorder, postorder):--newline----tab--        if not inorder or not postorder:--newline----tab--            return None--newline----tab--        --newline----tab--        root = TreeNode(postorder.pop())--newline----tab--        inorderIndex = inorder.index(root.val)--newline----tab----newline----tab--        root.right = self.buildTree(inorder[inorderIndex+1:], postorder)--newline----tab--        root.left = self.buildTree(inorder[:inorderIndex], postorder)--newline----tab----newline----tab--        return root",
+            "topic_title": "A Python recursive solution"
+        }
+    ],
+    "qc": "106.json"
+}

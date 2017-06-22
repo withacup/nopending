@@ -1,0 +1,23 @@
+---CONTENT_BEGIN---
+Given a string of numbers and operators, return all possible results from computing all the different possible ways to group numbers and operators. The valid operators are +, - and *.
+
+Example 1
+Input: "2-1-1". 
+((2-1)-1) = 0
+(2-(1-1)) = 2
+Output: [0, 2]
+
+Example 2
+Input: "2*3-4*5" 
+(2*(3-(4*5))) = -34
+((2*3)-(4*5)) = -14
+((2*(3-4))*5) = -10
+(2*((3-4)*5)) = -10
+(((2*3)-4)*5) = 10
+Output: [-34, -14, -10, -10, 10] 
+
+Credits:Special thanks to @mithmatt for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<int> diffWaysToCompute(string input) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public List<Integer> diffWaysToCompute(String input) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def diffWaysToCompute(self, input):--newline--        '''--newline--        :type input: str--newline--        :rtype: List[int]--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Return an array of size *returnSize.--newline-- * Note: The returned array must be malloced, assume caller calls free().--newline-- */--newline--int* diffWaysToCompute(char* input, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public IList<int> DiffWaysToCompute(string input) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} input--newline-- * @return {number[]}--newline-- */--newline--var diffWaysToCompute = function(input) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} input--newline--# @return {Integer[]}--newline--def diff_ways_to_compute(input)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func diffWaysToCompute(_ input: String) -> [Int] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func diffWaysToCompute(input string) []int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

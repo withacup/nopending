@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--public int maximumGap(int[] num) {--newline--    if (num == null || num.length < 2)--newline--        return 0;--newline--    // get the max and min value of the array--newline--    int min = num[0];--newline--    int max = num[0];--newline--    for (int i:num) {--newline--        min = Math.min(min, i);--newline--        max = Math.max(max, i);--newline--    }--newline--    // the minimum possibale gap, ceiling of the integer division--newline--    int gap = (int)Math.ceil((double)(max - min)/(num.length - 1));--newline--    int[] bucketsMIN = new int[num.length - 1]; // store the min value in that bucket--newline--    int[] bucketsMAX = new int[num.length - 1]; // store the max value in that bucket--newline--    Arrays.fill(bucketsMIN, Integer.MAX_VALUE);--newline--    Arrays.fill(bucketsMAX, Integer.MIN_VALUE);--newline--    // put numbers into buckets--newline--    for (int i:num) {--newline--        if (i == min || i == max)--newline--            continue;--newline--        int idx = (i - min) / gap; // index of the right position in the buckets--newline--        bucketsMIN[idx] = Math.min(i, bucketsMIN[idx]);--newline--        bucketsMAX[idx] = Math.max(i, bucketsMAX[idx]);--newline--    }--newline--    // scan the buckets for the max gap--newline--    int maxGap = Integer.MIN_VALUE;--newline--    int previous = min;--newline--    for (int i = 0; i < num.length - 1; i++) {--newline--        if (bucketsMIN[i] == Integer.MAX_VALUE && bucketsMAX[i] == Integer.MIN_VALUE)--newline--            // empty bucket--newline--            continue;--newline--        // min value minus the previous value is the current gap--newline--        maxGap = Math.max(maxGap, bucketsMIN[i] - previous);--newline--        // update previous bucket value--newline--        previous = bucketsMAX[i];--newline--    }--newline--    maxGap = Math.max(maxGap, max - previous); // updata the final max value gap--newline--    return maxGap;--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "&#91;bucket sort&#93; JAVA solution with explanation, O(N) time and space"
+        },
+        {
+            "java": "public class Solution {--newline--public int maximumGap(int[] nums) {--newline--    if (nums == null || nums.length < 2) {--newline--        return 0;--newline--    }--newline--    --newline--    // m is the maximal number in nums--newline--    int m = nums[0];--newline--    for (int i = 1; i < nums.length; i++) {--newline--        m = Math.max(m, nums[i]);--newline--    }--newline--    --newline--    int exp = 1; // 1, 10, 100, 1000 ...--newline--    int R = 10; // 10 digits--newline----newline--    int[] aux = new int[nums.length];--newline--    --newline--    while (m / exp > 0) { // Go through all digits from LSB to MSB--newline--        int[] count = new int[R];--newline--        --newline--        for (int i = 0; i < nums.length; i++) {--newline--            count[(nums[i] / exp) % 10]++;--newline--        }--newline--        --newline--        for (int i = 1; i < count.length; i++) {--newline--            count[i] += count[i - 1];--newline--        }--newline--        --newline--        for (int i = nums.length - 1; i >= 0; i--) {--newline--            aux[--count[(nums[i] / exp) % 10]] = nums[i];--newline--        }--newline--        --newline--        for (int i = 0; i < nums.length; i++) {--newline--            nums[i] = aux[i];--newline--        }--newline--        exp *= 10;--newline--    }--newline--    --newline--    int max = 0;--newline--    for (int i = 1; i < aux.length; i++) {--newline--        max = Math.max(max, aux[i] - aux[i - 1]);--newline--    }--newline--     --newline--    return max;--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Radix sort solution in Java with explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int maximumGap(vector<int>& nums) {--newline--            const int n = nums.size();--newline--            if(n<=1) return 0;--newline--            int maxE = *max_element(nums.begin(),nums.end());--newline--            int minE = *min_element(nums.begin(),nums.end());--newline--            double len = double(maxE-minE)/double(n-1);--newline--            vector<int> maxA(n,INT_MIN);--newline--            vector<int> minA(n,INT_MAX);--newline--            for(int i=0; i<n; i++) {--newline--                int index = (nums[i]-minE)/len;--newline--                maxA[index] = max(maxA[index],nums[i]);--newline--                minA[index] = min(minA[index],nums[i]);--newline--            }--newline--            int gap = 0, prev = maxA[0];--newline--            for(int i=1; i<n; i++) {--newline--                if(minA[i]==INT_MAX) continue;--newline--                gap = max(gap,minA[i]-prev);--newline--                prev = maxA[i];--newline--            }--newline--            return gap;--newline--        }--newline--}",
+            "python": null,
+            "topic_title": "Pigeon hole principle"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My C++ code (12 ms, &quot;bucket sort&quot;, O(n) time and space)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab--    # @param num, a list of integer--newline----tab--    # @return an integer--newline----tab--    def maximumGap(self, num):--newline----tab--        if len(num) < 2:--newline----tab--            return 0--newline----tab--        num = self.radixSort(num)--newline----tab--        res = 0--newline----tab--        for i in range(1, len(num)):--newline----tab--            res = max(num[i] - num[i - 1], res)--newline----tab--        return res--newline----tab--    --newline----tab--    def radixSort(self, num):--newline----tab--        for i in range(31):--newline----tab--            onebucket = []--newline----tab--            zerobucket = []--newline----tab--            needle = 1 << i--newline----tab--            for j in range(len(num)):--newline----tab--                if num[j] & needle != 0:--newline----tab--                    onebucket.append(num[j])--newline----tab--                else:--newline----tab--                    zerobucket.append(num[j])--newline----tab--            num = []--newline----tab--            num += zerobucket--newline----tab--            num += onebucket--newline----tab--        return num",
+            "topic_title": "I solved it using radix sort"
+        }
+    ],
+    "qc": "164.json"
+}

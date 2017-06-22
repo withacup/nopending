@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    TreeSet<Integer> set = new TreeSet<>();--newline--    int min = Integer.MAX_VALUE;--newline--    --newline--    public int getMinimumDifference(TreeNode root) {--newline--        if (root == null) return min;--newline--        --newline--        if (!set.isEmpty()) {--newline--            if (set.floor(root.val) != null) {--newline--                min = Math.min(min, root.val - set.floor(root.val));--newline--            }--newline--            if (set.ceiling(root.val) != null) {--newline--                min = Math.min(min, set.ceiling(root.val) - root.val);--newline--            }--newline--        }--newline--        --newline--        set.add(root.val);--newline--        --newline--        getMinimumDifference(root.left);--newline--        getMinimumDifference(root.right);--newline--        --newline--        return min;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Two Solutions, in-order traversal and a more general way using TreeSet"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--    int min_dif = INT_MAX, val = -1;--newline--public:--newline--int getMinimumDifference(TreeNode* root) {--newline--    if (root->left != NULL) getMinimumDifference(root->left);--newline--    if (val >= 0) min_dif = min(min_dif, root->val - val);--newline--    val = root->val;--newline--    if (root->right != NULL) getMinimumDifference(root->right);--newline--    return min_dif;--newline--}--newline--",
+            "python": null,
+            "topic_title": "C++ 7 lines, O(n) run-time O(h) memory"
+        },
+        {
+            "java": "public class Solution {--newline--    --newline--    int minDiff = Integer.MAX_VALUE;--newline--    TreeNode prev;--newline--    --newline--    public int getMinimumDifference(TreeNode root) {--newline--        inorder(root);--newline--        return minDiff;--newline--    }--newline--    --newline--    public void inorder(TreeNode root) {--newline--        if (root == null) return;--newline--        inorder(root.left);--newline--        if (prev != null) minDiff = Math.min(minDiff, root.val - prev.val);--newline--        prev = root;--newline--        inorder(root.right);--newline--    }--newline----newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java O(n) Time Inorder Traversal Solution"
+        },
+        {
+            "java": "public class Solution {--newline--    long minDiff = Long.MAX_VALUE;--newline--    public int getMinimumDifference(TreeNode root) {--newline--        helper(root,Long.MIN_VALUE,Long.MAX_VALUE);--newline--        return (int)minDiff;--newline--    }--newline--    private void helper(TreeNode curr, long lb, long rb){--newline--        if(curr==null) return;--newline--        if(lb!=Long.MIN_VALUE){--newline--            minDiff = Math.min(minDiff,curr.val - lb);--newline--        }--newline--        if(rb!=Long.MAX_VALUE){--newline--        minDiff = Math.min(minDiff,rb - curr.val);--newline--        }--newline--        helper(curr.left,lb,curr.val);--newline--        helper(curr.right,curr.val,rb);--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java No In-order Traverse Solution,  just pass upper bound and lower bound"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int getMinimumDifference(TreeNode* root) {--newline--        long mindiff = INT_MAX;--newline--        TreeNode* prev = nullptr;--newline--        find(root, prev, mindiff);--newline--        return mindiff;--newline--    }--newline--private:--newline--    void find(TreeNode* node, TreeNode*& prev, long& mindiff) {--newline--        if (node->left) { --newline--            find(node->left, prev, mindiff);--newline--        }--newline----newline--        if (prev != nullptr) {--newline--            mindiff = std::min(mindiff, (long)abs(node->val - prev->val));--newline--        }--newline--        prev = node;--newline----newline--        if (node->right) {--newline--            find(node->right, prev, mindiff);--newline--        }--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "&#91;Minimum Absolute Difference in BST&#93; &#91;C++&#93; - Short Solution"
+        }
+    ],
+    "qc": "530.json"
+}

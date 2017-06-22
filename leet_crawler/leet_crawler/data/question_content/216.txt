@@ -1,0 +1,26 @@
+---CONTENT_BEGIN---
+
+Find all possible combinations of k numbers that add up to a number n, given that only numbers from 1 to 9 can be used and each combination should be a unique set of numbers.
+
+
+
+ Example 1:
+Input:  k = 3,  n = 7
+Output: 
+
+[[1,2,4]]
+
+
+ Example 2:
+Input:  k = 3,  n = 9
+Output: 
+
+[[1,2,6], [1,3,5], [2,3,4]]
+
+
+
+Credits:Special thanks to @mithmatt for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<vector<int>> combinationSum3(int k, int n) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public List<List<Integer>> combinationSum3(int k, int n) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def combinationSum3(self, k, n):--newline--        '''--newline--        :type k: int--newline--        :type n: int--newline--        :rtype: List[List[int]]--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Return an array of arrays of size *returnSize.--newline-- * The sizes of the arrays are returned as *columnSizes array.--newline-- * Note: Both returned array and *columnSizes array must be malloced, assume caller calls free().--newline-- */--newline--int** combinationSum3(int k, int n, int** columnSizes, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public IList<IList<int>> CombinationSum3(int k, int n) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} k--newline-- * @param {number} n--newline-- * @return {number[][]}--newline-- */--newline--var combinationSum3 = function(k, n) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} k--newline--# @param {Integer} n--newline--# @return {Integer[][]}--newline--def combination_sum3(k, n)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func combinationSum3(_ k: Int, _ n: Int) -> [[Int]] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func combinationSum3(k int, n int) [][]int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

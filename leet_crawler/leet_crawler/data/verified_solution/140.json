@@ -1,0 +1,6 @@
+{
+    "solution_code": "class Solution :--newline--        def wordBreak(self, s, wordDict):--newline--            memo = {len(s): ['']}--newline--            def sentences(i):--newline--                if i not in memo:--newline--                    memo[i] = [s[i:j] + (tail and ' ' + tail)--newline--                               for j in range(i+1, len(s)+1)--newline--                               if s[i:j] in wordDict--newline--                               for tail in sentences(j)]--newline--                return memo[i]--newline--            return sentences(0)--newline--        ",
+    "l_type": "python",
+    "modified_code": null,
+    "total_cases": 37
+}

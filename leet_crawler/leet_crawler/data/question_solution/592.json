@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public String fractionAddition(String expression) {--newline--        String[] fracs = expression.split(\"(?=[-,+])\"); // splits input string into individual fractions--newline--        String res = \"0/1\";--newline--        for (String frac : fracs) res = add(res, frac); // add all fractions together--newline--        return res;--newline--    }--newline--    --newline--    public String add(String frac1, String frac2) {--newline--        int[] f1 = Stream.of(frac1.split(\"/\")).mapToInt(Integer::parseInt).toArray(), --newline--              f2 = Stream.of(frac2.split(\"/\")).mapToInt(Integer::parseInt).toArray();--newline--        int numer = f1[0]*f2[1] + f1[1]*f2[0], denom = f1[1]*f2[1];--newline--        String sign = \"\";--newline--        if (numer < 0) {sign = \"-\"; numer *= -1;}--newline--        return sign + numer/gcd(numer, denom) + \"/\" + denom/gcd(numer, denom); // construct reduced fraction--newline--    }--newline--    --newline--    // Computes gcd using Euclidean algorithm--newline--    public int gcd(int x, int y) { return x == 0 || y == 0 ? x + y : gcd(y, x % y); }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Concise Java Solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public String fractionAddition(String expression) {--newline--        Scanner sc = new Scanner(expression).useDelimiter(\"/|(?=[-+])\");--newline--        int A = 0, B = 1;--newline--        while (sc.hasNext()) {--newline--            int a = sc.nextInt(), b = sc.nextInt();--newline--            A = A * b + a * B;--newline--            B *= b;--newline--            int g = gcd(A, B);--newline--            A /= g;--newline--            B /= g;--newline--        }--newline--        return A + \"/\" + B;--newline--    }--newline--    --newline--    private int gcd(int a, int b) {--newline--        return a != 0 ? gcd(b % a, a) : Math.abs(b);--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string fractionAddition(string expression) {--newline--        istringstream in(expression);--newline--        int A = 0, B = 1, a, b;--newline--        char _;--newline--        while (in >> a >> _ >> b) {--newline--            A = A * b + a * B;--newline--            B *= b;--newline--            int g = abs(__gcd(A, B));--newline--            A /= g;--newline--            B /= g;--newline--        }--newline--        return to_string(A) + '/' + to_string(B);--newline--    }--newline--    --newline--}",
+            "python": "class Solution :--newline----tab--    def fractionAddition(self, expression):--newline----tab--        ints = map(int, re.findall('[+-]?\\d+', expression))--newline----tab--        A, B = 0, 1--newline----tab--        for a in ints:--newline----tab--            b = next(ints)--newline----tab--            A = A * b + a * B--newline----tab--            B *= b--newline----tab--            g = math.gcd(A, B)--newline----tab--            A //= g--newline----tab--            B //= g--newline----tab--        return '%d/%d' % (A, B)",
+            "topic_title": "Small simple C++&#x2F;Java&#x2F;Python"
+        },
+        {
+            "java": "public class Solution {--newline--    public String fractionAddition(String expression) {--newline--        List<String> nums = new ArrayList<>();--newline--        int i = 0, j = 0;--newline--        while (j <= expression.length()) {--newline--            if (j == expression.length() || j != i && (expression.charAt(j) == '+' || expression.charAt(j) == '-')) {--newline--                if (expression.charAt(i) == '+') {--newline--                    nums.add(expression.substring(i + 1, j));--newline--                }--newline--                else {--newline--                    nums.add(expression.substring(i, j));--newline--                }--newline--                    --newline--                i = j;--newline--            }--newline--            j++;--newline--        }--newline--        --newline--        String result = \"0/1\";--newline--        --newline--        for (String num : nums) {--newline--            result = add(result, num);--newline--        }--newline--        --newline--        return result;--newline--    }--newline--    --newline--    private String add(String s1, String s2) {--newline--        String[] sa1 = s1.split(\"/\");--newline--        String[] sa2 = s2.split(\"/\");--newline--        int n1 = Integer.parseInt(sa1[0]);--newline--        int d1 = Integer.parseInt(sa1[1]);--newline--        int n2 = Integer.parseInt(sa2[0]);--newline--        int d2 = Integer.parseInt(sa2[1]);--newline--        --newline--        int n = n1 * d2 + n2 * d1;--newline--        int d = d1 * d2;--newline--        --newline--        if (n == 0) return \"0/1\";--newline--        --newline--        boolean isNegative = n * d < 0;--newline--        n = Math.abs(n);--newline--        d = Math.abs(d);--newline--        int gcd = getGCD(n, d);--newline--        --newline--        return (isNegative ? \"-\" : \"\") + (n / gcd) + \"/\" + (d / gcd);--newline--    }--newline--    --newline--    private int getGCD(int a, int b) {--newline--        if (a == 0 || b == 0) return a + b; // base case--newline--        return getGCD(b, a % b);--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution, Fraction Addition and GCD"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "from fractions import Fraction--newline--class Solution(object):--newline----tab--    def fractionAddition(self, exp):--newline----tab--        res = sum(map(Fraction, exp.replace('+', ' +').replace('-', ' -').split()))--newline----tab--        return str(res.numerator) + '/' + str(res.denominator)",
+            "topic_title": "Python easy understand 2-line solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int GCD(int a, int b ){ return (b == 0) ? a : GCD(b, a % b); }--newline--    string fractionAddition(string s) {--newline--        int n = 0, d = 1, p = 0, p1 = 0, p2 = 0;--newline--        if (s[0] != '-') s = \"+\" + s;--newline--        while (p < s.size()) {--newline--            for (p1 = p + 1; s[p1] != '/'; ++p1);--newline--            for (p2 = p1 + 1; p2 < s.size() && s[p2] != '+' && s[p2] != '-'; ++p2);--newline--            auto nn = stoi(s.substr(p + 1, p1 - p - 1)), dd = stoi(s.substr(p1 + 1, p2 - p1 - 1));--newline--            auto gcd = GCD(d, dd);--newline--            n = n * dd / gcd + (s[p] == '-' ? -1 : 1) * nn * d / gcd;--newline--            d *= dd / gcd;--newline--            p = p2;--newline--        }    --newline--        auto gcd = GCD(abs(n), d);--newline--        return to_string(n / gcd) + \"/\" + to_string(d / gcd);--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "C++ 12 lines (GCD)"
+        }
+    ],
+    "qc": "592.json"
+}

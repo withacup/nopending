@@ -1,0 +1,1 @@
+{"solution_code": "public class Solution {--newline--    public int hammingDistance(int x, int y) {--newline--        return Integer.bitCount(x ^ y);--newline--    }--newline--}--newline--", "modified_code": null, "total_cases": 149, "l_type": "java"}

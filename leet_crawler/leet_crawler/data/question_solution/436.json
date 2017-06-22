@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int[] findRightInterval(Interval[] intervals) {--newline--        int[] result = new int[intervals.length];--newline--        java.util.NavigableMap<Integer, Integer> intervalMap = new TreeMap<>();--newline--        --newline--        for (int i = 0; i < intervals.length; ++i) {--newline--            intervalMap.put(intervals[i].start, i);    --newline--        }--newline--        --newline--        for (int i = 0; i < intervals.length; ++i) {--newline--            Map.Entry<Integer, Integer> entry = intervalMap.ceilingEntry(intervals[i].end);--newline--            result[i] = (entry != null) ? entry.getValue() : -1;--newline--        }--newline--        --newline--        return result;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java clear O(n logn) solution based on TreeMap"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> findRightInterval(vector<Interval>& intervals) {--newline--        map<int, int> hash;--newline--        vector<int> res;--newline--        int n = intervals.size();--newline--        for (int i = 0; i < n; ++i)--newline--            hash[intervals[i].start] = i;--newline--        for (auto in : intervals) {--newline--            auto itr = hash.lower_bound(in.end);--newline--            if (itr == hash.end()) res.push_back(-1);--newline--            else res.push_back(itr->second);--newline--        }--newline--        return res;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ map solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def findRightInterval(self, intervals):--newline----tab--        l = sorted((e.start, i) for i, e in enumerate(intervals))--newline----tab--        res = []--newline----tab--        for e in intervals:--newline----tab--            r = bisect.bisect_left(l, (e.end,))--newline----tab--            res.append(l[r][1] if r < len(l) else -1)--newline----tab--        return res--newline----tab--    ",
+            "topic_title": "Python O(nlogn) short solution with explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public int[] findRightInterval(Interval[] intervals) {--newline--        Map<Integer, Integer> map = new HashMap<>();--newline--        List<Integer> starts = new ArrayList<>();--newline--        for (int i = 0; i < intervals.length; i++) {--newline--            map.put(intervals[i].start, i);--newline--            starts.add(intervals[i].start);--newline--        }--newline--        --newline--        Collections.sort(starts);--newline--        int[] res = new int[intervals.length];--newline--        for (int i = 0; i < intervals.length; i++) {--newline--            int end = intervals[i].end;--newline--            int start = binarySearch(starts, end);--newline--            if (start < end) {--newline--                res[i] = -1;--newline--            } else {--newline--                res[i] = map.get(start);--newline--            }--newline--        }--newline--        return res;--newline--    }--newline--    --newline--    public int binarySearch(List<Integer> list, int x) {--newline--        int left = 0, right = list.size() - 1;--newline--        while (left < right) {--newline--            int mid = left + (right - left) / 2;--newline--            if (list.get(mid) < x) { --newline--                left = mid + 1;--newline--            } else {--newline--                right = mid;--newline--            }--newline--        }--newline--        return list.get(left);--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Concise Binary Search"
+        },
+        {
+            "java": "class Point implements Comparable<Point>{--newline--    int val;--newline--    int flag; //1 start, 0 end--newline--    int index;--newline--    public Point(int val, int flag, int index) {--newline--        this.val = val;--newline--        this.flag = flag;--newline--        this.index = index;--newline--    }--newline--    public int compareTo(Point o) {--newline--        if (this.val == o.val) return this.flag - o.flag; //end in front of start--newline--        return this.val - o.val;--newline--    }--newline--}--newline--public int[] findRightInterval(Interval[] intervals) {--newline--    if (intervals == null || intervals.length == 0) return new int[]{};--newline--    --newline--    int[] res = new int[intervals.length];--newline--    Arrays.fill(res, -1);--newline--    --newline--    List<Point> points = new ArrayList<>();--newline--    for (int i = 0; i < intervals.length; i++) {--newline--        points.add(new Point(intervals[i].start, 1, i));--newline--        points.add(new Point(intervals[i].end, 0, i));--newline--    }--newline--    --newline--    Collections.sort(points);--newline--    --newline--    List<Integer> prevIdxs = new ArrayList<>();--newline--    --newline--    for (Point point: points) {--newline--        if (point.flag == 1) {--newline--                for (Integer prevIdx: prevIdxs) {--newline--                   res[prevIdx] = point.index; --newline--                }--newline--                prevIdxs = new ArrayList<>();--newline--        } else {--newline--            prevIdxs.add(point.index);--newline--        }--newline--    }--newline--    --newline--    return res;--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Sweep-Line Solution O(nlogn)"
+        }
+    ],
+    "qc": "436.json"
+}

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int search(int A[], int n, int target) {--newline--        int lo=0,hi=n-1;--newline--        // find the index of the smallest value using binary search.--newline--        // Loop will terminate since mid < hi, and lo or hi will shrink by at least 1.--newline--        // Proof by contradiction that mid < hi: if mid==hi, then lo==hi and loop would have been terminated.--newline--        while(lo<hi){--newline--            int mid=(lo+hi)/2;--newline--            if(A[mid]>A[hi]) lo=mid+1;--newline--            else hi=mid;--newline--        }--newline--        // lo==hi is the index of the smallest value and also the number of places rotated.--newline--        int rot=lo;--newline--        lo=0;hi=n-1;--newline--        // The usual binary search and accounting for rotation.--newline--        while(lo<=hi){--newline--            int mid=(lo+hi)/2;--newline--            int realmid=(mid+rot)%n;--newline--            if(A[realmid]==target)return realmid;--newline--            if(A[realmid]<target)lo=mid+1;--newline--            else hi=mid-1;--newline--        }--newline--        return -1;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Concise O(log N) Binary search solution"
+        },
+        {
+            "java": "public class Solution {--newline--public int search(int[] A, int target) {--newline--    int lo = 0;--newline--    int hi = A.length - 1;--newline--    while (lo < hi) {--newline--        int mid = (lo + hi) / 2;--newline--        if (A[mid] == target) return mid;--newline--        --newline--        if (A[lo] <= A[mid]) {--newline--            if (target >= A[lo] && target < A[mid]) {--newline--                hi = mid - 1;--newline--            } else {--newline--                lo = mid + 1;--newline--            }--newline--        } else {--newline--            if (target > A[mid] && target <= A[hi]) {--newline--                lo = mid + 1;--newline--            } else {--newline--                hi = mid - 1;--newline--            }--newline--        }--newline--    }--newline--    return A[lo] == target ? lo : -1;--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Revised Binary Search"
+        },
+        {
+            "java": "public class Solution {--newline--    public int search(int[] nums, int target) {--newline--        int start = 0;--newline--        int end = nums.length - 1;--newline--        while (start <= end){--newline--            int mid = (start + end) / 2;--newline--            if (nums[mid] == target)--newline--                return mid;--newline--        --newline--            if (nums[start] <= nums[mid]){--newline--                 if (target < nums[mid] && target >= nums[start]) --newline--                    end = mid - 1;--newline--                 else--newline--                    start = mid + 1;--newline--            } --newline--        --newline--            if (nums[mid] <= nums[end]){--newline--                if (target > nums[mid] && target <= nums[end])--newline--                    start = mid + 1;--newline--                 else--newline--                    end = mid - 1;--newline--            }--newline--        }--newline--        return -1;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java AC Solution using once binary search"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int search(vector<int>& nums, int target) {--newline--        int lo = 0, hi = nums.size();--newline--        while (lo < hi) {--newline--            int mid = (lo + hi) / 2;--newline--            --newline--            double num = (nums[mid] < nums[0]) == (target < nums[0])--newline--                       ? nums[mid]--newline--                       : target < nums[0] ? -INFINITY : INFINITY;--newline--                       --newline--            if (num < target)--newline--                lo = mid + 1;--newline--            else if (num > target)--newline--                hi = mid;--newline--            else--newline--                return mid;--newline--        }--newline--        return -1;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Clever idea making it simple"
+        },
+        {
+            "java": "public class Solution {--newline--    public int search(int[] nums, int target) {--newline--        int lo = 0, hi = nums.length - 1;--newline--        while (lo < hi) {--newline--            int mid = (lo + hi) / 2;--newline--            if ((nums[0] > target) ^ (nums[0] > nums[mid]) ^ (target > nums[mid]))--newline--                lo = mid + 1;--newline--            else--newline--                hi = mid;--newline--        }--newline--        return lo == hi && nums[lo] == target ? lo : -1;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int search(vector<int>& nums, int target) {--newline--        int lo = 0, hi = int(nums.size()) - 1;--newline--        while (lo < hi) {--newline--            int mid = (lo + hi) / 2;--newline--            if ((nums[0] > target) ^ (nums[0] > nums[mid]) ^ (target > nums[mid]))--newline--                lo = mid + 1;--newline--            else--newline--                hi = mid;--newline--        }--newline--        return lo == hi && nums[lo] == target ? lo : -1;--newline--    }--newline--    --newline--}",
+            "python": "class Solution:--newline----tab--    def search(self, nums, target):--newline----tab--        self.__getitem__ = lambda i: \\--newline----tab--            (nums[0] <= target) ^ (nums[0] > nums[i]) ^ (target > nums[i])--newline----tab--        i = bisect.bisect_left(self, True, 0, len(nums))--newline----tab--        return i if target in nums[i:i+1] else -1--newline----tab--",
+            "topic_title": "Pretty short C++&#x2F;Java&#x2F;Ruby&#x2F;Python"
+        }
+    ],
+    "qc": "33.json"
+}

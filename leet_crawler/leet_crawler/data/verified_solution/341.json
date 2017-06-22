@@ -1,0 +1,6 @@
+{
+    "solution_code": "public class NestedIterator implements Iterator<Integer> {--newline--    Stack<NestedInteger> stack = new Stack<>();--newline--    public NestedIterator(List<NestedInteger> nestedList) {--newline--        for(int i = nestedList.size() - 1; i >= 0; i--) {--newline--            stack.push(nestedList.get(i));--newline--        }--newline--    }--newline----newline--    @Override--newline--    public Integer next() {--newline--        return stack.pop().getInteger();--newline--    }--newline----newline--    @Override--newline--    public boolean hasNext() {--newline--        while(!stack.isEmpty()) {--newline--            NestedInteger curr = stack.peek();--newline--            if(curr.isInteger()) {--newline--                return true;--newline--            }--newline--            stack.pop();--newline--            for(int i = curr.getList().size() - 1; i >= 0; i--) {--newline--                stack.push(curr.getList().get(i));--newline--            }--newline--        }--newline--        return false;--newline--    }--newline--}",
+    "l_type": "java",
+    "modified_code": null,
+    "total_cases": 44
+}

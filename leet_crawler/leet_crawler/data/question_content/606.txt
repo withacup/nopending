@@ -1,0 +1,36 @@
+---CONTENT_BEGIN---
+You need to construct a string consists of parenthesis and integers from a binary tree with the preorder traversing way.
+
+The null node needs to be represented by empty parenthesis pair "()". And you need to omit all the empty parenthesis pairs that don't affect the one-to-one mapping relationship between the string and the original binary tree.
+
+Example 1:
+
+Input: Binary tree: [1,2,3,4]
+       1
+     /   \
+    2     3
+   /    
+  4     
+
+Output: "1(2(4))(3)"
+Explanation: Originallay it needs to be "1(2(4)())(3()())", but you need to omit all the unnecessary empty parenthesis pairs. And it will be "1(2(4))(3)".
+
+
+
+Example 2:
+
+Input: Binary tree: [1,2,3,null,4]
+       1
+     /   \
+    2     3
+     \  
+      4 
+
+Output: "1(2()(4))(3)"
+Explanation: Almost the same as the first example, except we can't omit the first parenthesis pair to break the one-to-one mapping relationship between the input and the output.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * struct TreeNode {--newline-- *     int val;--newline-- *     TreeNode *left;--newline-- *     TreeNode *right;--newline-- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}--newline-- * };--newline-- */--newline--class Solution {--newline--public:--newline--    string tree2str(TreeNode* t) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * public class TreeNode {--newline-- *     int val;--newline-- *     TreeNode left;--newline-- *     TreeNode right;--newline-- *     TreeNode(int x) { val = x; }--newline-- * }--newline-- */--newline--public class Solution {--newline--    public String tree2str(TreeNode t) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "# Definition for a binary tree node.--newline--# class TreeNode(object):--newline--#     def __init__(self, x):--newline--#         self.val = x--newline--#         self.left = None--newline--#         self.right = None--newline----newline--class Solution(object):--newline--    def tree2str(self, t):--newline--        '''--newline--        :type t: TreeNode--newline--        :rtype: str--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "class Solution:--newline--    def tree2str(self, t):--newline--        '''--newline--        :type t: TreeNode--newline--        :rtype: str--newline--        '''", "value": "python3", "text": "Python3"}, {"defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * struct TreeNode {--newline-- *     int val;--newline-- *     struct TreeNode *left;--newline-- *     struct TreeNode *right;--newline-- * };--newline-- */--newline--char* tree2str(struct TreeNode* t) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * public class TreeNode {--newline-- *     public int val;--newline-- *     public TreeNode left;--newline-- *     public TreeNode right;--newline-- *     public TreeNode(int x) { val = x; }--newline-- * }--newline-- */--newline--public class Solution {--newline--    public string Tree2str(TreeNode t) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * function TreeNode(val) {--newline-- *     this.val = val;--newline-- *     this.left = this.right = null;--newline-- * }--newline-- */--newline--/**--newline-- * @param {TreeNode} t--newline-- * @return {string}--newline-- */--newline--var tree2str = function(t) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# Definition for a binary tree node.--newline--# class TreeNode--newline--#     attr_accessor :val, :left, :right--newline--#     def initialize(val)--newline--#         @val = val--newline--#         @left, @right = nil, nil--newline--#     end--newline--# end--newline----newline--# @param {TreeNode} t--newline--# @return {String}--newline--def tree2str(t)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * public class TreeNode {--newline-- *     public var val: Int--newline-- *     public var left: TreeNode?--newline-- *     public var right: TreeNode?--newline-- *     public init(_ val: Int) {--newline-- *         self.val = val--newline-- *         self.left = nil--newline-- *         self.right = nil--newline-- *     }--newline-- * }--newline-- */--newline--class Solution {--newline--    func tree2str(_ t: TreeNode?) -> String {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * type TreeNode struct {--newline-- *     Val int--newline-- *     Left *TreeNode--newline-- *     Right *TreeNode--newline-- * }--newline-- */--newline--func tree2str(t *TreeNode) string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

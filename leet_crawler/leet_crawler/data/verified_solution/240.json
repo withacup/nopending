@@ -1,0 +1,6 @@
+{
+    "solution_code": "public class Solution {--newline--    public boolean searchMatrix(int[][] matrix, int target) {--newline--        if(matrix == null || matrix.length < 1 || matrix[0].length <1) {--newline--            return false;--newline--        }--newline--        int col = matrix[0].length-1;--newline--        int row = 0;--newline--        while(col >= 0 && row <= matrix.length-1) {--newline--            if(target == matrix[row][col]) {--newline--                return true;--newline--            } else if(target < matrix[row][col]) {--newline--                col--;--newline--            } else if(target > matrix[row][col]) {--newline--                row++;--newline--            }--newline--        }--newline--        return false;--newline--    }--newline--}",
+    "l_type": "java",
+    "modified_code": null,
+    "total_cases": 129
+}

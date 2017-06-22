@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public boolean hasCycle(ListNode head) {--newline--        if(head==null) return false;--newline--        ListNode walker = head;--newline--        ListNode runner = head;--newline--        while(runner.next!=null && runner.next.next!=null) {--newline--            walker = walker.next;--newline--            runner = runner.next.next;--newline--            if(walker==runner) return true;--newline--        }--newline--        return false;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "O(1) Space Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def hasCycle(self, head):--newline----tab--        try:--newline----tab--            slow = head--newline----tab--            fast = head.next--newline----tab--            while slow is not fast:--newline----tab--                slow = slow.next--newline----tab--                fast = fast.next.next--newline----tab--            return True--newline----tab--        except:--newline----tab--            return False",
+            "topic_title": "Except-ionally fast Python"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "/**--newline-- * Definition for singly-linked list.--newline-- * struct ListNode {--newline-- *     int val;--newline-- *     ListNode *next;--newline-- *     ListNode(int x) : val(x), next(NULL) {}--newline-- * };--newline-- */--newline-- /**--newline-- use faster and lower runner solution. (2 pointers)--newline-- the faster one move 2 steps, and slower one move only one step.--newline-- if there's a circle, the faster one will finally \"catch\" the slower one. --newline-- (the distance between these 2 pointers will decrease one every time.)--newline-- --newline-- if there's no circle, the faster runner will reach the end of linked list. (NULL)--newline-- */--newline--class Solution {--newline--public:--newline--    bool hasCycle(ListNode *head) {--newline--        if(head == NULL || head -> next == NULL)    --newline--            return false;--newline-- --newline--        ListNode *fast = head;--newline--        ListNode *slow = head;--newline--        --newline--        while(fast -> next && fast -> next -> next){--newline--            fast = fast -> next -> next;--newline--            slow = slow -> next;--newline--            if(fast == slow)--newline--                return true;--newline--        }--newline-- --newline--        return false;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "My faster and slower runner solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "By saying using no extra space, does it mean O(0) in space?"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean hasCycle(ListNode head) {--newline--    --tab--ListNode p = head,pre = head;--newline--    --tab--while(p != null && p.next != null){--newline--    --tab----tab--if (p.next == head) return true;--newline--    --tab----tab--p = p.next;--newline--    --tab----tab--pre.next = head;--newline--    --tab----tab--pre = p;--newline--    --tab--}--newline--        return false;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple and easy understanding java solution, Time  o(n) ,Space O(1)"
+        }
+    ],
+    "qc": "141.json"
+}

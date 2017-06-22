@@ -1,0 +1,6 @@
+{
+    "solution_code": "public class Solution {--newline--    public int hIndex(int[] citations) {--newline--        int len = citations.length;--newline----newline--        int first = 0;--newline--        int mid;--newline--        int count = len;--newline--        int step;--newline--        --newline--        while (count > 0) {--newline--            step = count / 2;--newline--            mid = first + step;--newline--            if (citations[mid] < len - mid) {--newline--                first = mid + 1;--newline--                count -= (step + 1);--newline--            }--newline--            else {--newline--                count = step;--newline--            }--newline--        }--newline--        --newline--        return len - first;--newline--    }--newline--}--newline--",
+    "l_type": "java",
+    "modified_code": null,
+    "total_cases": 82
+}

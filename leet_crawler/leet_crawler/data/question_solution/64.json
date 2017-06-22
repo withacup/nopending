@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int minPathSum(vector<vector<int>>& grid) {--newline--        int m = grid.size();--newline--        int n = grid[0].size();--newline--        vector<int> cur(m, grid[0][0]);--newline--        for (int i = 1; i < m; i++)--newline--            cur[i] = cur[i - 1] + grid[i][0]; --newline--        for (int j = 1; j < n; j++) {--newline--            cur[0] += grid[0][j]; --newline--            for (int i = 1; i < m; i++)--newline--                cur[i] = min(cur[i - 1], cur[i]) + grid[i][j];--newline--        }--newline--        return cur[m - 1];--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "10-lines 28ms O(n)-space DP solution in C++ with Explanations"
+        },
+        {
+            "java": "public class Solution {--newline--    public int minPathSum(int[][] grid) {--newline--    --tab--int m = grid.length;// row--newline--    --tab--int n = grid[0].length; // column--newline--    --tab--for (int i = 0; i < m; i++) {--newline--    --tab----tab--for (int j = 0; j < n; j++) {--newline--    --tab----tab----tab--if (i == 0 && j != 0) {--newline--    --tab----tab----tab----tab--grid[i][j] = grid[i][j] + grid[i][j - 1];--newline--    --tab----tab----tab--} else if (i != 0 && j == 0) {--newline--    --tab----tab----tab----tab--grid[i][j] = grid[i][j] + grid[i - 1][j];--newline--    --tab----tab----tab--} else if (i == 0 && j == 0) {--newline--    --tab----tab----tab----tab--grid[i][j] = grid[i][j];--newline--    --tab----tab----tab--} else {--newline--    --tab----tab----tab----tab--grid[i][j] = Math.min(grid[i][j - 1], grid[i - 1][j])--newline--    --tab----tab----tab----tab----tab----tab--+ grid[i][j];--newline--    --tab----tab----tab--}--newline--    --tab----tab--}--newline--    --tab--}--newline--    --newline--    --tab--return grid[m - 1][n - 1];--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My java solution using DP and no extra space"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int minPathSum(vector<vector<int> > &grid) {--newline--        if(!grid.size())return 0;--newline--        const int rows=grid.size(),cols=grid[0].size();--newline--        // r[i] == min path sum to previous row's column i.--newline--        vector<int> r(cols,0);--newline--        int i,j;--newline--        r[0]=grid[0][0];--newline--        for(j=1;j<cols;j++){--newline--            r[j]=grid[0][j]+r[j-1];       --newline--        }--newline--        for(i=1;i<rows;i++){--newline--            r[0]+=grid[i][0];--newline--            for(j=1;j<cols;j++){--newline--                r[j]=min(r[j-1],r[j])+grid[i][j];--newline--            }--newline--        }--newline--        return r[cols-1];--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "DP Solution, Linear space"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def minPathSum(self, grid):--newline----tab--        m = len(grid)--newline----tab--        n = len(grid[0])--newline----tab--        for i in range(1, n):--newline----tab--            grid[0][i] += grid[0][i-1]--newline----tab--        for i in range(1, m):--newline----tab--            grid[i][0] += grid[i-1][0]--newline----tab--        for i in range(1, m):--newline----tab--            for j in range(1, n):--newline----tab--                grid[i][j] += min(grid[i-1][j], grid[i][j-1])--newline----tab--        return grid[-1][-1]",
+            "topic_title": "Simple python dp 70ms"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My 8 lines simple solution"
+        }
+    ],
+    "qc": "64.json"
+}

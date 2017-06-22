@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public ListNode reverseKGroup(ListNode head, int k) {--newline--        ListNode curr = head;--newline--        int count = 0;--newline--        while (curr != null && count != k) { // find the k+1 node--newline--            curr = curr.next;--newline--            count++;--newline--        }--newline--        if (count == k) { // if k+1 node is found--newline--            curr = reverseKGroup(curr, k); // reverse list with k+1 node as head--newline--            // head - head-pointer to direct part, --newline--            // curr - head-pointer to reversed part;--newline--            while (count-- > 0) { // reverse current k-group: --newline--                ListNode tmp = head.next; // tmp - next head in direct part--newline--                head.next = curr; // preappending \"direct\" head to the reversed list --newline--                curr = head; // move head of reversed part to a new node--newline--                head = tmp; // move \"direct\" head to the next node in direct part--newline--            }--newline--            head = curr;--newline--        }--newline--        return head;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Short but recursive Java code with comments"
+        },
+        {
+            "java": "  public class Solution {--newline--        public ListNode reverseKGroup(ListNode head, int k) {--newline--            if (head==null||head.next==null||k<2) return head;--newline--    --newline--            ListNode dummy = new ListNode(0);--newline--            dummy.next = head;--newline--            --newline--            ListNode tail = dummy, prev = dummy,temp;--newline--            int count;--newline--            while(true){--newline--                count =k;--newline--                while(count>0&&tail!=null){--newline--                    count--;--newline--                    tail=tail.next;--newline--                } --newline--                if (tail==null) break;//Has reached the end--newline--                --newline--    --newline--                head=prev.next;//for next cycle--newline--            // prev-->temp-->...--->....--->tail-->....--newline--            // Delete @temp and insert to the next position of @tail--newline--            // prev-->...-->...-->tail-->head-->...--newline--            // Assign @temp to the next node of @prev--newline--            // prev-->temp-->...-->tail-->...-->...--newline--            // Keep doing until @tail is the next node of @prev--newline--                while(prev.next!=tail){--newline--                    temp=prev.next;//Assign--newline--                    prev.next=temp.next;//Delete--newline--                    --newline--                    temp.next=tail.next;--newline--                    tail.next=temp;//Insert--newline--                    --newline--                }--newline--                --newline--                tail=head;--newline--                prev=head;--newline--                --newline--            }--newline--            return dummy.next;--newline--            --newline--        }--newline--    }",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my Java Solution with comments in line"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    ListNode *reverseKGroup(ListNode *head, int k) {--newline--        if(head==NULL||k==1) return head;--newline--        int num=0;--newline--        ListNode *preheader = new ListNode(-1);--newline--        preheader->next = head;--newline--        ListNode *cur = preheader, *nex, *pre = preheader;--newline--        while(cur = cur->next) --newline--            num++;--newline--        while(num>=k) {--newline--            cur = pre->next;--newline--            nex = cur->next;--newline--            for(int i=1;i<k;++i) {--newline--                cur->next=nex->next;--newline--                nex->next=pre->next;--newline--                pre->next=nex;--newline--                nex=cur->next;--newline--            }--newline--            pre = cur;--newline--            num-=k;--newline--        }--newline--        return preheader->next;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "20-line iterative C++ solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public ListNode reverseKGroup(ListNode head, int k) {--newline--        ListNode begin;--newline--        if (head==null || head.next ==null || k==1)--newline--        --tab--return head;--newline--        ListNode dummyhead = new ListNode(-1);--newline--        dummyhead.next = head;--newline--        begin = dummyhead;--newline--        int i=0;--newline--        while (head != null){--newline--        --tab--i++;--newline--        --tab--if (i%k == 0){--newline--        --tab----tab--begin = reverse(begin, head.next);--newline--        --tab----tab--head = begin.next;--newline--        --tab--} else {--newline--        --tab----tab--head = head.next;--newline--        --tab--}--newline--        }--newline--        return dummyhead.next;--newline--        --newline--    }--newline--    --newline--    public ListNode reverse(ListNode begin, ListNode end){--newline--    --tab--ListNode curr = begin.next;--newline--    --tab--ListNode next, first;--newline--    --tab--ListNode prev = begin;--newline--    --tab--first = curr;--newline--    --tab--while (curr!=end){--newline--    --tab----tab--next = curr.next;--newline--    --tab----tab--curr.next = prev;--newline--    --tab----tab--prev = curr;--newline--    --tab----tab--curr = next;--newline--    --tab--}--newline--    --tab--begin.next = prev;--newline--    --tab--first.next = curr;--newline--    --tab--return first;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Non-recursive Java solution and idea"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution --newline--{--newline--public:--newline--    --newline--    ListNode* reverse(ListNode* first, ListNode* last)--newline--    {--newline--        ListNode* prev = last;--newline--        --newline--        while ( first != last )--newline--        {--newline--            auto tmp = first->next;--newline--            first->next = prev;--newline--            prev = first;--newline--            first = tmp;--newline--        }--newline--        --newline--        return prev;--newline--    }--newline--    --newline--    ListNode* reverseKGroup(ListNode* head, int k) --newline--    {--newline--        auto node=head;--newline--        for (int i=0; i < k; ++i)--newline--        {--newline--            if ( ! node  )--newline--                return head; // nothing to do list too sort--newline--            node = node->next;--newline--        }--newline----newline--        auto new_head = reverse( head, node);--newline--        head->next = reverseKGroup( node, k);--newline--        return new_head;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "C++ Elegant and Small"
+        }
+    ],
+    "qc": "25.json"
+}

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public String addStrings(String num1, String num2) {--newline--        StringBuilder sb = new StringBuilder();--newline--        int carry = 0;--newline--        for(int i = num1.length() - 1, j = num2.length() - 1; i >= 0 || j >= 0 || carry == 1; i--, j--){--newline--            int x = i < 0 ? 0 : num1.charAt(i) - '0';--newline--            int y = j < 0 ? 0 : num2.charAt(j) - '0';--newline--            sb.append((x + y + carry) % 10);--newline--            carry = (x + y + carry) / 10;--newline--        }--newline--        return sb.reverse().toString();--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Straightforward Java 8 main lines 25ms"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--string addStrings(string num1, string num2) {--newline--    int i = num1.size() - 1;--newline--    int j = num2.size() - 1;--newline--    int carry = 0;--newline--    string res = \"\";--newline--    while(i>=0 || j>=0 || carry){--newline--        long sum = 0;--newline--        if(i >= 0){sum += (num1[i] - '0');i--;}--newline--        if(j >= 0){sum += (num2[j] - '0');j--;}--newline--        sum += carry; --newline--        carry = sum / 10;--newline--        sum = sum % 10;--newline--        res =  res + to_string(sum);--newline--    }--newline--    reverse(res.begin(), res.end());--newline--    return res;--newline--}--newline--};",
+            "python": null,
+            "topic_title": "C++_Accepted_13ms"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string addStrings(string num1, string num2) {--newline--        if (num1.size() < num2.size()) return addStrings(num2, num1);--newline--        int carry = 0, i = num1.size() - 1, j = num2.size() - 1;--newline--        for (; i >= 0 && (carry || j >= 0); i--, j--, carry /= 10) --newline--            num1[i] = (carry += num1[i] - '0' + (j >= 0 ? num2[j] - '0' : 0)) % 10 + '0';--newline--        return (carry ? \"1\" : \"\") + num1;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "3ms 5 lines Concise C++ Solution without extra space. The loop should stop early!"
+        },
+        {
+            "java": "public class Solution {--newline--    public String addStrings(String num1, String num2) {--newline--        int i = num1.length() - 1;--newline--        int j = num2.length() - 1;--newline--        int carry = 0;--newline--        char[] num1Array = num1.toCharArray();--newline--        char[] num2Array = num2.toCharArray();--newline--        StringBuilder sb = new StringBuilder();--newline--        while (i >= 0 || j >= 0 || carry == 1) {--newline--            int a = i >= 0 ? (num1Array[i--] - '0') : 0;--newline--            int b = j >= 0 ? (num2Array[j--] - '0') : 0;--newline--            int sum = a + b + carry;--newline--            sb.insert(0, sum % 10);--newline--            carry = sum / 10;--newline--        }--newline--        return sb.toString();--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "&#91;JAVA&#93; Simple and Clean with Explanations &#91;29 ms&#93;"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def addStrings(self, num1, num2):--newline----tab--         return str(--newline----tab--                  reduce(lambda a, b: 10*a + b, --newline----tab--                     map(lambda x: ord(x[0])+ord(x[1])-2*ord('0'),--newline----tab--                       list(itertools.izip_longest(num1[::-1], num2[::-1], fillvalue='0'))[::-1]--newline----tab--                     ) --newline----tab--                  )--newline----tab--                )--newline----tab--    ",
+            "topic_title": "Python: 7-line &amp; 52ms (+ 1-liner for fun)"
+        }
+    ],
+    "qc": "415.json"
+}

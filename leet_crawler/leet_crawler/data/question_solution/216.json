@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--     public List<List<Integer>> combinationSum3(int k, int n) {--newline--        List<List<Integer>> ans = new ArrayList<>();--newline--        combination(ans, new ArrayList<Integer>(), k, 1, n);--newline--        return ans;--newline--    }--newline--    --newline--    private void combination(List<List<Integer>> ans, List<Integer> comb, int k,  int start, int n) {--newline--    --tab--if (comb.size() == k && n == 0) {--newline--    --tab----tab--List<Integer> li = new ArrayList<Integer>(comb);--newline--    --tab----tab--ans.add(li);--newline--    --tab----tab--return;--newline--    --tab--}--newline--    --tab--for (int i = start; i <= 9; i++) {--newline--    --tab----tab--comb.add(i);--newline--    --tab----tab--combination(ans, comb, k, i+1, n-i);--newline--    --tab----tab--comb.remove(comb.size() - 1);--newline--    --tab--}--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple and clean Java code, backtracking."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--  void combination(vector<vector<int>>& result, vector<int> sol, int k, int n) {--newline--    if (sol.size() == k && n == 0) { result.push_back(sol); return ; }--newline--    if (sol.size() < k) {--newline--      for (int i = sol.empty() ? 1 : sol.back() + 1; i <= 9; ++i) {--newline--        if (n - i < 0) break;--newline--        sol.push_back(i);--newline--        combination(result, sol, k, n - i);--newline--        sol.pop_back();--newline--      }--newline--    }--newline--  }--newline----newline--  vector<vector<int>> combinationSum3(int k, int n) {--newline--    vector<vector<int>> result;--newline--    vector<int> sol;--newline--    combination(result, sol, k, n);--newline--    return result;--newline--  }--newline--};",
+            "python": null,
+            "topic_title": "My C++ solution, backtracking."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<vector<int>> combinationSum3(int k, int n) {--newline--        vector<vector<int>> result;--newline--        vector<int> path;--newline--        backtrack(result, path, 1, k, n);--newline--        return result;--newline--    }--newline--    --newline--    void backtrack(vector<vector<int>> &result, vector<int> &path, int start, int k, int target){--newline--        if(target==0&&k==0){--newline--            result.push_back(path);--newline--            return;--newline--        }--newline--        for(int i=start;i<=10-k&&i<=target;i++){--newline--            path.push_back(i);--newline--            backtrack(result,path,i+1,k-1,target-i);--newline--            path.pop_back();--newline--        }--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Use backtrack c++ solution, easy to understand."
+        },
+        {
+            "java": "public class Solution {--newline--public List<List<Integer>> combinationSum3(int k, int n) {--newline--    int[] num = {1,2,3,4,5,6,7,8,9};--newline--    List<List<Integer>> result = new ArrayList<List<Integer>>();--newline--    helper(result, new ArrayList<Integer>(), num, k, n,0);--newline--    return result;--newline--    }--newline----newline--public void helper(List<List<Integer>> result, List<Integer> list, int[] num, int k, int target, int start){--newline--    if (k == 0 && target == 0){--newline--        result.add(new ArrayList<Integer>(list));--newline--    } else {--newline--        for (int i = start; i < num.length && target > 0 && k >0; i++){--newline--            list.add(num[i]);--newline--            helper(result, list, num, k-1,target-num[i],i+1);--newline--            list.remove(list.size()-1);--newline--        }--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Fast, easy Java code, with explanation!"
+        },
+        {
+            "java": "public class Solution {--newline--    private List<List<Integer>> res = new ArrayList<List<Integer>>();--newline--    public List<List<Integer>> combinationSum3(int k, int n) {--newline--        findCombo( k, n, 1, new LinkedList<Integer>() );--newline--        return res;--newline--    }--newline--    public void findCombo(int k, int n, int start, List<Integer> list){--newline--        if( k == 1 ){--newline--            if( n < start || n > 9 ) return;--newline--            list.add( n );--newline--            res.add( list );--newline--            return;--newline--        }--newline--        for( int i = start; i <= n / k && i < 10; i++ ){--newline--            List<Integer> subList = new LinkedList<Integer>( list );--newline--            sub.add( i );--newline--            findCombo( k - 1, n - i, i + 1, subList );--newline--        }--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Accepted recursive Java solution, easy to understand"
+        }
+    ],
+    "qc": "216.json"
+}

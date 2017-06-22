@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class NumArray {--newline--    int[] nums;--newline--    --newline--    public NumArray(int[] nums) {--newline--        for(int i = 1; i < nums.length; i++)--newline--            nums[i] += nums[i - 1];--newline--        --newline--        this.nums = nums;--newline--    }--newline--    --newline--    public int sumRange(int i, int j) {--newline--        if(i == 0)--newline--            return nums[j];--newline--        --newline--        return nums[j] - nums[i - 1];--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java simple O(n) init and O(1) query solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class NumArray {--newline--public:--newline--    NumArray(vector<int> &nums) {--newline--        accu.push_back(0);--newline--        for (int num : nums)--newline--            accu.push_back(accu.back() + num);--newline--    }--newline----newline--    int sumRange(int i, int j) {--newline--        return accu[j + 1] - accu[i];--newline--    }--newline--private:--newline--    vector<int> accu;--newline--};--newline----newline----newline--// Your NumArray object will be instantiated and called as such:--newline--// NumArray numArray(nums);--newline--// numArray.sumRange(0, 1);--newline--// numArray.sumRange(1, 2); --newline--",
+            "python": "class NumArray(object):--newline----tab--    def __init__(self, nums):--newline----tab--        \"\"\"--newline----tab--        initialize your data structure here.--newline----tab--        :type nums: List[int]--newline----tab--        \"\"\"--newline----tab--        self.accu = [0]--newline----tab--        for num in nums: --newline----tab--            self.accu += self.accu[-1] + num,--newline----tab----newline----tab--    def sumRange(self, i, j):--newline----tab--        \"\"\"--newline----tab--        sum of elements nums[i..j], inclusive.--newline----tab--        :type i: int --newline----tab--        :type j: int--newline----tab--        :rtype: int --newline----tab--        \"\"\"--newline----tab--        return self.accu[j + 1] - self.accu[i]--newline----tab----newline----tab----newline----tab--# Your NumArray object will be instantiated and called as such:--newline----tab--# numArray = NumArray(nums)--newline----tab--# numArray.sumRange(0, 1)--newline----tab--# numArray.sumRange(1, 2)",
+            "topic_title": "5-lines C++, 4-lines Python"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class NumArray {--newline--public:--newline--    NumArray(vector<int> &nums) : psum(nums.size()+1, 0) {--newline--        partial_sum( nums.begin(), nums.end(), psum.begin()+1);--newline--    }--newline----newline--    int sumRange(int i, int j) {--newline--        return psum[j+1] - psum[i];--newline--    }--newline--private:--newline--    vector<int> psum;    --newline--};",
+            "python": null,
+            "topic_title": "C++ O(1) queries - just 2 extra lines of code"
+        },
+        {
+            "java": "public class NumArray {--newline--    private int[] sums;--newline----newline--    public NumArray(int[] nums) {--newline--        if(nums.length != 0){--newline--            sums = new int[nums.length];--newline--        --newline--            sums[0] = nums[0];--newline--            for(int i=1; i<nums.length; i++){--newline--                sums[i] = nums[i] + sums[i-1];--newline--            }--newline--        }--newline--    }--newline----newline--    public int sumRange(int i, int j) {--newline--        return i==0 ? sums[j] : sums[j]-sums[i-1];--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My java 3ms solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class NumArray(object):--newline----tab--    def __init__(self, nums):--newline----tab--        self.dp = nums--newline----tab--        for i in xrange(1, len(nums)):--newline----tab--            self.dp[i] += self.dp[i-1]--newline----tab----newline----tab--    def sumRange(self, i, j):--newline----tab--        return self.dp[j] - (self.dp[i-1] if i > 0 else 0)",
+            "topic_title": "A very short Python solution"
+        }
+    ],
+    "qc": "303.json"
+}

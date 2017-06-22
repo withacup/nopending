@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int majorityElement(int[] num) {--newline----newline--        int major=num[0], count = 1;--newline--        for(int i=1; i<num.length;i++){--newline--            if(count==0){--newline--                count++;--newline--                major=num[i];--newline--            }else if(major==num[i]){--newline--                count++;--newline--            }else count--;--newline--            --newline--        }--newline--        return major;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "O(n) time O(1) space fastest solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int majorityElement(vector<int>& nums) {--newline--        int major = 0, n = nums.size();--newline--        for (int i = 0, mask = 1; i < 32; i++, mask <<= 1) {--newline--            int bitCounts = 0;--newline--            for (int j = 0; j < n; j++) {--newline--                if (nums[j] & mask) bitCounts++;--newline--                if (bitCounts > n / 2) {--newline--                    major |= mask;--newline--                    break;--newline--                }--newline--            }--newline--        } --newline--        return major;--newline--    } --newline--};",
+            "python": null,
+            "topic_title": "6 Suggested Solutions in C++ with Explanations"
+        },
+        {
+            "java": "public class Solution {--newline--    // Sorting--newline--    public int majorityElement1(int[] nums) {--newline--        Arrays.sort(nums);--newline--        return nums[nums.length/2];--newline--    }--newline--    --newline--    // Hashtable --newline--    public int majorityElement2(int[] nums) {--newline--        Map<Integer, Integer> myMap = new HashMap<Integer, Integer>();--newline--        //Hashtable<Integer, Integer> myMap = new Hashtable<Integer, Integer>();--newline--        int ret=0;--newline--        for (int num: nums) {--newline--            if (!myMap.containsKey(num))--newline--                myMap.put(num, 1);--newline--            else--newline--                myMap.put(num, myMap.get(num)+1);--newline--            if (myMap.get(num)>nums.length/2) {--newline--                ret = num;--newline--                break;--newline--            }--newline--        }--newline--        return ret;--newline--    }--newline--    --newline--    // Moore voting algorithm--newline--    public int majorityElement3(int[] nums) {--newline--        int count=0, ret = 0;--newline--        for (int num: nums) {--newline--            if (count==0)--newline--                ret = num;--newline--            if (num!=ret)--newline--                count--;--newline--            else--newline--                count++;--newline--        }--newline--        return ret;--newline--    }--newline--    --newline--    // Bit manipulation --newline--    public int majorityElement(int[] nums) {--newline--        int[] bit = new int[32];--newline--        for (int num: nums)--newline--            for (int i=0; i<32; i++) --newline--                if ((num>>(31-i) & 1) == 1)--newline--                    bit[i]++;--newline--        int ret=0;--newline--        for (int i=0; i<32; i++) {--newline--            bit[i]=bit[i]>nums.length/2?1:0;--newline--            ret += bit[i]*(1<<(31-i));--newline--        }--newline--        return ret;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java solutions (sorting, hashmap, moore voting, bit manipulation)."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int majorityElement(vector<int> &num) {--newline--        int majorityIndex = 0;--newline--        for (int count = 1, i = 1; i < num.size(); i++) {--newline--            num[majorityIndex] == num[i] ? count++ : count--;--newline--            if (count == 0) {--newline--                majorityIndex = i;--newline--                count = 1;--newline--            }--newline--        }--newline--            --newline--        return num[majorityIndex];--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "C++ solution using Moore&#x27;s voting algorithm - O(n) runtime comlexity an no extra array or hash table"
+        },
+        {
+            "java": "public class Solution {--newline--    public int majorityElement(int[] num) {--newline--    --newline--        int ret = 0;--newline--    --newline--        for (int i = 0; i < 32; i++) {--newline--    --newline--            int ones = 0, zeros = 0;--newline--    --newline--            for (int j = 0; j < num.length; j++) {--newline--                if ((num[j] & (1 << i)) != 0) {--newline--                    ++ones;--newline--                }--newline--                else--newline--                    ++zeros;--newline--            }--newline--    --newline--            if (ones > zeros)--newline--                ret |= (1 << i);--newline--        }--newline--        --newline--        return ret;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my solution &#91;Java&#93; - Count bits"
+        }
+    ],
+    "qc": "169.json"
+}

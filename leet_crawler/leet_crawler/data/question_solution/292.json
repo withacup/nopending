@@ -1,0 +1,34 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Theorem: all 4s shall be false"
+        },
+        {},
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "One line O(1) solution and explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "O(1) Efficient Single-line Java using Bit Checking"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def canWinNim(self, n):--newline----tab--        \"\"\"--newline----tab--        :type n: int--newline----tab--        :rtype: bool--newline----tab--        \"\"\"--newline----tab--        # strategy: the one with 4 remaining must loose--newline----tab--        # A, B players--newline----tab--        # if n == 4k, then at each round B can make A+B both take 4, --newline----tab--        # eventually leave 4 to A, A lose--newline----tab--        # if n == 4k + i (i <= 3), then A can always take i first and B will--newline----tab--        # finanly lose as he faces above scenario like A--newline----tab----newline----tab--        return bool(n%4!=0)",
+            "topic_title": "1 liner with explanations"
+        }
+    ],
+    "qc": "292.json"
+}

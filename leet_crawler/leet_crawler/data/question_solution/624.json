@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int maxDistance(List<List<Integer>> arrays) {--newline--        int result = Integer.MIN_VALUE;--newline--        int max = arrays.get(0).get(arrays.get(0).size() - 1);--newline--        int min = arrays.get(0).get(0);--newline--        --newline--        for (int i = 1; i < arrays.size(); i++) {--newline--            result = Math.max(result, Math.abs(arrays.get(i).get(0) - max));--newline--            result = Math.max(result, Math.abs(arrays.get(i).get(arrays.get(i).size() - 1) - min));--newline--            max = Math.max(max, arrays.get(i).get(arrays.get(i).size() - 1));--newline--            min = Math.min(min, arrays.get(i).get(0));--newline--        }--newline--        --newline--        return result;--newline--    }--newline--}--newline--",
+            "topic_title": "Java Solution, Min and Max",
+            "python": null,
+            "is_locked": false,
+            "cpp": null
+        },
+        {
+            "java": "public class Solution {--newline--    public int maxDistance(int[][] arrays) {--newline--    --tab----tab--if (arrays == null || arrays.length == 0) return 0;--newline--    --tab----tab----newline--    --tab----tab--int diff = Integer.MIN_VALUE;--newline--    --tab----tab--int m = arrays.length;--newline--    --tab----tab----newline--    --tab----tab--int min =  arrays[0][0], max = arrays[0][arrays[0].length-1];--newline--    --tab----tab--for (int i = 1; i < m; i++) {--newline--    --tab----tab----tab--int head = arrays[i][0];--newline--    --tab----tab----tab--int tail = arrays[i][arrays[i].length-1];--newline--    --tab----tab----tab--diff = Math.max(Math.abs(max-head), diff);--newline--                            diff = Math.max(Math.abs(tail-min), diff);--newline--    --tab----tab----tab--max = Math.max(tail, max);--newline--    --tab----tab----tab--min = Math.min(head, min);--newline--    --tab----tab--}--newline--    --tab----tab----newline--    --tab----tab--return diff;--newline--        }--newline--    --newline--}",
+            "topic_title": "Share My O(n) solution",
+            "python": null,
+            "is_locked": false,
+            "cpp": null
+        },
+        {
+            "java": "public class Solution {--newline--    public int maxDistance(int[][] a) {--newline--        int min = Integer.MAX_VALUE; // ma](link url)x--newline--        int max = Integer.MIN_VALUE; // min--newline--        int k = 0, m =0;--newline--        for(int i =0;i<a.length;i++){--newline--            if(a[i][0]<min){--newline--                min = a[i][0];--newline--                k = i; --newline--            }--newline--            if(a[i][a[i].length-1]>max){--newline--                max = a[i][a[i].length-1];--newline--                m = i;--newline--            }--newline--        }--newline--        if(k!=m) return max - min; // if max and min not in same array then return diff--newline--        int ndMin = Integer.MAX_VALUE; // 2nd min--newline--        for(int i = 0;i<a.length;i++){--newline--            if(i==k) continue; // exclude the array with min--newline--            ndMin = Math.min(ndMin,a[i][0]);--newline--        }--newline--        int ndMax = Integer.MIN_VALUE; // 2nd max--newline--        for(int i = 0;i<a.length;i++){--newline--            if(i==m) continue; // exclude the array with max--newline--            ndMax = Math.max(ndMax,a[i][a[i].length-1]);--newline--        }--newline--        return Math.max(max - ndMin,ndMax - min);--newline--    }--newline--}--newline--",
+            "topic_title": "Straightforward AC Java Solution with Explanation",
+            "python": null,
+            "is_locked": false,
+            "cpp": null
+        },
+        {
+            "java": null,
+            "topic_title": "C++ O(n)",
+            "python": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int maxDistance(vector<vector<int>>& arrays) {--newline--        int left = arrays[0][0], right = arrays[0].back(), ans = 0;--newline--        for(int i = 1; i < arrays.size(); i++)--newline--        {--newline--            ans = max(ans, max(abs(arrays[i][0] - right), abs(arrays[i].back() - left)));--newline--            left = min(left, arrays[i][0]);--newline--            right = max(right, arrays[i].back());--newline--        }--newline--        return ans;--newline--    }--newline--};"
+        },
+        {
+            "java": "public class Solution {--newline--    public int maxDistance(int[][] arrays) {--newline--    --newline--    --tab--int p1 = -1, p2 = -1;--newline--    --tab--int min1, min2, max1, max2;--newline--    --tab--min1 = min2 = 10001;--newline--    --tab--max1 = max2 = -10001;--newline--    --newline--    --tab--int len1 = arrays.length;--newline--    --newline--    --tab--for (int i = 0; i < len1; i++) {--newline--    --tab----tab--int[] arr = arrays[i];--newline--    --tab----tab--int len2 = arr.length;--newline--    --newline--    --tab----tab--if (arr[0] < min1) {--newline--    --tab----tab----tab--min1 = arr[0];--newline--    --tab----tab----tab--p1 = i;--newline--    --tab----tab--}--newline--    --newline--    --tab----tab--if (arr[len2 - 1] > max2) {--newline--    --tab----tab----tab--max2 = arr[len2 - 1];--newline--    --tab----tab----tab--p2 = i;--newline--    --tab----tab--}--newline--    --tab--}--newline--    --newline--    --tab--for (int i = 0; i < len1; i++) {--newline--    --tab----tab--int[] arr = arrays[i];--newline--    --tab----tab--int len2 = arr.length;--newline--    --newline--    --tab----tab--if (arr[len2 - 1] > max1 && i != p1) {--newline--    --tab----tab----tab--max1 = arr[len2 - 1];--newline--    --tab----tab--}--newline--    --newline--    --tab----tab--if (arr[0] < min2 && i != p2) {--newline--    --tab----tab----tab--min2 = arr[0];--newline--    --tab----tab--}--newline--    --tab--}--newline--    --newline--    --tab--return Math.max(Math.abs(max1 - min1), Math.abs(max2 - min2));--newline--    }--newline--}",
+            "topic_title": "Java O(n): Finding min and max twice",
+            "python": null,
+            "is_locked": false,
+            "cpp": null
+        }
+    ],
+    "qc": "624.json"
+}

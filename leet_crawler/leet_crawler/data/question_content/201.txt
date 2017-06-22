@@ -1,0 +1,12 @@
+---CONTENT_BEGIN---
+Given a range [m, n] where 0 <= m <= n <= 2147483647, return the bitwise AND of all numbers in this range, inclusive.
+
+
+For example, given the range [5, 7], you should return 4.
+
+
+Credits:Special thanks to @amrsaqr for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int rangeBitwiseAnd(int m, int n) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int rangeBitwiseAnd(int m, int n) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def rangeBitwiseAnd(self, m, n):--newline--        '''--newline--        :type m: int--newline--        :type n: int--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int rangeBitwiseAnd(int m, int n) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int RangeBitwiseAnd(int m, int n) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} m--newline-- * @param {number} n--newline-- * @return {number}--newline-- */--newline--var rangeBitwiseAnd = function(m, n) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} m--newline--# @param {Integer} n--newline--# @return {Integer}--newline--def range_bitwise_and(m, n)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "func rangeBitwiseAnd(m int, n int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

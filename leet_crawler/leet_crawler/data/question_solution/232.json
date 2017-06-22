@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "class MyQueue {--newline----newline--    Stack<Integer> input = new Stack();--newline--    Stack<Integer> output = new Stack();--newline--    --newline--    public void push(int x) {--newline--        input.push(x);--newline--    }--newline----newline--    public int pop() {--newline--        peek();--newline--        return output.pop();--newline--    }--newline----newline--    public int peek() {--newline--        if (output.empty())--newline--            while (!input.empty())--newline--                output.push(input.pop());--newline--        return output.peek();--newline--    }--newline----newline--    public boolean empty() {--newline--        return input.empty() && output.empty();--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": "class Queue {--newline--    stack<int> input, output;--newline--public:--newline----newline--    void push(int x) {--newline--        input.push(x);--newline--    }--newline----newline--    void pop(void) {--newline--        peek();--newline--        output.pop();--newline--    }--newline----newline--    int peek(void) {--newline--        if (output.empty())--newline--            while (input.size())--newline--                output.push(input.top()), input.pop();--newline--        return output.top();--newline--    }--newline----newline--    bool empty(void) {--newline--        return input.empty() && output.empty();--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Short O(1) amortized, C++ &#x2F; Java &#x2F; Ruby"
+        },
+        {
+            "java": "class MyQueue {--newline--Stack<Integer> queue = new Stack<Integer>();--newline--// Push element x to the back of queue.--newline--public void push(int x) {--newline--    Stack<Integer> temp = new Stack<Integer>();--newline--    while(!queue.empty()){--newline--        temp.push(queue.pop());--newline--    }--newline--    queue.push(x);--newline--    while(!temp.empty()){--newline--        queue.push(temp.pop());--newline--    }--newline--}--newline----newline--// Removes the element from in front of queue.--newline--public void pop() {--newline--    queue.pop();--newline--}--newline----newline--// Get the front element.--newline--public int peek() {--newline--    return queue.peek();--newline--}--newline----newline--// Return whether the queue is empty.--newline--public boolean empty() {--newline--    return queue.empty();--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy Java solution, just edit push() method"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Queue {--newline--public:--newline--    stack<int> s;--newline--    --newline--    // Push element x to the back of queue.--newline--    void push(int x) {--newline--        pushHelper(x);--newline--    }--newline--    void pushHelper(int x){--newline--        if(s.size()==0){--newline--            s.push(x);--newline--            return;--newline--        }--newline--        int data;--newline--        data = s.top();--newline--        s.pop();--newline--        pushHelper(x);--newline--        s.push(data);--newline--        return;--newline--        --newline--    }--newline----newline--    // Removes the element from in front of queue.--newline--    void pop(void) {--newline--        s.pop();--newline--    }--newline----newline--    // Get the front element.--newline--    int peek(void) {--newline--        return s.top();--newline--    }--newline----newline--    // Return whether the queue is empty.--newline--    bool empty(void) {--newline--        return (s.size()==0);--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "0 ms C++ solution using one Stack w&#x2F; explanation."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Queue {--newline--public:--newline--    // Push element x to the back of queue.--newline--    void push(int x) {--newline----tab----tab--while (!nums.empty()) {--newline----tab----tab----tab--helper.push(nums.top());--newline----tab----tab----tab--nums.pop();--newline----tab----tab--}--newline----tab----tab--nums.push(x);--newline----tab----tab--while (!helper.empty()) {--newline----tab----tab----tab--nums.push(helper.top());--newline----tab----tab----tab--helper.pop();--newline----tab----tab--}--newline--    }--newline--    // Removes the element from in front of queue.--newline--    void pop(void) {--newline--        nums.pop();--newline--    }--newline--    // Get the front element.--newline--    int peek(void) {--newline--        return nums.top();--newline--    }--newline--    // Return whether the queue is empty.--newline--    bool empty(void) {--newline----tab----tab--return nums.empty();--newline--    }--newline--private:--newline----tab--std::stack<int> helper, nums;--newline--};",
+            "python": null,
+            "topic_title": "Accepted 0ms c++ solution with two std::stack, easy understand."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Queue(object):--newline----tab--    def __init__(self):--newline----tab--        \"\"\"--newline----tab--        initialize your data structure here.--newline----tab--        \"\"\"--newline----tab--        self.inStack, self.outStack = [], []--newline----tab----newline----tab--    def push(self, x):--newline----tab--        \"\"\"--newline----tab--        :type x: int--newline----tab--        :rtype: nothing--newline----tab--        \"\"\"--newline----tab--        self.inStack.append(x)--newline----tab----newline----tab--    def pop(self):--newline----tab--        \"\"\"--newline----tab--        :rtype: nothing--newline----tab--        \"\"\"--newline----tab--        self.move()--newline----tab--        self.outStack.pop()--newline----tab----newline----tab--    def peek(self):--newline----tab--        \"\"\"--newline----tab--        :rtype: int--newline----tab--        \"\"\"--newline----tab--        self.move()--newline----tab--        return self.outStack[-1]--newline----tab----newline----tab--    def empty(self):--newline----tab--        \"\"\"--newline----tab--        :rtype: bool--newline----tab--        \"\"\"--newline----tab--        return (not self.inStack) and (not self.outStack) --newline----tab--        --newline----tab--    def move(self):--newline----tab--        \"\"\"--newline----tab--        :rtype nothing--newline----tab--        \"\"\"--newline----tab--        if not self.outStack:--newline----tab--            while self.inStack:--newline----tab--                self.outStack.append(self.inStack.pop())",
+            "topic_title": "Share my python solution (32ms)"
+        }
+    ],
+    "qc": "232.json"
+}

@@ -1,0 +1,33 @@
+---CONTENT_BEGIN---
+Write a program that outputs the string representation of numbers from 1 to n.
+
+But for multiples of three it should output âFizzâ instead of the number and for the multiples of five output âBuzzâ. For numbers which are multiples of both three and five output âFizzBuzzâ.
+
+Example:
+
+n = 15,
+
+Return:
+[
+    "1",
+    "2",
+    "Fizz",
+    "4",
+    "Buzz",
+    "Fizz",
+    "7",
+    "8",
+    "Fizz",
+    "Buzz",
+    "11",
+    "Fizz",
+    "13",
+    "14",
+    "FizzBuzz"
+]
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<string> fizzBuzz(int n) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public List<String> fizzBuzz(int n) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def fizzBuzz(self, n):--newline--        '''--newline--        :type n: int--newline--        :rtype: List[str]--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Return an array of size *returnSize.--newline-- * Note: The returned array must be malloced, assume caller calls free().--newline-- */--newline--char** fizzBuzz(int n, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public IList<string> FizzBuzz(int n) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} n--newline-- * @return {string[]}--newline-- */--newline--var fizzBuzz = function(n) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} n--newline--# @return {String[]}--newline--def fizz_buzz(n)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func fizzBuzz(_ n: Int) -> [String] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func fizzBuzz(n int) []string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

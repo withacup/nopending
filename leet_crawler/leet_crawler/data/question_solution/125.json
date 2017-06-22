@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public boolean isPalindrome(String s) {--newline--        if (s.isEmpty()) {--newline--        --tab--return true;--newline--        }--newline--        int head = 0, tail = s.length() - 1;--newline--        char cHead, cTail;--newline--        while(head <= tail) {--newline--        --tab--cHead = s.charAt(head);--newline--        --tab--cTail = s.charAt(tail);--newline--        --tab--if (!Character.isLetterOrDigit(cHead)) {--newline--        --tab----tab--head++;--newline--        --tab--} else if(!Character.isLetterOrDigit(cTail)) {--newline--        --tab----tab--tail--;--newline--        --tab--} else {--newline--        --tab----tab--if (Character.toLowerCase(cHead) != Character.toLowerCase(cTail)) {--newline--        --tab----tab----tab--return false;--newline--        --tab----tab--}--newline--        --tab----tab--head++;--newline--        --tab----tab--tail--;--newline--        --tab--}--newline--        }--newline--        --newline--        return true;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Accepted pretty Java solution(271ms)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool isPalindrome(string s) {--newline--        for (int i = 0, j = s.size() - 1; i < j; i++, j--) { // Move 2 pointers from each end until they collide--newline--            while (isalnum(s[i]) == false && i < j) i++; // Increment left pointer if not alphanumeric--newline--            while (isalnum(s[j]) == false && i < j) j--; // Decrement right pointer if no alphanumeric--newline--            if (toupper(s[i]) != toupper(s[j])) return false; // Exit and return error if not match--newline--        }--newline--        --newline--        return true;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Here&#x27;s a clean C++ solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isPalindrome(String s) {--newline--        String actual = s.replaceAll(\"[^A-Za-z0-9]\", \"\").toLowerCase();--newline--        String rev = new StringBuffer(actual).reverse().toString();--newline--        return actual.equals(rev);--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My three line java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool isPalindrome(string s) {--newline--    --tab--int start=0, end=s.length()-1;--newline--    --tab--while(start<end) {--newline--    --tab----tab--if (!isalnum(s[start])) start++;--newline--    --tab----tab--else if (!isalnum(s[end])) end--;--newline--    --tab----tab--else {--newline--    --tab----tab----tab--if (tolower(s[start++])!=tolower(s[end--])) return false;--newline--    --tab----tab--}--newline--    --tab--}--newline--    --tab--return true;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Passed clean c++ code"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def isPalindrome(self, s):--newline----tab--        l, r = 0, len(s)-1--newline----tab--        while l < r:--newline----tab--            while l < r and not s[l].isalnum():--newline----tab--                l += 1--newline----tab--            while l <r and not s[r].isalnum():--newline----tab--                r -= 1--newline----tab--            if s[l].lower() != s[r].lower():--newline----tab--                return False--newline----tab--            l +=1; r -= 1--newline----tab--        return True",
+            "topic_title": "Python in-place two-pointer solution."
+        }
+    ],
+    "qc": "125.json"
+}

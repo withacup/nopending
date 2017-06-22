@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public boolean isAnagram(String s, String t) {--newline--        int[] alphabet = new int[26];--newline--        for (int i = 0; i < s.length(); i++) alphabet[s.charAt(i) - 'a']++;--newline--        for (int i = 0; i < t.length(); i++) alphabet[t.charAt(i) - 'a']--;--newline--        for (int i : alphabet) if (i != 0) return false;--newline--        return true;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Accepted Java O(n) solution in 5 lines"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool isAnagram(string s, string t) { --newline--        sort(s.begin(), s.end());--newline--        sort(t.begin(), t.end());--newline--        return s == t; --newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "2 C++ Solutions with Explanations"
+        },
+        {
+            "java": "    public class Solution {--newline--    public boolean isAnagram(String s, String t) {--newline--        if(s.length()!=t.length()){--newline--            return false;--newline--        }--newline--        int[] count = new int[26];--newline--        for(int i=0;i<s.length();i++){--newline--            count[s.charAt(i)-'a']++;--newline--            count[t.charAt(i)-'a']--;--newline--        }--newline--        for(int i:count){--newline--            if(i!=0){--newline--                return false;--newline--            }--newline--        }--newline--        return true;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def isAnagram1(self, s, t):--newline----tab--        dic1, dic2 = {}, {}--newline----tab--        for item in s:--newline----tab--            dic1[item] = dic1.get(item, 0) + 1--newline----tab--        for item in t:--newline----tab--            dic2[item] = dic2.get(item, 0) + 1--newline----tab--        return dic1 == dic2--newline----tab--        --newline----tab--    def isAnagram2(self, s, t):--newline----tab--        dic1, dic2 = [0]*26, [0]*26--newline----tab--        for item in s:--newline----tab--            dic1[ord(item)-ord('a')] += 1--newline----tab--        for item in t:--newline----tab--            dic2[ord(item)-ord('a')] += 1--newline----tab--        return dic1 == dic2--newline----tab--        --newline----tab--    def isAnagram3(self, s, t):--newline----tab--        return sorted(s) == sorted(t)",
+            "topic_title": "Python solutions (sort and dictionary)."
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isAnagram(String s, String t) {--newline--        --newline--        int[] charsMap = new int['z'-'a'+1];--newline--        --newline--        for(char c: s.toCharArray()) {--newline--            int pos = c - 'a';--newline--            charsMap[pos]++;--newline--        }--newline--        --newline--        for(char c: t.toCharArray()) {--newline--            int pos = c - 'a';--newline--            charsMap[pos]--;--newline--        }--newline--        --newline--        for(int count: charsMap) {--newline--            if(count != 0) {--newline--                return false;--newline--            }--newline--        }--newline--        --newline--        return true;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple fast java solution (beats 97%)"
+        }
+    ],
+    "qc": "242.json"
+}

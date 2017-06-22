@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int numberOfArithmeticSlices(int[] A) {--newline--        int curr = 0, sum = 0;--newline--        for (int i=2; i<A.length; i++)--newline--            if (A[i]-A[i-1] == A[i-1]-A[i-2]) {--newline--                curr += 1;--newline--                sum += curr;--newline--            } else {--newline--                curr = 0;--newline--            }--newline--        return sum;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java solution 9 lines, 2ms"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int numberOfArithmeticSlices(vector<int>& A) {--newline--        int n = A.size();--newline--        if (n < 3) return 0;--newline--        vector<int> dp(n, 0); // dp[i] means the number of arithmetic slices ending with A[i]--newline--        if (A[2]-A[1] == A[1]-A[0]) dp[2] = 1; // if the first three numbers are arithmetic or not--newline--        int result = dp[2];--newline--        for (int i = 3; i < n; ++i) {--newline--            // if A[i-2], A[i-1], A[i] are arithmetic, then the number of arithmetic slices ending with A[i] (dp[i])--newline--            // equals to:--newline--            //      the number of arithmetic slices ending with A[i-1] (dp[i-1], all these arithmetic slices appending A[i] are also arithmetic)--newline--            //      +--newline--            //      A[i-2], A[i-1], A[i] (a brand new arithmetic slice)--newline--            // it is how dp[i] = dp[i-1] + 1 comes--newline--            if (A[i]-A[i-1] == A[i-1]-A[i-2]) --newline--                dp[i] = dp[i-1] + 1;--newline--            result += dp[i]; // accumulate all valid slices--newline--        }--newline--        return result;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "3ms C++ Standard DP Solution with Very Detailed Explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public int numberOfArithmeticSlices(int[] A) {--newline--            if(A == null || A.length < 3)--newline--                return 0;--newline--            int sum = 0;--newline--            int len = 2;--newline--    --newline--            for(int i=2;i<A.length;i++) {--newline--    --newline--                // keep increasing the splice--newline--                if(A[i] - A[i-1] == A[i-1] - A[i-2]) {--newline--                    len++;--newline--                }--newline--                else {--newline--                    if(len > 2) {--newline--                        sum += calculateSlices(len);--newline--                    }--newline--                    // reset the length of new slice--newline--                    len = 2;--newline--                }--newline--            }--newline--            // add up the slice in the rear--newline--            if(len>2)--newline--                sum += calculateSlices(len);--newline--    --newline--            return sum;--newline--        }--newline--    --newline--        private int calculateSlices(int n){--newline--            return (n-1)*(n-2)/2;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "2ms Java O(n) time, O(1) space solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int numberOfArithmeticSlices(vector<int>& A) {--newline--        if (A.size() < 3) return 0;--newline--        int size = (int) A.size();--newline--        for (int i = 0; i < size - 1; i++) {--newline--            A[i] = A[i + 1] - A[i];--newline--        }--newline--        A.resize(size - 1);--newline--        size--;--newline--        --newline--        int res = 0;--newline--        int len = 1;--newline--        for (int i = 1; i < size; i++) {--newline--            if (A[i] != A[i - 1]) {--newline--                res += len * (len - 1) / 2;--newline--                len = 1;--newline--            } else {--newline--                len++;--newline--            }--newline--        }--newline--        if (len > 1) res += len * (len - 1) / 2;--newline--        return res;--newline--    }--newline--};--newline----newline--",
+            "python": null,
+            "topic_title": "3ms Question Maker Solution in CPP O(n) time and in space"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def numberOfArithmeticSlices(self, A):--newline----tab--        \"\"\"--newline----tab--        :type A: List[int]--newline----tab--        :rtype: int--newline----tab--        \"\"\"--newline----tab--        opt, i = [0,0], 1--newline----tab--        for j in xrange(2,len(A)):--newline----tab--            if A[j]-A[j-1] == A[j-1]-A[j-2]:--newline----tab--                opt.append(opt[j-1]+i)--newline----tab--                i += 1--newline----tab--            else:--newline----tab--                opt.append(opt[j-1])--newline----tab--                i = 1--newline----tab--        return opt[-1]",
+            "topic_title": "Python DP solution"
+        }
+    ],
+    "qc": "413.json"
+}

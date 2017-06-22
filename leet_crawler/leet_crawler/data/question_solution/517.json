@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int findMinMoves(int[] machines) {--newline--        int total = 0; --newline--        for(int i: machines) total+=i;--newline--        if(total%machines.length!=0) return -1;--newline--        int avg = total/machines.length, cnt = 0, max = 0;--newline--        for(int load: machines){--newline--            cnt += load-avg; //load-avg is \"gain/lose\"--newline--            max = Math.max(Math.max(max, Math.abs(cnt)), load-avg);--newline--        }--newline--        return max;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Super Short &amp; Easy Java O(n) Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int findMinMoves(vector<int>& machines) {--newline--        int len = machines.size();--newline--        vector<int> sum(len + 1, 0);--newline--        for (int i = 0; i < len; ++i)--newline--            sum[i + 1] = sum[i] + machines[i];--newline----newline--        if (sum[len] % len) return -1;--newline----newline--        int avg = sum[len] / len;--newline--        int res = 0;--newline--        for (int i = 0; i < len; ++i)--newline--        {--newline--            int l = i * avg - sum[i];--newline--            int r = (len - i - 1) * avg - (sum[len] - sum[i] - machines[i]);--newline----newline--            if (l > 0 && r > 0)--newline--                res = std::max(res, std::abs(l) + std::abs(r));--newline--            else--newline--                res = std::max(res, std::max(std::abs(l), std::abs(r)));--newline--        }--newline--        return res;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ 16ms O(n) solution (with trivial proof)"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findMinMoves(int[] machines) {--newline--        int total = 0, target = 0, result = 0, n = machines.length;--newline--        for (int d : machines) total += d;--newline--        if (total == 0) return 0;--newline--        if (total % n != 0) return -1;--newline--        target = total / n;--newline--        --newline--        int[] move = new int[n];--newline--        for (int i = 0; i < n - 1; i++) {--newline--            if (machines[i] > target) {--newline--                move[i] += machines[i] - target;--newline--                machines[i + 1] += machines[i] - target;--newline--                machines[i] = target;--newline--                result = Math.max(result, move[i]);--newline--            }--newline--            else {--newline--                move[i + 1] = target - machines[i];--newline--                machines[i + 1] -= target - machines[i];--newline--                machines[i] = target;--newline--                result = Math.max(result, move[i + 1]);--newline--            }--newline--        }--newline--        --newline--        return result;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java O(n) DP Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def findMinMoves(self, machines):--newline----tab--        if sum(machines) % len(machines) == 0:--newline----tab--            target = sum(machines) / len(machines)--newline----tab--        else:--newline----tab--            return -1--newline----tab--        toLeft = 0--newline----tab--        res = 0--newline----tab--        for i in range(len(machines)):--newline----tab--            toRight =  machines[i]- target - toLeft--newline----tab--            res = max(res, toLeft, toRight, toLeft + toRight)--newline----tab--            toLeft = -toRight--newline----tab--        return res",
+            "topic_title": "Easy understand solution O(n) time and O(1) space"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int findMinMoves(vector<int>& machines) {--newline--        int totalDresses = 0, size = machines.size();--newline--        for (auto i = 0; i < size; ++i) totalDresses += machines[i];--newline--        if (totalDresses % size != 0) return -1;--newline--        --newline--        auto targetDresses = totalDresses / size, totalMoves = 0, ballance = 0;--newline--        for (auto i = 0; i < size; ++i) {--newline--            ballance += machines[i] - targetDresses;--newline--            totalMoves = max(totalMoves, max(machines[i] - targetDresses, abs(ballance)));--newline--        }--newline--        return totalMoves;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "C++ 12 ms O(n) 8 lines"
+        }
+    ],
+    "qc": "517.json"
+}

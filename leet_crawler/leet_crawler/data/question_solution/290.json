@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public boolean wordPattern(String pattern, String str) {--newline--        String[] words = str.split(\" \");--newline--        if (words.length != pattern.length())--newline--            return false;--newline--        Map index = new HashMap();--newline--        for (Integer i=0; i<words.length; ++i)--newline--            if (index.put(pattern.charAt(i), i) != index.put(words[i], i))--newline--                return false;--newline--        return true;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "8 lines simple Java"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool wordPattern(string pattern, string str) {--newline--        map<char, int> p2i;--newline--        map<string, int> w2i;--newline--        istringstream in(str);--newline--        int i = 0, n = pattern.size();--newline--        for (string word; in >> word; ++i) {--newline--            if (i == n || p2i[pattern[i]] != w2i[word])--newline--                return false;--newline--            p2i[pattern[i]] = w2i[word] = i + 1;--newline--        }--newline--        return i == n;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Short C++, read words on the fly"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean wordPattern(String pattern, String str) {--newline--        String[] arr= str.split(\" \");--newline--        HashMap<Character, String> map = new HashMap<Character, String>();--newline--        if(arr.length!= pattern.length())--newline--            return false;--newline--        for(int i=0; i<arr.length; i++){--newline--            char c = pattern.charAt(i);--newline--            if(map.containsKey(c)){--newline--                if(!map.get(c).equals(arr[i]))--newline--                    return false;--newline--            }else{--newline--                if(map.containsValue(arr[i]))--newline--                    return false;--newline--                map.put(c, arr[i]);--newline--            }    --newline--        }--newline--        return true;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Very fast (3ms) Java Solution using HashMap"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def wordPattern(self, pattern, str):--newline----tab--        s = pattern--newline----tab--        t = str.split()--newline----tab--        return len(set(zip(s, t))) == len(set(s)) == len(set(t)) and len(s) == len(t)--newline----tab--    ",
+            "topic_title": "Short in Python"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--        bool wordPattern(string pattern, string str) {--newline--            istringstream strcin(str);--newline--            string s;--newline--            vector<string> vs;--newline--            while(strcin >> s) vs.push_back(s);--newline--            if (pattern.size() != vs.size()) return false;--newline--            map<string, char> s2c;--newline--            map<char, string> c2s;--newline--            for (int i = 0; i < vs.size(); ++i) {--newline--                if (s2c[vs[i]] == 0 && c2s[pattern[i]] == \"\") { --newline--                    s2c[vs[i]] = pattern[i]; --newline--                    c2s[pattern[i]] = vs[i]; --newline--                    continue; --newline--                }--newline--                if (s2c[vs[i]] != pattern[i]) return false;--newline--            }--newline--            return true;--newline--        }--newline--}",
+            "python": null,
+            "topic_title": "0ms C++ solution using istringstream and double maps"
+        }
+    ],
+    "qc": "290.json"
+}

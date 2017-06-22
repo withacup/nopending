@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public boolean checkRecord(String s) {--newline--        return !s.matches(\".*LLL.*|.*A.*A.*\");--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 1-liner"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool checkRecord(string s) {--newline--        int a=0, l=0;--newline--        for(int i=0;i<s.size();i++) {--newline--            if(s[i]=='A') a++;--newline--            if(s[i]=='L') l++;--newline--            else l=0;--newline--            if(a>=2||l>2) return false;--newline--        }--newline--        return true;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "C++ very simple solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean checkRecord(String s) {--newline--            int countA=0;--newline--            int continuosL = 0;--newline--            int charA = 'A';--newline--            int charL ='L';--newline--            for(int i=0;i<s.length();i++){--newline--                if(s.charAt(i) == charA){--newline--                    countA++;--newline--                    continuosL = 0;--newline--                }--newline--                else if(s.charAt(i) == charL){--newline--                    continuosL++;--newline--                }--newline--                else{--newline--                    continuosL = 0;--newline--                }--newline--                if(countA >1 || continuosL > 2 ){--newline--                    return false;--newline--                }--newline--            }--newline--            return true;--newline--    --newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java O(N) solution - Accepted"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean checkRecord(String s) {--newline--        if(s.indexOf(\"A\") != s.lastIndexOf(\"A\") || s.contains(\"LLL\"))--newline--            return false;--newline--        return true;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Simple without Regex 3 lines"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean checkRecord(String s) {--newline--        return !s.matches(\".*(A.*A|LLL).*\");--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Tiny Ruby, Short Python&#x2F;Java&#x2F;C++"
+        }
+    ],
+    "qc": "551.json"
+}

@@ -1,0 +1,28 @@
+---CONTENT_BEGIN---
+The n-queens puzzle is the problem of placing n queens on an nÃn chessboard such that no two queens attack each other.
+
+
+
+Given an integer n, return all distinct solutions to the n-queens puzzle.
+
+Each solution contains a distinct board configuration of the n-queens' placement, where 'Q' and '.' both indicate a queen and an empty space respectively.
+
+For example,
+There exist two distinct solutions to the 4-queens puzzle:
+
+[
+ [".Q..",  // Solution 1
+  "...Q",
+  "Q...",
+  "..Q."],
+
+ ["..Q.",  // Solution 2
+  "Q...",
+  "...Q",
+  ".Q.."]
+]
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<vector<string>> solveNQueens(int n) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public List<List<String>> solveNQueens(int n) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def solveNQueens(self, n):--newline--        '''--newline--        :type n: int--newline--        :rtype: List[List[str]]--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Return an array of arrays of size *returnSize.--newline-- * Note: The returned array must be malloced, assume caller calls free().--newline-- */--newline--char*** solveNQueens(int n, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public IList<IList<string>> SolveNQueens(int n) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} n--newline-- * @return {string[][]}--newline-- */--newline--var solveNQueens = function(n) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} n--newline--# @return {String[][]}--newline--def solve_n_queens(n)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func solveNQueens(_ n: Int) -> [[String]] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func solveNQueens(n int) [][]string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

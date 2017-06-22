@@ -1,0 +1,11 @@
+---CONTENT_BEGIN---
+
+Divide two integers without using multiplication, division and mod operator.
+
+
+If it is overflow, return MAX_INT.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int divide(int dividend, int divisor) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int divide(int dividend, int divisor) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def divide(self, dividend, divisor):--newline--        '''--newline--        :type dividend: int--newline--        :type divisor: int--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int divide(int dividend, int divisor) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int Divide(int dividend, int divisor) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} dividend--newline-- * @param {number} divisor--newline-- * @return {number}--newline-- */--newline--var divide = function(dividend, divisor) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} dividend--newline--# @param {Integer} divisor--newline--# @return {Integer}--newline--def divide(dividend, divisor)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func divide(_ dividend: Int, _ divisor: Int) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func divide(dividend int, divisor int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string optimalDivision(vector<int>& nums) {--newline--        string ans;--newline--        if(!nums.size()) return ans;--newline--        ans = to_string(nums[0]);--newline--        if(nums.size()==1) return ans;--newline--        if(nums.size()==2) return ans + \"/\" + to_string(nums[1]);--newline--        ans += \"/(\" + to_string(nums[1]);--newline--        for(int i = 2; i < nums.size();++i)--newline--            ans += \"/\" + to_string(nums[i]);--newline--        ans += \")\";--newline--        return ans;--newline--};--newline--",
+            "python": null,
+            "topic_title": "Easy to understand simple O(n) solution with explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    class Result {--newline--        String str;--newline--        double val;--newline--    }--newline--    --newline--    public String optimalDivision(int[] nums) {--newline--        int len = nums.length;--newline--        return getMax(nums, 0, len - 1).str;--newline--    }--newline--    --newline--    private Result getMax(int[] nums, int start, int end) {--newline--        Result r = new Result();--newline--        r.val = -1.0;--newline--        --newline--        if (start == end) {--newline--            r.str = nums[start] + \"\";--newline--            r.val = (double)nums[start];--newline--        }--newline--        else if (start + 1 == end) {--newline--            r.str = nums[start] + \"/\" + nums[end];--newline--            r.val = (double)nums[start] / (double)nums[end];--newline--        }--newline--        else {--newline--            for (int i = start; i < end; i++) {--newline--                Result r1 = getMax(nums, start, i);--newline--                Result r2 = getMin(nums, i + 1, end);--newline--                if (r1.val / r2.val > r.val) {--newline--                    r.str = r1.str + \"/\" + (end - i >= 2 ? \"(\" + r2.str + \")\" : r2.str);--newline--                    r.val = r1.val / r2.val;--newline--                }--newline--            }--newline--        }--newline--        --newline--        //System.out.println(\"getMax \" + start + \" \" + end + \"->\" + r.str + \":\" + r.val);--newline--        return r;--newline--    }--newline--    --newline--    private Result getMin(int[] nums, int start, int end) {--newline--        Result r = new Result();--newline--        r.val = Double.MAX_VALUE;--newline--        --newline--        if (start == end) {--newline--            r.str = nums[start] + \"\";--newline--            r.val = (double)nums[start];--newline--        }--newline--        else if (start + 1 == end) {--newline--            r.str = nums[start] + \"/\" + nums[end];--newline--            r.val = (double)nums[start] / (double)nums[end];--newline--        }--newline--        else {--newline--            for (int i = start; i < end; i++) {--newline--                Result r1 = getMin(nums, start, i);--newline--                Result r2 = getMax(nums, i + 1, end);--newline--                if (r1.val / r2.val < r.val) {--newline--                    r.str = r1.str + \"/\" + (end - i >= 2 ? \"(\" + r2.str + \")\" : r2.str);--newline--                    r.val = r1.val / r2.val;--newline--                }--newline--            }--newline--        }--newline--        --newline--        //System.out.println(\"getMin \" + start + \" \" + end + \"->\" + r.str + \":\" + r.val);--newline--        return r;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution, Backtracking"
+        },
+        {
+            "java": "public class Solution {--newline--    public String optimalDivision(int[] nums) {--newline--        StringBuilder builder = new StringBuilder();--newline--        builder.append(nums[0]);--newline--        for (int i = 1; i < nums.length; i++) {--newline--            if (i == 1 && nums.length > 2) {--newline--                builder.append(\"/(\").append(nums[i]);--newline--            } else {--newline--                builder.append(\"/\").append(nums[i]);--newline--            }--newline--        }--newline--        --newline--        return nums.length > 2 ? builder.append(\")\").toString() : builder.toString();--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "O(n) very easy Java solution."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def optimalDivision(self, A):--newline----tab--        A = map(str, A)--newline----tab--        if len(A) <= 2: return '/'.join(A)--newline----tab--        return '{}/({})'.format(A[0], '/'.join(A[1:]))--newline----tab--    ",
+            "topic_title": "Python, Straightforward with Explanation (Insightful Approach)"
+        },
+        {
+            "java": "// by fallcreek--newline--public class Solution {--newline----newline--    public String optimalDivision(int[] nums) {--newline--        Map<String, pair> memory = new HashMap<>();--newline--        pair sol = divid(nums,0,nums.length-1, memory);--newline--        return sol.maxS;--newline--    }--newline--    --newline--    public pair divid(int[] nums, int start, int end, Map<String, pair> memory){--newline--        String key = start + \" \" + end;--newline--        if(memory.containsKey(key)) return memory.get(key);--newline--        if(start == end)    return new pair(nums[start], \"\" + nums[start],nums[start], \"\" + nums[start]);--newline--        --newline--        pair sol = new pair(0,\"\",0,\"\");--newline--        --newline--        for(int i = start; i < end; i++){--newline--            pair left = divid(nums, start, i, memory);--newline--            pair right = divid(nums, i + 1, end, memory);--newline--            --newline--            double min = left.min / right.max;--newline--            String minS = left.minS + \"/\" + (i + 1 == end ? right.maxS : \"(\" + right.maxS + \")\"); --newline--            double max = left.max / right.min;--newline--            String maxS = left.maxS + \"/\" + (i + 1 == end ? right.minS : \"(\" + right.minS + \")\"); --newline--            if(sol.min == 0 || min < sol.min){--newline--                sol.min = min;--newline--                sol.minS = minS;--newline--            }--newline--            if(max > sol.max){--newline--                sol.max = max;--newline--                sol.maxS = maxS;--newline--            }--newline--        }--newline--        memory.put(key, sol);--newline--        return sol;--newline--    }--newline--}--newline----newline--class pair{--newline--    double min;--newline--    String minS;--newline--    double max;--newline--    String maxS;--newline--    --newline--    public pair(double min, String minS, double max, String maxS){--newline--        this.min = min;--newline--        this.minS = minS;--newline--        this.max = max;--newline--        this.maxS = maxS;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Brute force with memory in case of your interviewer forbid tricky solution"
+        }
+    ],
+    "qc": "553.json"
+}

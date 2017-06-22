@@ -1,0 +1,26 @@
+---CONTENT_BEGIN---
+Given a n x n matrix where each of the rows and columns are sorted in ascending order, find the kth smallest element in the matrix.
+
+
+Note that it is the kth smallest element in the sorted order, not the kth distinct element.
+
+
+Example:
+
+matrix = [
+   [ 1,  5,  9],
+   [10, 11, 13],
+   [12, 13, 15]
+],
+k = 8,
+
+return 13.
+
+
+
+Note: 
+You may assume k is always valid, 1 â¤ k â¤ n2.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int kthSmallest(vector<vector<int>>& matrix, int k) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int kthSmallest(int[][] matrix, int k) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def kthSmallest(self, matrix, k):--newline--        '''--newline--        :type matrix: List[List[int]]--newline--        :type k: int--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int kthSmallest(int** matrix, int matrixRowSize, int matrixColSize, int k) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int KthSmallest(int[,] matrix, int k) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[][]} matrix--newline-- * @param {number} k--newline-- * @return {number}--newline-- */--newline--var kthSmallest = function(matrix, k) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[][]} matrix--newline--# @param {Integer} k--newline--# @return {Integer}--newline--def kth_smallest(matrix, k)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func kthSmallest(_ matrix: [[Int]], _ k: Int) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func kthSmallest(matrix [][]int, k int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

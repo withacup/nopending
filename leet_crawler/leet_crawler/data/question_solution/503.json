@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--        public int[] nextGreaterElements(int[] nums) {--newline--            int n = nums.length, next[] = new int[n];--newline--            Arrays.fill(next, -1);--newline--            Stack<Integer> stack = new Stack<>(); // index stack--newline--            for (int i = 0; i < n * 2; i++) {--newline--                int num = nums[i % n]; --newline--                while (!stack.isEmpty() && nums[stack.peek()] < num)--newline--                    next[stack.pop()] = num;--newline--                if (i < n) stack.push(i);--newline--            }   --newline--            return next;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--        vector<int> nextGreaterElements(vector<int>& nums) {--newline--            int n = nums.size();--newline--            vector<int> next(n, -1);--newline--            stack<int> s; // index stack--newline--            for (int i = 0; i < n * 2; i++) {--newline--                int num = nums[i % n]; --newline--                while (!s.empty() && nums[s.top()] < num) {--newline--                    next[s.top()] = num;--newline--                    s.pop();--newline--                }--newline--                if (i < n) s.push(i);--newline--            }   --newline--            return next;--newline--        }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Java 10 lines and C++ 12 lines linear time complexity O(n) with explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public int[] nextGreaterElements(int[] nums) {--newline--        int n = nums.length;--newline--        int[] result = new int[n];--newline--        --newline--        Stack<Integer> stack = new Stack<>();--newline--        for (int i = n - 1; i >= 0; i--) {--newline--            stack.push(i);--newline--        }--newline--        --newline--        for (int i = n - 1; i >= 0; i--) {--newline--            result[i] = -1;--newline--            while (!stack.isEmpty() && nums[stack.peek()] <= nums[i]) {--newline--                stack.pop();--newline--            }--newline--            if (!stack.isEmpty()){--newline--                result[i] = nums[stack.peek()];--newline--            }--newline--            stack.add(i);--newline--        }--newline--        --newline--        return result;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Typical ways to solve circular array problems. Java solution."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def nextGreaterElements(self, nums):--newline----tab--            stack, res = [], [-1] * len(nums)--newline----tab--            for i in range(len(nums)) * 2:--newline----tab--                while stack and (nums[stack[-1]] < nums[i]):--newline----tab--                    res[stack.pop()] = nums[i]--newline----tab--                stack.append(i)--newline----tab--            return res",
+            "topic_title": "Python 6 lines solution using stack"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def nextGreaterElements(self, nums):--newline----tab----newline----tab--        if not nums:--newline----tab--            return []--newline----tab--            --newline----tab--        n = len(nums)--newline----tab--        result = [-1 for _ in range(len(nums))]--newline----tab--        max_num = max(nums)--newline----tab--        --newline----tab--        for i, num in enumerate(nums):--newline----tab----newline----tab--            if num == max_num:--newline----tab--                continue--newline----tab----newline----tab--            j = i--newline----tab--            while nums[j] <= num:--newline----tab--                j += 1--newline----tab--                j %= n--newline----tab--            result[i] = nums[j]--newline----tab----newline----tab--        return result",
+            "topic_title": "Python O(n*n) time limit exceeded ?"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def nextGreaterElements(self, nums):--newline----tab--        \"\"\"--newline----tab--        :type nums: List[int]--newline----tab--        :rtype: List[int]--newline----tab--        \"\"\"--newline----tab--        cache, st = {}, []--newline----tab--        for idx,x in enumerate(nums):--newline----tab--            while st and st[-1][1] < x:--newline----tab--                a,b = st.pop()--newline----tab--                cache[a] = x--newline----tab--            st.append((idx,x))--newline----tab--        for idx,x in enumerate(nums):--newline----tab--            while st and st[-1][1] < x:--newline----tab--                a,b = st.pop()--newline----tab--                cache[a] = x--newline----tab--            st.append((idx,x))--newline----tab--        result = [-1]*len(nums)--newline----tab--        for idx,x in enumerate(nums):--newline----tab--            if idx in cache:--newline----tab--                result[idx] = cache[idx]--newline----tab--        return result        --newline----tab--",
+            "topic_title": "Python solution with detailed explanation"
+        }
+    ],
+    "qc": "503.json"
+}

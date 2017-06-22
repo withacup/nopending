@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int climbStairs(int n) {--newline--        // base cases--newline--        if(n <= 0) return 0;--newline--        if(n == 1) return 1;--newline--        if(n == 2) return 2;--newline--        --newline--        int one_step_before = 2;--newline--        int two_steps_before = 1;--newline--        int all_ways = 0;--newline--        --newline--        for(int i=2; i<n; i++){--newline--        --tab--all_ways = one_step_before + two_steps_before;--newline--        --tab--two_steps_before = one_step_before;--newline--            one_step_before = all_ways;--newline--        }--newline--        return all_ways;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Basically it&#x27;s a fibonacci."
+        },
+        {
+            "java": "public class Solution {--newline--    public int climbStairs(int n) {--newline--        int a = 1, b = 1;--newline--        while (n-- > 0)--newline--            a = (b += a) - a;--newline--        return a;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    var climbStairs = function(n) {--newline--        a = b = 1--newline--        while (n--)--newline--            a = (b += a) - a--newline--        return a--newline--    };--newline--}",
+            "python": "class Solution :--newline----tab--    def climbStairs(self, n):--newline----tab--        a = b = 1--newline----tab--        for _ in range(n):--newline----tab--            a, b = b, a + b--newline----tab--        return a--newline----tab--    ",
+            "topic_title": "3-4 short lines in every language"
+        },
+        {
+            "java": "public class Solution {--newline----newline--public int climbStairs(int n) {--newline--    if(n == 0 || n == 1 || n == 2){return n;}--newline--    int[] mem = new int[n];--newline--    mem[0] = 1;--newline--    mem[1] = 2;--newline--    for(int i = 2; i < n; i++){--newline--        mem[i] = mem[i-1] + mem[i-2];--newline--    }--newline--    return mem[n-1];--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy solutions for suggestions."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int climbStairs(int n) {--newline--        n++;--newline--        double root5 = pow(5, 0.5);--newline--        double result = 1/root5*( pow((1+root5)/2, n) - pow((1-root5)/2, n) );--newline--        return (int)(result);--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Using the Fibonacci formular to get the answer directly"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    # Top down - TLE--newline----tab--    def climbStairs1(self, n):--newline----tab--        if n == 1:--newline----tab--            return 1--newline----tab--        if n == 2:--newline----tab--            return 2--newline----tab--        return self.climbStairs(n-1)+self.climbStairs(n-2)--newline----tab--     --newline----tab--    # Bottom up, O(n) space--newline----tab--    def climbStairs2(self, n):--newline----tab--        if n == 1:--newline----tab--            return 1--newline----tab--        res = [0 for i in xrange(n)]--newline----tab--        res[0], res[1] = 1, 2--newline----tab--        for i in xrange(2, n):--newline----tab--            res[i] = res[i-1] + res[i-2]--newline----tab--        return res[-1]--newline----tab--    --newline----tab--    # Bottom up, constant space--newline----tab--    def climbStairs3(self, n):--newline----tab--        if n == 1:--newline----tab--            return 1--newline----tab--        a, b = 1, 2--newline----tab--        for i in xrange(2, n):--newline----tab--            tmp = b--newline----tab--            b = a+b--newline----tab--            a = tmp--newline----tab--        return b--newline----tab--        --newline----tab--    # Top down + memorization (list)--newline----tab--    def climbStairs4(self, n):--newline----tab--        if n == 1:--newline----tab--            return 1--newline----tab--        dic = [-1 for i in xrange(n)]--newline----tab--        dic[0], dic[1] = 1, 2--newline----tab--        return self.helper(n-1, dic)--newline----tab--        --newline----tab--    def helper(self, n, dic):--newline----tab--        if dic[n] < 0:--newline----tab--            dic[n] = self.helper(n-1, dic)+self.helper(n-2, dic)--newline----tab--        return dic[n]--newline----tab--        --newline----tab--    # Top down + memorization (dictionary)  --newline----tab--    def __init__(self):--newline----tab--        self.dic = {1:1, 2:2}--newline----tab--        --newline----tab--    def climbStairs(self, n):--newline----tab--        if n not in self.dic:--newline----tab--            self.dic[n] = self.climbStairs(n-1) + self.climbStairs(n-2)--newline----tab--        return self.dic[n]",
+            "topic_title": "Python different solutions (bottom up, top down)."
+        }
+    ],
+    "qc": "70.json"
+}

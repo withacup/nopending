@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int addDigits(int num) {--newline--        return 1 + (num - 1) % 9;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Accepted C++ O(1)-time O(1)-space 1-Line Solution with Detail Explanations"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int addDigits(int num) {--newline--        int res = num % 9;--newline--        return (res != 0 || num == 0) ? res : 9;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Two lines C code, with explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--def addDigits(self, num):--newline----tab--    \"\"\"--newline----tab--    :type num: int--newline----tab--    :rtype: int--newline----tab--    \"\"\"--newline----tab--    if num == 0 : return 0--newline----tab--    else:return (num - 1) % 9 + 1",
+            "topic_title": "3 methods for python with explains"
+        },
+        {
+            "java": "public class Solution {--newline----newline--    public int addDigits(int num) {--newline----newline--        return num==0?0:(num%9==0?9:(num%9));--newline----newline--    }--newline----newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "1 line Java Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab--    # @param {integer} num--newline----tab--    # @return {integer}--newline----tab--    def addDigits(self, num):--newline----tab--        if num==0:--newline----tab--            return 0--newline----tab--        return num%9 if num%9!=0 else 9",
+            "topic_title": "O(1) solution with mod operation"
+        }
+    ],
+    "qc": "258.json"
+}

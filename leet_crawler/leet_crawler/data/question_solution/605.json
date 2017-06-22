@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public boolean canPlaceFlowers(int[] flowerbed, int n) {--newline--        int count = 0;--newline--        for(int i = 0; i < flowerbed.length && count < n; i++) {--newline--            if(flowerbed[i] == 0) {--newline----tab--     //get next and prev flower bed slot values. If i lies at the ends the next and prev are considered as 0. --newline--               int next = (i == flowerbed.length - 1) ? 0 : flowerbed[i + 1]; --newline--               int prev = (i == 0) ? 0 : flowerbed[i - 1];--newline--               if(next == 0 && prev == 0) {--newline--                   flowerbed[i] = 1;--newline--                   count++;--newline--               }--newline--            }--newline--        }--newline--        --newline--        return count == n;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java - Greedy solution - O(flowerbed) - beats 100%"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def canPlaceFlowers(self, A, N):--newline----tab--        for i, x in enumerate(A):--newline----tab--            if (not x and (i == 0 or A[i-1] == 0) --newline----tab--                    and (i == len(A)-1 or A[i+1] == 0)):--newline----tab--                N -= 1--newline----tab--                A[i] = 1--newline----tab--        return N <= 0--newline----tab--    ",
+            "topic_title": "Python, Straightforward with Explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean canPlaceFlowers(int[] bed, int n) {--newline--        for (int i = 0; i < bed.length; i++) {--newline--            if (bed[i] == 0 && (i == 0 || bed[i - 1] == 0) && (i == bed.length - 1 || bed[i + 1] == 0)) {--newline--                bed[i] = 1;--newline--                n--;--newline--            }--newline--        }--newline--        return n <= 0;        --newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool canPlaceFlowers(vector<int>& bed, int n) {--newline--        for (int i = 0; i < bed.size(); i++) {--newline--            if (!bed[i] && (i == 0 || !bed[i - 1]) && (i == bed.size() - 1 || !bed[i + 1])) {--newline--                bed[i] = 1;--newline--                n--;--newline--            }--newline--        }--newline--        return n <= 0;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "&#91;C++&#93;&#91;Java&#93; Clean Code"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool canPlaceFlowers(vector<int>& flowerbed, int n) {--newline--        flowerbed.insert(flowerbed.begin(),0);--newline--        flowerbed.push_back(0);--newline--        for(int i = 1; i < flowerbed.size()-1; ++i)--newline--        {--newline--            if(flowerbed[i-1] + flowerbed[i] + flowerbed[i+1] == 0)--newline--            {--newline--                --n;--newline--                ++i;--newline--            }--newline--                --newline--        }--newline--        return n <=0;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "simplest c++ code"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean canPlaceFlowers(int[] flowerbed, int n) {--newline--            if(n==0) return true;--newline--            if((flowerbed.length/2)+1<n) return false;--newline--            if(flowerbed.length==1&&flowerbed[0]==1) return false;--newline--            if(flowerbed.length==1&&flowerbed[0]==0&&n==1) return true;--newline--            for(int i=0;i<flowerbed.length;i++){--newline--                if(i==0&&flowerbed[0]==0){--newline--                    if(flowerbed[1]==0){--newline--                        flowerbed[i]=1;--newline--                        n--;--newline--                    }--newline--                    continue;--newline--                }--newline--                if(flowerbed[i]==1) continue;--newline--                if(flowerbed[i]==0&&flowerbed[i-1]==0){--newline--                    if((i+1==flowerbed.length)||(flowerbed[i+1]==0)){--newline--                        flowerbed[i]=1;--newline--                        n--;--newline--                    }--newline--    --newline--                }--newline--            }--newline--            return n<=0;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java easy come up with idea"
+        }
+    ],
+    "qc": "605.json"
+}

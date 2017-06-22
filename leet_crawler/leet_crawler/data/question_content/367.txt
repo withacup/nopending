@@ -1,0 +1,26 @@
+---CONTENT_BEGIN---
+Given a positive integer num, write a function which returns True if num is a perfect square else False.
+
+
+Note: Do not use any built-in library function such as sqrt.
+
+
+Example 1:
+
+Input: 16
+Returns: True
+
+
+
+Example 2:
+
+Input: 14
+Returns: False
+
+
+
+Credits:Special thanks to @elmirap for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    bool isPerfectSquare(int num) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public boolean isPerfectSquare(int num) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def isPerfectSquare(self, num):--newline--        '''--newline--        :type num: int--newline--        :rtype: bool--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "bool isPerfectSquare(int num) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public bool IsPerfectSquare(int num) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} num--newline-- * @return {boolean}--newline-- */--newline--var isPerfectSquare = function(num) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} num--newline--# @return {Boolean}--newline--def is_perfect_square(num)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func isPerfectSquare(_ num: Int) -> Bool {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func isPerfectSquare(num int) bool {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

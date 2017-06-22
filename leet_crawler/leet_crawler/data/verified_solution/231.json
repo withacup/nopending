@@ -1,0 +1,1 @@
+{"solution_code": "public class Solution {--newline--    public boolean isPowerOfTwo(int n) {--newline--        return n>0 && Integer.bitCount(n) == 1;--newline--    }--newline--}", "modified_code": null, "total_cases": 1108, "l_type": "java"}

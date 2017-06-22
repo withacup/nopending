@@ -1,0 +1,48 @@
+---CONTENT_BEGIN---
+Given a string, sort it in decreasing order based on the frequency of characters.
+
+Example 1:
+
+Input:
+"tree"
+
+Output:
+"eert"
+
+Explanation:
+'e' appears twice while 'r' and 't' both appear once.
+So 'e' must appear before both 'r' and 't'. Therefore "eetr" is also a valid answer.
+
+
+
+Example 2:
+
+Input:
+"cccaaa"
+
+Output:
+"cccaaa"
+
+Explanation:
+Both 'c' and 'a' appear three times, so "aaaccc" is also a valid answer.
+Note that "cacaca" is incorrect, as the same characters must be together.
+
+
+
+Example 3:
+
+Input:
+"Aabb"
+
+Output:
+"bbAa"
+
+Explanation:
+"bbaA" is also a valid answer, but "Aabb" is incorrect.
+Note that 'A' and 'a' are treated as two different characters.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    string frequencySort(string s) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public String frequencySort(String s) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def frequencySort(self, s):--newline--        '''--newline--        :type s: str--newline--        :rtype: str--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "char* frequencySort(char* s) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public string FrequencySort(string s) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} s--newline-- * @return {string}--newline-- */--newline--var frequencySort = function(s) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} s--newline--# @return {String}--newline--def frequency_sort(s)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func frequencySort(_ s: String) -> String {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func frequencySort(s string) string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

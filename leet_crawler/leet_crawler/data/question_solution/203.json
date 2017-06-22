@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public ListNode removeElements(ListNode head, int val) {--newline--            if (head == null) return null;--newline--            head.next = removeElements(head.next, val);--newline--            return head.val == val ? head.next : head;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "3 line recursive solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public ListNode removeElements(ListNode head, int val) {--newline--        ListNode fakeHead = new ListNode(-1);--newline--        fakeHead.next = head;--newline--        ListNode curr = head, prev = fakeHead;--newline--        while (curr != null) {--newline--            if (curr.val == val) {--newline--                prev.next = curr.next;--newline--            } else {--newline--                prev = prev.next;--newline--            }--newline--            curr = curr.next;--newline--        }--newline--        return fakeHead.next;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "AC Java solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public ListNode removeElements(ListNode head, int val) {--newline--        while (head != null && head.val == val) head = head.next;--newline--        ListNode curr = head;--newline--        while (curr != null && curr.next != null)--newline--            if (curr.next.val == val) curr.next = curr.next.next;--newline--            else curr = curr.next;--newline--        return head;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Iterative short Java solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public ListNode removeElements(ListNode head, int val) {--newline--        if (head == null) return null;--newline--        ListNode pointer = head;--newline--        while (pointer.next != null) {--newline--            if (pointer.next.val == val) pointer.next = pointer.next.next;--newline--            else pointer = pointer.next;--newline--        }--newline--        return head.val == val ? head.next : head;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Accepted 7 line clean java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    ListNode *removeElements(ListNode *head, int val)--newline--    {--newline--        ListNode **list = &head;--newline--    --newline--        while (*list != nullptr)--newline--        {--newline--            if ((*list)->val == val)--newline--            {--newline--                *list = (*list)->next;--newline--            }--newline--            else--newline--            {--newline--                list = &(*list)->next;--newline--            }--newline--        }--newline--    --newline--        return head;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Simple and elegant solution in C++"
+        }
+    ],
+    "qc": "203.json"
+}

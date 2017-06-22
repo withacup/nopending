@@ -1,0 +1,14 @@
+---CONTENT_BEGIN---
+Given an unsorted array, find the maximum difference between the successive elements in its sorted form.
+
+Try to solve it in linear time/space.
+
+Return 0 if the array contains less than 2 elements.
+
+You may assume all elements in the array are non-negative integers and fit in the 32-bit signed integer range.
+
+Credits:Special thanks to @porker2008 for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int maximumGap(vector<int>& nums) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int maximumGap(int[] nums) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def maximumGap(self, nums):--newline--        '''--newline--        :type nums: List[int]--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int maximumGap(int* nums, int numsSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int MaximumGap(int[] nums) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} nums--newline-- * @return {number}--newline-- */--newline--var maximumGap = function(nums) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} nums--newline--# @return {Integer}--newline--def maximum_gap(nums)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func maximumGap(_ nums: [Int]) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func maximumGap(nums []int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

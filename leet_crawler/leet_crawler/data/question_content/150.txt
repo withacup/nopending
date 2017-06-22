@@ -1,0 +1,20 @@
+---CONTENT_BEGIN---
+
+Evaluate the value of an arithmetic expression in Reverse Polish Notation.
+
+
+
+Valid operators are +, -, *, /. Each operand may be an integer or another expression.
+
+
+
+Some examples:
+
+  ["2", "1", "+", "3", "*"] -> ((2 + 1) * 3) -> 9
+  ["4", "13", "5", "/", "+"] -> (4 + (13 / 5)) -> 6
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int evalRPN(vector<string>& tokens) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int evalRPN(String[] tokens) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def evalRPN(self, tokens):--newline--        '''--newline--        :type tokens: List[str]--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int evalRPN(char** tokens, int tokensSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int EvalRPN(string[] tokens) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string[]} tokens--newline-- * @return {number}--newline-- */--newline--var evalRPN = function(tokens) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String[]} tokens--newline--# @return {Integer}--newline--def eval_rpn(tokens)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func evalRPN(_ tokens: [String]) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func evalRPN(tokens []string) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

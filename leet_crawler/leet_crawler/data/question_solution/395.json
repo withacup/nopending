@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def longestSubstring(self, s, k):--newline----tab--        if len(s) < k:--newline----tab--            return 0--newline----tab--        c = min(set(s), key=s.count)--newline----tab--        if s.count(c) >= k:--newline----tab--            return len(s)--newline----tab--        return max(self.longestSubstring(t, k) for t in s.split(c))--newline----tab--    ",
+            "topic_title": "4 lines Python"
+        },
+        {
+            "java": "public class Solution {--newline--    public int longestSubstring(String s, int k) {--newline--        char[] str = s.toCharArray();--newline--        return helper(str,0,s.length(),k);--newline--    }--newline--    private int helper(char[] str, int start, int end,  int k){--newline--        if(end-start<k) return 0;//substring length shorter than k.--newline--        int[] count = new int[26];--newline--        for(int i = start;i<end;i++){--newline--            int idx = str[i]-'a';--newline--            count[idx]++;--newline--        }--newline--        for(int i = 0;i<26;i++){--newline--            if(count[i]<k&&count[i]>0){ //count[i]=0 => i+'a' does not exist in the string, skip it.--newline--                for(int j = start;j<end;j++){--newline--                    if(str[j]==i+'a'){--newline--                        int left = helper(str,start,j,k);--newline--                        int right = helper(str,j+1,end,k);--newline--                        return Math.max(left,right);--newline--                    }--newline--                }--newline--            }--newline--        }--newline--        return end-start;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java divide and conquer(recursion) solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--        int longestSubstring(string s, int k) {--newline--            if(s.size() == 0 || k > s.size())   return 0;--newline--            if(k == 0)  return s.size();--newline--            --newline--            unordered_map<char,int> Map;--newline--            for(int i = 0; i < s.size(); i++){--newline--                Map[s[i]]++;--newline--            }--newline--            --newline--            int idx =0;--newline--            while(idx <s.size() && Map[s[idx]] >= k)    idx++;--newline--            if(idx == s.size()) return s.size();--newline--            --newline--            int left = longestSubstring(s.substr(0 , idx) , k);--newline--            int right = longestSubstring(s.substr(idx+1) , k);--newline--            --newline--            return max(left, right);--newline--            --newline--        }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "C++ recursive solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int longestSubstring(String s, int k) {--newline--        char[] str = s.toCharArray();--newline--        int[] counts = new int[26];--newline--        int h, i, j, idx, max = 0, unique, noLessThanK;--newline--        --newline--        for (h = 1; h <= 26; h++) {--newline--            Arrays.fill(counts, 0);--newline--            i = 0; --newline--            j = 0;--newline--            unique = 0;--newline--            noLessThanK = 0;--newline--            while (j < str.length) {--newline--                if (unique <= h) {--newline--                    idx = str[j] - 'a';--newline--                    if (counts[idx] == 0)--newline--                        unique++;--newline--                    counts[idx]++;--newline--                    if (counts[idx] == k)--newline--                        noLessThanK++;--newline--                    j++;--newline--                }--newline--                else {--newline--                    idx = str[i] - 'a';--newline--                    if (counts[idx] == k)--newline--                        noLessThanK--;--newline--                    counts[idx]--;--newline--                    if (counts[idx] == 0)--newline--                        unique--;--newline--                    i++;--newline--                }--newline--                if (unique == h && unique == noLessThanK)--newline--                    max = Math.max(j - i, max);--newline--            }--newline--        }--newline--        --newline--        return max;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Strict O(N) Two-Pointer Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int longestSubstring(string s, int k) {--newline--        return longestSubstring_recur(s, k, 0, s.size());--newline--    }--newline--    --newline--    int longestSubstring_recur(const string& s, int k, int first, int last) {--newline--        int count[26] = {0};--newline--        for (int j = first; j < last; ++j) ++count[s[j] - 'a'];--newline--        --newline--        int max_len = 0;--newline--        for (int j = first; j < last;) {--newline--            while (j < last && count[s[j]-'a']<k) ++j;--newline--            if (j == last) break;--newline--            int l = j;--newline--            while (l < last && count[s[l]-'a']>=k) ++l;--newline--            //all chars appear more than k times--newline--            if (j == first && l == last) return last-first; --newline--            max_len = max(max_len, longestSubstring_recur(s, k, j, l));--newline--            j = l;--newline--        }--newline--        return max_len;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Two short C++ solutions (3ms and 6ms)"
+        }
+    ],
+    "qc": "395.json"
+}

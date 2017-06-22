@@ -1,0 +1,18 @@
+---CONTENT_BEGIN---
+
+Given a string that contains only digits 0-9 and a target value, return all possibilities to add binary operators (not unary) +, -, or * between the digits so they evaluate to the target value.
+
+
+Examples: 
+"123", 6 -> ["1+2+3", "1*2*3"] 
+"232", 8 -> ["2*3+2", "2+3*2"]
+"105", 5 -> ["1*0+5","10-5"]
+"00", 0 -> ["0+0", "0-0", "0*0"]
+"3456237490", 9191 -> []
+
+
+Credits:Special thanks to @davidtan1890 for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<string> addOperators(string num, int target) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public List<String> addOperators(String num, int target) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def addOperators(self, num, target):--newline--        '''--newline--        :type num: str--newline--        :type target: int--newline--        :rtype: List[str]--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Return an array of size *returnSize.--newline-- * Note: The returned array must be malloced, assume caller calls free().--newline-- */--newline--char** addOperators(char* num, int target, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public IList<string> AddOperators(string num, int target) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} num--newline-- * @param {number} target--newline-- * @return {string[]}--newline-- */--newline--var addOperators = function(num, target) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} num--newline--# @param {Integer} target--newline--# @return {String[]}--newline--def add_operators(num, target)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func addOperators(_ num: String, _ target: Int) -> [String] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func addOperators(num string, target int) []string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

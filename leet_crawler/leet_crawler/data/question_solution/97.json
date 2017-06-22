@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--     bool isInterleave(string s1, string s2, string s3) {--newline--        --newline--        if(s3.length() != s1.length() + s2.length())--newline--            return false;--newline--        --newline--        bool table[s1.length()+1][s2.length()+1];--newline--        --newline--        for(int i=0; i<s1.length()+1; i++)--newline--            for(int j=0; j< s2.length()+1; j++){--newline--                if(i==0 && j==0)--newline--                    table[i][j] = true;--newline--                else if(i == 0)--newline--                    table[i][j] = ( table[i][j-1] && s2[j-1] == s3[i+j-1]);--newline--                else if(j == 0)--newline--                    table[i][j] = ( table[i-1][j] && s1[i-1] == s3[i+j-1]);--newline--                else--newline--                    table[i][j] = (table[i-1][j] && s1[i-1] == s3[i+j-1] ) || (table[i][j-1] && s2[j-1] == s3[i+j-1] );--newline--            }--newline--            --newline--        return table[s1.length()][s2.length()];--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "My DP solution in C++"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "struct MyPoint {--newline--    int y, x; --newline--    bool operator==(const MyPoint &p) const {--newline--        return p.y == y && p.x == x;--newline--    }--newline--};--newline--namespace std {--newline--    template <>--newline--    struct hash<MyPoint> {--newline--        size_t operator () (const MyPoint &f) const {--newline--            return (std::hash<int>()(f.x) << 1) ^ std::hash<int>()(f.y);--newline--        }--newline--    };--newline--}--newline----newline--class Solution {--newline--public:--newline--    bool isInterleave(string s1, string s2, string s3) {--newline--        if (s1.size() + s2.size() != s3.size()) return false;--newline----newline--        queue<MyPoint> q;--newline--        unordered_set<MyPoint> visited;--newline--        bool isSuccessful = false;--newline--        int i = 0;--newline----newline--        q.push(MyPoint { 0, 0 });--newline--        q.push(MyPoint { -1, -1 });--newline--        while (!(1 == q.size() && -1 == q.front().x)) {--newline--            auto p = q.front();--newline--            q.pop();--newline--            if (p.y == s1.size() && p.x == s2.size()) {--newline--                return true;--newline--            }--newline--            if (-1 == p.y) {--newline--                q.push(p);--newline--                i++;--newline--                continue;--newline--            }--newline--            if (visited.find(p) != visited.end()) { continue; }--newline--            visited.insert(p);--newline----newline--            if (p.y < s1.size()) { // down--newline--                if (s1[p.y] == s3[i]) { q.push(MyPoint { p.y + 1, p.x }); }--newline--            }--newline--            if (p.x < s2.size()) { // right --newline--                if (s2[p.x] == s3[i]) { q.push(MyPoint { p.y, p.x + 1 }); }--newline--            }--newline--        }--newline--        return false;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "8ms C++ solution using BFS, with explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isInterleave(String s1, String s2, String s3) {--newline--    --newline--        if ((s1.length()+s2.length())!=s3.length()) return false;--newline--    --newline--        boolean[][] matrix = new boolean[s2.length()+1][s1.length()+1];--newline--    --newline--        matrix[0][0] = true;--newline--    --newline--        for (int i = 1; i < matrix[0].length; i++){--newline--            matrix[0][i] = matrix[0][i-1]&&(s1.charAt(i-1)==s3.charAt(i-1));--newline--        }--newline--    --newline--        for (int i = 1; i < matrix.length; i++){--newline--            matrix[i][0] = matrix[i-1][0]&&(s2.charAt(i-1)==s3.charAt(i-1));--newline--        }--newline--    --newline--        for (int i = 1; i < matrix.length; i++){--newline--            for (int j = 1; j < matrix[0].length; j++){--newline--                matrix[i][j] = (matrix[i-1][j]&&(s2.charAt(i-1)==s3.charAt(i+j-1)))--newline--                        || (matrix[i][j-1]&&(s1.charAt(j-1)==s3.charAt(i+j-1)));--newline--            }--newline--        }--newline--    --newline--        return matrix[s2.length()][s1.length()];--newline--    --newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "DP Solution in Java"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isInterleave(String s1, String s2, String s3) {--newline--        char[] c1 = s1.toCharArray(), c2 = s2.toCharArray(), c3 = s3.toCharArray();--newline--    --tab--int m = s1.length(), n = s2.length();--newline--    --tab--if(m + n != s3.length()) return false;--newline--    --tab--return dfs(c1, c2, c3, 0, 0, 0, new boolean[m + 1][n + 1]);--newline--    }--newline--    --newline--    public boolean dfs(char[] c1, char[] c2, char[] c3, int i, int j, int k, boolean[][] invalid) {--newline--    --tab--if(invalid[i][j]) return false;--newline--    --tab--if(k == c3.length) return true;--newline--    --tab--boolean valid = --newline--    --tab--    i < c1.length && c1[i] == c3[k] && dfs(c1, c2, c3, i + 1, j, k + 1, invalid) || --newline--            j < c2.length && c2[j] == c3[k] && dfs(c1, c2, c3, i, j + 1, k + 1, invalid);--newline--    --tab--if(!valid) invalid[i][j] = true;--newline--        return valid;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "1ms tiny DFS beats 94.57%"
+        },
+        {
+            "java": "public class Solution {--newline--  --tab--private static Set<Integer> visited; // The combination of i1, i2 has been visited and return false--newline----tab--public static boolean isInterleave(String s1, String s2, String s3) {--newline----tab----tab--if(s3.length() != s1.length() + s2.length())--newline----tab----tab----tab--return false;--newline----tab----tab--visited = new HashSet<Integer>();--newline----tab----tab--return isInterleave(s1, 0, s2, 0, s3, 0);--newline----tab--}--newline----tab----newline----tab--private static boolean isInterleave(String s1, int i1, String s2, int i2, String s3, int i3)--newline----tab--{--tab----newline----tab----tab--int hash = i1 * s3.length() + i2;--newline----tab----tab--if(visited.contains(hash))--newline----tab----tab----tab--return false;--newline----tab----tab----newline----tab----tab--if(i1 == s1.length())--newline----tab----tab----tab--return s2.substring(i2).equals(s3.substring(i3));--newline----tab----tab--if(i2 == s2.length())--newline----tab----tab----tab--return s1.substring(i1).equals(s3.substring(i3));--newline----tab----tab----newline----tab----tab--if(s3.charAt(i3) == s1.charAt(i1) && isInterleave(s1, i1+1, s2, i2, s3, i3+1) ||--newline----tab----tab--   s3.charAt(i3) == s2.charAt(i2) && isInterleave(s1, i1, s2, i2+1, s3, i3+1))--newline----tab----tab----tab--return true;--newline----tab----tab----newline----tab----tab--visited.add(hash);--newline----tab----tab--return false;--newline----tab--}--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My Accepted Java Recursive Solution for interleaving string"
+        }
+    ],
+    "qc": "97.json"
+}

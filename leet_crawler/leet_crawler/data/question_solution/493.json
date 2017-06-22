@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int reversePairs(int[] nums) {--newline--        return reversePairsSub(nums, 0, nums.length - 1);--newline--    }--newline--        --newline--    private int reversePairsSub(int[] nums, int l, int r) {--newline--        if (l >= r) return 0;--newline--            --newline--        int m = l + ((r - l) >> 1);--newline--        int res = reversePairsSub(nums, l, m) + reversePairsSub(nums, m + 1, r);--newline--            --newline--        int i = l, j = m + 1, k = 0, p = m + 1;--newline--        int[] merge = new int[r - l + 1];--newline--            --newline--        while (i <= m) {--newline--            while (p <= r && nums[i] > 2L * nums[p]) p++;--newline--            res += p - (m + 1);--newline--            --tab----newline--            while (j <= r && nums[i] >= nums[j]) merge[k++] = nums[j++];--newline--            merge[k++] = nums[i++];--newline--        }--newline--            --newline--        while (j <= r) merge[k++] = nums[j++];--newline--            --newline--        System.arraycopy(merge, 0, nums, l, merge.length);--newline--            --newline--        return res;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "General principles behind problems similar to &quot;Reverse Pairs&quot;"
+        },
+        {
+            "java": "public class Solution {--newline--    public int reversePairs(int[] nums) {--newline--        Node root = null;--newline--        int[] cnt = new int[1];--newline--        for(int i = nums.length-1; i>=0; i--){--newline--            search(cnt, root, nums[i]/2.0);//search and count the partially built tree--newline--            root = build(nums[i], root);//add nums[i] to BST--newline--        }--newline--        return cnt[0];--newline--    }--newline--    --newline--    private void search(int[] cnt, Node node, double target){--newline--        if(node==null) return; --newline--        else if(target == node.val) cnt[0] += node.less;--newline--        else if(target < node.val) search(cnt, node.left, target);--newline--        else{--newline--            cnt[0]+=node.less + node.same; --newline--            search(cnt, node.right, target);--newline--        }--newline--    }--newline--    --newline--    private Node build(int val, Node n){--newline--        if(n==null) return new Node(val);--newline--        else if(val == n.val) n.same+=1;--newline--        else if(val > n.val) n.right = build(val, n.right);--newline--        else{--newline--            n.less += 1;--newline--            n.left = build(val, n.left);--newline--        }--newline--        return n;--newline--    }--newline--    --newline--    class Node{--newline--        int val, less = 0, same = 1;//less: number of nodes that less than this node.val--newline--        Node left, right;--newline--        public Node(int v){--newline--            this.val = v;--newline--        }--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Very Short and Clear MergeSort &amp; BST Java Solutions"
+        },
+        {
+            "java": "public class Solution {--newline--    class Node {--newline----tab--int value, count;--newline----tab--Node left, right;--newline----tab--Node (int v) {--newline----tab--    value = v; count = 1;--newline----tab--}--newline--    }--newline----tab----newline--    public int reversePairs(int[] nums) {--newline--        int result = 0;--newline--        if (nums == null || nums.length <= 1) return result;--newline--        --newline--        int len = nums.length;--newline----tab--Node root = new Node(nums[len - 1]);--newline----tab--    --newline----tab--for(int i = len - 2; i >= 0; i--) {--newline----tab--    result += query(root, nums[i] / 2.0);--newline----tab--    insert(root, nums[i]);--newline----tab--}--newline----newline----tab--return result;--newline--    }--newline--    --newline--    private Node insert(Node root, int value) {--newline----tab--if (root == null) return new Node(value);--newline----tab----tab----newline----tab--if (root.value == value) {--newline----tab--    root.count++;--newline----tab--}--newline----tab--else if (root.value > value) {--newline----tab--    root.count++;--newline----tab--    root.left = insert(root.left, value);--newline----tab--}--newline----tab--else {--newline----tab--    root.right = insert(root.right, value);--newline----tab--}--newline----tab----tab----newline----tab--return root;--newline--    }--newline----tab----newline--    private int query(Node root, double value) {--newline----tab--if (root == null) return 0;--newline----tab----tab----newline----tab--if (value > root.value) {--newline----tab--    return root.count + query(root.right, value);--newline----tab--}--newline----tab--else {--newline----tab--    return query(root.left, value);--newline----tab--}--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Clean Java Solution using Enhanced Binary Search Tree"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int sort_and_count(vector<int>::iterator begin, vector<int>::iterator end) {--newline--        if (end - begin <= 1)--newline--            return 0;--newline--        auto mid = begin + (end - begin) / 2;--newline--        int count = sort_and_count(begin, mid) + sort_and_count(mid, end);--newline--        for (auto i = begin, j = mid; i != mid; ++i) {--newline--            while (j != end and *i > 2L * *j)--newline--                ++j;--newline--            count += j - mid;--newline--        }--newline--        inplace_merge(begin, mid, end);--newline--        return count;--newline--    }--newline----newline--    int reversePairs(vector<int>& nums) {--newline--        return sort_and_count(nums.begin(), nums.end());--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ with iterators"
+        },
+        {
+            "java": "public class Solution {--newline--        --newline--    public int ret;--newline--    public int reversePairs(int[] nums) {--newline--        ret = 0;--newline--        mergeSort(nums, 0, nums.length-1);--newline--        return ret;--newline--    }--newline----newline--    public void mergeSort(int[] nums, int left, int right) {--newline--        if (right <= left) {--newline--            return;--newline--        }--newline--        int middle = left + (right - left)/2;--newline--        mergeSort(nums, left, middle);--newline--        mergeSort(nums,middle+1, right);--newline----newline--        //count elements--newline--        int count = 0;--newline--        for (int l = left, r = middle+1; l <= middle;) {--newline--            if (r > right || (long)nums[l] <= 2*(long)nums[r]) {--newline--                l++;--newline--                ret += count;--newline--            } else {--newline--                r++;--newline--                count++;--newline--            }--newline--        }--newline--        --newline--        //sort--newline--        Arrays.sort(nums, left, right + 1);   --newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java merge sort solution, O(nlog(n))"
+        }
+    ],
+    "qc": "493.json"
+}

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "--newline--public class Solution {--newline----tab--public TreeNode addOneRow(TreeNode root, int v, int d) {--newline----tab----tab--if (d == 1) {--newline----tab----tab----tab--TreeNode newRoot = new TreeNode(v);--newline----tab----tab----tab--newRoot.left = root;--newline----tab----tab----tab--return newRoot;--newline----tab----tab--}--newline----tab----tab--add(root, v, d, 1);--newline----tab----tab--return root;--newline----tab--}--newline----newline----tab--private void add(TreeNode node, int v, int d, int currentDepth) {--newline----tab----tab--if (node == null) {--newline----tab----tab----tab--return;--newline----tab----tab--}--newline----newline----tab----tab--if (currentDepth == d - 1) {--newline----tab----tab----tab--TreeNode temp = node.left;--newline----tab----tab----tab--node.left = new TreeNode(v);--newline----tab----tab----tab--node.left.left = temp;--newline----newline----tab----tab----tab--temp = node.right;--newline----tab----tab----tab--node.right = new TreeNode(v);--newline----tab----tab----tab--node.right.right = temp;--newline----tab----tab----tab--return;--newline----tab----tab--}--newline----newline----tab----tab--add(node.left, v, d, currentDepth + 1);--newline----tab----tab--add(node.right, v, d, currentDepth + 1);--newline----tab--}--newline--}--newline----newline--",
+            "topic_title": "Simple Java solution - O(N)",
+            "python": null,
+            "is_locked": false,
+            "cpp": null
+        },
+        {
+            "java": "public class Solution {--newline--    public TreeNode addOneRow(TreeNode root, int v, int d) {--newline--        if (d == 0 || d == 1) {--newline--            TreeNode newroot = new TreeNode(v);--newline--            newroot.left = d == 1 ? root : null;--newline--            newroot.right = d == 0 ? root : null;--newline--            return newroot;--newline--        }--newline--        if (root != null && d >= 2) {--newline--            root.left  = addOneRow(root.left,  v, d > 2 ? d - 1 : 1);--newline--            root.right = addOneRow(root.right, v, d > 2 ? d - 1 : 0);--newline--        }--newline--        return root;--newline--    }--newline--}--newline--",
+            "topic_title": "&#91;C++&#93; &#91;Java&#93; 10 line Solution - no helper",
+            "python": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    TreeNode* addOneRow(TreeNode* root, int v, int d) {--newline--        if (d == 1) {--newline--            TreeNode* newroot = new TreeNode(v);--newline--            newroot->left = root;--newline--            return newroot;--newline--        }--newline--        else if (d == 0) {--newline--            TreeNode* newroot = new TreeNode(v);--newline--            newroot->right = root;--newline--            return newroot;--newline--        }--newline----newline--        if (!root) {--newline--            return nullptr;--newline--        }--newline--        else if (d == 2) {--newline--            root->left  = addOneRow(root->left,  v, 1);--newline--            root->right = addOneRow(root->right, v, 0);--newline--            return root;--newline--        }--newline--        else if (d > 2) {--newline--            root->left  = addOneRow(root->left,  v, d - 1);--newline--            root->right = addOneRow(root->right, v, d - 1);--newline--        }--newline--        return root;--newline--    }--newline--};--newline--"
+        },
+        {
+            "java": null,
+            "topic_title": "Short Python BFS",
+            "python": "class Solution :--newline----tab--    def addOneRow(self, root, v, d):--newline----tab--        dummy, dummy.left = TreeNode(None), root--newline----tab--        row = [dummy]--newline----tab--        for _ in range(d - 1):--newline----tab--            row = [kid for node in row for kid in (node.left, node.right) if kid]--newline----tab--        for node in row:--newline----tab--            node.left, node.left.left = TreeNode(v), node.left--newline----tab--            node.right, node.right.right = TreeNode(v), node.right--newline----tab--        return dummy.left",
+            "is_locked": false,
+            "cpp": null
+        },
+        {
+            "java": "public class Solution {--newline--        public TreeNode addOneRow(TreeNode root, int v, int d) {--newline--            if (d < 2) {--newline--                TreeNode newroot = new TreeNode(v);--newline--                if (d == 0) newroot.right = root;--newline--                else newroot.left = root;--newline--                return newroot;--newline--            }--newline--            if (root == null) return null;--newline--            root.left = addOneRow(root.left, v, d == 2 ? 1 : d-1);--newline--            root.right = addOneRow(root.right, v, d == 2 ? 0 : d-1);--newline--            return root;--newline--        }--newline--    --newline--}",
+            "topic_title": "Java, three methods, one BFS and two DFS",
+            "python": null,
+            "is_locked": false,
+            "cpp": null
+        },
+        {
+            "java": "public class Solution {--newline--    public TreeNode addOneRow(TreeNode root, int v, int d) {--newline--        return preOrder(root, v, d, 1, 0);--newline--    }--newline--    --newline--    private TreeNode preOrder(TreeNode root, int v, int d, int level, int direction) {--newline--        if (d == level) {--newline--            TreeNode newNode = new TreeNode(v);--newline--            if (direction == 0) {--newline--                newNode.left = preOrder(root, v, d, level + 1, 0);--newline--            }--newline--            else {--newline--                newNode.right = preOrder(root, v, d, level + 1, 1);--newline--            }--newline--            return newNode;--newline--        }--newline--        --newline--        if (root == null) return null;--newline--        --newline--        root.left = preOrder(root.left, v, d, level + 1, 0);--newline--        root.right = preOrder(root.right, v, d, level + 1, 1);--newline--        --newline--        return root;--newline--    }--newline--}--newline--",
+            "topic_title": "Java Solution, Tree preOrder traversal",
+            "python": null,
+            "is_locked": false,
+            "cpp": null
+        }
+    ],
+    "qc": "623.json"
+}

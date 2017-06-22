@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Greedy Java Solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findContentChildren(int[] g, int[] s) {--newline--        Arrays.sort(g);--newline--        Arrays.sort(s);--newline--        --newline--        int pointG = 0;--newline--        int pointS = 0;--newline--        --newline--        while (pointG<g.length && pointS<s.length) {--newline--            if (g[pointG]<=s[pointS]) {--newline--                pointG++;--newline--                pointS++;--newline--            } else {--newline--                pointS++;--newline--            }--newline--        }--newline--        --newline--        return pointG;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Array sort + Two pointer greedy solution O(nlogn)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def findContentChildren(self, g, s):--newline----tab--        g.sort()--newline----tab--        s.sort()--newline----tab--        res = 0--newline----tab--        i = 0--newline----tab--        for e in s:--newline----tab--            if i == len(g):--newline----tab--                break--newline----tab--            if e >= g[i]:--newline----tab--                res += 1--newline----tab--                i += 1--newline----tab--        return res--newline----tab--    ",
+            "topic_title": "Python concise &amp; efficient solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def findContentChildren(self, g, s):--newline----tab--        \"\"\"--newline----tab--        :type g: List[int]--newline----tab--        :type s: List[int]--newline----tab--        :rtype: int--newline----tab--        \"\"\"--newline----tab--        g.sort()--newline----tab--        s.sort()--newline----tab--        --newline----tab--        childi = 0--newline----tab--        cookiei = 0--newline----tab--        --newline----tab--        while cookiei < len(s) and childi < len(g):--newline----tab--            if s[cookiei] >= g[childi]:--newline----tab--                childi += 1--newline----tab--            cookiei += 1--newline----tab--        --newline----tab--        return childi--newline----tab--                --newline----tab--",
+            "topic_title": "Simple PYTHON O(nlogn)"
+        },
+        {
+            "java": "public class AssignCookies {--newline--    public static int findContentChildren(int[] g, int[] s) {--newline--    --tab--int count = 0;--newline--    --tab--TreeMap<Integer,Integer> tree = new TreeMap<>();--newline--    --tab--for(int temp : s){--newline--    --tab----tab--Integer num = tree.get(temp);--newline--    --tab----tab--num = num==null?0:num;--newline--    --tab----tab--tree.put(temp,num+1);--newline--    --tab--}--newline--    --tab--for(int temp : g){--newline--    --tab----tab--Integer targ = tree.ceilingKey(temp);--newline--    --tab----tab--if(targ!=null){--newline--    --tab----tab----tab--Integer num = tree.get(targ);--newline--    --tab----tab----tab--if(num>0){--newline--    --tab----tab----tab----tab--count++;--newline--    --tab----tab----tab----tab--if(num==1){--newline--    --tab----tab----tab----tab----tab--tree.remove(targ);--newline--    --tab----tab----tab----tab--}else{--newline--                                        tree.put(targ, num - 1);--newline--                                }--newline--    --tab----tab----tab--}--newline--    --tab----tab--}--newline--    --tab--}--newline--        return count;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution with binary search tree"
+        }
+    ],
+    "qc": "455.json"
+}

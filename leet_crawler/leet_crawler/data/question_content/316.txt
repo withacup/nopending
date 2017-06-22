@@ -1,0 +1,22 @@
+---CONTENT_BEGIN---
+
+Given a string which contains only lowercase letters, remove duplicate letters so that every letter appear once and only once. You must make sure your result is the smallest in lexicographical order among all possible results.
+
+
+
+Example:
+
+
+Given "bcabc"
+Return "abc"
+
+
+Given "cbacdcbc"
+Return "acdb"
+
+
+Credits:Special thanks to @dietpepsi for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    string removeDuplicateLetters(string s) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public String removeDuplicateLetters(String s) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def removeDuplicateLetters(self, s):--newline--        '''--newline--        :type s: str--newline--        :rtype: str--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "char* removeDuplicateLetters(char* s) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public string RemoveDuplicateLetters(string s) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} s--newline-- * @return {string}--newline-- */--newline--var removeDuplicateLetters = function(s) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} s--newline--# @return {String}--newline--def remove_duplicate_letters(s)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func removeDuplicateLetters(_ s: String) -> String {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func removeDuplicateLetters(s string) string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

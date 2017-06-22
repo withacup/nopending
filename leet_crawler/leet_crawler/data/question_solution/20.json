@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public boolean isValid(String s) {--newline--    --tab--Stack<Character> stack = new Stack<Character>();--newline--    --tab--for (char c : s.toCharArray()) {--newline--    --tab----tab--if (c == '(')--newline--    --tab----tab----tab--stack.push(')');--newline--    --tab----tab--else if (c == '{')--newline--    --tab----tab----tab--stack.push('}');--newline--    --tab----tab--else if (c == '[')--newline--    --tab----tab----tab--stack.push(']');--newline--    --tab----tab--else if (stack.isEmpty() || stack.pop() != c)--newline--    --tab----tab----tab--return false;--newline--    --tab--}--newline--    --tab--return stack.isEmpty();--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Short java solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isValid(String s) {--newline--        Stack<Character> stack = new Stack<Character>();--newline--        // Iterate through string until empty--newline--        for(int i = 0; i<s.length(); i++) {--newline--            // Push any open parentheses onto stack--newline--            if(s.charAt(i) == '(' || s.charAt(i) == '[' || s.charAt(i) == '{')--newline--                stack.push(s.charAt(i));--newline--            // Check stack for corresponding closing parentheses, false if not valid--newline--            else if(s.charAt(i) == ')' && !stack.empty() && stack.peek() == '(')--newline--                stack.pop();--newline--            else if(s.charAt(i) == ']' && !stack.empty() && stack.peek() == '[')--newline--                stack.pop();--newline--            else if(s.charAt(i) == '}' && !stack.empty() && stack.peek() == '{')--newline--                stack.pop();--newline--            else--newline--                return false;--newline--        }--newline--        // return true if no open parentheses left in stack--newline--        return stack.empty();--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My easy to understand Java Solution with one stack"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab--    # @return a boolean--newline----tab--    def isValid(self, s):--newline----tab--        stack = []--newline----tab--        dict = {\"]\":\"[\", \"}\":\"{\", \")\":\"(\"}--newline----tab--        for char in s:--newline----tab--            if char in dict.values():--newline----tab--                stack.append(char)--newline----tab--            elif char in dict.keys():--newline----tab--                if stack == [] or dict[char] != stack.pop():--newline----tab--                    return False--newline----tab--            else:--newline----tab--                return False--newline----tab--        return stack == []--newline----tab--",
+            "topic_title": "Simple Python solution with stack"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "#include <stack>--newline----newline--class Solution {--newline--public:--newline--    bool isValid(string s) {--newline--        stack<char> paren;--newline--        for (char& c : s) {--newline--            switch (c) {--newline--                case '(': --newline--                case '{': --newline--                case '[': paren.push(c); break;--newline--                case ')': if (paren.empty() || paren.top()!='(') return false; else paren.pop(); break;--newline--                case '}': if (paren.empty() || paren.top()!='{') return false; else paren.pop(); break;--newline--                case ']': if (paren.empty() || paren.top()!='[') return false; else paren.pop(); break;--newline--                default: ; // pass--newline--            }--newline--        }--newline--        return paren.empty() ;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "2ms C++ sloution"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isValid(String s) {--newline--        Stack<Integer> p = new Stack<>();--newline--        for(int i = 0; i < s.length(); i++) {--newline--            int q = \"(){}[]\".indexOf(s.substring(i, i + 1));--newline--            if(q % 2 == 1) {--newline--                if(p.isEmpty() || p.pop() != q - 1) return false;--newline--            } else p.push(q);--newline--        }--newline--        return p.isEmpty();--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "12 lines of Java"
+        }
+    ],
+    "qc": "20.json"
+}

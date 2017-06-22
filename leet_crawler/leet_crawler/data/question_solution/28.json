@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int strStr(String haystack, String needle) {--newline--      for (int i = 0; ; i++) {--newline--        for (int j = 0; ; j++) {--newline--          if (j == needle.length()) return i;--newline--          if (i + j == haystack.length()) return -1;--newline--          if (needle.charAt(j) != haystack.charAt(i + j)) break;--newline--        }--newline--      }--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Elegant Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int strStr(string haystack, string needle) {--newline--        int m = haystack.length(), n = needle.length();--newline--        if (!n) return 0;--newline--        vector<int> lps = kmpProcess(needle);--newline--        for (int i = 0, j = 0; i < m; ) {--newline--            if (haystack[i] == needle[j]) { --newline--                i++;--newline--                j++;--newline--            }--newline--            if (j == n) return i - j;--newline--            if (i < m && haystack[i] != needle[j]) {--newline--                if (j) j = lps[j - 1];--newline--                else i++;--newline--            }--newline--        }--newline--        return -1;--newline--    }--newline--private:--newline--    vector<int> kmpProcess(string& needle) {--newline--        int n = needle.length();--newline--        vector<int> lps(n, 0);--newline--        for (int i = 1, len = 0; i < n; ) {--newline--            if (needle[i] == needle[len])--newline--                lps[i++] = ++len;--newline--            else if (len) len = lps[len - 1];--newline--            else lps[i++] = 0;--newline--        }--newline--        return lps;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Explained 4ms Easy C++ solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int strStr(char *haystack, char *needle) {--newline--            if (!haystack || !needle) return -1;--newline--            for (int i = 0; ; ++i) {--newline--                for (int j = 0; ; ++j) {--newline--                    if (needle[j] == 0) return i;--newline--                    if (haystack[i + j] == 0) return -1;--newline--                    if (haystack[i + j] != needle[j]) break;--newline--                }--newline--            }--newline--        }--newline--}",
+            "python": null,
+            "topic_title": "A very clean solution, brute-force"
+        },
+        {
+            "java": "public class Solution {--newline--    public int strStr(String haystack, String needle) {--newline--        int l1 = haystack.length(), l2 = needle.length();--newline--        if (l1 < l2) {--newline--            return -1;--newline--        } else if (l2 == 0) {--newline--            return 0;--newline--        }--newline--        int threshold = l1 - l2;--newline--        for (int i = 0; i <= threshold; ++i) {--newline--            if (haystack.substring(i,i+l2).equals(needle)) {--newline--                return i;--newline--            }--newline--        }--newline--        return -1;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my accepted java solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public String strStr(String haystack, String needle) {--newline--    --tab--//KMP algorithms--newline--    --tab--if(needle.equals(\"\")) return haystack;--newline--    --tab--if(haystack.equals(\"\")) return null;--newline--    --tab--char[] arr = needle.toCharArray();--newline--    --tab--int[] next = makeNext(arr);--newline--    --newline--    --tab--for(int i = 0, j = 0, end = haystack.length(); i < end;){--newline--    --tab----tab--if(j == -1 || haystack.charAt(i) == arr[j]){--newline--    --tab----tab----tab--j++;--newline--    --tab----tab----tab--i++;--newline--    --tab----tab----tab--if(j == arr.length) return haystack.substring(i - arr.length);--newline--    --tab----tab--}--newline--    --tab----tab--if(i < end && haystack.charAt(i) != arr[j]) j = next[j];--newline--    --tab--}--newline--        return null;--newline--    }--newline--    --newline--    private int[] makeNext(char[] arr){--newline--    --tab--int len = arr.length;--newline--    --tab--int[] next = new int[len];--newline--    --newline--    --tab--next[0] = -1;--newline--    --tab--for(int i = 0, j = -1; i + 1 < len;){--newline--    --tab----tab--if(j == -1 || arr[i] == arr[j]){--newline--    --tab----tab----tab--next[i+1] = j+1;--newline--    --tab----tab----tab--if(arr[i+1] == arr[j+1]) next[i+1] = next[j+1];--newline--    --tab----tab----tab--i++;--newline--    --tab----tab----tab--j++;--newline--    --tab----tab--}--newline--    --tab----tab--if(arr[i] != arr[j]) j = next[j];--newline--    --tab--}--newline--    --newline--    --tab--return next;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Accepted KMP solution in java for reference"
+        }
+    ],
+    "qc": "28.json"
+}

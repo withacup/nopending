@@ -1,0 +1,6 @@
+{
+    "solution_code": "public class Solution {--newline--    --newline--    ListNode head;--newline--    Random random;--newline--    --newline--    public Solution(ListNode h) {--newline--        head = h;       --newline--        random = new Random();        --newline--    }--newline--    --newline--    public int getRandom() {--newline--        --newline--        ListNode c = head;--newline--        int r = c.val;--newline--        for(int i=1;c.next != null;i++){--newline--            --newline--            c = c.next;--newline--            if(random.nextInt(i + 1) == i) r = c.val;                        --newline--        }--newline--        --newline--        return r;--newline--    }--newline--}--newline--",
+    "l_type": "java",
+    "modified_code": null,
+    "total_cases": 7
+}

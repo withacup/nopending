@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class RandomizedSet {--newline--    ArrayList<Integer> nums;--newline--    HashMap<Integer, Integer> locs;--newline--    java.util.Random rand = new java.util.Random();--newline--    /** Initialize your data structure here. */--newline--    public RandomizedSet() {--newline--        nums = new ArrayList<Integer>();--newline--        locs = new HashMap<Integer, Integer>();--newline--    }--newline--    --newline--    /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */--newline--    public boolean insert(int val) {--newline--        boolean contain = locs.containsKey(val);--newline--        if ( contain ) return false;--newline--        locs.put( val, nums.size());--newline--        nums.add(val);--newline--        return true;--newline--    }--newline--    --newline--    /** Removes a value from the set. Returns true if the set contained the specified element. */--newline--    public boolean remove(int val) {--newline--        boolean contain = locs.containsKey(val);--newline--        if ( ! contain ) return false;--newline--        int loc = locs.get(val);--newline--        if (loc < nums.size() - 1 ) { // not the last one than swap the last one with this val--newline--            int lastone = nums.get(nums.size() - 1 );--newline--            nums.set( loc , lastone );--newline--            locs.put(lastone, loc);--newline--        }--newline--        locs.remove(val);--newline--        nums.remove(nums.size() - 1);--newline--        return true;--newline--    }--newline--    --newline--    /** Get a random element from the set. */--newline--    public int getRandom() {--newline--        return nums.get( rand.nextInt(nums.size()) );--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java solution using a HashMap and an ArrayList along with a follow-up. (131 ms)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "import random--newline----newline--class RandomizedSet(object):--newline----tab----newline----tab--    def __init__(self):--newline----tab--        self.nums, self.pos = [], {}--newline----tab--        --newline----tab--    def insert(self, val):--newline----tab--        if val not in self.pos:--newline----tab--            self.nums.append(val)--newline----tab--            self.pos[val] = len(self.nums) - 1--newline----tab--            return True--newline----tab--        return False--newline----tab--        --newline----tab----newline----tab--    def remove(self, val):--newline----tab--        if val in self.pos:--newline----tab--            idx, last = self.pos[val], self.nums[-1]--newline----tab--            self.nums[idx], self.pos[last] = last, idx--newline----tab--            self.nums.pop(); self.pos.pop(val, 0)--newline----tab--            return True--newline----tab--        return False--newline----tab--            --newline----tab--    def getRandom(self):--newline----tab--        return self.nums[random.randint(0, len(self.nums) - 1)]--newline----tab----newline----tab--# 15 / 15 test cases passed.--newline----tab--# Status: Accepted--newline----tab--# Runtime: 144 ms--newline----tab--",
+            "topic_title": "Simple solution in Python"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class RandomizedSet {--newline--public:--newline--    /** Initialize your data structure here. */--newline--    RandomizedSet() {--newline--        --newline--    }--newline--    --newline--    /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */--newline--    bool insert(int val) {--newline--        if (m.find(val) != m.end()) return false;--newline--        nums.emplace_back(val);--newline--        m[val] = nums.size() - 1;--newline--        return true;--newline--    }--newline--    --newline--    /** Removes a value from the set. Returns true if the set contained the specified element. */--newline--    bool remove(int val) {--newline--        if (m.find(val) == m.end()) return false;--newline--        int last = nums.back();--newline--        m[last] = m[val];--newline--        nums[m[val]] = last;--newline--        nums.pop_back();--newline--        m.erase(val);--newline--        return true;--newline--    }--newline--    --newline--    /** Get a random element from the set. */--newline--    int getRandom() {--newline--        return nums[rand() % nums.size()];--newline--    }--newline--private:--newline--    vector<int> nums;--newline--    unordered_map<int, int> m;--newline--};--newline----newline--",
+            "python": null,
+            "topic_title": "AC C++ Solution. Unordered_map + Vector"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Are hash tables ok here? They&#x27;re not really O(1), are they?"
+        },
+        {
+            "java": "import java.util.Random;--newline----newline--public class RandomizedSet {--newline--    --newline--    private HashMap<Integer, Integer> keyMap = null;--newline--    private HashMap<Integer, Integer> valueMap = null;--newline--    int count;--newline----newline--    /** Initialize your data structure here. */--newline--    public RandomizedSet() {--newline--        keyMap = new HashMap<Integer, Integer>();--newline--        valueMap = new HashMap<Integer, Integer>();--newline--    }--newline--    --newline--    /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */--newline--    public boolean insert(int val) {--newline--        if(keyMap.containsKey(val)) {--newline--            return false;--newline--        } else {--newline--            keyMap.put(val, count);--newline--            valueMap.put(count, val);--newline--            count = keyMap.size();--newline--            return true;--newline--        }--newline--    }--newline--    --newline--    /** Removes a value from the set. Returns true if the set contained the specified element. */--newline--    public boolean remove(int val) {--newline--        if(!keyMap.containsKey(val)) {--newline--            return false;--newline--        } else {--newline--            int valueKey = keyMap.get(val);--newline--            keyMap.remove(val);--newline--            if(valueKey != valueMap.size() - 1) {--newline--                valueMap.put(valueKey, valueMap.get(valueMap.size() - 1));--newline--                keyMap.put(valueMap.get(valueMap.size() - 1), valueKey);--newline--                valueMap.remove(valueMap.size() - 1);--newline--            } else {--newline--                valueMap.remove(valueKey);--newline--            }--newline--            count = keyMap.size();--newline--            return true;--newline--        }--newline--    }--newline--    --newline--    /** Get a random element from the set. */--newline--    public int getRandom() {--newline--        Random random = new Random();--newline--        int n = random.nextInt(keyMap.size());--newline--        return valueMap.get(n);--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java solution with two HashMaps: easy to understand"
+        }
+    ],
+    "qc": "380.json"
+}

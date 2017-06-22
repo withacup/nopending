@@ -1,0 +1,274 @@
+/Volumes/YangFlashCard/projects/leet_crawler/leet_crawler/bin/python /Volumes/YangFlashCard/projects/leet_crawler/leet_crawler/leet_crawler/leet_crawler/main.py
+There is a problem with 127's test case, no right solution right now
+--->> number of question left: 38
+q3lrkfklrjflwqj3j23l logged in successfully
+it_is_for_mxd logged in successfully
+leetcode22 logged in successfully
+450055865 logged in successfully
+leetcode0 logged in successfully
+newproblemreminder logged in successfully
+leetcode12 logged in successfully
+leetremindercomfirm logged in successfully
+leetcode32 logged in successfully
+txyang93 logged in successfully
+user 450055865's 341 question Line 8: error: cannot find symbol: class NestedIterator
+user leetcode0's 208 question Line 10: error: cannot find symbol: class Trie
+user leetremindercomfirm's 284 question Line 8: error: cannot find symbol: class PeekingIterator
+user q3lrkfklrjflwqj3j23l's 141 question time limit exceeded
+user it_is_for_mxd's 488 question accepted
+user newproblemreminder's 142 question time limit exceeded
+user leetcode22's 173 question Line 8: error: cannot find symbol: class BSTIterator
+user leetcode32's 386 question accepted
+user leetcode12's 556 question accepted
+user txyang93's 275 question accepted
+--->> number of question left: 28
+problem: 141 fetched cases: 0/16
+user: leetcode22's problem: 173's test case fetching submission failed
+failed to fetch stdout with problem: 173
+user: 450055865's problem: 341's test case fetching submission failed
+failed to fetch stdout with problem: 341
+user: leetcode0's problem: 208's test case fetching submission failed
+failed to fetch stdout with problem: 208
+problem: 142 fetched cases: 0/16
+user: leetremindercomfirm's problem: 284's test case fetching submission failed
+failed to fetch stdout with problem: 284
+user q3lrkfklrjflwqj3j23l's 141 question time limit exceeded
+user it_is_for_mxd's 488 question accepted
+user 450055865's 222 question accepted
+user leetcode32's 386 question accepted
+user newproblemreminder's 142 question time limit exceeded
+user leetcode12's 556 question accepted
+user leetcode0's 304 question Line 10: error: cannot find symbol: class NumMatrix
+user leetremindercomfirm's 130 question time limit exceeded
+user txyang93's 275 question accepted
+--->> number of question left: 24
+user leetcode22's 160 question time limit exceeded
+problem: 141 fetched cases: 0/16
+problem: 488 is tough guy, ignoring
+failed to fetch stdout with problem: 488
+problem: 160 fetched cases: 0/42
+user: leetcode0's problem: 304's test case fetching submission failed
+failed to fetch stdout with problem: 304
+problem: 142 fetched cases: 0/16
+problem: 556 is tough guy, ignoring
+failed to fetch stdout with problem: 556
+problem: 130 fetched cases: 0/60
+problem: 386 is tough guy, ignoring
+failed to fetch stdout with problem: 386
+problem: 275 is tough guy, ignoring
+failed to fetch stdout with problem: 275
+user it_is_for_mxd's 381 question Line 10: error: cannot find symbol: class RandomizedCollection
+user leetcode32's 225 question Line 10: error: cannot find symbol: class MyStack
+user 450055865's 222 question accepted
+user q3lrkfklrjflwqj3j23l's 141 question time limit exceeded
+user leetcode12's 371 question accepted
+user txyang93's 384 question Line 10: error: cannot find symbol: class Solution
+user leetremindercomfirm's 130 question accepted
+user leetcode0's 211 question Line 10: error: cannot find symbol: class WordDictionary
+--->> number of question left: 19
+user leetcode22's 160 question wrong result
+user newproblemreminder's 142 question time limit exceeded
+problem: 141 fetched cases: 0/16
+user: it_is_for_mxd's problem: 381's test case fetching submission failed
+failed to fetch stdout with problem: 381
+problem: 160 fetched cases: 0/42
+problem: 222 is tough guy, ignoring
+failed to fetch stdout with problem: 222
+user: leetcode0's problem: 211's test case fetching submission failed
+failed to fetch stdout with problem: 211
+problem: 142 fetched cases: 0/16
+user: leetcode32's problem: 225's test case fetching submission failed
+failed to fetch stdout with problem: 225
+user: txyang93's problem: 384's test case fetching submission failed
+failed to fetch stdout with problem: 384
+user it_is_for_mxd's 460 question Line 10: error: cannot find symbol: class LFUCache
+user leetremindercomfirm's 130 question accepted
+user q3lrkfklrjflwqj3j23l's 141 question time limit exceeded
+user leetcode32's 576 question Line 3: error: variable i is already defined in method findPaths(int,int,int,int,int)
+--->> number of question left: 14
+user leetcode12's 371 question accepted
+user newproblemreminder's 142 question time limit exceeded
+user leetcode22's 160 question accepted
+user leetcode0's 146 question Line 10: error: cannot find symbol: class LRUCache
+user 450055865's 575 question time limit exceeded
+user txyang93's 432 question Line 10: error: cannot find symbol: class AllOne
+problem: 141 fetched cases: 0/16
+user: it_is_for_mxd's problem: 460's test case fetching submission failed
+failed to fetch stdout with problem: 460
+problem: 575 fetched cases: 0/207
+user: leetcode0's problem: 146's test case fetching submission failed
+failed to fetch stdout with problem: 146
+problem: 142 fetched cases: 0/16
+problem: 371 is tough guy, ignoring
+failed to fetch stdout with problem: 371
+problem: 130 is tough guy, ignoring
+failed to fetch stdout with problem: 130
+user: leetcode32's problem: 576's test case fetching submission failed
+failed to fetch stdout with problem: 576
+user: txyang93's problem: 432's test case fetching submission failed
+failed to fetch stdout with problem: 432
+user leetcode12's 504 question Line 2: error: class, interface, or enum expected
+user leetcode32's 307 question Line 10: error: cannot find symbol: class NumArray
+user newproblemreminder's 142 question accepted
+user q3lrkfklrjflwqj3j23l's 141 question wrong result
+--->> number of question left: 8
+user it_is_for_mxd's 352 question Line 10: error: cannot find symbol: class SummaryRanges
+user leetremindercomfirm's 295 question Line 10: error: cannot find symbol: class MedianFinder
+user 450055865's 575 question wrong result
+user txyang93's 382 question Line 10: error: cannot find symbol: class Solution
+user leetcode0's 240 question accepted
+user leetcode22's 160 question time limit exceeded
+problem: 141 fetched cases: 0/16
+user: it_is_for_mxd's problem: 352's test case fetching submission failed
+failed to fetch stdout with problem: 352
+problem: 160 fetched cases: 21/42
+problem: 575 fetched cases: 0/207
+user: leetcode12's problem: 504's test case fetching submission failed
+failed to fetch stdout with problem: 504
+user: leetremindercomfirm's problem: 295's test case fetching submission failed
+failed to fetch stdout with problem: 295
+user: leetcode32's problem: 307's test case fetching submission failed
+failed to fetch stdout with problem: 307
+user: txyang93's problem: 382's test case fetching submission failed
+failed to fetch stdout with problem: 382
+user leetremindercomfirm's 303 question Line 10: error: cannot find symbol: class NumArray
+user it_is_for_mxd's 155 question Line 10: error: cannot find symbol: class MinStack
+--->> number of question left: 3
+user q3lrkfklrjflwqj3j23l's 141 question time limit exceeded
+user newproblemreminder's 142 question accepted
+user leetcode12's 398 question Line 10: error: cannot find symbol: class Solution
+user leetcode32's 33 question accepted
+user 450055865's 575 question time limit exceeded
+user leetcode22's 160 question wrong result
+user leetcode0's 240 question accepted
+problem: 141 fetched cases: 1/16
+problem: 141 test case has been tried for 5 times, ignored with fetching length 0
+failed to fetch stdout with problem: 141
+user: it_is_for_mxd's problem: 155's test case fetching submission failed
+failed to fetch stdout with problem: 155
+problem: 160 fetched cases: 21/42
+problem: 575 fetched cases: 103/207
+problem: 240 is tough guy, ignoring
+failed to fetch stdout with problem: 240
+problem: 142 is tough guy, ignoring
+failed to fetch stdout with problem: 142
+user: leetcode12's problem: 398's test case fetching submission failed
+failed to fetch stdout with problem: 398
+user: leetremindercomfirm's problem: 303's test case fetching submission failed
+failed to fetch stdout with problem: 303
+user txyang93's 232 question Line 10: error: cannot find symbol: class MyQueue
+user: txyang93's problem: 232's test case fetching submission failed
+failed to fetch stdout with problem: 232
+User txyang93 submit 6 submissions, 2 accepted, 4 failed
+user leetcode32's 33 question accepted
+user it_is_for_mxd's 355 question Line 10: error: cannot find symbol: class Twitter
+user leetcode22's 160 question accepted
+user leetcode0's 28 question accepted
+user q3lrkfklrjflwqj3j23l's 380 question Line 10: error: cannot find symbol: class RandomizedSet
+user: q3lrkfklrjflwqj3j23l's problem: 380's test case fetching submission failed
+failed to fetch stdout with problem: 380
+User q3lrkfklrjflwqj3j23l submit 7 submissions, 0 accepted, 7 failed
+user: it_is_for_mxd's problem: 355's test case fetching submission failed
+failed to fetch stdout with problem: 355
+problem: 33 is tough guy, ignoring
+failed to fetch stdout with problem: 33
+user 450055865's 575 question time limit exceeded
+problem: 575 fetched cases: 103/207
+user leetcode0's 28 question accepted
+user 450055865's 575 question wrong result
+user leetcode22's 160 question time limit exceeded
+problem: 160 fetched cases: 36/42
+problem: 28 is tough guy, ignoring
+failed to fetch stdout with problem: 28
+User leetcode0 submit 8 submissions, 4 accepted, 4 failed
+User leetcode12 submit 6 submissions, 4 accepted, 2 failed
+problem: 575 fetched cases: 103/207
+user leetcode22's 160 question time limit exceeded
+user 450055865's 575 question time limit exceeded
+problem: 160 fetched cases: 36/42
+problem: 575 fetched cases: 141/207
+user leetcode22's 160 question accepted
+user 450055865's 575 question time limit exceeded
+problem: 575 fetched cases: 141/207
+user leetcode22's 160 question accepted
+user 450055865's 575 question wrong result
+problem: 160 is tough guy, ignoring
+failed to fetch stdout with problem: 160
+User leetcode22 submit 11 submissions, 4 accepted, 7 failed
+User leetcode32 submit 7 submissions, 4 accepted, 3 failed
+problem: 575 fetched cases: 141/207
+user 450055865's 575 question time limit exceeded
+problem: 575 fetched cases: 155/207
+user 450055865's 575 question wrong result
+problem: 575 fetched cases: 155/207
+user 450055865's 575 question time limit exceeded
+problem: 575 fetched cases: 165/207
+user 450055865's 575 question wrong result
+problem: 575 fetched cases: 165/207
+user 450055865's 575 question wrong result
+problem: 575 fetched cases: 172/207
+user 450055865's 575 question wrong result
+problem: 575 fetched cases: 182/207
+  File "/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/threading.py", line 882, in _bootstrap
+    self._bootstrap_inner()
+  File "/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/concurrent/futures/thread.py", line 66, in _worker
+    work_item.run()
+  File "/Library/Frameworks/Python.framework/Versions/3.5/lib/python3.5/concurrent/futures/thread.py", line 55, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/Volumes/YangFlashCard/projects/leet_crawler/leet_crawler/leet_crawler/leet_crawler/tools/usermanager.py", line 119, in __login_submit_modified
+    std_out_arr = self.__fetch_case(user, problem_id, l_type, MAX_TRY)
+  File "/Volumes/YangFlashCard/projects/leet_crawler/leet_crawler/leet_crawler/leet_crawler/tools/usermanager.py", line 166, in __fetch_case
+    res, status_code = user.analyse_submission(submission_id)
+  File "/Volumes/YangFlashCard/projects/leet_crawler/leet_crawler/leet_crawler/leet_crawler/util/user.py", line 192, in analyse_submission
+    result = self.__check_submission(submission_id)
+  File "/Volumes/YangFlashCard/projects/leet_crawler/leet_crawler/leet_crawler/leet_crawler/util/user.py", line 270, in __check_submission
+    elog('', 'failed to check submission_id: {0} with response: {1}'.format(submission_id, json_str))
+  File "/Volumes/YangFlashCard/projects/leet_crawler/leet_crawler/leet_crawler/leet_crawler/util/common.py", line 15, in elog
+    traceback.print_stack()
+LEET ERROR: 
+DESCRIPTION: failed to check submission_id: 106713941 with response: <h1>Server Error (500)</h1>
+
+Process finished with exit code 1
+
+user 450055865's 341 question Line 8: error: cannot find symbol: class NestedIterator
+user leetcode0's 208 question Line 10: error: cannot find symbol: class Trie
+user leetremindercomfirm's 284 question Line 8: error: cannot find symbol: class PeekingIterator
+user leetcode22's 173 question Line 8: error: cannot find symbol: class BSTIterator
+user leetcode0's 304 question Line 10: error: cannot find symbol: class NumMatrix
+user it_is_for_mxd's 381 question Line 10: error: cannot find symbol: class RandomizedCollection
+user leetcode32's 225 question Line 10: error: cannot find symbol: class MyStack
+user txyang93's 384 question Line 10: error: cannot find symbol: class Solution
+user leetcode0's 211 question Line 10: error: cannot find symbol: class WordDictionary
+user it_is_for_mxd's 460 question Line 10: error: cannot find symbol: class LFUCache
+user leetcode0's 146 question Line 10: error: cannot find symbol: class LRUCache
+user txyang93's 432 question Line 10: error: cannot find symbol: class AllOne
+user leetcode12's 504 question Line 2: error: class, interface, or enum expected
+user leetcode32's 307 question Line 10: error: cannot find symbol: class NumArray
+user it_is_for_mxd's 352 question Line 10: error: cannot find symbol: class SummaryRanges
+user leetremindercomfirm's 295 question Line 10: error: cannot find symbol: class MedianFinder
+user txyang93's 382 question Line 10: error: cannot find symbol: class Solution
+user leetremindercomfirm's 303 question Line 10: error: cannot find symbol: class NumArray
+user it_is_for_mxd's 155 question Line 10: error: cannot find symbol: class MinStack
+user leetcode12's 398 question Line 10: error: cannot find symbol: class Solution
+user txyang93's 232 question Line 10: error: cannot find symbol: class MyQueue
+user it_is_for_mxd's 355 question Line 10: error: cannot find symbol: class Twitter
+user q3lrkfklrjflwqj3j23l's 380 question Line 10: error: cannot find symbol: class RandomizedSet
+
+341, 208, 284, 173, 304, 381, 225, 384, 211, 460, 146, 432, 504, 307, 352, 295, 382, 303, 155, 398, 232, 355, 380,
+
+problem: 488 is tough guy, ignoring it_is_for_mxd
+problem: 556 is tough guy, ignoring
+problem: 386 is tough guy, ignoring
+problem: 275 is tough guy, ignoring
+problem: 222 is tough guy, ignoring
+problem: 371 is tough guy, ignoring
+problem: 130 is tough guy, ignoring
+problem: 240 is tough guy, ignoring
+problem: 142 is tough guy, ignoring
+problem: 33 is tough guy, ignoring
+problem: 28 is tough guy, ignoring
+problem: 160 is tough guy, ignoring

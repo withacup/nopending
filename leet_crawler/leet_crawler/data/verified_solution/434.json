@@ -1,0 +1,1 @@
+{"solution_code": "public class Solution {--newline--    public int countSegments(String s) {--newline--        return (\"x \" + s).split(\" +\").length - 1;--newline--    }--newline--    --newline--}", "modified_code": null, "total_cases": 26, "l_type": "java"}

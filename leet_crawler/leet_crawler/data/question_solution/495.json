@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def findPoisonedDuration(self, timeSeries, duration):--newline----tab--        ans = duration * len(timeSeries)--newline----tab--        for i in range(1,len(timeSeries)):--newline----tab--            ans -= max(0, duration - (timeSeries[i] - timeSeries[i-1]))--newline----tab--        return ans--newline----tab--",
+            "topic_title": "Python Solution for Teemo"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "O(n) Java Solution using same idea of merge intervals"
+        },
+        {
+            "java": "public class Solution {--newline--        public int findPoisonedDuration(int[] timeSeries, int duration) {--newline--            if (timeSeries.length == 0) return 0;--newline--            int begin = timeSeries[0], total = 0;--newline--            for (int t : timeSeries) {--newline--                total = total + (t < begin + duration ? t - begin : duration);--newline--                begin = t;--newline--            }   --newline--            return total + duration;--newline--        } --newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 7 lines O(n) solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Short O(n) C++ solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple question obscured by unnecessary story"
+        }
+    ],
+    "qc": "495.json"
+}

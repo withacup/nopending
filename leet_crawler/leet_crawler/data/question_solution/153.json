@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--     int findMin(vector<int> &num) {--newline--            int start=0,end=num.size()-1;--newline--            --newline--            while (start<end) {--newline--                if (num[start]<num[end])--newline--                    return num[start];--newline--                --newline--                int mid = (start+end)/2;--newline--                --newline--                if (num[mid]>=num[start]) {--newline--                    start = mid+1;--newline--                } else {--newline--                    end = mid;--newline--                }--newline--            }--newline--            --newline--            return num[start];--newline--        }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Compact and clean C++ solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int findMin(vector<int>& nums) {--newline--        int left = 0,  right = nums.size() - 1;--newline--        while(left < right) {--newline--            if(nums[left] < nums[right]) --newline--                return nums[left];--newline--                --newline--            int mid = (left + right)/2;--newline--            if(nums[mid] > nums[right])--newline--                left = mid + 1;--newline--            else--newline--                right = mid;--newline--        }--newline--        --newline--        return nums[left];--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "4ms simple C++ code with explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--        int findMin(vector<int> &num) {--newline--            int lo =0, hi = num.size()-1;--newline--            while(lo<hi){--newline--                  int mid=(lo+hi)/2;--newline--                  if(num[mid]>num[hi]) lo=mid+1;--newline--                  else hi=mid;--newline--            }--newline--            return num[lo];--newline--        }--newline--}",
+            "python": null,
+            "topic_title": "Simplest and fastest C++ solution O(lg N), you can&#x27;t beat this!"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int findMin(vector<int> &num) {--newline--        int low = 0, high = num.size() - 1;--newline--        // loop invariant: 1. low < high--newline--        //                 2. mid != high and thus A[mid] != A[high] (no duplicate exists)--newline--        //                 3. minimum is between [low, high]--newline--        // The proof that the loop will exit: after each iteration either the 'high' decreases--newline--        // or the 'low' increases, so the interval [low, high] will always shrink.--newline--        while (low < high) {--newline--            auto mid = low + (high - low) / 2;--newline--            if (num[mid] < num[high])--newline--                // the mininum is in the left part--newline--                high = mid;--newline--            else if (num[mid] > num[high])--newline--                // the mininum is in the right part--newline--                low = mid + 1;--newline--        }--newline----newline--        return num[low];--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "A concise solution with proof in the comment"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findMin(int[] num) {--newline--        if (num == null || num.length == 0) {--newline--            return 0;--newline--        }--newline--        if (num.length == 1) {--newline--            return num[0];--newline--        }--newline--        int start = 0, end = num.length - 1;--newline--        while (start < end) {--newline--            int mid = (start + end) / 2;--newline--            if (mid > 0 && num[mid] < num[mid - 1]) {--newline--                return num[mid];--newline--            }--newline--            if (num[start] <= num[mid] && num[mid] > num[end]) {--newline--                start = mid + 1;--newline--            } else {--newline--                end = mid - 1;--newline--            }--newline--        }--newline--        return num[start];--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java solution with binary search"
+        }
+    ],
+    "qc": "153.json"
+}

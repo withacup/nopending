@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {--newline--        ListNode c1 = l1;--newline--        ListNode c2 = l2;--newline--        ListNode sentinel = new ListNode(0);--newline--        ListNode d = sentinel;--newline--        int sum = 0;--newline--        while (c1 != null || c2 != null) {--newline--            sum /= 10;--newline--            if (c1 != null) {--newline--                sum += c1.val;--newline--                c1 = c1.next;--newline--            }--newline--            if (c2 != null) {--newline--                sum += c2.val;--newline--                c2 = c2.next;--newline--            }--newline--            d.next = new ListNode(sum % 10);--newline--            d = d.next;--newline--        }--newline--        if (sum / 10 == 1)--newline--            d.next = new ListNode(1);--newline--        return sentinel.next;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Is this Algorithm optimal or what?"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {--newline--        ListNode preHead(0), *p = &preHead;--newline--        int extra = 0;--newline--        while (l1 || l2 || extra) {--newline--            int sum = (l1 ? l1->val : 0) + (l2 ? l2->val : 0) + extra;--newline--            extra = sum / 10;--newline--            p->next = new ListNode(sum % 10);--newline--            p = p->next;--newline--            l1 = l1 ? l1->next : l1;--newline--            l2 = l2 ? l2->next : l2;--newline--        }--newline--        return preHead.next;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "&#91;c++&#93; Sharing my 11-line c++ solution, can someone make it even more concise?"
+        },
+        {
+            "java": "public class Solution {--newline--    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {--newline--        ListNode prev = new ListNode(0);--newline--        ListNode head = prev;--newline--        int carry = 0;--newline--        while (l1 != null || l2 != null || carry != 0) {--newline--            ListNode cur = new ListNode(0);--newline--            int sum = ((l2 == null) ? 0 : l2.val) + ((l1 == null) ? 0 : l1.val) + carry;--newline--            cur.val = sum % 10;--newline--            carry = sum / 10;--newline--            prev.next = cur;--newline--            prev = cur;--newline--            --newline--            l1 = (l1 == null) ? l1 : l1.next;--newline--            l2 = (l2 == null) ? l2 : l2.next;--newline--        }--newline--        return head.next;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My accepted Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab--# @return a ListNode--newline----tab--def addTwoNumbers(self, l1, l2):--newline----tab--    carry = 0--newline----tab--    root = n = ListNode(0)--newline----tab--    while l1 or l2 or carry:--newline----tab--        v1 = v2 = 0--newline----tab--        if l1:--newline----tab--            v1 = l1.val--newline----tab--            l1 = l1.next--newline----tab--        if l2:--newline----tab--            v2 = l2.val--newline----tab--            l2 = l2.next--newline----tab--        carry, val = divmod(v1+v2+carry, 10)--newline----tab--        n.next = ListNode(val)--newline----tab--        n = n.next--newline----tab--    return root.next",
+            "topic_title": "Clear python code, straight forward"
+        },
+        {
+            "java": "public class Solution {--newline--    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {--newline--        ListNode ln1 = l1, ln2 = l2, head = null, node = null;--newline--        int carry = 0, remainder = 0, sum = 0;--newline--        head = node = new ListNode(0);--newline--        --newline--        while(ln1 != null || ln2 != null || carry != 0) {--newline--            sum = (ln1 != null ? ln1.val : 0) + (ln2 != null ? ln2.val : 0) + carry;--newline--            carry = sum / 10;--newline--            remainder = sum % 10;--newline--            node = node.next = new ListNode(remainder);--newline--            ln1 = (ln1 != null ? ln1.next : null);--newline--            ln2 = (ln2 != null ? ln2.next : null);--newline--        }--newline--        return head.next;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "4ms 11lines java solution"
+        }
+    ],
+    "qc": "2.json"
+}

@@ -1,0 +1,6 @@
+{
+    "solution_code": "class Solution:--newline--        # @return a list of strings, [s1, s2]--newline--        def letterCombinations(self, digits):--newline--            if '' == digits: return []--newline--            kvmaps = {--newline--                '2': 'abc',--newline--                '3': 'def',--newline--                '4': 'ghi',--newline--                '5': 'jkl',--newline--                '6': 'mno',--newline--                '7': 'pqrs',--newline--                '8': 'tuv',--newline--                '9': 'wxyz'--newline--            }--newline--            return reduce(lambda acc, digit: [x + y for x in acc for y in kvmaps[digit]], digits, [''])",
+    "l_type": "python",
+    "modified_code": null,
+    "total_cases": 25
+}

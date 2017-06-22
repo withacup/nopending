@@ -1,0 +1,6 @@
+{
+    "solution_code": "class Solution(object):--newline--        def canWinNim(self, n):--newline--            \"\"\"--newline--            :type n: int--newline--            :rtype: bool--newline--            \"\"\"--newline--            # strategy: the one with 4 remaining must loose--newline--            # A, B players--newline--            # if n == 4k, then at each round B can make A+B both take 4, --newline--            # eventually leave 4 to A, A lose--newline--            # if n == 4k + i (i <= 3), then A can always take i first and B will--newline--            # finanly lose as he faces above scenario like A--newline--    --newline--            return bool(n%4!=0)",
+    "l_type": "python",
+    "modified_code": null,
+    "total_cases": 60
+}

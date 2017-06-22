@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int findLHS(int[] nums) {--newline--        Map<Long, Integer> map = new HashMap<>();--newline--        for (long num : nums) {--newline--            map.put(num, map.getOrDefault(num, 0) + 1);--newline--        }--newline--        int result = 0;--newline--        for (long key : map.keySet()) {--newline--            if (map.containsKey(key + 1)) {--newline--                result = Math.max(result, map.get(key + 1) + map.get(key));--newline--            }--newline--        }--newline--        return result;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java HashMap Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def findLHS(self, A):--newline----tab--        count = collections.Counter(A)--newline----tab--        ans = 0--newline----tab--        for x in count:--newline----tab--            if x+1 in count:--newline----tab--                ans = max(ans, count[x] + count[x+1])--newline----tab--        return ans--newline----tab--    ",
+            "topic_title": "Python, Straightforward with Explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int findLHS(vector<int>& nums) {--newline--        map<int, int> freqs;--newline--        for (int n : nums) {--newline--            freqs[n]++;--newline--        }--newline----newline--        int longest = 0;--newline--        int lastNum = 0;--newline--        int lastFreq = 0;--newline--        for (pair<int, int> p : freqs) {--newline--            int freq2 = 0;--newline--            if (lastFreq && p.first == lastNum + 1) {--newline--                freq2 = p.second + lastFreq;--newline--            }--newline--            longest = max(longest, freq2);--newline--            lastNum = p.first;--newline--            lastFreq = p.second;--newline--        }--newline--        return longest;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ Solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findLHS(int[] nums) {--newline--        int max = 0;--newline--        Map<Integer, Integer> map = new HashMap<>();--newline--        --newline--        for (int num : nums) {--newline--            map.put(num, map.getOrDefault(num, 0) + 1);--newline--        }--newline--        --newline--        for (int num : map.keySet()) {--newline--            if (map.containsKey(num + 1)) {--newline--                max = Math.max(max, map.get(num) + map.get(num + 1));--newline--            }--newline--        }--newline--        --newline--        return max;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution, HashMap"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def findLHS(self, nums):--newline----tab--        \"\"\"--newline----tab--        :type nums: List[int]--newline----tab--        :rtype: int--newline----tab--        \"\"\"--newline----tab--        count = collections.Counter(nums)--newline----tab--        return max([count[x] + count[x+1] for x in count if count[x+1]] or [0])--newline----tab--",
+            "topic_title": "Short Python using Counter"
+        }
+    ],
+    "qc": "594.json"
+}

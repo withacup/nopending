@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {--newline--        if (root == null || root == p || root == q) return root;--newline--        TreeNode left = lowestCommonAncestor(root.left, p, q);--newline--        TreeNode right = lowestCommonAncestor(root.right, p, q);--newline--        return left == null ? right : right == null ? left : root;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {--newline--        if (!root || root == p || root == q) return root;--newline--        TreeNode* left = lowestCommonAncestor(root->left, p, q);--newline--        TreeNode* right = lowestCommonAncestor(root->right, p, q);--newline--        return !left ? right : !right ? left : root;--newline--    }--newline--    --newline--}",
+            "python": "class Solution :--newline----tab--    def lowestCommonAncestor(self, root, p, q):--newline----tab--        if root in (None, p, q): return root--newline----tab--        subs = [self.lowestCommonAncestor(kid, p, q)--newline----tab--                for kid in (root.left, root.right)]--newline----tab--        return root if all(subs) else max(subs)--newline----tab--    ",
+            "topic_title": "4 lines C++&#x2F;Java&#x2F;Python&#x2F;Ruby"
+        },
+        {
+            "java": "public class Solution {--newline--    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {--newline--        if(root == null || root == p || root == q)  return root;--newline--        TreeNode left = lowestCommonAncestor(root.left, p, q);--newline--        TreeNode right = lowestCommonAncestor(root.right, p, q);--newline--        if(left != null && right != null)   return root;--newline--        return left != null ? left : right;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My Java Solution which is easy to understand"
+        },
+        {
+            "java": "public class Solution {--newline--    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {--newline--        Map<TreeNode, TreeNode> parent = new HashMap<>();--newline--        Deque<TreeNode> stack = new ArrayDeque<>();--newline--        parent.put(root, null);--newline--        stack.push(root);--newline----newline--        while (!parent.containsKey(p) || !parent.containsKey(q)) {--newline--            TreeNode node = stack.pop();--newline--            if (node.left != null) {--newline--                parent.put(node.left, node);--newline--                stack.push(node.left);--newline--            }--newline--            if (node.right != null) {--newline--                parent.put(node.right, node);--newline--                stack.push(node.right);--newline--            }--newline--        }--newline--        Set<TreeNode> ancestors = new HashSet<>();--newline--        while (p != null) {--newline--            ancestors.add(p);--newline--            p = parent.get(p);--newline--        }--newline--        while (!ancestors.contains(q))--newline--            q = parent.get(q);--newline--        return q;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def lowestCommonAncestor(self, root, p, q):--newline----tab--        stack = [root]--newline----tab--        parent = {root: None}--newline----tab--        while p not in parent or q not in parent:--newline----tab--            node = stack.pop()--newline----tab--            if node.left:--newline----tab--                parent[node.left] = node--newline----tab--                stack.append(node.left)--newline----tab--            if node.right:--newline----tab--                parent[node.right] = node--newline----tab--                stack.append(node.right)--newline----tab--        ancestors = set()--newline----tab--        while p:--newline----tab--            ancestors.add(p)--newline----tab--            p = parent[p]--newline----tab--        while q not in ancestors:--newline----tab--            q = parent[q]--newline----tab--        return q--newline----tab--    --newline----tab--    # 31 / 31 test cases passed.--newline----tab--    # Status: Accepted--newline----tab--    # Runtime: 108 ms--newline----tab--    # 99.14%--newline----tab--    ",
+            "topic_title": "Java&#x2F;Python iterative solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--    struct Frame {--newline--        TreeNode* node;--newline--        Frame* parent;--newline--        vector<TreeNode*> subs;--newline--    };--newline--public:--newline--    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {--newline--        Frame answer;--newline--        stack<Frame> stack;--newline--        stack.push({root, &answer});--newline--        while (stack.size()) {--newline--            Frame *top = &stack.top(), *parent = top->parent;--newline--            TreeNode *node = top->node;--newline--            if (!node || node == p || node == q) {--newline--                parent->subs.push_back(node);--newline--                stack.pop();--newline--            } else if (top->subs.empty()) {--newline--                stack.push({node->right, top});--newline--                stack.push({node->left, top});--newline--            } else {--newline--                TreeNode *left = top->subs[0], *right = top->subs[1];--newline--                parent->subs.push_back(!left ? right : !right ? left : node);--newline--                stack.pop();--newline--            }--newline--        }--newline--        return answer.subs[0];--newline--    }--newline--};",
+            "python": "class Solution :--newline----tab--    def lowestCommonAncestor(self, root, p, q):--newline----tab--        def path(root, goal):--newline----tab--            path, stack = [], [root]--newline----tab--            while True:--newline----tab--                node = stack.pop()--newline----tab--                if node:--newline----tab--                    if node not in path[-1:]:--newline----tab--                        path += node,--newline----tab--                        if node == goal:--newline----tab--                            return path--newline----tab--                        stack += node, node.right, node.left--newline----tab--                    else:--newline----tab--                        path.pop()--newline----tab--        return next(a for a, b in zip(path(root, p), path(root, q))[::-1] if a == b)--newline----tab--    ",
+            "topic_title": "Iterative Solutions in Python&#x2F;C++"
+        },
+        {
+            "java": "public class Solution {--newline--    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {--newline--        if(root == null) return null;--newline--        if(root == p || root == q) return root;--newline--        TreeNode left = lowestCommonAncestor(root.left, p, q);--newline--        TreeNode right = lowestCommonAncestor(root.right, p, q);--newline--        return left != null && right != null ? root : left == null ? right : left; --newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "5 lines Java solution"
+        }
+    ],
+    "qc": "236.json"
+}

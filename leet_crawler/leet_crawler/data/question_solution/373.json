@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def kSmallestPairs(self, nums1, nums2, k):--newline----tab--        queue = []--newline----tab--        def push(i, j):--newline----tab--            if i < len(nums1) and j < len(nums2):--newline----tab--                heapq.heappush(queue, [nums1[i] + nums2[j], i, j])--newline----tab--        push(0, 0)--newline----tab--        pairs = []--newline----tab--        while queue and len(pairs) < k:--newline----tab--            _, i, j = heapq.heappop(queue)--newline----tab--            pairs.append([nums1[i], nums2[j]])--newline----tab--            push(i, j + 1)--newline----tab--            if j == 0:--newline----tab--                push(i + 1, 0)--newline----tab--        return pairs",
+            "topic_title": "Slow 1-liner to Fast solutions"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<int[]> kSmallestPairs(int[] nums1, int[] nums2, int k) {--newline--        PriorityQueue<int[]> que = new PriorityQueue<>((a,b)->a[0]+a[1]-b[0]-b[1]);--newline--        List<int[]> res = new ArrayList<>();--newline--        if(nums1.length==0 || nums2.length==0 || k==0) return res;--newline--        for(int i=0; i<nums1.length && i<k; i++) que.offer(new int[]{nums1[i], nums2[0], 0});--newline--        while(k-- > 0 && !que.isEmpty()){--newline--            int[] cur = que.poll();--newline--            res.add(new int[]{cur[0], cur[1]});--newline--            if(cur[2] == nums2.length-1) continue;--newline--            que.offer(new int[]{cur[0],nums2[cur[2]+1], cur[2]+1});--newline--        }--newline--        return res;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "simple Java O(KlogK) solution with explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    class Pair{--newline--        int[] pair;--newline--        int idx; // current index to nums2--newline--        long sum;--newline--        Pair(int idx, int n1, int n2){--newline--            this.idx = idx;--newline--            pair = new int[]{n1, n2};--newline--            sum = (long) n1 + (long) n2;--newline--        }--newline--    }--newline--    class CompPair implements Comparator<Pair> {--newline--        public int compare(Pair p1, Pair p2){--newline--            return Long.compare(p1.sum, p2.sum);--newline--        }--newline--    }--newline--    public List<int[]> kSmallestPairs(int[] nums1, int[] nums2, int k) {--newline--        List<int[]> ret = new ArrayList<>();--newline--        if (nums1==null || nums2==null || nums1.length ==0 || nums2.length ==0) return ret;--newline--        int len1 = nums1.length, len2=nums2.length;  --newline----newline--        PriorityQueue<Pair> q = new PriorityQueue(k, new CompPair()); --newline--        for (int i=0; i<nums1.length && i<k ; i++) { // only need first k number in nums1 to start  --newline--            q.offer( new Pair(0, nums1[i],nums2[0]) );--newline--        }--newline--        for (int i=1; i<=k && !q.isEmpty(); i++) { // get the first k sums--newline--            Pair p = q.poll(); --newline--            ret.add( p.pair );--newline--            if (p.idx < len2 -1 ) { // get to next value in nums2--newline--                int next = p.idx+1;--newline--                q.offer( new Pair(next, p.pair[0], nums2[next]) );--newline--            }--newline--        }--newline--        return ret;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 9ms heap queue solution, k log(k)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<pair<int, int>> kSmallestPairs(vector<int>& nums1, vector<int>& nums2, int k) {--newline--        vector<pair<int,int>> result;--newline--        if (nums1.empty() || nums2.empty() || k <= 0)--newline--            return result;--newline--        auto comp = [&nums1, &nums2](pair<int, int> a, pair<int, int> b) {--newline--            return nums1[a.first] + nums2[a.second] > nums1[b.first] + nums2[b.second];};--newline--        priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(comp)> min_heap(comp);--newline--        min_heap.emplace(0, 0);--newline--        while(k-- > 0 && min_heap.size())--newline--        {--newline--            auto idx_pair = min_heap.top(); min_heap.pop();--newline--            result.emplace_back(nums1[idx_pair.first], nums2[idx_pair.second]);--newline--            if (idx_pair.first + 1 < nums1.size())--newline--                min_heap.emplace(idx_pair.first + 1, idx_pair.second);--newline--            if (idx_pair.first == 0 && idx_pair.second + 1 < nums2.size())--newline--                min_heap.emplace(idx_pair.first, idx_pair.second + 1);--newline--        }--newline--        return result;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Clean 16ms C++ O(N) Space O(KlogN) Time Solution using Priority queue"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<int[]> kSmallestPairs(int[] nums1, int[] nums2, int k) {--newline--        PriorityQueue<Tuple> pq = new PriorityQueue<Tuple>();--newline--        int m = nums1.length, n = nums2.length;--newline--        List<int[]> res = new ArrayList<int[]>();--newline--        if(nums1 == null || nums1.length == 0 || nums2 == null || nums2.length == 0 || k <= 0) return res;--newline--        for(int j = 0; j <= n-1; j++) pq.offer(new Tuple(0, j, nums1[0]+nums2[j]));--newline--        for(int i = 0; i < Math.min(k, m *n); i++) {--newline--            Tuple t = pq.poll();--newline--            res.add(new int[]{nums1[t.x], nums2[t.y]});--newline--            if(t.x == m - 1) continue;--newline--            pq.offer(new Tuple (t.x + 1, t.y, nums1[t.x + 1] + nums2[t.y]));--newline--        }--newline--        return res;--newline--    }--newline--}--newline----newline--class Tuple implements Comparable<Tuple> {--newline--    int x, y, val;--newline--    public Tuple (int x, int y, int val) {--newline--        this.x = x;--newline--        this.y = y;--newline--        this.val = val;--newline--    }--newline--    --newline--    @Override--newline--    public int compareTo (Tuple that) {--newline--        return this.val - that.val;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share My Solution which beat 96.42%"
+        }
+    ],
+    "qc": "373.json"
+}

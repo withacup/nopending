@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline----newline--private int n;--newline--private int m;--newline----newline--public int numIslands(char[][] grid) {--newline--    int count = 0;--newline--    n = grid.length;--newline--    if (n == 0) return 0;--newline--    m = grid[0].length;--newline--    for (int i = 0; i < n; i++){--newline--        for (int j = 0; j < m; j++)--newline--            if (grid[i][j] == '1') {--newline--                DFSMarking(grid, i, j);--newline--                ++count;--newline--            }--newline--    }    --newline--    return count;--newline--}--newline----newline--private void DFSMarking(char[][] grid, int i, int j) {--newline--    if (i < 0 || j < 0 || i >= n || j >= m || grid[i][j] != '1') return;--newline--    grid[i][j] = '0';--newline--    DFSMarking(grid, i + 1, j);--newline--    DFSMarking(grid, i - 1, j);--newline--    DFSMarking(grid, i, j + 1);--newline--    DFSMarking(grid, i, j - 1);--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Very concise Java AC solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int numIslands(char[][] grid) {--newline--        int islands = 0;--newline--        for (int i=0; i<grid.length; i++)--newline--            for (int j=0; j<grid[i].length; j++)--newline--                islands += sink(grid, i, j);--newline--        return islands;--newline--    }--newline--    int sink(char[][] grid, int i, int j) {--newline--        if (i < 0 || i == grid.length || j < 0 || j == grid[i].length || grid[i][j] == '0')--newline--            return 0;--newline--        grid[i][j] = '0';--newline--        for (int k=0; k<4; k++)--newline--            sink(grid, i+d[k], j+d[k+1]);--newline--        return 1;--newline--    }--newline--    int[] d = {0, 1, 0, -1, 0};--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def numIslands(self, grid):--newline----tab--        def sink(i, j):--newline----tab--            if 0 <= i < len(grid) and 0 <= j < len(grid[i]) and grid[i][j] == '1':--newline----tab--                grid[i][j] = '0'--newline----tab--                map(sink, (i+1, i-1, i, i), (j, j, j+1, j-1))--newline----tab--                return 1--newline----tab--            return 0--newline----tab--        return sum(sink(i, j) for i in range(len(grid)) for j in range(len(grid[i])))--newline----tab--    ",
+            "topic_title": "7 lines Python, ~14 lines Java"
+        },
+        {
+            "java": "public class NumberofIslands {--newline----tab--static int[] dx = {-1,0,0,1};--newline----tab--static int[] dy = {0,1,-1,0};--newline----tab--public static int numIslands(char[][] grid) {--newline----tab----tab--if(grid==null || grid.length==0) return 0;--newline----tab----tab--int islands = 0;--newline----tab----tab--for(int i=0;i<grid.length;i++) {--newline----tab----tab----tab--for(int j=0;j<grid[i].length;j++) {--newline----tab----tab----tab----tab--if(grid[i][j]=='1') {--newline----tab----tab----tab----tab----tab--explore(grid,i,j);--newline----tab----tab----tab----tab----tab--islands++;--newline----tab----tab----tab----tab--}--newline----tab----tab----tab--}--newline----tab----tab--}--newline----tab----tab--return islands;--newline----tab--}--newline----tab--public static void explore(char[][] grid, int i, int j) {--newline----tab----tab--grid[i][j]='x';--newline----tab----tab--for(int d=0;d<dx.length;d++) {--newline----tab----tab----tab--if(i+dy[d]<grid.length && i+dy[d]>=0 && j+dx[d]<grid[0].length && j+dx[d]>=0 && grid[i+dy[d]][j+dx[d]]=='1') {--newline----tab----tab----tab----tab--explore(grid,i+dy[d],j+dx[d]);--newline----tab----tab----tab--}--newline----tab----tab--}--newline----tab--}--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java Solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int numIslands(char[][] grid) {--newline--        int count = 0;--newline--        --newline--        for (int i = 0; i < grid.length; i++) {--newline--            for (int j = 0; j < grid[i].length; j++) {--newline--                if (grid[i][j] == '1') {--newline--                    count++;--newline--                    clearRestOfLand(grid, i, j);--newline--                }--newline--            }--newline--        }--newline--        return count;--newline--    }--newline--    --newline--    private void clearRestOfLand(char[][] grid, int i, int j) {--newline--        if (i < 0 || j < 0 || i >= grid.length || j >= grid[i].length || grid[i][j] == '0') return;--newline--        --newline--        grid[i][j] = '0';--newline--        clearRestOfLand(grid, i+1, j);--newline--        clearRestOfLand(grid, i-1, j);--newline--        clearRestOfLand(grid, i, j+1);--newline--        clearRestOfLand(grid, i, j-1);--newline--        return;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Clear &amp; Easy Java Solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int numIslands(char[][] grid) {--newline--        if(grid.length == 0 || grid[0].length == 0) return 0;--newline--        int m = grid.length, n = grid[0].length;--newline--        UF uf = new UF(m , n, grid);--newline--        --newline--        for(int i = 0; i < m; i++) {--newline--            for(int j = 0; j < n; j++) {--newline--                if(grid[i][j] == '0') continue;--newline--                int p = i * n + j;--newline--                int q;--newline--                if(i > 0 && grid[i - 1][j] == '1') {--newline--                    q = p - n;--newline--                    uf.union(p, q);--newline--                }--newline--                if(i < m - 1 && grid[i + 1][j] == '1') {--newline--                    q = p + n;--newline--                    uf.union(p, q);--newline--                }--newline--                if(j > 0 && grid[i][j - 1] == '1') {--newline--                    q = p - 1;--newline--                    uf.union(p, q);--newline--                }--newline--                if(j < n - 1 && grid[i][j + 1] == '1') {--newline--                    q = p + 1;--newline--                    uf.union(p, q);--newline--                }--newline--            }--newline--        }--newline--        return uf.count;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Union Find Solution"
+        }
+    ],
+    "qc": "200.json"
+}

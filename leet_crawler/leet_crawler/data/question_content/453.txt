@@ -1,0 +1,21 @@
+---CONTENT_BEGIN---
+Given a non-empty integer array of size n, find the minimum number of moves required to make all array elements equal, where a move is incrementing n - 1 elements by 1.
+
+Example:
+
+Input:
+[1,2,3]
+
+Output:
+3
+
+Explanation:
+Only three moves are needed (remember each move increments two elements):
+
+[1,2,3]  =>  [2,3,3]  =>  [3,4,3]  =>  [4,4,4]
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int minMoves(vector<int>& nums) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int minMoves(int[] nums) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def minMoves(self, nums):--newline--        '''--newline--        :type nums: List[int]--newline--        :rtype: int--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "int minMoves(int* nums, int numsSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int MinMoves(int[] nums) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} nums--newline-- * @return {number}--newline-- */--newline--var minMoves = function(nums) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} nums--newline--# @return {Integer}--newline--def min_moves(nums)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func minMoves(_ nums: [Int]) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func minMoves(nums []int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

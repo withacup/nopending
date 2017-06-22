@@ -1,0 +1,21 @@
+---CONTENT_BEGIN---
+Given a non negative integer number num. For every numbers i in the range 0 &le; i &le; num calculate the number of 1's in their binary representation and return them as an array.
+
+
+Example:
+For num = 5 you should return [0,1,1,2,1,2].
+
+
+Follow up:
+
+It is very easy to come up with a solution with run time O(n*sizeof(integer)). But can you do it in linear time O(n) /possibly in a single pass?
+Space complexity should be O(n).
+Can you do it like a boss? Do it without using any builtin function like __builtin_popcount  in c++ or in any other language.
+
+
+
+Credits:Special thanks to @ syedee  for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<int> countBits(int num) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int[] countBits(int num) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def countBits(self, num):--newline--        '''--newline--        :type num: int--newline--        :rtype: List[int]--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Return an array of size *returnSize.--newline-- * Note: The returned array must be malloced, assume caller calls free().--newline-- */--newline--int* countBits(int num, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int[] CountBits(int num) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} num--newline-- * @return {number[]}--newline-- */--newline--var countBits = function(num) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} num--newline--# @return {Integer[]}--newline--def count_bits(num)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func countBits(_ num: Int) -> [Int] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func countBits(num int) []int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

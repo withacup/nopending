@@ -1,0 +1,21 @@
+---CONTENT_BEGIN---
+Given integers n and k, find the lexicographically k-th smallest integer in the range from 1 to n.
+
+Note: 1 &le; k &le; n &le; 109.
+
+Example:
+
+Input:
+n: 13   k: 2
+
+Output:
+10
+
+Explanation:
+The lexicographical order is [1, 10, 11, 12, 13, 2, 3, 4, 5, 6, 7, 8, 9], so the second smallest number is 10.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int findKthNumber(int n, int k) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int findKthNumber(int n, int k) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def findKthNumber(self, n, k):--newline--        '''--newline--        :type n: int--newline--        :type k: int--newline--        :rtype: int--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "int findKthNumber(int n, int k) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int FindKthNumber(int n, int k) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} n--newline-- * @param {number} k--newline-- * @return {number}--newline-- */--newline--var findKthNumber = function(n, k) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} n--newline--# @param {Integer} k--newline--# @return {Integer}--newline--def find_kth_number(n, k)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func findKthNumber(_ n: Int, _ k: Int) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func findKthNumber(n int, k int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

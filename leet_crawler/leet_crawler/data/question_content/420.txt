@@ -1,0 +1,16 @@
+---CONTENT_BEGIN---
+A password is considered strong if below conditions are all met:
+
+
+ It has at least 6 characters and at most 20 characters. 
+ It must contain at least one lowercase letter, at least one uppercase letter, and at least one digit. 
+ It must NOT contain three repeating characters in a row ("...aaa..." is weak, but "...aa...a..." is strong, assuming other conditions are met). 
+
+
+Write a function strongPasswordChecker(s), that takes a string s as input, and return the MINIMUM change required to make s a strong password. If s is already strong, return 0.
+
+Insertion, deletion or replace of any one character are all considered as one change.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int strongPasswordChecker(string s) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int strongPasswordChecker(String s) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def strongPasswordChecker(self, s):--newline--        '''--newline--        :type s: str--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int strongPasswordChecker(char* s) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int StrongPasswordChecker(string s) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} s--newline-- * @return {number}--newline-- */--newline--var strongPasswordChecker = function(s) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} s--newline--# @return {Integer}--newline--def strong_password_checker(s)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func strongPasswordChecker(_ s: String) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func strongPasswordChecker(s string) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

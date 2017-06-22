@@ -1,0 +1,31 @@
+---CONTENT_BEGIN---
+Given an array which consists of non-negative integers and an integer m, you can split the array into m non-empty continuous subarrays. Write an algorithm to minimize the largest sum among these m subarrays.
+
+
+Note:
+If n is the length of array, assume the following constraints are satisfied:
+
+1 &le; n &le; 1000
+1 &le; m &le; min(50, n)
+
+
+
+Examples: 
+
+Input:
+nums = [7,2,5,10,8]
+m = 2
+
+Output:
+18
+
+Explanation:
+There are four ways to split nums into two subarrays.
+The best way is to split it into [7,2,5] and [10,8],
+where the largest sum among the two subarrays is only 18.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int splitArray(vector<int>& nums, int m) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int splitArray(int[] nums, int m) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def splitArray(self, nums, m):--newline--        '''--newline--        :type nums: List[int]--newline--        :type m: int--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int splitArray(int* nums, int numsSize, int m) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int SplitArray(int[] nums, int m) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} nums--newline-- * @param {number} m--newline-- * @return {number}--newline-- */--newline--var splitArray = function(nums, m) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} nums--newline--# @param {Integer} m--newline--# @return {Integer}--newline--def split_array(nums, m)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func splitArray(_ nums: [Int], _ m: Int) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func splitArray(nums []int, m int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

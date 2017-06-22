@@ -1,0 +1,35 @@
+---CONTENT_BEGIN---
+Consider the string s to be the infinite wraparound string of "abcdefghijklmnopqrstuvwxyz", so s will look like this: "...zabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcd....".
+
+Now we have another string p. Your job is to find out how many unique non-empty substrings of p are present in s. In particular, your input is the string p and you need to output the number of different non-empty substrings of p in the string s.
+
+Note: p consists of only lowercase English letters and the size of p might be over 10000.
+
+Example 1:
+
+Input: "a"
+Output: 1
+
+Explanation: Only the substring "a" of string "a" is in the string s.
+
+
+
+Example 2:
+
+Input: "cac"
+Output: 2
+Explanation: There are two substrings "a", "c" of string "cac" in the string s.
+
+
+
+Example 3:
+
+Input: "zab"
+Output: 6
+Explanation: There are six substrings "z", "a", "b", "za", "ab", "zab" of string "zab" in the string s.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int findSubstringInWraproundString(string p) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int findSubstringInWraproundString(String p) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def findSubstringInWraproundString(self, p):--newline--        '''--newline--        :type p: str--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int findSubstringInWraproundString(char* p) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int FindSubstringInWraproundString(string p) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} p--newline-- * @return {number}--newline-- */--newline--var findSubstringInWraproundString = function(p) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} p--newline--# @return {Integer}--newline--def find_substring_in_wrapround_string(p)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func findSubstringInWraproundString(_ p: String) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func findSubstringInWraproundString(p string) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

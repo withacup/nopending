@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--        public int findTargetSumWays(int[] nums, int s) {--newline--            int sum = 0;--newline--            for (int n : nums)--newline--                sum += n;--newline--            return sum < s || (s + sum) % 2 > 0 ? 0 : subsetSum(nums, (s + sum) >>> 1); --newline--        }   --newline--    --newline--        public int subsetSum(int[] nums, int s) {--newline--            int[] dp = new int[s + 1]; --newline--            dp[0] = 1;--newline--            for (int n : nums)--newline--                for (int i = s; i >= n; i--)--newline--                    dp[i] += dp[i - n]; --newline--            return dp[s];--newline--        } --newline--    --newline--}",
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int findTargetSumWays(vector<int>& nums, int s) {--newline--        int sum = accumulate(nums.begin(), nums.end(), 0);--newline--        return sum < s || (s + sum) & 1 ? 0 : subsetSum(nums, (s + sum) >> 1); --newline--    }   --newline----newline--    int subsetSum(vector<int>& nums, int s) {--newline--        int dp[s + 1] = { 0 };--newline--        dp[0] = 1;--newline--        for (int n : nums)--newline--            for (int i = s; i >= n; i--)--newline--                dp[i] += dp[i - n];--newline--        return dp[s];--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Java (15 ms) C++ (3 ms) O(ns) iterative DP solution using subset sum with explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findTargetSumWays(int[] nums, int s) {--newline--        int sum = 0; --newline--        for(int i: nums) sum+=i;--newline--        if(s>sum || s<-sum) return 0;--newline--        int[] dp = new int[2*sum+1];--newline--        dp[0+sum] = 1;--newline--        for(int i = 0; i<nums.length; i++){--newline--            int[] next = new int[2*sum+1];--newline--            for(int k = 0; k<2*sum+1; k++){--newline--                if(dp[k]!=0){--newline--                    next[k + nums[i]] += dp[k];--newline--                    next[k - nums[i]] += dp[k];--newline--                }--newline--            }--newline--            dp = next;--newline--        }--newline--        return dp[sum+s];--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Short Java DP Solution with Explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findTargetSumWays(int[] nums, int S) {--newline--        if (nums == null || nums.length == 0){--newline--            return 0;--newline--        }--newline--        return helper(nums, 0, 0, S, new HashMap<>());--newline--    }--newline--    private int helper(int[] nums, int index, int sum, int S, Map<String, Integer> map){--newline--        String encodeString = index + \"->\" + sum;--newline--        if (map.containsKey(encodeString)){--newline--            return map.get(encodeString);--newline--        }--newline--        if (index == nums.length){--newline--            if (sum == S){--newline--                return 1;--newline--            }else {--newline--                return 0;--newline--            }--newline--        }--newline--        int curNum = nums[index];--newline--        int add = helper(nums, index + 1, sum - curNum, S, map);--newline--        int minus = helper(nums, index + 1, sum + curNum, S, map);--newline--        map.put(encodeString, add + minus);--newline--        return add + minus;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java simple DFS with memorization"
+        },
+        {
+            "java": "public class Solution {--newline--    int result = 0;--newline----tab----newline--    public int findTargetSumWays(int[] nums, int S) {--newline--        if(nums == null || nums.length == 0) return result;--newline--        --newline--        int n = nums.length;--newline--        int[] sums = new int[n];--newline--        sums[n - 1] = nums[n - 1];--newline--        for (int i = n - 2; i >= 0; i--)--newline--            sums[i] = sums[i + 1] + nums[i];--newline--        --newline--        helper(nums, sums, S, 0);--newline--        return result;--newline--    }--newline--    public void helper(int[] nums, int[] sums, int target, int pos){--newline--        if(pos == nums.length){--newline--            if(target == 0) result++;--newline--            return;--newline--        }--newline--        --newline--        if (sums[pos] < Math.abs(target)) return;--newline--        --newline--        helper(nums, sums, target + nums[pos], pos + 1);--newline--        helper(nums, sums, target - nums[pos], pos + 1);--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Short DFS Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def findTargetSumWays(self, nums, S):--newline----tab--        if not nums:--newline----tab--            return 0--newline----tab--        dic = {nums[0]: 1, -nums[0]: 1} if nums[0] != 0 else {0: 2}--newline----tab--        for i in range(1, len(nums)):--newline----tab--            tdic = {}--newline----tab--            for d in dic:--newline----tab--                tdic[d + nums[i]] = tdic.get(d + nums[i], 0) + dic.get(d, 0)--newline----tab--                tdic[d - nums[i]] = tdic.get(d - nums[i], 0) + dic.get(d, 0)--newline----tab--            dic = tdic--newline----tab--        return dic.get(S, 0)--newline----tab--",
+            "topic_title": "Python DP"
+        }
+    ],
+    "qc": "494.json"
+}

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int findComplement(int num) {--newline--        unsigned mask = ~0;--newline--        while (num & mask) mask <<= 1;--newline--        return ~mask & ~num;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "3 line C++"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findComplement(int num) {--newline--        return ~num & (Integer.highestOneBit(num) - 1);--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 1 line bit manipulation solution"
+        },
+        {
+            "java": "public class Solution {--newline--        public int findComplement(int num) --newline--        {--newline--            int i = 0;--newline--            int j = 0;--newline--            --newline--            while (i < num)--newline--            {--newline--                i += Math.pow(2, j);--newline--                j++;--newline--            }--newline--            --newline--            return i - num;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java, very simple code and self-evident, explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def findComplement(self, num):--newline----tab--        i = 1--newline----tab--        while i <= num:--newline----tab--            i = i << 1--newline----tab--        return (i - 1) ^ num--newline----tab--",
+            "topic_title": "Simple Python"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int findComplement(int num) {--newline--        int mask = num;--newline--        mask |= mask >> 1;--newline--        mask |= mask >> 2;--newline--        mask |= mask >> 4;--newline--        mask |= mask >> 8;--newline--        mask |= mask >> 16;--newline--        return num ^ mask;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "maybe fewest operations"
+        }
+    ],
+    "qc": "476.json"
+}

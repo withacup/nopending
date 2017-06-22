@@ -1,0 +1,24 @@
+---CONTENT_BEGIN---
+
+Given n non-negative integers representing the histogram's bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.
+
+
+
+
+Above is a histogram where width of each bar is 1, given height = [2,1,5,6,2,3].
+
+
+
+
+The largest rectangle is shown in the shaded area, which has area = 10 unit.
+
+
+
+For example,
+Given heights = [2,1,5,6,2,3],
+return 10.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int largestRectangleArea(vector<int>& heights) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int largestRectangleArea(int[] heights) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def largestRectangleArea(self, heights):--newline--        '''--newline--        :type heights: List[int]--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int largestRectangleArea(int* heights, int heightsSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int LargestRectangleArea(int[] heights) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} heights--newline-- * @return {number}--newline-- */--newline--var largestRectangleArea = function(heights) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} heights--newline--# @return {Integer}--newline--def largest_rectangle_area(heights)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func largestRectangleArea(_ heights: [Int]) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func largestRectangleArea(heights []int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

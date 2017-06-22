@@ -1,0 +1,21 @@
+---CONTENT_BEGIN---
+
+Given an array of n positive integers and a positive integer s, find the minimal length of a contiguous subarray of which the sum â¥ s. If there isn't one, return 0 instead.
+
+
+For example, given the array [2,3,1,2,4,3] and s = 7,
+the subarray [4,3] has the minimal length under the problem constraint.
+
+
+click to show more practice.
+
+More practice:
+
+If you have figured out the O(n) solution, try coding another solution of which the time complexity is O(n log n).
+
+
+Credits:Special thanks to @Freezen for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int minSubArrayLen(int s, vector<int>& nums) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int minSubArrayLen(int s, int[] nums) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def minSubArrayLen(self, s, nums):--newline--        '''--newline--        :type s: int--newline--        :type nums: List[int]--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int minSubArrayLen(int s, int* nums, int numsSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int MinSubArrayLen(int s, int[] nums) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} s--newline-- * @param {number[]} nums--newline-- * @return {number}--newline-- */--newline--var minSubArrayLen = function(s, nums) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} s--newline--# @param {Integer[]} nums--newline--# @return {Integer}--newline--def min_sub_array_len(s, nums)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func minSubArrayLen(_ s: Int, _ nums: [Int]) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func minSubArrayLen(s int, nums []int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

@@ -1,0 +1,29 @@
+---CONTENT_BEGIN---
+Given a positive integer, output its complement number. The complement strategy is to flip the bits of its binary representation.
+
+Note:
+
+The given integer is guaranteed to fit within the range of a 32-bit signed integer.
+You could assume no leading zero bit in the integerâs binary representation.
+
+
+
+Example 1:
+
+Input: 5
+Output: 2
+Explanation: The binary representation of 5 is 101 (no leading zero bits), and its complement is 010. So you need to output 2.
+
+
+
+Example 2:
+
+Input: 1
+Output: 0
+Explanation: The binary representation of 1 is 1 (no leading zero bits), and its complement is 0. So you need to output 0.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int findComplement(int num) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int findComplement(int num) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def findComplement(self, num):--newline--        '''--newline--        :type num: int--newline--        :rtype: int--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "int findComplement(int num) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int FindComplement(int num) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} num--newline-- * @return {number}--newline-- */--newline--var findComplement = function(num) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} num--newline--# @return {Integer}--newline--def find_complement(num)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func findComplement(_ num: Int) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func findComplement(num int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

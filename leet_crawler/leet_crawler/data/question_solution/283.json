@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    // Shift non-zero values as far forward as possible--newline--    // Fill remaining space with zeros--newline--    --newline--    public void moveZeroes(int[] nums) {--newline--        if (nums == null || nums.length == 0) return;        --newline--    --newline--        int insertPos = 0;--newline--        for (int num: nums) {--newline--            if (num != 0) nums[insertPos++] = num;--newline--        }        --newline--    --newline--        while (insertPos < nums.length) {--newline--            nums[insertPos++] = 0;--newline--        }--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple O(N) Java Solution Using Insert Index"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    void moveZeroes(vector<int>& nums) {--newline--        int j = 0;--newline--        // move all the nonzero elements advance--newline--        for (int i = 0; i < nums.size(); i++) {--newline--            if (nums[i] != 0) {--newline--                nums[j++] = nums[i];--newline--            }--newline--        }--newline--        for (;j < nums.size(); j++) {--newline--            nums[j] = 0;--newline--        }--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "My simple C++ solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public void moveZeroes(int[] nums) {--newline--    --newline--        int j = 0;--newline--        for(int i = 0; i < nums.length; i++) {--newline--            if(nums[i] != 0) {--newline--                int temp = nums[j];--newline--                nums[j] = nums[i];--newline--                nums[i] = temp;--newline--                j++;--newline--            }--newline--        }--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "1ms Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    void moveZeroes(vector<int>& nums) {--newline--        int last = 0, cur = 0;--newline--        --newline--        while(cur < nums.size()) {--newline--            if(nums[cur] != 0) {--newline--                swap(nums[last], nums[cur]);--newline--                last++;--newline--            }--newline--            --newline--            cur++;--newline--        }--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "C++ Accepted Code"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    void moveZeroes(vector<int>& nums) {--newline--        fill(remove(nums.begin(), nums.end(),0), nums.end(), 0);--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "One line c++ code, 20ms"
+        }
+    ],
+    "qc": "283.json"
+}

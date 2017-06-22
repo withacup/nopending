@@ -1,0 +1,52 @@
+---CONTENT_BEGIN---
+
+Given a set of intervals, for each of the interval i, check if there exists an interval j whose start point is bigger than or equal to the end point of the interval i, which can be called that j is on the "right" of i.
+
+
+
+For any interval i, you need to store the minimum interval j's index, which means that the interval j has the minimum start point to build the "right" relationship for interval i. If the interval j doesn't exist, store -1 for the interval i. Finally, you need output the stored value of each interval as an array.
+
+
+Note:
+
+You may assume the interval's end point is always bigger than its start point.
+You may assume none of these intervals have the same start point.
+
+
+
+Example 1:
+
+Input: [ [1,2] ]
+
+Output: [-1]
+
+Explanation: There is only one interval in the collection, so it outputs -1.
+
+
+
+Example 2:
+
+Input: [ [3,4], [2,3], [1,2] ]
+
+Output: [-1, 0, 1]
+
+Explanation: There is no satisfied "right" interval for [3,4].
+For [2,3], the interval [3,4] has minimum-"right" start point;
+For [1,2], the interval [2,3] has minimum-"right" start point.
+
+
+
+Example 3:
+
+Input: [ [1,4], [2,3], [3,4] ]
+
+Output: [-1, 2, -1]
+
+Explanation: There is no satisfied "right" interval for [1,4] and [3,4].
+For [2,3], the interval [3,4] has minimum-"right" start point.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "/**--newline-- * Definition for an interval.--newline-- * struct Interval {--newline-- *     int start;--newline-- *     int end;--newline-- *     Interval() : start(0), end(0) {}--newline-- *     Interval(int s, int e) : start(s), end(e) {}--newline-- * };--newline-- */--newline--class Solution {--newline--public:--newline--    vector<int> findRightInterval(vector<Interval>& intervals) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "/**--newline-- * Definition for an interval.--newline-- * public class Interval {--newline-- *     int start;--newline-- *     int end;--newline-- *     Interval() { start = 0; end = 0; }--newline-- *     Interval(int s, int e) { start = s; end = e; }--newline-- * }--newline-- */--newline--public class Solution {--newline--    public int[] findRightInterval(Interval[] intervals) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "# Definition for an interval.--newline--# class Interval(object):--newline--#     def __init__(self, s=0, e=0):--newline--#         self.start = s--newline--#         self.end = e--newline----newline--class Solution(object):--newline--    def findRightInterval(self, intervals):--newline--        '''--newline--        :type intervals: List[Interval]--newline--        :rtype: List[int]--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Definition for an interval.--newline-- * struct Interval {--newline-- *     int start;--newline-- *     int end;--newline-- * };--newline-- */--newline--/**--newline-- * Return an array of size *returnSize.--newline-- * Note: The returned array must be malloced, assume caller calls free().--newline-- */--newline--int* findRightInterval(struct Interval* intervals, int intervalsSize, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "/**--newline-- * Definition for an interval.--newline-- * public class Interval {--newline-- *     public int start;--newline-- *     public int end;--newline-- *     public Interval() { start = 0; end = 0; }--newline-- *     public Interval(int s, int e) { start = s; end = e; }--newline-- * }--newline-- */--newline--public class Solution {--newline--    public int[] FindRightInterval(Interval[] intervals) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * Definition for an interval.--newline-- * function Interval(start, end) {--newline-- *     this.start = start;--newline-- *     this.end = end;--newline-- * }--newline-- */--newline--/**--newline-- * @param {Interval[]} intervals--newline-- * @return {number[]}--newline-- */--newline--var findRightInterval = function(intervals) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# Definition for an interval.--newline--# class Interval--newline--#     attr_accessor :start, :end--newline--#     def initialize(s=0, e=0)--newline--#         @start = s--newline--#         @end = e--newline--#     end--newline--# end--newline----newline--# @param {Interval[]} intervals--newline--# @return {Integer[]}--newline--def find_right_interval(intervals)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "/**--newline-- * Definition for an interval.--newline-- * public class Interval {--newline-- *   public var start: Int--newline-- *   public var end: Int--newline-- *   public init(_ start: Int, _ end: Int) {--newline-- *     self.start = start--newline-- *     self.end = end--newline-- *   }--newline-- * }--newline-- */--newline--class Solution {--newline--    func findRightInterval(_ intervals: [Interval]) -> [Int] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "/**--newline-- * Definition for an interval.--newline-- * type Interval struct {--newline-- *--tab--   Start int--newline-- *--tab--   End   int--newline-- * }--newline-- */--newline--func findRightInterval(intervals []Interval) []int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

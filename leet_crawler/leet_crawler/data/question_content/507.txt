@@ -1,0 +1,21 @@
+---CONTENT_BEGIN---
+We define the Perfect Number is a positive integer that is equal to the sum of all its positive divisors except itself. 
+
+Now, given an integer n, write a function that returns true when it is a perfect number and false when it is not.
+
+
+Example:
+
+Input: 28
+Output: True
+Explanation: 28 = 1 + 2 + 4 + 7 + 14
+
+
+
+Note:
+The input number n will not exceed 100,000,000. (1e8)
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    bool checkPerfectNumber(int num) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public boolean checkPerfectNumber(int num) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def checkPerfectNumber(self, num):--newline--        '''--newline--        :type num: int--newline--        :rtype: bool--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "bool checkPerfectNumber(int num) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public bool CheckPerfectNumber(int num) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} num--newline-- * @return {boolean}--newline-- */--newline--var checkPerfectNumber = function(num) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} num--newline--# @return {Boolean}--newline--def check_perfect_number(num)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func checkPerfectNumber(_ num: Int) -> Bool {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func checkPerfectNumber(num int) bool {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

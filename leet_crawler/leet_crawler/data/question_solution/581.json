@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int findUnsortedSubarray(int[] A) {--newline--        int n = A.length, beg = -1, end = -2, min = A[n-1], max = A[0];--newline--        for (int i=1;i<n;i++) {--newline--          max = Math.max(max, A[i]);--newline--          min = Math.min(min, A[n-1-i]);--newline--          if (A[i] < max) end = i;--newline--          if (A[n-1-i] > min) beg = n-1-i; --newline--        }--newline--        return end - beg + 1;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java O(n) Time O(1) Space"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findUnsortedSubarray(int[] nums) {--newline--        int n = nums.length;--newline--        int[] temp = new int[n];--newline--        for (int i = 0; i < n; i++) temp[i] = nums[i];--newline--        Arrays.sort(temp);--newline--        --newline--        int start = 0;--newline--        while (start < n  && nums[start] == temp[start]) start++;--newline--        --newline--        int end = n - 1;--newline--        while (end > start  && nums[end] == temp[end]) end--;--newline--        --newline--        return end - start + 1;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution, Sort."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--       int findUnsortedSubarray(vector<int>& nums) {--newline--            int shortest = 0;--newline--            --newline--            int left = 0, right = nums.size() - 1;--newline--            while (left < nums.size() - 1 && nums[left] <= nums[left + 1]) { left++; }--newline--            while (right > 0 && nums[right] >= nums[right - 1]) { right--; };--newline--            --newline--            if (right > left) {--newline--                int vmin = INT_MAX, vmax = INT_MIN;--newline--                for (int i = left; i <= right; ++i) {--newline--                    if (nums[i] > vmax) {--newline--                        vmax = nums[i];--newline--                    }--newline--                    if (nums[i] < vmin) {--newline--                        vmin = nums[i];--newline--                    }--newline--                }--newline--                --newline--                while (left >= 0 && nums[left] > vmin) { left--; };--newline--                while (right < nums.size() && nums[right] < vmax) { right++; };--newline--                --newline--                shortest = right - left - 1;--newline--            }--newline--            --newline--            return shortest;--newline--        }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "C++ O(n) solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "/**--newline-- *            /------------\\--newline-- * nums:  [2, 6, 4, 8, 10, 9, 15]--newline-- * minr:   2  4  4  8   9  9  15--newline-- *         <----------------------newline-- * maxl:   2  6  6  8  10 10  15--newline-- *         -------------------->--newline-- */--newline--class Solution {--newline--public:--newline--    int findUnsortedSubarray(vector<int>& nums) {--newline--        int n = nums.size();--newline--        vector<int> maxlhs(n);   // max number from left to cur--newline--        vector<int> minrhs(n);   // min number from right to cur--newline--        for (int i = n - 1, minr = INT_MAX; i >= 0; i--) minrhs[i] = minr = min(minr, nums[i]);--newline--        for (int i = 0,     maxl = INT_MIN; i < n;  i++) maxlhs[i] = maxl = max(maxl, nums[i]);--newline----newline--        int i = 0, j = n - 1;--newline--        while (i < n && nums[i] <= minrhs[i]) i++;--newline--        while (j > i && nums[j] >= maxlhs[j]) j--;--newline----newline--        return j + 1 - i;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "&#91;C++&#93; Clean Code 2 Solution - Sort O(NlgN) &amp; max min vectors O(N)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def findUnsortedSubarray(self, nums):--newline----tab--            is_same = [a == b for a, b in zip(nums, sorted(nums))]--newline----tab--            return 0 if all(is_same) else len(nums) - is_same.index(False) - is_same[::-1].index(False)",
+            "topic_title": "Python 2 lines easy understand solution"
+        }
+    ],
+    "qc": "581.json"
+}

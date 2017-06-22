@@ -1,0 +1,25 @@
+---CONTENT_BEGIN---
+Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.
+
+This is case sensitive, for example "Aa" is not considered a palindrome here.
+
+Note:
+Assume the length of given string will not exceed 1,010.
+
+
+Example: 
+
+Input:
+"abccccdd"
+
+Output:
+7
+
+Explanation:
+One longest palindrome that can be built is "dccaccd", whose length is 7.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int longestPalindrome(string s) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int longestPalindrome(String s) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def longestPalindrome(self, s):--newline--        '''--newline--        :type s: str--newline--        :rtype: int--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "int longestPalindrome(char* s) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int LongestPalindrome(string s) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} s--newline-- * @return {number}--newline-- */--newline--var longestPalindrome = function(s) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} s--newline--# @return {Integer}--newline--def longest_palindrome(s)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func longestPalindrome(_ s: String) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func longestPalindrome(s string) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

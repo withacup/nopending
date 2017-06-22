@@ -1,0 +1,17 @@
+---CONTENT_BEGIN---
+Given a string, you need to reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.
+
+Example 1:
+
+Input: "Let's take LeetCode contest"
+Output: "s'teL ekat edoCteeL tsetnoc"
+
+
+
+Note:
+In the string, each word is separated by single space and there will not be any extra space in the string.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    string reverseWords(string s) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public String reverseWords(String s) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def reverseWords(self, s):--newline--        '''--newline--        :type s: str--newline--        :rtype: str--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "char* reverseWords(char* s) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public string ReverseWords(string s) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} s--newline-- * @return {string}--newline-- */--newline--var reverseWords = function(s) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} s--newline--# @return {String}--newline--def reverse_words(s)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func reverseWords(_ s: String) -> String {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func reverseWords(s string) string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

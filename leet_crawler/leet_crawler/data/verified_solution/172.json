@@ -1,0 +1,1 @@
+{"solution_code": "public class Solution {--newline--    public int trailingZeroes(int n) {--newline--        int r = 0;--newline--        while (n > 0) {--newline--            n /= 5;--newline--            r += n;--newline--        }--newline--        return r;--newline--    }--newline--}", "modified_code": null, "total_cases": 502, "l_type": "java"}

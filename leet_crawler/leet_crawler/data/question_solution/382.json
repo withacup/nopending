@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Brief explanation for Reservoir Sampling"
+        },
+        {
+            "java": "public class Solution {--newline--    --newline--    ListNode head;--newline--    Random random;--newline--    --newline--    public Solution(ListNode h) {--newline--        head = h;       --newline--        random = new Random();        --newline--    }--newline--    --newline--    public int getRandom() {--newline--        --newline--        ListNode c = head;--newline--        int r = c.val;--newline--        for(int i=1;c.next != null;i++){--newline--            --newline--            c = c.next;--newline--            if(random.nextInt(i + 1) == i) r = c.val;                        --newline--        }--newline--        --newline--        return r;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution with cases explain"
+        },
+        {
+            "java": "import java.util.*;--newline--public class Solution {--newline----newline--    /** @param head The linked list's head. Note that the head is guanranteed to be not null, so it contains at least one node. */--newline--    ListNode head = null;--newline--    Random randomGenerator = null;--newline--    public Solution(ListNode head) {--newline--        this.head = head;--newline--        this.randomGenerator = new Random();--newline----newline--    }--newline--    --newline--    /** Returns a random node's value. */--newline--    public int getRandom() {--newline--        ListNode result = null;--newline--        ListNode current = head;--newline--        --newline--        for(int n = 1; current!=null; n++) {--newline--            if (randomGenerator.nextInt(n) == 0) {--newline--                result = current;--newline--            }--newline--            current = current.next;--newline--        }--newline--        --newline--        return result.val;--newline--        --newline--    }--newline--}--newline----newline--/**--newline-- * Your Solution object will be instantiated and called as such:--newline-- * Solution obj = new Solution(head);--newline-- * int param_1 = obj.getRandom();--newline-- */--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "O(n) Time &amp; O(1) Space Java Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--private:--newline--    ListNode* head;--newline--public:--newline--    /** @param head The linked list's head. Note that the head is guanranteed to be not null, so it contains at least one node. */--newline--    Solution(ListNode* head) {--newline--        this->head = head;--newline--    }--newline--    --newline--    /** Returns a random node's value. */--newline--    int getRandom() {--newline--        int res = head->val;--newline--        ListNode* node = head->next;--newline--        int i = 2;--newline--        while(node){--newline--            int j = rand()%i;--newline--            if(j==0)--newline--                res = node->val;--newline--            i++;--newline--            node = node->next;--newline--        }--newline--        return res;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "using &quot;Reservoir sampling&quot; O(1) space, O(n) time complexity\uff0cc++"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    Solution(ListNode* head) : head(head) {}--newline--    --newline--    int getRandom() {--newline--        ListNode *node = head, *buffer[100], *pick;--newline--        for (int before=0; node; before+=100) {--newline--            int now = 0;--newline--            while (node && now < 100) {--newline--                buffer[now++] = node;--newline--                node = node->next;--newline--            }--newline--            int r = rand() % (now + before);--newline--            if (r < now)--newline--                pick = buffer[r];--newline--        }--newline--        return pick->val;--newline--    }--newline--private:--newline--    ListNode* head;--newline--};--newline--",
+            "python": "class Solution(object):--newline----tab----newline----tab--    def __init__(self, head):--newline----tab--        self.head = head--newline----tab----newline----tab--    def getRandom(self):--newline----tab--        node = self.head--newline----tab--        before = 0--newline----tab--        buffer = [None] * 100--newline----tab--        while node:--newline----tab--            now = 0--newline----tab--            while node and now < 100:--newline----tab--                buffer[now] = node--newline----tab--                node = node.next--newline----tab--                now += 1--newline----tab--            r = random.randrange(now + before)--newline----tab--            if r < now:--newline----tab--                pick = buffer[r]--newline----tab--            before += now--newline----tab--        return pick.val--newline----tab--",
+            "topic_title": "&quot;buffered&quot; reservoir sampling"
+        }
+    ],
+    "qc": "382.json"
+}

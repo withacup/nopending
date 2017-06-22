@@ -1,4 +1,3 @@
-leet_crawler/leet_crawler/data/*
 .idea/*
 leet_crawler/leet_crawler/spiders/__pycache__/*
 leet_crawler/leet_crawler/util/__pycache__/*

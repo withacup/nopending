@@ -1,0 +1,6 @@
+{
+    "solution_code": "class PeekingIterator implements Iterator<Integer> {  --newline--    private Integer next = null;--newline--    private Iterator<Integer> iter;--newline----newline--    public PeekingIterator(Iterator<Integer> iterator) {--newline--        // initialize any member here.--newline--        iter = iterator;--newline--        if (iter.hasNext())--newline--            next = iter.next();--newline--    }--newline--    --newline--    // Returns the next element in the iteration without advancing the iterator. --newline--    public Integer peek() {--newline--        return next; --newline--    }--newline----newline--    // hasNext() and next() should behave the same as in the Iterator interface.--newline--    // Override them if needed.--newline--    @Override--newline--    public Integer next() {--newline--        Integer res = next;--newline--        next = iter.hasNext() ? iter.next() : null;--newline--        return res; --newline--    }--newline----newline--    @Override--newline--    public boolean hasNext() {--newline--        return next != null;--newline--    }--newline--}--newline--",
+    "l_type": "java",
+    "modified_code": null,
+    "total_cases": 12
+}

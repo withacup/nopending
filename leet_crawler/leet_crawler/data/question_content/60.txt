@@ -1,0 +1,22 @@
+---CONTENT_BEGIN---
+The set [1,2,3,&#8230;,n] contains a total of n! unique permutations.
+
+By listing and labeling all of the permutations in order,
+We get the following sequence (ie, for n = 3):
+
+"123"
+"132"
+"213"
+"231"
+"312"
+"321"
+
+
+
+Given n and k, return the kth permutation sequence.
+
+Note: Given n will be between 1 and 9 inclusive.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    string getPermutation(int n, int k) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public String getPermutation(int n, int k) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def getPermutation(self, n, k):--newline--        '''--newline--        :type n: int--newline--        :type k: int--newline--        :rtype: str--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "char* getPermutation(int n, int k) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public string GetPermutation(int n, int k) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} n--newline-- * @param {number} k--newline-- * @return {string}--newline-- */--newline--var getPermutation = function(n, k) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} n--newline--# @param {Integer} k--newline--# @return {String}--newline--def get_permutation(n, k)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func getPermutation(_ n: Int, _ k: Int) -> String {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func getPermutation(n int, k int) string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

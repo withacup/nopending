@@ -1,0 +1,36 @@
+---CONTENT_BEGIN---
+
+Given a string and a string dictionary, find the longest string in the dictionary that can be formed by deleting some characters of the given string. If there are more than one possible results, return the longest word with the smallest lexicographical order. If there is no possible result, return the empty string.
+
+Example 1:
+
+Input:
+s = "abpcplea", d = ["ale","apple","monkey","plea"]
+
+Output: 
+"apple"
+
+
+
+
+Example 2:
+
+Input:
+s = "abpcplea", d = ["a","b","c"]
+
+Output: 
+"a"
+
+
+
+Note:
+
+All the strings in the input will only contain lower-case letters.
+The size of the dictionary won't exceed 1,000.
+The length of all the strings in the input won't exceed 1,000.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    string findLongestWord(string s, vector<string>& d) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public String findLongestWord(String s, List<String> d) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def findLongestWord(self, s, d):--newline--        '''--newline--        :type s: str--newline--        :type d: List[str]--newline--        :rtype: str--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "char* findLongestWord(char* s, char** d, int dSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public string FindLongestWord(string s, IList<string> d) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} s--newline-- * @param {string[]} d--newline-- * @return {string}--newline-- */--newline--var findLongestWord = function(s, d) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} s--newline--# @param {String[]} d--newline--# @return {String}--newline--def find_longest_word(s, d)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func findLongestWord(_ s: String, _ d: [String]) -> String {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func findLongestWord(s string, d []string) string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

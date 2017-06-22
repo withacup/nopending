@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution extends VersionControl {--newline--    public int firstBadVersion(int n) {--newline--        int start = 1, end = n;--newline--        while (start < end) {--newline--            int mid = start + (end-start) / 2;--newline--            if (!isBadVersion(mid)) start = mid + 1;--newline--            else end = mid;            --newline--        }        --newline--        return start;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "O(lgN) simple Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int firstBadVersion(int n) {--newline--        int start=0, end=n;--newline--        cout<<end-start<<end;--newline--        while(end-start>1){--newline--            int mid=start+(end-start)/2;--newline--            /** mid = (start+end)) / 2; **/--newline--            if(isBadVersion(mid))  end=mid;--newline--            else  start=mid;--newline--        }--newline--        return end;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "A good warning to me to use  start+(end-start)&#x2F;2 to avoid overflow"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Time limit exceed"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int firstBadVersion(int n) {--newline--        int lower = 1, upper = n, mid;--newline--        while(lower < upper) {--newline--            mid = lower + (upper - lower) / 2;--newline--            if(!isBadVersion(mid)) lower = mid + 1;   /* Only one call to API */--newline--            else upper = mid;--newline--        }--newline--        return lower;   /* Because there will alway be a bad version, return lower here */--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Short C++ answer and minimize API calls"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "bool isBadVersion(int version);--newline----newline--class Solution {--newline--public:--newline--    int firstBadVersion(int n) {--newline--        int left = 1;--newline--        int right = n;--newline--        int mid;--newline--        while(left < right) {--newline--            mid = (left + right) / 2;--newline--            if(isBadVersion(mid)) {--newline--                right = mid - 1;--newline--            }--newline--            else {--newline--                left = mid + 1;--newline--            }--newline--        }--newline--        return left;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "What&#x27;s the difference between &quot;(left + right) &#x2F; 2&quot; and &quot;left + (right - left) &#x2F; 2&quot;?"
+        }
+    ],
+    "qc": "278.json"
+}

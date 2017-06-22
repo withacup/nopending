@@ -1,0 +1,6 @@
+{
+    "solution_code": "class Solution {--newline--public:--newline--    vector<vector<int> > subsets(vector<int> &S) {--newline--        sort (S.begin(), S.end());--newline--        int elem_num = S.size();--newline--        int subset_num = pow (2, elem_num);--newline--        vector<vector<int> > subset_set (subset_num, vector<int>());--newline--        for (int i = 0; i < elem_num; i++)--newline--            for (int j = 0; j < subset_num; j++)--newline--                if ((j >> i) & 1)--newline--                    subset_set[j].push_back (S[i]);--newline--        return subset_set;--newline--    }--newline--};",
+    "l_type": "cpp",
+    "modified_code": null,
+    "total_cases": 10
+}

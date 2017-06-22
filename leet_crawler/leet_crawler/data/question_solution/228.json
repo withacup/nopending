@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Accepted JAVA solution--easy to understand"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def summaryRanges(self, nums):--newline----tab--        ranges = r = []--newline----tab--        for n in nums:--newline----tab--            if `n-1` not in r:--newline----tab--                r = []--newline----tab--                ranges += r,--newline----tab--            r[1:] = `n`,--newline----tab--        return map('->'.join, ranges)--newline----tab--    ",
+            "topic_title": "6 lines in Python"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--       vector<string> summaryRanges(vector<int>& nums) {--newline--        const int size_n = nums.size();--newline--        vector<string> res;--newline--        if ( 0 == size_n) return res;--newline--        for (int i = 0; i < size_n;) {--newline--            int start = i, end = i;--newline--            while (end + 1 < size_n && nums[end+1] == nums[end] + 1) end++;--newline--            if (end > start) res.push_back(to_string(nums[start]) + \"->\" + to_string(nums[end]));--newline--            else res.push_back(to_string(nums[start]));--newline--            i = end+1;--newline--        }--newline--        return res;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "10 line c++ easy understand"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<String> summaryRanges(int[] nums) {--newline--        int length = nums.length;--newline--        List<String> result = new ArrayList<String>(length);--newline--        for (int i = 0; i < length; i++) {--newline--            int num = nums[i];--newline--            while (i < length - 1 && nums[i] + 1 == nums[i + 1]) {--newline--                i++;--newline--            }--newline--            if (num != nums[i]) {--newline--                result.add(num + \"->\" + nums[i]);--newline--            } else {--newline--                result.add(num + \"\");--newline--            }--newline--        }--newline--        return result;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My concise Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def summaryRanges(self, nums):--newline----tab--        ranges = collections.defaultdict(list)--newline----tab--        for i, n in enumerate(nums):--newline----tab--            ranges[n-i][1:] = n,--newline----tab--        return ['->'.join(map(str, r)) for r in sorted(ranges.values())]",
+            "topic_title": "Idea + 1-Liner: Group by number-index"
+        }
+    ],
+    "qc": "228.json"
+}

@@ -1,0 +1,28 @@
+---CONTENT_BEGIN---
+Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:
+
+
+
+Integers in each row are sorted from left to right.
+The first integer of each row is greater than the last integer of the previous row.
+
+
+
+
+For example,
+
+Consider the following matrix:
+
+
+[
+  [1,   3,  5,  7],
+  [10, 11, 16, 20],
+  [23, 30, 34, 50]
+]
+
+
+Given target = 3, return true.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    bool searchMatrix(vector<vector<int>>& matrix, int target) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public boolean searchMatrix(int[][] matrix, int target) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def searchMatrix(self, matrix, target):--newline--        '''--newline--        :type matrix: List[List[int]]--newline--        :type target: int--newline--        :rtype: bool--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "bool searchMatrix(int** matrix, int matrixRowSize, int matrixColSize, int target) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public bool SearchMatrix(int[,] matrix, int target) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[][]} matrix--newline-- * @param {number} target--newline-- * @return {boolean}--newline-- */--newline--var searchMatrix = function(matrix, target) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[][]} matrix--newline--# @param {Integer} target--newline--# @return {Boolean}--newline--def search_matrix(matrix, target)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func searchMatrix(_ matrix: [[Int]], _ target: Int) -> Bool {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func searchMatrix(matrix [][]int, target int) bool {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

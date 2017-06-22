@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public List<String> findRepeatedDnaSequences(String s) {--newline--        Set<Integer> words = new HashSet<>();--newline--        Set<Integer> doubleWords = new HashSet<>();--newline--        List<String> rv = new ArrayList<>();--newline--        char[] map = new char[26];--newline--        //map['A' - 'A'] = 0;--newline--        map['C' - 'A'] = 1;--newline--        map['G' - 'A'] = 2;--newline--        map['T' - 'A'] = 3;--newline--    --newline--        for(int i = 0; i < s.length() - 9; i++) {--newline--            int v = 0;--newline--            for(int j = i; j < i + 10; j++) {--newline--                v <<= 2;--newline--                v |= map[s.charAt(j) - 'A'];--newline--            }--newline--            if(!words.add(v) && doubleWords.add(v)) {--newline--                rv.add(s.substring(i, i + 10));--newline--            }--newline--        }--newline--        return rv;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Clean Java solution (hashmap + bits manipulation)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<string> findRepeatedDnaSequences(string s) {--newline--        unordered_map<int, int> m;--newline--        vector<string> r;--newline--        int t = 0, i = 0, ss = s.size();--newline--        while (i < 9)--newline--            t = t << 3 | s[i++] & 7;--newline--        while (i < ss)--newline--            if (m[t = t << 3 & 0x3FFFFFFF | s[i++] & 7]++ == 1)--newline--                r.push_back(s.substr(i - 10, 10));--newline--        return r;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "I did it in 10 lines of C++"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<String> findRepeatedDnaSequences(String s) {--newline--        Set seen = new HashSet(), repeated = new HashSet();--newline--        for (int i = 0; i + 9 < s.length(); i++) {--newline--            String ten = s.substring(i, i + 10);--newline--            if (!seen.add(ten))--newline--                repeated.add(ten);--newline--        }--newline--        return new ArrayList(repeated);--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "7 lines simple Java, O(n)"
+        },
+        {
+            "java": "public class Solution {--newline--    private static final Map<Character, Integer> A = new HashMap<>();--newline--    static { A.put('A',0); A.put('C',1); A.put('G',2); A.put('T',3); }--newline--    private final int A_SIZE_POW_9 = (int) Math.pow(A.size(), 9);--newline----newline--    public List<String> findRepeatedDnaSequences(String s) {--newline--        Set<String> res = new HashSet<>();--newline--        Set<Integer> hashes = new HashSet<>();--newline--        for (int i = 0, rhash = 0; i < s.length(); i++) {--newline--            if (i > 9) rhash -= A_SIZE_POW_9 * A.get(s.charAt(i-10));--newline--            rhash = A.size() * rhash + A.get(s.charAt(i));--newline--            if (i > 8 && !hashes.add(rhash)) res.add(s.substring(i-9,i+1));--newline--        }--newline--        return new ArrayList<>(res);--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Short Java &quot;rolling-hash&quot; solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<string> findRepeatedDnaSequences(string s) {--newline--        char  hashMap[1048576] = {0};--newline--        vector<string> ans;--newline--        int len = s.size(),hashNum = 0;--newline--        if (len < 11) return ans;--newline--        for (int i = 0;i < 9;++i)--newline--            hashNum = hashNum << 2 | (s[i] - 'A' + 1) % 5;--newline--        for (int i = 9;i < len;++i)--newline--            if (hashMap[hashNum = (hashNum << 2 | (s[i] - 'A' + 1) % 5) & 0xfffff]++ == 1)--newline--                ans.push_back(s.substr(i-9,10));--newline--        return ans;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "10 lines C++ code, 8 ms passed!"
+        }
+    ],
+    "qc": "187.json"
+}

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public List<List<Integer>> subsetsWithDup(int[] nums) {--newline--        List<List<Integer>> list = new ArrayList<>();--newline--        Arrays.sort(nums);--newline--        backtrack(list, new ArrayList<>(), nums, 0);--newline--        return list;--newline--    }--newline--    --newline--    private void backtrack(List<List<Integer>> list, List<Integer> tempList, int [] nums, int start){--newline--        list.add(new ArrayList<>(tempList));--newline--        for(int i = start; i < nums.length; i++){--newline--            if(i > start && nums[i] == nums[i-1]) continue; // skip duplicates--newline--            tempList.add(nums[i]);--newline--            backtrack(list, tempList, nums, i + 1);--newline--            tempList.remove(tempList.size() - 1);--newline--        }--newline--    } --newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "A general approach to backtracking questions in Java (Subsets, Permutations, Combination Sum, Palindrome Partitioning)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<vector<int> > subsets(vector<int> &S) {--newline--        sort (S.begin(), S.end());--newline--        int elem_num = S.size();--newline--        int subset_num = pow (2, elem_num);--newline--        vector<vector<int> > subset_set (subset_num, vector<int>());--newline--        for (int i = 0; i < elem_num; i++)--newline--            for (int j = 0; j < subset_num; j++)--newline--                if ((j >> i) & 1)--newline--                    subset_set[j].push_back (S[i]);--newline--        return subset_set;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "My solution using bit manipulation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<vector<int>> subsets(vector<int>& nums) {--newline--        sort(nums.begin(), nums.end());--newline--        int num_subset = pow(2, nums.size()); --newline--        vector<vector<int> > res(num_subset, vector<int>());--newline--        for (int i = 0; i < nums.size(); i++)--newline--            for (int j = 0; j < num_subset; j++)--newline--                if ((j >> i) & 1)--newline--                    res[j].push_back(nums[i]);--newline--        return res;  --newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ Recursive&#x2F;Iterative&#x2F;Bit-Manipulation Solutions with Explanations"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    # DFS recursively --newline----tab--    def subsets1(self, nums):--newline----tab--        res = []--newline----tab--        self.dfs(sorted(nums), 0, [], res)--newline----tab--        return res--newline----tab--        --newline----tab--    def dfs(self, nums, index, path, res):--newline----tab--        res.append(path)--newline----tab--        for i in xrange(index, len(nums)):--newline----tab--            self.dfs(nums, i+1, path+[nums[i]], res)--newline----tab--            --newline----tab--    # Bit Manipulation    --newline----tab--    def subsets2(self, nums):--newline----tab--        res = []--newline----tab--        nums.sort()--newline----tab--        for i in xrange(1<<len(nums)):--newline----tab--            tmp = []--newline----tab--            for j in xrange(len(nums)):--newline----tab--                if i & 1 << j:  # if i >> j & 1:--newline----tab--                    tmp.append(nums[j])--newline----tab--            res.append(tmp)--newline----tab--        return res--newline----tab--        --newline----tab--    # Iteratively--newline----tab--    def subsets(self, nums):--newline----tab--        res = [[]]--newline----tab--        for num in sorted(nums):--newline----tab--            res += [item+[num] for item in res]--newline----tab--        return res",
+            "topic_title": "Python easy to understand solutions (DFS recursively, Bit Manipulation, Iteratively)."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--vector<vector<int> > subsets(vector<int> &S) {--newline----tab--vector<vector<int> > res(1, vector<int>());--newline----tab--sort(S.begin(), S.end());--newline----tab----newline----tab--for (int i = 0; i < S.size(); i++) {--newline----tab----tab--int n = res.size();--newline----tab----tab--for (int j = 0; j < n; j++) {--newline----tab----tab----tab--res.push_back(res[j]);--newline----tab----tab----tab--res.back().push_back(S[i]);--newline----tab----tab--}--newline----tab--}--newline----newline----tab--return res;--newline--  }--newline--};",
+            "python": null,
+            "topic_title": "C++ 8ms simple iterative solution"
+        }
+    ],
+    "qc": "78.json"
+}

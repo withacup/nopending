@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--        public static List<List<Integer>> combine(int n, int k) {--newline--    --tab----tab--List<List<Integer>> combs = new ArrayList<List<Integer>>();--newline--    --tab----tab--combine(combs, new ArrayList<Integer>(), 1, n, k);--newline--    --tab----tab--return combs;--newline--    --tab--}--newline--    --tab--public static void combine(List<List<Integer>> combs, List<Integer> comb, int start, int n, int k) {--newline--    --tab----tab--if(k==0) {--newline--    --tab----tab----tab--combs.add(new ArrayList<Integer>(comb));--newline--    --tab----tab----tab--return;--newline--    --tab----tab--}--newline--    --tab----tab--for(int i=start;i<=n;i++) {--newline--    --tab----tab----tab--comb.add(i);--newline--    --tab----tab----tab--combine(combs, comb, i+1, n, k-1);--newline--    --tab----tab----tab--comb.remove(comb.size()-1);--newline--    --tab----tab--}--newline--    --tab--}--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Backtracking Solution Java"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<List<Integer>> combine(int n, int k) {--newline--        if (k == n || k == 0) {--newline--            List<Integer> row = new LinkedList<>();--newline--            for (int i = 1; i <= k; ++i) {--newline--                row.add(i);--newline--            }--newline--            return new LinkedList<>(Arrays.asList(row));--newline--        }--newline--        List<List<Integer>> result = this.combine(n - 1, k - 1);--newline--        result.forEach(e -> e.add(n));--newline--        result.addAll(this.combine(n - 1, k));--newline--        return result;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "A short recursive Java solution based on C(n,k)=C(n-1,k-1)+C(n-1,k)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline----tab--vector<vector<int>> combine(int n, int k) {--newline----tab----tab--vector<vector<int>> result;--newline----tab----tab--int i = 0;--newline----tab----tab--vector<int> p(k, 0);--newline----tab----tab--while (i >= 0) {--newline----tab----tab----tab--p[i]++;--newline----tab----tab----tab--if (p[i] > n) --i;--newline----tab----tab----tab--else if (i == k - 1) result.push_back(p);--newline----tab----tab----tab--else {--newline----tab----tab----tab--    ++i;--newline----tab----tab----tab--    p[i] = p[i - 1];--newline----tab----tab----tab--}--newline----tab----tab--}--newline----tab----tab--return result;--newline----tab--}--newline--};",
+            "python": null,
+            "topic_title": "Short Iterative C++ Answer 8ms"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<vector<int> > combine(int n, int k) {--newline--        vector<vector<int> >res;--newline--        if(n<k)return res;--newline--        vector<int> temp(0,k);--newline--        combine(res,temp,0,0,n,k);--newline--        return res;--newline--    }--newline--    --newline--    void combine(vector<vector<int> > &res,vector<int> &temp,int start,int num,int n ,int k){--newline--        if(num==k){--newline--            res.push_back(temp);--newline--            return;--newline--        }--newline--        for(int i = start;i<n;i++){--newline--            temp.push_back(i+1);--newline--            combine(res,temp,i+1,num+1,n,k);--newline--            temp.pop_back();--newline--            }--newline--        }--newline--};",
+            "python": null,
+            "topic_title": "My shortest c++ solution,using dfs"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab--  def combine(self, n, k):--newline----tab--    return reduce(lambda C, _: [[i]+c for c in C for i in range(1, c[0] if c else n+1)],--newline----tab--                  range(k), [[]])",
+            "topic_title": "1-liner, 3-liner, 4-liner"
+        }
+    ],
+    "qc": "77.json"
+}

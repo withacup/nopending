@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int nextGreaterElement(int n) {--newline--        char[] number = (n + \"\").toCharArray();--newline--        --newline--        int i, j;--newline--        // I) Start from the right most digit and --newline--        // find the first digit that is--newline--        // smaller than the digit next to it.--newline--        for (i = number.length-1; i > 0; i--)--newline--            if (number[i-1] < number[i])--newline--               break;--newline----newline--        // If no such digit is found, its the edge case 1.--newline--        if (i == 0)--newline--            return -1;--newline--            --newline--         // II) Find the smallest digit on right side of (i-1)'th --newline--         // digit that is greater than number[i-1]--newline--        int x = number[i-1], smallest = i;--newline--        for (j = i+1; j < number.length; j++)--newline--            if (number[j] > x && number[j] <= number[smallest])--newline--                smallest = j;--newline--        --newline--        // III) Swap the above found smallest digit with --newline--        // number[i-1]--newline--        char temp = number[i-1];--newline--        number[i-1] = number[smallest];--newline--        number[smallest] = temp;--newline--        --newline--        // IV) Sort the digits after (i-1) in ascending order--newline--        Arrays.sort(number, i, number.length);--newline--        --newline--        long val = Long.parseLong(new String(number));--newline--        return (val <= Integer.MAX_VALUE) ? (int) val : -1;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java solution (4ms) with explanation."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int nextGreaterElement(int n) {--newline--        auto digits = to_string(n);--newline--        next_permutation(begin(digits), end(digits));--newline--        auto res = stoll(digits);--newline--        return (res > INT_MAX || res <= n) ? -1 : res;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "C++ 4 lines (next_permutation)"
+        },
+        {
+            "java": "public class Solution {--newline--    public int nextGreaterElement(int n) {--newline--        char[] a=(\"\"+n).toCharArray();--newline--        int i = a.length - 2;--newline--        while (i >= 0 && a[i + 1] <= a[i]) {--newline--            i--;--newline--        }--newline--        if(i<0)--newline--            return -1;--newline--        int j = a.length - 1;--newline--        while (j >= 0 && a[j] <= a[i]) {--newline--            j--;--newline--        }--newline--        swap(a, i, j);--newline--        reverse(a, i + 1);--newline--        try{--newline--           return Integer.parseInt(new String(a));--newline--        }--newline--        catch(Exception e){--newline--           return -1;--newline--        }--newline--    }--newline--    private void reverse(char[] a, int start) {--newline--        int i = start, j = a.length - 1;--newline--        while (i < j) {--newline--            swap(a, i, j);--newline--            i++;--newline--            j--;--newline--        }--newline--    }--newline--    private void swap(char[] a, int i, int j) {--newline--        char temp = a[i];--newline--        a[i] = a[j];--newline--        a[j] = temp;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution like Next Permutation Problem O(n)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "/**--newline-- * 1. a max number has the property of decreasing in every digit: 9876--newline-- * 2. find the first non-max substring from the right; ex. in 1234(59876), 59876 is the first non-max substring from the right--newline-- * 3. sort the max part of 5(9876), by reverse, becames 5(6789);--newline-- * 4. flip 5,6, becames 65789; because 6 is the next smallest digit than 5, in 56789;--newline-- * 5. incase of 66789, you got flip 6 with 7 to make it 76689, to make it bigger.--newline-- */--newline--class Solution {--newline--public:--newline--    int nextGreaterElement(int n) {--newline--        string s = to_string(n);--newline--        if (s.length() == 1) {--newline--            return -1;--newline--        }--newline--        /* find the first decreasing digit from the right, eg: 59876, 5 is the first decreasing digit */--newline--        int i = s.length() - 2; // 21 -> i = 0; 59876 -> i = 3--newline--        for (; i >= 0 && s[i] >= s[i + 1]; i--) { }--newline--        if (i == -1) {  // if a decreasing digit cannot be find, the number cannot be larger.--newline--            return -1;--newline--        }--newline--        reverse(s.begin() + i + 1, s.end());--newline--        for (int j = i + 1; j < s.length(); j++) {--newline--            if (s[j] > s[i]) {--newline--                swap(s[i], s[j]);--newline--                break;--newline--            }--newline--        }--newline--        long next = stol(s);--newline--        return next == n || next > INT_MAX ? -1 : next;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "&#91;C++&#93; Solution with explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public int nextGreaterElement(int n) {--newline--        char[] num = (n + \"\").toCharArray();--newline--        for(int i = num.length-2; i >= 0; i--) {--newline--            // find min number greater than num(i)--newline--            int minIdx = i;--newline--            for(int j = i+1; j < num.length; j++) {--newline--                minIdx = num[j] > num[i] ? j : minIdx;--newline--            }--newline--            if(minIdx != i) {--newline--                char temp = num[i]; //swap minIdx and i;--newline--                num[i] = num[minIdx];--newline--                num[minIdx] = temp;--newline--                --newline--                Arrays.sort(num, i+1, num.length);--newline--    --newline--                long val = Long.parseLong(new String(num));--newline--                return (val <= Integer.MAX_VALUE) ? (int) val : -1;--newline--            }--newline--        }--newline--        return -1;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java(5ms) - Find - Swap - Sort Solution"
+        }
+    ],
+    "qc": "556.json"
+}

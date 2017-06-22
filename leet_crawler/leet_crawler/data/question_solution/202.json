@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int digitSquareSum(int n) {--newline--        int sum = 0, tmp;--newline--        while (n) {--newline--            tmp = n % 10;--newline--            sum += tmp * tmp;--newline--            n /= 10;--newline--        }--newline--        return sum;--newline--    }--newline--    --newline--    bool isHappy(int n) {--newline--        int slow, fast;--newline--        slow = fast = n;--newline--        do {--newline--            slow = digitSquareSum(slow);--newline--            fast = digitSquareSum(fast);--newline--            fast = digitSquareSum(fast);--newline--        } while(slow != fast);--newline--        if (slow == 1) return 1;--newline--        else return 0;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "My solution in C( O(1) space and no magic math property involved )"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isHappy(int n) {--newline--        Set<Integer> inLoop = new HashSet<Integer>();--newline--        int squareSum,remain;--newline--    --tab--while (inLoop.add(n)) {--newline--    --tab----tab--squareSum = 0;--newline--    --tab----tab--while (n > 0) {--newline--    --tab----tab--    remain = n%10;--newline--    --tab----tab----tab--squareSum += remain*remain;--newline--    --tab----tab----tab--n /= 10;--newline--    --tab----tab--}--newline--    --tab----tab--if (squareSum == 1)--newline--    --tab----tab----tab--return true;--newline--    --tab----tab--else--newline--    --tab----tab----tab--n = squareSum;--newline--    --newline--    --tab--}--newline--    --tab--return false;--newline--    --newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Beat 90% Fast Easy Understand Java Solution with Brief Explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Explanation of why those posted algorithms are mathematically valid"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isHappy(int n) {--newline--        int x = n;--newline--        int y = n;--newline--        while(x>1){--newline--            x = cal(x) ;--newline--            if(x==1) return true ;--newline--            y = cal(cal(y));--newline--            if(y==1) return true ;--newline----newline--            if(x==y) return false;--newline--        }--newline--        return true ;--newline--    }--newline--    public int cal(int n){--newline--        int x = n;--newline--        int s = 0;--newline--        while(x>0){--newline--            s = s+(x%10)*(x%10);--newline--            x = x/10;--newline--        }--newline--        return s ;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "O(1) space Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool isHappy(int n) {--newline--        while(n>6){--newline--            int next = 0;--newline--            while(n){next+=(n%10)*(n%10); n/=10;}--newline--            n = next;--newline--        }--newline--        return n==1;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "4ms, 5 line C code"
+        }
+    ],
+    "qc": "202.json"
+}

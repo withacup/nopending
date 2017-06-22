@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int minSubArrayLen(int s, int[] a) {--newline--      if (a == null || a.length == 0)--newline--        return 0;--newline--      --newline--      int i = 0, j = 0, sum = 0, min = Integer.MAX_VALUE;--newline--      --newline--      while (j < a.length) {--newline--        sum += a[j++];--newline--        --newline--        while (sum >= s) {--newline--          min = Math.min(min, j - i);--newline--          sum -= a[i++];--newline--        }--newline--      }--newline--      --newline--      return min == Integer.MAX_VALUE ? 0 : min;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Accepted clean Java O(n) solution (two pointers)"
+        },
+        {
+            "java": "public class Solution {--newline--    public int minSubArrayLen(int s, int[] nums) {--newline--        return solveNLogN(s, nums);--newline--    }--newline--    --newline--    private int solveN(int s, int[] nums) {--newline--        int start = 0, end = 0, sum = 0, minLen = Integer.MAX_VALUE;--newline--        while (end < nums.length) {--newline--            while (end < nums.length && sum < s) sum += nums[end++];--newline--            if (sum < s) break;--newline--            while (start < end && sum >= s) sum -= nums[start++];--newline--            if (end - start + 1 < minLen) minLen = end - start + 1;--newline--        }--newline--        return minLen == Integer.MAX_VALUE ? 0 : minLen;--newline--    }--newline----newline--    private int solveNLogN(int s, int[] nums) {--newline--        int[] sums = new int[nums.length + 1];--newline--        for (int i = 1; i < sums.length; i++) sums[i] = sums[i - 1] + nums[i - 1];--newline--        int minLen = Integer.MAX_VALUE;--newline--        for (int i = 0; i < sums.length; i++) {--newline--            int end = binarySearch(i + 1, sums.length - 1, sums[i] + s, sums);--newline--            if (end == sums.length) break;--newline--            if (end - i < minLen) minLen = end - i;--newline--        }--newline--        return minLen == Integer.MAX_VALUE ? 0 : minLen;--newline--    }--newline--    --newline--    private int binarySearch(int lo, int hi, int key, int[] sums) {--newline--        while (lo <= hi) {--newline--           int mid = (lo + hi) / 2;--newline--           if (sums[mid] >= key){--newline--               hi = mid - 1;--newline--           } else {--newline--               lo = mid + 1;--newline--           }--newline--        }--newline--        return lo;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Two AC solutions in Java with time complexity of N and NLogN with explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int minSubArrayLen(int s, vector<int>& nums) {--newline--        vector<int> sums = accumulate(nums);--newline--        int n = nums.size(), minlen = INT_MAX;--newline--        for (int i = 1; i <= n; i++) { --newline--            if (sums[i] >= s) {--newline--                int p = upper_bound(sums, 0, i, sums[i] - s);--newline--                if (p != -1) minlen = min(minlen, i - p + 1);--newline--            }--newline--        }--newline--        return minlen == INT_MAX ? 0 : minlen;--newline--    }--newline--private:--newline--    vector<int> accumulate(vector<int>& nums) {--newline--        int n = nums.size();--newline--        vector<int> sums(n + 1, 0);--newline--        for (int i = 1; i <= n; i++) --newline--            sums[i] = nums[i - 1] + sums[i - 1];--newline--        return sums;--newline--    }--newline--    int upper_bound(vector<int>& sums, int left, int right, int target) {--newline--        int l = left, r = right;--newline--        while (l < r) {--newline--            int m = l + ((r - l) >> 1);--newline--            if (sums[m] <= target) l = m + 1;--newline--            else r = m;--newline--        }--newline--        return sums[r] > target ? r : -1;--newline--    }--newline--};  --newline--",
+            "python": null,
+            "topic_title": "4ms O(n) &#x2F; 8ms O(nlogn) C++"
+        },
+        {
+            "java": "public class Solution {--newline-- public int minSubArrayLen(int s, int[] nums) {--newline--        int sum = 0, min = Integer.MAX_VALUE;--newline----newline--        int[] sums = new int[nums.length];--newline--        for (int i = 0; i < nums.length; i++)--newline--            sums[i] = nums[i] + (i == 0 ? 0 : sums[i - 1]);--newline----newline--        for (int i = 0; i < nums.length; i++) {--newline--            int j = findWindowEnd(i, sums, s);--newline--            if (j == nums.length) break;--newline--            min = Math.min(j - i + 1, min);--newline--        }--newline--        --newline--        return min == Integer.MAX_VALUE ? 0 : min;--newline--    }--newline----newline--    private int findWindowEnd(int start, int[] sums, int s) {--newline--        int i = start, j = sums.length - 1, offset = start == 0 ? 0 : sums[start - 1];--newline--        while (i <= j) {--newline--            int m = (i + j) / 2;--newline--            int sum = sums[m] - offset;--newline--        if (sum >= s) j = m - 1;--newline--        else i = m + 1;--newline--    }--newline--    return i;--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "O(N),O(NLogN) solutions, both O(1) space"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--int minSubArrayLen(int s, vector<int>& nums) {--newline--    int firstPos = 0, sum = 0, minLength = INT_MAX;--newline--    for(int i = 0; i<nums.size(); i++) {--newline--        sum += nums[i];--newline--        while(sum >= s) {--newline--            minLength = min(minLength, i - firstPos + 1);--newline--            sum -= nums[firstPos++];--newline--        }--newline--    }--newline--    --newline--    return minLength == INT_MAX? 0 : minLength;--newline--  }--newline--};",
+            "python": null,
+            "topic_title": "C++ Simple O(n) solution"
+        }
+    ],
+    "qc": "209.json"
+}

@@ -1,0 +1,25 @@
+---CONTENT_BEGIN---
+We are playing the Guess Game. The game is as follows: 
+
+I pick a number from 1 to n. You have to guess which number I picked.
+
+Every time you guess wrong, I'll tell you whether the number is higher or lower.
+
+You call a pre-defined API guess(int num) which returns 3 possible results (-1, 1, or 0):
+
+-1 : My number is lower
+ 1 : My number is higher
+ 0 : Congrats! You got it!
+
+
+Example:
+
+n = 10, I pick 6.
+
+Return 6.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "// Forward declaration of guess API.--newline--// @param num, your guess--newline--// @return -1 if my number is lower, 1 if my number is higher, otherwise return 0--newline--int guess(int num);--newline----newline--class Solution {--newline--public:--newline--    int guessNumber(int n) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "/* The guess API is defined in the parent class GuessGame.--newline--   @param num, your guess--newline--   @return -1 if my number is lower, 1 if my number is higher, otherwise return 0--newline--      int guess(int num); */--newline----newline--public class Solution extends GuessGame {--newline--    public int guessNumber(int n) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "# The guess API is already defined for you.--newline--# @param num, your guess--newline--# @return -1 if my number is lower, 1 if my number is higher, otherwise return 0--newline--# def guess(num):--newline----newline--class Solution(object):--newline--    def guessNumber(self, n):--newline--        '''--newline--        :type n: int--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}]
+---SCRIPT_END---

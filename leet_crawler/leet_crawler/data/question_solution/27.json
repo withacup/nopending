@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int removeElement(int A[], int n, int elem) {--newline--        int begin=0;--newline--        for(int i=0;i<n;i++) if(A[i]!=elem) A[begin++]=A[i];--newline--        return begin;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "My solution for your reference."
+        },
+        {
+            "java": "public class Solution {--newline--    public int removeElement(int[] A, int elem) {--newline--       int m = 0;    --newline--       for(int i = 0; i < A.length; i++){--newline--           --newline--           if(A[i] != elem){--newline--               A[m] = A[i];--newline--               m++;--newline--           }--newline--       }--newline--       --newline--       return m;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Accepted java solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int removeElement(int[] A, int elem) {--newline--        int len = A.length;--newline--        for (int i = 0 ; i< len; ++i){--newline--            while (A[i]==elem && i< len) {--newline--                A[i]=A[--len];--newline--            }--newline--        }--newline--        return len;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "9-line java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int removeElement(vector<int>& nums, int val) {--newline--        int cnt = 0;--newline--        for(int i = 0 ; i < nums.size() ; ++i) {--newline--            if(nums[i] == val)--newline--                cnt++;--newline--            else--newline--                nums[i-cnt] = nums[i];--newline--        }--newline--        return nums.size()-cnt;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Very simple and optimal c++ solution."
+        },
+        {
+            "java": "public class Solution {--newline--    public int removeElement(int[] A, int elem) {--newline--        int l = A.length;--newline--        for (int i=0; i<l; i++) {--newline--            if (A[i] == elem) {--newline--                A[i--] = A[l-- -1];--newline--            }--newline--        }--newline--        return l;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Fast &amp; Short Java Solution"
+        }
+    ],
+    "qc": "27.json"
+}

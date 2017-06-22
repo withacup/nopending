@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int numberOfArithmeticSlices(int[] A) {--newline--        int res = 0;--newline--        Map<Integer, Integer>[] map = new Map[A.length];--newline--    --tab----tab----newline--        for (int i = 0; i < A.length; i++) {--newline--            map[i] = new HashMap<>(i);--newline--            --tab----newline--            for (int j = 0; j < i; j++) {--newline--                long diff = (long)A[i] - A[j];--newline--                if (diff <= Integer.MIN_VALUE || diff > Integer.MAX_VALUE) continue;--newline--            --tab----tab----newline--                int d = (int)diff;--newline--                int c1 = map[i].getOrDefault(d, 0);--newline--                int c2 = map[j].getOrDefault(d, 0);--newline--                res += c2;--newline--                map[i].put(d, c1 + c2 + 1);--newline--            }--newline--        }--newline--    --tab----tab----newline--        return res;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Detailed explanation for Java O(n^2) solution"
+        },
+        {
+            "java": "public class Solution {--newline--        public int numberOfArithmeticSlices(int[] A) {--newline--            int re = 0;--newline--            HashMap<Integer, Integer>[] maps = new HashMap[A.length];--newline--            for(int i=0; i<A.length; i++) {--newline--                maps[i] = new HashMap<>();--newline--                int num = A[i];--newline--                for(int j=0; j<i; j++) {--newline--                    if((long)num-A[j]>Integer.MAX_VALUE) continue;--newline--                    if((long)num-A[j]<Integer.MIN_VALUE) continue;--newline--                    int diff = num - A[j];--newline--                    int count = maps[j].getOrDefault(diff, 0);--newline--                    maps[i].put(diff, maps[i].getOrDefault(diff,0)+count+1);--newline--                    re += count;--newline--                }--newline--            }--newline--            return re;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "JAVA 15 lines solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int numberOfArithmeticSlices(vector<int>& A) {--newline--        if (A.empty()) return 0;--newline--        int n = A.size();--newline--        vector<unordered_map<long long, int >> dp(n);--newline--        unordered_set<int> s(A.begin(), A.end());--newline--        int res = 0;--newline--        for (int i = 1; i < n; ++i) {--newline--            for (int j = i-1; j >= 0; --j) {--newline--                long long d = (long long)A[i] - (long long)A[j];--newline--                int tmp = dp[j].count(d) ? dp[j][d] : 0;--newline--                if (tmp) res += tmp;--newline--                if (s.count(A[i]+d)) dp[i][d] += 1 + tmp;--newline--            }--newline--        }--newline--        return res;--newline--    }--newline--};--newline--",
+            "python": "class Solution(object):--newline----tab--    def numberOfArithmeticSlices(self, A):--newline----tab--        dp = [defaultdict(int) for i in range(len(A))]--newline----tab--        res = 0--newline----tab--        for i in range(1, len(A)):--newline----tab--            for j in range(i):--newline----tab--                step = A[i]-A[j]--newline----tab--                dp[i][step] += 1--newline----tab--                if step in dp[j]:--newline----tab--                    dp[i][step]+= dp[j][step]--newline----tab--                    res += dp[j][step]--newline----tab--        return res--newline----tab--",
+            "topic_title": "O(N^2) MLE&#x2F;TLE in C++? Try this one, Concise and Fast."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--int numberOfArithmeticSlices(vector<int>& A) {--newline--    if(A.empty()) return 0;--newline--    vector<unordered_map<int,int>> dp(A.size());//[index, [difference, count]]--newline--    --newline--    int res = 0;--newline--    for(int i = 0; i < A.size(); ++i){--newline--        for(int j = 0; j < i; ++j){--newline--            if((long)A[i] - (long)A[j] > INT_MAX || (long)A[i] - (long)A[j] < INT_MIN) continue;// do not ignore this step, it will help you save time & space to pass OJ.--newline--            int dif = A[i] - A[j];--newline--            dp[i][dif] += 1;--newline--            if(dp[j].find(dif) != dp[j].end()){--newline--                dp[i][dif] += dp[j][dif];--newline--                res += dp[j][dif];--newline--            }--newline--        }--newline--    }--newline--    return res;--newline--}--newline--};",
+            "python": null,
+            "topic_title": "C++_DP_Accepted"
+        },
+        {
+            "java": "public class Solution {--newline--    public int numberOfArithmeticSlices(int[] A) {--newline--            if(A==null||A.length<3) return 0;--newline--            List<Map<Integer,Integer>> list=new ArrayList<Map<Integer,Integer>>();--newline--            int res=0;--newline--            for(int i=1;i<A.length;i++){--newline--                Map<Integer,Integer> map=new HashMap<Integer,Integer>();--newline--                for(int j=0;j<i;j++){--newline--                    if((long)A[i]-(long)A[j]>Integer.MAX_VALUE) continue;--newline--                    if((long)A[i]-(long)A[j]<Integer.MIN_VALUE) continue;--newline--                    int dif=A[i]-A[j];--newline--                    if(j==0){--newline--                        map.put(dif,1);--newline--                        continue;--newline--                    }--newline--                    Map<Integer,Integer> temp=list.get(j-1);--newline--                    int sum=0;--newline--                    if(temp.containsKey(dif)){--newline--                        sum=temp.get(dif);--newline--                    }--newline--                    if(map.containsKey(dif)){--newline--                        map.put(dif,map.get(dif)+sum+1);--newline--                    }else{--newline--                        map.put(dif,sum+1);--newline--                    }--newline--                    res+=sum;--newline--                }--newline--                list.add(map);--newline--            }--newline--            return res;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my JAVA AC solution and my thoughts"
+        }
+    ],
+    "qc": "446.json"
+}

@@ -1,0 +1,43 @@
+---CONTENT_BEGIN---
+Given an integer matrix, find the length of the longest increasing path.
+
+
+From each cell, you can either move to four directions: left, right, up or down. You may NOT move diagonally or move outside of the boundary (i.e. wrap-around is not allowed).
+
+
+Example 1:
+
+nums = [
+  [9,9,4],
+  [6,6,8],
+  [2,1,1]
+]
+
+
+
+
+Return 4
+
+The longest increasing path is [1, 2, 6, 9].
+
+
+Example 2:
+
+nums = [
+  [3,4,5],
+  [3,2,6],
+  [2,2,1]
+]
+
+
+
+
+Return 4
+
+The longest increasing path is [3, 4, 5, 6]. Moving diagonally is not allowed.
+
+Credits:Special thanks to @dietpepsi for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int longestIncreasingPath(vector<vector<int>>& matrix) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int longestIncreasingPath(int[][] matrix) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def longestIncreasingPath(self, matrix):--newline--        '''--newline--        :type matrix: List[List[int]]--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int longestIncreasingPath(int** matrix, int matrixRowSize, int matrixColSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int LongestIncreasingPath(int[,] matrix) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[][]} matrix--newline-- * @return {number}--newline-- */--newline--var longestIncreasingPath = function(matrix) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[][]} matrix--newline--# @return {Integer}--newline--def longest_increasing_path(matrix)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func longestIncreasingPath(_ matrix: [[Int]]) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func longestIncreasingPath(matrix [][]int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

@@ -1,0 +1,25 @@
+---CONTENT_BEGIN---
+Given an array consists of non-negative integers,  your task is to count the number of triplets chosen from the array that can make triangles if we take them as side lengths of a triangle.
+
+Example 1:
+
+Input: [2,2,3,4]
+Output: 3
+Explanation:
+Valid combinations are: 
+2,3,4 (using the first 2)
+2,3,4 (using the second 2)
+2,2,3
+
+
+
+Note:
+
+The length of the given array won't exceed 1000.
+The integers in the given array are in the range of [0, 1000].
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int triangleNumber(vector<int>& nums) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int triangleNumber(int[] nums) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def triangleNumber(self, nums):--newline--        '''--newline--        :type nums: List[int]--newline--        :rtype: int--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "class Solution:--newline--    def triangleNumber(self, nums):--newline--        '''--newline--        :type nums: List[int]--newline--        :rtype: int--newline--        '''", "value": "python3", "text": "Python3"}, {"defaultCode": "int triangleNumber(int* nums, int numsSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int TriangleNumber(int[] nums) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} nums--newline-- * @return {number}--newline-- */--newline--var triangleNumber = function(nums) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} nums--newline--# @return {Integer}--newline--def triangle_number(nums)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func triangleNumber(_ nums: [Int]) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func triangleNumber(nums []int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

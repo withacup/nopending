@@ -1,0 +1,33 @@
+---CONTENT_BEGIN---
+Find the nth digit of the infinite integer sequence 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ... 
+
+Note:
+n is positive and will fit within the range of a 32-bit signed integer (n < 231).
+
+
+Example 1:
+
+Input:
+3
+
+Output:
+3
+
+
+
+Example 2:
+
+Input:
+11
+
+Output:
+0
+
+Explanation:
+The 11th digit of the sequence 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ... is a 0, which is part of the number 10.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int findNthDigit(int n) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int findNthDigit(int n) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def findNthDigit(self, n):--newline--        '''--newline--        :type n: int--newline--        :rtype: int--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "int findNthDigit(int n) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int FindNthDigit(int n) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} n--newline-- * @return {number}--newline-- */--newline--var findNthDigit = function(n) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} n--newline--# @return {Integer}--newline--def find_nth_digit(n)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func findNthDigit(_ n: Int) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func findNthDigit(n int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

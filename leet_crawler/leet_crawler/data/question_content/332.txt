@@ -1,0 +1,29 @@
+---CONTENT_BEGIN---
+Given a list of airline tickets represented by pairs of departure and arrival airports [from, to], reconstruct the itinerary in order. All of the tickets belong to a man who departs from JFK. Thus, the itinerary must begin with JFK.
+
+
+Note:
+
+If there are multiple valid itineraries, you should return the itinerary that has the smallest lexical order when read as a single string. For example, the itinerary ["JFK", "LGA"] has a smaller lexical order than ["JFK", "LGB"].
+All airports are represented by three capital letters (IATA code).
+You may assume all tickets form at least one valid itinerary.
+
+
+
+
+    Example 1:
+    tickets = [["MUC", "LHR"], ["JFK", "MUC"], ["SFO", "SJC"], ["LHR", "SFO"]]
+    Return ["JFK", "MUC", "LHR", "SFO", "SJC"].
+
+
+    Example 2:
+    tickets = [["JFK","SFO"],["JFK","ATL"],["SFO","ATL"],["ATL","JFK"],["ATL","SFO"]]
+    Return ["JFK","ATL","JFK","SFO","ATL","SFO"].
+    Another possible reconstruction is ["JFK","SFO","ATL","JFK","ATL","SFO"]. But it is larger in lexical order.
+
+
+Credits:Special thanks to @dietpepsi for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<string> findItinerary(vector<pair<string, string>> tickets) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public List<String> findItinerary(String[][] tickets) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def findItinerary(self, tickets):--newline--        '''--newline--        :type tickets: List[List[str]]--newline--        :rtype: List[str]--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Return an array of size *returnSize.--newline-- * Note: The returned array must be malloced, assume caller calls free().--newline-- */--newline--char** findItinerary(char*** tickets, int ticketsRowSize, int ticketsColSize, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public IList<string> FindItinerary(string[,] tickets) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string[][]} tickets--newline-- * @return {string[]}--newline-- */--newline--var findItinerary = function(tickets) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {string[][]} tickets--newline--# @return {String[]}--newline--def find_itinerary(tickets)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func findItinerary(_ tickets: [[String]]) -> [String] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func findItinerary(tickets [][]string) []string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

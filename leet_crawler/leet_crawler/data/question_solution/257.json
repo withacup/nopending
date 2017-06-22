@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public List<String> binaryTreePaths(TreeNode root) {--newline--        List<String> answer = new ArrayList<String>();--newline--        if (root != null) searchBT(root, \"\", answer);--newline--        return answer;--newline--    }--newline--    private void searchBT(TreeNode root, String path, List<String> answer) {--newline--        if (root.left == null && root.right == null) answer.add(path + root.val);--newline--        if (root.left != null) searchBT(root.left, path + root.val + \"->\", answer);--newline--        if (root.right != null) searchBT(root.right, path + root.val + \"->\", answer);--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Accepted Java simple solution in 8 lines"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<String> binaryTreePaths(TreeNode root) {--newline--            --newline--            List<String> paths = new LinkedList<>();--newline--    --newline--            if(root == null) return paths;--newline--            --newline--            if(root.left == null && root.right == null){--newline--                paths.add(root.val+\"\");--newline--                return paths;--newline--            }--newline--    --newline--             for (String path : binaryTreePaths(root.left)) {--newline--                 paths.add(root.val + \"->\" + path);--newline--             }--newline--    --newline--             for (String path : binaryTreePaths(root.right)) {--newline--                 paths.add(root.val + \"->\" + path);--newline--             }--newline--    --newline--             return paths;--newline--            --newline--        }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Clean Java solution (Accepted) without any helper recursive function"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    void binaryTreePaths(vector<string>& result, TreeNode* root, string t) {--newline--        if(!root->left && !root->right) {--newline--            result.push_back(t);--newline--            return;--newline--        }--newline--    --newline--        if(root->left) binaryTreePaths(result, root->left, t + \"->\" + to_string(root->left->val));--newline--        if(root->right) binaryTreePaths(result, root->right, t + \"->\" + to_string(root->right->val));--newline--    }--newline--    --newline--    vector<string> binaryTreePaths(TreeNode* root) {--newline--        vector<string> result;--newline--        if(!root) return result;--newline--        --newline--        binaryTreePaths(result, root, to_string(root->val));--newline--        return result;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "C++ simple 4ms recursive solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    # dfs + stack--newline----tab--    def binaryTreePaths1(self, root):--newline----tab--        if not root:--newline----tab--            return []--newline----tab--        res, stack = [], [(root, \"\")]--newline----tab--        while stack:--newline----tab--            node, ls = stack.pop()--newline----tab--            if not node.left and not node.right:--newline----tab--                res.append(ls+str(node.val))--newline----tab--            if node.right:--newline----tab--                stack.append((node.right, ls+str(node.val)+\"->\"))--newline----tab--            if node.left:--newline----tab--                stack.append((node.left, ls+str(node.val)+\"->\"))--newline----tab--        return res--newline----tab--        --newline----tab--    # bfs + queue--newline----tab--    def binaryTreePaths2(self, root):--newline----tab--        if not root:--newline----tab--            return []--newline----tab--        res, queue = [], collections.deque([(root, \"\")])--newline----tab--        while queue:--newline----tab--            node, ls = queue.popleft()--newline----tab--            if not node.left and not node.right:--newline----tab--                res.append(ls+str(node.val))--newline----tab--            if node.left:--newline----tab--                queue.append((node.left, ls+str(node.val)+\"->\"))--newline----tab--            if node.right:--newline----tab--                queue.append((node.right, ls+str(node.val)+\"->\"))--newline----tab--        return res--newline----tab--        --newline----tab--    # dfs recursively--newline----tab--    def binaryTreePaths(self, root):--newline----tab--        if not root:--newline----tab--            return []--newline----tab--        res = []--newline----tab--        self.dfs(root, \"\", res)--newline----tab--        return res--newline----tab--    --newline----tab--    def dfs(self, root, ls, res):--newline----tab--        if not root.left and not root.right:--newline----tab--            res.append(ls+str(root.val))--newline----tab--        if root.left:--newline----tab--            self.dfs(root.left, ls+str(root.val)+\"->\", res)--newline----tab--        if root.right:--newline----tab--            self.dfs(root.right, ls+str(root.val)+\"->\", res)",
+            "topic_title": "Python solutions (dfs+stack, bfs+queue, dfs recursively)."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def binaryTreePaths(self, root):--newline----tab--        if not root:--newline----tab--            return []--newline----tab--        return [str(root.val) + '->' + path--newline----tab--                for kid in (root.left, root.right) if kid--newline----tab--                for path in self.binaryTreePaths(kid)] or [str(root.val)]",
+            "topic_title": "5 lines recursive Python"
+        }
+    ],
+    "qc": "257.json"
+}

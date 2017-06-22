@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int[] singleNumber(int[] nums) {--newline--        // Pass 1 : --newline--        // Get the XOR of the two numbers we need to find--newline--        int diff = 0;--newline--        for (int num : nums) {--newline--            diff ^= num;--newline--        }--newline--        // Get its last set bit--newline--        diff &= -diff;--newline--        --newline--        // Pass 2 :--newline--        int[] rets = {0, 0}; // this array stores the two numbers we will return--newline--        for (int num : nums)--newline--        {--newline--            if ((num & diff) == 0) // the bit is not set--newline--            {--newline--                rets[0] ^= num;--newline--            }--newline--            else // the bit is set--newline--            {--newline--                rets[1] ^= num;--newline--            }--newline--        }--newline--        return rets;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": "class Solution--newline--{--newline--public:--newline--    vector<int> singleNumber(vector<int>& nums) --newline--    {--newline--        // Pass 1 : --newline--        // Get the XOR of the two numbers we need to find--newline--        int diff = accumulate(nums.begin(), nums.end(), 0, bit_xor<int>());--newline--        // Get its last set bit--newline--        diff &= -diff;--newline----newline--        // Pass 2 :--newline--        vector<int> rets = {0, 0}; // this vector stores the two numbers we will return--newline--        for (int num : nums)--newline--        {--newline--            if ((num & diff) == 0) // the bit is not set--newline--            {--newline--                rets[0] ^= num;--newline--            }--newline--            else // the bit is set--newline--            {--newline--                rets[1] ^= num;--newline--            }--newline--        }--newline--        return rets;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Accepted C++&#x2F;Java O(n)-time O(1)-space Easy Solution with Detail Explanations"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Sharing explanation of the solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> singleNumber(vector<int>& nums) {--newline--        int aXorb = 0;  // the result of a xor b;--newline--        for (auto item : nums) aXorb ^= item;--newline--        int lastBit = (aXorb & (aXorb - 1)) ^ aXorb;  // the last bit that a diffs b--newline--        int intA = 0, intB = 0;--newline--        for (auto item : nums) {--newline--            // based on the last bit, group the items into groupA(include a) and groupB--newline--            if (item & lastBit) intA = intA ^ item;--newline--            else intB = intB ^ item;--newline--        }--newline--        return vector<int>{intA, intB};   --newline--    }--newline--}",
+            "python": null,
+            "topic_title": "C++ solution O(n) time and O(1) space, easy-understaning with simple explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public int[] singleNumber(int[] nums) {--newline--        int result[] = new int[2];        --newline--        int xor = nums[0];--newline--        for (int i=1; i<nums.length; i++)--newline--        {--newline--            xor ^= nums[i];--newline--        }--newline--        --newline--        int bit = xor & ~(xor-1);--newline--        int num1 = 0;--newline--        int num2 = 0;--newline--        --newline--        for (int num : nums)--newline--        {--newline--            if ((num & bit) > 0)--newline--            {--newline--                num1 ^= num;--newline--            }--newline--            else--newline--            {--newline--                num2 ^= num;--newline--            }--newline--        }--newline--        --newline--        result[0] = num1;--newline--        result[1] = num2;--newline--        return result;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Bit manipulation beats 99.62%"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> singleNumber(vector<int>& nums) {--newline--        int r = 0, n = nums.size(), i = 0, last = 0;--newline--        vector<int> ret(2, 0);--newline--        --newline--        for (i = 0; i < n; ++i) --newline--            r ^= nums[i];--newline--        --newline--        last = r & (~(r - 1));--newline--        for (i = 0; i < n; ++i)--newline--        {--newline--            if ((last & nums[i]) != 0)--newline--                ret[0] ^= nums[i];--newline--            else--newline--                ret[1] ^= nums[i];--newline--        }--newline--        --newline--        return ret;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Share my C++ solution,"
+        }
+    ],
+    "qc": "260.json"
+}

@@ -1,0 +1,6 @@
+{
+    "solution_code": "public class SummaryRanges {--newline--    TreeMap<Integer, Interval> tree;--newline----newline--    public SummaryRanges() {--newline--        tree = new TreeMap<>();--newline--    }--newline----newline--    public void addNum(int val) {--newline--        if(tree.containsKey(val)) return;--newline--        Integer l = tree.lowerKey(val);--newline--        Integer h = tree.higherKey(val);--newline--        if(l != null && h != null && tree.get(l).end + 1 == val && h == val + 1) {--newline--            tree.get(l).end = tree.get(h).end;--newline--            tree.remove(h);--newline--        } else if(l != null && tree.get(l).end + 1 >= val) {--newline--            tree.get(l).end = Math.max(tree.get(l).end, val);--newline--        } else if(h != null && h == val + 1) {--newline--            tree.put(val, new Interval(val, tree.get(h).end));--newline--            tree.remove(h);--newline--        } else {--newline--            tree.put(val, new Interval(val, val));--newline--        }--newline--    }--newline----newline--    public List<Interval> getIntervals() {--newline--        return new ArrayList<>(tree.values());--newline--    }--newline--}",
+    "l_type": "java",
+    "modified_code": null,
+    "total_cases": 9
+}

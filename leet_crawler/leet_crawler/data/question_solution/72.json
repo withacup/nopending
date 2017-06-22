@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution { --newline--public:--newline--    int minDistance(string word1, string word2) {--newline--        int m = word1.length(), n = word2.length();--newline--        vector<int> cur(m + 1, 0);--newline--        for (int i = 1; i <= m; i++)--newline--            cur[i] = i;--newline--        for (int j = 1; j <= n; j++) {--newline--            int pre = cur[0];--newline--            cur[0] = j;--newline--            for (int i = 1; i <= m; i++) {--newline--                int temp = cur[i];--newline--                if (word1[i - 1] == word2[j - 1])--newline--                    cur[i] = pre;--newline--                else cur[i] = min(pre + 1, min(cur[i] + 1, cur[i - 1] + 1));--newline--                pre = temp;--newline--            }--newline--        }--newline--        return cur[m]; --newline--    }--newline--}; --newline--",
+            "python": null,
+            "topic_title": "20ms Detailed Explained C++ Solutions (O(n) Space)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--     int minDistance(string word1, string word2) {--newline--        --newline--            int l1 = word1.size();--newline--            int l2 = word2.size();--newline--        --newline--            vector<int> f(l2+1, 0);--newline--            for (int j = 1; j <= l2; ++j)--newline--                f[j] = j;--newline--        --newline--            for (int i = 1; i <= l1; ++i)--newline--            {--newline--                int prev = i;--newline--                for (int j = 1; j <= l2; ++j)--newline--                {--newline--                    int cur;--newline--                    if (word1[i-1] == word2[j-1]) {--newline--                        cur = f[j-1];--newline--                    } else {--newline--                        cur = min(min(f[j-1], prev), f[j]) + 1;--newline--                    }--newline--        --newline--                    f[j-1] = prev;--newline--                    prev = cur;--newline--                }--newline--                f[l2] = prev;--newline--            }--newline--            return f[l2];--newline--        --newline--        }  --newline--    --newline--}",
+            "python": null,
+            "topic_title": "My O(mn) time and O(n) space solution using DP with explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public int minDistance(String word1, String word2) {--newline--        int m = word1.length();--newline--        int n = word2.length();--newline--        --newline--        int[][] cost = new int[m + 1][n + 1];--newline--        for(int i = 0; i <= m; i++)--newline--            cost[i][0] = i;--newline--        for(int i = 1; i <= n; i++)--newline--            cost[0][i] = i;--newline--        --newline--        for(int i = 0; i < m; i++) {--newline--            for(int j = 0; j < n; j++) {--newline--                if(word1.charAt(i) == word2.charAt(j))--newline--                    cost[i + 1][j + 1] = cost[i][j];--newline--                else {--newline--                    int a = cost[i][j];--newline--                    int b = cost[i][j + 1];--newline--                    int c = cost[i + 1][j];--newline--                    cost[i + 1][j + 1] = a < b ? (a < c ? a : c) : (b < c ? b : c);--newline--                    cost[i + 1][j + 1]++;--newline--                }--newline--            }--newline--        }--newline--        return cost[m][n];--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java DP solution - O(nm)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Good pdf on edit distance problem. May be helpful."
+        },
+        {
+            "java": "public class Solution {--newline--    public int minDistance(String word1, String word2) {--newline--        if (word1.equals(word2)) {--newline--            return 0;--newline--        }--newline--        if (word1.length() == 0 || word2.length() == 0) {--newline--            return Math.abs(word1.length() - word2.length());--newline--        }--newline--        int[][] dp = new int[word1.length() + 1][word2.length() + 1];--newline--        for (int i = 0; i <= word1.length(); i++) {--newline--            dp[i][0] = i;--newline--        }--newline--        for (int i = 0; i <= word2.length(); i++) {--newline--            dp[0][i] = i;--newline--        }--newline--        for (int i = 1; i <= word1.length(); i++) {--newline--            for (int j = 1; j <= word2.length(); j++) {--newline--                if (word1.charAt(i - 1) == word2.charAt(j - 1)) {--newline--                    dp[i][j] = dp[i - 1][j - 1];--newline--                } else {--newline--                    dp[i][j] = Math.min(dp[i-1][j-1], Math.min(dp[i-1][j], dp[i][j-1])) + 1;--newline--                }--newline--            }--newline--        }--newline--        return dp[word1.length()][word2.length()];--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My Accepted Java Solution"
+        }
+    ],
+    "qc": "72.json"
+}

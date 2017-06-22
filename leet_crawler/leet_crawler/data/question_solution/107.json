@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--        public List<List<Integer>> levelOrderBottom(TreeNode root) {--newline--            List<List<Integer>> wrapList = new LinkedList<List<Integer>>();--newline--            levelMaker(wrapList, root, 0);--newline--            return wrapList;--newline--        }--newline--        --newline--        public void levelMaker(List<List<Integer>> list, TreeNode root, int level) {--newline--            if(root == null) return;--newline--            if(level >= list.size()) {--newline--                list.add(0, new LinkedList<Integer>());--newline--            }--newline--            levelMaker(list, root.left, level+1);--newline--            levelMaker(list, root.right, level+1);--newline--            list.get(list.size()-level-1).add(root.val);--newline--        }--newline--    }",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My DFS and BFS java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<vector<int> > res;--newline--    --newline--    void DFS(TreeNode* root, int level)--newline--    {--newline--        if (root == NULL) return;--newline--        if (level == res.size()) // The level does not exist in output--newline--        {--newline--            res.push_back(vector<int>()); // Create a new level--newline--        }--newline--        --newline--        res[level].push_back(root->val); // Add the current value to its level--newline--        DFS(root->left, level+1); // Go to the next level--newline--        DFS(root->right,level+1);--newline--    }--newline--    --newline--    vector<vector<int> > levelOrderBottom(TreeNode *root) {--newline--        DFS(root, 0);--newline--        return vector<vector<int> > (res.rbegin(), res.rend());--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Is there any better idea than doing regular level order traversal and reverse the result?"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    # dfs recursively--newline----tab--    def levelOrderBottom1(self, root):--newline----tab--        res = []--newline----tab--        self.dfs(root, 0, res)--newline----tab--        return res--newline----tab--    --newline----tab--    def dfs(self, root, level, res):--newline----tab--        if root:--newline----tab--            if len(res) < level + 1:--newline----tab--                res.insert(0, [])--newline----tab--            res[-(level+1)].append(root.val)--newline----tab--            self.dfs(root.left, level+1, res)--newline----tab--            self.dfs(root.right, level+1, res)--newline----tab--            --newline----tab--    # dfs + stack--newline----tab--    def levelOrderBottom2(self, root):--newline----tab--        stack = [(root, 0)]--newline----tab--        res = []--newline----tab--        while stack:--newline----tab--            node, level = stack.pop()--newline----tab--            if node:--newline----tab--                if len(res) < level+1:--newline----tab--                    res.insert(0, [])--newline----tab--                res[-(level+1)].append(node.val)--newline----tab--                stack.append((node.right, level+1))--newline----tab--                stack.append((node.left, level+1))--newline----tab--        return res--newline----tab--     --newline----tab--    # bfs + queue   --newline----tab--    def levelOrderBottom(self, root):--newline----tab--        queue, res = collections.deque([(root, 0)]), []--newline----tab--        while queue:--newline----tab--            node, level = queue.popleft()--newline----tab--            if node:--newline----tab--                if len(res) < level+1:--newline----tab--                    res.insert(0, [])--newline----tab--                res[-(level+1)].append(node.val)--newline----tab--                queue.append((node.left, level+1))--newline----tab--                queue.append((node.right, level+1))--newline----tab--        return res",
+            "topic_title": "Python solutions (dfs recursively, dfs+stack, bfs+queue)."
+        },
+        {
+            "java": "public class Solution {--newline--    public List<List<Integer>> levelOrderBottom(TreeNode root) {--newline--    --tab--LinkedList<List<Integer>> list = new LinkedList<List<Integer>>();--newline--    --tab--addLevel(list, 0, root);--newline--    --tab--return list;--newline--    }--newline--    --newline--    private void addLevel(LinkedList<List<Integer>> list, int level, TreeNode node) {--newline--    --tab--if (node == null) return;--newline--    --tab--if (list.size()-1 < level) list.addFirst(new LinkedList<Integer>());--newline--    --tab--list.get(list.size()-1-level).add(node.val);--newline--    --tab--addLevel(list, level+1, node.left);--newline--    --tab--addLevel(list, level+1, node.right);--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java solution with LinkedList."
+        },
+        {
+            "java": "public class Solution {--newline--    public List<List<Integer>> levelOrderBottom(TreeNode root) {--newline--    --newline--        List<List<Integer>> result = new ArrayList<List<Integer>>();--newline--        if(root==null) return result;--newline--        Queue<TreeNode> q = new LinkedList<>();--newline--        q.add(root);--newline--        while(q.size()>0){--newline--            List<Integer> list = new ArrayList<>();--newline--            int size = q.size();--newline--            for(int i=0; i<size; i++){--newline--                TreeNode node = q.poll();--newline--                list.add(node.val);--newline--                if(node.left!=null) q.add(node.left);--newline--                if(node.right!=null) q.add(node.right);--newline--            }--newline--            result.add(0,list);--newline--        }--newline--        return result;--newline--    --newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution. Using Queue"
+        }
+    ],
+    "qc": "107.json"
+}

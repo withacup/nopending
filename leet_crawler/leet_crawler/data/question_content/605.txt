@@ -1,0 +1,30 @@
+---CONTENT_BEGIN---
+Suppose you have a long flowerbed in which some of the plots are planted and some are not. However, flowers cannot be planted in adjacent plots - they would compete for water and both would die.
+
+Given a flowerbed (represented as an array containing 0 and 1, where 0 means empty and 1 means not empty), and a number n, return if n new flowers can be planted in it without violating the no-adjacent-flowers rule.
+
+Example 1:
+
+Input: flowerbed = [1,0,0,0,1], n = 1
+Output: True
+
+
+
+Example 2:
+
+Input: flowerbed = [1,0,0,0,1], n = 2
+Output: False
+
+
+
+Note:
+
+The input array won't violate no-adjacent-flowers rule.
+The input array size is in the range of [1, 20000].
+n is a non-negative integer which won't exceed the input array size.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    bool canPlaceFlowers(vector<int>& flowerbed, int n) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public boolean canPlaceFlowers(int[] flowerbed, int n) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def canPlaceFlowers(self, flowerbed, n):--newline--        '''--newline--        :type flowerbed: List[int]--newline--        :type n: int--newline--        :rtype: bool--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "class Solution:--newline--    def canPlaceFlowers(self, flowerbed, n):--newline--        '''--newline--        :type flowerbed: List[int]--newline--        :type n: int--newline--        :rtype: bool--newline--        '''--newline--        ", "value": "python3", "text": "Python3"}, {"defaultCode": "bool canPlaceFlowers(int* flowerbed, int flowerbedSize, int n) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public bool CanPlaceFlowers(int[] flowerbed, int n) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} flowerbed--newline-- * @param {number} n--newline-- * @return {boolean}--newline-- */--newline--var canPlaceFlowers = function(flowerbed, n) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} flowerbed--newline--# @param {Integer} n--newline--# @return {Boolean}--newline--def can_place_flowers(flowerbed, n)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func canPlaceFlowers(_ flowerbed: [Int], _ n: Int) -> Bool {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func canPlaceFlowers(flowerbed []int, n int) bool {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

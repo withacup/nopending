@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public List<List<String>> groupAnagrams(String[] strs) {--newline--        if (strs == null || strs.length == 0) return new ArrayList<List<String>>();--newline--        Map<String, List<String>> map = new HashMap<String, List<String>>();--newline--        for (String s : strs) {--newline--            char[] ca = s.toCharArray();--newline--            Arrays.sort(ca);--newline--            String keyStr = String.valueOf(ca);--newline--            if (!map.containsKey(keyStr)) map.put(keyStr, new ArrayList<String>());--newline--            map.get(keyStr).add(s);--newline--        }--newline--        return new ArrayList<List<String>>(map.values());--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my short JAVA solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "What does it mean &quot;return all groups&quot;? But the return result is vector&lt;string&gt;? How can we return all groups?"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<vector<string>> groupAnagrams(vector<string>& strs) {--newline--        unordered_map<string, multiset<string>> mp;--newline--        for (string s : strs) {--newline--            string t = strSort(s);--newline--            mp[t].insert(s);--newline--        }--newline--        vector<vector<string>> anagrams;--newline--        for (auto m : mp) { --newline--            vector<string> anagram(m.second.begin(), m.second.end());--newline--            anagrams.push_back(anagram);--newline--        }--newline--        return anagrams;--newline--    }--newline--private:--newline--    string strSort(string& s) {--newline--        int count[26] = {0}, n = s.length();--newline--        for (int i = 0; i < n; i++)--newline--            count[s[i] - 'a']++;--newline--        int p = 0;--newline--        string t(n, 'a');--newline--        for (int j = 0; j < 26; j++)--newline--            for (int i = 0; i < count[j]; i++)--newline--                t[p++] += j;--newline--        return t;--newline--    } --newline--};",
+            "python": null,
+            "topic_title": "10-lines 76ms Easy C++ Solution (Updated Function Signature)"
+        },
+        {
+            "java": "public class Solution {--newline--    public static List<List<String>> groupAnagrams(String[] strs) { --newline--       int[] prime = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103};//\u6700\u591a10609\u4e2az--newline--        --newline--                List<List<String>> res = new ArrayList<>();--newline--                HashMap<Integer, Integer> map = new HashMap<>();--newline--                for (String s : strs) {--newline--                    int key = 1;--newline--                    for (char c : s.toCharArray()) {--newline--                        key *= prime[c - 'a'];--newline--                    }--newline--                    List<String> t;--newline--                    if (map.containsKey(key)) {--newline--                        t = res.get(map.get(key));--newline--                    } else {--newline--                        t = new ArrayList<>();--newline--                        res.add(t);--newline--                        map.put(key, res.size() - 1);--newline--                    }--newline--                    t.add(s);--newline--                }--newline--                return res;--newline--        }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java beat 100%!!! use prime number"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Why not list of list of strings as output?"
+        }
+    ],
+    "qc": "49.json"
+}

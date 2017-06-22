@@ -1,0 +1,118 @@
+---CONTENT_BEGIN---
+Given the root of a binary tree, then value v and depth d, you need to add a row of nodes with value v at the given depth d. The root node is at depth 1. 
+
+The adding rule is: given a positive integer depth d, for each NOT null tree nodes N in depth d-1, create two tree nodes with value v as N's left subtree root and right subtree root. And N's original left subtree should be the left subtree of the new left subtree root, its original right subtree should be the right subtree of the new right subtree root. If depth d is 1 that means there is no depth d-1 at all, then create a tree node with value v as the new root of the whole original tree, and the original tree is the new root's left subtree.
+
+Example 1:
+
+Input: 
+A binary tree as following:
+       4
+     /   \
+    2     6
+   / \   / 
+  3   1 5   
+
+v = 1
+
+d = 2
+
+Output: 
+       4
+      / \
+     1   1
+    /     \
+   2       6
+  / \     / 
+ 3   1   5   
+
+
+
+
+
+Example 2:
+
+Input: 
+A binary tree as following:
+      4
+     /   
+    2    
+   / \   
+  3   1    
+
+v = 1
+
+d = 3
+
+Output: 
+      4
+     /   
+    2
+   / \    
+  1   1
+ /     \  
+3       1
+
+
+
+Note:
+
+The given d is in range [1, maximum depth of the given tree + 1].
+The given binary tree has at least one tree node.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[
+    {
+        "text": "C++",
+        "value": "cpp",
+        "defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * struct TreeNode {--newline-- *     int val;--newline-- *     TreeNode *left;--newline-- *     TreeNode *right;--newline-- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}--newline-- * };--newline-- */--newline--class Solution {--newline--public:--newline--    TreeNode* addOneRow(TreeNode* root, int v, int d) {--newline--        --newline--    }--newline--};"
+    },
+    {
+        "text": "Java",
+        "value": "java",
+        "defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * public class TreeNode {--newline-- *     int val;--newline-- *     TreeNode left;--newline-- *     TreeNode right;--newline-- *     TreeNode(int x) { val = x; }--newline-- * }--newline-- */--newline--public class Solution {--newline--    public TreeNode addOneRow(TreeNode root, int v, int d) {--newline--        --newline--    }--newline--}"
+    },
+    {
+        "text": "Python",
+        "value": "python",
+        "defaultCode": "# Definition for a binary tree node.--newline--# class TreeNode(object):--newline--#     def __init__(self, x):--newline--#         self.val = x--newline--#         self.left = None--newline--#         self.right = None--newline----newline--class Solution(object):--newline--    def addOneRow(self, root, v, d):--newline--        '''--newline--        :type root: TreeNode--newline--        :type v: int--newline--        :type d: int--newline--        :rtype: TreeNode--newline--        '''"
+    },
+    {
+        "text": "Python3",
+        "value": "python3",
+        "defaultCode": "class Solution:--newline--    def addOneRow(self, root, v, d):--newline--        '''--newline--        :type root: TreeNode--newline--        :type v: int--newline--        :type d: int--newline--        :rtype: TreeNode--newline--        '''"
+    },
+    {
+        "text": "C",
+        "value": "c",
+        "defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * struct TreeNode {--newline-- *     int val;--newline-- *     struct TreeNode *left;--newline-- *     struct TreeNode *right;--newline-- * };--newline-- */--newline--struct TreeNode* addOneRow(struct TreeNode* root, int v, int d) {--newline--    --newline--}"
+    },
+    {
+        "text": "C#",
+        "value": "csharp",
+        "defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * public class TreeNode {--newline-- *     public int val;--newline-- *     public TreeNode left;--newline-- *     public TreeNode right;--newline-- *     public TreeNode(int x) { val = x; }--newline-- * }--newline-- */--newline--public class Solution {--newline--    public TreeNode AddOneRow(TreeNode root, int v, int d) {--newline--        --newline--    }--newline--}"
+    },
+    {
+        "text": "JavaScript",
+        "value": "javascript",
+        "defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * function TreeNode(val) {--newline-- *     this.val = val;--newline-- *     this.left = this.right = null;--newline-- * }--newline-- */--newline--/**--newline-- * @param {TreeNode} root--newline-- * @param {number} v--newline-- * @param {number} d--newline-- * @return {TreeNode}--newline-- */--newline--var addOneRow = function(root, v, d) {--newline--    --newline--};"
+    },
+    {
+        "text": "Ruby",
+        "value": "ruby",
+        "defaultCode": "# Definition for a binary tree node.--newline--# class TreeNode--newline--#     attr_accessor :val, :left, :right--newline--#     def initialize(val)--newline--#         @val = val--newline--#         @left, @right = nil, nil--newline--#     end--newline--# end--newline----newline--# @param {TreeNode} root--newline--# @param {Integer} v--newline--# @param {Integer} d--newline--# @return {TreeNode}--newline--def add_one_row(root, v, d)--newline--    --newline--end"
+    },
+    {
+        "text": "Swift",
+        "value": "swift",
+        "defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * public class TreeNode {--newline-- *     public var val: Int--newline-- *     public var left: TreeNode?--newline-- *     public var right: TreeNode?--newline-- *     public init(_ val: Int) {--newline-- *         self.val = val--newline-- *         self.left = nil--newline-- *         self.right = nil--newline-- *     }--newline-- * }--newline-- */--newline--class Solution {--newline--    func addOneRow(_ root: TreeNode?, _ v: Int, _ d: Int) -> TreeNode? {--newline--        --newline--    }--newline--}"
+    },
+    {
+        "text": "Go",
+        "value": "golang",
+        "defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * type TreeNode struct {--newline-- *     Val int--newline-- *     Left *TreeNode--newline-- *     Right *TreeNode--newline-- * }--newline-- */--newline--func addOneRow(root *TreeNode, v int, d int) *TreeNode {--newline--    --newline--}"
+    }
+]
+---SCRIPT_END---

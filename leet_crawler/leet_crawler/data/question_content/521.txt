@@ -1,0 +1,32 @@
+---CONTENT_BEGIN---
+
+Given a group of two strings, you need to find the longest uncommon subsequence of this group of two strings.
+The longest uncommon subsequence is defined as the longest subsequence of one of these strings and this subsequence should not be any subsequence of the other strings.
+
+
+
+A subsequence is a sequence that can be derived from one sequence by deleting some characters without changing the order of the remaining elements. Trivially, any string is a subsequence of itself and an empty string is a subsequence of any string.
+
+
+
+The input will be two strings, and the output needs to be the length of the longest uncommon subsequence. If the longest uncommon subsequence doesn't exist, return -1.
+
+
+Example 1:
+
+Input: "aba", "cdc"
+Output: 3
+Explanation: The longest uncommon subsequence is "aba" (or "cdc"), because "aba" is a subsequence of "aba", but not a subsequence of any other strings in the group of two strings. 
+
+
+
+Note:
+
+Both strings' lengths will not exceed 100.
+Only letters from a ~ z will appear in input strings. 
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int findLUSlength(string a, string b) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int findLUSlength(String a, String b) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def findLUSlength(self, a, b):--newline--        '''--newline--        :type a: str--newline--        :type b: str--newline--        :rtype: int--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "int findLUSlength(char* a, char* b) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int FindLUSlength(string a, string b) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} a--newline-- * @param {string} b--newline-- * @return {number}--newline-- */--newline--var findLUSlength = function(a, b) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} a--newline--# @param {String} b--newline--# @return {Integer}--newline--def find_lu_slength(a, b)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func findLUSlength(_ a: String, _ b: String) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func findLUSlength(a string, b string) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

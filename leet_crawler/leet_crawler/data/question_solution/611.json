@@ -1,0 +1,40 @@
+{
+    "qc": "611.json",
+    "posts": [
+        {
+            "python": null,
+            "cpp": null,
+            "topic_title": "Java O(n^2) Time O(1) Space",
+            "is_locked": false,
+            "java": "public class Solution {--newline--    public static int triangleNumber(int[] A) {--newline--        Arrays.sort(A);--newline--        int count = 0, n = A.length;--newline--        for (int i=n-1;i>=2;i--) {--newline--            int l = 0, r = i-1;--newline--            while (l < r) {--newline--                if (A[l] + A[r] > A[i]) {--newline--                    count += r-l;--newline--                    r--;--newline--                }--newline--                else l++;--newline--            }--newline--        }--newline--        return count;--newline--    }--newline--    --newline--}"
+        },
+        {
+            "python": null,
+            "cpp": null,
+            "topic_title": "Can this problem  possibly be solved by python?",
+            "is_locked": false,
+            "java": null
+        },
+        {
+            "python": null,
+            "cpp": "class Solution {--newline--public:--newline--    int triangleNumber(vector<int>& a) {--newline--        int n = a.size();--newline--        sort(a.begin(), a.end());--newline--        int res = 0;--newline--        for (int i = 0; i < n - 2; i++) {--newline--            for (int j = i + 1; j < n - 1; j++) {--newline--                int sum = a[i] + a[j];   // the sum of 2 shortest sides;--newline--                int firstGE = firstGreatOrEqual(a, j + 1, sum);--newline--                res += firstGE - 1 - j;--newline--            }--newline--        }--newline--        return res;--newline--    }--newline----newline--private:--newline--    int firstGreatOrEqual(vector<int>& a, int i0, int target) {--newline--        int lo = i0, hi = a.size();--newline--        while (lo < hi) {--newline--            int mid = (lo + hi) / 2;--newline--            if (a[mid] < target) {--newline--                lo = mid + 1;--newline--            }--newline--            else {--newline--                hi = mid;--newline--            }--newline--        }--newline--        return hi;--newline--    }--newline--};--newline--",
+            "topic_title": "C++ Clean Code",
+            "is_locked": false,
+            "java": null
+        },
+        {
+            "python": null,
+            "cpp": null,
+            "topic_title": "Java Solution, 3 pointers",
+            "is_locked": false,
+            "java": "public class Solution {--newline--    public int triangleNumber(int[] nums) {--newline--        int result = 0;--newline--        if (nums.length < 3) return result;--newline--        --newline--        Arrays.sort(nums);--newline----newline--        for (int i = 2; i < nums.length; i++) {--newline--            int left = 0, right = i - 1;--newline--            while (left < right) {--newline--                if (nums[left] + nums[right] > nums[i]) {--newline--                    result += (right - left);--newline--                    right--;--newline--                }--newline--                else {--newline--                    left++;--newline--                }--newline--            }--newline--        }--newline--        --newline--        return result;--newline--    }--newline--}--newline--"
+        },
+        {
+            "python": null,
+            "cpp": null,
+            "topic_title": "Solution Similar to Leetcode 259. 3Sum Smaller",
+            "is_locked": false,
+            "java": "public class Solution {--newline--    public int triangleNumber(int[] nums) {--newline--    --tab----tab--if (nums == null || nums.length <= 2) {--newline--    --tab----tab----tab--return 0;--newline--    --tab----tab--}--newline--    --tab----tab--Arrays.sort(nums);--newline--    --tab----tab--int count = 0;--newline--    --tab----tab----newline--    --tab----tab--for (int i = 0; i < nums.length; i++) {--newline--    --tab----tab----tab--int left = 0, right = i-1;--newline--    --tab----tab----tab--while (left < right) {--newline--    --tab----tab----tab----tab--if (nums[left] + nums[right] > nums[i]) {--newline--    --tab----tab----tab----tab----tab--count += right - left;--newline--    --tab----tab----tab----tab----tab--right--;--newline--    --tab----tab----tab----tab--} else {--newline--    --tab----tab----tab----tab----tab--left++;--newline--    --tab----tab----tab----tab--}--newline--    --tab----tab----tab--}--newline--    --tab----tab--}--newline--    --tab----tab----newline--    --tab----tab--return count;--newline--        }--newline--    --newline--}"
+        }
+    ]
+}

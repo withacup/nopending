@@ -1,0 +1,37 @@
+---CONTENT_BEGIN---
+
+Given an integer, write an algorithm to convert it to hexadecimal. For negative integer, twoâs complement method is used.
+
+
+Note:
+
+All letters in hexadecimal (a-f) must be in lowercase.
+The hexadecimal string must not contain extra leading 0s. If the number is zero, it is represented by a single zero character '0'; otherwise, the first character in the hexadecimal string will not be the zero character.
+The given number is guaranteed to fit within the range of a 32-bit signed integer.
+You must not use any method provided by the library which converts/formats the number to hex directly.
+
+
+
+Example 1:
+
+Input:
+26
+
+Output:
+"1a"
+
+
+
+Example 2:
+
+Input:
+-1
+
+Output:
+"ffffffff"
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    string toHex(int num) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public String toHex(int num) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def toHex(self, num):--newline--        '''--newline--        :type num: int--newline--        :rtype: str--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "char* toHex(int num) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public string ToHex(int num) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} num--newline-- * @return {string}--newline-- */--newline--var toHex = function(num) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} num--newline--# @return {String}--newline--def to_hex(num)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func toHex(_ num: Int) -> String {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func toHex(num int) string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

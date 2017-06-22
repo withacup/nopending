@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int[] twoSum(int[] numbers, int target) {--newline--        int[] result = new int[2];--newline--        Map<Integer, Integer> map = new HashMap<Integer, Integer>();--newline--        for (int i = 0; i < numbers.length; i++) {--newline--            if (map.containsKey(target - numbers[i])) {--newline--                result[1] = i + 1;--newline--                result[0] = map.get(target - numbers[i]);--newline--                return result;--newline--            }--newline--            map.put(numbers[i], i + 1);--newline--        }--newline--        return result;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Accepted Java O(n) Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> twoSum(vector<int> &numbers, int target)--newline--    {--newline--        //Key is the number and value is its index in the vector.--newline--    --tab--unordered_map<int, int> hash;--newline--    --tab--vector<int> result;--newline--    --tab--for (int i = 0; i < numbers.size(); i++) {--newline--    --tab----tab--int numberToFind = target - numbers[i];--newline--    --newline--                //if numberToFind is found in map, return them--newline--    --tab----tab--if (hash.find(numberToFind) != hash.end()) {--newline--                        //+1 because indices are NOT zero based--newline--    --tab----tab----tab--result.push_back(hash[numberToFind] + 1);--newline--    --tab----tab----tab--result.push_back(i + 1);--tab----tab----tab----newline--    --tab----tab----tab--return result;--newline--    --tab----tab--}--newline--    --newline--                //number was not found. Put it in the map.--newline--    --tab----tab--hash[numbers[i]] = i;--newline--    --tab--}--newline--    --tab--return result;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Accepted C++ O(n) Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def twoSum(self, nums, target):--newline----tab--        if len(nums) <= 1:--newline----tab--            return False--newline----tab--        buff_dict = {}--newline----tab--        for i in range(len(nums)):--newline----tab--            if nums[i] in buff_dict:--newline----tab--                return [buff_dict[nums[i]], i]--newline----tab--            else:--newline----tab--                buff_dict[target - nums[i]] = i",
+            "topic_title": "Here is a Python solution in O(n) time"
+        },
+        {
+            "java": "public class Solution {--newline--    public int[] twoSum(int[] nums, int target) {--newline--            HashMap<Integer, Integer> tracker = new HashMap<Integer, Integer>();--newline--            int len = nums.length;--newline--            for(int i = 0; i < len; i++){--newline--                if(tracker.containsKey(nums[i])){--newline--                    int left = tracker.get(nums[i]);--newline--                    return new int[]{left+1, i+1};--newline--                }else{--newline--                    tracker.put(target - nums[i], i);--newline--                }--newline--            }--newline--            return new int[2];--newline--        }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My (short) Java solution &#91;O(n) + HashMap!&#93;"
+        },
+        {
+            "java": "public class Solution {--newline--    public int[] twoSum(int[] numbers, int target) {--newline--        --newline--        HashMap<Integer,Integer> hash = new HashMap<Integer,Integer>();--newline--        for(int i = 0; i < numbers.length; i++){--newline----newline--            Integer diff = (Integer)(target - numbers[i]);--newline--            if(hash.containsKey(diff)){--newline--                int toReturn[] = {hash.get(diff)+1, i+1};--newline--                return toReturn;--newline--            }--newline----newline--            hash.put(numbers[i], i);--newline----newline--        }--newline--        --newline--        return null;--newline--        --newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Very short and simple Java code for Two Sum"
+        }
+    ],
+    "qc": "1.json"
+}

@@ -1,0 +1,18 @@
+---CONTENT_BEGIN---
+Given an array and a value, remove all instances of that value in place and return the new length.
+
+
+Do not allocate extra space for another array, you must do this in place with constant memory.
+
+The order of elements can be changed. It doesn't matter what you leave beyond the new length.
+
+
+Example:
+Given input array nums = [3,2,2,3], val = 3
+
+
+Your function should return length = 2, with the first two elements of nums being 2.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int removeElement(vector<int>& nums, int val) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int removeElement(int[] nums, int val) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def removeElement(self, nums, val):--newline--        '''--newline--        :type nums: List[int]--newline--        :type val: int--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int removeElement(int* nums, int numsSize, int val) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int RemoveElement(int[] nums, int val) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} nums--newline-- * @param {number} val--newline-- * @return {number}--newline-- */--newline--var removeElement = function(nums, val) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} nums--newline--# @param {Integer} val--newline--# @return {Integer}--newline--def remove_element(nums, val)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func removeElement(_ nums: inout [Int], _ val: Int) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func removeElement(nums []int, val int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    std::vector<std::vector<std::string> > solveNQueens(int n) {--newline--        std::vector<std::vector<std::string> > res;--newline--        std::vector<std::string> nQueens(n, std::string(n, '.'));--newline--        /*--newline--        flag[0] to flag[n - 1] to indicate if the column had a queen before.--newline--        flag[n] to flag[3 * n - 2] to indicate if the 45\u00b0 diagonal had a queen before.--newline--        flag[3 * n - 1] to flag[5 * n - 3] to indicate if the 135\u00b0 diagonal had a queen before.--newline--        */--newline--        std::vector<int> flag(5 * n - 2, 1);--newline--        solveNQueens(res, nQueens, flag, 0, n);--newline--        return res;--newline--    }--newline--private:--newline--    void solveNQueens(std::vector<std::vector<std::string> > &res, std::vector<std::string> &nQueens, std::vector<int> &flag, int row, int &n) {--newline--        if (row == n) {--newline--            res.push_back(nQueens);--newline--            return;--newline--        }--newline--        for (int col = 0; col != n; ++col)--newline--            if (flag[col] && flag[n + row + col] && flag[4 * n - 2 + col - row]) {--newline--                flag[col] = flag[n + row + col] = flag[4 * n - 2 + col - row] = 0;--newline--                nQueens[row][col] = 'Q';--newline--                solveNQueens(res, nQueens, flag, row + 1, n);--newline--                nQueens[row][col] = '.';--newline--                flag[col] = flag[n + row + col] = flag[4 * n - 2 + col - row] = 1;--newline--            }--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Accepted 4ms c++ solution use backtracking and bitmask, easy understand."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def solveNQueens(self, n):--newline----tab--        def DFS(queens, xy_dif, xy_sum):--newline----tab--            p = len(queens)--newline----tab--            if p==n:--newline----tab--                result.append(queens)--newline----tab--                return None--newline----tab--            for q in range(n):--newline----tab--                if q not in queens and p-q not in xy_dif and p+q not in xy_sum: --newline----tab--                    DFS(queens+[q], xy_dif+[p-q], xy_sum+[p+q])  --newline----tab--        result = []--newline----tab--        DFS([],[],[])--newline----tab--        return [ [\".\"*i + \"Q\" + \".\"*(n-i-1) for i in sol] for sol in result]",
+            "topic_title": "Fast, short, and easy-to-understand python solution, 11 lines, 76ms"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "The description should give a clear explanation of the problem of &quot;n-queens&quot;"
+        },
+        {
+            "java": "public class Solution {--newline--    --newline--    private void helper(int r, boolean[] cols, boolean[] d1, boolean[] d2, --newline--                        String[] board, List<String[]> res) {--newline--        if (r == board.length) res.add(board.clone());--newline--        else {--newline--            for (int c = 0; c < board.length; c++) {--newline--                int id1 = r - c + board.length, id2 = 2*board.length - r - c - 1;--newline--                if (!cols[c] && !d1[id1] && !d2[id2]) {--newline--                    char[] row = new char[board.length];--newline--                    Arrays.fill(row, '.'); row[c] = 'Q';--newline--                    board[r] = new String(row);--newline--                    cols[c] = true; d1[id1] = true; d2[id2] = true;--newline--                    helper(r+1, cols, d1, d2, board, res);--newline--                    cols[c] = false; d1[id1] = false; d2[id2] = false;--newline--                }--newline--            }--newline--        }--newline--    }--newline--    --newline--    public List<String[]> solveNQueens(int n) {--newline--        List<String[]> res = new ArrayList<>();--newline--        helper(0, new boolean[n], new boolean[2*n], new boolean[2*n], --newline--            new String[n], res);--newline--        return res;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Comparably concise Java code"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<List<String>> solveNQueens(int n) {--newline--        char[][] board = new char[n][n];--newline--        for(int i = 0; i < n; i++)--newline--            for(int j = 0; j < n; j++)--newline--                board[i][j] = '.';--newline--        List<List<String>> res = new ArrayList<List<String>>();--newline--        dfs(board, 0, res);--newline--        return res;--newline--    }--newline--    --newline--    private void dfs(char[][] board, int colIndex, List<List<String>> res) {--newline--        if(colIndex == board.length) {--newline--            res.add(construct(board));--newline--            return;--newline--        }--newline--        --newline--        for(int i = 0; i < board.length; i++) {--newline--            if(validate(board, i, colIndex)) {--newline--                board[i][colIndex] = 'Q';--newline--                dfs(board, colIndex + 1, res);--newline--                board[i][colIndex] = '.';--newline--            }--newline--        }--newline--    }--newline--    --newline--    private boolean validate(char[][] board, int x, int y) {--newline--        for(int i = 0; i < board.length; i++) {--newline--            for(int j = 0; j < y; j++) {--newline--                if(board[i][j] == 'Q' && (x + j == y + i || x + y == i + j || x == i))--newline--                    return false;--newline--            }--newline--        }--newline--        --newline--        return true;--newline--    }--newline--    --newline--    private List<String> construct(char[][] board) {--newline--        List<String> res = new LinkedList<String>();--newline--        for(int i = 0; i < board.length; i++) {--newline--            String s = new String(board[i]);--newline--            res.add(s);--newline--        }--newline--        return res;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My easy understanding Java Solution"
+        }
+    ],
+    "qc": "51.json"
+}

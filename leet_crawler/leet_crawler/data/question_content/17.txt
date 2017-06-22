@@ -1,0 +1,21 @@
+---CONTENT_BEGIN---
+Given a digit string, return all possible letter combinations that the number could represent.
+
+
+
+A mapping of digit to letters (just like on the telephone buttons) is given below.
+
+
+
+Input:Digit string "23"
+Output: ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
+
+
+
+Note:
+Although the above answer is in lexicographical order, your answer could be in any order you want.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<string> letterCombinations(string digits) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public List<String> letterCombinations(String digits) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def letterCombinations(self, digits):--newline--        '''--newline--        :type digits: str--newline--        :rtype: List[str]--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Return an array of size *returnSize.--newline-- * Note: The returned array must be malloced, assume caller calls free().--newline-- */--newline--char** letterCombinations(char* digits, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public IList<string> LetterCombinations(string digits) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} digits--newline-- * @return {string[]}--newline-- */--newline--var letterCombinations = function(digits) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} digits--newline--# @return {String[]}--newline--def letter_combinations(digits)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func letterCombinations(_ digits: String) -> [String] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func letterCombinations(digits string) []string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

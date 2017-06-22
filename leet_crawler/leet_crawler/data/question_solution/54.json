@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public List<Integer> spiralOrder(int[][] matrix) {--newline--        --newline--        List<Integer> res = new ArrayList<Integer>();--newline--        --newline--        if (matrix.length == 0) {--newline--            return res;--newline--        }--newline--        --newline--        int rowBegin = 0;--newline--        int rowEnd = matrix.length-1;--newline--        int colBegin = 0;--newline--        int colEnd = matrix[0].length - 1;--newline--        --newline--        while (rowBegin <= rowEnd && colBegin <= colEnd) {--newline--            // Traverse Right--newline--            for (int j = colBegin; j <= colEnd; j ++) {--newline--                res.add(matrix[rowBegin][j]);--newline--            }--newline--            rowBegin++;--newline--            --newline--            // Traverse Down--newline--            for (int j = rowBegin; j <= rowEnd; j ++) {--newline--                res.add(matrix[j][colEnd]);--newline--            }--newline--            colEnd--;--newline--            --newline--            if (rowBegin <= rowEnd) {--newline--                // Traverse Left--newline--                for (int j = colEnd; j >= colBegin; j --) {--newline--                    res.add(matrix[rowEnd][j]);--newline--                }--newline--            }--newline--            rowEnd--;--newline--            --newline--            if (colBegin <= colEnd) {--newline--                // Traver Up--newline--                for (int j = rowEnd; j >= rowBegin; j --) {--newline--                    res.add(matrix[j][colBegin]);--newline--                }--newline--            }--newline--            colBegin ++;--newline--        }--newline--        --newline--        return res;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Super Simple and Easy to Understand Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> spiralOrder(vector<vector<int>>& matrix) {--newline--        vector<vector<int> > dirs{{0, 1}, {1, 0}, {0, -1}, {-1, 0}};--newline--        vector<int> res;--newline--        int nr = matrix.size();     if (nr == 0) return res;--newline--        int nc = matrix[0].size();  if (nc == 0) return res;--newline--        --newline--        vector<int> nSteps{nc, nr-1};--newline--        --newline--        int iDir = 0;   // index of direction.--newline--        int ir = 0, ic = -1;    // initial position--newline--        while (nSteps[iDir%2]) {--newline--            for (int i = 0; i < nSteps[iDir%2]; ++i) {--newline--                ir += dirs[iDir][0]; ic += dirs[iDir][1];--newline--                res.push_back(matrix[ir][ic]);--newline--            }--newline--            nSteps[iDir%2]--;--newline--            iDir = (iDir + 1) % 4;--newline--        }--newline--        return res;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "A concise C++ implementation based on Directions"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> spiralOrder(vector<vector<int>>& matrix) {--newline--        if (matrix.empty()) return {};--newline--        int m = matrix.size(), n = matrix[0].size();--newline--        vector<int> spiral(m * n);--newline--        int u = 0, d = m - 1, l = 0, r = n - 1, k = 0;--newline--        while (true) {--newline--            // up--newline--            for (int col = l; col <= r; col++) spiral[k++] = matrix[u][col];--newline--            if (++u > d) break;--newline--            // right--newline--            for (int row = u; row <= d; row++) spiral[k++] = matrix[row][r];--newline--            if (--r < l) break;--newline--            // down--newline--            for (int col = r; col >= l; col--) spiral[k++] = matrix[d][col];--newline--            if (--d < u) break;--newline--            // left--newline--            for (int row = d; row >= u; row--) spiral[k++] = matrix[row][l];--newline--            if (++l > r) break;--newline--        }--newline--        return spiral;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "0ms Clear C++ Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "1-liner in Python"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def spiralOrder(self, matrix):--newline----tab--        ret = []--newline----tab--        while matrix:--newline----tab--            ret += matrix.pop(0)--newline----tab--            if matrix and matrix[0]:--newline----tab--                for row in matrix:--newline----tab--                    ret.append(row.pop())--newline----tab--            if matrix:--newline----tab--                ret += matrix.pop()[::-1]--newline----tab--            if matrix and matrix[0]:--newline----tab--                for row in matrix[::-1]:--newline----tab--                    ret.append(row.pop(0))--newline----tab--        return ret",
+            "topic_title": "Simple Python solution by mutating the matrix"
+        }
+    ],
+    "qc": "54.json"
+}

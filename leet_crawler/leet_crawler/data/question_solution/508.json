@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    Map<Integer, Integer> sumToCount;--newline--    int maxCount;--newline--    --newline--    public int[] findFrequentTreeSum(TreeNode root) {--newline--        maxCount = 0;--newline--        sumToCount = new HashMap<Integer, Integer>();--newline--        --newline--        postOrder(root);--newline--        --newline--        List<Integer> res = new ArrayList<>();--newline--        for (int key : sumToCount.keySet()) {--newline--            if (sumToCount.get(key) == maxCount) {--newline--                res.add(key);--newline--            }--newline--        }--newline--        --newline--        int[] result = new int[res.size()];--newline--        for (int i = 0; i < res.size(); i++) {--newline--            result[i] = res.get(i);--newline--        }--newline--        return result;--newline--    }--newline--    --newline--    private int postOrder(TreeNode root) {--newline--        if (root == null) return 0;--newline--        --newline--        int left = postOrder(root.left);--newline--        int right = postOrder(root.right);--newline--        --newline--        int sum = left + right + root.val;--newline--        int count = sumToCount.getOrDefault(sum, 0) + 1;--newline--        sumToCount.put(sum, count);--newline--        --newline--        maxCount = Math.max(maxCount, count);--newline--        --newline--        return sum;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Verbose Java solution, postOrder traverse, HashMap (18ms)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--      def findFrequentTreeSum(self, root):--newline----tab--            if root == None: return []--newline----tab--            def getSum(node):--newline----tab--                if node == None: return 0--newline----tab--                s = node.val + getSum(node.left) + getSum(node.right)--newline----tab--                c[s] += 1--newline----tab--                return s--newline----tab--            c = collections.Counter()--newline----tab--            getSum(root)--newline----tab--            frequent = max(c.values())--newline----tab--            return [s for s in c.keys() if c[s] == frequent]--newline----tab--    ",
+            "topic_title": "Python easy understand solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> findFrequentTreeSum(TreeNode* root) {--newline--        unordered_map<int,int> counts;--newline--        int maxCount = 0;--newline--        countSubtreeSums(root, counts, maxCount);--newline--        --newline--        --newline--        vector<int> maxSums;--newline--        for(const auto& x :  counts){--newline--            if(x.second == maxCount) maxSums.push_back(x.first);--newline--        }--newline--        return maxSums;--newline--    }--newline--    --newline--    int countSubtreeSums(TreeNode *r, unordered_map<int,int> &counts, int& maxCount){--newline--        if(r == nullptr) return 0;--newline--        --newline--        int sum = r->val;--newline--        sum += countSubtreeSums(r->left, counts, maxCount);--newline--        sum += countSubtreeSums(r->right, counts, maxCount);--newline--        ++counts[sum];--newline--        maxCount = max(maxCount, counts[sum]);--newline--        return sum;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Short Clean C++ O(n)  Solution"
+        },
+        {
+            "java": "public class Solution {--newline--    int max = 0;--newline--    public int[] findFrequentTreeSum(TreeNode root) {--newline--        if(root==null) return new int[0];--newline--        Map<Integer, Integer> map = new HashMap<>();--newline--        helper(root, map);--newline--        List<Integer> res = new LinkedList<>();--newline--        for(Map.Entry<Integer, Integer> me: map.entrySet()){--newline--            if(me.getValue()==max) res.add(me.getKey());--newline--        }--newline--        return res.stream().mapToInt(i->i).toArray();--newline--    }--newline--    --newline--    private int helper(TreeNode n, Map<Integer, Integer> map){--newline--        int left = (n.left==null) ? 0 : helper(n.left, map);--newline--        int right = (n.right==null) ? 0 : helper(n.right, map);--newline--        int sum = left + right + n.val;--newline--        map.put(sum, map.getOrDefault(sum,0)+1);--newline--        max = Math.max(max, map.get(sum));--newline--        return sum;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Short Easy Java"
+        },
+        {
+            "java": "public class Solution {--newline--    int maxFreq = 0;--newline--    int count = 0;--newline--    public int[] findFrequentTreeSum(TreeNode root) {--newline--        Map<Integer, Integer> map = new HashMap<>();--newline--        traverse(root, map);--newline--        int[] res = new int[count];--newline--        int i = 0;--newline--        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {--newline--            if (entry.getValue() == maxFreq) {--newline--                res[i++] = entry.getKey();--newline--            }--newline--        }--newline--        return res;--newline--    }--newline--    --newline--    private int traverse(TreeNode root, Map<Integer, Integer> map) {--newline--        if (root == null) {--newline--            return 0;--newline--        }--newline--        --newline--        int left = traverse(root.left, map);--newline--        int right = traverse(root.right, map);--newline--        --newline--        int sum = left + right + root.val;--newline--        map.put(sum, map.getOrDefault(sum, 0) + 1);--newline--        if (map.get(sum) > maxFreq) {--newline--            maxFreq = map.get(sum);--newline--            count = 1;--newline--        } else if (map.get(sum) == maxFreq) {--newline--            count++;--newline--        }--newline--        return sum;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java divide and conquer"
+        }
+    ],
+    "qc": "508.json"
+}

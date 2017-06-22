@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool isValidBST(TreeNode* root) {--newline--        TreeNode* prev = NULL;--newline--        return validate(root, prev);--newline--    }--newline--    bool validate(TreeNode* node, TreeNode* &prev) {--newline--        if (node == NULL) return true;--newline--        if (!validate(node->left, prev)) return false;--newline--        if (prev != NULL && prev->val >= node->val) return false;--newline--        prev = node;--newline--        return validate(node->right, prev);--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ in-order traversal, and please do not rely on buggy INT_MAX, INT_MIN solutions any more"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isValidBST(TreeNode root) {--newline--        return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);--newline--    }--newline--    --newline--    public boolean isValidBST(TreeNode root, long minVal, long maxVal) {--newline--        if (root == null) return true;--newline--        if (root.val >= maxVal || root.val <= minVal) return false;--newline--        return isValidBST(root.left, minVal, root.val) && isValidBST(root.right, root.val, maxVal);--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My simple Java solution in 3 lines"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isValidBST(TreeNode root) {--newline--       if (root == null) return true;--newline--       Stack<TreeNode> stack = new Stack<>();--newline--       TreeNode pre = null;--newline--       while (root != null || !stack.isEmpty()) {--newline--          while (root != null) {--newline--             stack.push(root);--newline--             root = root.left;--newline--          }--newline--          root = stack.pop();--newline--          if(pre != null && root.val <= pre.val) return false;--newline--          pre = root;--newline--          root = root.right;--newline--       }--newline--       return true;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Learn one iterative inorder traversal, apply it to multiple tree questions (Java Solution)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool isValidBST(TreeNode* root) {--newline--        return isValidBST(root, NULL, NULL);--newline--    }--newline--    --newline--    bool isValidBST(TreeNode* root, TreeNode* minNode, TreeNode* maxNode) {--newline--        if(!root) return true;--newline--        if(minNode && root->val <= minNode->val || maxNode && root->val >= maxNode->val)--newline--            return false;--newline--        return isValidBST(root->left, minNode, root) && isValidBST(root->right, root, maxNode);--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "C++ simple recursive solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isValidBST (TreeNode root){--newline--    --tab----tab--   Stack<TreeNode> stack = new Stack<TreeNode> ();--newline--    --tab----tab--   TreeNode cur = root ;--newline--    --tab----tab--   TreeNode pre = null ;--tab----tab--   --newline--    --tab----tab--   while (!stack.isEmpty() || cur != null) {--tab----tab----tab--   --newline--    --tab----tab----tab--   if (cur != null) {--newline--    --tab----tab----tab----tab--   stack.push(cur);--newline--    --tab----tab----tab----tab--   cur = cur.left ;--newline--    --tab----tab----tab--   } else {--tab----tab----tab----tab--   --newline--    --tab----tab----tab----tab--   TreeNode p = stack.pop() ;--newline--    --tab----tab----tab----tab--   if (pre != null && p.val <= pre.val) {--tab----tab----tab----tab----tab--   --newline--    --tab----tab----tab----tab----tab--   return false ;--newline--    --tab----tab----tab----tab--   }--tab----tab----tab----tab--   --newline--    --tab----tab----tab----tab--   pre = p ;--tab----tab----tab----tab----tab--   --newline--    --tab----tab----tab----tab--   cur = p.right ;--newline--    --tab----tab----tab--   }--newline--    --tab----tab--   }--newline--    --tab----tab--   return true ; --newline--    --tab--   }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My java inorder iteration solution"
+        }
+    ],
+    "qc": "98.json"
+}

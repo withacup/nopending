@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution--newline--{--newline--public:--newline--    string addBinary(string a, string b)--newline--    {--newline--        string s = \"\";--newline--        --newline--        int c = 0, i = a.size() - 1, j = b.size() - 1;--newline--        while(i >= 0 || j >= 0 || c == 1)--newline--        {--newline--            c += i >= 0 ? a[i --] - '0' : 0;--newline--            c += j >= 0 ? b[j --] - '0' : 0;--newline--            s = char(c % 2 + '0') + s;--newline--            c /= 2;--newline--        }--newline--        --newline--        return s;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Short code by c++"
+        },
+        {
+            "java": "public class Solution {--newline--    public String addBinary(String a, String b) {--newline--        StringBuilder sb = new StringBuilder();--newline--        int i = a.length() - 1, j = b.length() -1, carry = 0;--newline--        while (i >= 0 || j >= 0) {--newline--            int sum = carry;--newline--            if (j >= 0) sum += b.charAt(j--) - '0';--newline--            if (i >= 0) sum += a.charAt(i--) - '0';--newline--            sb.append(sum % 2);--newline--            carry = sum / 2;--newline--        }--newline--        if (carry != 0) sb.append(carry);--newline--        return sb.reverse().toString();--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Short AC solution in Java with explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public String addBinary(String a, String b) {--newline--        if(a == null || a.isEmpty()) {--newline--            return b;--newline--        }--newline--        if(b == null || b.isEmpty()) {--newline--            return a;--newline--        }--newline--        char[] aArray = a.toCharArray();--newline--        char[] bArray = b.toCharArray();--newline--        StringBuilder stb = new StringBuilder();--newline----newline--        int i = aArray.length - 1;--newline--        int j = bArray.length - 1;--newline--        int aByte;--newline--        int bByte;--newline--        int carry = 0;--newline--        int result;--newline----newline--        while(i > -1 || j > -1 || carry == 1) {--newline--            aByte = (i > -1) ? Character.getNumericValue(aArray[i--]) : 0;--newline--            bByte = (j > -1) ? Character.getNumericValue(bArray[j--]) : 0;--newline--            result = aByte ^ bByte ^ carry;--newline--            carry = ((aByte + bByte + carry) >= 2) ? 1 : 0;--newline--            stb.append(result);--newline--        }--newline--        return stb.reverse().toString();--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple accepted java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string addBinary(string a, string b) --newline--    {--newline--        string result = \"\";--newline--        int apos = a.size() - 1;--newline--        int bpos = b.size() - 1;--newline--        int adigit, bdigit, carry = 0;--newline--        --newline--        while (apos >= 0 || bpos >= 0 || carry == 1)--newline--        {--newline--            adigit = bdigit = 0;--newline--            --newline--            if (apos >= 0) adigit = a[apos--] == '1';--newline--            if (bpos >= 0) bdigit = b[bpos--] == '1';--newline--            --newline--            // Another way: the digit is 1 if adigit + bdigit + carry == 1 or == 3, but I noticed that--newline--            // XOR is more concise:--newline--            result = static_cast<char>(adigit ^ bdigit ^ carry + '0') + result; --newline--            carry = adigit + bdigit + carry >= 2;--newline--        }--newline--        --newline--        return result;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Very concise C++ solution without calculating longest string"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "#add two binary from back to front, I think it is very self explained, when 1+1 we need a carry.--newline--   class Solution:--newline--        def addBinary(self, a, b):--newline--            if len(a)==0: return b--newline--            if len(b)==0: return a--newline--            if a[-1] == '1' and b[-1] == '1':--newline--                return self.addBinary(self.addBinary(a[0:-1],b[0:-1]),'1')+'0'--newline--            if a[-1] == '0' and b[-1] == '0':--newline--                return self.addBinary(a[0:-1],b[0:-1])+'0'--newline--            else:--newline--                return self.addBinary(a[0:-1],b[0:-1])+'1'",
+            "topic_title": "An accepted concise Python recursive solution 10 lines"
+        }
+    ],
+    "qc": "67.json"
+}

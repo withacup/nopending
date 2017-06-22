@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "import math--newline--class Solution(object):--newline----tab--    def smallestGoodBase(self, n):--newline----tab--        \"\"\"--newline----tab--        :type n: str--newline----tab--        :rtype: str--newline----tab--        \"\"\"--newline----tab--        n = int(n)--newline----tab--        max_m = int(math.log(n,2)) # Refer [7]--newline----tab--        for m in range(max_m,1,-1):--newline----tab--            k = int(n**m**-1)  # Refer [6]--newline----tab--            if (k**(m+1)-1)//(k-1) == n:--newline----tab--                # Refer [3]--newline----tab--                return str(k)--newline----tab--        --newline----tab--        return str(n-1)  --newline----tab--",
+            "topic_title": "Python solution with detailed mathematical explanation and derivation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string smallestGoodBase(string n) {--newline--    unsigned long long tn=(unsigned long long)stoll(n);--newline--    unsigned long long x=1;--newline--    for (int i=62;i>=1;i--) {--newline--        if ((x<<i)<tn) {--newline--            unsigned long long cur=mysolve(tn,i);--newline--            if (cur!=0) return to_string(cur);--newline--        }--newline--    }--newline--    return to_string(tn-1);--newline--    }--newline--    --newline--unsigned long long mysolve(unsigned long long n,int d) {--newline--    double tn=(double) n;--newline--    unsigned long long right=(unsigned long long)(pow(tn,1.0/d)+1);--newline--    unsigned long long left=1;--newline--    while (left<=right){--newline--        unsigned long long mid=left+(right-left)/2;--newline--        unsigned long long sum=1,cur=1;--newline--        for (int i=1;i<=d;i++) {--newline--            cur*=mid;--newline--            sum+=cur;--newline--        }--newline--        if (sum==n) return mid;--newline--        if (sum>n) right=mid-1;--newline--        else left=mid+1;--newline--    }--newline--    return 0;--newline--}--newline----newline--};--newline--",
+            "python": null,
+            "topic_title": "3ms, AC, C++, long long int + binary search"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def smallestGoodBase(self, N):--newline----tab--        n = int(N);--newline----tab--        --newline----tab--        for k in xrange(int(math.log(n, 2)), 1 , -1):--newline----tab--            a = int(n ** k ** -1)                  # kth-root of n--newline----tab--            if (1 - a ** (k + 1)) // (1 - a) == n: # [a^0 + a^1 + ... + a^k] == n--newline----tab--                return str(a)--newline----tab--        --newline----tab--        return str(n - 1)--newline----tab--",
+            "topic_title": "Short Python O(log(N))"
+        },
+        {
+            "java": "import java.math.*;--newline----newline--public class Solution {--newline----newline--    public String smallestGoodBase(String n) {--newline--        BigInteger N = new BigInteger(n);--newline--        long base = Long.MAX_VALUE;--newline----newline--        for (int k = 2; k < 66; k++) {--newline----newline--            long l = 2, r = Long.MAX_VALUE - 5;--newline--            while (l <= r) {--newline--                long mid = l + (r - l) / 2;--newline----newline--                BigInteger cb = BigInteger.valueOf(mid).pow(k).subtract(BigInteger.ONE);--newline--                BigInteger wb = N.multiply(BigInteger.valueOf(mid).subtract(BigInteger.ONE));--newline----newline--                int cmp = cb.compareTo(wb);--newline--                if (cmp == 0) {--newline--                    base = Math.min(base, mid);--newline--                    break;--newline--                } else if (cmp < 0) {--newline--                    l = mid + 1;--newline--                } else {--newline--                    r = mid - 1;--newline--                }--newline--            }--newline--        }--newline----newline--        return \"\" + base;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java&#x2F;C# binary search solutions with detailed explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public String smallestGoodBase(String n) {--newline--        long num = 0;--newline--        for (char c : n.toCharArray()) num = num * 10 + c - '0';--newline--        --newline--        long x = 1;--newline--        for (int p = 64; p >= 1; p--) {--newline--            if ((x << p) < num) {--newline--                long k = helper(num, p);--newline--                if (k != -1) return String.valueOf(k);--newline--            }--newline--        }--newline--        return String.valueOf(num - 1);--newline--    }--newline--    --newline--    private long helper(long num, int p) {--newline--        long l = 1, r = (long)(Math.pow(num, 1.0/p) + 1);--newline--        while (l < r) {--newline--            long mid = l + (r - l) / 2;--newline--            long sum = 0, cur = 1;--newline--            for (int i = 0; i <= p; i++) {--newline--                sum += cur;--newline--                cur *= mid;--newline--            }--newline--            if (sum == num) return mid;--newline--            else if (sum > num) r = mid;--newline--            else l = mid + 1;--newline--        }--newline--        return -1;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Binary Search solution, 9 ms"
+        }
+    ],
+    "qc": "483.json"
+}

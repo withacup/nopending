@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--        bool find132pattern(vector<int>& nums) {--newline--            int s3 = INT_MIN;--newline--            stack<int> st;--newline--            for( int i = nums.size()-1; i >= 0; i -- ){--newline--                if( nums[i] < s3 ) return true;--newline--                else while( !st.empty() && nums[i] > st.top() ){ --newline--                  s3 = st.top(); st.pop(); --newline--                }--newline--                st.push(nums[i]);--newline--            }--newline--            return false;--newline--        }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Single pass C++ O(n) space and time solution (8 lines) with detailed explanation."
+        },
+        {
+            "java": "   class Pair{--newline--        int min, max;--newline--        public Pair(int min, int max){--newline--            this.min = min;--newline--            this.max = max;--newline--        }--newline--    }--newline--    public boolean find132pattern(int[] nums) {--newline--        Stack<Pair> stack = new Stack();--newline--        for(int n: nums){--newline--            if(stack.isEmpty() || n <stack.peek().min ) stack.push(new Pair(n,n));--newline--            else if(n > stack.peek().min){ --newline--                Pair last = stack.pop();--newline--                if(n < last.max) return true;--newline--                else {--newline--                    last.max = n;--newline--                    while(!stack.isEmpty() && n >= stack.peek().max) stack.pop();--newline--                    // At this time, n < stack.peek().max (if stack not empty)--newline--                    if(!stack.isEmpty() && stack.peek().min < n) return true;--newline--                    stack.push(last);--newline--                }--newline--                --newline--            }--newline--        }--newline--        return false;--newline--    }--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java O(n) solution using stack in detail explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean find132pattern(int[] nums) {--newline--        int[] arr = Arrays.copyOf(nums, nums.length);--newline--    --newline--        for (int i = 1; i < nums.length; i++) {--newline--            arr[i] = Math.min(nums[i - 1], arr[i - 1]);--newline--        }--newline--        --newline--        for (int j = nums.length - 1, top = nums.length; j >= 0; j--) {--newline--            if (nums[j] <= arr[j]) continue;--newline--            while (top < nums.length && arr[top] <= arr[j]) top++;--newline--            if (top < nums.length && nums[j] > arr[top]) return true;--newline--            arr[--top] = nums[j];--newline--        }--newline--            --newline--        return false;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java solutions from O(n^3) to O(n) for &quot;132&quot; pattern"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean find132pattern(int[] nums) {--newline--        if(nums.length<3) return false;--newline--        Integer low = null, high = null;--newline--        int start = 0, end = 0;--newline--        while(start<nums.length-1){--newline--            while(start<nums.length-1 && nums[start]>=nums[start+1]) start++;--newline--            // start is lowest now--newline--            int m = start+1;--newline--            while(m<nums.length-1 && nums[m]<=nums[m+1]) m++;--newline--            // m is highest now--newline--            int j = m+1;--newline--            while(j<nums.length){--newline--                if(nums[j]>nums[start] && nums[j]<nums[m]) return true;--newline--                j++;--newline--            }--newline--            start = m+1;--newline--        }--newline--        return false;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my easy and simple solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool find132pattern(vector<int>& nums) {--newline--        int i,j,k,n;--newline--        n = nums.size();--newline--        if(n<3)--newline--            return false;--newline--        vector<int> mn(nums.begin(),nums.end());--newline--        for(i=1;i<n;i++)--newline--            mn[i] = min(mn[i],mn[i-1]);--newline--        int dp[n]{-1};--newline--        for(i=0;i<n;i++)--newline--            {--newline--                j = i-1;--newline--                while(j!= -1 && nums[j]<=nums[i])--newline--                    j = dp[j];--newline--                dp[i] = j;--newline--            }--newline--        for(i=2;i<n;i++)--newline--            {--newline--                j = dp[i];--newline--                if(j>0 && mn[j-1]<nums[i])--newline--                    return true;--newline--            }--newline--        return false;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C ++ solution ,in O(n)"
+        }
+    ],
+    "qc": "456.json"
+}

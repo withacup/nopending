@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public boolean canFinish(int numCourses, int[][] prerequisites) {--newline--        int[][] matrix = new int[numCourses][numCourses]; // i -> j--newline--        int[] indegree = new int[numCourses];--newline--        --newline--        for (int i=0; i<prerequisites.length; i++) {--newline--            int ready = prerequisites[i][0];--newline--            int pre = prerequisites[i][1];--newline--            if (matrix[pre][ready] == 0)--newline--                indegree[ready]++; //duplicate case--newline--            matrix[pre][ready] = 1;--newline--        }--newline--        --newline--        int count = 0;--newline--        Queue<Integer> queue = new LinkedList();--newline--        for (int i=0; i<indegree.length; i++) {--newline--            if (indegree[i] == 0) queue.offer(i);--newline--        }--newline--        while (!queue.isEmpty()) {--newline--            int course = queue.poll();--newline--            count++;--newline--            for (int i=0; i<numCourses; i++) {--newline--                if (matrix[course][i] != 0) {--newline--                    if (--indegree[i] == 0)--newline--                        queue.offer(i);--newline--                }--newline--            }--newline--        }--newline--        return count == numCourses;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy BFS Topological sort, Java"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool canFinish(int numCourses, vector<pair<int, int>>& prerequisites) {--newline--        vector<unordered_set<int>> graph = make_graph(numCourses, prerequisites);--newline--        vector<bool> onpath(numCourses, false), visited(numCourses, false);--newline--        for (int i = 0; i < numCourses; i++)--newline--            if (!visited[i] && dfs_cycle(graph, i, onpath, visited))--newline--                return false;--newline--        return true;--newline--    }--newline--private:--newline--    vector<unordered_set<int>> make_graph(int numCourses, vector<pair<int, int>>& prerequisites) {--newline--        vector<unordered_set<int>> graph(numCourses);--newline--        for (auto pre : prerequisites)--newline--            graph[pre.second].insert(pre.first);--newline--        return graph;--newline--    } --newline--    bool dfs_cycle(vector<unordered_set<int>>& graph, int node, vector<bool>& onpath, vector<bool>& visited) {--newline--        if (visited[node]) return false;--newline--        onpath[node] = visited[node] = true; --newline--        for (int neigh : graph[node])--newline--            if (onpath[neigh] || dfs_cycle(graph, neigh, onpath, visited))--newline--                return true;--newline--        return onpath[node] = false;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "18-22 lines C++ BFS&#x2F;DFS Solutions"
+        },
+        {
+            "java": "public class Solution {--newline--        public boolean canFinish(int numCourses, int[][] prerequisites) {--newline--            ArrayList[] graph = new ArrayList[numCourses];--newline--            for(int i=0;i<numCourses;i++)--newline--                graph[i] = new ArrayList();--newline--                --newline--            boolean[] visited = new boolean[numCourses];--newline--            for(int i=0; i<prerequisites.length;i++){--newline--                graph[prerequisites[i][1]].add(prerequisites[i][0]);--newline--            }--newline----newline--            for(int i=0; i<numCourses; i++){--newline--                if(!dfs(graph,visited,i))--newline--                    return false;--newline--            }--newline--            return true;--newline--        }--newline----newline--        private boolean dfs(ArrayList[] graph, boolean[] visited, int course){--newline--            if(visited[course])--newline--                return false;--newline--            else--newline--                visited[course] = true;;--newline----newline--            for(int i=0; i<graph[course].size();i++){--newline--                if(!dfs(graph,visited,(int)graph[course].get(i)))--newline--                    return false;--newline--            }--newline--            visited[course] = false;--newline--            return true;--newline--        }--newline--    }",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java DFS and BFS solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool canFinish(int numCourses, vector<vector<int>>& prerequisites)--newline--    {--newline--        vector<unordered_set<int>> matrix(numCourses); // save this directed graph--newline--        for(int i = 0; i < prerequisites.size(); ++ i)--newline--            matrix[prerequisites[i][1]].insert(prerequisites[i][0]);--newline--        --newline--        unordered_set<int> visited;--newline--        vector<bool> flag(numCourses, false);--newline--        for(int i = 0; i < numCourses; ++ i)--newline--            if(!flag[i])--newline--                if(DFS(matrix, visited, i, flag))--newline--                    return false;--newline--        return true;--newline--    }--newline--    bool DFS(vector<unordered_set<int>> &matrix, unordered_set<int> &visited, int b, vector<bool> &flag)--newline--    {--newline--        flag[b] = true;--newline--        visited.insert(b);--newline--        for(auto it = matrix[b].begin(); it != matrix[b].end(); ++ it)--newline--            if(visited.find(*it) != visited.end() || DFS(matrix, visited, *it, flag))--newline--                return true;--newline--        visited.erase(b);--newline--        return false;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "BFS(Topological Sort) and DFS(Finding cycle) by C++"
+        },
+        {
+            "java": "public class Solution {--newline--    public static boolean canFinish(int numCourses, int[][] prerequisites) {--newline--    --tab--if (numCourses <= 0)--newline--    --tab----tab--return false;--newline--    --tab--Queue<Integer> queue = new LinkedList<>();--newline--    --tab--int[] inDegree = new int[numCourses];--newline--    --tab--for (int i = 0; i < prerequisites.length; i++) {--newline--    --tab----tab--inDegree[prerequisites[i][1]]++;--newline--    --tab--}--newline--    --tab--for (int i = 0; i < inDegree.length; i++) {--newline--    --tab----tab--if (inDegree[i] == 0)--newline--    --tab----tab----tab--queue.offer(i);--newline--    --tab--}--newline--    --tab--while (!queue.isEmpty()) {--newline--    --tab----tab--int x = queue.poll();--newline--    --tab----tab--for (int i = 0; i < prerequisites.length; i++) {--newline--    --tab----tab----tab--if (x == prerequisites[i][0]) {--newline--    --tab----tab----tab----tab--inDegree[prerequisites[i][1]]--;--newline--    --tab----tab----tab----tab--if (inDegree[prerequisites[i][1]] == 0)--newline--    --tab----tab----tab----tab----tab--queue.offer(prerequisites[i][1]);--newline--    --tab----tab----tab--}--newline--    --tab----tab--}--newline--    --tab--}--newline--    --tab--for (int i = 0; i < inDegree.length; i++) {--newline--    --tab----tab--if (inDegree[i] != 0)--newline--    --tab----tab----tab--return false;--newline--    --tab--}--newline--    --tab--return true;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "JAVA---------Easy Version To UnderStand!!!!!!!!!!!!!!!!!"
+        }
+    ],
+    "qc": "207.json"
+}

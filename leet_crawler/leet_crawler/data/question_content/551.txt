@@ -1,0 +1,33 @@
+---CONTENT_BEGIN---
+You are given a string representing an attendance record for a student. The record only contains the following three characters:
+
+
+
+'A' : Absent. 
+'L' : Late.
+ 'P' : Present. 
+
+
+
+
+A student could be rewarded if his attendance record doesn't contain more than one 'A' (absent) or more than two continuous 'L' (late).    
+
+You need to return whether the student could be rewarded according to his attendance record.
+
+Example 1:
+
+Input: "PPALLP"
+Output: True
+
+
+
+Example 2:
+
+Input: "PPALLL"
+Output: False
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    bool checkRecord(string s) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public boolean checkRecord(String s) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def checkRecord(self, s):--newline--        '''--newline--        :type s: str--newline--        :rtype: bool--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "bool checkRecord(char* s) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public bool CheckRecord(string s) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} s--newline-- * @return {boolean}--newline-- */--newline--var checkRecord = function(s) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} s--newline--# @return {Boolean}--newline--def check_record(s)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func checkRecord(_ s: String) -> Bool {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func checkRecord(s string) bool {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

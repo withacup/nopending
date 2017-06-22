@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    --tab--public int findNthDigit(int n) {--newline--    --tab----tab--int len = 1;--newline--    --tab----tab--long count = 9;--newline--    --tab----tab--int start = 1;--newline--    --newline--    --tab----tab--while (n > len * count) {--newline--    --tab----tab----tab--n -= len * count;--newline--    --tab----tab----tab--len += 1;--newline--    --tab----tab----tab--count *= 10;--newline--    --tab----tab----tab--start *= 10;--newline--    --tab----tab--}--newline--    --newline--    --tab----tab--start += (n - 1) / len;--newline--    --tab----tab--String s = Integer.toString(start);--newline--    --tab----tab--return Character.getNumericValue(s.charAt((n - 1) % len));--newline--    --tab--}--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution --newline--{--newline--    // date: 2016-09-18     location: Vista Del Lago III Apartments--newline--public:--newline--    int findNthDigit(int n) --newline--    {--newline--        // step 1. calculate how many digits the number has.--newline--        long base = 9, digits = 1;--newline--        while (n - base * digits > 0)--newline--        {--newline--            n -= base * digits;--newline--            base *= 10;--newline--            digits ++;--newline--        }--newline----newline--        // step 2. calculate what the number is.--newline--        int index = n % digits;--newline--        if (index == 0)--newline--            index = digits;--newline--        long num = 1;--newline--        for (int i = 1; i < digits; i ++)--newline--            num *= 10;--newline--        num += (index == digits) ? n / digits - 1 : n / digits;;--newline----newline--        // step 3. find out which digit in the number is we wanted.--newline--        for (int i = index; i < digits; i ++)--newline--            num /= 10;--newline--        return num % 10;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "0ms C++ Solution with Detail-Explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findNthDigit(int n) {--newline--        n -= 1;--newline--        int digits = 1, first = 1;--newline--        while (n / 9 / first / digits >= 1) {--newline--            n -= 9 * first * digits;--newline--            digits++;--newline--            first *= 10;--newline--        }--newline--        return (first + n/digits + \"\").charAt(n%digits) - '0';--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def findNthDigit(self, n):--newline----tab--        n -= 1--newline----tab--        for digits in range(1, 11):--newline----tab--            first = 10**(digits - 1)--newline----tab--            if n < 9 * first * digits:--newline----tab--                return int(str(first + n/digits)[n%digits])--newline----tab--            n -= 9 * first * digits--newline----tab--    ",
+            "topic_title": "Short Python+Java"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Sharing my thinking process"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def findNthDigit(self, n):--newline----tab--        start, size = 1, 1--newline----tab--        while n > size:--newline----tab--            n, start = n - size, start + 1--newline----tab--            size = len(str(start))--newline----tab--        return int(str(start)[n-1])--newline----tab--",
+            "topic_title": "4-liner in Python, and complexity analysis"
+        }
+    ],
+    "qc": "400.json"
+}

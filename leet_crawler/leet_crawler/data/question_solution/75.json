@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "    class Solution {--newline--    public:--newline--        void sortColors(int A[], int n) {--newline--            int second=n-1, zero=0;--newline--            for (int i=0; i<=second; i++) {--newline--                while (A[i]==2 && i<second) swap(A[i], A[second--]);--newline--                while (A[i]==0 && i>zero) swap(A[i], A[zero++]);--newline--            }--newline--        }--newline--    };",
+            "python": null,
+            "topic_title": "Share my at most two-pass constant space 10-line solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    // two pass O(m+n) space--newline--    void sortColors(int A[], int n) {--newline--        int num0 = 0, num1 = 0, num2 = 0;--newline--        --newline--        for(int i = 0; i < n; i++) {--newline--            if (A[i] == 0) ++num0;--newline--            else if (A[i] == 1) ++num1;--newline--            else if (A[i] == 2) ++num2;--newline--        }--newline--        --newline--        for(int i = 0; i < num0; ++i) A[i] = 0;--newline--        for(int i = 0; i < num1; ++i) A[num0+i] = 1;--newline--        for(int i = 0; i < num2; ++i) A[num0+num1+i] = 2;--newline--    }--newline--    --newline--    // one pass in place solution--newline--    void sortColors(int A[], int n) {--newline--        int n0 = -1, n1 = -1, n2 = -1;--newline--        for (int i = 0; i < n; ++i) {--newline--            if (A[i] == 0) --newline--            {--newline--                A[++n2] = 2; A[++n1] = 1; A[++n0] = 0;--newline--            }--newline--            else if (A[i] == 1) --newline--            {--newline--                A[++n2] = 2; A[++n1] = 1;--newline--            }--newline--            else if (A[i] == 2) --newline--            {--newline--                A[++n2] = 2;--newline--            }--newline--        }--newline--    }--newline--    --newline--    // one pass in place solution--newline--    void sortColors(int A[], int n) {--newline--        int j = 0, k = n - 1;--newline--        for (int i = 0; i <= k; ++i){--newline--            if (A[i] == 0 && i != j)--newline--                swap(A[i--], A[j++]);--newline--            else if (A[i] == 2 && i != k)--newline--                swap(A[i--], A[k--]);--newline--        }--newline--    }--newline--    --newline--    // one pass in place solution--newline--    void sortColors(int A[], int n) {--newline--        int j = 0, k = n-1;--newline--        for (int i=0; i <= k; i++) {--newline--            if (A[i] == 0)--newline--                swap(A[i], A[j++]);--newline--            else if (A[i] == 2)--newline--                swap(A[i--], A[k--]);--newline--        }--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Four different solutions"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--    public:--newline--    void sortColors(vector<int>& nums) --newline--    {--newline--        int tmp = 0, low = 0, mid = 0, high = nums.size() - 1;--newline--    --newline--        while(mid <= high)--newline--        {--newline--            if(nums[mid] == 0)--newline--            {--newline--                tmp = nums[low];--newline--                nums[low] = nums[mid];--newline--                nums[mid] = tmp;--newline--                low++;--newline--                mid++;--newline--            }--newline--            else if(nums[mid] == 1)--newline--            {--newline--                mid++;--newline--            }--newline--            else if(nums[mid] == 2)--newline--            {--newline--                tmp = nums[high];--newline--                nums[high] = nums[mid];--newline--                nums[mid] = tmp;--newline--                high--;--newline--            }--newline--        }--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Sharing C++ solution with Good Explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def sortColors(self, nums):--newline----tab--        i = j = 0--newline----tab--        for k in xrange(len(nums)):--newline----tab--            v = nums[k]--newline----tab--            nums[k] = 2--newline----tab--            if v < 2:--newline----tab--                nums[j] = 1--newline----tab--                j += 1--newline----tab--            if v == 0:--newline----tab--                nums[i] = 0--newline----tab--                i += 1--newline----tab--    --newline----tab--    # 86 / 86 test cases passed.--newline----tab--    # Status: Accepted--newline----tab--    # Runtime: 44 ms--newline----tab--    # 84.03%--newline----tab--    ",
+            "topic_title": "AC Python in place one pass solution O(n) time O(1) space, no swap no count"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    void sortColors(vector<int>& nums) {--newline--        int r=0, w=0, b=0; // label the end of different colors;--newline--        for(int num: nums){--newline--            if(num==0) {nums[b++]=2; nums[w++]=1; nums[r++]=0; } --newline--            else if(num==1) {nums[b++]=2; nums[w++]=1;}--newline--            else if(num==2) b++;--newline--        }--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "4ms and only 5 lines c++ code without delete and insert"
+        }
+    ],
+    "qc": "75.json"
+}

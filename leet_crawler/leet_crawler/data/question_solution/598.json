@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int maxCount(int m, int n, int[][] ops) {--newline--        if (ops == null || ops.length == 0) {--newline--            return m * n;--newline--        }--newline--        --newline--        int row = Integer.MAX_VALUE, col = Integer.MAX_VALUE;--newline--        for(int[] op : ops) {--newline--            row = Math.min(row, op[0]);--newline--            col = Math.min(col, op[1]);--newline--        }--newline--        --newline--        return row * col;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution, find Min"
+        },
+        {
+            "java": "public class Solution {--newline--    public int maxCount(int m, int n, int[][] ops) {--newline--        for (int[] op : ops) {--newline--            m = Math.min(op[0], m);--newline--            n = Math.min(op[1], n);--newline--        }--newline--        return m * n;        --newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int maxCount(int m, int n, vector<vector<int>>& ops) {--newline--        for (auto op : ops) {--newline--//          if (op[0] == 0 || op[1] == 0)  continue;--newline--            m = min(op[0], m);--newline--            n = min(op[1], n);--newline--        }--newline--        return m * n;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "&#91;C++&#93; &#91;Java&#93; Clean Code"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def maxCount(self, R, C, ops):--newline----tab--        if not ops: return R * C--newline----tab--        X, Y = zip(*ops)--newline----tab--        return min(X) * min(Y)--newline----tab--    ",
+            "topic_title": "Python, Straightforward with Explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public int maxCount(int m, int n, int[][] ops) {--newline--        int rowMin = m;--newline--        int colMin = n;--newline--        for (int[] pair : ops) {--newline--            rowMin = Math.min(rowMin, pair[0]);--newline--            colMin = Math.min(colMin, pair[1]);--newline--        }--newline--        return rowMin * colMin;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java simple solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int maxCount(int m, int n, vector<vector<int>>& ops) {--newline--        for (int i = 0; i < ops.size(); ++i) {--newline--            m = min(m, ops[i][0]);--newline--            n = min(n, ops[i][1]);--newline--        }--newline--        return m*n;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ short solution"
+        }
+    ],
+    "qc": "598.json"
+}

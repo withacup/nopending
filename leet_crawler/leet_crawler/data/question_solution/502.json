@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int findMaximizedCapital(int k, int W, int[] Profits, int[] Capital) {--newline--        PriorityQueue<int[]> pqCap = new PriorityQueue<>((a, b) -> (a[0] - b[0]));--newline--        PriorityQueue<int[]> pqPro  = new PriorityQueue<>((a, b) -> (b[1] - a[1]));--newline--        --newline--        for (int i = 0; i < Profits.length; i++) {--newline--            pqCap.add(new int[] {Capital[i], Profits[i]});--newline--        }--newline--        --newline--        for (int i = 0; i < k; i++) {--newline--            while (!pqCap.isEmpty() && pqCap.peek()[0] <= W) {--newline--                pqPro.add(pqCap.poll());--newline--            }--newline--            --newline--            if (pqPro.isEmpty()) break;--newline--            --newline--            W += pqPro.poll()[1];--newline--        }--newline--        --newline--        return W;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Very Simple (Greedy) Java Solution using two PriorityQueues"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def findMaximizedCapital(self, k, W, Profits, Capital):--newline----tab--        import Queue--newline----tab--        q = Queue.PriorityQueue()--newline----tab--        projects = sorted(zip(Profits, Capital), key=lambda l: l[1])--newline----tab--        j = 0--newline----tab--        for i in range(k):--newline----tab--          while j < len(projects):--newline----tab--            if projects[j][1] > W:--newline----tab--              break--newline----tab--            else:--newline----tab--              q.put((-projects[j][0], projects[j][0]))--newline----tab--            j = j + 1--newline----tab--          if q.empty():--newline----tab--            break--newline----tab--          else:--newline----tab--            W += q.get()[1]--newline----tab--        return W",
+            "topic_title": "Python solution by priority queue with explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def findMaximizedCapital(self, k, W, Profits, Capital):--newline----tab--        current = []--newline----tab--        future = sorted(zip(Capital, Profits))[::-1]--newline----tab--        for _ in range(k):--newline----tab--            while future and future[-1][0] <= W:--newline----tab--                heapq.heappush(current, -future.pop()[1])--newline----tab--            if current:--newline----tab--                W -= heapq.heappop(current)--newline----tab--        return W",
+            "topic_title": "Python solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--        int findMaximizedCapital(int k, int W, vector<int>& P, vector<int>& C) {--newline--          priority_queue<int> low;      // P[i]'s within current W--newline--          multiset<pair<int,int>> high; // (C[i],P[i])'s' outside current W--newline--          --newline--          for (int i = 0; i < P.size(); ++i) // initialize low and high--newline--            if(P[i] > 0) if (C[i] <= W) low.push(P[i]); else high.emplace(C[i], P[i]);--newline--        --newline--          while (k-- && low.size()) { --newline--            W += low.top(), low.pop(); // greedy to work on most profitable first--newline--            for (auto i = high.begin(); high.size() && i->first <= W; i = high.erase(i)) low.push(i->second);--newline--          }--newline--          return W;--newline--        }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "8-liner C++ 42ms beat 98% greedy algorithm (detailed explanation)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    struct Node {int profit, capital;};--newline----newline--    int findMaximizedCapital(int k, int W, vector<int>& Profits, vector<int>& Capital) {--newline--        if(Profits.empty() || Capital.empty()) return W;--newline--        vector<Node*> projects;--newline--        for(int i = 0; i < Profits.size(); i++) --newline--            projects.push_back(new Node({Profits[i], Capital[i]}));--newline--        multiset<int> pq;--newline--        sort(projects.begin(), projects.end(), [&](Node* n1, Node* n2) {return n1->capital < n2->capital;});--newline--        for(auto start = projects.begin(); k > 0; k--) {--newline--            for(; start != projects.end() && (*start)->capital <= W; start++) {--newline--                pq.insert((*start)->profit);--newline--                if(pq.size() > k) pq.erase(pq.begin());--newline--            } --newline--            if(pq.empty()) break;--newline--            W += *pq.rbegin();--newline--            pq.erase(prev(pq.end()));--newline--        }--newline--        return W;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Sorting + One O(k)-size Priority Queue Solution"
+        }
+    ],
+    "qc": "502.json"
+}

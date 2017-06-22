@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    ListNode *partition(ListNode *head, int x) {--newline--        ListNode node1(0), node2(0);--newline--        ListNode *p1 = &node1, *p2 = &node2;--newline--        while (head) {--newline--            if (head->val < x)--newline--                p1 = p1->next = head;--newline--            else--newline--                p2 = p2->next = head;--newline--            head = head->next;--newline--        }--newline--        p2->next = NULL;--newline--        p1->next = node2.next;--newline--        return node1.next;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Very concise one pass solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public ListNode partition(ListNode head, int x) {--newline--        ListNode dummy1 = new ListNode(0), dummy2 = new ListNode(0);  //dummy heads of the 1st and 2nd queues--newline--        ListNode curr1 = dummy1, curr2 = dummy2;      //current tails of the two queues;--newline--        while (head!=null){--newline--            if (head.val<x) {--newline--                curr1.next = head;--newline--                curr1 = head;--newline--            }else {--newline--                curr2.next = head;--newline--                curr2 = head;--newline--            }--newline--            head = head.next;--newline--        }--newline--        curr2.next = null;          //important! avoid cycle in linked list. otherwise u will get TLE.--newline--        curr1.next = dummy2.next;--newline--        return dummy1.next;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Concise java code with explanation, one pass"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    ListNode* partition(ListNode* head, int x) {--newline--        ListNode left(0), right(0);--newline--        ListNode *l = &left, *r = &right;--newline----newline--        while(head){--newline--            ListNode* & ref = head->val < x ? l : r;--newline--            ref->next = head;--newline--            ref = ref->next;--newline--            --newline--            head = head->next;--newline--        }--newline--        l->next = right.next;--newline--        r->next = NULL;--newline--        return left.next;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "10 lines concise C++ Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def partition(self, head, x):--newline----tab--        h1 = l1 = ListNode(0)--newline----tab--        h2 = l2 = ListNode(0)--newline----tab--        while head:--newline----tab--            if head.val < x:--newline----tab--                l1.next = head--newline----tab--                l1 = l1.next--newline----tab--            else:--newline----tab--                l2.next = head--newline----tab--                l2 = l2.next--newline----tab--            head = head.next--newline----tab--        l2.next = None--newline----tab--        l1.next = h2.next--newline----tab--        return h1.next",
+            "topic_title": "Python concise solution with dummy nodes."
+        },
+        {
+            "java": "public class Solution {--newline--    public ListNode partition(ListNode head, int x) {--newline--        ListNode cur=head;--newline--        --newline--        ListNode smaller_sentinel=new ListNode(0);--newline--        ListNode smaller_cur=smaller_sentinel;--newline--        ListNode larger_sentinel=new ListNode(0);--newline--        ListNode larger_cur=larger_sentinel;--newline--//Now, go along the list, partitioning into two halves.        --newline--        while(cur!=null){--newline--            if(cur.val<x){--newline--                    smaller_cur.next=cur;--newline--                    smaller_cur=smaller_cur.next;--newline--                --newline--            }else{--newline--                    larger_cur.next=cur;--newline--                    larger_cur=larger_cur.next;--newline--            }--newline--            cur=cur.next;--newline--        }--newline--//Now, do the concatenation of two havles. Make sure the last node points to null --newline--        larger_cur.next=null;--newline--        smaller_cur.next=larger_sentinel.next;--newline--        return smaller_sentinel.next;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My accepted solution. Any improvement?"
+        }
+    ],
+    "qc": "86.json"
+}

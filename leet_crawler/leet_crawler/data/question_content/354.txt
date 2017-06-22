@@ -1,0 +1,14 @@
+---CONTENT_BEGIN---
+You have a number of envelopes with widths and heights given as a pair of integers (w, h). One envelope can fit into another if and only if both the width and height of one envelope is greater than the width and height of the other envelope.
+
+
+What is the maximum number of envelopes can you Russian doll? (put one inside other)
+
+
+Example:
+Given envelopes = [[5,4],[6,4],[6,7],[2,3]], the maximum number of envelopes you can Russian doll is 3 ([2,3] => [5,4] => [6,7]).
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int maxEnvelopes(vector<pair<int, int>>& envelopes) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int maxEnvelopes(int[][] envelopes) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def maxEnvelopes(self, envelopes):--newline--        '''--newline--        :type envelopes: List[List[int]]--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int maxEnvelopes(int** envelopes, int envelopesRowSize, int envelopesColSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int MaxEnvelopes(int[,] envelopes) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[][]} envelopes--newline-- * @return {number}--newline-- */--newline--var maxEnvelopes = function(envelopes) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[][]} envelopes--newline--# @return {Integer}--newline--def max_envelopes(envelopes)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func maxEnvelopes(_ envelopes: [[Int]]) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func maxEnvelopes(envelopes [][]int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

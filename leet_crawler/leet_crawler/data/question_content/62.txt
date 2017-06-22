@@ -1,0 +1,17 @@
+---CONTENT_BEGIN---
+A robot is located at the top-left corner of a m x n grid (marked 'Start' in the diagram below).
+
+The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked 'Finish' in the diagram below).
+
+How many possible unique paths are there?
+
+
+
+Above is a 3 x 7 grid. How many possible unique paths are there?
+
+
+Note: m and n will be at most 100.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int uniquePaths(int m, int n) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int uniquePaths(int m, int n) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def uniquePaths(self, m, n):--newline--        '''--newline--        :type m: int--newline--        :type n: int--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int uniquePaths(int m, int n) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int UniquePaths(int m, int n) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} m--newline-- * @param {number} n--newline-- * @return {number}--newline-- */--newline--var uniquePaths = function(m, n) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} m--newline--# @param {Integer} n--newline--# @return {Integer}--newline--def unique_paths(m, n)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func uniquePaths(_ m: Int, _ n: Int) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func uniquePaths(m int, n int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

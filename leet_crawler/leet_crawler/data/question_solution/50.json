@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Short and easy to understand solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    double myPow(double x, int n) { --newline--        if(n==0) return 1;--newline--        if(n<0) {--newline--            n = -n;--newline--            x = 1/x;--newline--        }--newline--        double ans = 1;--newline--        while(n>0){--newline--            if(n&1) ans *= x;--newline--            x *= x;--newline--            n >>= 1;--newline--        }--newline--        return ans;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "5 different choices when talk with interviewers"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Iterative Log(N) solution with Clear Explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "O (logn) solution in Java"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    double myPow(double x, int n) {--newline--    --tab--double ans = 1;--newline--    --tab--unsigned long long p;--newline--    --tab--if (n < 0) {--newline--    --tab----tab--p = -n;--newline--    --tab----tab--x = 1 / x;--newline--    --tab--} else {--newline--    --tab----tab--p = n;--newline--    --tab--}--newline----tab----tab--while (p) {--newline----tab----tab----tab--if (p & 1)--newline----tab----tab----tab----tab--ans *= x;--newline----tab----tab----tab--x *= x;--newline----tab----tab----tab--p >>= 1;--newline----tab----tab--}--newline----tab----tab--return ans;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Non-recursive C++ log(n) solution"
+        }
+    ],
+    "qc": "50.json"
+}

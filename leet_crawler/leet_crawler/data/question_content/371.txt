@@ -1,0 +1,12 @@
+---CONTENT_BEGIN---
+Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.
+
+Example:
+Given a = 1 and b = 2, return 3.
+
+
+Credits:Special thanks to @fujiaozhu for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int getSum(int a, int b) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int getSum(int a, int b) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def getSum(self, a, b):--newline--        '''--newline--        :type a: int--newline--        :type b: int--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int getSum(int a, int b) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int GetSum(int a, int b) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} a--newline-- * @param {number} b--newline-- * @return {number}--newline-- */--newline--var getSum = function(a, b) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} a--newline--# @param {Integer} b--newline--# @return {Integer}--newline--def get_sum(a, b)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func getSum(_ a: Int, _ b: Int) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func getSum(a int, b int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

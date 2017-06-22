@@ -1,0 +1,6 @@
+{
+    "solution_code": "class Solution :--newline--            def guessNumber(self, n):--newline--                lo, hi = 1, n--newline--                while lo < hi:--newline--                    mid = (lo + hi) / 2--newline--                    lo, hi = ((mid, mid), (mid+1, hi), (lo, mid-1))[guess(mid)]--newline--                return lo--newline--        ",
+    "l_type": "python",
+    "modified_code": null,
+    "total_cases": 25
+}

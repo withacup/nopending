@@ -1,0 +1,20 @@
+---CONTENT_BEGIN---
+
+Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.
+
+
+If such arrangement is not possible, it must rearrange it as the lowest possible order (ie, sorted in ascending order).
+
+
+The replacement must be in-place, do not allocate extra memory.
+
+
+Here are some examples. Inputs are in the left-hand column and its corresponding outputs are in the right-hand column.
+1,2,3 &#8594; 1,3,2
+3,2,1 &#8594; 1,2,3
+1,1,5 &#8594; 1,5,1
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    void nextPermutation(vector<int>& nums) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public void nextPermutation(int[] nums) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def nextPermutation(self, nums):--newline--        '''--newline--        :type nums: List[int]--newline--        :rtype: void Do not return anything, modify nums in-place instead.--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "void nextPermutation(int* nums, int numsSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public void NextPermutation(int[] nums) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} nums--newline-- * @return {void} Do not return anything, modify nums in-place instead.--newline-- */--newline--var nextPermutation = function(nums) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} nums--newline--# @return {Void} Do not return anything, modify nums in-place instead.--newline--def next_permutation(nums)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func nextPermutation(_ nums: inout [Int]) {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func nextPermutation(nums []int)  {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

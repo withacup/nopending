@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Please change the misleading description"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Examples of nth sequence"
+        },
+        {
+            "java": "public class Solution {--newline--    public String countAndSay(int n) {--newline----tab--    --tab--StringBuilder curr=new StringBuilder(\"1\");--newline----tab--    --tab--StringBuilder prev;--newline----tab--    --tab--int count;--newline----tab--    --tab--char say;--newline----tab--        for (int i=1;i<n;i++){--newline----tab--        --tab--prev=curr;--newline----tab-- --tab--        curr=new StringBuilder();       --newline----tab-- --tab--        count=1;--newline----tab-- --tab--        say=prev.charAt(0);--newline----tab-- --tab--        --newline----tab-- --tab--        for (int j=1,len=prev.length();j<len;j++){--newline----tab-- --tab--        --tab--if (prev.charAt(j)!=say){--newline----tab-- --tab--        --tab----tab--curr.append(count).append(say);--newline----tab-- --tab--        --tab----tab--count=1;--newline----tab-- --tab--        --tab----tab--say=prev.charAt(j);--newline----tab-- --tab--        --tab--}--newline----tab-- --tab--        --tab--else count++;--newline----tab-- --tab--        }--newline----tab-- --tab--        curr.append(count).append(say);--newline----tab--        }--tab--       --tab--        --newline----tab--        return curr.toString();--newline--        --newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Show an Answer in Java"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "I suggest we should add the description: The &quot;1&quot; is the 1st string, and calculate the n th string."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string countAndSay(int n) {--newline--        if (n == 0) return \"\";--newline--        string res = \"1\";--newline--        while (--n) {--newline--            string cur = \"\";--newline--            for (int i = 0; i < res.size(); i++) {--newline--                int count = 1;--newline--                 while ((i + 1 < res.size()) && (res[i] == res[i + 1])){--newline--                    count++;    --newline--                    i++;--newline--                }--newline--                cur += to_string(count) + res[i];--newline--            }--newline--            res = cur;--newline--        }--newline--        return res;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "C++ solution easy-understand"
+        }
+    ],
+    "qc": "38.json"
+}

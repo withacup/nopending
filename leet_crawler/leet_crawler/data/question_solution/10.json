@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool isMatch(string s, string p) {--newline--        if (p.empty())    return s.empty();--newline--        --newline--        if ('*' == p[1])--newline--            // x* matches empty string or at least one character: x* -> xx*--newline--            // *s is to ensure s is non-empty--newline--            return (isMatch(s, p.substr(2)) || !s.empty() && (s[0] == p[0] || '.' == p[0]) && isMatch(s.substr(1), p));--newline--        else--newline--            return !s.empty() && (s[0] == p[0] || '.' == p[0]) && isMatch(s.substr(1), p.substr(1));--newline--    }--newline--};--newline----newline--class Solution {--newline--public:--newline--    bool isMatch(string s, string p) {--newline--        /**--newline--         * f[i][j]: if s[0..i-1] matches p[0..j-1]--newline--         * if p[j - 1] != '*'--newline--         *      f[i][j] = f[i - 1][j - 1] && s[i - 1] == p[j - 1]--newline--         * if p[j - 1] == '*', denote p[j - 2] with x--newline--         *      f[i][j] is true iff any of the following is true--newline--         *      1) \"x*\" repeats 0 time and matches empty: f[i][j - 2]--newline--         *      2) \"x*\" repeats >= 1 times and matches \"x*x\": s[i - 1] == x && f[i - 1][j]--newline--         * '.' matches any single character--newline--         */--newline--        int m = s.size(), n = p.size();--newline--        vector<vector<bool>> f(m + 1, vector<bool>(n + 1, false));--newline--        --newline--        f[0][0] = true;--newline--        for (int i = 1; i <= m; i++)--newline--            f[i][0] = false;--newline--        // p[0.., j - 3, j - 2, j - 1] matches empty iff p[j - 1] is '*' and p[0..j - 3] matches empty--newline--        for (int j = 1; j <= n; j++)--newline--            f[0][j] = j > 1 && '*' == p[j - 1] && f[0][j - 2];--newline--        --newline--        for (int i = 1; i <= m; i++)--newline--            for (int j = 1; j <= n; j++)--newline--                if (p[j - 1] != '*')--newline--                    f[i][j] = f[i - 1][j - 1] && (s[i - 1] == p[j - 1] || '.' == p[j - 1]);--newline--                else--newline--                    // p[0] cannot be '*' so no need to check \"j > 1\" here--newline--                    f[i][j] = f[i][j - 2] || (s[i - 1] == p[j - 2] || '.' == p[j - 2]) && f[i - 1][j];--newline--        --newline--        return f[m][n];--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "My concise recursive and DP solutions with full explanation in C++"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isMatch(String s, String p) {--newline--    --newline--        if (s == null || p == null) {--newline--            return false;--newline--        }--newline--        boolean[][] dp = new boolean[s.length()+1][p.length()+1];--newline--        dp[0][0] = true;--newline--        for (int i = 0; i < p.length(); i++) {--newline--            if (p.charAt(i) == '*' && dp[0][i-1]) {--newline--                dp[0][i+1] = true;--newline--            }--newline--        }--newline--        for (int i = 0 ; i < s.length(); i++) {--newline--            for (int j = 0; j < p.length(); j++) {--newline--                if (p.charAt(j) == '.') {--newline--                    dp[i+1][j+1] = dp[i][j];--newline--                }--newline--                if (p.charAt(j) == s.charAt(i)) {--newline--                    dp[i+1][j+1] = dp[i][j];--newline--                }--newline--                if (p.charAt(j) == '*') {--newline--                    if (p.charAt(j-1) != s.charAt(i) && p.charAt(j-1) != '.') {--newline--                        dp[i+1][j+1] = dp[i+1][j-1];--newline--                    } else {--newline--                        dp[i+1][j+1] = (dp[i+1][j] || dp[i][j+1] || dp[i+1][j-1]);--newline--                    }--newline--                }--newline--            }--newline--        }--newline--        return dp[s.length()][p.length()];--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy DP Java Solution with detailed Explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "In the given examples, the last one isMatch(&quot;aab&quot;, &quot;c*a*b&quot;) \u2192 true; don&#x27;t understand why it is true?"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "  class Solution {--newline--    public:--newline--    bool matchFirst(const char *s, const char *p){--newline--        return (*p == *s || (*p == '.' && *s != '\\0'));--newline--    }--newline----newline--bool isMatch(const char *s, const char *p) {--newline----tab--if (*p == '\\0') return *s == '\\0';--tab--//empty--newline----newline----tab--if (*(p + 1) != '*') {//without *--newline----tab----tab--if(!matchFirst(s,p)) return false;--newline----tab----tab--return isMatch(s + 1, p + 1);--newline----tab--} else { //next: with a *--newline--    --tab--if(isMatch(s, p + 2)) return true;    //try the length of 0--newline----tab----tab--while ( matchFirst(s,p) )       //try all possible lengths --newline----tab----tab----tab--if (isMatch(++s, p + 2))return true;--newline----tab--}--newline--}--newline--};",
+            "python": null,
+            "topic_title": "The shortest AC code."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool isMatch(string s, string p) {--newline--        int m = s.length(), n = p.length(); --newline--        vector<vector<bool> > dp(m + 1, vector<bool> (n + 1, false));--newline--        dp[0][0] = true;--newline--        for (int i = 0; i <= m; i++)--newline--            for (int j = 1; j <= n; j++)--newline--                if (p[j - 1] == '*')--newline--                    dp[i][j] = dp[i][j - 2] || (i > 0 && (s[i - 1] == p[j - 2] || p[j - 2] == '.') && dp[i - 1][j]);--newline--                else dp[i][j] = i > 0 && dp[i - 1][j - 1] && (s[i - 1] == p[j - 1] || p[j - 1] == '.');--newline--        return dp[m][n];--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "9-lines 16ms C++ DP Solutions with Explanations"
+        }
+    ],
+    "qc": "10.json"
+}

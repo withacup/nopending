@@ -1,0 +1,40 @@
+{
+  "posts": [
+    {
+      "cpp": null,
+      "is_locked": false,
+      "java": "public class Solution {public String convertToBase7(int num) {if (num < 0) return '-' + convertToBase7(-num); if (num < 7) return Integer.toString(num); return convertToBase7(num / 7) + num % 7; } }",
+      "python": null,
+      "topic_title": "Simple Java, oneliner Ruby"
+    },
+    {
+      "cpp": null,
+      "is_locked": false,
+      "java": null,
+      "python": null,
+      "topic_title": "Python easy understand solution"
+    },
+    {
+      "cpp": null,
+      "is_locked": false,
+      "java": null,
+      "python": null,
+      "topic_title": "Verbose Java Solution"
+    },
+    {
+      "cpp": "class Solution {--newline--public:--newline--        string convertToBase7(int n) {--newline--          return n>=0? n>=7? convertToBase7(n/7)+to_string(n%7) : to_string(n) : '-'+convertToBase7(-n);--newline--        }--newline--    --newline--};",
+      "is_locked": false,
+      "java": null,
+      "python": null,
+      "topic_title": "3-liner C++ to build string backward + 1-liner recursive solutions"
+    },
+    {
+      "cpp": null,
+      "is_locked": false,
+      "java": null,
+      "python": null,
+      "topic_title": "1 line"
+    }
+  ],
+  "qc": "504.json"
+}

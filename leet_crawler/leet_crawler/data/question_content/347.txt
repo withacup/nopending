@@ -1,0 +1,17 @@
+---CONTENT_BEGIN---
+
+Given a non-empty array of integers, return the k most frequent elements.
+
+For example,
+Given [1,1,1,2,2,3] and k = 2, return [1,2].
+
+
+Note: 
+
+You may assume k is always valid, 1 â¤ k â¤ number of unique elements.
+Your algorithm's time complexity must be better than O(n log n), where n is the array's size.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<int> topKFrequent(vector<int>& nums, int k) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public List<Integer> topKFrequent(int[] nums, int k) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def topKFrequent(self, nums, k):--newline--        '''--newline--        :type nums: List[int]--newline--        :type k: int--newline--        :rtype: List[int]--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Return an array of size *returnSize.--newline-- * Note: The returned array must be malloced, assume caller calls free().--newline-- */--newline--int* topKFrequent(int* nums, int numsSize, int k, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public IList<int> TopKFrequent(int[] nums, int k) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} nums--newline-- * @param {number} k--newline-- * @return {number[]}--newline-- */--newline--var topKFrequent = function(nums, k) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} nums--newline--# @param {Integer} k--newline--# @return {Integer[]}--newline--def top_k_frequent(nums, k)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func topKFrequent(_ nums: [Int], _ k: Int) -> [Int] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func topKFrequent(nums []int, k int) []int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

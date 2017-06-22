@@ -1,0 +1,14 @@
+---CONTENT_BEGIN---
+
+Given a string S, you are allowed to convert it to a palindrome by adding characters in front of it. Find and return the shortest palindrome you can find by performing this transformation.
+
+
+For example: 
+Given "aacecaaa", return "aaacecaaa".
+Given "abcd", return "dcbabcd".
+
+Credits:Special thanks to @ifanchu for adding this problem and creating all test cases. Thanks to @Freezen for additional test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    string shortestPalindrome(string s) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public String shortestPalindrome(String s) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def shortestPalindrome(self, s):--newline--        '''--newline--        :type s: str--newline--        :rtype: str--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "char* shortestPalindrome(char* s) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public string ShortestPalindrome(string s) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} s--newline-- * @return {string}--newline-- */--newline--var shortestPalindrome = function(s) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} s--newline--# @return {String}--newline--def shortest_palindrome(s)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func shortestPalindrome(_ s: String) -> String {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func shortestPalindrome(s string) string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

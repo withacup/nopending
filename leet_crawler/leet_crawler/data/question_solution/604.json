@@ -1,0 +1,40 @@
+{
+    "qc": "604.json",
+    "posts": [
+        {
+            "python": "class StringIterator(object):--newline----tab--    def __init__(self, compressedString):--newline----tab--        self.lastFreq = 0 --newline----tab--        self.lastChar = None--newline----tab--        self.arr = re.findall('[a-zA-Z]\\d+', compressedString)--newline----tab----newline----tab--    def next(self):--newline----tab--        if self.lastFreq == 0 and len(self.arr) == 0: --newline----tab--            return ' '--newline----tab--        if self.lastFreq > 0: --newline----tab--            self.lastFreq -= 1--newline----tab--            return self.lastChar--newline----tab--        --newline----tab--        pair = self.arr.pop(0)--newline----tab--        self.lastChar, self.lastFreq = pair[0], int(pair[1:])-1--newline----tab--        return self.lastChar --newline----tab----newline----tab--    def hasNext(self):--newline----tab--        return self.lastFreq > 0 or len(self.arr) > 0--newline----tab--",
+            "cpp": null,
+            "topic_title": "Compact and readable Python solution",
+            "is_locked": false,
+            "java": null
+        },
+        {
+            "python": null,
+            "cpp": "class StringIterator {--newline--public:--newline--    StringIterator(string cs) : cs(cs), i(0), rep(0), ch(' ') { }--newline----newline--    char next() {--newline--        if (rep > 0) {--newline--            rep--;--newline--            return ch;--newline--        }--newline--        else if (i < cs.size()) {--newline--            ch = cs[i];--newline--            int j = i + 1;--newline--            while (j < cs.size() && isdigit(cs[j])) { j++; }--newline--            string num = cs.substr(i + 1, j - 1 - i);--newline--            rep = atoi(num.c_str()) - 1;--newline--            i = j;--newline--            return ch;--newline--        }--newline--        else {--newline--            return ' ';--newline--        }--newline--    }--newline----newline--    bool hasNext() {--newline--        return rep > 0 || i < cs.size();--newline--    }--newline----newline--private:--newline--    int i;--newline--    long rep;--newline--    char ch;--newline--    string cs;--newline--};",
+            "topic_title": "&#91;C++&#93; Clean Code",
+            "is_locked": false,
+            "java": null
+        },
+        {
+            "python": "class StringIterator(object):--newline----tab----newline----tab--    def __init__(self, compressedString):--newline----tab--        \"\"\"--newline----tab--        :type compressedString: str--newline----tab--        \"\"\"--newline----tab--        self.__data = re.findall(r\"([a-zA-Z])(\\d+)\", compressedString)--newline----tab--        self.__index, self.__count = -1, 0--newline----tab----newline----tab--    def next(self):--newline----tab--        \"\"\"--newline----tab--        :rtype: str--newline----tab--        \"\"\"--newline----tab--        if self.hasNext():--newline----tab--            self.__count -= 1--newline----tab--            return self.__data[self.__index][0]--newline----tab--        else:--newline----tab--            return ' '--newline----tab----newline----tab--    def hasNext(self):--newline----tab--        \"\"\"--newline----tab--        :rtype: bool--newline----tab--        \"\"\"--newline----tab--        if self.__count == 0 and self.__index + 1 < len(self.__data):--newline----tab--            self.__index += 1--newline----tab--            self.__count = int(self.__data[self.__index][1])--newline----tab--        return self.__count > 0--newline----tab--",
+            "cpp": "class StringIterator {--newline--    istringstream iss;--newline--    char c;--newline--    int count;--newline--public:--newline--    StringIterator(string compressedString) {--newline--        iss = istringstream(compressedString);--newline--        count = c = 0;--newline--    }--newline----newline--    char next() {--newline--        if ( hasNext() ) {--newline--            --count;--newline--            return c;--newline--        } else {--newline--            return ' ';--newline--        }--newline--    }--newline----newline--    bool hasNext() {--newline--        if ( count == 0 ) {--newline--            iss >> c >> count;--newline--        }--newline--        return count > 0;--newline--    }--newline--};--newline--",
+            "topic_title": "Short Solution of C++ using stringstream &amp; Python using re",
+            "is_locked": false,
+            "java": null
+        },
+        {
+            "python": null,
+            "cpp": null,
+            "topic_title": "Java Solution, two Lists",
+            "is_locked": false,
+            "java": "public class StringIterator {--newline--    List<Character> chars = new ArrayList<>();--newline--    List<Integer> counts = new ArrayList<>();--newline--    int ptr = 0;--newline--    --newline--    public StringIterator(String str) {--newline--        int i = 0;--newline--        while (i < str.length()) {--newline--            chars.add(str.charAt(i));--newline--            int j = i + 1;--newline--            while (j < str.length() && Character.isDigit(str.charAt(j))) j++;--newline--            counts.add(Integer.parseInt(str.substring(i + 1, j)));--newline--            i = j;--newline--        }--newline--    }--newline--    --newline--    public char next() {--newline--        if (!hasNext()) return ' ';--newline--        --newline--        char result = chars.get(ptr);--newline--        counts.set(ptr, counts.get(ptr) - 1);--newline--        if (counts.get(ptr) == 0) ptr++;--newline--        return result;--newline--    }--newline--    --newline--    public boolean hasNext() {--newline--        return ptr < chars.size();--newline--    }--newline--}--newline--"
+        },
+        {
+            "python": null,
+            "cpp": null,
+            "topic_title": "Java Concise Single Queue Solution",
+            "is_locked": false,
+            "java": "public class StringIterator {--newline--    --newline--    Queue<int[]> queue = new LinkedList<>();--newline--    --newline--    public StringIterator(String s) {--newline--        int i = 0, n = s.length();--newline--        while (i < n) {--newline--            int j = i+1;--newline--            while (j < n && s.charAt(j) - 'A' < 0) j++;--newline--            queue.add(new int[]{s.charAt(i) - 'A',  Integer.parseInt(s.substring(i+1, j))});--newline--            i = j;--newline--        }--newline--    }--newline--    --newline--    public char next() {--newline--        if (queue.isEmpty()) return ' ';--newline--        int[] top = queue.peek();--newline--        if (--top[1] == 0) queue.poll();--newline--        return (char) ('A' + top[0]);--newline--    }--newline--    --newline--    public boolean hasNext() {--newline--        return !queue.isEmpty();--newline--    }--newline----newline--}--newline--"
+        }
+    ]
+}

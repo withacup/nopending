@@ -1,0 +1,29 @@
+---CONTENT_BEGIN---
+
+Given an unsorted array return whether an increasing subsequence of length 3 exists or not in the array.
+
+
+Formally the function should:
+Return true if there exists i, j, k  
+such that arr[i] &lt; arr[j] &lt; arr[k] given 0 &le; i &lt; j &lt; k &le; n-1 
+else return false.
+
+
+
+Your algorithm should run in O(n) time complexity and O(1) space complexity.
+
+
+Examples:
+Given [1, 2, 3, 4, 5],
+return true.
+
+
+Given [5, 4, 3, 2, 1],
+return false.
+
+
+Credits:Special thanks to @DjangoUnchained for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    bool increasingTriplet(vector<int>& nums) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public boolean increasingTriplet(int[] nums) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def increasingTriplet(self, nums):--newline--        '''--newline--        :type nums: List[int]--newline--        :rtype: bool--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "bool increasingTriplet(int* nums, int numsSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public bool IncreasingTriplet(int[] nums) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} nums--newline-- * @return {boolean}--newline-- */--newline--var increasingTriplet = function(nums) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} nums--newline--# @return {Boolean}--newline--def increasing_triplet(nums)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func increasingTriplet(_ nums: [Int]) -> Bool {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func increasingTriplet(nums []int) bool {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

@@ -1,0 +1,6 @@
+{
+    "solution_code": "class MyStack --newline--{--newline--    Queue<Integer> queue;--newline--    --newline--    public MyStack()--newline--    {--newline--        this.queue=new LinkedList<Integer>();--newline--    }--newline--    --newline--    // Push element x onto stack.--newline--    public void push(int x) --newline--    {--newline--       queue.add(x);--newline--       for(int i=0;i<queue.size()-1;i++)--newline--       {--newline--           queue.add(queue.poll());--newline--       }--newline--    }--newline----newline--    // Removes the element on top of the stack.--newline--    public int pop() --newline--    {--newline--        return queue.poll();--newline--    }--newline----newline--    // Get the top element.--newline--    public int top() --newline--    {--newline--        return queue.peek();--newline--    }--newline----newline--    // Return whether the stack is empty.--newline--    public boolean empty() --newline--    {--newline--        return queue.isEmpty();--newline--    }--newline--}",
+    "l_type": "java",
+    "modified_code": null,
+    "total_cases": 16
+}

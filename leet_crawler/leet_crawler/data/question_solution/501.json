@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    --newline--    public int[] findMode(TreeNode root) {--newline--        inorder(root);--newline--        modes = new int[modeCount];--newline--        modeCount = 0;--newline--        currCount = 0;--newline--        inorder(root);--newline--        return modes;--newline--    }--newline----newline--    private int currVal;--newline--    private int currCount = 0;--newline--    private int maxCount = 0;--newline--    private int modeCount = 0;--newline--    --newline--    private int[] modes;--newline----newline--    private void handleValue(int val) {--newline--        if (val != currVal) {--newline--            currVal = val;--newline--            currCount = 0;--newline--        }--newline--        currCount++;--newline--        if (currCount > maxCount) {--newline--            maxCount = currCount;--newline--            modeCount = 1;--newline--        } else if (currCount == maxCount) {--newline--            if (modes != null)--newline--                modes[modeCount] = currVal;--newline--            modeCount++;--newline--        }--newline--    }--newline--    --newline--    private void inorder(TreeNode root) {--newline--        if (root == null) return;--newline--        inorder(root.left);--newline--        handleValue(root.val);--newline--        inorder(root.right);--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Proper O(1) space"
+        },
+        {
+            "java": "public class Solution {--newline--    Integer prev = null;--newline--    int count = 1;--newline--    int max = 0;--newline--    public int[] findMode(TreeNode root) {--newline--        if (root == null) return new int[0];--newline--        --newline--        List<Integer> list = new ArrayList<>();--newline--        traverse(root, list);--newline--        --newline--        int[] res = new int[list.size()];--newline--        for (int i = 0; i < list.size(); ++i) res[i] = list.get(i);--newline--        return res;--newline--    }--newline--    --newline--    private void traverse(TreeNode root, List<Integer> list) {--newline--        if (root == null) return;--newline--        traverse(root.left, list);--newline--        if (prev != null) {--newline--            if (root.val == prev)--newline--                count++;--newline--            else--newline--                count = 1;--newline--        }--newline--        if (count > max) {--newline--            max = count;--newline--            list.clear();--newline--            list.add(root.val);--newline--        } else if (count == max) {--newline--            list.add(root.val);--newline--        }--newline--        prev = root.val;--newline--        traverse(root.right, list);--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 4ms Beats 100% Extra O(1) solution - No Map"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "What does &quot;mode&quot; mean?"
+        },
+        {
+            "java": "public class Solution {--newline--    Map<Integer, Integer> map; --newline--    int max = 0;--newline--    public int[] findMode(TreeNode root) {--newline--        if(root==null) return new int[0]; --newline--        this.map = new HashMap<>(); --newline--        --newline--        inorder(root); --newline--        --newline--        List<Integer> list = new LinkedList<>();--newline--        for(int key: map.keySet()){--newline--            if(map.get(key) == max) list.add(key);--newline--        }--newline--        --newline--        int[] res = new int[list.size()];--newline--        for(int i = 0; i<res.length; i++) res[i] = list.get(i);--newline--        return res; --newline--    }--newline--    --newline--    private void inorder(TreeNode node){--newline--        if(node.left!=null) inorder(node.left);--newline--        map.put(node.val, map.getOrDefault(node.val, 0)+1);--newline--        max = Math.max(max, map.get(node.val));--newline--        if(node.right!=null) inorder(node.right); --newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java AC Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Python Explanation"
+        }
+    ],
+    "qc": "501.json"
+}

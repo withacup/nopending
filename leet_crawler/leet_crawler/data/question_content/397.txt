@@ -1,0 +1,49 @@
+---CONTENT_BEGIN---
+
+Given a positive integer n and you can do operations as follow:
+
+
+
+
+If n is even, replace n with n/2.
+If n is odd, you can replace n with either n + 1 or n - 1.
+
+
+
+
+What is the minimum number of replacements needed for n to become 1?
+
+
+
+
+Example 1:
+
+Input:
+8
+
+Output:
+3
+
+Explanation:
+8 -> 4 -> 2 -> 1
+
+
+
+Example 2:
+
+Input:
+7
+
+Output:
+4
+
+Explanation:
+7 -> 8 -> 4 -> 2 -> 1
+or
+7 -> 6 -> 3 -> 2 -> 1
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int integerReplacement(int n) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int integerReplacement(int n) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def integerReplacement(self, n):--newline--        '''--newline--        :type n: int--newline--        :rtype: int--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "int integerReplacement(int n) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int IntegerReplacement(int n) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} n--newline-- * @return {number}--newline-- */--newline--var integerReplacement = function(n) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} n--newline--# @return {Integer}--newline--def integer_replacement(n)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func integerReplacement(_ n: Int) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func integerReplacement(n int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

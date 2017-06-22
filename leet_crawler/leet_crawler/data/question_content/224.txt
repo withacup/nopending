@@ -1,0 +1,22 @@
+---CONTENT_BEGIN---
+Implement a basic calculator to evaluate a simple expression string.
+
+The expression string may contain open ( and closing parentheses ), the plus + or minus sign -, non-negative integers and empty spaces  .
+
+You may assume that the given expression is always valid.
+
+Some examples:
+
+"1 + 1" = 2
+" 2-1 + 2 " = 3
+"(1+(4+5+2)-3)+(6+8)" = 23
+
+
+
+
+Note: Do not use the eval built-in library function.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int calculate(string s) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int calculate(String s) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def calculate(self, s):--newline--        '''--newline--        :type s: str--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int calculate(char* s) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int Calculate(string s) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} s--newline-- * @return {number}--newline-- */--newline--var calculate = function(s) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} s--newline--# @return {Integer}--newline--def calculate(s)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func calculate(_ s: String) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func calculate(s string) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

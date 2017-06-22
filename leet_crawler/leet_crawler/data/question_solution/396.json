@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java O(n) solution with explanation"
+        },
+        {
+            "java": "public class Solution {--newline--        public int maxRotateFunction(int[] A) {--newline--            if(A.length == 0){--newline--                return 0;--newline--            }--newline--            --newline--            int sum =0, iteration = 0, len = A.length;--newline--            --newline--            for(int i=0; i<len; i++){--newline--                sum += A[i];--newline--                iteration += (A[i] * i);--newline--            }--newline--            --newline--            int max = iteration;--newline--            for(int j=1; j<len; j++){--newline--                // for next iteration lets remove one entry value of each entry and the prev 0 * k--newline--                iteration = iteration - sum + A[j-1]*len;--newline--                max = Math.max(max, iteration);--newline--            }--newline--            --newline--            return max;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution O(n) with non mathametical explaination"
+        },
+        {
+            "java": "public class Solution {--newline----newline----tab--public int maxRotateFunction(int[] A) {--newline----tab----tab--int n = A.length;--newline----tab----tab--int sum = 0;--newline----tab----tab--int candidate = 0;--newline----newline----tab----tab--for (int i = 0; i < n; i++) {--newline----tab----tab----tab--sum += A[i];--newline----tab----tab----tab--candidate += A[i] * i;--newline----tab----tab--}--newline----tab----tab--int best = candidate;--newline----newline----tab----tab--for (int i = n - 1; i > 0; i--) {--newline----tab----tab----tab--candidate = candidate + sum - A[i] * n;--newline----tab----tab----tab--best = Math.max(best, candidate);--newline----tab----tab--}--newline----tab----tab--return best;--newline----tab--}--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    --tab--int maxRotateFunction(vector<int>& A) {--newline--    --tab----tab--if (A.size() == 0) return 0;--newline--    --newline--    --tab----tab--long long allsum = 0;--newline--    --tab----tab--long long sum2 = 0;--newline--    --tab----tab--for (int i = 0; i < A.size(); i++) {--newline--    --tab----tab----tab--allsum += A[i] * i;--newline--    --tab----tab----tab--sum2 += A[i];--newline--    --tab----tab--}--newline--    --newline--    --tab----tab--long long result = allsum;--newline--    --tab----tab--for (int i = 0; i < A.size(); i++) {--newline--    --tab----tab----tab--allsum -= sum2;--newline--    --tab----tab----tab--allsum += A[i];--newline--    --tab----tab----tab--allsum += A[i] * int(A.size() - 1);--newline--    --tab----tab----tab--result = max(allsum, result);--newline--    --tab----tab--}--newline--    --newline--    --tab----tab--return result;--newline--    --tab--}--newline--    --newline--}",
+            "python": null,
+            "topic_title": "C++ solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int maxRotateFunction(vector<int>& A) {--newline--        int F = 0, sum = 0, n = A.size();--newline--        for (int i = 0; i < n; ++i){--newline--            F += i * A[i];--newline--            sum += A[i];--newline--        }--newline--        int m = F;--newline--        for (int i = n - 1; i >= 0; --i){--newline--            F = F + sum - n * A[i];--newline--            m = max(m, F);--newline--        }--newline--        return m;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "My O(n) Simple C++ Solution"
+        }
+    ],
+    "qc": "396.json"
+}

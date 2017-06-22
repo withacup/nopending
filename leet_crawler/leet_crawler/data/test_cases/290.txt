@@ -1,0 +1,132 @@
+---BEGIN:1---
+[abba]
+[dog cat cat dog]
+---END:1---
+---BEGIN:2---
+[abba]
+[dog cat cat fish]
+---END:2---
+---BEGIN:3---
+[aaaa]
+[dog cat cat dog]
+---END:3---
+---BEGIN:4---
+[abba]
+[dog dog dog dog]
+---END:4---
+---BEGIN:5---
+[aba]
+[cat cat cat dog]
+---END:5---
+---BEGIN:6---
+[aba]
+[dog cat cat]
+---END:6---
+---BEGIN:7---
+[abaaba]
+[dog cat fish fish cat dog]
+---END:7---
+---BEGIN:8---
+[abc]
+[b c a]
+---END:8---
+---BEGIN:9---
+[ab]
+[b c]
+---END:9---
+---BEGIN:10---
+[abba]
+[b a a b]
+---END:10---
+---BEGIN:11---
+[ab]
+[dog dog]
+---END:11---
+---BEGIN:12---
+[aa]
+[dog cat]
+---END:12---
+---BEGIN:13---
+[aaa]
+[aa aa aa aa]
+---END:13---
+---BEGIN:14---
+[e]
+[eukera]
+---END:14---
+---BEGIN:15---
+[ab]
+[happy hacking]
+---END:15---
+---BEGIN:16---
+[deadbeef]
+[d e a d b e e f]
+---END:16---
+---BEGIN:17---
+[jquery]
+[jquery]
+---END:17---
+---BEGIN:18---
+[abba]
+[fish whoops helloworld fish]
+---END:18---
+---BEGIN:19---
+[]
+[beef]
+---END:19---
+---BEGIN:20---
+[abab]
+[chicken beef chicken beef]
+---END:20---
+---BEGIN:21---
+[syys]
+[a abc abc a]
+---END:21---
+---BEGIN:22---
+[bbaaace]
+[b b b a a c e f]
+---END:22---
+---BEGIN:23---
+[h]
+[afjafdjpawr]
+---END:23---
+---BEGIN:24---
+[hut]
+[unit test harpoon]
+---END:24---
+---BEGIN:25---
+[he]
+[unit]
+---END:25---
+---BEGIN:26---
+[deadbeef]
+[all people seem all to need need link]
+---END:26---
+---BEGIN:27---
+[abcdefghijklmnnmlkjihgfedcba]
+[aa bb cc dd ee ff gg hh ii jj kk ll mm nn nn mm ll kk jj ii hh gg ff ee dd cc bb aa]
+---END:27---
+---BEGIN:28---
+[apstndp]
+[all people seem to need data processing]
+---END:28---
+---BEGIN:29---
+[tbontbtitq]
+[to be or not to be that is the question]
+---END:29---
+---BEGIN:30---
+[tqbfjotld]
+[the quick brown fox jumps over the lazy dog]
+---END:30---
+---BEGIN:31---
+[otwhffi]
+[only thing we have fear fear itself]
+---END:31---
+---BEGIN:32---
+[ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccdd]
+[s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s s t t]
+---END:32---
+---BEGIN:33---
+[itwasthebestoftimesitwastheworstoftimesitwastheageofwisdomitwastheageoffoolishnessitwastheepochofbeliefitwastheepochofincredulityitwastheseasonoflightitwastheseasonofdarknessitwasthespringofhopeitwasthewinterofdespair]
+[i tttttttttttttttt wwww aa sssss tttttttttttttttt hhhhhhhhhhhhhhhhhhhhhhh eeeeeeeeeee bbbbbbbbbbbbbbbbbb eeeeeeeeeee sssss tttttttttttttttt oo fffffffff tttttttttttttttt i mmm eeeeeeeeeee sssss i tttttttttttttttt wwww aa sssss tttttttttttttttt hhhhhhhhhhhhhhhhhhhhhhh eeeeeeeeeee wwww oo rrrrrrrrrrrrrr sssss tttttttttttttttt oo fffffffff tttttttttttttttt i mmm eeeeeeeeeee sssss i tttttttttttttttt wwww aa sssss tttttttttttttttt hhhhhhhhhhhhhhhhhhhhhhh eeeeeeeeeee aa gggggggggggggg eeeeeeeeeee oo fffffffff wwww i sssss ddddddddddd oo mmm i tttttttttttttttt wwww aa sssss tttttttttttttttt hhhhhhhhhhhhhhhhhhhhhhh eeeeeeeeeee aa gggggggggggggg eeeeeeeeeee oo fffffffff fffffffff oo oo llllllll i sssss hhhhhhhhhhhhhhhhhhhhhhh nnnnnn eeeeeeeeeee sssss sssss i tttttttttttttttt wwww aa sssss tttttttttttttttt hhhhhhhhhhhhhhhhhhhhhhh eeeeeeeeeee eeeeeeeeeee pppp oo cccccccccccc hhhhhhhhhhhhhhhhhhhhhhh oo fffffffff bbbbbbbbbbbbbbbbbb eeeeeeeeeee llllllll i eeeeeeeeeee fffffffff i tttttttttttttttt wwww aa sssss tttttttttttttttt hhhhhhhhhhhhhhhhhhhhhhh eeeeeeeeeee eeeeeeeeeee pppp oo cccccccccccc hhhhhhhhhhhhhhhhhhhhhhh oo fffffffff i nnnnnn cccccccccccc rrrrrrrrrrrrrr eeeeeeeeeee ddddddddddd uuuuuuuuuu llllllll i tttttttttttttttt yyyyyyyyyyy i tttttttttttttttt wwww aa sssss tttttttttttttttt hhhhhhhhhhhhhhhhhhhhhhh eeeeeeeeeee sssss eeeeeeeeeee aa sssss oo nnnnnn oo fffffffff llllllll i gggggggggggggg hhhhhhhhhhhhhhhhhhhhhhh tttttttttttttttt i tttttttttttttttt wwww aa sssss tttttttttttttttt hhhhhhhhhhhhhhhhhhhhhhh eeeeeeeeeee sssss eeeeeeeeeee aa sssss oo nnnnnn oo fffffffff ddddddddddd aa rrrrrrrrrrrrrr kkkkkkkkk nnnnnn eeeeeeeeeee sssss sssss i tttttttttttttttt wwww aa sssss tttttttttttttttt hhhhhhhhhhhhhhhhhhhhhhh eeeeeeeeeee sssss pppp rrrrrrrrrrrrrr i nnnnnn gggggggggggggg oo fffffffff hhhhhhhhhhhhhhhhhhhhhhh oo pppp eeeeeeeeeee i tttttttttttttttt wwww aa sssss tttttttttttttttt hhhhhhhhhhhhhhhhhhhhhhh eeeeeeeeeee wwww i nnnnnn tttttttttttttttt eeeeeeeeeee rrrrrrrrrrrrrr oo fffffffff ddddddddddd eeeeeeeeeee sssss pppp aa i rrrrrrrrrrrrrr]
+---END:33---

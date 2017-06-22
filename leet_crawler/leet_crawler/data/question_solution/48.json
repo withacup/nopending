@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    /*--newline--     * clockwise rotate--newline--     * first reverse up to down, then swap the symmetry --newline--     * 1 2 3     7 8 9     7 4 1--newline--     * 4 5 6  => 4 5 6  => 8 5 2--newline--     * 7 8 9     1 2 3     9 6 3--newline--    */--newline--    void rotate(vector<vector<int> > &matrix) {--newline--        reverse(matrix.begin(), matrix.end());--newline--        for (int i = 0; i < matrix.size(); ++i) {--newline--            for (int j = i + 1; j < matrix[i].size(); ++j)--newline--                swap(matrix[i][j], matrix[j][i]);--newline--        }--newline--    }--newline--    --newline--    /*--newline--     * anticlockwise rotate--newline--     * first reverse left to right, then swap the symmetry--newline--     * 1 2 3     3 2 1     3 6 9--newline--     * 4 5 6  => 6 5 4  => 2 5 8--newline--     * 7 8 9     9 8 7     1 4 7--newline--    */--newline--    void anti_rotate(vector<vector<int> > &matrix) {--newline--        for (auto vi : matrix) reverse(vi.begin(), vi.end());--newline--        for (int i = 0; i < matrix.size(); ++i) {--newline--            for (int j = i + 1; j < matrix[i].size(); ++j)--newline--                swap(matrix[i][j], matrix[j][i]);--newline--        }--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "A common method to rotate the image"
+        },
+        {
+            "java": "public class Solution {--newline--    public void rotate(int[][] matrix) {--newline--        for(int i = 0; i<matrix.length; i++){--newline--            for(int j = i; j<matrix[0].length; j++){--newline--                int temp = 0;--newline--                temp = matrix[i][j];--newline--                matrix[i][j] = matrix[j][i];--newline--                matrix[j][i] = temp;--newline--            }--newline--        }--newline--        for(int i =0 ; i<matrix.length; i++){--newline--            for(int j = 0; j<matrix.length/2; j++){--newline--                int temp = 0;--newline--                temp = matrix[i][j];--newline--                matrix[i][j] = matrix[i][matrix.length-1-j];--newline--                matrix[i][matrix.length-1-j] = temp;--newline--            }--newline--        }--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "AC Java in place solution with explanation Easy to understand."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab--    def rotate(self, A):--newline----tab--        n = len(A)--newline----tab--        for i in range(n):--newline----tab--            for j in range(i):--newline----tab--                A[i][j], A[j][i] = A[j][i], A[i][j]--newline----tab--        for row in A:--newline----tab--            for j in range(n/2):--newline----tab--                row[j], row[~j] = row[~j], row[j]",
+            "topic_title": "Seven Short Solutions (1 to 7 lines)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    void rotate(vector<vector<int>>& matrix) {--newline--            int n = matrix.size();--newline--            int a = 0;--newline--            int b = n-1;--newline--            while(a<b){--newline--                for(int i=0;i<(b-a);++i){--newline--                    swap(matrix[a][a+i], matrix[a+i][b]);--newline--                    swap(matrix[a][a+i], matrix[b][b-i]);--newline--                    swap(matrix[a][a+i], matrix[b-i][a]);--newline--                }--newline--                ++a;--newline--                --b;--newline--            }--newline--        }--newline--}",
+            "python": null,
+            "topic_title": "4ms few lines C++ code Rotate Image 90 degree for O(1) space"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    void rotate(vector<vector<int>>& m) {--newline--            int n = m.size();--newline--            --newline--            for(int i=0; i<n; i++)--newline--                for(int j=0; j<i; j++)--newline--                    swap(m[i][j], m[j][i]);--newline--            --newline--            for(int i=0; i<n; i++)--newline--                reverse(m[i].begin(), m[i].end());--newline--        }--newline--}",
+            "python": null,
+            "topic_title": "6 lines of code and with O(1) space in c++"
+        }
+    ],
+    "qc": "48.json"
+}

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--        public int findMaxConsecutiveOnes(int[] nums) {--newline--            int maxHere = 0, max = 0;--newline--            for (int n : nums)--newline--                max = Math.max(max, maxHere = n == 0 ? 0 : maxHere + 1);--newline--            return max; --newline--        } --newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 4 lines concise solution with explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findMaxConsecutiveOnes(int[] nums) {--newline--        int result = 0;--newline--        int count = 0;--newline--        --newline--        for (int i = 0; i < nums.length; i++) {--newline--            if (nums[i] == 1) {--newline--        --tab--count++;--newline--        --tab--result = Math.max(count, result);--newline--            }--newline--            else count = 0;--newline--        }--newline--        --newline--        return result;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy Java Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def findMaxConsecutiveOnes(self, nums):--newline----tab--        cnt = 0--newline----tab--        ans = 0--newline----tab--        for num in nums:--newline----tab--            if num == 1:--newline----tab--                cnt += 1--newline----tab--                ans = max(ans, cnt)--newline----tab--            else:--newline----tab--                cnt = 0--newline----tab--        return ans--newline----tab--",
+            "topic_title": "Simple Python"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int findMaxConsecutiveOnes(int* nums, int numsSize) {--newline--     int max = 0;--newline--     int sum = 0;--newline--     for (int i=0; i<numsSize; i++)--newline--     {--newline--         sum = (sum+nums[i])*nums[i];--newline--         if(max<sum){max=sum;}--newline--     }--newline--    return max;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Simple C Solution with easy explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "C++ solution with O(n)"
+        }
+    ],
+    "qc": "485.json"
+}

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public List<List<Integer>> levelOrder(TreeNode root) {--newline--        Queue<TreeNode> queue = new LinkedList<TreeNode>();--newline--        List<List<Integer>> wrapList = new LinkedList<List<Integer>>();--newline--        --newline--        if(root == null) return wrapList;--newline--        --newline--        queue.offer(root);--newline--        while(!queue.isEmpty()){--newline--            int levelNum = queue.size();--newline--            List<Integer> subList = new LinkedList<Integer>();--newline--            for(int i=0; i<levelNum; i++) {--newline--                if(queue.peek().left != null) queue.offer(queue.peek().left);--newline--                if(queue.peek().right != null) queue.offer(queue.peek().right);--newline--                subList.add(queue.poll().val);--newline--            }--newline--            wrapList.add(subList);--newline--        }--newline--        return wrapList;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java solution with a queue used"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<vector<int>> ret;--newline--    --newline--    void buildVector(TreeNode *root, int depth)--newline--    {--newline--        if(root == NULL) return;--newline--        if(ret.size() == depth)--newline--            ret.push_back(vector<int>());--newline--        --newline--        ret[depth].push_back(root->val);--newline--        buildVector(root->left, depth + 1);--newline--        buildVector(root->right, depth + 1);--newline--    }--newline--    --newline--    vector<vector<int> > levelOrder(TreeNode *root) {--newline--        buildVector(root, 0);--newline--        return ret;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "One of C++ solutions (preorder)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<vector<int> > levelOrder(TreeNode *root) {--newline--        vector<vector<int> >  result;--newline--        if (!root) return result;--newline--        queue<TreeNode*> q;--newline--        q.push(root);--newline--        q.push(NULL);--newline--        vector<int> cur_vec;--newline--        while(!q.empty()) {--newline--            TreeNode* t = q.front();--newline--            q.pop();--newline--            if (t==NULL) {--newline--                result.push_back(cur_vec);--newline--                cur_vec.resize(0);--newline--                if (q.size() > 0) {--newline--                    q.push(NULL);--newline--                }--newline--            } else {--newline--                cur_vec.push_back(t->val);--newline--                if (t->left) q.push(t->left);--newline--                if (t->right) q.push(t->right);--newline--            }--newline--        }--newline--        return result;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "C++ solution using only one queue &#x2F; use a marker NULL"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<List<Integer>> levelOrder(TreeNode root) {--newline--            List<List<Integer>> res = new ArrayList<List<Integer>>();--newline--            levelHelper(res, root, 0);--newline--            return res;--newline--        }--newline--        --newline--        public void levelHelper(List<List<Integer>> res, TreeNode root, int height) {--newline--            if (root == null) return;--newline--            if (height >= res.size()) {--newline--                res.add(new LinkedList<Integer>());--newline--            }--newline--            res.get(height).add(root.val);--newline--            levelHelper(res, root.left, height+1);--newline--            levelHelper(res, root.right, height+1);--newline--        }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution using DFS"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def levelOrder(self, root):--newline----tab--        if not root:--newline----tab--            return []--newline----tab--        ans, level = [], [root]--newline----tab--        while level:--newline----tab--            ans.append([node.val for node in level])--newline----tab--            temp = []--newline----tab--            for node in level:--newline----tab--                temp.extend([node.left, node.right])--newline----tab--            level = [leaf for leaf in temp if leaf]--newline----tab--        return ans",
+            "topic_title": "5-6 lines fast python solution (48 ms)"
+        }
+    ],
+    "qc": "102.json"
+}

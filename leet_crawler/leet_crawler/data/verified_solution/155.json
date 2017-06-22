@@ -1,0 +1,6 @@
+{
+    "solution_code": "public class MinStack {--newline--    long min;--newline--    Stack<Long> stack;--newline----newline--    public MinStack(){--newline--        stack=new Stack<>();--newline--    }--newline--    --newline--    public void push(int x) {--newline--        if (stack.isEmpty()){--newline--            stack.push(0L);--newline--            min=x;--newline--        }else{--newline--            stack.push(x-min);//Could be negative if min value needs to change--newline--            if (x<min) min=x;--newline--        }--newline--    }--newline----newline--    public void pop() {--newline--        if (stack.isEmpty()) return;--newline--        --newline--        long pop=stack.pop();--newline--        --newline--        if (pop<0)  min=min-pop;//If negative, increase the min value--newline--        --newline--    }--newline----newline--    public int top() {--newline--        long top=stack.peek();--newline--        if (top>0){--newline--            return (int)(top+min);--newline--        }else{--newline--           return (int)(min);--newline--        }--newline--    }--newline----newline--    public int getMin() {--newline--        return (int)min;--newline--    }--newline--}",
+    "l_type": "java",
+    "modified_code": null,
+    "total_cases": 18
+}

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int findRadius(int[] houses, int[] heaters) {--newline--        Arrays.sort(heaters);--newline--        int result = Integer.MIN_VALUE;--newline--        --newline--        for (int house : houses) {--newline--            int index = Arrays.binarySearch(heaters, house);--newline--            if (index < 0) {--newline--        --tab--index = -(index + 1);--newline--            }--newline--            int dist1 = index - 1 >= 0 ? house - heaters[index - 1] : Integer.MAX_VALUE;--newline--            int dist2 = index < heaters.length ? heaters[index] - house : Integer.MAX_VALUE;--newline--        --newline--            result = Math.max(result, Math.min(dist1, dist2));--newline--        }--newline--        --newline--        return result;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Short and Clean Java Binary Search Solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findRadius(int[] houses, int[] heaters) {--newline--        Arrays.sort(houses);--newline--        Arrays.sort(heaters);--newline--        --newline--        int i = 0, res = 0;--newline--        for (int house : houses) {--newline--            while (i < heaters.length - 1 && heaters[i] + heaters[i + 1] <= house * 2) {--newline--                i++;--newline--            }--newline--            res = Math.max(res, Math.abs(heaters[i] - house));--newline--        }--newline--        --newline--        return res;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java Solution with 2 Pointers"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def findRadius(self, houses, heaters):--newline----tab--        heaters.sort()--newline----tab--        return max(min(abs(house - heater)--newline----tab--                       for i in [bisect.bisect(heaters, house)]--newline----tab--                       for heater in heaters[i-(i>0):i+1])--newline----tab--                   for house in houses)",
+            "topic_title": "Short Python"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int findRadius(vector<int>& houses, vector<int>& heaters) {--newline--        if (heaters.size() == 0) {--newline--            return 0;--newline--        }--newline--        sort(houses.begin(), houses.end());--newline--        sort(heaters.begin(), heaters.end());--newline--        int radius = 0;--newline--        int index = 0;--newline--        for (int i = 0; i < houses.size(); i++) {--newline--            while (index + 1 < heaters.size() && (abs(heaters[index+1] - houses[i]) <= abs(heaters[index] - houses[i]))) {--newline--                index++;--newline--            }--newline--            radius = max(radius, abs(heaters[index] - houses[i]));--newline--        }--newline--        return radius;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "simple C++ solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findRadius(int[] houses, int[] heaters) {--newline--        if(houses == null || houses.length == 0) return 0;--newline--        Arrays.sort(houses);--newline--        Arrays.sort(heaters);--newline--        int ans = 0;--newline--        int i  = 0;--newline--        int j = 0;--newline--        while(i<houses.length){--newline--            if(houses[i] <= heaters[j]){ //if house is located before heater j.--newline--                if(j == 0){ // corner case when the heater is the first  one--newline--                    ans = Math.max(ans, heaters[j]-houses[i]);--newline--                    i++;--newline--                    continue;--newline--                }--newline--            } else { // if house is located after some heater, --newline--                while(j!=heaters.length-1 && heaters[j]<houses[i]){ // then find a heater that stands after the house--newline--                    j++;--newline--                }--newline--                if(j == 0 || heaters[j] < houses[i]){ // corner cases if j is 0 or there is no more heaters--newline--                    ans = Math.max(ans, houses[i]-heaters[j]);--newline--                    i++;--newline--                    continue;--newline--                }--newline--            }--newline--            int dist = Math.min(houses[i]-heaters[j-1], heaters[j]-houses[i]); // if house is located between jth and j-1th heaters--newline--            ans = Math.max(ans, dist);--newline--            i++;--newline--        }--newline--        --newline--        return ans;--newline--    }--newline----newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java  Easy Solution"
+        }
+    ],
+    "qc": "475.json"
+}

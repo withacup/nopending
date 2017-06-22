@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int arrayPairSum(int[] nums) {--newline--        Arrays.sort(nums);--newline--        int result = 0;--newline--        for (int i = 0; i < nums.length; i += 2) {--newline--            result += nums[i];--newline--        }--newline--        return result;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution, Sorting. And rough proof of algorithm."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Please explain: The question doesn&#x27;t make sense."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int arrayPairSum(vector<int>& nums) {--newline--        vector<int> hashtable(20001,0);--newline--        for(size_t i=0;i<nums.size();i++)--newline--        {--newline--            hashtable[nums[i]+10000]++;--newline--        }--newline--        int ret=0;--newline--        int flag=0;--newline--        for(size_t i=0;i<20001;){--newline--            if((hashtable[i]>0)&&(flag==0)){--newline--                ret=ret+i-10000;--newline--                flag=1;--newline--                hashtable[i]--;--newline--            }else if((hashtable[i]>0)&&(flag==1)){--newline--                hashtable[i]--;--newline--                flag=0;--newline--            }else i++;--newline--        }--newline--        return ret;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "c++ code O(n),beats 100%"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab----newline----tab--    def arrayPairSum(self, nums):--newline----tab--        \"\"\"--newline----tab--        :type nums: List[int]--newline----tab--        :rtype: int--newline----tab--        \"\"\"--newline----tab--        return sum(sorted(nums)[::2])",
+            "topic_title": "Python 1 line (sorting is accepted)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Python, Simple with Explanation"
+        }
+    ],
+    "qc": "561.json"
+}

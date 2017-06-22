@@ -1,0 +1,6 @@
+{
+    "solution_code": "class Solution(object):--newline--        def twoSum(self, nums, target):--newline--            if len(nums) <= 1:--newline--                return False--newline--            buff_dict = {}--newline--            for i in range(len(nums)):--newline--                if nums[i] in buff_dict:--newline--                    return [buff_dict[nums[i]], i]--newline--                else:--newline--                    buff_dict[target - nums[i]] = i",
+    "l_type": "python",
+    "modified_code": null,
+    "total_cases": 19
+}

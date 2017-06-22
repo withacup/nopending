@@ -1,0 +1,30 @@
+---CONTENT_BEGIN---
+
+For a web developer, it is very important to know how to design a web page's size. So, given a specific rectangular web pageâs area, your job by now is to design a rectangular web page, whose length L and width W satisfy the following requirements:
+1. The area of the rectangular web page you designed must equal to the given target area.
+2. The width W should not be larger than the length L, which means L >= W.
+3. The difference between length L and width W should be as small as possible.
+
+You need to output the length L and the width W of the web page you designed in sequence.
+
+
+
+Example:
+
+Input: 4
+Output: [2, 2]
+Explanation: The target area is 4, and all the possible ways to construct it are [1,4], [2,2], [4,1]. 
+But according to requirement 2, [1,4] is illegal; according to requirement 3,  [4,1] is not optimal compared to [2,2]. So the length L is 2, and the width W is 2.
+
+
+
+Note:
+
+The given area won't exceed 10,000,000 and is a positive integer
+The web page's width and length you designed must be positive integers.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<int> constructRectangle(int area) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int[] constructRectangle(int area) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def constructRectangle(self, area):--newline--        '''--newline--        :type area: int--newline--        :rtype: List[int]--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Return an array of size *returnSize.--newline-- * Note: The returned array must be malloced, assume caller calls free().--newline-- */--newline--int* constructRectangle(int area, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int[] ConstructRectangle(int area) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} area--newline-- * @return {number[]}--newline-- */--newline--var constructRectangle = function(area) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} area--newline--# @return {Integer[]}--newline--def construct_rectangle(area)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func constructRectangle(_ area: Int) -> [Int] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func constructRectangle(area int) []int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

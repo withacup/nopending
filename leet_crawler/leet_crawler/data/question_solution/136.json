@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int singleNumber(int A[], int n) {--newline--        int result = 0;--newline--        for (int i = 0; i<n; i++)--newline--        {--newline--    --tab----tab--result ^=A[i];--newline--        }--newline--    --tab--return result;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "My O(n) solution using XOR"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--    public:--newline--        int singleNumber(int A[], int n) {--newline--            int result=A[0];--newline--            for(int i=1;i<n;i++)--newline--            {--newline--                result= result^A[i];  /* Get the xor of all elements */--newline--            }--newline--            return result;--newline--        }--newline--    };",
+            "python": null,
+            "topic_title": "Easiest way to solve by using bit manipulation."
+        },
+        {
+            "java": "public class Solution {--newline--    public int singleNumber(int[] nums) {--newline--        int ans =0;--newline--        --newline--        int len = nums.length;--newline--        for(int i=0;i!=len;i++)--newline--            ans ^= nums[i];--newline--        --newline--        return ans;--newline--        --newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy Java solution (tell you why using bitwise XOR)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution { --newline--    public:--newline--        int singleNumber(int A[], int n) {--newline--            for (int i = 1; i < n; ++i)--newline--                A[0] ^= A[i];--newline--             return A[0];--newline--        } --newline--    };",
+            "python": null,
+            "topic_title": "My very simple solution (linear time, no extra memory)"
+        },
+        {
+            "java": "public class Solution {--newline--    public int singleNumber(int[] nums) {--newline--        int result = 0;--newline--        for(int i : nums) {--newline--            result ^= i;--newline--        }--newline--        return result;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "1ms JAVA solution"
+        }
+    ],
+    "qc": "136.json"
+}

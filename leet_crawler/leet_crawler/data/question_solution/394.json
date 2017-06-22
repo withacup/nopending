@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string decodeString(const string& s, int& i) {--newline--        string res;--newline--        --newline--        while (i < s.length() && s[i] != ']') {--newline--            if (!isdigit(s[i]))--newline--                res += s[i++];--newline--            else {--newline--                int n = 0;--newline--                while (i < s.length() && isdigit(s[i]))--newline--                    n = n * 10 + s[i++] - '0';--newline--                    --newline--                i++; // '['--newline--                string t = decodeString(s, i);--newline--                i++; // ']'--newline--                --newline--                while (n-- > 0)--newline--                    res += t;--newline--            }--newline--        }--newline--        --newline--        return res;--newline--    }--newline----newline--    string decodeString(string s) {--newline--        int i = 0;--newline--        return decodeString(s, i);--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "0ms simple C++ solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public String decodeString(String s) {--newline--        String res = \"\";--newline--        Stack<Integer> countStack = new Stack<>();--newline--        Stack<String> resStack = new Stack<>();--newline--        int idx = 0;--newline--        while (idx < s.length()) {--newline--            if (Character.isDigit(s.charAt(idx))) {--newline--                int count = 0;--newline--                while (Character.isDigit(s.charAt(idx))) {--newline--                    count = 10 * count + (s.charAt(idx) - '0');--newline--                    idx++;--newline--                }--newline--                countStack.push(count);--newline--            }--newline--            else if (s.charAt(idx) == '[') {--newline--                resStack.push(res);--newline--                res = \"\";--newline--                idx++;--newline--            }--newline--            else if (s.charAt(idx) == ']') {--newline--                StringBuilder temp = new StringBuilder (resStack.pop());--newline--                int repeatTimes = countStack.pop();--newline--                for (int i = 0; i < repeatTimes; i++) {--newline--                    temp.append(res);--newline--                }--newline--                res = temp.toString();--newline--                idx++;--newline--            }--newline--            else {--newline--                res += s.charAt(idx++);--newline--            }--newline--        }--newline--        return res;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java Solution using Stack"
+        },
+        {
+            "java": "public class Solution {--newline--    public String decodeString(String s) {--newline--        Stack<Integer> count = new Stack<>();--newline--        Stack<String> result = new Stack<>();--newline--        int i = 0;--newline--        result.push(\"\");--newline--        while (i < s.length()) {--newline--            char ch = s.charAt(i);--newline--            if (ch >= '0' && ch <= '9') {--newline--                int start = i;--newline--                while (s.charAt(i + 1) >= '0' && s.charAt(i + 1) <= '9') i++;--newline--                count.push(Integer.parseInt(s.substring(start, i + 1)));--newline--            } else if (ch == '[') {--newline--                result.push(\"\");--newline--            } else if (ch == ']') {--newline--                String str = result.pop();--newline--                StringBuilder sb = new StringBuilder();--newline--                int times = count.pop();--newline--                for (int j = 0; j < times; j += 1) {--newline--                    sb.append(str);--newline--                }--newline--                result.push(result.pop() + sb.toString());--newline--            } else {--newline--                result.push(result.pop() + ch);--newline--            }--newline--            i += 1;--newline--        }--newline--        return result.pop();--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java short and easy-understanding solution using stack"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def decodeString(self, s):--newline----tab--        stack = []--newline----tab--        stack.append([\"\", 1])--newline----tab--        num = \"\"--newline----tab--        for ch in s:--newline----tab--            if ch.isdigit():--newline----tab--              num += ch--newline----tab--            elif ch == '[':--newline----tab--                stack.append([\"\", int(num)])--newline----tab--                num = \"\"--newline----tab--            elif ch == ']':--newline----tab--                st, k = stack.pop()--newline----tab--                stack[-1][0] += st*k--newline----tab--            else:--newline----tab--                stack[-1][0] += ch--newline----tab--        return stack[0][0]--newline----tab--",
+            "topic_title": "Share my Python Stack Simple Solution (Easy to understand)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def decodeString(self, s):--newline----tab--        while '[' in s:--newline----tab--            s = re.sub(r'(\\d+)\\[([a-z]*)\\]', lambda m: int(m.group(1)) * m.group(2), s)--newline----tab--        return s--newline----tab--    ",
+            "topic_title": "3 lines Python, 2 lines Ruby, regular expression"
+        }
+    ],
+    "qc": "394.json"
+}

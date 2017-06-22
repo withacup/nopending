@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int computeArea(int A, int B, int C, int D, int E, int F, int G, int H) {--newline--        int left = max(A,E), right = max(min(C,G), left);--newline--        int bottom = max(B,F), top = max(min(D,H), bottom);--newline--        return (C-A)*(D-B) - (right-left)*(top-bottom) + (G-E)*(H-F);--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Just another short way"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    This is utterly ridiculous. As I was writing this I knew I was going about it wrong but I wanted to finish it before I thought of a different method or looked at any other solutions.--newline--    --newline--      int computeArea(int A, int B, int C, int D, int E, int F, int G, int H) {--newline--    --tab--int area1 = (D - B)*(C - A);--newline--    --tab--int area2 = (H - F)*(G - E);--newline--    --tab--int area3;--newline--    --tab--if (area1 == 0) {--newline--    --tab----tab--return area2;--newline--    --tab--}--newline--    --tab--if (area2 == 0) {--newline--    --tab----tab--return area1;--newline--    --tab--}--newline--    --tab--if ((A == D) && (B == F) && (C == G) && (D == H)) {--newline--    --tab----tab--return area1;--newline--    --tab--}--newline--    --tab--if ((E >= C) | (G <= A) | (H <= B) | (D <= F)) {    //not overlapping--newline--    --tab----tab--return (area1 + area2);--newline--    --tab--}--newline--    --tab--if (((G - E) <= (C - A)) && ((H - F) <= (D - B)) && (E >= A) && (F >= B) && (G <= C) && (D >= H)) {                        //rect2 is inside rect1--newline--    --tab----tab--return area1;--newline--    --tab--}--newline--    --tab--if (((C - A) <= (G - E)) && ((D - B) <= (H - F)) && (E <= A) && (B >= F) && (G >= C) && (H >= D)) {                        //rect1 is inside rect2--newline--    --tab----tab--return area2;--newline--    --tab--}--newline--    --tab--if ((F >= B) && (E >= A) && (G >= C) && (H >= D)) {                       //overlapping upper right corner--newline--    --tab----tab--area3 = (C - E)*(D - F);--newline--    --tab--}--newline--    --tab--else if ((F >= B) && (E <= A) && (G <= C) && (H >= D)) {                       //overlapping upper left corner--newline--    --tab----tab--area3 = (G - A)*(D - F);--newline--    --tab--}--newline--    --tab--else if ((F <= B) && (E <= A) && (G <= C) && (H <= D)) {                       //overlapping bottom left corner--newline--    --tab----tab--area3 = (G - A)*(H - B);--newline--    --tab--}--newline--    --tab--else if ((F <= B) && (E >= A) && (G >= C) && (H <= D)) {                        //overlapping bottom right corner--newline--    --tab----tab--area3 = (H - B)*(C - E);--newline--    --tab--}--newline--    --tab--else if (((C - A) <= (G - E)) && (H <= D) && (G >= C) && (E <= A) && (F <= B)) {               //overlapping bottom side--newline--    --tab----tab--area3 = (C - A)*(H - B);--newline--    --tab--}--newline--    --tab--else if (((C - A) <= (G - E)) && (H >= D) && (G >= C) && (E <= A) && (F >= B)) {               //overlapping top side--newline--    --tab----tab--area3 = (C - A)*(D - F);--newline--    --tab--}--newline--    --tab--else if (((D - B) <= (H - F)) && (E <= A) && (F <= B) && (H >= D) && (G <= C)) {               //overlapping left side--newline--    --tab----tab--area3 = (G - A)*(D - B);--newline--    --tab--}--newline--    --tab--else if (((D - B) <= (H - F)) && (E >= A) && (F <= B) && (H >= D) && (G >= C)) {               //overlapping right side--newline--    --tab----tab--area3 = (C - E)*(D - B);--newline--    --tab--}--newline--    --tab--else if (((C - A) >= (G - E)) && (E >= A) && (F >= B) && (C >= G) && (D <= H)) {      //overlapping part of top side--newline--    --tab----tab--area3 = (G - E)*(D - F);--newline--    --tab--}--newline--    --tab--else if (((C - A) >= (G - E)) && (A <= E) && (B >= F) && (G <= C) && (D >= H)) {       //overlapping part of bottom side--newline--    --tab----tab--area3 = (G - E)*(H - B);--newline--    --tab--}--newline--    --tab--else if (((D - B) >= (H - F)) && (E <= A) && (F >= B) && (G <= C) && (H <= D)) {      //overlapping part of left side--newline--    --tab----tab--area3 = (G - A)*(H - F);--newline--    --tab--}--newline--    --tab--else if (((D - B) >= (H - F)) && (E >= A) && (F >= B) && (G >= C) && (H <= D)) {       //overlapping part of right side--newline--    --tab----tab--area3 = (C - E)*(H - F);--newline--    --tab--}--newline--    --tab--else if (((G - E) <= (C - A)) && (E >= A) && (F <= B) && (G <= C) && (H >= D)) {     //overlapping top and bottom--newline--    --tab----tab--area3 = (G - E)*(D - B);--newline--    --tab--}--newline--    --tab--else if (((H - F) <= (D - B)) && (E <= A) && (F >= B) && (C <= G) && (D >= H)) {     //overlapping left and right--newline--    --tab----tab--area3 = (C - A)*(H - F);--newline--    --tab--}--newline--    --newline--    --tab--return (area1 + area2 - area3);--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "If you want to laugh, look at my solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int computeArea(int A, int B, int C, int D, int E, int F, int G, int H) {--newline--            --newline--            int areaOfSqrA = (C-A) * (D-B);--newline--             int areaOfSqrB = (G-E) * (H-F);--newline--            --newline--            int left = Math.max(A, E);--newline--            int right = Math.min(G, C);--newline--            int bottom = Math.max(F, B);--newline--            int top = Math.min(D, H);--newline--            --newline--            //If overlap--newline--            int overlap = 0;--newline--            if(right > left && top > bottom)--newline--                 overlap = (right - left) * (top - bottom);--newline--            --newline--            return areaOfSqrA + areaOfSqrB - overlap;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My Java solution &#91;Sum of areas - Overlapped area&#93;"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def computeArea(self, A, B, C, D, E, F, G, H):--newline----tab--        overlap = max(min(C,G)-max(A,E), 0)*max(min(D,H)-max(B,F), 0)--newline----tab--        return (A-C)*(B-D) + (E-G)*(F-H) - overlap",
+            "topic_title": "Python concise solution."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Errors in Test Data"
+        }
+    ],
+    "qc": "223.json"
+}

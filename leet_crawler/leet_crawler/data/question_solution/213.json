@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int rob(int[] nums) {--newline--        if (nums.length == 1) return nums[0];--newline--        return Math.max(rob(nums, 0, nums.length - 2), rob(nums, 1, nums.length - 1));--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    private int rob(int[] num, int lo, int hi) {--newline--        int include = 0, exclude = 0;--newline--        for (int j = lo; j <= hi; j++) {--newline--            int i = include, e = exclude;--newline--            include = e + num[j];--newline--            exclude = Math.max(e, i);--newline--        }--newline--        return Math.max(include, exclude);--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Simple AC solution in Java in O(n) with explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int rob(vector<int>& nums) {--newline--        int n = nums.size(); --newline--        if (n < 2) return n ? nums[0] : 0;--newline--        return max(robber(nums, 0, n - 2), robber(nums, 1, n - 1));--newline--    }--newline--private:--newline--    int robber(vector<int>& nums, int l, int r) {--newline--        int pre = 0, cur = 0;--newline--        for (int i = l; i <= r; i++) {--newline--            int temp = max(pre + nums[i], cur);--newline--            pre = cur;--newline--            cur = temp;--newline--        }--newline--        return cur;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "9-lines 0ms O(1)-Space C++ solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int rob(vector<int>& nums)--newline--    {--newline--        if(nums.size() == 0)--newline--            return 0;--newline--        if(nums.size() == 1)--newline--            return nums[0];--newline--        --newline--        int pre1 = 0, cur1 = 0;--newline--        for(int i = 0; i < nums.size() - 1; ++ i)--newline--        {--newline--            int temp = pre1;--newline--            pre1 = cur1;--newline--            cur1 = max(temp + nums[i], pre1);--newline--        }--newline--        --newline--        int pre2 = 0, cur2 = 0;--newline--        for(int i = 1; i < nums.size(); ++ i)--newline--        {--newline--            int temp = pre2;--newline--            pre2 = cur2;--newline--            cur2 = max(temp + nums[i], pre2);--newline--        }--newline--        --newline--        return max(cur1, cur2);--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Twice pass solution, C++"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline----newline--    int robOriginal(vector<int>& nums) {--newline--        int a = 0, b = 0, res = 0;--newline--        --newline--        for(int i = 0; i < nums.size(); ++i){--newline--            res = max(b + nums[i], a);--newline--            b = a;--newline--            a = res;--newline--        }--newline--        --newline--        return res;--newline--    }--newline----newline--    int rob(vector<int>& nums) {--newline--        if(nums.empty()) return 0;--newline--        if(nums.size() == 1) return nums[0];--newline--        --newline--        vector<int> numsA(nums.begin() + 1, nums.end());--newline--        vector<int> numsB(nums.begin(), nums.end()-1);--newline--        --newline--        return max(robOriginal(numsA), robOriginal(numsB));--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "&#91;C++&#93; Super Simple 0ms solution with explanation"
+        },
+        {
+            "java": "public class Solution {--newline--public int rob(int[] nums) {--newline----tab--return Math.max(rob(nums, 0, nums.length-2), rob(nums, 1, nums.length-1));--newline--}--newline----newline--public int rob(int[] nums, int lo, int hi) {--newline--    int preRob = 0, preNotRob = 0, rob = 0, notRob = 0;--newline--    for (int i = lo; i <= hi; i++) {--newline--      --tab--rob = preNotRob + nums[i];--newline--    --tab--notRob = Math.max(preRob, preNotRob);--newline--    --tab----newline--    --tab--preNotRob = notRob;--newline--    --tab--preRob = rob;--newline--    }--newline--    return Math.max(rob, notRob);--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java clean short solution DP"
+        }
+    ],
+    "qc": "213.json"
+}

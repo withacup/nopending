@@ -1,0 +1,6 @@
+{
+    "solution_code": "public class Solution {--newline--    public int maxDistance(List<List<Integer>> arrays) {--newline--        int result = Integer.MIN_VALUE;--newline--        int max = arrays.get(0).get(arrays.get(0).size() - 1);--newline--        int min = arrays.get(0).get(0);--newline--        --newline--        for (int i = 1; i < arrays.size(); i++) {--newline--            result = Math.max(result, Math.abs(arrays.get(i).get(0) - max));--newline--            result = Math.max(result, Math.abs(arrays.get(i).get(arrays.get(i).size() - 1) - min));--newline--            max = Math.max(max, arrays.get(i).get(arrays.get(i).size() - 1));--newline--            min = Math.min(min, arrays.get(i).get(0));--newline--        }--newline--        --newline--        return result;--newline--    }--newline--}--newline--",
+    "l_type": "java",
+    "modified_code": null,
+    "total_cases": 124
+}

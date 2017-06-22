@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--    const int base = 1337;--newline--    int powmod(int a, int k) //a^k mod 1337 where 0 <= k <= 10--newline--    {--newline--        a %= base;--newline--        int result = 1;--newline--        for (int i = 0; i < k; ++i)--newline--            result = (result * a) % base;--newline--        return result;--newline--    }--newline--public:--newline--    int superPow(int a, vector<int>& b) {--newline--        if (b.empty()) return 1;--newline--        int last_digit = b.back();--newline--        b.pop_back();--newline--        return powmod(superPow(a, b), 10) * powmod(a, last_digit) % base;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ Clean and Short Solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int superPow(int a, int[] b) {--newline--        if (a % 1337 == 0) return 0;--newline--        int p = 0;--newline--        for (int i : b) p = (p * 10 + i) % 1140;--newline--        if (p == 0) p += 1440;--newline--        return power(a, p, 1337);--newline--    }--newline--    public int power(int a, int n, int mod) {--newline--        a %= mod;--newline--        int ret = 1;--newline--        while (n != 0) {--newline--            if ((n & 1) != 0) ret = ret * a % mod;--newline--            a = a * a % mod;--newline--            n >>= 1;--newline--        }--newline--        return ret;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int superPow(int a, vector<int>& b) {--newline--        if (a % 1337 == 0) return 0; // this line could also be removed--newline--        int p = 0;--newline--        for (int i : b) p = (p * 10 + i) % 1140;--newline--        if (p == 0) p += 1140;--newline--        return power(a, p, 1337);--newline--    }--newline--    int power(int x, int n, int mod) {--newline--        int ret = 1;--newline--        for (x %= mod; n; x = x * x % mod, n >>= 1) if (n & 1) ret = ret * x % mod;--newline--        return ret;--newline--    }--newline--    --newline--}",
+            "python": "class Solution :--newline----tab--    def superPow(self, a, b):--newline----tab--        return 0 if a % 1337 == 0 else pow(a, reduce(lambda x, y: (x * 10 + y) % 1140, b) + 1140, 1337)--newline----tab--    ",
+            "topic_title": "Math solusion based on Euler&#x27;s theorem, power called only ONCE, C++&#x2F;Java&#x2F;1-line-Python"
+        },
+        {
+            "java": "public class Solution {--newline--    int DIV = 1337;--newline--    --newline--    List<Integer> findLoop(int a){--newline--        List<Integer> index = new ArrayList<>();--newline--        boolean[] set = new boolean[DIV];--newline--        int rem = a % DIV;--newline--        while ( ! set[rem] ) {--newline--            set[rem]=true;--newline--            index.add(rem);--newline--            rem = (rem*a) % DIV;--newline--        }--newline--        return index;--newline--    }--newline--    --newline--    int modBy(int[] b, int m){--newline--        int rem = 0;--newline--        for (int i=0; i < b.length; i++) {--newline--            rem = (rem*10+b[i]) % m;--newline--        }--newline--        return rem;--newline--    }--newline----newline--    public int superPow(int a, int[] b) {--newline--        if (a==0 || a==DIV || b==null || b.length == 0) return 0;--newline--        if (a==1) return 1;--newline--        if (a > DIV) return superPow( a % DIV, b);--newline--        List<Integer> index = findLoop(a);--newline--        int loopsize = index.size();--newline--        int rem = modBy(b, loopsize);--newline--        rem = rem==0? loopsize: rem;--newline--        return index.get(rem-1);--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 4ms solution using the remainder repeat pattern"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "What&#x27;s the point of this kind of question?"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def superPow(self, a, b):--newline----tab--        result = 1--newline----tab--        apower = a--newline----tab--        for digit in reversed(b):--newline----tab--            result = result * pow(apower, digit, 1337) % 1337--newline----tab--            apower = pow(apower, 10, 1337)--newline----tab--        return result--newline----tab--    ",
+            "topic_title": "1-liners &amp; other with explanations"
+        }
+    ],
+    "qc": "372.json"
+}

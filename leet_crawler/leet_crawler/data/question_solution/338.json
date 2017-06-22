@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int[] countBits(int num) {--newline--        int[] f = new int[num + 1];--newline--        for (int i=1; i<=num; i++) f[i] = f[i >> 1] + (i & 1);--newline--        return f;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Three-Line Java Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> countBits(int num) {--newline--        vector<int> ret(num+1, 0);--newline--        for (int i = 1; i <= num; ++i)--newline--            ret[i] = ret[i&(i-1)] + 1;--newline--        return ret;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Four lines, C++, time O(n), space O(n)"
+        },
+        {
+            "java": "public class Solution {--newline--    public int[] countBits(int num) {--newline--        int result[] = new int[num + 1];--newline--        int offset = 1;--newline--        for (int index = 1; index < num + 1; ++index){--newline--            if (offset * 2 == index){--newline--                offset *= 2;--newline--            }--newline--            result[index] = result[index - offset] + 1;--newline--        }--newline--        return result;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "How we handle this question on interview &#91;Thinking process + DP solution&#93;"
+        },
+        {
+            "java": "public class Solution {--newline--    public int[] countBits(int num) {--newline--        int[] ret = new int[num+1];--newline--        ret[0] = 0;--newline--        int pow = 1;--newline--        for(int i = 1, t = 0; i <= num; i++, t++) {--newline--            if(i == pow) {--newline--                pow *= 2;--newline--                t = 0;--newline--            }--newline--            ret[i] = ret[t] + 1;--newline--        }--newline--        return ret;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java O(n) solution using two pointers"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--     vector<int> countBits(int num) {--newline--        vector<int> bits(num+1, 0);--newline--        for (int i = 1; i <= num; i++) bits[i] += bits[i & (i-1)] + 1;--newline--        return bits;--newline--     }--newline--}",
+            "python": null,
+            "topic_title": "My C++ solution, 3 lines of code."
+        }
+    ],
+    "qc": "338.json"
+}

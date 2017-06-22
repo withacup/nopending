@@ -1,0 +1,19 @@
+---CONTENT_BEGIN---
+Given an integer n, generate a square matrix filled with elements from 1 to n2 in spiral order.
+
+
+For example,
+Given n = 3,
+
+You should return the following matrix:
+
+[
+ [ 1, 2, 3 ],
+ [ 8, 9, 4 ],
+ [ 7, 6, 5 ]
+]
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<vector<int>> generateMatrix(int n) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int[][] generateMatrix(int n) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def generateMatrix(self, n):--newline--        '''--newline--        :type n: int--newline--        :rtype: List[List[int]]--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Return an array of arrays.--newline-- * Note: The returned array must be malloced, assume caller calls free().--newline-- */--newline--int** generateMatrix(int n) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int[,] GenerateMatrix(int n) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} n--newline-- * @return {number[][]}--newline-- */--newline--var generateMatrix = function(n) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} n--newline--# @return {Integer[][]}--newline--def generate_matrix(n)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func generateMatrix(_ n: Int) -> [[Int]] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func generateMatrix(n int) [][]int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

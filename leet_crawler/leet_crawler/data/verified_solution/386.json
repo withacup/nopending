@@ -1,0 +1,6 @@
+{
+    "solution_code": "public class Solution {--newline--    public List<Integer> lexicalOrder(int n) {--newline--            List<Integer> list = new ArrayList<>(n);--newline--            int curr = 1;--newline--            for (int i = 1; i <= n; i++) {--newline--                list.add(curr);--newline--                if (curr * 10 <= n) {--newline--                    curr *= 10;--newline--                } else if (curr % 10 != 9 && curr + 1 <= n) {--newline--                    curr++;--newline--                } else {--newline--                    while ((curr / 10) % 10 == 9) {--newline--                        curr /= 10;--newline--                    }--newline--                    curr = curr / 10 + 1;--newline--                }--newline--            }--newline--            return list;--newline--        }--newline--    --newline--}",
+    "l_type": "java",
+    "modified_code": null,
+    "total_cases": 26
+}

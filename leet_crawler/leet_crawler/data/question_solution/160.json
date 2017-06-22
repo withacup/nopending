@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {--newline--        //boundary check--newline--        if(headA == null || headB == null) return null;--newline--        --newline--        ListNode a = headA;--newline--        ListNode b = headB;--newline--        --newline--        //if a & b have different len, then we will stop the loop after second iteration--newline--        while( a != b){--newline--        --tab--//for the end of first iteration, we just reset the pointer to the head of another linkedlist--newline--            a = a == null? headB : a.next;--newline--            b = b == null? headA : b.next;    --newline--        }--newline--        --newline--        return a;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java solution without knowing the difference in len!"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) --newline--    {--newline--        ListNode *p1 = headA;--newline--        ListNode *p2 = headB;--newline--            --newline--        if (p1 == NULL || p2 == NULL) return NULL;--newline--    --newline--        while (p1 != NULL && p2 != NULL && p1 != p2) {--newline--            p1 = p1->next;--newline--            p2 = p2->next;--newline--    --newline--            //--newline--            // Any time they collide or reach end together without colliding --newline--            // then return any one of the pointers.--newline--            //--newline--            if (p1 == p2) return p1;--newline--    --newline--            //--newline--            // If one of them reaches the end earlier then reuse it --newline--            // by moving it to the beginning of other list.--newline--            // Once both of them go through reassigning, --newline--            // they will be equidistant from the collision point.--newline--            //--newline--            if (p1 == NULL) p1 = headB;--newline--            if (p2 == NULL) p2 = headA;--newline--        }--newline--            --newline--        return p1;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "My accepted simple and shortest C++ code with comments explaining the algorithm.  Any comments or improvements?"
+        },
+        {
+            "java": "public class Solution {--newline--    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {--newline--        int lenA = length(headA), lenB = length(headB);--newline--        // move headA and headB to the same start point--newline--        while (lenA > lenB) {--newline--            headA = headA.next;--newline--            lenA--;--newline--        }--newline--        while (lenA < lenB) {--newline--            headB = headB.next;--newline--            lenB--;--newline--        }--newline--        // find the intersection until end--newline--        while (headA != headB) {--newline--            headA = headA.next;--newline--            headB = headB.next;--newline--        }--newline--        return headA;--newline--    }--newline--    --newline--    private int length(ListNode node) {--newline--        int length = 0;--newline--        while (node != null) {--newline--            node = node.next;--newline--            length++;--newline--        }--newline--        return length;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Concise JAVA solution, O(1) memory O(n) time"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {--newline--        ListNode *cur1 = headA, *cur2 = headB;--newline--        while(cur1 != cur2){--newline--            cur1 = cur1?cur1->next:headB;--newline--            cur2 = cur2?cur2->next:headA;--newline--        }--newline--        return cur1;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Simple C++ solution (5 lines)"
+        },
+        {
+            "java": "public class Solution {--newline--    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {--newline--    --tab----tab--if( null==headA || null==headB )--newline--    --tab----tab----tab--return null;--newline--    --tab----tab----newline--    --tab----tab--ListNode curA = headA, curB = headB;--newline--    --tab----tab--while( curA!=curB){--newline--    --tab----tab----tab--curA = curA==null?headB:curA.next;--newline--    --tab----tab----tab--curB = curB==null?headA:curB.next;--newline--    --tab----tab--}--newline--    --tab----tab--return curA;--newline--        }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my simple java solution O(n) time, O(1) space"
+        }
+    ],
+    "qc": "160.json"
+}

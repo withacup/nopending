@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab--# @param {integer[]} nums--newline----tab--# @return {integer[]}--newline----tab--def majorityElement(self, nums):--newline----tab--    if not nums:--newline----tab--        return []--newline----tab--    count1, count2, candidate1, candidate2 = 0, 0, 0, 1--newline----tab--    for n in nums:--newline----tab--        if n == candidate1:--newline----tab--            count1 += 1--newline----tab--        elif n == candidate2:--newline----tab--            count2 += 1--newline----tab--        elif count1 == 0:--newline----tab--            candidate1, count1 = n, 1--newline----tab--        elif count2 == 0:--newline----tab--            candidate2, count2 = n, 1--newline----tab--        else:--newline----tab--            count1, count2 = count1 - 1, count2 - 1--newline----tab--    return [n for n in (candidate1, candidate2)--newline----tab--                    if nums.count(n) > len(nums) // 3]",
+            "topic_title": "Boyer-Moore Majority Vote algorithm and my elaboration"
+        },
+        {
+            "java": "public class Solution {--newline--    --tab--public List<Integer> majorityElement(int[] nums) {--newline--    --tab--if (nums == null || nums.length == 0)--newline--    --tab----tab--return new ArrayList<Integer>();--newline--    --tab--List<Integer> result = new ArrayList<Integer>();--newline--    --tab--int number1 = nums[0], number2 = nums[0], count1 = 0, count2 = 0, len = nums.length;--newline--    --tab--for (int i = 0; i < len; i++) {--newline--    --tab----tab--if (nums[i] == number1)--newline--    --tab----tab----tab--count1++;--newline--    --tab----tab--else if (nums[i] == number2)--newline--    --tab----tab----tab--count2++;--newline--    --tab----tab--else if (count1 == 0) {--newline--    --tab----tab----tab--number1 = nums[i];--newline--    --tab----tab----tab--count1 = 1;--newline--    --tab----tab--} else if (count2 == 0) {--newline--    --tab----tab----tab--number2 = nums[i];--newline--    --tab----tab----tab--count2 = 1;--newline--    --tab----tab--} else {--newline--    --tab----tab----tab--count1--;--newline--    --tab----tab----tab--count2--;--newline--    --tab----tab--}--newline--    --tab--}--newline--    --tab--count1 = 0;--newline--    --tab--count2 = 0;--newline--    --tab--for (int i = 0; i < len; i++) {--newline--    --tab----tab--if (nums[i] == number1)--newline--    --tab----tab----tab--count1++;--newline--    --tab----tab--else if (nums[i] == number2)--newline--    --tab----tab----tab--count2++;--newline--    --tab--}--newline--    --tab--if (count1 > len / 3)--newline--    --tab----tab--result.add(number1);--newline--    --tab--if (count2 > len / 3)--newline--    --tab----tab--result.add(number2);--newline--    --tab--return result;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "JAVA-------------------Easy Version To Understand!!!!!!!!!!!!"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--  vector<int> majorityElement(vector<int> &a) {--newline--    int y = 0, z = 1, cy = 0, cz = 0;--newline--    for (auto x: a) {--newline--      if (x == y) cy++;--newline--      else if (x == z) cz++;--newline--      else if (! cy) y = x, cy = 1;--newline--      else if (! cz) z = x, cz = 1;--newline--      else cy--, cz--;--newline--    }--newline--    cy = cz = 0;--newline--    for (auto x: a)--newline--      if (x == y) cy++;--newline--      else if (x == z) cz++;--newline--    vector<int> r;--newline--    if (cy > a.size()/3) r.push_back(y);--newline--    if (cz > a.size()/3) r.push_back(z);--newline--    return r;--newline--  }--newline--};",
+            "python": null,
+            "topic_title": "Boyer-Moore Majority Vote algorithm generalization"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> majorityElement(vector<int>& nums) {--newline--        int cnt1 = 0, cnt2 = 0, a=0, b=1;--newline--        --newline--        for(auto n: nums){--newline--            if (a==n){--newline--                cnt1++;--newline--            }--newline--            else if (b==n){--newline--                cnt2++;--newline--            }--newline--            else if (cnt1==0){--newline--                a = n;--newline--                cnt1 = 1;--newline--            }--newline--            else if (cnt2 == 0){--newline--                b = n;--newline--                cnt2 = 1;--newline--            }--newline--            else{--newline--                cnt1--;--newline--                cnt2--;--newline--            }--newline--        }--newline--        --newline--        cnt1 = cnt2 = 0;--newline--        for(auto n: nums){--newline--            if (n==a)   cnt1++;--newline--            else if (n==b)  cnt2++;--newline--        }--newline--        --newline--        vector<int> res;--newline--        if (cnt1 > nums.size()/3)   res.push_back(a);--newline--        if (cnt2 > nums.size()/3)   res.push_back(b);--newline--        return res;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "My C++ Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> majorityElement(vector<int>& nums) {--newline--            int t1,t2,n1=0,n2=0;  //numbers t1 and t2,votes' numbers n1,and n2.--newline--            for(int i=0;i<nums.size();++i)--newline--            {--newline--                if(n1!=0&&t1==nums[i]){++n1;continue;} --newline--                if(n2!=0&&t2==nums[i]){++n2;continue;}--newline--                if(n1==0){ t1=nums[i];++n1;continue;}--newline--                if(n2==0){ t2=nums[i];++n2;continue;}--newline--                --n1;--n2;--newline--            }--newline--            int z1=0,z2=0;--newline--            for(int i=0;i<nums.size();++i)--newline--            {--newline--                if(n1>0){ if(nums[i]==t1) ++z1;}--newline--                if(n2>0) {if(nums[i]==t2) ++z2;}--newline--            }--newline--            vector<int> ret;--newline--             //check t1 and t2.--newline--            if(z1>nums.size()/3) ret.push_back(t1);--newline--            if(z2>nums.size()/3) ret.push_back(t2);--newline--            return ret;--newline--        }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "My O(n) time solution ,20ms"
+        }
+    ],
+    "qc": "229.json"
+}

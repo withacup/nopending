@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    void connect(TreeLinkNode *root) {--newline--        if (root == NULL) return;--newline--        TreeLinkNode *pre = root;--newline--        TreeLinkNode *cur = NULL;--newline--        while(pre->left) {--newline--            cur = pre;--newline--            while(cur) {--newline--                cur->left->next = cur->right;--newline--                if(cur->next) cur->right->next = cur->next->left;--newline--                cur = cur->next;--newline--            }--newline--            pre = pre->left;--newline--        }--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "A simple accepted solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public void connect(TreeLinkNode root) {--newline--        TreeLinkNode level_start=root;--newline--        while(level_start!=null){--newline--            TreeLinkNode cur=level_start;--newline--            while(cur!=null){--newline--                if(cur.left!=null) cur.left.next=cur.right;--newline--                if(cur.right!=null && cur.next!=null) cur.right.next=cur.next.left;--newline--                --newline--                cur=cur.next;--newline--            }--newline--            level_start=level_start.left;--newline--        }--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java solution with O(1) memory+ O(n) time"
+        },
+        {
+            "java": "public class Solution {--newline--    public void connect(TreeLinkNode root) {--newline--        if(root == null)--newline--            return;--newline--            --newline--        if(root.left != null){--newline--            root.left.next = root.right;--newline--            if(root.next != null)--newline--                root.right.next = root.next.left;--newline--        }--newline--        --newline--        connect(root.left);--newline--        connect(root.right);--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My recursive solution(Java)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    void connect(TreeLinkNode *root) {--newline--        if(!root)--newline--            return;--newline--        while(root -> left)--newline--        {--newline--            TreeLinkNode *p = root;--newline--            while(p)--newline--            {--newline--                p -> left -> next = p -> right;--newline--                if(p -> next)--newline--                    p -> right -> next = p -> next -> left;--newline--                p = p -> next;--newline--            }--newline--            root = root -> left;--newline--        }--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "My simple non-iterative C++ code with O(1) memory"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Hint for O(1) space"
+        }
+    ],
+    "qc": "116.json"
+}

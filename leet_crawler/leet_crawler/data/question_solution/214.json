@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public String shortestPalindrome(String s) {--newline--        String temp = s + \"#\" + new StringBuilder(s).reverse().toString();--newline--        int[] table = getTable(temp);--newline--        --newline--        //get the maximum palin part in s starts from 0--newline--        return new StringBuilder(s.substring(table[table.length - 1])).reverse().toString() + s;--newline--    }--newline--    --newline--    public int[] getTable(String s){--newline--        //get lookup table--newline--        int[] table = new int[s.length()];--newline--        --newline--        //pointer that points to matched char in prefix part--newline--        --newline--        int index = 0;--newline--        //skip index 0, we will not match a string with itself--newline--        for(int i = 1; i < s.length(); i++){--newline--            if(s.charAt(index) == s.charAt(i)){--newline--                //we can extend match in prefix and postfix--newline--                table[i] = table[i-1] + 1;--newline--                index ++;--newline--            }else{--newline--                //match failed, we try to match a shorter substring--newline--                --newline--                //by assigning index to table[i-1], we will shorten the match string length, and jump to the --newline--                //prefix part that we used to match postfix ended at i - 1--newline--                index = table[i-1];--newline--                --newline--                while(index > 0 && s.charAt(index) != s.charAt(i)){--newline--                    //we will try to shorten the match string length until we revert to the beginning of match (index 1)--newline--                    index = table[index-1];--newline--                }--newline--                --newline--                //when we are here may either found a match char or we reach the boundary and still no luck--newline--                //so we need check char match--newline--                if(s.charAt(index) == s.charAt(i)){--newline--                    //if match, then extend one char --newline--                    index ++ ;--newline--                }--newline--                --newline--                table[i] = index;--newline--            }--newline--            --newline--        }--newline--        --newline--        return table;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Clean KMP solution with super detailed explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string shortestPalindrome(string s) {--newline--        string rev_s = s;--newline--        reverse(rev_s.begin(), rev_s.end());--newline--        string l = s + \"#\" + rev_s;--newline--        --newline--        vector<int> p(l.size(), 0);--newline--        for (int i = 1; i < l.size(); i++) {--newline--            int j = p[i - 1];--newline--            while (j > 0 && l[i] != l[j])--newline--                j = p[j - 1];--newline--            p[i] = (j += l[i] == l[j]);--newline--        }--newline--        --newline--        return rev_s.substr(0, s.size() - p[l.size() - 1]) + s;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "C++ 8 ms KMP-based O(n) time &amp; O(n) memory solution"
+        },
+        {
+            "java": "public class Solution {--newline--        int j = 0;--newline--        for (int i = s.length() - 1; i >= 0; i--) {--newline--            if (s.charAt(i) == s.charAt(j)) { j += 1; }--newline--        }--newline--        if (j == s.length()) { return s; }--newline--        String suffix = s.substring(j);--newline--        return new StringBuffer(suffix).reverse().toString() + shortestPalindrome(s.substring(0, j)) + suffix;--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My 7-lines recursive Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def shortestPalindrome(self, s):--newline----tab--        r = s[::-1]--newline----tab--        for i in range(len(s) + 1):--newline----tab--            if s.startswith(r[i:]):--newline----tab--                return r[:i] + s--newline----tab--    ",
+            "topic_title": "AC in 288 ms, simple brute force"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string shortestPalindrome(string s) {--newline--        string s2=s;--newline--        reverse(s2.begin(),s2.end());--newline--        int n=s.size(),l;--newline--        for(l=n;l>=0;l--)--newline--        {--newline--            if(s.substr(0,l)==s2.substr(n-l))--newline--                break;--newline--        }--newline--        return s2.substr(0,n-l)+s;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "My easily understandable but time consuming C++ solution"
+        }
+    ],
+    "qc": "214.json"
+}

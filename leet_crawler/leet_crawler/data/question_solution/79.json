@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public boolean exist(char[][] board, String word) {--newline--        char[] w = word.toCharArray();--newline--        for (int y=0; y<board.length; y++) {--newline--        --tab--for (int x=0; x<board[y].length; x++) {--newline--        --tab----tab--if (exist(board, y, x, w, 0)) return true;--newline--        --tab--}--newline--        }--newline--        return false;--newline--    }--newline--    --newline--    private boolean exist(char[][] board, int y, int x, char[] word, int i) {--newline--    --tab--if (i == word.length) return true;--newline--    --tab--if (y<0 || x<0 || y == board.length || x == board[y].length) return false;--newline--    --tab--if (board[y][x] != word[i]) return false;--newline--    --tab--board[y][x] ^= 256;--newline--    --tab--boolean exist = exist(board, y, x+1, word, i+1)--newline--    --tab----tab--|| exist(board, y, x-1, word, i+1)--newline--    --tab----tab--|| exist(board, y+1, x, word, i+1)--newline--    --tab----tab--|| exist(board, y-1, x, word, i+1);--newline--    --tab--board[y][x] ^= 256;--newline--    --tab--return exist;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Accepted very short Java solution. No additional space."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "   class Solution {--newline--    public:--newline--    --tab-- bool exist(vector<vector<char> > &board, string word) {--newline--    --tab----tab-- m=board.size();--newline--    --tab----tab-- n=board[0].size();--newline--            for(int x=0;x<m;x++)--newline--                for(int y=0;y<n;y++)--newline--                {--newline--    --tab----tab----tab----tab--if(isFound(board,word.c_str(),x,y))--newline--    --tab----tab----tab----tab----tab--return true;--newline--                }--newline--            return false;--newline--        }--newline--    private:--newline--    --tab--int m;--newline--    --tab--int n;--newline--        bool isFound(vector<vector<char> > &board, const char* w, int x, int y)--newline--        {--newline--    --tab----tab--if(x<0||y<0||x>=m||y>=n||board[x][y]=='\\0'||*w!=board[x][y])--newline--    --tab----tab----tab--return false;--newline--            if(*(w+1)=='\\0')--newline--                return true;--newline--    --tab----tab--char t=board[x][y];--newline--    --tab----tab--board[x][y]='\\0';--newline--    --tab----tab--if(isFound(board,w+1,x-1,y)||isFound(board,w+1,x+1,y)||isFound(board,w+1,x,y-1)||isFound(board,w+1,x,y+1))--newline--    --tab----tab----tab--return true; --newline--    --tab----tab--board[x][y]=t;--newline--            return false;--newline--        }--newline--    };",
+            "python": null,
+            "topic_title": "My 19ms accepted C++ code"
+        },
+        {
+            "java": "public class Solution {--newline--    static boolean[][] visited;--newline--    public boolean exist(char[][] board, String word) {--newline--        visited = new boolean[board.length][board[0].length];--newline--        --newline--        for(int i = 0; i < board.length; i++){--newline--            for(int j = 0; j < board[i].length; j++){--newline--                if((word.charAt(0) == board[i][j]) && search(board, word, i, j, 0)){--newline--                    return true;--newline--                }--newline--            }--newline--        }--newline--        --newline--        return false;--newline--    }--newline--    --newline--    private boolean search(char[][]board, String word, int i, int j, int index){--newline--        if(index == word.length()){--newline--            return true;--newline--        }--newline--        --newline--        if(i >= board.length || i < 0 || j >= board[i].length || j < 0 || board[i][j] != word.charAt(index) || visited[i][j]){--newline--            return false;--newline--        }--newline--        --newline--        visited[i][j] = true;--newline--        if(search(board, word, i-1, j, index+1) || --newline--           search(board, word, i+1, j, index+1) ||--newline--           search(board, word, i, j-1, index+1) || --newline--           search(board, word, i, j+1, index+1)){--newline--            return true;--newline--        }--newline--        --newline--        visited[i][j] = false;--newline--        return false;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My Java solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean exist(char[][] board, String word) {--newline--        for (int i = 0; i < board.length; i++) {--newline--            for (int j = 0; j < board[i].length; j++) {--newline--                if(exist(board, i, j, word, 0)) return true;--newline--            }--newline--        }--newline--        return false;--newline--    }--newline--    --newline--    private boolean exist(char[][] board, int x, int y, String word, int start) {--newline--        if(start >= word.length()) return true;--newline--        if(x < 0 || x >= board.length || y < 0 || y >= board[0].length) return false;--newline--        if (board[x][y] == word.charAt(start++)) {--newline--            char c = board[x][y];--newline--            board[x][y] = '#';--newline--            boolean res = exist(board, x + 1, y, word, start) || exist(board, x - 1, y, word, start) ||--newline--            exist(board, x, y + 1, word, start) || exist(board, x, y - 1, word, start);--newline--            board[x][y] = c;--newline--            return res;--newline--        }--newline--        return false;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--private:--newline--    bool dfs(vector<vector<char>>& board, int row, int col, const string &word, int start, int M, int N, int sLen)--newline--    {--newline--        char curC;--newline--        bool res = false;--newline--        if( (curC = board[row][col]) != word[start]) return false;--newline--        if(start==sLen-1) return true;--newline--        board[row][col] = '*';--newline--        if(row>0) res = dfs(board, row-1, col, word, start+1, M, N, sLen);--newline--        if(!res && row < M-1) res = dfs(board, row+1, col, word, start+1, M, N, sLen);--newline--        if(!res && col > 0)   res = dfs(board, row, col-1, word, start+1, M, N, sLen);--newline--        if(!res && col < N-1) res = dfs(board,  row, col+1, word, start+1, M, N, sLen);--newline--        board[row][col] = curC;--newline--        return res;--newline--    }--newline--    --newline--public:--newline--    bool exist(vector<vector<char>>& board, string word) {--newline--        int M,N,i,j,sLen = word.size();--newline--        if( (M=board.size()) && (N=board[0].size()) && sLen)--newline--        {--newline--            for(i=0; i<M; ++i)--newline--                for(j=0; j<N; ++j)--newline--                    if(dfs(board, i, j, word, 0, M, N, sLen)) return true;--newline--        }--newline--        return false;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "My DFS + Backtracking C++ solution (16ms)"
+        }
+    ],
+    "qc": "79.json"
+}

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Solution to 3rd follow-up question"
+        },
+        {
+            "java": "public class Solution {--newline--    public int[] intersect(int[] nums1, int[] nums2) {--newline--        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();--newline--        ArrayList<Integer> result = new ArrayList<Integer>();--newline--        for(int i = 0; i < nums1.length; i++)--newline--        {--newline--            if(map.containsKey(nums1[i])) map.put(nums1[i], map.get(nums1[i])+1);--newline--            else map.put(nums1[i], 1);--newline--        }--newline--    --newline--        for(int i = 0; i < nums2.length; i++)--newline--        {--newline--            if(map.containsKey(nums2[i]) && map.get(nums2[i]) > 0)--newline--            {--newline--                result.add(nums2[i]);--newline--                map.put(nums2[i], map.get(nums2[i])-1);--newline--            }--newline--        }--newline--    --newline--       int[] r = new int[result.size()];--newline--       for(int i = 0; i < result.size(); i++)--newline--       {--newline--           r[i] = result.get(i);--newline--       }--newline--    --newline--       return r;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "AC solution using Java HashMap"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {--newline--        sort(nums1.begin(), nums1.end());--newline--        sort(nums2.begin(), nums2.end());--newline--        int n1 = (int)nums1.size(), n2 = (int)nums2.size();--newline--        int i1 = 0, i2 = 0;--newline--        vector<int> res;--newline--        while(i1 < n1 && i2 < n2){--newline--            if(nums1[i1] == nums2[i2]) {--newline--                res.push_back(nums1[i1]);--newline--                i1++;--newline--                i2++;--newline--            }--newline--            else if(nums1[i1] > nums2[i2]){--newline--                i2++;--newline--            }--newline--            else{--newline--                i1++;--newline--            }--newline--        }--newline--        return res;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "C++ hash table solution and sort + two pointers solution with time and space complexity"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "from collections import Counter--newline----newline--class Solution(object):--newline----tab--    def intersect(self, nums1, nums2):--newline----tab--        c1, c2 = Counter(nums1), Counter(nums2)--newline----tab--        return sum([[num] * min(c1[num], c2[num]) for num in c1 & c2], [])",
+            "topic_title": "2 lines in Python"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> intersect(vector<int>& a, vector<int>& b) {--newline--        unordered_map<int, int> ctr;--newline--        for (int i : a)--newline--            ctr[i]++;--newline--        vector<int> out;--newline--        for (int i : b)--newline--            if (ctr[i]-- > 0)--newline--                out.push_back(i);--newline--        return out;--newline--    }--newline--}",
+            "python": "class Solution :--newline----tab--    def intersect(self, nums1, nums2):--newline----tab--        C = collections.Counter--newline----tab--        return list((C(nums1) & C(nums2)).elements())--newline----tab--        --newline----tab--    def intersect(self, nums1, nums2):--newline----tab--        return list((collections.Counter(nums1) & collections.Counter(nums2)).elements())--newline----tab--    ",
+            "topic_title": "Short Python &#x2F; C++"
+        }
+    ],
+    "qc": "350.json"
+}

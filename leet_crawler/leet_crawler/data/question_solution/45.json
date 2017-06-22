@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--     int jump(int A[], int n) {--newline--    --tab-- if(n<2)return 0;--newline--    --tab-- int level=0,currentMax=0,i=0,nextMax=0;--newline--    --newline--    --tab-- while(currentMax-i+1>0){--tab----tab--//nodes count of current level>0--newline--    --tab----tab-- level++;--newline--    --tab----tab-- for(;i<=currentMax;i++){--tab--//traverse current level , and update the max reach of next level--newline--    --tab----tab----tab--nextMax=max(nextMax,A[i]+i);--newline--    --tab----tab----tab--if(nextMax>=n-1)return level;   // if last element is in level+1,  then the min jump=level --newline--    --tab----tab-- }--newline--    --tab----tab-- currentMax=nextMax;--newline--    --tab-- }--newline--    --tab-- return 0;--newline--     }--newline--}",
+            "python": null,
+            "topic_title": "O(n), BFS solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int jump(int[] A) {--newline--        int sc = 0;--newline--        int e = 0;--newline--        int max = 0;--newline--        for(int i=0; i<A.length-1; i++) {--newline--            max = Math.max(max, i+A[i]);--newline--            if( i == e ) {--newline--                sc++;--newline--                e = max;--newline--            } --newline--        }--newline--        return sc;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Single loop simple java solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int jump(int[] A) {--newline--    --tab--int jumps = 0, curEnd = 0, curFarthest = 0;--newline--    --tab--for (int i = 0; i < A.length - 1; i++) {--newline--    --tab----tab--curFarthest = Math.max(curFarthest, i + A[i]);--newline--    --tab----tab--if (i == curEnd) {--newline--    --tab----tab----tab--jumps++;--newline--    --tab----tab----tab--curEnd = curFarthest;--newline--    --tab----tab--}--newline--    --tab--}--newline--    --tab--return jumps;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Concise O(n) one loop JAVA solution based on Greedy"
+        },
+        {
+            "java": "public class Solution {--newline--    public int jump(int[] A) {--newline--        int maxReach = A[0];--newline--        int edge = 0;--newline--        int minstep = 0;--newline--        --newline--        for(int i = 1; i < A.length; i++) {--newline--            if (i > edge) {--newline--                minstep += 1;--newline--                edge = maxReach;--newline--                if(edge > A.length - 1)--newline--                    return minstep;--newline--            }--newline--            maxReach = Math.max(maxReach, A[i] + i);--newline--            if (maxReach == i):--newline--                return -1;--newline--        }--newline--        --newline--        return minstep;--newline--    } --newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Sharing My AC Java Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int jump(vector<int>& nums) {--newline--        int n = nums.size(), step = 0, start = 0, end = 0;--newline--        while (end < n - 1) {--newline--            step++; --newline----tab----tab----tab--int maxend = end + 1;--newline----tab----tab----tab--for (int i = start; i <= end; i++) {--newline--                if (i + nums[i] >= n - 1) return step;--newline----tab----tab----tab----tab--maxend = max(maxend, i + nums[i]);--newline----tab----tab----tab--}--newline--            start = end + 1;--newline--            end = maxend;--newline--        }--newline----tab----tab--return step;--newline--    }--newline--};--newline--",
+            "python": "class Solution:--newline----tab--    # @param {integer[]} nums--newline----tab--    # @return {integer}--newline----tab--    def jump(self, nums):--newline----tab--        n, start, end, step = len(nums), 0, 0, 0--newline----tab--        while end < n - 1:--newline----tab--            step += 1--newline----tab--            maxend = end + 1--newline----tab--            for i in range(start, end + 1):--newline----tab--                if i + nums[i] >= n - 1:--newline----tab--                    return step--newline----tab--                maxend = max(maxend, i + nums[i])--newline----tab--            start, end = end + 1, maxend--newline----tab--        return step",
+            "topic_title": "10-lines C++ (16ms) &#x2F; Python BFS Solutions with Explanations"
+        }
+    ],
+    "qc": "45.json"
+}

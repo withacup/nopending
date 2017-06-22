@@ -1,0 +1,23 @@
+---CONTENT_BEGIN---
+
+Given two words word1 and word2, find the minimum number of steps required to make word1 and word2 the same, where in each step you can delete one character in either string.
+
+
+Example 1:
+
+Input: "sea", "eat"
+Output: 2
+Explanation: You need one step to make "sea" to "ea" and another step to make "eat" to "ea".
+
+
+
+Note:
+
+The length of given words won't exceed 500.
+Characters in given words can only be lower-case letters.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int minDistance(string word1, string word2) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int minDistance(String word1, String word2) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def minDistance(self, word1, word2):--newline--        '''--newline--        :type word1: str--newline--        :type word2: str--newline--        :rtype: int--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "class Solution:--newline--    def minDistance(self, word1, word2):--newline--        '''--newline--        :type word1: str--newline--        :type word2: str--newline--        :rtype: int--newline--        '''", "value": "python3", "text": "Python3"}, {"defaultCode": "int minDistance(char* word1, char* word2) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int MinDistance(string word1, string word2) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} word1--newline-- * @param {string} word2--newline-- * @return {number}--newline-- */--newline--var minDistance = function(word1, word2) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} word1--newline--# @param {String} word2--newline--# @return {Integer}--newline--def min_distance(word1, word2)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func minDistance(_ word1: String, _ word2: String) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func minDistance(word1 string, word2 string) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

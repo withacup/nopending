@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public static String intToRoman(int num) {--newline--        String M[] = {\"\", \"M\", \"MM\", \"MMM\"};--newline--        String C[] = {\"\", \"C\", \"CC\", \"CCC\", \"CD\", \"D\", \"DC\", \"DCC\", \"DCCC\", \"CM\"};--newline--        String X[] = {\"\", \"X\", \"XX\", \"XXX\", \"XL\", \"L\", \"LX\", \"LXX\", \"LXXX\", \"XC\"};--newline--        String I[] = {\"\", \"I\", \"II\", \"III\", \"IV\", \"V\", \"VI\", \"VII\", \"VIII\", \"IX\"};--newline--        return M[num/1000] + C[(num%1000)/100] + X[(num%100)/10] + I[num%10];--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My java solution easy to understand"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Two lines can do the job"
+        },
+        {
+            "java": "public class Solution {--newline--    public String intToRoman(int num) {--newline--        String M[] = {\"\", \"M\", \"MM\", \"MMM\"};--newline--        String C[] = {\"\", \"C\", \"CC\", \"CCC\", \"CD\", \"D\", \"DC\", \"DCC\", \"DCCC\", \"CM\"};--newline--        String X[] = {\"\", \"X\", \"XX\", \"XXX\", \"XL\", \"L\", \"LX\", \"LXX\", \"LXXX\", \"XC\"};--newline--        String I[] = {\"\", \"I\", \"II\", \"III\", \"IV\", \"V\", \"VI\", \"VII\", \"VIII\", \"IX\"};--newline--        return M[num/1000] + C[(num%1000)/100]+ X[(num%100)/10] + I[num%10];--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple JAVA solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share My Python Solution 96ms"
+        }
+    ],
+    "qc": "12.json"
+}

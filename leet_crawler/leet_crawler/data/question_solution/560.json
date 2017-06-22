@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int subarraySum(int[] nums, int k) {--newline--        int sum = 0, result = 0;--newline--        Map<Integer, Integer> preSum = new HashMap<>();--newline--        preSum.put(0, 1);--newline--        --newline--        for (int i = 0; i < nums.length; i++) {--newline--            sum += nums[i];--newline--            if (preSum.containsKey(sum - k)) {--newline--                result += preSum.get(sum - k);--newline--            }--newline--            preSum.put(sum, preSum.getOrDefault(sum, 0) + 1);--newline--        }--newline--        --newline--        return result;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution, PreSum + HashMap"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def subarraySum(self, A, K):--newline----tab--        count = collections.Counter()--newline----tab--        count[0] = 1--newline----tab--        ans = su = 0--newline----tab--        for x in A:--newline----tab--            su += x--newline----tab--            ans += count[su-K]--newline----tab--            count[su] += 1--newline----tab--        return ans--newline----tab--    ",
+            "topic_title": "Python, Simple with Explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public int subarraySum(int[] a, int k) {--newline--            int sum = 0;--newline--    --tab----tab--HashMap<Integer, Integer> map = new HashMap<>();--newline--    --tab----tab--map.put(0, 1);--newline--    --tab----tab--int count = 0;--newline--    --tab----tab--for (int i = 0; i < a.length; i++) {--newline--    --tab----tab----tab--sum += a[i];--newline--    --tab----tab----tab--if (map.containsKey(sum - k)) {--newline--    --tab----tab----tab----tab--count += map.get(sum-k);--newline--    --tab----tab----tab--}--newline--    --tab----tab----tab--if (!map.containsKey(sum)) {--newline--    --tab----tab----tab----tab--map.put(sum, 1);--newline--    --tab----tab----tab--} else {--newline--    --tab----tab----tab--    map.put(sum, map.get(sum) + 1);--newline--    --tab----tab----tab--}--newline--    --tab----tab--}--newline--    --tab----tab--return count;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my O(n) time solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int subarraySum(vector<int>& nums, int k) {--newline--        int cum=0; // cumulated sum--newline--        map<int,int> rec; // prefix sum recorder--newline--        int cnt = 0; // number of found subarray--newline--        rec[0]++; // to take into account those subarrays that begin with index 0--newline--        for(int i=0;i<nums.size();i++){--newline--            cum += nums[i];--newline--            cnt += rec[cum-k];--newline--            rec[cum]++;--newline--        }--newline--        return cnt;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ prefix sum + map"
+        },
+        {
+            "java": "public class Solution {--newline--    public int subarraySum(int[] nums, int k) {--newline--            int count=0;--newline--            for(int i=0;i<nums.length;i++){--newline--                int sum=nums[i];--newline--                if(sum==k){--newline--                    count++;--newline--                }--newline--                for(int j=i+1;j<nums.length;j++){--newline--                    sum+=nums[j];--newline--                    if(sum==k) count++;--newline--                }--newline--            }--newline--            return count;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Basic Java solution"
+        }
+    ],
+    "qc": "560.json"
+}

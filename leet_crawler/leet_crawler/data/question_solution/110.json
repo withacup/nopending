@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class solution {--newline--public:--newline--int dfsHeight (TreeNode *root) {--newline--        if (root == NULL) return 0;--newline--        --newline--        int leftHeight = dfsHeight (root -> left);--newline--        if (leftHeight == -1) return -1;--newline--        int rightHeight = dfsHeight (root -> right);--newline--        if (rightHeight == -1) return -1;--newline--        --newline--        if (abs(leftHeight - rightHeight) > 1)  return -1;--newline--        return max (leftHeight, rightHeight) + 1;--newline--    }--newline--    bool isBalanced(TreeNode *root) {--newline--        return dfsHeight (root) != -1;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "The bottom up O(N) solution would be better"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isBalanced(TreeNode root) {--newline--        if(root==null){--newline--            return true;--newline--        }--newline--        return height(root)!=-1;--newline--        --newline--    }--newline--    public int height(TreeNode node){--newline--        if(node==null){--newline--            return 0;--newline--        }--newline--        int lH=height(node.left);--newline--        if(lH==-1){--newline--            return -1;--newline--        }--newline--        int rH=height(node.right);--newline--        if(rH==-1){--newline--            return -1;--newline--        }--newline--        if(lH-rH<-1 || lH-rH>1){--newline--            return -1;--newline--        }--newline--        return Math.max(lH,rH)+1;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java solution based on height, check left and right node in every recursion to avoid further useless search"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Two different definitions of balanced binary tree result in two different judgments"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def isBalanced(self, root):--newline----tab--        stack, node, last, depths = [], root, None, {}--newline----tab--        while stack or node:--newline----tab--            if node:--newline----tab--                stack.append(node)--newline----tab--                node = node.left--newline----tab--            else:--newline----tab--                node = stack[-1]--newline----tab--                if not node.right or last == node.right:--newline----tab--                    node = stack.pop()--newline----tab--                    left, right  = depths.get(node.left, 0), depths.get(node.right, 0)--newline----tab--                    if abs(left - right) > 1: return False--newline----tab--                    depths[node] = 1 + max(left, right)--newline----tab--                    last = node--newline----tab--                    node = None--newline----tab--                else:--newline----tab--                    node = node.right--newline----tab--        return True--newline----tab----newline----tab----newline----tab--# 226 / 226 test cases passed.--newline----tab--# Status: Accepted--newline----tab--# Runtime: 84 ms--newline----tab----newline----tab--",
+            "topic_title": "VERY SIMPLE Python solutions (iterative and recursive), both beat 90%"
+        },
+        {
+            "java": "public class Solution {--newline--    private static final int UNBALANCED = -99;--newline--    --newline--    public boolean isBalanced(TreeNode root) {--newline--        if (root == null) {--newline--            return true;--newline--        }--newline--        return getHeight(root) != UNBALANCED;--newline--    }--newline--    --newline--    private int getHeight(TreeNode root) {--newline--        if (root == null) {--newline--            return -1;--newline--        }--newline--        int l = getHeight(root.left);--newline--        int r = getHeight(root.right);--newline--        if (l == UNBALANCED || r == UNBALANCED || Math.abs(l-r) > 1) {--newline--            return UNBALANCED;--newline--        }--newline--        return 1 + Math.max(l,r);--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Accepted O(n) solution"
+        }
+    ],
+    "qc": "110.json"
+}

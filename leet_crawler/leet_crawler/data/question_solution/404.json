@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int sumOfLeftLeaves(TreeNode root) {--newline--        if(root == null) return 0;--newline--        int ans = 0;--newline--        Stack<TreeNode> stack = new Stack<TreeNode>();--newline--        stack.push(root);--newline--        --newline--        while(!stack.empty()) {--newline--            TreeNode node = stack.pop();--newline--            if(node.left != null) {--newline--                if (node.left.left == null && node.left.right == null)--newline--                    ans += node.left.val;--newline--                else--newline--                    stack.push(node.left);--newline--            }--newline--            if(node.right != null) {--newline--                if (node.right.left != null || node.right.right != null)--newline--                    stack.push(node.right);--newline--            }--newline--        }--newline--        return ans;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java iterative and recursive solutions"
+        },
+        {
+            "java": "public class Solution {--newline--    public int sumOfLeftLeaves(TreeNode root) {--newline--        if(root == null || root.left == null && root.right == null) return 0;--newline--        --newline--        int res = 0;--newline--        Queue<TreeNode> queue = new LinkedList<>();--newline--        queue.offer(root);--newline--        --newline--        while(!queue.isEmpty()) {--newline--            TreeNode curr = queue.poll();--newline----newline--            if(curr.left != null && curr.left.left == null && curr.left.right == null) res += curr.left.val;--newline--            if(curr.left != null) queue.offer(curr.left);--newline--            if(curr.right != null) queue.offer(curr.right);--newline--        }--newline--        return res;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution using BFS"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int sumOfLeftLeaves(TreeNode* root) {--newline--        if (!root) return 0;--newline--        if (root->left && !root->left->left && !root->left->right) return root->left->val + sumOfLeftLeaves(root->right);--newline--        return sumOfLeftLeaves(root->left) + sumOfLeftLeaves(root->right);--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "3-line c++ solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int sumOfLeftLeaves(TreeNode* root, bool isleft = false) {--newline--        if (!root) return 0;--newline--        if (!root->left && !root->right) return isleft ? root->val : 0;--newline--        return sumOfLeftLeaves(root->left, true) + sumOfLeftLeaves(root->right, false);--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "3 line recursive c++ solution, no need to explain"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def sumOfLeftLeaves(self, root):--newline----tab--        if not root: return 0--newline----tab--        if root.left and not root.left.left and not root.left.right:--newline----tab--            return root.left.val + self.sumOfLeftLeaves(root.right)--newline----tab--        return self.sumOfLeftLeaves(root.left) + self.sumOfLeftLeaves(root.right)   # isn't leave--newline----tab--",
+            "topic_title": "4 Lines Python Recursive AC Solution"
+        }
+    ],
+    "qc": "404.json"
+}

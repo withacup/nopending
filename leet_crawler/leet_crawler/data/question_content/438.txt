@@ -1,0 +1,39 @@
+---CONTENT_BEGIN---
+Given a string s and a non-empty string p, find all the start indices of p's anagrams in s.
+
+Strings consists of lowercase English letters only and the length of both strings s and p will not be larger than 20,100.
+
+The order of output does not matter.
+
+Example 1:
+
+Input:
+s: "cbaebabacd" p: "abc"
+
+Output:
+[0, 6]
+
+Explanation:
+The substring with start index = 0 is "cba", which is an anagram of "abc".
+The substring with start index = 6 is "bac", which is an anagram of "abc".
+
+
+
+Example 2:
+
+Input:
+s: "abab" p: "ab"
+
+Output:
+[0, 1, 2]
+
+Explanation:
+The substring with start index = 0 is "ab", which is an anagram of "ab".
+The substring with start index = 1 is "ba", which is an anagram of "ab".
+The substring with start index = 2 is "ab", which is an anagram of "ab".
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<int> findAnagrams(string s, string p) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public List<Integer> findAnagrams(String s, String p) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def findAnagrams(self, s, p):--newline--        '''--newline--        :type s: str--newline--        :type p: str--newline--        :rtype: List[int]--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Return an array of size *returnSize.--newline-- * Note: The returned array must be malloced, assume caller calls free().--newline-- */--newline--int* findAnagrams(char* s, char* p, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public IList<int> FindAnagrams(string s, string p) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} s--newline-- * @param {string} p--newline-- * @return {number[]}--newline-- */--newline--var findAnagrams = function(s, p) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} s--newline--# @param {String} p--newline--# @return {Integer[]}--newline--def find_anagrams(s, p)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func findAnagrams(_ s: String, _ p: String) -> [Int] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func findAnagrams(s string, p string) []int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

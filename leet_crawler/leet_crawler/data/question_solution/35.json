@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--        public int searchInsert(int[] A, int target) {--newline--            int low = 0, high = A.length-1;--newline--            while(low<=high){--newline--                int mid = (low+high)/2;--newline--                if(A[mid] == target) return mid;--newline--                else if(A[mid] > target) high = mid-1;--newline--                else low = mid+1;--newline--            }--newline--            return low;--newline--        }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My 8 line Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int searchInsert(vector<int>& nums, int target) {--newline--        int low = 0, high = nums.size()-1;--newline----newline--        // Invariant: the desired index is between [low, high+1]--newline--        while (low <= high) {--newline--            int mid = low + (high-low)/2;--newline----newline--            if (nums[mid] < target)--newline--                low = mid+1;--newline--            else--newline--                high = mid-1;--newline--        }--newline----newline--        // (1) At this point, low > high. That is, low >= high+1--newline--        // (2) From the invariant, we know that the index is between [low, high+1], so low <= high+1. Follwing from (1), now we know low == high+1.--newline--        // (3) Following from (2), the index is between [low, high+1] = [low, low], which means that low is the desired index--newline--        //     Therefore, we return low as the answer. You can also return high+1 as the result, since low == high+1--newline--        return low;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "C++ O(logn) Binary Search that handles duplicate"
+        },
+        {
+            "java": "public class Solution {--newline--public int searchInsert(int[] nums, int target) {--newline--    int low = 0, high = nums.length;--newline--    while(low < high) {--newline--        int mid = low + (high - low) / 2;--newline--        if(nums[mid] < target)--newline--            low = mid + 1;--newline--        else--newline--            high = mid;--newline--    }--newline--    return low;--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Very concise and efficient solution in Java"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--def searchInsert(self, nums, key):--newline----tab--    if key > nums[len(nums) - 1]:--newline----tab--        return len(nums)--newline----tab----newline----tab--    if key < nums[0]:--newline----tab--        return 0--newline----tab----newline----tab--    l, r = 0, len(nums) - 1--newline----tab--    while l <= r:--newline----tab--        m = (l + r)/2--newline----tab--        if nums[m] > key:--newline----tab--            r = m - 1--newline----tab--            if r >= 0:--newline----tab--                if nums[r] < key:--newline----tab--                    return r + 1--newline----tab--            else:--newline----tab--                return 0--newline----tab----newline----tab--        elif nums[m] < key:--newline----tab--            l = m + 1--newline----tab--            if l < len(nums):--newline----tab--                if nums[l] > key:--newline----tab--                    return l--newline----tab--            else:--newline----tab--                return len(nums)--newline----tab--        else:--newline----tab--            return m--newline----tab--",
+            "topic_title": "Python beats 98%"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int search(int A[], int start, int end, int target) {--newline--        if (start > end) return start;--newline--        int mid = (start + end) / 2;--newline--        if (A[mid] == target) return mid;--newline--        else if (A[mid] > target) return search(A, start, mid - 1, target);--newline--        else return search(A, mid + 1, end, target);--newline--    }--newline--    int searchInsert(int A[], int n, int target) {--newline--        return search(A, 0, n - 1, target);--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Simple Binary Search Solution"
+        }
+    ],
+    "qc": "35.json"
+}

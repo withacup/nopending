@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int findMaxLength(int[] nums) {--newline--        for (int i = 0; i < nums.length; i++) {--newline--            if (nums[i] == 0) nums[i] = -1;--newline--        }--newline--        --newline--        Map<Integer, Integer> sumToIndex = new HashMap<>();--newline--        sumToIndex.put(0, -1);--newline--        int sum = 0, max = 0;--newline--        --newline--        for (int i = 0; i < nums.length; i++) {--newline--            sum += nums[i];--newline--            if (sumToIndex.containsKey(sum)) {--newline--                max = Math.max(max, i - sumToIndex.get(sum));--newline--            }--newline--            else {--newline--                sumToIndex.put(sum, i);--newline--            }--newline--        }--newline--        --newline--        return max;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy Java O(n) Solution, PreSum + HashMap"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def findMaxLength(self, nums):--newline----tab--        count = 0--newline----tab--        max_length=0--newline----tab--        table = {0: 0}--newline----tab--        for index, num in enumerate(nums, 1):--newline----tab--            if num == 0:--newline----tab--                count -= 1--newline----tab--            else:--newline----tab--                count += 1--newline----tab--            --newline----tab--            if count in table:--newline----tab--                max_length = max(max_length, index - table[count])--newline----tab--            else:--newline----tab--                table[count] = index--newline----tab--        --newline----tab--        return max_length--newline----tab--",
+            "topic_title": "Python O(n) Solution with Visual Explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findMaxLength(int[] nums) {--newline--        Map<Integer, Integer> index = new HashMap<>();--newline--        index.put(0, -1);--newline--        int balance = 0, maxlen = 0;--newline--        for (int i = 0; i < nums.length; i++) {--newline--            balance += nums[i] * 2 - 1;--newline--            Integer first = index.putIfAbsent(balance, i);--newline--            if (first != null)--newline--                maxlen = Math.max(maxlen, i - first);--newline--        }--newline--        return maxlen;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def findMaxLength(self, nums):--newline----tab--        return reduce(lambda(f,b,m),(i,x):(f,b+x-.5,max(m,i-f.setdefault(b+x-.5,i))),enumerate(nums),({0:-1},0,0))[2]--newline----tab--    ",
+            "topic_title": "Python and Java with little tricks (incl. a oneliner :-)"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findMaxLength(int[] nums) {--newline--        HashMap<Integer,Integer> map=new HashMap<>();--newline--        map.put(0,-1);--newline--        --newline--        int zero=0;--newline--        int one=0;--newline--        int len=0;--newline--        for(int i=0;i<nums.length;i++){--newline--            if(nums[i]==0){--newline--                zero++;--newline--            }else{--newline--                one++;--newline--            }--newline--            --newline--            if(map.containsKey(zero-one)){--newline--                len=Math.max(len,i-map.get(zero-one));--newline--            }else{--newline--                map.put(zero-one,i);--newline--            }--newline--        }--newline--        --newline--        return len;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "One pass,use a HashMap to record 0-1 count difference"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findMaxLength(int[] nums) {--newline--    --tab--int n = nums.length, res = 0;--newline--    --tab--Map<Integer, Integer> map = new HashMap<>();--newline--    --tab--int[][] dp = new int[n+1][2];--newline--    --tab--for (int i = 1; i < dp.length; i++) {--newline--    --tab----tab--if (nums[i-1] == 0) {--newline--    --tab----tab----tab--dp[i][0] = dp[i-1][0]+1;--newline--    --tab----tab----tab--dp[i][1] = dp[i-1][1];--newline--    --tab----tab--}else {--newline--    --tab----tab----tab--dp[i][0] = dp[i-1][0];--newline--    --tab----tab----tab--dp[i][1] = dp[i-1][1]+1;--newline--    --tab----tab--}--newline--    --tab----tab--if (dp[i][0] == dp[i][1]) res = Math.max(res, dp[i][0]*2);--newline--    --tab----tab--else {--newline--    --tab----tab----tab--int dif = dp[i][1]-dp[i][0];--newline--    --tab----tab----tab--if (map.containsKey(dif)) res = Math.max(res, 2*(dp[i][0]-dp[map.get(dif)][0]));--newline--    --tab----tab----tab--else map.put(dif, i);--newline--    --tab----tab--}--newline--    --tab--}--newline--    --tab--return res;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my DP&amp;Map solution, one pass"
+        }
+    ],
+    "qc": "525.json"
+}

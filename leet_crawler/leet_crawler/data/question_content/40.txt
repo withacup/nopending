@@ -1,0 +1,30 @@
+---CONTENT_BEGIN---
+
+Given a collection of candidate numbers (C) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.
+
+
+Each number in C may only be used once in the combination.
+
+Note:
+
+All numbers (including target) will be positive integers.
+The solution set must not contain duplicate combinations.
+
+
+
+
+For example, given candidate set [10, 1, 2, 7, 6, 1, 5] and target 8, 
+A solution set is: 
+
+[
+  [1, 7],
+  [1, 2, 5],
+  [2, 6],
+  [1, 1, 6]
+]
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public List<List<Integer>> combinationSum2(int[] candidates, int target) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def combinationSum2(self, candidates, target):--newline--        '''--newline--        :type candidates: List[int]--newline--        :type target: int--newline--        :rtype: List[List[int]]--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Return an array of arrays of size *returnSize.--newline-- * The sizes of the arrays are returned as *columnSizes array.--newline-- * Note: Both returned array and *columnSizes array must be malloced, assume caller calls free().--newline-- */--newline--int** combinationSum2(int* candidates, int candidatesSize, int target, int** columnSizes, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public IList<IList<int>> CombinationSum2(int[] candidates, int target) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} candidates--newline-- * @param {number} target--newline-- * @return {number[][]}--newline-- */--newline--var combinationSum2 = function(candidates, target) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} candidates--newline--# @param {Integer} target--newline--# @return {Integer[][]}--newline--def combination_sum2(candidates, target)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func combinationSum2(_ candidates: [Int], _ target: Int) -> [[Int]] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func combinationSum2(candidates []int, target int) [][]int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

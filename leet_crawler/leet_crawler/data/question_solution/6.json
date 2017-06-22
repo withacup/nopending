@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public String convert(String s, int nRows) {--newline--        char[] c = s.toCharArray();--newline--        int len = c.length;--newline--        StringBuffer[] sb = new StringBuffer[nRows];--newline--        for (int i = 0; i < sb.length; i++) sb[i] = new StringBuffer();--newline--        --newline--        int i = 0;--newline--        while (i < len) {--newline--            for (int idx = 0; idx < nRows && i < len; idx++) // vertically down--newline--                sb[idx].append(c[i++]);--newline--            for (int idx = nRows-2; idx >= 1 && i < len; idx--) // obliquely up--newline--                sb[idx].append(c[i++]);--newline--        }--newline--        for (int idx = 1; idx < sb.length; idx++)--newline--            sb[0].append(sb[idx]);--newline--        return sb[0].toString();--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy to understand Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string convert(string s, int numRows) {--newline--        string result=\"\";--newline--        if(numRows==1)--newline----tab----tab----tab--return s;--newline--        int step1,step2;--newline--        int len=s.size();--newline--        for(int i=0;i<numRows;++i){--newline--            step1=(numRows-i-1)*2;--newline--            step2=(i)*2;--newline--            int pos=i;--newline--            if(pos<len)--newline--                result+=s.at(pos);--newline--            while(1){--newline--                pos+=step1;--newline--                if(pos>=len)--newline--                    break;--newline----tab----tab----tab----tab--if(step1)--newline----tab----tab----tab----tab----tab--result+=s.at(pos);--newline--                pos+=step2;--newline--                if(pos>=len)--newline--                    break;--newline----tab----tab----tab----tab--if(step2)--newline----tab----tab----tab----tab----tab--result+=s.at(pos);--newline--            }--newline--        }--newline--        return result;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "If you are confused with zigzag pattern,come and see!"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string convert(string s, int nRows) {--newline--        --newline--        if (nRows <= 1)--newline--            return s;--newline--    --newline--        const int len = (int)s.length();--newline--        string *str = new string[nRows];--newline--    --newline--        int row = 0, step = 1;--newline--        for (int i = 0; i < len; ++i)--newline--        {--newline--            str[row].push_back(s[i]);--newline--    --newline--            if (row == 0)--newline--                step = 1;--newline--            else if (row == nRows - 1)--newline--                step = -1;--newline--    --newline--            row += step;--newline--        }--newline--    --newline--        s.clear();--newline--        for (int j = 0; j < nRows; ++j)--newline--        {--newline--            s.append(str[j]);--newline--        }--newline--    --newline--        delete[] str;--newline--        return s;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Share simple C++ solution"
+        },
+        {
+            "java": "public class Solution {--newline--public String convert(String s, int numRows) {--newline--    if(numRows<=1)return s;--newline--    StringBuilder[] sb=new StringBuilder[numRows];--newline--    for(int i=0;i<sb.length;i++){--newline--        sb[i]=new StringBuilder(\"\");   //init every sb element **important step!!!!--newline--    }--newline--    int incre=1;--newline--    int index=0;--newline--    for(int i=0;i<s.length();i++){--newline--        sb[index].append(s.charAt(i));--newline--        if(index==0){incre=1;}--newline--        if(index==numRows-1){incre=-1;}--newline--        index+=incre;--newline--    }--newline--    String re=\"\";--newline--    for(int i=0;i<sb.length;i++){--newline--        re+=sb[i];--newline--    }--newline--    return re.toString();--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "JAVA solution--easy and clear ( interesting approach )"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string convert(string s, int nRows) {--newline--            if(nRows <= 1) return s;--newline--            string result = \"\";--newline--            //the size of a cycle(period)--newline--            int cycle = 2 * nRows - 2;--newline--            for(int i = 0; i < nRows; ++i)--newline--            {--newline--                for(int j = i; j < s.length(); j = j + cycle){--newline--                   result = result + s[j];--newline--                   int secondJ = (j - i) + cycle - i;--newline--                   if(i != 0 && i != nRows-1 && secondJ < s.length())--newline--                       result = result + s[secondJ];--newline--                }--newline--            }--newline--            return result;--newline--        }--newline--}",
+            "python": null,
+            "topic_title": "A 10-lines one-pass o(n)-time o(1)-space accepted solution with detailed explantation"
+        }
+    ],
+    "qc": "6.json"
+}

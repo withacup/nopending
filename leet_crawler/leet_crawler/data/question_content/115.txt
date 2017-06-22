@@ -1,0 +1,20 @@
+---CONTENT_BEGIN---
+
+Given a string S and a string T, count the number of distinct subsequences of S which equals T.
+
+
+
+A subsequence of a string is a new string which is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, "ACE" is a subsequence of "ABCDE" while "AEC" is not).
+
+
+
+Here is an example:
+S = "rabbbit", T = "rabbit"
+
+
+Return 3.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int numDistinct(string s, string t) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int numDistinct(String s, String t) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def numDistinct(self, s, t):--newline--        '''--newline--        :type s: str--newline--        :type t: str--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int numDistinct(char* s, char* t) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int NumDistinct(string s, string t) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} s--newline-- * @param {string} t--newline-- * @return {number}--newline-- */--newline--var numDistinct = function(s, t) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} s--newline--# @param {String} t--newline--# @return {Integer}--newline--def num_distinct(s, t)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func numDistinct(_ s: String, _ t: String) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func numDistinct(s string, t string) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

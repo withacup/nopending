@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int threeSumClosest(vector<int> &num, int target) {        --newline--        vector<int> v(num.begin(), num.end()); // I didn't wanted to disturb original array.--newline--        int n = 0;--newline--        int ans = 0;--newline--        int sum;--newline--        --newline--        sort(v.begin(), v.end());--newline--        --newline--        // If less then 3 elements then return their sum--newline--        while (v.size() <= 3) {--newline--            return accumulate(v.begin(), v.end(), 0);--newline--        }--newline--        --newline--        n = v.size();--newline--        --newline--        /* v[0] v[1] v[2] ... v[i] .... v[j] ... v[k] ... v[n-2] v[n-1]--newline--         *                    v[i]  <=  v[j]  <= v[k] always, because we sorted our array. --newline--         * Now, for each number, v[i] : we look for pairs v[j] & v[k] such that --newline--         * absolute value of (target - (v[i] + v[j] + v[k]) is minimised.--newline--         * if the sum of the triplet is greater then the target it implies--newline--         * we need to reduce our sum, so we do K = K - 1, that is we reduce--newline--         * our sum by taking a smaller number.--newline--         * Simillarly if sum of the triplet is less then the target then we--newline--         * increase out sum by taking a larger number, i.e. J = J + 1.--newline--         */--newline--        ans = v[0] + v[1] + v[2];--newline--        for (int i = 0; i < n-2; i++) {--newline--            int j = i + 1;--newline--            int k = n - 1;--newline--            while (j < k) {--newline--                sum = v[i] + v[j] + v[k];--newline--                if (abs(target - ans) > abs(target - sum)) {--newline--                    ans = sum;--newline--                    if (ans == target) return ans;--newline--                }--newline--                (sum > target) ? k-- : j++;--newline--            }--newline--        }--newline--        return ans;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "A n^2 Solution, Can we do better ?"
+        },
+        {
+            "java": "public class Solution {--newline--    public int threeSumClosest(int[] num, int target) {--newline--        int result = num[0] + num[1] + num[num.length - 1];--newline--        Arrays.sort(num);--newline--        for (int i = 0; i < num.length - 2; i++) {--newline--            int start = i + 1, end = num.length - 1;--newline--            while (start < end) {--newline--                int sum = num[i] + num[start] + num[end];--newline--                if (sum > target) {--newline--                    end--;--newline--                } else {--newline--                    start++;--newline--                }--newline--                if (Math.abs(sum - target) < Math.abs(result - target)) {--newline--                    result = sum;--newline--                }--newline--            }--newline--        }--newline--        return result;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java solution with O(n2) for reference"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int threeSumClosest(vector<int>& nums, int target) {--newline--        if(nums.size() < 3) return 0;--newline--        int closest = nums[0]+nums[1]+nums[2];--newline--        sort(nums.begin(), nums.end());--newline--        for(int first = 0 ; first < nums.size()-2 ; ++first) {--newline--            if(first > 0 && nums[first] == nums[first-1]) continue;--newline--            int second = first+1;--newline--            int third = nums.size()-1;            --newline--            while(second < third) {--newline--                int curSum = nums[first]+nums[second]+nums[third];--newline--                if(curSum == target) return curSum;--newline--                if(abs(target-curSum)<abs(target-closest)) {--newline--                    closest = curSum;--newline--                }--newline--                if(curSum > target) {--newline--                    --third;--newline--                } else {--newline--                    ++second;--newline--                }--newline--            }--newline--        }--newline--        return closest;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "C++ solution O(n^2) using sort"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab--    # @return an integer--newline----tab--    def threeSumClosest(self, num, target):--newline----tab--        num.sort()--newline----tab--        result = num[0] + num[1] + num[2]--newline----tab--        for i in range(len(num) - 2):--newline----tab--            j, k = i+1, len(num) - 1--newline----tab--            while j < k:--newline----tab--                sum = num[i] + num[j] + num[k]--newline----tab--                if sum == target:--newline----tab--                    return sum--newline----tab--                --newline----tab--                if abs(sum - target) < abs(result - target):--newline----tab--                    result = sum--newline----tab--                --newline----tab--                if sum < target:--newline----tab--                    j += 1--newline----tab--                elif sum > target:--newline----tab--                    k -= 1--newline----tab--            --newline----tab--        return result",
+            "topic_title": "Python O(N^2) solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int threeSumClosest(vector<int>& nums, int target) {--newline--        sort(nums.begin(), nums.end());--newline--        int res = nums[0] + nums[1] + nums[2];--newline--        for(int i = 0; i < nums.size() - 2; i++){--newline--            int j = i + 1, k = nums.size() - 1;--newline--            while(j < k){--newline--                int num = nums[i] + nums[j] + nums[k];--newline--                if(abs(num - target) < abs(res - target)) res = num;--newline--                if(num < target) j++;--newline--                else k--;--newline--            }--newline--        }--newline--        return res;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "12 lines concise and easy understand c++ solultion"
+        }
+    ],
+    "qc": "16.json"
+}

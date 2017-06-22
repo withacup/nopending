@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--        List<List<String>> resultLst;--newline----tab--    ArrayList<String> currLst;--newline----tab--    public List<List<String>> partition(String s) {--newline----tab--        resultLst = new ArrayList<List<String>>();--newline----tab--        currLst = new ArrayList<String>();--newline----tab--        backTrack(s,0);--newline----tab--        return resultLst;--newline----tab--    }--newline----tab--    public void backTrack(String s, int l){--newline----tab--        if(currLst.size()>0 //the initial str could be palindrome--newline----tab--            && l>=s.length()){--newline----tab--                List<String> r = (ArrayList<String>) currLst.clone();--newline----tab--                resultLst.add(r);--newline----tab--        }--newline----tab--        for(int i=l;i<s.length();i++){--newline----tab--            if(isPalindrome(s,l,i)){--newline----tab--                if(l==i)--newline----tab--                    currLst.add(Character.toString(s.charAt(i)));--newline----tab--                else--newline----tab--                    currLst.add(s.substring(l,i+1));--newline----tab--                backTrack(s,i+1);--newline----tab--                currLst.remove(currLst.size()-1);--newline----tab--            }--newline----tab--        }--newline----tab--    }--newline----tab--    public boolean isPalindrome(String str, int l, int r){--newline----tab--        if(l==r) return true;--newline----tab--        while(l<r){--newline----tab--            if(str.charAt(l)!=str.charAt(r)) return false;--newline----tab--            l++;r--;--newline----tab--        }--newline----tab--        return true;--newline----tab--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java: Backtracking solution."
+        },
+        {
+            "java": "public class Solution {--newline-- --tab--public static List<List<String>> partition(String s) {--newline----tab----tab--int len = s.length();--newline----tab----tab--List<List<String>>[] result = new List[len + 1];--newline----tab----tab--result[0] = new ArrayList<List<String>>();--newline----tab----tab--result[0].add(new ArrayList<String>());--newline----newline----tab----tab--boolean[][] pair = new boolean[len][len];--newline----tab----tab--for (int i = 0; i < s.length(); i++) {--newline----tab----tab----tab--result[i + 1] = new ArrayList<List<String>>();--newline----tab----tab----tab--for (int left = 0; left <= i; left++) {--newline----tab----tab----tab----tab--if (s.charAt(left) == s.charAt(i) && (i-left <= 1 || pair[left + 1][i - 1])) {--newline----tab----tab----tab----tab----tab--pair[left][i] = true;--newline----tab----tab----tab----tab----tab--String str = s.substring(left, i + 1);--newline----tab----tab----tab----tab----tab--for (List<String> r : result[left]) {--newline----tab----tab----tab----tab----tab----tab--List<String> ri = new ArrayList<String>(r);--newline----tab----tab----tab----tab----tab----tab--ri.add(str);--newline----tab----tab----tab----tab----tab----tab--result[i + 1].add(ri);--newline----tab----tab----tab----tab----tab--}--newline----tab----tab----tab----tab--}--newline----tab----tab----tab--}--newline----tab----tab--}--newline----tab----tab--return result[len];--newline----tab--}--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My Java DP only solution without recursion. O(n^2)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<vector<string>> partition(string s) {--newline--        vector<vector<string> > ret;--newline--        if(s.empty()) return ret;--newline--        --newline--        vector<string> path;--newline--        dfs(0, s, path, ret);--newline--        --newline--        return ret;--newline--    }--newline--    --newline--    void dfs(int index, string& s, vector<string>& path, vector<vector<string> >& ret) {--newline--        if(index == s.size()) {--newline--            ret.push_back(path);--newline--            return;--newline--        }--newline--        for(int i = index; i < s.size(); ++i) {--newline--            if(isPalindrome(s, index, i)) {--newline--                path.push_back(s.substr(index, i - index + 1));--newline--                dfs(i+1, s, path, ret);--newline--                path.pop_back();--newline--            }--newline--        }--newline--    }--newline--    --newline--    bool isPalindrome(const string& s, int start, int end) {--newline--        while(start <= end) {--newline--            if(s[start++] != s[end--])--newline--                return false;--newline--        }--newline--        return true;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Clean C++ backtracking solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<List<String>> partition(String s) {--newline--        List<List<String>> res = new ArrayList<>();--newline--        boolean[][] dp = new boolean[s.length()][s.length()];--newline--        for(int i = 0; i < s.length(); i++) {--newline--            for(int j = 0; j <= i; j++) {--newline--                if(s.charAt(i) == s.charAt(j) && (i - j <= 2 || dp[j+1][i-1])) {--newline--                    dp[j][i] = true;--newline--                }--newline--            }--newline--        }--newline--        helper(res, new ArrayList<>(), dp, s, 0);--newline--        return res;--newline--    }--newline--    --newline--    private void helper(List<List<String>> res, List<String> path, boolean[][] dp, String s, int pos) {--newline--        if(pos == s.length()) {--newline--            res.add(new ArrayList<>(path));--newline--            return;--newline--        }--newline--        --newline--        for(int i = pos; i < s.length(); i++) {--newline--            if(dp[pos][i]) {--newline--                path.add(s.substring(pos,i+1));--newline--                helper(res, path, dp, s, i+1);--newline--                path.remove(path.size()-1);--newline--            }--newline--        }--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java DP + DFS solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<vector<string>> partition(string s) {--newline--        vector<vector<string>> res;--newline--        vector<string> tmp;--newline--        getPartition(s, 0, tmp, res);--newline--        return res;--newline--    }--newline--private: --newline--    void getPartition(string& s, int idx, vector<string>& tmp, vector<vector<string>>& res) {--newline--        if (idx == s.length()) {--newline--            res.push_back(tmp);--newline--            return;--newline--        }--newline--        for (int i = idx, n = s.length(); i < n; i++) {--newline--            int l = idx, r = i;--newline--            while (l < r && s[l] == s[r]) l++, r--;--newline--            if (l >= r) {--newline--                tmp.push_back(s.substr(idx, i - idx + 1));--newline--                getPartition(s, i + 1, tmp, res);--newline--                tmp.pop_back();--newline--            }--newline--        }--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "12ms 14-lines C++"
+        }
+    ],
+    "qc": "131.json"
+}

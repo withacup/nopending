@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string simplifyPath(string path) {--newline--        string res, tmp;--newline--        vector<string> stk;--newline--        stringstream ss(path);--newline--        while(getline(ss,tmp,'/')) {--newline--            if (tmp == \"\" or tmp == \".\") continue;--newline--            if (tmp == \"..\" and !stk.empty()) stk.pop_back();--newline--            else if (tmp != \"..\") stk.push_back(tmp);--newline--        }--newline--        for(auto str : stk) res += \"/\"+str;--newline--        return res.empty() ? \"/\" : res;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "C++ 10-lines solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public String simplifyPath(String path) {--newline--        Deque<String> stack = new LinkedList<>();--newline--        Set<String> skip = new HashSet<>(Arrays.asList(\"..\",\".\",\"\"));--newline--        for (String dir : path.split(\"/\")) {--newline--            if (dir.equals(\"..\") && !stack.isEmpty()) stack.pop();--newline--            else if (!skip.contains(dir)) stack.push(dir);--newline--        }--newline--        String res = \"\";--newline--        for (String dir : stack) res = \"/\" + dir + res;--newline--        return res.isEmpty() ? \"/\" : res;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 10-lines solution with stack"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Can someone please explain what does simplify means in this context?"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def simplifyPath(self, path):--newline----tab--        places = [p for p in path.split(\"/\") if p!=\".\" and p!=\"\"]--newline----tab--        stack = []--newline----tab--        for p in places:--newline----tab--            if p == \"..\":--newline----tab--                if len(stack) > 0:--newline----tab--                    stack.pop()--newline----tab--            else:--newline----tab--                stack.append(p)--newline----tab--        return \"/\" + \"/\".join(stack)",
+            "topic_title": "9 lines of Python code"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string simplifyPath(string path) {--newline--    --tab--vector<string>   nameVect;--newline--    --tab--string name;--newline--    --tab----newline--    --tab--path.push_back('/');--newline--    --tab--for(int i=0;i<path.size();i++){--newline--    --tab----tab--if(path[i]=='/'){--newline--    --tab----tab----tab--if(name.size()==0)continue;--newline--    --tab----tab----tab--if(name==\"..\"){--tab----tab--//special case 1\uff1adouble dot\uff0cpop dir--newline--    --tab----tab----tab--     if(nameVect.size()>0)nameVect.pop_back();--newline--    --tab----tab----tab--}else if(name==\".\"){//special case 2:singel dot\uff0cdon`t push--newline--    --tab----tab----tab--}else{--tab----tab----tab----newline--    --tab----tab----tab----tab--nameVect.push_back(name);--newline--    --tab----tab----tab--}--newline--    --tab----tab----tab--name.clear();--newline--    --tab----tab--}else{--newline--    --tab----tab----tab--name.push_back(path[i]);//record the name--newline--    --tab----tab--}--newline--    --tab--}--newline--    --newline--    --tab--string result;--newline--    --tab--if(nameVect.empty())return \"/\";--newline--    --tab--for(int i=0;i<nameVect.size();i++){--newline--    --tab----tab--result.append(\"/\"+nameVect[i]);--newline--    --tab--}--newline--    --tab--return result;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "My O(n) AC code . just need to handle two special cases."
+        }
+    ],
+    "qc": "71.json"
+}

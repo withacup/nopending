@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int longestConsecutive(int[] num) {--newline--        int res = 0;--newline--        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();--newline--        for (int n : num) {--newline--            if (!map.containsKey(n)) {--newline--                int left = (map.containsKey(n - 1)) ? map.get(n - 1) : 0;--newline--                int right = (map.containsKey(n + 1)) ? map.get(n + 1) : 0;--newline--                // sum: length of the sequence n is in--newline--                int sum = left + right + 1;--newline--                map.put(n, sum);--newline--                --newline--                // keep track of the max length --newline--                res = Math.max(res, sum);--newline--                --newline--                // extend the length to the boundary(s)--newline--                // of the sequence--newline--                // will do nothing if n has no neighbors--newline--                map.put(n - left, sum);--newline--                map.put(n + right, sum);--newline--            }--newline--            else {--newline--                // duplicates--newline--                continue;--newline--            }--newline--        }--newline--        return res;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My really simple Java O(n) solution - Accepted"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def longestConsecutive(self, nums):--newline----tab--        nums = set(nums)--newline----tab--        best = 0--newline----tab--        for x in nums:--newline----tab--            if x - 1 not in nums:--newline----tab--                y = x + 1--newline----tab--                while y in nums:--newline----tab--                    y += 1--newline----tab--                best = max(best, y - x)--newline----tab--        return best",
+            "topic_title": "Simple O(n) with Explanation - Just walk each streak"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int longestConsecutive(vector<int> &num) {--newline--    --tab--unordered_map<int, int> m;--newline--    --tab--int r = 0;--newline--    --tab--for (int i : num) {--newline--    --tab----tab--if (m[i]) continue;--newline--    --tab----tab--r = max(r, m[i] = m[i + m[i + 1]] = m[i - m[i - 1]] = m[i + 1] + m[i - 1] + 1);--newline--    --tab--}--newline--    --tab--return r;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Possibly shortest cpp solution, only 6 lines."
+        },
+        {
+            "java": "public class Solution {--newline--public int longestConsecutive(int[] nums) {--newline--    if(nums == null || nums.length == 0) return 0;--newline--    --newline--    Set<Integer> set = new HashSet<Integer>();--newline--    --newline--    for(int num: nums) set.add(num);--newline--    int max = 1;--newline--    for(int num: nums) {--newline--        if(set.remove(num)) {//num hasn't been visited--newline--            int val = num;--newline--            int sum = 1;--newline--            while(set.remove(val-1)) val--;--newline--            sum += num - val;--newline--            --newline--            val = num;--newline--            while(set.remove(val+1)) val++;--newline--            sum += val - num;--newline--            --newline--            max = Math.max(max, sum);--newline--        }--newline--    }--newline--    return max;--newline--}--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple fast Java solution using Set"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int longestConsecutive(vector<int> &num) {--newline--        unordered_set<int> record(num.begin(),num.end());--newline--        int res = 1;--newline--        for(int n : num){--newline--            if(record.find(n)==record.end()) continue;--newline--            record.erase(n);--newline--            int prev = n-1,next = n+1;--newline--            while(record.find(prev)!=record.end()) record.erase(prev--);--newline--            while(record.find(next)!=record.end()) record.erase(next++);--newline--            res = max(res,next-prev-1);--newline--        }--newline--        return res;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "A simple C++,solution using unordered_set.And simple consideration about this problem"
+        }
+    ],
+    "qc": "128.json"
+}

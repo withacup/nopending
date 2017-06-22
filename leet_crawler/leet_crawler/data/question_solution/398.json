@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline----newline--    int[] nums;--newline--    Random rnd;--newline----newline--    public Solution(int[] nums) {--newline--        this.nums = nums;--newline--        this.rnd = new Random();--newline--    }--newline--    --newline--    public int pick(int target) {--newline--        int result = -1;--newline--        int count = 0;--newline--        for (int i = 0; i < nums.length; i++) {--newline--            if (nums[i] != target)--newline--                continue;--newline--            if (rnd.nextInt(++count) == 0)--newline--                result = i;--newline--        }--newline--        --newline--        return result;--newline--    }--newline--}```",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Reservoir Sampling solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "What on earth is meant by too much memory?"
+        },
+        {
+            "java": "public class Solution {--newline--    int[] nums;--newline--    Random rand;--newline--    public Solution(int[] nums) {--newline--        this.nums = nums;--newline--        this.rand = new Random();--newline--    }--newline--    public int pick(int target) {--newline--        int total = 0;--newline--        int res = -1;--newline--        for (int i = 0; i < nums.length; i++) {--newline--            if (nums[i] == target) {--newline--                // randomly select an int from 0 to the nums of target. If x equals 0, set the res as the current index. The probability is always 1/nums for the latest appeared number. For example, 1 for 1st num, 1/2 for 2nd num, 1/3 for 3nd num (1/2 * 2/3 for each of the first 2 nums).--newline--                int x = rand.nextInt(++total); --newline--                res = x == 0 ? i : res;--newline--            }--newline--        }--newline--        return res;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Clean, understandable, O(1) momery, O(n) time, JAVA solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> n;--newline--    Solution(vector<int> nums) --newline--    {--newline--        n = nums;--newline--    }--newline--    --newline--    int pick(int target) --newline--    {--newline--        int count = 0, res = -1;--newline--        for (int i = 0; i < n.size(); ++i)--newline--        {--newline--            if(n[i] != target) continue;--newline--            if(++count == 1) res = i;--newline--            else--newline--                if(!(rand()%count)) res = i;--newline--        }--newline--        return res;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Share C++ O(n) Time Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--vector<int> _nums;--newline--public:--newline--Solution(vector<int> nums) {--newline--    _nums = nums;--newline--}--newline----newline--int pick(int target) {--newline--    int n = 0, ans = -1;--newline--    for(int i = 0 ; i < _nums.size(); i++){--newline--        if(_nums[i] != target) continue;--newline--        if(n == 0){ans = i; n++;}--newline--        else{--newline--            n++;--newline--            if(rand() % n == 0){ans = i;}// with prob 1/(n+1) to replace the previous index--newline--        }--newline--    }--newline--    return ans;--newline--}--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++_Time: O(n), Space: O(n)_116ms_96.41%_with clear explanation by probability"
+        }
+    ],
+    "qc": "398.json"
+}

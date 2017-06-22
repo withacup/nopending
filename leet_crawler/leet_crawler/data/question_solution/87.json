@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool isScramble(string s1, string s2) {--newline--        if(s1==s2)--newline--            return true;--newline--            --newline--        int len = s1.length();--newline--        int count[26] = {0};--newline--        for(int i=0; i<len; i++)--newline--        {--newline--            count[s1[i]-'a']++;--newline--            count[s2[i]-'a']--;--newline--        }--newline--        --newline--        for(int i=0; i<26; i++)--newline--        {--newline--            if(count[i]!=0)--newline--                return false;--newline--        }--newline--        --newline--        for(int i=1; i<=len-1; i++)--newline--        {--newline--            if( isScramble(s1.substr(0,i), s2.substr(0,i)) && isScramble(s1.substr(i), s2.substr(i)))--newline--                return true;--newline--            if( isScramble(s1.substr(0,i), s2.substr(len-i)) && isScramble(s1.substr(i), s2.substr(0,len-i)))--newline--                return true;--newline--        }--newline--        return false;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Share my 4ms c++ recursive solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isScramble(String s1, String s2) {--newline--        if (s1.equals(s2)) return true; --newline--        --newline--        int[] letters = new int[26];--newline--        for (int i=0; i<s1.length(); i++) {--newline--            letters[s1.charAt(i)-'a']++;--newline--            letters[s2.charAt(i)-'a']--;--newline--        }--newline--        for (int i=0; i<26; i++) if (letters[i]!=0) return false;--newline--    --newline--        for (int i=1; i<s1.length(); i++) {--newline--            if (isScramble(s1.substring(0,i), s2.substring(0,i)) --newline--             && isScramble(s1.substring(i), s2.substring(i))) return true;--newline--            if (isScramble(s1.substring(0,i), s2.substring(s2.length()-i)) --newline--             && isScramble(s1.substring(i), s2.substring(0,s2.length()-i))) return true;--newline--        }--newline--        return false;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Accepted Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--private:--newline--    bool DP_helper(string &s1, string &s2, int idx1, int idx2, int len, char isS[])--newline--    {--newline--        int sSize = s1.size(),i, j, k, hist[26] , zero_count =0;--newline--        if(isS[(len*sSize+idx1)*sSize+idx2]) return isS[(len*sSize+idx1)*sSize+idx2]==1;--newline--        bool res = false;--newline--        --newline--        fill_n(hist, 26, 0);--newline--        for(k=0; k<len;++k)--newline--        { // check if s1[idx1:idx1+len-1] and s2[idx2:idx2+len-1] have same characters--newline--            zero_count +=  (0==hist[s1[idx1+k]-'a']) - (0== ++hist[s1[idx1+k]-'a']);--newline--            zero_count +=  (0==hist[s2[idx2+k]-'a']) - (0== --hist[s2[idx2+k]-'a']);--newline--        }--newline--        if(zero_count) {isS[(len*sSize+idx1)*sSize+idx2] = 2; return false;} //if not, return directly--newline--        if(len==1)     {isS[(len*sSize+idx1)*sSize+idx2] = 1; return true;}--newline--        for(k=1;k<len && !res;++k) //otherwise, recursion with cache--newline--        {--newline--            res = res || (DP_helper(s1, s2, idx1, idx2, k, isS) && DP_helper(s1, s2, idx1+k, idx2+k, len-k, isS) );--newline--            res = res || (DP_helper(s1, s2, idx1+len-k, idx2, k, isS) && DP_helper(s1, s2, idx1, idx2+k, len-k, isS) );--newline--        }--newline--        isS[(len*sSize+idx1)*sSize+idx2] = res?1:2;--newline--        return res;--newline--    }--newline--public:--newline--    bool isScramble(string s1, string s2) {--newline--        const int sSize = s1.size();--newline--        if(0==sSize) return true;--newline--        char isS[(sSize+1)*sSize*sSize];--newline--        fill_n(isS, (sSize+1)*sSize*sSize, 0);--newline--        return DP_helper(s1, s2, 0, 0, sSize, isS);--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "My C++ solutions (recursion with cache , DP, recursion with cache and pruning) with explanation (4ms)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Can you partition a string at ANY index at ANY time in producing a scramble?"
+        },
+        {
+            "java": "public class Solution {--newline----tab--public boolean isScramble(String s1, String s2) {--newline----tab----tab--if (s1.length() != s2.length()) return false;--newline----tab----tab--int len = s1.length();--newline----tab----tab--/**--newline----tab----tab-- * Let F(i, j, k) = whether the substring S1[i..i + k - 1] is a scramble of S2[j..j + k - 1] or not--newline----tab----tab-- * Since each of these substrings is a potential node in the tree, we need to check for all possible cuts.--newline----tab----tab-- * Let q be the length of a cut (hence, q < k), then we are in the following situation:--newline----tab----tab-- * --newline----tab----tab-- * S1 [   x1    |         x2         ]--newline----tab----tab-- *    i         i + q                i + k - 1--newline----tab----tab-- * --newline----tab----tab-- * here we have two possibilities:--newline----tab----tab-- *      --newline----tab----tab-- * S2 [   y1    |         y2         ]--newline----tab----tab-- *    j         j + q                j + k - 1--newline----tab----tab-- *    --newline----tab----tab-- * or --newline----tab----tab-- * --newline----tab----tab-- * S2 [       y1        |     y2     ]--newline----tab----tab-- *    j                 j + k - q    j + k - 1--newline----tab----tab-- * --newline----tab----tab-- * which in terms of F means:--newline----tab----tab-- * --newline----tab----tab-- * F(i, j, k) = for some 1 <= q < k we have:--newline----tab----tab-- *  (F(i, j, q) AND F(i + q, j + q, k - q)) OR (F(i, j + k - q, q) AND F(i + q, j, k - q))--newline----tab----tab-- *  --newline----tab----tab-- * Base case is k = 1, where we simply need to check for S1[i] and S2[j] to be equal --newline----tab----tab-- * */--newline----tab----tab--boolean [][][] F = new boolean[len][len][len + 1];--newline----tab----tab--for (int k = 1; k <= len; ++k)--newline----tab----tab----tab--for (int i = 0; i + k <= len; ++i)--newline----tab----tab----tab----tab--for (int j = 0; j + k <= len; ++j)--newline----tab----tab----tab----tab----tab--if (k == 1)--newline----tab----tab----tab----tab----tab----tab--F[i][j][k] = s1.charAt(i) == s2.charAt(j);--newline----tab----tab----tab----tab----tab--else for (int q = 1; q < k && !F[i][j][k]; ++q) {--newline----tab----tab----tab----tab----tab----tab--F[i][j][k] = (F[i][j][q] && F[i + q][j + q][k - q]) || (F[i][j + k - q][q] && F[i + q][j][k - q]);--newline----tab----tab----tab----tab----tab--}--newline----tab----tab--return F[0][0][len];--newline----tab--}--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple iterative DP Java solution with explanation"
+        }
+    ],
+    "qc": "87.json"
+}

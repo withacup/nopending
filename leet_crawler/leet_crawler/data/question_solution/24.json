@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public ListNode swapPairs(ListNode head) {--newline--        if ((head == null)||(head.next == null))--newline--            return head;--newline--        ListNode n = head.next;--newline--        head.next = swapPairs(head.next.next);--newline--        n.next = head;--newline--        return n;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My accepted java code. used recursion."
+        },
+        {
+            "java": "public class Solution {--newline--    public ListNode swapPairs(ListNode head) {--newline--        ListNode dummy = new ListNode(0);--newline--        dummy.next = head;--newline--        ListNode current = dummy;--newline--        while (current.next != null && current.next.next != null) {--newline--            ListNode first = current.next;--newline--            ListNode second = current.next.next;--newline--            first.next = second.next;--newline--            current.next = second;--newline--            current.next.next = first;--newline--            current = current.next.next;--newline--        }--newline--        return dummy.next;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My simple JAVA solution for share"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    ListNode* swapPairs(ListNode* head) {--newline--        ListNode **pp = &head, *a, *b;--newline--        while ((a = *pp) && (b = a->next)) {--newline--            a->next = b->next;--newline--            b->next = a;--newline--            *pp = b;--newline--            pp = &(a->next);--newline--        }--newline--        return head;--newline--    }--newline--    --newline--}",
+            "python": "class Solution :--newline----tab--    def swapPairs(self, head):--newline----tab--        pre, pre.next = self, head--newline----tab--        while pre.next and pre.next.next:--newline----tab--            a = pre.next--newline----tab--            b = a.next--newline----tab--            pre.next, b.next, a.next = b, a, b.next--newline----tab--            pre = a--newline----tab--        return self.next--newline----tab--    ",
+            "topic_title": "7-8 lines C++ &#x2F; Python &#x2F; Ruby"
+        },
+        {
+            "java": "/**--newline-- * Definition for singly-linked list.--newline-- * public class ListNode {--newline-- *     int val;--newline-- *     ListNode next;--newline-- *     ListNode(int x) { val = x; }--newline-- * }--newline-- */--newline--public class Solution {--newline--    public ListNode swapPairs(ListNode head) {--newline--        if (head == null || head.next == null) return head;--newline--        ListNode second = head.next;--newline--        ListNode third = second.next;--newline--        --newline--        second.next = head;--newline--        head.next = swapPairs(third);--newline--        --newline--        return second;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java simple recursive solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public ListNode swapPairs(ListNode head) {--newline--            if (head == null || head.next == null) {--newline--                return head;--newline--            }--newline--            --newline--            ListNode newhd = head.next;--newline--            head.next = swapPairs(newhd.next);--newline--            newhd.next = head;--newline--            return newhd;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My simple recursive solution"
+        }
+    ],
+    "qc": "24.json"
+}

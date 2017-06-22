@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int[][] matrixReshape(int[][] nums, int r, int c) {--newline--        int n = nums.length, m = nums[0].length;--newline--        if (r*c != n*m) return nums;--newline--        int[][] res = new int[r][c];--newline--        for (int i=0;i<r*c;i++) --newline--            res[i/c][i%c] = nums[i/m][i%m];--newline--        return res;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Concise O(nm) time"
+        },
+        {
+            "java": "public class Solution {--newline--    public int[][] matrixReshape(int[][] nums, int r, int c) {--newline--        int m = nums.length, n = nums[0].length;--newline--        if (r * c != m * n)--newline--            return nums;--newline--        int[][] reshaped = new int[r][c];--newline--        for (int i = 0; i < r * c; i++)--newline--            reshaped[i/c][i%c] = nums[i/n][i%n];--newline--        return reshaped;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "One loop"
+        },
+        {
+            "java": "public class Solution {--newline--    public int[][] matrixReshape(int[][] nums, int r, int c) {--newline--        int m = nums.length, n = nums[0].length;--newline--        if (m * n != r * c) return nums;--newline--        --newline--        int[][] result = new int[r][c];--newline--        int row = 0, col = 0;--newline--        for (int i = 0; i < m; i++) {--newline--            for (int j = 0; j < n; j++) {--newline--                result[row][col] = nums[i][j];--newline--                col++;--newline--                if (col == c) {--newline--                    col = 0;--newline--                    row++;--newline--                }--newline--            }--newline--        }--newline--        --newline--        return result;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy Java Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<vector<int>> matrixReshape(vector<vector<int>>& nums, int r, int c) {--newline--        int m = nums.size(), n = nums[0].size();--newline--        if (m * n != r * c) {--newline--            return nums;--newline--        }--newline----newline--        vector<vector<int>> res(r, vector<int>(c, 0));--newline--        for (int i = 0; i < m; i++) {--newline--            for (int j = 0; j < n; j++) {--newline--                int k = i * n + j;--newline--                res[k / c][k % c] = nums[i][j];--newline--            }--newline--        }--newline----newline--        return res;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "&#91;C++&#93; Clean Code - 5 lines (2 Solution)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def matrixReshape(self, nums, r, c):--newline----tab--        if r * c != len(nums) * len(nums[0]):--newline----tab--            return nums--newline----tab--        it = itertools.chain(*nums)--newline----tab--        return [list(itertools.islice(it, c)) for _ in xrange(r)]",
+            "topic_title": "Python Solutions"
+        }
+    ],
+    "qc": "566.json"
+}

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int findPairs(int[] nums, int k) {--newline--        if (nums == null || nums.length == 0 || k < 0)   return 0;--newline--        --newline--        Map<Integer, Integer> map = new HashMap<>();--newline--        int count = 0;--newline--        for (int i : nums) {--newline--            map.put(i, map.getOrDefault(i, 0) + 1);--newline--        }--newline--        --newline--        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {--newline--            if (k == 0) {--newline--                //count how many elements in the array that appear more than twice.--newline--                if (entry.getValue() >= 2) {--newline--                    count++;--newline--                } --newline--            } else {--newline--                if (map.containsKey(entry.getKey() + k)) {--newline--                    count++;--newline--                }--newline--            }--newline--        }--newline--        --newline--        return count;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java O(n) solution - one Hashmap, easy to understand"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findPairs(int[] nums, int k) {--newline--        int ans = 0;--newline--        Arrays.sort(nums);--newline--        for (int i = 0, j = 0; i < nums.length; i++) {--newline--            for (j = Math.max(j, i + 1); j < nums.length && (long) nums[j] - nums[i] < k; j++) ;--newline--            if (j < nums.length && (long) nums[j] - nums[i] == k) ans++;--newline--            while (i + 1 < nums.length && nums[i] == nums[i + 1]) i++;--newline--        }--newline--        return ans;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Two-pointer Approach"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--        def findPairs(self, nums, k):--newline----tab--            if k>0:--newline----tab--                return len(set(nums)&set(n+k for n in nums))--newline----tab--            elif k==0:--newline----tab--                sum(v>1 for v in collections.Counter(nums).values())--newline----tab--            else:--newline----tab--                return 0--newline----tab--    ",
+            "topic_title": "1-liner in Python, O(n) time"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findPairs(int[] nums, int k) {--newline--        if (k < 0) { return 0; }--newline----newline--        Set<Integer> starters = new HashSet<Integer>();--newline--        Set<Integer> uniqs = new HashSet<Integer>();--newline--        for (int i = 0; i < nums.length; i++) {--newline--            if (uniqs.contains(nums[i] - k)) starters.add(nums[i] - k);--newline--            if (uniqs.contains(nums[i] + k)) starters.add(nums[i]);--newline--            uniqs.add(nums[i]);--newline--        }--newline----newline--        return starters.size();--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    /**--newline--     * for every number in the array:--newline--     *  - if there was a number previously k-diff with it, save the smaller to a set;--newline--     *  - and save the value-index to a map;--newline--     */--newline--    int findPairs(vector<int>& nums, int k) {--newline--        if (k < 0) {--newline--            return 0;--newline--        }--newline--        unordered_set<int> starters;--newline--        unordered_map<int, int> indices;--newline--        for (int i = 0; i < nums.size(); i++) {--newline--            if (indices.count(nums[i] - k)) {--newline--                starters.insert(nums[i] - k);--newline--            }--newline--            if (indices.count(nums[i] + k)) {--newline--                starters.insert(nums[i]);--newline--            }--newline----newline--            indices[nums[i]] += 1;--newline--        }--newline--        --newline--        return starters.size();--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "&#91;C++&#93; &#91;Java&#93; Clean Code with Explanation &#91;set&#93; &#91;map&#93;"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int findPairs(vector<int>& nums, int k) {--newline--        if(k < 0) return 0;--newline--        unordered_map<int,int> m;--newline--        for(int i = 0; i < nums.size(); ++i)--newline--           ++m[nums[i]];--newline--        int res = 0;--newline--        if(k != 0) {--newline--            for(auto it = m.begin(); it != m.end(); ++it)--newline--               if(m.find(it->first+k) != m.end())--newline--                   ++res;--newline--        } else {--newline--            for(auto it = m.begin(); it != m.end(); ++it)--newline--               if(it->second > 1)--newline--                   ++res;--newline--        }--newline--        return res;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "O(n) concise solution, C++"
+        }
+    ],
+    "qc": "532.json"
+}

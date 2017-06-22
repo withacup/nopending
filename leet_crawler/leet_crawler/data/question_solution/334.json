@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool increasingTriplet(vector<int>& nums) {--newline--        int c1 = INT_MAX, c2 = INT_MAX;--newline--        for (int x : nums) {--newline--            if (x <= c1) {--newline--                c1 = x;           // c1 is min seen so far (it's a candidate for 1st element)--newline--            } else if (x <= c2) { // here when x > c1, i.e. x might be either c2 or c3--newline--                c2 = x;           // x is better than the current c2, store it--newline--            } else {              // here when we have/had c1 < c2 already and x > c2--newline--                return true;      // the increasing subsequence of 3 elements exists--newline--            }--newline--        }--newline--        return false;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Clean and short, with comments, C++"
+        },
+        {
+            "java": "public class Solution {--newline--       public boolean increasingTriplet(int[] nums) {--newline--            // start with two largest values, as soon as we find a number bigger than both, while both have been updated, return true.--newline--            int small = Integer.MAX_VALUE, big = Integer.MAX_VALUE;--newline--            for (int n : nums) {--newline--                if (n <= small) { small = n; } // update small if n is smaller than both--newline--                else if (n <= big) { big = n; } // update big only if greater than small but smaller than big--newline--                else return true; // return if you find a number bigger than both--newline--            }--newline--            return false;--newline--        }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Concise Java solution with comments."
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean increasingTriplet(int[] nums) {--newline--        int min = Integer.MAX_VALUE, secondMin = Integer.MAX_VALUE;--newline--        for(int num : nums){--newline--            if(num <= min) min = num;--newline--            else if(num < secondMin) secondMin = num;--newline--            else if(num > secondMin) return true;--newline--        }--newline--        return false;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My accepted JAVA solution for this question, only 7-lines, clear and concise."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    def increasingTriplet(nums):--newline--        first = second = float('inf')--newline--        for n in nums:--newline--            if n <= first:--newline--                first = n--newline--            elif n <= second:--newline--                second = n--newline--            else:--newline--                return True--newline--        return False--newline--}",
+            "python": null,
+            "topic_title": "Python Easy O(n) Solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean increasingTriplet(int[] nums) {--newline--        if (nums ==  null || nums.length < 3 ){--newline--            return false;--newline--        }--newline--        int min = Integer.MAX_VALUE;--newline--        int secondMin = Integer.MAX_VALUE;--newline--        --newline--        for (int i = 0; i < nums.length; i++){--newline--            if (nums[i] <= min){--newline--                min = nums[i];--newline--            }--newline--            else if (nums[i] <= secondMin){--newline--                secondMin = nums[i];--newline--            }--newline--            else {--newline--                return true;--newline--            }--newline--        }--newline--        return false;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java Solution...Easy to understand!!!!"
+        }
+    ],
+    "qc": "334.json"
+}

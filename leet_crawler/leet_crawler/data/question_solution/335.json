@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "// Categorize the self-crossing scenarios, there are 3 of them: --newline--// 1. Fourth line crosses first line and works for fifth line crosses second line and so on...--newline--// 2. Fifth line meets first line and works for the lines after--newline--// 3. Sixth line crosses first line and works for the lines after--newline--public class Solution {--newline--    public boolean isSelfCrossing(int[] x) {--newline--        int l = x.length;--newline--        if(l <= 3) return false;--newline--        --newline--        for(int i = 3; i < l; i++){--newline--            if(x[i] >= x[i-2] && x[i-1] <= x[i-3]) return true;  //Fourth line crosses first line and onward--newline--            if(i >=4)--newline--            {--newline--                if(x[i-1] == x[i-3] && x[i] + x[i-4] >= x[i-2]) return true; // Fifth line meets first line and onward--newline--            }--newline--            if(i >=5)--newline--            {--newline--                if(x[i-2] - x[i-4] >= 0 && x[i] >= x[i-2] - x[i-4] && x[i-1] >= x[i-3] - x[i-5] && x[i-1] <= x[i-3]) return true;  // Sixth line crosses first line and onward--newline--            }--newline--        }--newline--        return false;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Oms with explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool isSelfCrossing(vector<int>& x) {--newline----tab--for(int i = 3; i < x.size(); i++) {--newline----tab----tab--if(x[i-1]<=x[i-3] && x[i]>=x[i-2]) return true;--newline----tab----tab--if(i>3 && x[i]+x[i-4]>=x[i-2] && x[i-1]==x[i-3]) return true;--newline----tab----tab--if(i>4 && x[i-1]+x[i-5]>=x[i-3] && x[i-1]<=x[i-3] && x[i]+x[i-4]>=x[i-2] && x[i-4]<=x[i-2]) return true;--newline----tab--}--newline----tab--return false;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "The best submission in C searching for the crossing patterns is the key"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isSelfCrossing(int[] x) {--newline--        if (x.length <= 3) {--newline--            return false;--newline--        }--newline--        int i = 2;--newline--        // keep spiraling outward--newline--        while (i < x.length && x[i] > x[i - 2]) {--newline--            i++;--newline--        }--newline--        if (i >= x.length) {--newline--            return false;--newline--        }--newline--        // transition from spiraling outward to spiraling inward--newline--        if ((i >= 4 && x[i] >= x[i - 2] - x[i - 4]) ||--newline--                (i == 3 && x[i] == x[i - 2])) {--newline--            x[i - 1] -= x[i - 3];--newline--        }--newline--        i++;--newline--        // keep spiraling inward--newline--        while (i < x.length) {--newline--            if (x[i] >= x[i - 2]) {--newline--                return true;--newline--            }--newline--            i++;--newline--        }--newline--        return false;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def isSelfCrossing(self, x):--newline----tab--        b = c = d = e = 0--newline----tab--        for a in x:--newline----tab--            if d >= b > 0 and (a >= c or a >= c-e >= 0 and f >= d-b):--newline----tab--                return True--newline----tab--            b, c, d, e, f = a, b, c, d, e--newline----tab--        return False--newline----tab--    ",
+            "topic_title": "Another python..."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution--newline--{--newline--public:--newline--    bool isSelfCrossing(vector<int>& x)--newline--    {--newline--        x.insert(x.begin(), 4, 0);--newline----newline--        int len = x.size();--newline--        int i = 4;--newline----newline--        // outer spiral--newline--        for (; i < len && x[i] > x[i - 2]; i++);--newline----newline--        if (i == len) return false;--newline----newline--        // check border--newline--        if (x[i] >= x[i - 2] - x[i - 4])--newline--        {--newline--            x[i - 1] -= x[i - 3];--newline--        }--newline----newline--        // inner spiral--newline--        for (i++; i < len && x[i] < x[i - 2]; i++);--newline----newline--        return i != len;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "C++ simple solution"
+        }
+    ],
+    "qc": "335.json"
+}

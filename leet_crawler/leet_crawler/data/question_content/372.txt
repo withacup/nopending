@@ -1,0 +1,28 @@
+---CONTENT_BEGIN---
+
+Your task is to calculate ab mod 1337 where a is a positive integer and b is an extremely large positive integer given in the form of an array.
+
+
+Example1:
+
+a = 2
+b = [3]
+
+Result: 8
+
+
+
+Example2:
+
+a = 2
+b = [1,0]
+
+Result: 1024
+
+
+
+Credits:Special thanks to @Stomach_ache for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int superPow(int a, vector<int>& b) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int superPow(int a, int[] b) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def superPow(self, a, b):--newline--        '''--newline--        :type a: int--newline--        :type b: List[int]--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int superPow(int a, int* b, int bSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int SuperPow(int a, int[] b) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} a--newline-- * @param {number[]} b--newline-- * @return {number}--newline-- */--newline--var superPow = function(a, b) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} a--newline--# @param {Integer[]} b--newline--# @return {Integer}--newline--def super_pow(a, b)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func superPow(_ a: Int, _ b: [Int]) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func superPow(a int, b []int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

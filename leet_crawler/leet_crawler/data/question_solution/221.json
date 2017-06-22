@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int maximalSquare(vector<vector<char>>& matrix) {--newline--        if (matrix.empty()) return 0;--newline--        int m = matrix.size(), n = matrix[0].size();--newline--        vector<int> dp(m + 1, 0);--newline--        int maxsize = 0, pre = 0;--newline--        for (int j = 0; j < n; j++) {--newline--            for (int i = 1; i <= m; i++) {--newline--                int temp = dp[i];--newline--                if (matrix[i - 1][j] == '1') {--newline--                    dp[i] = min(dp[i], min(dp[i - 1], pre)) + 1;--newline--                    maxsize = max(maxsize, dp[i]);--newline--                }--newline--                else dp[i] = 0; --newline--                pre = temp;--newline--            }--newline--        }--newline--        return maxsize * maxsize;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Easy DP solution in C++ with detailed explanations (8ms, O(n^2) time and O(n) space)"
+        },
+        {
+            "java": "public class Solution {--newline--    public int maximalSquare(char[][] a) {--newline--        if(a.length == 0) return 0;--newline--        int m = a.length, n = a[0].length, result = 0;--newline--        int[][] b = new int[m+1][n+1];--newline--        for (int i = 1 ; i <= m; i++) {--newline--            for (int j = 1; j <= n; j++) {--newline--                if(a[i-1][j-1] == '1') {--newline--                    b[i][j] = Math.min(Math.min(b[i][j-1] , b[i-1][j-1]), b[i-1][j]) + 1;--newline--                    result = Math.max(b[i][j], result); // update result--newline--                }--newline--            }--newline--        }--newline--        return result*result;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Extremely Simple Java Solution :)"
+        },
+        {
+            "java": "public class Solution {--newline--    public int maximalSquare(char[][] a) {--newline--      if (a == null || a.length == 0 || a[0].length == 0)--newline--        return 0;--newline--          --newline--      int max = 0, n = a.length, m = a[0].length;--newline--      --newline--      // dp(i, j) represents the length of the square --newline--      // whose lower-right corner is located at (i, j)--newline--      // dp(i, j) = min{ dp(i-1, j-1), dp(i-1, j), dp(i, j-1) }--newline--      int[][] dp = new int[n + 1][m + 1];--newline--      --newline--      for (int i = 1; i <= n; i++) {--newline--        for (int j = 1; j <= m; j++) {--newline--          if (a[i - 1][j - 1] == '1') {--newline--            dp[i][j] = Math.min(dp[i - 1][j - 1], Math.min(dp[i - 1][j], dp[i][j - 1])) + 1;--newline--            max = Math.max(max, dp[i][j]);--newline--          }--newline--        }--newline--      }--newline--      --newline--      // return the area--newline--      return max * max;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Accepted clean Java DP solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int maximalSquare(vector<vector<char>>& matrix) {--newline--        int rst = 0;--newline--        for(int ii=0; ii<matrix.size(); ++ii)--newline--        {--newline--            for(int jj=0; jj<matrix[0].size(); ++jj)--newline--            {--newline--                int a = (ii&&jj) ? matrix[ii-1][jj-1] : 0;--newline--                int b = (ii) ? matrix[ii-1][jj] : 0;--newline--                int c = (jj) ? matrix[ii][jj-1] : 0;--newline--    --newline--                matrix[ii][jj] = (matrix[ii][jj]>'0') ? (min(a, min(b, c))+1) : 0;--newline--                --newline--                rst = max(rst, matrix[ii][jj]*matrix[ii][jj]);--newline--            }--newline--        }--newline--        return rst;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Clear C++ solution, no extra space, 12 ms."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int maximalSquare(vector<vector<char>>& matrix) {--newline--        if(matrix.size()==0) return 0;--newline--        int maxSq=0;--newline--        int nRow=matrix.size();--newline--        int nCol=matrix[0].size();--newline--        vector<vector<int>> dp(nRow+1,vector<int>(nCol+1,0));--newline--        //dp[i][j] represents max square ending at position (i-1, j-1)--newline--        for(int i=1;i<=nRow;++i){--newline--            for(int j=1;j<=nCol;++j){--newline--                if(matrix[i-1][j-1]=='1'){--newline--                    dp[i][j]=min(min(dp[i-1][j-1],dp[i-1][j]),dp[i][j-1])+1;--newline--                    maxSq=max(maxSq,dp[i][j]);--newline--                }--newline--            }--newline--        }--newline--        return maxSq*maxSq;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "20 lines C++ solution using dynamic programming"
+        }
+    ],
+    "qc": "221.json"
+}

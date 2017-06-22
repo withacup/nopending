@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public String[] findRestaurant(String[] list1, String[] list2) {--newline--        Map<String, Integer> map = new HashMap<>();--newline--        List<String> res = new LinkedList<>();--newline--        int minSum = Integer.MAX_VALUE;--newline--        for (int i=0;i<list1.length;i++) map.put(list1[i], i);--newline--        for (int i=0;i<list2.length;i++) {--newline--            Integer j = map.get(list2[i]);--newline--            if (j != null && i + j <= minSum) {--newline--                if (i + j < minSum) { res = new LinkedList<>(); minSum = i+j; }--newline--                res.add(list2[i]);--newline--            }--newline--        }--newline--        return res.toArray(new String[res.size()]);--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java O(n+m) Time O(n) Space"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def findRestaurant(self, A, B):--newline----tab--        Aindex = {u: i for i, u in enumerate(A)}--newline----tab--        best, ans = 1e9, []--newline----tab--    --newline----tab--        for j, v in enumerate(B):--newline----tab--            i = Aindex.get(v, 1e9)--newline----tab--            if i + j < best:--newline----tab--                best = i + j--newline----tab--                ans = [v]--newline----tab--            elif i + j == best:--newline----tab--                ans.append(v)--newline----tab--        return ans--newline----tab--    ",
+            "topic_title": "Python, Straightforward with Explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<string> findRestaurant(vector<string>& list1, vector<string>& list2) {--newline--        int n = list1.size() + list2.size();--newline--        map<string, vector<int>> m;--newline--        for (int i = 0; i < list1.size(); i++) {--newline--            m[list1[i]] = {i, n};--newline--        }--newline--        for (int j = 0; j < list2.size(); j++) {--newline--            if (m.count(list2[j])) {--newline--                m[list2[j]][1] = j;--newline--            }--newline--            else {--newline--                m[list2[j]] = {n, j};--newline--            }--newline--        }--newline----newline--        int minsum = INT_MAX;--newline--        map<int, vector<string>> sumMap;--newline--        for (auto p : m) {--newline--            int sum = p.second[0] + p.second[1];--newline--            sumMap[sum].push_back(p.first);--newline--            minsum = min(minsum, sum);--newline--        }--newline--        --newline--        return sumMap[minsum];--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "&#91;C++&#93; Clean Code - 7 lines with Explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public String[] findRestaurant(String[] list1, String[] list2) {--newline--        List<String> result = null;--newline--        Map<String, Integer> map1 = new HashMap<>();--newline--        Map<String, Integer> map2 = new HashMap<>();--newline--        int min = Integer.MAX_VALUE;--newline--        --newline--        for (int i = 0; i < list1.length; i++) {--newline--            map1.put(list1[i], i);--newline--        }--newline--        for (int i = 0; i < list2.length; i++) {--newline--            map2.put(list2[i], i);--newline--        }--newline--        --newline--        for (int i = 0; i < list1.length; i++) {--newline--            if (map2.containsKey(list1[i])) {--newline--                int sum = map1.get(list1[i]) + map2.get(list1[i]);--newline--                if (sum < min) {--newline--                    min = sum;--newline--                    result = new ArrayList<String>();--newline--                    result.add(list1[i]);--newline--                }--newline--                else if (sum == min) {--newline--                    result.add(list1[i]);--newline--                }--newline--            }--newline--        }--newline--        --newline--        String[] res = new String[result.size()];--newline--        for (int i = 0; i < result.size(); i++) {--newline--            res[i] = result.get(i);--newline--        }--newline--        --newline--        return res;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution, HashMap(s)"
+        },
+        {
+            "java": "public class Solution {--newline--    public String[] findRestaurant(String[] list1, String[] list2) {--newline--            --newline--            Map<String, Integer> map = new HashMap<>();--newline--            Map<String, Integer> fi = new HashMap<>();--newline--            List<String> res = new ArrayList<>();--newline--            int min = Integer.MAX_VALUE;--newline--    --newline--            for (int i = 0; i < list1.length; i++)--newline--                map.put(list1[i], i);--newline--    --newline--            for (int i = 0; i < list2.length; i++) {--newline--    --newline--                if (map.containsKey(list2[i])) {--newline--    --newline--                    int indexsum = map.get(list2[i]) + i;--newline--                    fi.put(list2[i], indexsum);--newline--                    min = Math.min(min, indexsum);--newline--    --newline--                }--newline--    --newline--            }--newline--    --newline--            for (Map.Entry<String, Integer> entrySet : fi.entrySet())--newline--                if (entrySet.getValue() == min)--newline--                    res.add(entrySet.getKey());--newline--                    --newline--            return res.toArray(new String[res.size()]);--newline--    --newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy Java HashMap Solution:)"
+        }
+    ],
+    "qc": "599.json"
+}

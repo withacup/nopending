@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int findMin(vector<int> &num) {--newline--        int lo = 0;--newline--        int hi = num.size() - 1;--newline--        int mid = 0;--newline--        --newline--        while(lo < hi) {--newline--            mid = lo + (hi - lo) / 2;--newline--            --newline--            if (num[mid] > num[hi]) {--newline--                lo = mid + 1;--newline--            }--newline--            else if (num[mid] < num[hi]) {--newline--                hi = mid;--newline--            }--newline--            else { // when num[mid] and num[hi] are same--newline--                hi--;--newline--            }--newline--        }--newline--        return num[lo];--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "My pretty simple code to solve it"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int findMin(vector<int> &num) {--newline--        if(num.empty())--newline--            return 0;--newline--        int i=0,j=num.size()-1;--newline--        while(i<j)--newline--        {--newline--            int mid=(i+j)/2;--newline--            if(num[j]<num[mid]){--newline--                i=mid+1;--newline--            }--newline--            else if(num[mid]<num[j]){--newline--                j=mid;--newline--            }--newline--            else{//num[mid]==num[j]--newline--                if(num[i]==num[mid]){//linear complexity--newline--                    i++;--newline--                    j--;--newline--                }--newline--                else--newline--                    j=mid;--newline--            }--newline--        }--newline--        return num[j];--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "One simple and clear method with O(1) space and worst O(n) time"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findMin(int[] nums) {--newline--    --tab-- int l = 0, r = nums.length-1;--newline--    --tab-- while (l < r) {--newline--    --tab----tab-- int mid = (l + r) / 2;--newline--    --tab----tab-- if (nums[mid] < nums[r]) {--newline--    --tab----tab----tab-- r = mid;--newline--    --tab----tab-- } else if (nums[mid] > nums[r]){--newline--    --tab----tab----tab-- l = mid + 1;--newline--    --tab----tab-- } else {  --newline--    --tab----tab----tab-- r--;  //nums[mid]=nums[r] no idea, but we can eliminate nums[r];--newline--    --tab----tab-- }--newline--    --tab-- }--newline--    --tab-- return nums[l];--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Super simple and clean Java, binary search."
+        },
+        {
+            "java": "public class Solution {--newline--    public int findMin(int[] nums) {--newline--        if (nums == null || nums.length == 0) {--newline--            return Integer.MIN_VALUE;--newline--        }--newline--        --newline--        int start = 0, end = nums.length - 1;--newline--        --newline--        //only need to add the following while loop on top of the solution --newline--        //for Part I--newline--        //if two line segments have overlap, remove the overlap.--newline--        //so, the problem can be solved as Part I--newline--        while (nums[end] == nums[start] && end > start) {--newline--            end--;--newline--        }--newline--        --newline--        while (start < end) {--newline--            //if the linear monotonically increasing in [start, end]--newline--            if (nums[start] < nums[end]) {--newline--                return nums[start];--newline--            }--newline--            --newline--            int mid = start + (end - start) / 2;--newline--            if (nums[mid] >= nums[start]) {--newline--                start = mid + 1;--newline--            }--newline--            else {--newline--                end = mid;--newline--            }--newline--        }--newline--        --newline--        return nums[start];--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Only two more lines code on top of the solution for Part I"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--int findMin(vector<int> &num) {--newline--    int start = 0;--newline--    int end = num.size()-1;--newline--    int mid;--newline--    while(start<end){--newline--        if(num[start]<num[end])--newline--        break;--newline--        mid = start+(end-start)/2;--newline--        if(num[mid]>num[end]){--newline--            start = mid+1;--newline--        }--newline--        else if(num[mid]==num[end]){--newline--            start++;--newline--            end--;--newline--        }--newline--        else--newline--        end= mid;--newline--    }--newline--    return num[start];--newline-- }--newline--};",
+            "python": null,
+            "topic_title": "My C++ solution 24ms is there any better solution ?"
+        }
+    ],
+    "qc": "154.json"
+}

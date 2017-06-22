@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public int nthSuperUglyNumberHeap(int n, int[] primes) {--newline--    int[] ugly = new int[n];--newline----newline--    PriorityQueue<Num> pq = new PriorityQueue<>();--newline--    for (int i = 0; i < primes.length; i++) pq.add(new Num(primes[i], 1, primes[i]));--newline--    ugly[0] = 1;--newline----newline--    for (int i = 1; i < n; i++) {--newline--        ugly[i] = pq.peek().val;--newline--        while (pq.peek().val == ugly[i]) {--newline--            Num nxt = pq.poll();--newline--            pq.add(new Num(nxt.p * ugly[nxt.idx], nxt.idx + 1, nxt.p));--newline--        }--newline--    }--newline----newline--    return ugly[n - 1];--newline--}--newline----newline--private class Num implements Comparable<Num> {--newline--    int val;--newline--    int idx;--newline--    int p;--newline----newline--    public Num(int val, int idx, int p) {--newline--        this.val = val;--newline--        this.idx = idx;--newline--        this.p = p;--newline--    }--newline----newline--    @Override--newline--    public int compareTo(Num that) {--newline--        return this.val - that.val;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java three methods, 23ms, 36 ms, 58ms(with heap), performance explained"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int nthSuperUglyNumber(int n, vector<int>& primes) {--newline--            vector<int> index(primes.size(), 0), ugly(n, INT_MAX);--newline--            ugly[0]=1;--newline--            for(int i=1; i<n; i++){--newline--                for(int j=0; j<primes.size(); j++) ugly[i]=min(ugly[i],ugly[index[j]]*primes[j]);--newline--                for(int j=0; j<primes.size(); j++) index[j]+=(ugly[i]==ugly[index[j]]*primes[j]);--newline--            }--newline--            return ugly[n-1];--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "7 line consice O(kn) c++ solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int nthSuperUglyNumber(int n, int[] primes) {--newline--        int[] ret    = new int[n];--newline--              ret[0] = 1;--newline--    --newline--        int[] indexes  = new int[primes.length];--newline--       --newline--        for(int i = 1; i < n; i++){--newline--            ret[i] = Integer.MAX_VALUE;--newline--            --newline--            for(int j = 0; j < primes.length; j++){--newline--                ret[i] = Math.min(ret[i], primes[j] * ret[indexes[j]]);--newline--            }--newline--            --newline--            for(int j = 0; j < indexes.length; j++){--newline--                if(ret[i] == primes[j] * ret[indexes[j]]){--newline--                    indexes[j]++;--newline--                }--newline--            }--newline--        }--newline--        --newline--        return ret[n - 1];--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "108ms easy to understand java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def nthSuperUglyNumber(self, n, primes):--newline----tab--        uglies = [1]--newline----tab--        merged = heapq.merge(*map(lambda p: (u*p for u in uglies), primes))--newline----tab--        uniqed = (u for u, _ in itertools.groupby(merged))--newline----tab--        map(uglies.append, itertools.islice(uniqed, n-1))--newline----tab--        return uglies[-1]",
+            "topic_title": "Python, generators on a heap"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Wrong Test case"
+        }
+    ],
+    "qc": "313.json"
+}

@@ -1,0 +1,1 @@
+{"solution_code": "public class Solution {--newline--    public int bulbSwitch(int n) {--newline--        return (int)Math.sqrt(n);--newline--    }--newline--}", "modified_code": null, "total_cases": 35, "l_type": "java"}

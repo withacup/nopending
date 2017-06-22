@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--public List<List<Integer>> generate(int numRows)--newline--{--newline----tab--List<List<Integer>> allrows = new ArrayList<List<Integer>>();--newline----tab--ArrayList<Integer> row = new ArrayList<Integer>();--newline----tab--for(int i=0;i<numRows;i++)--newline----tab--{--newline----tab----tab--row.add(0, 1);--newline----tab----tab--for(int j=1;j<row.size()-1;j++)--newline----tab----tab----tab--row.set(j, row.get(j)+row.get(j+1));--newline----tab----tab--allrows.add(new ArrayList<Integer>(row));--newline----tab--}--newline----tab--return allrows;--newline----tab----newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My concise solution in Java"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<List<Integer>> generate(int numRows) {--newline--        List<List<Integer>> triangle = new ArrayList<List<Integer>>();--newline--        if (numRows <=0){--newline--            return triangle;--newline--        }--newline--        for (int i=0; i<numRows; i++){--newline--            List<Integer> row =  new ArrayList<Integer>();--newline--            for (int j=0; j<i+1; j++){--newline--                if (j==0 || j==i){--newline--                    row.add(1);--newline--                } else {--newline--                    row.add(triangle.get(i-1).get(j-1)+triangle.get(i-1).get(j));--newline--                }--newline--            }--newline--            triangle.add(row);--newline--        }--newline--        return triangle;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Solution in Java"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def generate(self, numRows):--newline----tab--            res = [[1]]--newline----tab--            for i in range(1, numRows):--newline----tab--                res += [map(lambda x, y: x+y, res[-1] + [0], [0] + res[-1])]--newline----tab--            return res[:numRows]--newline----tab--    ",
+            "topic_title": "Python 4 lines short solution using map."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<vector<int> > generate(int numRows) {--newline--        vector<vector<int>> r(numRows);--newline----newline--        for (int i = 0; i < numRows; i++) {--newline--            r[i].resize(i + 1);--newline--            r[i][0] = r[i][i] = 1;--newline--  --newline--            for (int j = 1; j < i; j++)--newline--                r[i][j] = r[i - 1][j - 1] + r[i - 1][j];--newline--        }--newline--        --newline--        return r;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Maybe shortest c++ solution"
+        },
+        {
+            "java": "public class Solution {--newline----tab--public List<List<Integer>> generate(int numRows) {--newline----tab----tab--List<List<Integer>> res = new ArrayList<List<Integer>>();--newline----tab----tab--List<Integer> row, pre = null;--newline----tab----tab--for (int i = 0; i < numRows; ++i) {--newline----tab----tab----tab--row = new ArrayList<Integer>();--newline----tab----tab----tab--for (int j = 0; j <= i; ++j)--newline----tab----tab----tab----tab--if (j == 0 || j == i)--newline----tab----tab----tab----tab----tab--row.add(1);--newline----tab----tab----tab----tab--else--newline----tab----tab----tab----tab----tab--row.add(pre.get(j - 1) + pre.get(j));--newline----tab----tab----tab--pre = row;--newline----tab----tab----tab--res.add(row);--newline----tab----tab--}--newline----tab----tab--return res;--newline----tab--}--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java clean Code 1ms dp"
+        }
+    ],
+    "qc": "118.json"
+}

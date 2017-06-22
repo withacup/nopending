@@ -1,0 +1,23 @@
+---CONTENT_BEGIN---
+
+    Given a list of unique words, find all pairs of distinct indices (i, j) in the given list, so that the concatenation of the two words, i.e. words[i] + words[j] is a palindrome.
+
+
+
+    Example 1:
+    Given words = ["bat", "tab", "cat"]
+    Return [[0, 1], [1, 0]]
+    The palindromes are ["battab", "tabbat"]
+
+
+    Example 2:
+    Given words = ["abcd", "dcba", "lls", "s", "sssll"]
+    Return [[0, 1], [1, 0], [3, 2], [2, 4]]
+    The palindromes are ["dcbaabcd", "abcddcba", "slls", "llssssll"]
+
+
+Credits:Special thanks to @dietpepsi for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<vector<int>> palindromePairs(vector<string>& words) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public List<List<Integer>> palindromePairs(String[] words) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def palindromePairs(self, words):--newline--        '''--newline--        :type words: List[str]--newline--        :rtype: List[List[int]]--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Return an array of arrays of size *returnSize.--newline-- * The sizes of the arrays are returned as *columnSizes array.--newline-- * Note: Both returned array and *columnSizes array must be malloced, assume caller calls free().--newline-- */--newline--int** palindromePairs(char** words, int wordsSize, int** columnSizes, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public IList<IList<int>> PalindromePairs(string[] words) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string[]} words--newline-- * @return {number[][]}--newline-- */--newline--var palindromePairs = function(words) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String[]} words--newline--# @return {Integer[][]}--newline--def palindrome_pairs(words)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func palindromePairs(_ words: [String]) -> [[Int]] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func palindromePairs(words []string) [][]int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public String longestCommonPrefix(String[] strs) {--newline--        if(strs == null || strs.length == 0)    return \"\";--newline--        String pre = strs[0];--newline--        int i = 1;--newline--        while(i < strs.length){--newline--            while(strs[i].indexOf(pre) != 0)--newline--                pre = pre.substring(0,pre.length()-1);--newline--            i++;--newline--        }--newline--        return pre;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java code with 13 lines"
+        },
+        {
+            "java": "public class Solution {--newline--        public String longestCommonPrefix(String[] strs) {--newline--            StringBuilder result = new StringBuilder();--newline--            --newline--            if (strs!= null && strs.length > 0){--newline--            --newline--                Arrays.sort(strs);--newline--                --newline--                char [] a = strs[0].toCharArray();--newline--                char [] b = strs[strs.length-1].toCharArray();--newline--                --newline--                for (int i = 0; i < a.length; i ++){--newline--                    if (b.length > i && b[i] == a[i]){--newline--                        result.append(b[i]);--newline--                    }--newline--                    else {--newline--                        return result.toString();--newline--                    }--newline--                }--newline--            return result.toString();--newline--        }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Sorted the array, Java solution, 2 ms"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "What does Longest Common Prefix mean ?"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string longestCommonPrefix(vector<string>& strs) {--newline--        string prefix = \"\";--newline--        for(int idx=0; strs.size()>0; prefix+=strs[0][idx], idx++)--newline--            for(int i=0; i<strs.size(); i++)--newline--                if(idx >= strs[i].size() ||(i > 0 && strs[i][idx] != strs[i-1][idx]))--newline--                    return prefix;--newline--        return prefix;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Accepted c++ 6 lines 4ms"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab--    # @return a string--newline----tab--    def longestCommonPrefix(self, strs):--newline----tab--        if not strs:--newline----tab--            return \"\"--newline----tab--            --newline----tab--        for i, letter_group in enumerate(zip(*strs)):--newline----tab--            if len(set(letter_group)) > 1:--newline----tab--                return strs[0][:i]--newline----tab--        else:--newline----tab--            return min(strs)",
+            "topic_title": "Simple Python solution"
+        }
+    ],
+    "qc": "14.json"
+}

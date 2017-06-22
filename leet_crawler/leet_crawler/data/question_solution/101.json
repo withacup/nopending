@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public boolean isSymmetric(TreeNode root) {--newline--        if(root==null)  return true;--newline--        --newline--        Stack<TreeNode> stack = new Stack<TreeNode>();--newline--        TreeNode left, right;--newline--        if(root.left!=null){--newline--            if(root.right==null) return false;--newline--            stack.push(root.left);--newline--            stack.push(root.right);--newline--        }--newline--        else if(root.right!=null){--newline--            return false;--newline--        }--newline--            --newline--        while(!stack.empty()){--newline--            if(stack.size()%2!=0)   return false;--newline--            right = stack.pop();--newline--            left = stack.pop();--newline--            if(right.val!=left.val) return false;--newline--            --newline--            if(left.left!=null){--newline--                if(right.right==null)   return false;--newline--                stack.push(left.left);--newline--                stack.push(right.right);--newline--            }--newline--            else if(right.right!=null){--newline--                return false;--newline--            }--newline--                --newline--            if(left.right!=null){--newline--                if(right.left==null)   return false;--newline--                stack.push(left.right);--newline--                stack.push(right.left);--newline--            }--newline--            else if(right.left!=null){--newline--                return false;--newline--            }--newline--        }--newline--        --newline--        return true;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Recursive and non-recursive solutions in Java"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "/**--newline-- * Definition for binary tree--newline-- * struct TreeNode {--newline-- *     int val;--newline-- *     TreeNode *left;--newline-- *     TreeNode *right;--newline-- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}--newline-- * };--newline-- */--newline--class Solution {--newline--public:--newline--    bool isSymmetric(TreeNode *root) {--newline--        TreeNode *left, *right;--newline--        if (!root)--newline--            return true;--newline--        --newline--        queue<TreeNode*> q1, q2;--newline--        q1.push(root->left);--newline--        q2.push(root->right);--newline--        while (!q1.empty() && !q2.empty()){--newline--            left = q1.front();--newline--            q1.pop();--newline--            right = q2.front();--newline--            q2.pop();--newline--            if (NULL == left && NULL == right)--newline--                continue;--newline--            if (NULL == left || NULL == right)--newline--                return false;--newline--            if (left->val != right->val)--newline--                return false;--newline--            q1.push(left->left);--newline--            q1.push(left->right);--newline--            q2.push(right->right);--newline--            q2.push(right->left);--newline--        }--newline--        return true;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "My C++ Accepted code in 16ms with iteration solution"
+        },
+        {
+            "java": "public class Solution {--newline--     public boolean isSymmetric(TreeNode root) {--newline--        if(root==null) return true;--newline--        return isMirror(root.left,root.right);--newline--    }--newline--    public boolean isMirror(TreeNode p, TreeNode q) {--newline--        if(p==null && q==null) return true;--newline--        if(p==null || q==null) return false;--newline--        return (p.val==q.val) && isMirror(p.left,q.right) && isMirror(p.right,q.left);--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "1ms recursive Java Solution, easy to understand"
+        },
+        {
+            "java": "public class Solution {--newline--     public boolean isSymmetric(TreeNode root) {--newline--            Queue<TreeNode> q = new LinkedList<TreeNode>();--newline--            if(root == null) return true;--newline--            q.add(root.left);--newline--            q.add(root.right);--newline--            while(q.size() > 1){--newline--                TreeNode left = q.poll(),--newline--                         right = q.poll();--newline--                if(left== null&& right == null) continue;--newline--                if(left == null ^ right == null) return false;--newline--                if(left.val != right.val) return false;--newline--                q.add(left.left);--newline--                q.add(right.right);--newline--                q.add(left.right);--newline--                q.add(right.left);            --newline--            }--newline--            return true;--newline--        }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Short and clean java iterative solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool isSymmetric(TreeNode *root) {--newline--            if (!root) return true;--newline--            return helper(root->left, root->right);--newline--        }--newline--        --newline--        bool helper(TreeNode* p, TreeNode* q) {--newline--            if (!p && !q) {--newline--                return true;--newline--            } else if (!p || !q) {--newline--                return false;--newline--            }--newline--            --newline--            if (p->val != q->val) {--newline--                return false;--newline--            }--newline--            --newline--            return helper(p->left,q->right) && helper(p->right, q->left); --newline--        }--newline--}",
+            "python": null,
+            "topic_title": "15 lines of c++ solution &#x2F; 8 ms"
+        }
+    ],
+    "qc": "101.json"
+}

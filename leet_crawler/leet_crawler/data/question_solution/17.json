@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--        public List<String> letterCombinations(String digits) {--newline--        LinkedList<String> ans = new LinkedList<String>();--newline--        String[] mapping = new String[] {\"0\", \"1\", \"abc\", \"def\", \"ghi\", \"jkl\", \"mno\", \"pqrs\", \"tuv\", \"wxyz\"};--newline--        ans.add(\"\");--newline--        for(int i =0; i<digits.length();i++){--newline--            int x = Character.getNumericValue(digits.charAt(i));--newline--            while(ans.peek().length()==i){--newline--                String t = ans.remove();--newline--                for(char s : mapping[x].toCharArray())--newline--                    ans.add(t+s);--newline--            }--newline--        }--newline--        return ans;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My java solution with FIFO queue"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<string> letterCombinations(string digits) {--newline--        vector<string> res;--newline--        string charmap[10] = {\"0\", \"1\", \"abc\", \"def\", \"ghi\", \"jkl\", \"mno\", \"pqrs\", \"tuv\", \"wxyz\"};--newline--        res.push_back(\"\");--newline--        for (int i = 0; i < digits.size(); i++)--newline--        {--newline--            vector<string> tempres;--newline--            string chars = charmap[digits[i] - '0'];--newline--            for (int c = 0; c < chars.size();c++)--newline--                for (int j = 0; j < res.size();j++)--newline--                    tempres.push_back(res[j]+chars[c]);--newline--            res = tempres;--newline--        }--newline--        return res;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "My iterative sollution, very simple under 15 lines"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<string> letterCombinations(string digits) {--newline--        vector<string> result;--newline--        if(digits.empty()) return vector<string>();--newline--        static const vector<string> v = {\"\", \"\", \"abc\", \"def\", \"ghi\", \"jkl\", \"mno\", \"pqrs\", \"tuv\", \"wxyz\"};--newline--        result.push_back(\"\");   // add a seed for the initial case--newline--        for(int i = 0 ; i < digits.size(); ++i) {--newline--            int num = digits[i]-'0';--newline--            if(num < 0 || num > 9) break;--newline--            const string& candidate = v[num];--newline--            if(candidate.empty()) continue;--newline--            vector<string> tmp;--newline--            for(int j = 0 ; j < candidate.size() ; ++j) {--newline--                for(int k = 0 ; k < result.size() ; ++k) {--newline--                    tmp.push_back(result[k] + candidate[j]);--newline--                }--newline--            }--newline--            result.swap(tmp);--newline--        }--newline--        return result;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Iterative c++ solution in 0ms"
+        },
+        {
+            "java": "   public class Solution {--newline--    --tab--private static final String[] KEYS = { \"\", \"\", \"abc\", \"def\", \"ghi\", \"jkl\", \"mno\", \"pqrs\", \"tuv\", \"wxyz\" };--newline--    --newline--    --tab--public List<String> letterCombinations(String digits) {--newline--    --tab----tab--List<String> ret = new LinkedList<String>();--newline--    --tab----tab--combination(\"\", digits, 0, ret);--newline--    --tab----tab--return ret;--newline--    --tab--}--newline--    --newline--    --tab--private void combination(String prefix, String digits, int offset, List<String> ret) {--newline--    --tab----tab--if (offset >= digits.length()) {--newline--    --tab----tab----tab--ret.add(prefix);--newline--    --tab----tab----tab--return;--newline--    --tab----tab--}--newline--    --tab----tab--String letters = KEYS[(digits.charAt(offset) - '0')];--newline--    --tab----tab--for (int i = 0; i < letters.length(); i++) {--newline--    --tab----tab----tab--combination(prefix + letters.charAt(i), digits, offset + 1, ret);--newline--    --tab----tab--}--newline--    --tab--}--newline--    }",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My recursive solution using Java"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab--    # @return a list of strings, [s1, s2]--newline----tab--    def letterCombinations(self, digits):--newline----tab--        if '' == digits: return []--newline----tab--        kvmaps = {--newline----tab--            '2': 'abc',--newline----tab--            '3': 'def',--newline----tab--            '4': 'ghi',--newline----tab--            '5': 'jkl',--newline----tab--            '6': 'mno',--newline----tab--            '7': 'pqrs',--newline----tab--            '8': 'tuv',--newline----tab--            '9': 'wxyz'--newline----tab--        }--newline----tab--        return reduce(lambda acc, digit: [x + y for x in acc for y in kvmaps[digit]], digits, [''])",
+            "topic_title": "One line python solution"
+        }
+    ],
+    "qc": "17.json"
+}

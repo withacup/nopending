@@ -1,0 +1,20 @@
+---CONTENT_BEGIN---
+Rotate an array of n elements to the right by k steps.
+For example, with n = 7 and k = 3, the array [1,2,3,4,5,6,7] is rotated to [5,6,7,1,2,3,4]. 
+
+Note:
+Try to come up as many solutions as you can, there are at least 3 different ways to solve this problem.
+
+
+[show hint]
+Hint:
+Could you do it in-place with O(1) extra space?
+
+
+Related problem: Reverse Words in a String II
+
+Credits:Special thanks to @Freezen for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    void rotate(vector<int>& nums, int k) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public void rotate(int[] nums, int k) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def rotate(self, nums, k):--newline--        '''--newline--        :type nums: List[int]--newline--        :type k: int--newline--        :rtype: void Do not return anything, modify nums in-place instead.--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "void rotate(int* nums, int numsSize, int k) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public void Rotate(int[] nums, int k) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} nums--newline-- * @param {number} k--newline-- * @return {void} Do not return anything, modify nums in-place instead.--newline-- */--newline--var rotate = function(nums, k) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} nums--newline--# @param {Integer} k--newline--# @return {Void} Do not return anything, modify nums in-place instead.--newline--def rotate(nums, k)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func rotate(_ nums: inout [Int], _ k: Int) {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func rotate(nums []int, k int)  {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

@@ -1,0 +1,14 @@
+---CONTENT_BEGIN---
+Given a string containing only digits, restore it by returning all possible valid IP address combinations.
+
+
+For example:
+Given "25525511135",
+
+
+return ["255.255.11.135", "255.255.111.35"]. (Order does not matter)
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<string> restoreIpAddresses(string s) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public List<String> restoreIpAddresses(String s) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def restoreIpAddresses(self, s):--newline--        '''--newline--        :type s: str--newline--        :rtype: List[str]--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Return an array of size *returnSize.--newline-- * Note: The returned array must be malloced, assume caller calls free().--newline-- */--newline--char** restoreIpAddresses(char* s, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public IList<string> RestoreIpAddresses(string s) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} s--newline-- * @return {string[]}--newline-- */--newline--var restoreIpAddresses = function(s) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} s--newline--# @return {String[]}--newline--def restore_ip_addresses(s)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func restoreIpAddresses(_ s: String) -> [String] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func restoreIpAddresses(s string) []string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

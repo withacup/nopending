@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int removeBoxes(vector<int>& boxes) {--newline--        int n=boxes.size();--newline--        int memo[100][100][100] = {0};--newline--        return dfs(boxes,memo,0,n-1,0);--newline--    }--newline--    --newline--    int dfs(vector<int>& boxes,int memo[100][100][100], int l,int r,int k){--newline--        if (l>r) return 0;--newline--        if (memo[l][r][k]!=0) return memo[l][r][k];--newline----newline--        while (r>l && boxes[r]==boxes[r-1]) {r--;k++;}--newline--        memo[l][r][k] = dfs(boxes,memo,l,r-1,0) + (k+1)*(k+1);--newline--        for (int i=l; i<r; i++){--newline--            if (boxes[i]==boxes[r]){--newline--                memo[l][r][k] = max(memo[l][r][k], dfs(boxes,memo,l,i,k+1) + dfs(boxes,memo,i+1,r-1,0));--newline--            }--newline--        }--newline--        return memo[l][r][k];--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Memoization DFS C++"
+        },
+        {
+            "java": "public class Solution {--newline--    public int removeBoxes(int[] boxes) {--newline--        int n = boxes.length;--newline--        int[][][] dp = new int[n][n][n];--newline--        --tab----newline--        for (int j = 0; j < n; j++) {--newline--        --tab--for (int k = 0; k <= j; k++) {--newline--        --tab--    dp[j][j][k] = (k + 1) * (k + 1);--newline--        --tab--}--newline--        }--newline--        --tab----newline--        for (int l = 1; l < n; l++) {--newline--        --tab--for (int j = l; j < n; j++) {--newline--        --tab--    int i = j - l;--newline--        --tab--        --newline--        --tab--    for (int k = 0; k <= i; k++) {--newline--        --tab--        int res = (k + 1) * (k + 1) + dp[i + 1][j][0];--newline--        --tab--            --newline--        --tab--        for (int m = i + 1; m <= j; m++) {--newline--        --tab--            if (boxes[m] == boxes[i]) {--newline--        --tab--                res = Math.max(res, dp[i + 1][m - 1][0] + dp[m][j][k + 1]);--newline--        --tab--            }--newline--        --tab--        }--newline--        --tab--            --newline--        --tab--        dp[i][j][k] = res;--newline--        --tab--    }--newline--        --tab--}--newline--        }--newline--        --newline--        return (n == 0 ? 0 : dp[0][n - 1][0]);--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java top-down and bottom-up DP solutions"
+        },
+        {
+            "java": "public class Solution {--newline--      public int removeBoxes(int[] boxes) {--newline--            if (boxes == null || boxes.length == 0) {--newline--                return 0;--newline--            }--newline--    --newline--            int size = boxes.length;--newline--            int[][][] dp = new int[size][size][size];--newline--    --newline--            return get(dp, boxes, 0, size-1, 1);--newline--        }--newline--    --newline--        private int get(int[][][] dp, int[] boxes, int i, int j, int k) {--newline--            if (i > j) {--newline--                return 0;--newline--            } else if (i == j) {--newline--                return k * k;--newline--            } else if (dp[i][j][k] != 0) {--newline--                return dp[i][j][k];--newline--            } else {--newline--                int temp = get(dp, boxes, i + 1, j, 1) + k * k;--newline--    --newline--                for (int m = i + 1; m <= j; m++) {--newline--                    if (boxes[i] == boxes[m]) {--newline--                        temp = Math.max(temp, get(dp, boxes, i + 1, m - 1, 1) + get(dp, boxes, m, j, k + 1));--newline--                    }--newline--                }--newline--    --newline--                dp[i][j][k] = temp;--newline--                return temp;--newline--            }--newline--    --newline--    --newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java DP + Memorization 60ms"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "I found the problem in other OnlineJudge"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def removeBoxes(self, A):--newline----tab--        N = len(A)--newline----tab--        memo = [[[0]*N for _ in xrange(N) ] for _ in xrange(N) ]--newline----tab--        --newline----tab--        def dp(i, j, k):--newline----tab--            if i > j: return 0--newline----tab--            if not memo[i][j][k]:--newline----tab--                m = i--newline----tab--                while m+1 <= j and A[m+1] == A[i]:--newline----tab--                    m += 1--newline----tab--                i, k = m, k + m - i--newline----tab--                ans = dp(i+1, j, 0) + (k+1) ** 2--newline----tab--                for m in xrange(i+1, j+1):--newline----tab--                    if A[i] == A[m]:--newline----tab--                        ans = max(ans, dp(i+1, m-1, 0) + dp(m, j, k+1))--newline----tab--                memo[i][j][k] = ans--newline----tab--            return memo[i][j][k]--newline----tab--        --newline----tab--        return dp(0, N-1, 0)--newline----tab--    ",
+            "topic_title": "Python, Fast DP with Explanation"
+        }
+    ],
+    "qc": "546.json"
+}

@@ -1,0 +1,18 @@
+---CONTENT_BEGIN---
+
+All DNA is composed of a series of nucleotides abbreviated as A, C, G, and T, for example: "ACGAATTCCG". When studying DNA, it is sometimes useful to identify repeated sequences within the DNA.
+
+Write a function to find all the 10-letter-long sequences (substrings) that occur more than once in a DNA molecule.
+
+
+For example,
+
+Given s = "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT",
+
+Return:
+["AAAAACCCCC", "CCCCCAAAAA"].
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<string> findRepeatedDnaSequences(string s) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public List<String> findRepeatedDnaSequences(String s) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def findRepeatedDnaSequences(self, s):--newline--        '''--newline--        :type s: str--newline--        :rtype: List[str]--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Return an array of size *returnSize.--newline-- * Note: The returned array must be malloced, assume caller calls free().--newline-- */--newline--char** findRepeatedDnaSequences(char* s, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public IList<string> FindRepeatedDnaSequences(string s) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} s--newline-- * @return {string[]}--newline-- */--newline--var findRepeatedDnaSequences = function(s) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} s--newline--# @return {String[]}--newline--def find_repeated_dna_sequences(s)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func findRepeatedDnaSequences(_ s: String) -> [String] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func findRepeatedDnaSequences(s string) []string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

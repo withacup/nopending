@@ -1,0 +1,22 @@
+---CONTENT_BEGIN---
+
+The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
+
+P   A   H   N
+A P L S I I G
+Y   I   R
+
+
+And then read line by line: "PAHNAPLSIIGYIR"
+
+
+Write the code that will take a string and make this conversion given a number of rows:
+
+string convert(string text, int nRows);
+
+convert("PAYPALISHIRING", 3) should return "PAHNAPLSIIGYIR".
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    string convert(string s, int numRows) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public String convert(String s, int numRows) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def convert(self, s, numRows):--newline--        '''--newline--        :type s: str--newline--        :type numRows: int--newline--        :rtype: str--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "char* convert(char* s, int numRows) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public string Convert(string s, int numRows) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} s--newline-- * @param {number} numRows--newline-- * @return {string}--newline-- */--newline--var convert = function(s, numRows) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} s--newline--# @param {Integer} num_rows--newline--# @return {String}--newline--def convert(s, num_rows)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func convert(_ s: String, _ numRows: Int) -> String {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func convert(s string, numRows int) string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

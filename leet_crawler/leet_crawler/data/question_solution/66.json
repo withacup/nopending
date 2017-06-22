@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int[] plusOne(int[] digits) {--newline--            --newline--        int n = digits.length;--newline--        for(int i=n-1; i>=0; i--) {--newline--            if(digits[i] < 9) {--newline--                digits[i]++;--newline--                return digits;--newline--            }--newline--            --newline--            digits[i] = 0;--newline--        }--newline--        --newline--        int[] newNumber = new int [n+1];--newline--        newNumber[0] = 1;--newline--        --newline--        return newNumber;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My Simple Java Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Is it a simple code(C++)?"
+        },
+        {
+            "java": "public class Solution {--newline--    public int[] plusOne(int[] digits) {--newline--        for (int i = digits.length - 1; i >=0; i--) {--newline--            if (digits[i] != 9) {--newline--                digits[i]++;--newline--                break;--newline--            } else {--newline--                digits[i] = 0;--newline--            }--newline--        }--newline--        if (digits[0] == 0) {--newline--            int[] res = new int[digits.length+1];--newline--            res[0] = 1;--newline--            return res;--newline--        }--newline--        return digits;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> plusOne(vector<int> &digits) {--newline--        bool carry = true;--newline--        --newline--        for(int i=digits.size()-1; i >= 0 && carry; i--) {--newline--            carry = (++digits[i]%=10) == 0;--newline--        }--newline----newline--        if(carry) {--newline--            digits.insert(digits.begin(), 1);--newline--        }--newline--    --newline--        return digits;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "My C++ Solution with few lines"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "To avoid confusion, please mention that the lowest digit is on the right end"
+        }
+    ],
+    "qc": "66.json"
+}

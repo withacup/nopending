@@ -1,0 +1,1 @@
+{"solution_code": "public class Solution {--newline--    public void deleteNode(ListNode node) {--newline--        node.val = node.next.val;--newline--        node.next = node.next.next;--newline--    }--newline--    --newline--}", "modified_code": null, "total_cases": 83, "l_type": "java"}

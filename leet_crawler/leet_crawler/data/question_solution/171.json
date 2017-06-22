@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My solutions in 3 languages, does any one have one line solution in Java or C++?"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Asked this question on an interview"
+        },
+        {
+            "java": "public class Solution {--newline--    public int titleToNumber(String s) {--newline--        int result = 0;--newline--        for(int i = 0 ; i < s.length(); i++) {--newline--          result = result * 26 + (s.charAt(i) - 'A' + 1);--newline--        }--newline--        return result;--newline--      }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Here is my java solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int titleToNumber(String s) {--newline--    --newline--        int result  = 0;--newline--        for (int i = 0; i < s.length(); i++){--newline--            result *= 26;--newline--            result += ((s.charAt(i) - 'A') + 1);    --newline--        }--newline--    --newline--        return result;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My 2ms JAVA solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int titleToNumber(string s) {--newline--        int col = 0;--newline--        for(int i = s.length(); i > 0; i--) {--newline--            col += (s[i - 1] - 'A' + 1) * pow(26, (s.length() - i));--newline--        }--newline--        return col;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "A 8ms C++ Solution"
+        }
+    ],
+    "qc": "171.json"
+}

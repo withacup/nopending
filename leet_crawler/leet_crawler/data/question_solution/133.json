@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    private HashMap<Integer, UndirectedGraphNode> map = new HashMap<>();--newline--    public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {--newline--        return clone(node);--newline--    }--newline----newline--    private UndirectedGraphNode clone(UndirectedGraphNode node) {--newline--        if (node == null) return null;--newline--        --newline--        if (map.containsKey(node.label)) {--newline--            return map.get(node.label);--newline--        }--newline--        UndirectedGraphNode clone = new UndirectedGraphNode(node.label);--newline--        map.put(clone.label, clone);--newline--        for (UndirectedGraphNode neighbor : node.neighbors) {--newline--            clone.neighbors.add(clone(neighbor));--newline--        }--newline--        return clone;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Depth First Simple Java Solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {--newline--        if (node == null) return null;--newline--        --newline--        UndirectedGraphNode newNode = new UndirectedGraphNode(node.label); //new node for return--newline--        HashMap<Integer, UndirectedGraphNode> map = new HashMap(); //store visited nodes--newline--        --newline--        map.put(newNode.label, newNode); //add first node to HashMap--newline--        --newline--        LinkedList<UndirectedGraphNode> queue = new LinkedList(); //to store **original** nodes need to be visited--newline--        queue.add(node); //add first **original** node to queue--newline--        --newline--        while (!queue.isEmpty()) { //if more nodes need to be visited--newline--            UndirectedGraphNode n = queue.pop(); //search first node in the queue--newline--            for (UndirectedGraphNode neighbor : n.neighbors) {--newline--                if (!map.containsKey(neighbor.label)) { //add to map and queue if this node hasn't been searched before--newline--                    map.put(neighbor.label, new UndirectedGraphNode(neighbor.label));--newline--                    queue.add(neighbor);--newline--                }--newline--                map.get(n.label).neighbors.add(map.get(neighbor.label)); //add neighbor to new created nodes--newline--            }--newline--        }--newline--        --newline--        return newNode;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java iterative BFS solution with HashMap and queue"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    UndirectedGraphNode *cloneGraph(UndirectedGraphNode *node) {--newline--        if (!node) return NULL;--newline--        if (mp.find(node) == mp.end()) {--newline--            mp[node] = new UndirectedGraphNode(node -> label);--newline--            for (UndirectedGraphNode* neigh : node -> neighbors)--newline--                mp[node] -> neighbors.push_back(cloneGraph(neigh));--newline--        }--newline--        return mp[node];--newline--    } --newline--private:--newline--    unordered_map<UndirectedGraphNode*, UndirectedGraphNode*> mp;--newline--};--newline--",
+            "python": null,
+            "topic_title": "7-17 lines C++ BFS&#x2F;DFS Solutions"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "/**--newline--*  author : s2003zy--newline--*  weibo  : http://weibo.com/songzy982--newline--*  blog   : s2003zy.com--newline--*  date   : 2015.02.27--newline--*/--newline--class Solution {--newline--public:--newline--    unordered_map<UndirectedGraphNode*, UndirectedGraphNode*> hash;--newline--    UndirectedGraphNode *cloneGraph(UndirectedGraphNode *node) {--newline--       if (!node) return node;--newline--       if(hash.find(node) == hash.end()) {--newline--           hash[node] = new UndirectedGraphNode(node -> label);--newline--           for (auto x : node -> neighbors) {--newline--                (hash[node] -> neighbors).push_back( cloneGraph(x) );--newline--           }--newline--       }--newline--       return hash[node];--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "9 line c++ DFS Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Graph representation?"
+        }
+    ],
+    "qc": "133.json"
+}

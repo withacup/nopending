@@ -1,0 +1,6 @@
+{
+    "solution_code": "class MedianFinder {--newline----newline--    private Queue<Long> small = new PriorityQueue(),--newline--                        large = new PriorityQueue();--newline----newline--    public void addNum(int num) {--newline--        large.add((long) num);--newline--        small.add(-large.poll());--newline--        if (large.size() < small.size())--newline--            large.add(-small.poll());--newline--    }--newline----newline--    public double findMedian() {--newline--        return large.size() > small.size()--newline--               ? large.peek()--newline--               : (large.peek() - small.peek()) / 2.0;--newline--    }--newline--};--newline--",
+    "l_type": "java",
+    "modified_code": null,
+    "total_cases": 18
+}

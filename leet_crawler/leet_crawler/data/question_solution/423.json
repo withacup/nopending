@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public String originalDigits(String s) {--newline--        int[] count = new int[10];--newline--        for (int i = 0; i < s.length(); i++){--newline--            char c = s.charAt(i);--newline--            if (c == 'z') count[0]++;--newline--            if (c == 'w') count[2]++;--newline--            if (c == 'x') count[6]++;--newline--            if (c == 's') count[7]++; //7-6--newline--            if (c == 'g') count[8]++;--newline--            if (c == 'u') count[4]++; --newline--            if (c == 'f') count[5]++; //5-4--newline--            if (c == 'h') count[3]++; //3-8--newline--            if (c == 'i') count[9]++; //9-8-5-6--newline--            if (c == 'o') count[1]++; //1-0-2-4--newline--        }--newline--        count[7] -= count[6];--newline--        count[5] -= count[4];--newline--        count[3] -= count[8];--newline--        count[9] = count[9] - count[8] - count[5] - count[6];--newline--        count[1] = count[1] - count[0] - count[2] - count[4];--newline--        StringBuilder sb = new StringBuilder();--newline--        for (int i = 0; i <= 9; i++){--newline--            for (int j = 0; j < count[i]; j++){--newline--                sb.append(i);--newline--            }--newline--        }--newline--        return sb.toString();--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "one pass O(n) JAVA Solution, Simple and Clear"
+        },
+        {
+            "java": "public class Solution {--newline--    public String originalDigits(String s) {--newline--        if(s==null || s.length()==0) return \"\";--newline--        int[] count = new int[128];--newline--        for(int i=0;i<s.length();i++)  count[s.charAt(i)]++;--newline--        int[] num = new int[10];--newline--        num[0] = count['z'];--newline--        num[2] = count['w'];--newline--        num[4] = count['u'];--newline--        num[6] = count['x'];--newline--        num[8] = count['g'];--newline--        num[1] = count['o']-count['z']-count['w']-count['u'];--newline--        num[3] = count['h']-count['g'];--newline--        num[5] = count['v']-count['s']+count['x'];--newline--        num[7] = count['s']-count['x'];--newline--        num[9] = count['i']-count['x']-count['g']-count['v']+count['s']-count['x'];--newline--        String ret = new String();--newline--        for(int i=0;i<10;i++)--newline--            for(int j=num[i];j>0;j--) ret += String.valueOf(i);--newline--        return ret;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my simple and easy O(N) solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Fun fact"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string originalDigits(string s) {--newline--        vector<string> words = {\"zero\", \"two\", \"four\", \"six\", \"eight\", \"one\", \"three\", \"five\", \"seven\", \"nine\"};--newline--        vector<int> nums = {0, 2, 4, 6, 8, 1, 3, 5, 7, 9};--newline--        vector<int> distinct_char = {'z', 'w', 'u', 'x', 'g', 'o', 'r', 'f', 'v', 'i'};--newline--        vector<int> counts(26, 0);--newline--        string result;--newline--        for(auto ch : s){ counts[ch-'a']++;}--newline--        for(int i = 0; i < 10; i++){--newline--            int count = counts[distinct_char[i]-'a'];--newline--            for(int j = 0; j < words[i].size(); j++)--newline--                counts[words[i][j]-'a'] -= count;--newline--            while(count--)--newline--                result += to_string(nums[i]);--newline--        }--newline--        sort(result.begin(), result.end());--newline--        return result;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Straightforward C++ Accepted Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string originalDigits(string s) {--newline--        vector<int> a(10, 0);--newline--        vector<int> alpha(128, 0);--newline--        for (char c : s)--newline--            alpha[c]++;--newline--        a[0] = alpha['z'];--newline--        a[2] = alpha['w'];--newline--        a[4] = alpha['u'];--newline--        a[6] = alpha['x'];--newline--        a[8] = alpha['g'];--newline--        a[3] = alpha['h'] - a[8];--newline--        a[5] = alpha['f'] - a[4];--newline--        a[7] = alpha['v'] - a[5];--newline--        a[1] = alpha['o'] - a[0] - a[2] - a[4];--newline--        a[9] = alpha['i'] - a[5] - a[6] - a[8];--newline--        string ans;--newline--        for (int i = 0; i < 10; i++) {--newline--            if (a[i] > 0)--newline--                ans += string(a[i], '0' + i);--newline--        }--newline--        return ans;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "C++ O(n) solution"
+        }
+    ],
+    "qc": "423.json"
+}

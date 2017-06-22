@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public List<Interval> insert(List<Interval> intervals, Interval newInterval) {--newline--        List<Interval> result = new LinkedList<>();--newline--        int i = 0;--newline--        // add all the intervals ending before newInterval starts--newline--        while (i < intervals.size() && intervals.get(i).end < newInterval.start)--newline--            result.add(intervals.get(i++));--newline--        // merge all overlapping intervals to one considering newInterval--newline--        while (i < intervals.size() && intervals.get(i).start <= newInterval.end) {--newline--            newInterval = new Interval( // we could mutate newInterval here also--newline--                    Math.min(newInterval.start, intervals.get(i).start),--newline--                    Math.max(newInterval.end, intervals.get(i).end));--newline--            i++;--newline--        }--newline--        result.add(newInterval); // add the union of intervals we got--newline--        // add all the rest--newline--        while (i < intervals.size()) result.add(intervals.get(i++)); --newline--        return result;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Short and straight-forward Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def insert(self, intervals, newInterval):--newline----tab--        s, e = newInterval.start, newInterval.end--newline----tab--        left, right = [], []--newline----tab--        for i in intervals:--newline----tab--            if i.end < s:--newline----tab--                left += i,--newline----tab--            elif i.start > e:--newline----tab--                right += i,--newline----tab--            else:--newline----tab--                s = min(s, i.start)--newline----tab--                e = max(e, i.end)--newline----tab--        return left + [Interval(s, e)] + right",
+            "topic_title": "7+ lines, 3 easy solutions"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<Interval> insert(List<Interval> intervals, Interval newInterval) {--newline--        List<Interval> result = new ArrayList<Interval>();--newline--        for (Interval i : intervals) {--newline--            if (newInterval == null || i.end < newInterval.start)--newline--                result.add(i);--newline--            else if (i.start > newInterval.end) {--newline--                result.add(newInterval);--newline--                result.add(i);--newline--                newInterval = null;--newline--            } else {--newline--                newInterval.start = Math.min(newInterval.start, i.start);--newline--                newInterval.end = Math.max(newInterval.end, i.end);--newline--            }--newline--        }--newline--        if (newInterval != null)--newline--            result.add(newInterval);--newline--        return result;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Short java code"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<Interval> insert(vector<Interval>& intervals, Interval newInterval) {--newline--        vector<Interval> ret;--newline--        auto it = intervals.begin();--newline--        for(; it!=intervals.end(); ++it){--newline--    --tab----tab--if(newInterval.end < (*it).start) //all intervals after will not overlap with the newInterval--newline--    --tab----tab----tab--break; --newline--    --tab----tab--else if(newInterval.start > (*it).end) //*it will not overlap with the newInterval--newline--    --tab----tab----tab--ret.push_back(*it); --newline--            else{ //update newInterval bacause *it overlap with the newInterval--newline--                newInterval.start = min(newInterval.start, (*it).start);--newline--                newInterval.end = max(newInterval.end, (*it).end);--newline--            }--tab----newline--        }--newline--        // don't forget the rest of the intervals and the newInterval--newline--    --tab--ret.push_back(newInterval);--newline--    --tab--for(; it!=intervals.end(); ++it)--newline--    --tab----tab--ret.push_back(*it);--newline--    --tab--return ret;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Very short and easy to understand C++ solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<Interval> insert(vector<Interval>& intervals, Interval newInterval) {--newline--        auto compare = [] (const Interval &intv1, const Interval &intv2)--newline--                          { return intv1.end < intv2.start; };--newline--        auto range = equal_range(intervals.begin(), intervals.end(), newInterval, compare);--newline--        auto itr1 = range.first, itr2 = range.second;--newline--        if (itr1 == itr2) {--newline--            intervals.insert(itr1, newInterval);--newline--        } else {--newline--            itr2--;--newline--            itr2->start = min(newInterval.start, itr1->start);--newline--            itr2->end = max(newInterval.end, itr2->end);--newline--            intervals.erase(itr1, itr2);--newline--        }--newline--        return intervals;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Elegant C++ STL solution, using &quot;equal_range&quot; to find overlapped intervals."
+        }
+    ],
+    "qc": "57.json"
+}

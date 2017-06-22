@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int numberOfBoomerangs(int[][] points) {--newline--        int res = 0;--newline--    --newline--        Map<Integer, Integer> map = new HashMap<>();--newline--        for(int i=0; i<points.length; i++) {--newline--            for(int j=0; j<points.length; j++) {--newline--                if(i == j)--newline--                    continue;--newline--                --newline--                int d = getDistance(points[i], points[j]);                --newline--                map.put(d, map.getOrDefault(d, 0) + 1);--newline--            }--newline--            --newline--            for(int val : map.values()) {--newline--                res += val * (val-1);--newline--            }            --newline--            map.clear();--newline--        }--newline--        --newline--        return res;--newline--    }--newline--    --newline--    private int getDistance(int[] a, int[] b) {--newline--        int dx = a[0] - b[0];--newline--        int dy = a[1] - b[1];--newline--        --newline--        return dx*dx + dy*dy;--newline--    }--newline--    --newline--    Time complexity:  O(n^2)--newline--    Space complexity: O(n)--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Clean java solution: O(n^2) 166ms"
+        },
+        {
+            "java": "public class Solution {--newline--    public int numberOfBoomerangs(int[][] points) {--newline--        if(points.length==0 || points[0].length==0) return 0;--newline--        int ret = 0;--newline--        for(int i=0;i<points.length;i++){--newline--            Map<Integer, Set<int[]>> map = new HashMap<>();--newline--            int[] p = points[i];--newline--            for(int j=0;j<points.length;j++){--newline--                if(j==i) continue;--newline--                int[] q = points[j];--newline--                int dis = getDis(p, q);--newline--                if(!map.containsKey(dis)) map.put(dis, new HashSet<int[]>());--newline--                map.get(dis).add(q);--newline--            }--newline--            for(Integer key : map.keySet()){--newline--                int size = map.get(key).size();--newline--                if(size>=2) ret += (size*(size-1));--newline--            }--newline--        }--newline--        return ret;--newline--    }--newline--    public int getDis(int[] p, int[] q){--newline--        int a = p[0]-q[0];--newline--        int b = p[1]-q[1];--newline--        return a*a+b*b;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my straightforward solution with HashMap, O(N^2)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int numberOfBoomerangs(vector<pair<int, int>>& points) {--newline--        int booms = 0;--newline--        for (auto &p : points) {--newline--            unordered_map<double, int> ctr(points.size());--newline--            for (auto &q : points)--newline--                booms += 2 * ctr[hypot(p.first - q.first, p.second - q.second)]++;--newline--        }--newline--        return booms;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "7 lines ~1050 ms C++"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Short Python O(n^2) hashmap solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int numberOfBoomerangs(vector<pair<int, int>>& points) {--newline--        --newline--        int res = 0;--newline--        --newline--        // iterate over all the points--newline--        for (int i = 0; i < points.size(); ++i) {--newline--            --newline--            unordered_map<long, int> group(points.size());--newline--            --newline--            // iterate over all points other than points[i]--newline--            for (int j = 0; j < points.size(); ++j) {--newline--                --newline--                if (j == i) continue;--newline--                --newline--                int dy = points[i].second - points[j].second;--newline--                int dx = points[i].first - points[j].first;--newline--                --newline--                // compute squared euclidean distance from points[i]--newline--                int key = dy * dy;--newline--                key += dx * dx;--newline--                --newline--                // accumulate # of such \"j\"s that are \"key\" distance from \"i\"--newline--                ++group[key];--newline--            }--newline--            --newline--            for (auto& p : group) {--newline--                if (p.second > 1) {--newline--                    /*--newline--                     * for all the groups of points, --newline--                     * number of ways to select 2 from n = --newline--                     * nP2 = n!/(n - 2)! = n * (n - 1)--newline--                     */--newline--                    res += p.second * (p.second - 1);--newline--                }--newline--            }--newline--        }--newline--        --newline--        return res;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "C++ clean solution O(n^2). Fully commented and explained."
+        }
+    ],
+    "qc": "447.json"
+}

@@ -1,0 +1,18 @@
+---CONTENT_BEGIN---
+Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+
+Example:
+
+Given nums = [2, 7, 11, 15], target = 9,
+
+Because nums[0] + nums[1] = 2 + 7 = 9,
+return [0, 1].
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<int> twoSum(vector<int>& nums, int target) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int[] twoSum(int[] nums, int target) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def twoSum(self, nums, target):--newline--        '''--newline--        :type nums: List[int]--newline--        :type target: int--newline--        :rtype: List[int]--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "class Solution:--newline--    def twoSum(self, nums, target):--newline--        '''--newline--        :type nums: List[int]--newline--        :type target: int--newline--        :rtype: List[int]--newline--        '''--newline--        ", "value": "python3", "text": "Python3"}, {"defaultCode": "/**--newline-- * Note: The returned array must be malloced, assume caller calls free().--newline-- */--newline--int* twoSum(int* nums, int numsSize, int target) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int[] TwoSum(int[] nums, int target) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} nums--newline-- * @param {number} target--newline-- * @return {number[]}--newline-- */--newline--var twoSum = function(nums, target) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} nums--newline--# @param {Integer} target--newline--# @return {Integer[]}--newline--def two_sum(nums, target)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func twoSum(_ nums: [Int], _ target: Int) -> [Int] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func twoSum(nums []int, target int) []int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

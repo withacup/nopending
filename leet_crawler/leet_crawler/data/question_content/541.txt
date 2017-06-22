@@ -1,0 +1,21 @@
+---CONTENT_BEGIN---
+
+Given a string and an integer k, you need to reverse the first k characters for every 2k characters counting from the start of the string. If there are less than k characters left, reverse all of them. If there are less than 2k but greater than or equal to k characters, then reverse the first k characters and left the other as original.
+
+
+Example:
+
+Input: s = "abcdefg", k = 2
+Output: "bacdfeg"
+
+
+
+Restrictions: 
+
+ The string consists of lower English letters only.
+ Length of the given string and k will in the range [1, 10000]
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    string reverseStr(string s, int k) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public String reverseStr(String s, int k) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def reverseStr(self, s, k):--newline--        '''--newline--        :type s: str--newline--        :type k: int--newline--        :rtype: str--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "char* reverseStr(char* s, int k) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public string ReverseStr(string s, int k) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} s--newline-- * @param {number} k--newline-- * @return {string}--newline-- */--newline--var reverseStr = function(s, k) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} s--newline--# @param {Integer} k--newline--# @return {String}--newline--def reverse_str(s, k)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func reverseStr(_ s: String, _ k: Int) -> String {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func reverseStr(s string, k int) string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

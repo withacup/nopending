@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public boolean hasPathSum(TreeNode root, int sum) {--newline--        if(root == null) return false;--newline--    --newline--        if(root.left == null && root.right == null && sum - root.val == 0) return true;--newline--    --newline--        return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "&#91;Accepted&#93;My recursive solution in Java"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool hasPathSum(TreeNode *root, int sum) {--newline--            if (root == NULL) return false;--newline--            if (root->val == sum && root->left ==  NULL && root->right == NULL) return true;--newline--            return hasPathSum(root->left, sum-root->val) || hasPathSum(root->right, sum-root->val);--newline--        }--newline--}",
+            "python": null,
+            "topic_title": "3 lines of  c++ solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool hasPathSum(TreeNode *root, int sum) {--newline--        stack<TreeNode *> s;--newline--        TreeNode *pre = NULL, *cur = root;--newline--        int SUM = 0;--newline--        while (cur || !s.empty()) {--newline--            while (cur) {--newline--                s.push(cur);--newline--                SUM += cur->val;--newline--                cur = cur->left;--newline--            }--newline--            cur = s.top();--newline--            if (cur->left == NULL && cur->right == NULL && SUM == sum) {--newline--                return true;--newline--            }--newline--            if (cur->right && pre != cur->right) {--newline--                cur = cur->right;--newline--            } else {--newline--                pre = cur;--newline--                s.pop();--newline--                SUM -= cur->val;--newline--                cur = NULL;--newline--            }--newline--        }--newline--        return false;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "&#91;Accepted&#93; By using postorder traversal"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "# Definition for a  binary tree node--newline--# class TreeNode:--newline--#     def __init__(self, x):--newline--#         self.val = x--newline--#         self.left = None--newline--#         self.right = None--newline----newline--class Solution:--newline----tab--    # @param root, a tree node--newline----tab--    # @param sum, an integer--newline----tab--    # @return a boolean--newline----tab--    # 1:27--newline----tab--    def hasPathSum(self, root, sum):--newline----tab--        if not root:--newline----tab--            return False--newline----tab----newline----tab--        if not root.left and not root.right and root.val == sum:--newline----tab--            return True--newline----tab--        --newline----tab--        sum -= root.val--newline----tab----newline----tab--        return self.hasPathSum(root.left, sum) or self.hasPathSum(root.right, sum)",
+            "topic_title": "Short Python recursive solution - O(n)"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean hasPathSum(TreeNode root, int sum) {--newline--       if(root == null){--newline--         return false;--newline--       }--newline--       if(root.left == null && root.right == null){--newline--          return (root.val == sum);--newline--       }--newline--       return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);--newline--       --tab--   --newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "A Java Concise solution"
+        }
+    ],
+    "qc": "112.json"
+}

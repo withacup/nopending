@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int maxEnvelopes(int[][] envelopes) {--newline--        if(envelopes == null || envelopes.length == 0 --newline--           || envelopes[0] == null || envelopes[0].length != 2)--newline--            return 0;--newline--        Arrays.sort(envelopes, new Comparator<int[]>(){--newline--            public int compare(int[] arr1, int[] arr2){--newline--                if(arr1[0] == arr2[0])--newline--                    return arr2[1] - arr1[1];--newline--                else--newline--                    return arr1[0] - arr2[0];--newline--           } --newline--        });--newline--        int dp[] = new int[envelopes.length];--newline--        int len = 0;--newline--        for(int[] envelope : envelopes){--newline--            int index = Arrays.binarySearch(dp, 0, len, envelope[1]);--newline--            if(index < 0)--newline--                index = -(index + 1);--newline--            dp[index] = envelope[1];--newline--            if(index == len)--newline--                len++;--newline--        }--newline--        return len;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java NLogN Solution with Explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public int maxEnvelopes(int[][] envelopes) {--newline--        if (   envelopes           == null--newline--            || envelopes.length    == 0--newline--            || envelopes[0]        == null--newline--            || envelopes[0].length == 0){--newline--            return 0;    --newline--        }--newline--        --newline--        Arrays.sort(envelopes, new Comparator<int[]>(){--newline--            @Override--newline--            public int compare(int[] e1, int[] e2){--newline--                return Integer.compare(e1[0], e2[0]);--newline--            }--newline--        });--newline--        --newline--        int   n  = envelopes.length;--newline--        int[] dp = new int[n];--newline--        --newline--        int ret = 0;--newline--        for (int i = 0; i < n; i++){--newline--            dp[i] = 1;--newline--            --newline--            for (int j = 0; j < i; j++){--newline--                if (   envelopes[i][0] > envelopes[j][0]--newline--                    && envelopes[i][1] > envelopes[j][1]){--newline--                    dp[i] = Math.max(dp[i], 1 + dp[j]);    --newline--                }--newline--            }--newline--            --newline--            ret = Math.max(ret, dp[i]);--newline--        }--newline--        return ret;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple DP solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "&lsqb;&lsqb;1,3&#93;,&#91;3,5&#93;,&#91;6,7&#93;,&#91;6,8&#93;,&#91;8,4&#93;,&#91;9,5&rsqb;&rsqb; should be 4 not 3"
+        },
+        {
+            "java": "public class Solution {--newline--    public int maxEnvelopes(int[][] envelopes) {--newline--        Arrays.sort(envelopes, (a, b) -> a[0] - b[0]);--newline--        int max = 0;--newline--        int dp [] = new int [envelopes.length];--newline--        for(int i = 0; i < envelopes.length; i++){--newline--            dp[i] = 1;--newline--            for(int j = 0; j < i; j++){--newline--                if(envelopes[j][0] < envelopes[i][0] && envelopes[j][1] < envelopes[i][1])--newline--                    dp[i] = Math.max(dp[i], dp[j] + 1);--newline--            }--newline--            max = Math.max(dp[i], max);--newline--        }--newline--        return max;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Short and simple Java solution (15 lines)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def maxEnvelopes(self, envs):--newline----tab--        def liss(envs):--newline----tab--            def lmip(envs, tails, k):--newline----tab--                b, e = 0, len(tails) - 1--newline----tab--                while b <= e:--newline----tab--                    m = (b + e) >> 1--newline----tab--                    if envs[tails[m]][1] >= k[1]:--newline----tab--                        e = m - 1--newline----tab--                    else:--newline----tab--                        b = m + 1--newline----tab--                return b--newline----tab--            --newline----tab--            tails = []--newline----tab--            for i, env in enumerate(envs):--newline----tab--                idx = lmip(envs, tails, env)--newline----tab--                if idx >= len(tails):--newline----tab--                    tails.append(i)--newline----tab--                else:--newline----tab--                    tails[idx] = i--newline----tab--            return len(tails)--newline----tab--        --newline----tab--        --newline----tab--        def f(x, y):--newline----tab--            return -1 if (x[0] < y[0] or x[0] == y[0] and x[1] > y[1]) else 1--newline----tab--            --newline----tab--        envs.sort(cmp=f)--newline----tab--        return liss(envs)--newline----tab----newline----tab--# Runtime: 100ms--newline----tab--",
+            "topic_title": "Python O(nlogn) O(n) solution, beats 97%, with explanation"
+        }
+    ],
+    "qc": "354.json"
+}

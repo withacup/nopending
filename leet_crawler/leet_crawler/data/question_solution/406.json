@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def reconstructQueue(self, people):--newline----tab--        if not people: return []--newline----tab----newline----tab--        # obtain everyone's info--newline----tab--        # key=height, value=k-value, index in original array--newline----tab--        peopledct, height, res = {}, [], []--newline----tab--        --newline----tab--        for i in xrange(len(people)):--newline----tab--            p = people[i]--newline----tab--            if p[0] in peopledct:--newline----tab--                peopledct[p[0]] += (p[1], i),--newline----tab--            else:--newline----tab--                peopledct[p[0]] = [(p[1], i)]--newline----tab--                height += p[0],--newline----tab----newline----tab--        height.sort()      # here are different heights we have--newline----tab----newline----tab--        # sort from the tallest group--newline----tab--        for h in height[::-1]:--newline----tab--            peopledct[h].sort()--newline----tab--            for p in peopledct[h]:--newline----tab--                res.insert(p[0], people[p[1]])--newline----tab----newline----tab--        return res--newline----tab----newline----tab--",
+            "topic_title": "Easy concept with Python&#x2F;C++&#x2F;Java Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def reconstructQueue(self, people):--newline----tab--        people.sort(key=lambda (h, k): (-h, k))--newline----tab--        queue = []--newline----tab--        for p in people:--newline----tab--            queue.insert(p[1], p)--newline----tab--        return queue--newline----tab--    ",
+            "topic_title": "Explanation of the neat Sort+Insert solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<pair<int, int>> reconstructQueue(vector<pair<int, int>>& people) {--newline--        auto comp = [](const pair<int, int>& p1, const pair<int, int>& p2)--newline--                        { return p1.first > p2.first || (p1.first == p2.first && p1.second < p2.second); };--newline--        sort(people.begin(), people.end(), comp);--newline--        vector<pair<int, int>> res;--newline--        for (auto& p : people) --newline--            res.insert(res.begin() + p.second, p);--newline--        return res;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "6 lines  Concise C++"
+        },
+        {
+            "java": "public class Solution {--newline--        public int[][] reconstructQueue(int[][] people) {--newline--            if (people == null || people.length == 0 || people[0].length == 0)--newline--                return new int[0][0];--newline--                --newline--            Arrays.sort(people, new Comparator<int[]>() {--newline--                public int compare(int[] a, int[] b) {--newline--                    if (b[0] == a[0]) return a[1] - b[1];--newline--                    return b[0] - a[0];--newline--                }--newline--            });--newline--            --newline--            int n = people.length;--newline--            ArrayList<int[]> tmp = new ArrayList<>();--newline--            for (int i = 0; i < n; i++)--newline--                tmp.add(people[i][1], new int[]{people[i][0], people[i][1]});--newline--    --newline--            int[][] res = new int[people.length][2];--newline--            int i = 0;--newline--            for (int[] k : tmp) {--newline--                res[i][0] = k[0];--newline--                res[i++][1] = k[1];--newline--            }--newline--            --newline--            return res;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java solution using Arrays.sort() and &quot;insert sorting&quot; idea"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "# The original O(n^2) solution.--newline--class Solution(object):--newline----tab--    def reconstructQueue(self, people):--newline----tab--        queue = []--newline----tab--        for p in sorted(people, key=lambda (h, t): (-h, t)):--newline----tab--            queue.insert(p[1], p)--newline----tab--        return queue--newline----tab--nsquared = Solution().reconstructQueue--newline----tab----newline----tab--# The O(n sqrt(n)) solution.--newline----tab--class Solution(object):--newline----tab--    def reconstructQueue(self, people):--newline----tab--        blocks = [[]]--newline----tab--        for p in sorted(people, key=lambda (h, t): (-h, t)):--newline----tab--            index = p[1]--newline----tab----newline----tab--            for i, block in enumerate(blocks):--newline----tab--                m = len(block)--newline----tab--                if index <= m:--newline----tab--                    break--newline----tab--                index -= m--newline----tab--            block.insert(index, p)--newline----tab--            if m * m > len(people):--newline----tab--                blocks.insert(i + 1, block[m/2:])--newline----tab--                del block[m/2:]--newline----tab----newline----tab--        return [p for block in blocks for p in block]--newline----tab--nsqrtn = Solution().reconstructQueue--newline----tab----newline----tab--# Generate a large test case and time it.--newline----tab--from bisect import bisect--newline----tab--from random import randint, shuffle--newline----tab--from timeit import timeit--newline----tab--n = 300000--newline----tab--heights = [randint(1, n) for _ in range(n)]--newline----tab--standing = []--newline----tab--people = []--newline----tab--for h in heights:--newline----tab--    i = bisect(standing, -h)--newline----tab--    standing.insert(i, -h)--newline----tab--    people.append([h, i])--newline----tab--shuffle(people)--newline----tab--for solution in nsquared, nsqrtn, nsquared, nsqrtn:--newline----tab--    print timeit(lambda: solution(people), number=1)--newline----tab--",
+            "topic_title": "O(n sqrt(n)) solution"
+        }
+    ],
+    "qc": "406.json"
+}

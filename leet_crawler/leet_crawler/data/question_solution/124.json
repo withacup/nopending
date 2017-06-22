@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    int maxValue;--newline--    --newline--    public int maxPathSum(TreeNode root) {--newline--        maxValue = Integer.MIN_VALUE;--newline--        maxPathDown(root);--newline--        return maxValue;--newline--    }--newline--    --newline--    private int maxPathDown(TreeNode node) {--newline--        if (node == null) return 0;--newline--        int left = Math.max(0, maxPathDown(node.left));--newline--        int right = Math.max(0, maxPathDown(node.right));--newline--        maxValue = Math.max(maxValue, left + right + node.val);--newline--        return Math.max(left, right) + node.val;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Accepted short solution in Java"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--    int maxToRoot(TreeNode *root, int &re) {--newline--        if (!root) return 0;--newline--        int l = maxToRoot(root->left, re);--newline--        int r = maxToRoot(root->right, re);--newline--        if (l < 0) l = 0;--newline--        if (r < 0) r = 0;--newline--        if (l + r + root->val > re) re = l + r + root->val;--newline--        return root->val += max(l, r);--newline--    }--newline--public:--newline--    int maxPathSum(TreeNode *root) {--newline--        int max = -2147483648;--newline--        maxToRoot(root, max);--newline--        return max;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Simple O(n) algorithm with one traversal through the tree"
+        },
+        {
+            "java": "public class Solution {--newline--    int max = Integer.MIN_VALUE;--newline--    --newline--    public int maxPathSum(TreeNode root) {--newline--        helper(root);--newline--        return max;--newline--    }--newline--    --newline--    // helper returns the max branch --newline--    // plus current node's value--newline--    int helper(TreeNode root) {--newline--        if (root == null) return 0;--newline--        --newline--        int left = Math.max(helper(root.left), 0);--newline--        int right = Math.max(helper(root.right), 0);--newline--        --newline--        max = Math.max(max, root.val + left + right);--newline--        --newline--        return root.val + Math.max(left, right);--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Elegant Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int maxPathSum(TreeNode *root) {--newline--        int maxPath = INT_MIN;--newline--        dfsMaxPath(root, maxPath);--newline--        return maxPath;--newline--    }--newline--    --newline--    int dfsMaxPath(TreeNode *root, int &maxPath) {--newline--        if (!root) return 0;--newline--        int l = max(0, dfsMaxPath(root->left, maxPath));--newline--        int r = max(0, dfsMaxPath(root->right, maxPath));--newline--        maxPath = max(maxPath, l + r + root->val);--newline--        return root->val + max(l, r);--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "A very concise recursive solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "What is the meaning of path in this problem?"
+        }
+    ],
+    "qc": "124.json"
+}

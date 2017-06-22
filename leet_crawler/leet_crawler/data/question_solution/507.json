@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public boolean checkPerfectNumber(int num) {--newline--        if (num == 1) return false;--newline--        --newline--        int sum = 0;--newline--        for (int i = 2; i <= Math.sqrt(num); i++) {--newline--            if (num % i == 0) {--newline--                sum += i + num / i;--newline--            }--newline--        }--newline--        sum++;--newline--        --newline--        return sum == num;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def checkPerfectNumber(self, num):--newline----tab--        k = num.bit_length() / 2--newline----tab--        return num > 1 and num == (2 << k) - 1 << k--newline----tab--    ",
+            "topic_title": "Missing test cases"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Python, Straightforward with Explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean checkPerfectNumber(int num) {--newline--        int sum = 1;--newline--        for (int i=2;i<Math.sqrt(num);i++) --newline--            if (num % i == 0) sum += i + (num/i == i ? 0 : num/i);--newline--        return num != 1 && sum == num;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 4-Liner O(sqrt(n)) Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool checkPerfectNumber(int num) {--newline--        static unordered_set<int> n = {6, 28, 496, 8128, 33550336};--newline--        return n.count(num);--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "2 line solution C++"
+        }
+    ],
+    "qc": "507.json"
+}

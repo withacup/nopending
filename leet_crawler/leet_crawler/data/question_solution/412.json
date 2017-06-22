@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public List<String> fizzBuzz(int n) {--newline--        List<String> ret = new ArrayList<String>(n);--newline--        for(int i=1,fizz=0,buzz=0;i<=n ;i++){--newline--            fizz++;--newline--            buzz++;--newline--            if(fizz==3 && buzz==5){--newline--                ret.add(\"FizzBuzz\");--newline--                fizz=0;--newline--                buzz=0;--newline--            }else if(fizz==3){--newline--                ret.add(\"Fizz\");--newline--                fizz=0;--newline--            }else if(buzz==5){--newline--                ret.add(\"Buzz\");--newline--                buzz=0;--newline--            }else{--newline--                ret.add(String.valueOf(i));--newline--            }--newline--        } --newline--        return ret;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 4ms solution , Not using &quot;%&quot; operation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def fizzBuzz(self, n):--newline----tab--        return ['Fizz' * (not i % 3) + 'Buzz' * (not i % 5) or str(i) for i in range(1, n+1)]",
+            "topic_title": "Python Golf"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<String> fizzBuzz(int n) {--newline--        List<String> list = new ArrayList<>();--newline--        for (int i = 1; i <= n; i++) {--newline--            if (i % 3 == 0 && i % 5 == 0) {--newline--                list.add(\"FizzBuzz\");--newline--            } else if (i % 3 == 0) {--newline--                list.add(\"Fizz\");--newline--            } else if (i % 5 == 0) {--newline--                list.add(\"Buzz\");--newline--            } else {--newline--                list.add(String.valueOf(i));--newline--            }--newline--        }--newline--        return list;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java easy iterative solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<string> fizzBuzz(int n) {--newline--        vector<string> ret_vec(n);--newline--        for(int i=1; i<=n; ++i)--newline--        {--newline--            if(i%3 == 0)--newline--            {--newline--                ret_vec[i-1] += string(\"Fizz\");--newline--            }--newline--            if(i%5 == 0)--newline--            {--newline--                ret_vec[i-1] += string(\"Buzz\");--newline--            }--newline--            if(ret_vec[i-1] == \"\")--newline--            {--newline--                ret_vec[i-1] += to_string(i);--newline--            }--newline--        }--newline--        return ret_vec;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ solution, 3ms"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "One-line c# solution"
+        }
+    ],
+    "qc": "412.json"
+}

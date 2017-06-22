@@ -1,0 +1,23 @@
+---CONTENT_BEGIN---
+
+Given two integers n and k, return all possible combinations of k numbers out of 1 ... n.
+
+
+For example,
+If n = 4 and k = 2, a solution is:
+
+
+
+[
+  [2,4],
+  [3,4],
+  [2,3],
+  [1,2],
+  [1,3],
+  [1,4],
+]
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<vector<int>> combine(int n, int k) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public List<List<Integer>> combine(int n, int k) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def combine(self, n, k):--newline--        '''--newline--        :type n: int--newline--        :type k: int--newline--        :rtype: List[List[int]]--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Return an array of arrays of size *returnSize.--newline-- * The sizes of the arrays are returned as *columnSizes array.--newline-- * Note: Both returned array and *columnSizes array must be malloced, assume caller calls free().--newline-- */--newline--int** combine(int n, int k, int** columnSizes, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public IList<IList<int>> Combine(int n, int k) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} n--newline-- * @param {number} k--newline-- * @return {number[][]}--newline-- */--newline--var combine = function(n, k) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} n--newline--# @param {Integer} k--newline--# @return {Integer[][]}--newline--def combine(n, k)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func combine(_ n: Int, _ k: Int) -> [[Int]] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func combine(n int, k int) [][]int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

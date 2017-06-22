@@ -1,0 +1,49 @@
+---CONTENT_BEGIN---
+
+Given a binary tree
+
+    struct TreeLinkNode {
+      TreeLinkNode *left;
+      TreeLinkNode *right;
+      TreeLinkNode *next;
+    }
+
+
+
+Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.
+
+Initially, all next pointers are set to NULL.
+
+
+Note:
+
+You may only use constant extra space.
+You may assume that it is a perfect binary tree (ie, all leaves are at the same level, and every parent has two children).
+
+
+
+
+For example,
+Given the following perfect binary tree,
+
+         1
+       /  \
+      2    3
+     / \  / \
+    4  5  6  7
+
+
+
+After calling your function, the tree should look like:
+
+         1 -> NULL
+       /  \
+      2 -> 3 -> NULL
+     / \  / \
+    4->5->6->7 -> NULL
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "/**--newline-- * Definition for binary tree with next pointer.--newline-- * struct TreeLinkNode {--newline-- *  int val;--newline-- *  TreeLinkNode *left, *right, *next;--newline-- *  TreeLinkNode(int x) : val(x), left(NULL), right(NULL), next(NULL) {}--newline-- * };--newline-- */--newline--class Solution {--newline--public:--newline--    void connect(TreeLinkNode *root) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "/**--newline-- * Definition for binary tree with next pointer.--newline-- * public class TreeLinkNode {--newline-- *     int val;--newline-- *     TreeLinkNode left, right, next;--newline-- *     TreeLinkNode(int x) { val = x; }--newline-- * }--newline-- */--newline--public class Solution {--newline--    public void connect(TreeLinkNode root) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "# Definition for binary tree with next pointer.--newline--# class TreeLinkNode:--newline--#     def __init__(self, x):--newline--#         self.val = x--newline--#         self.left = None--newline--#         self.right = None--newline--#         self.next = None--newline----newline--class Solution:--newline--    # @param root, a tree link node--newline--    # @return nothing--newline--    def connect(self, root):--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Definition for binary tree with next pointer.--newline-- * struct TreeLinkNode {--newline-- *  int val;--newline-- *  struct TreeLinkNode *left, *right, *next;--newline-- * };--newline-- *--newline-- */--newline--void connect(struct TreeLinkNode *root) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "/**--newline-- * Definition for binary tree with next pointer.--newline-- * function TreeLinkNode(val) {--newline-- *     this.val = val;--newline-- *     this.left = this.right = this.next = null;--newline-- * }--newline-- */--newline----newline--/**--newline-- * @param {TreeLinkNode} root--newline-- * @return {void} Do not return anything, modify tree in-place instead.--newline-- */--newline--var connect = function(root) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}]
+---SCRIPT_END---

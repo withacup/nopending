@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int combinationSum4(int[] nums, int target) {--newline--        int[] comb = new int[target + 1];--newline--        comb[0] = 1;--newline--        for (int i = 1; i < comb.length; i++) {--newline--            for (int j = 0; j < nums.length; j++) {--newline--                if (i - nums[j] >= 0) {--newline--                    comb[i] += comb[i - nums[j]];--newline--                }--newline--            }--newline--        }--newline--        return comb[target];--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "1ms Java DP Solution with Detailed Explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public int combinationSum4(int[] nums, int target) {--newline--        Arrays.sort(nums);--newline--        int[] res = new int[target + 1];--newline--        for (int i = 1; i < res.length; i++) {--newline----tab--    for (int num : nums) {--newline----tab--        if (num > i)--newline----tab----tab--    break;--newline----tab----tab--else if (num == i)--newline----tab----tab--    res[i] += 1;--newline----tab----tab--else--newline----tab----tab--    res[i] += res[i-num];--newline----tab--    }--newline----tab--}--newline--        return res[target];--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My 3ms Java DP solution"
+        },
+        {
+            "java": "public class Solution {--newline--    Map<Integer, Integer> map = new HashMap<>();--newline--    public int combinationSum4(int[] nums, int target) {--newline--        int count = 0;--newline--        if (nums == null || nums.length ==0 || target < 0 ) return 0;--newline--        if ( target ==0 ) return 1;--newline--        if (map.containsKey(target)) return map.get(target);--newline--        for (int num: nums){--newline--            count += combinationSum4(nums, target-num);--newline--        }--newline--        map.put(target, count);--newline--        return count;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "JAVA recursion solution using HashMap as memory."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int combinationSum4(vector<int>& nums, int target) {--newline--        vector<int> dp(target + 1);--newline--        dp[0] = 1;--newline--        sort (nums.begin(), nums.end());--newline--        for (int i = 1; i <= target; i++) {--newline--            for (auto num : nums) {--newline--                if (i < num) break;--newline--                dp[i] += dp[i - num];--newline--            }--newline--        }--newline--        return dp.back();--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ template for ALL Combination Problem Set"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def combinationSum4WithLength(self, nums, target, length, memo=collections.defaultdict(int)):--newline----tab--        if length <= 0: return 0--newline----tab--        if length == 1: return 1 * (target in nums)--newline----tab--        if (target, length) not in memo: --newline----tab--            for num in nums:--newline----tab--                memo[target, length] += self.combinationSum4(nums, target - num, length - 1)--newline----tab--        return memo[target, length]--newline----tab--",
+            "topic_title": "7-liner in Python, and follow-up question"
+        }
+    ],
+    "qc": "377.json"
+}

@@ -1,0 +1,27 @@
+---CONTENT_BEGIN---
+
+Given a 2D board and a word, find if the word exists in the grid.
+
+
+The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.
+
+
+
+For example,
+Given board = 
+
+[
+  ['A','B','C','E'],
+  ['S','F','C','S'],
+  ['A','D','E','E']
+]
+
+
+word = "ABCCED", -> returns true,
+word = "SEE", -> returns true,
+word = "ABCB", -> returns false.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    bool exist(vector<vector<char>>& board, string word) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public boolean exist(char[][] board, String word) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def exist(self, board, word):--newline--        '''--newline--        :type board: List[List[str]]--newline--        :type word: str--newline--        :rtype: bool--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "bool exist(char** board, int boardRowSize, int boardColSize, char* word) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public bool Exist(char[,] board, string word) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {character[][]} board--newline-- * @param {string} word--newline-- * @return {boolean}--newline-- */--newline--var exist = function(board, word) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Character[][]} board--newline--# @param {String} word--newline--# @return {Boolean}--newline--def exist(board, word)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func exist(_ board: [[Character]], _ word: String) -> Bool {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func exist(board [][]byte, word string) bool {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

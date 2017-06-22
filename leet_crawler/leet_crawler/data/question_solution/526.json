@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    int count = 0;--newline--    --newline--    public int countArrangement(int N) {--newline--        if (N == 0) return 0;--newline--        helper(N, 1, new int[N + 1]);--newline--        return count;--newline--    }--newline--    --newline--    private void helper(int N, int pos, int[] used) {--newline--        if (pos > N) {--newline--            count++;--newline--            return;--newline--        }--newline--        --newline--        for (int i = 1; i <= N; i++) {--newline--            if (used[i] == 0 && (i % pos == 0 || pos % i == 0)) {--newline--                used[i] = 1;--newline--                helper(N, pos + 1, used);--newline--                used[i] = 0;--newline--            }--newline--        }--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution, Backtracking"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "// By lovellp--newline--// Time: 6ms--newline--class Solution {--newline--public:--newline--    int countArrangement(int N) {--newline--        vector<int> vs;--newline--        for (int i=0; i<N; ++i) vs.push_back(i+1);--newline--        return counts(N, vs);--newline--    }--newline--    int counts(int n, vector<int>& vs) {--newline--        if (n <= 0) return 1;--newline--        int ans = 0;--newline--        for (int i=0; i<n; ++i) {--newline--            if (vs[i]%n==0 || n%vs[i]==0) {--newline--                swap(vs[i], vs[n-1]);--newline--                ans += counts(n-1, vs);--newline--                swap(vs[i], vs[n-1]);--newline--            }--newline--        }--newline--        return ans;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "My C++ elegant solution with back-tracking"
+        },
+        {
+            "java": "public class Solution {--newline--    public int countArrangement(int N) {--newline--        dfs(N, N, new boolean[N + 1]);--newline--        return count;--newline--    }--newline--    --newline--    int count = 0;--newline--    --newline--    void dfs(int N, int k, boolean[] visited) {--newline--        if (k == 0) {--newline--            count++;--newline--            return;--newline--        }--newline--        for (int i = 1; i <= N; i++) {--newline--            if (visited[i] || k % i != 0 && i % k != 0) {--newline--                continue;--newline--            }--newline--            visited[i] = true;--newline--            dfs(N, k - 1, visited);--newline--            visited[i] = false;--newline--        }--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "12 ms Java Backtracking sulotion"
+        },
+        {
+            "java": "public class Solution {--newline--        private int count = 0;--newline--        private void swap(int[] nums, int i, int j) {--newline--            int tmp = nums[i];--newline--            nums[i] = nums[j];--newline--            nums[j] = tmp;--newline--        }--newline--        private void helper(int[] nums, int start) {--newline--            if (start == 0) {--newline--                count++;--newline--                return;--newline--            }--newline--            for (int i = start; i > 0; i--) {--newline--                swap(nums, start, i);--newline--                if (nums[start] % start == 0 || start % nums[start] == 0) helper(nums, start-1);--newline--                swap(nums,i, start);--newline--            }--newline--        }--newline--        public int countArrangement(int N) {--newline--            if (N == 0) return 0;--newline--            int[] nums = new int[N+1];--newline--            for (int i = 0; i <= N; i++) nums[i] = i;--newline--            helper(nums, N);--newline--            return count;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 6ms beats 98% back tracking (swap) starting from the back"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "cache = {}--newline--class Solution(object):--newline----tab--    def countArrangement(self, N):--newline----tab--        def helper(i, X):--newline----tab--            if i == 1:--newline----tab--                return 1--newline----tab--            key = (i, X)--newline----tab--            if key in cache:--newline----tab--                return cache[key]--newline----tab--            total = 0--newline----tab--            for j in xrange(len(X)):--newline----tab--                if X[j] % i == 0 or i % X[j] == 0:--newline----tab--                    total += helper(i - 1, X[:j] + X[j + 1:])--newline----tab--            cache[key] = total--newline----tab--            return total--newline----tab--        return helper(N, tuple(range(1, N + 1)))--newline----tab--",
+            "topic_title": "Python recursion + DP 66ms"
+        }
+    ],
+    "qc": "526.json"
+}

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My one-line solutions in 3 languages"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int trailingZeroes(int n) {--newline--        int result = 0;--newline--        for(long long i=5; n/i>0; i*=5){--newline--            result += (n/i);--newline--        }--newline--        return result;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Simple C&#x2F;C++ Solution (with detailed explaination)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My explanation of the Log(n) solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int trailingZeroes(int n) {--newline--        int r = 0;--newline--        while (n > 0) {--newline--            n /= 5;--newline--            r += n;--newline--        }--newline--        return r;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "O(log_5(N)) solution, java"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int trailingZeroes(int n) {--newline--        int res=0;--newline--        while(n){--newline--            n/=5;--newline--            res+=n;--newline--        }--newline--        return res;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Simple C++ solution!!!"
+        }
+    ],
+    "qc": "172.json"
+}

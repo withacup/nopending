@@ -1,0 +1,6 @@
+{
+    "solution_code": "class MyQueue {--newline----newline--    Stack<Integer> input = new Stack();--newline--    Stack<Integer> output = new Stack();--newline--    --newline--    public void push(int x) {--newline--        input.push(x);--newline--    }--newline----newline--    public int pop() {--newline--        peek();--newline--        return output.pop();--newline--    }--newline----newline--    public int peek() {--newline--        if (output.empty())--newline--            while (!input.empty())--newline--                output.push(input.pop());--newline--        return output.peek();--newline--    }--newline----newline--    public boolean empty() {--newline--        return input.empty() && output.empty();--newline--    }--newline--}--newline--",
+    "l_type": "java",
+    "modified_code": null,
+    "total_cases": 17
+}

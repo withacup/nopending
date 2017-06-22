@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int arrangeCoins(int n) {--newline--        return (int) ((Math.sqrt(1 + 8.0 * n) - 1) / 2);--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "&#91;JAVA&#93; Clean Code with Explanations and Running Time &#91;2 Solutions&#93;"
+        },
+        {
+            "java": "public class Solution {--newline--    public int arrangeCoins(int n) {--newline--        return (int)((-1 + Math.sqrt(1 + 8 * (long)n)) / 2);--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java O(1) Solution - Math Problem"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "C++ 1 line code"
+        },
+        {
+            "java": "public class Solution {--newline--    public int arrangeCoins(int n) {   --newline--            //convert int to long to prevent integer overflow--newline--            long nLong = (long)n;--newline--            --newline--            long st = 0;--newline--            long ed = nLong;--newline--            --newline--            long mid = 0;--newline--            --newline--            while (st <= ed){--newline--                mid = st + (ed - st) / 2;--newline--                --newline--                if (mid * (mid + 1) <= 2 * nLong){--newline--                    st = mid + 1;--newline--                }else{--newline--                    ed = mid - 1;--newline--                }--newline--            }--newline--            --newline--            return (int)(st - 1);--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "O(logn) binary search java solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int arrangeCoins(int n) {--newline--            return (int) Math.floor((-1 + Math.sqrt(1+8L*n))/2.0);--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "&#91;C&#93;&#91;JAVA&#93; Elegant One Line of Code, Clear Explanation Provided"
+        }
+    ],
+    "qc": "441.json"
+}

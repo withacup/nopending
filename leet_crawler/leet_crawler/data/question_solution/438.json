@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public List<Integer> findAnagrams(String s, String p) {--newline--        List<Integer> list = new ArrayList<>();--newline--        if (s == null || s.length() == 0 || p == null || p.length() == 0) return list;--newline--        int[] hash = new int[256]; //character hash--newline--        //record each character in p to hash--newline--        for (char c : p.toCharArray()) {--newline--            hash[c]++;--newline--        }--newline--        //two points, initialize count to p's length--newline--        int left = 0, right = 0, count = p.length();--newline--        while (right < s.length()) {--newline--            //move right everytime, if the character exists in p's hash, decrease the count--newline--            //current hash value >= 1 means the character is existing in p--newline--            if (hash[s.charAt(right++)]-- >= 1) count--; --newline--            --newline--            //when the count is down to 0, means we found the right anagram--newline--            //then add window's left to result list--newline--            if (count == 0) list.add(left);--newline--        --newline--            //if we find the window's size equals to p, then we have to move left (narrow the window) to find the new match window--newline--            //++ to reset the hash because we kicked out the left--newline--            //only increase the count if the character is in p--newline--            //the count >= 0 indicate it was original in the hash, cuz it won't go below 0--newline--            if (right - left == p.length() && hash[s.charAt(left++)]++ >= 0) count++;--newline--        }--newline--        return list;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Shortest&#x2F;Concise JAVA O(n) Sliding Window Solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<Integer> findAnagrams(String s, String t) {--newline--        List<Integer> result = new LinkedList<>();--newline--        if(t.length()> s.length()) return result;--newline--        Map<Character, Integer> map = new HashMap<>();--newline--        for(char c : t.toCharArray()){--newline--            map.put(c, map.getOrDefault(c, 0) + 1);--newline--        }--newline--        int counter = map.size();--newline--        --newline--        int begin = 0, end = 0;--newline--        int head = 0;--newline--        int len = Integer.MAX_VALUE;--newline--        --newline--        --newline--        while(end < s.length()){--newline--            char c = s.charAt(end);--newline--            if( map.containsKey(c) ){--newline--                map.put(c, map.get(c)-1);--newline--                if(map.get(c) == 0) counter--;--newline--            }--newline--            end++;--newline--            --newline--            while(counter == 0){--newline--                char tempc = s.charAt(begin);--newline--                if(map.containsKey(tempc)){--newline--                    map.put(tempc, map.get(tempc) + 1);--newline--                    if(map.get(tempc) > 0){--newline--                        counter++;--newline--                    }--newline--                }--newline--                if(end-begin == t.length()){--newline--                    result.add(begin);--newline--                }--newline--                begin++;--newline--            }--newline--            --newline--        }--newline--        return result;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Sliding Window algorithm template to solve all the Leetcode substring search problem."
+        },
+        {
+            "java": "public class Solution {--newline--    public List<Integer> findAnagrams(String s, String p) {--newline--        int[] chars = new int[26];--newline--        List<Integer> result = new ArrayList<>();--newline--    --newline--        if (s == null || p == null || s.length() < p.length())--newline--            return result;--newline--        for (char c : p.toCharArray())--newline--            chars[c-'a']++;--newline--    --newline--        int start = 0, end = 0, count = p.length();--newline--        // Go over the string--newline--        while (end < s.length()) {--newline--            // If the char at start appeared in p, we increase count--newline--            if (end - start == p.length() && chars[s.charAt(start++)-'a']++ >= 0)--newline--                count++;--newline--            // If the char at end appeared in p (since it's not -1 after decreasing), we decrease count--newline--            if (--chars[s.charAt(end++)-'a'] >= 0)--newline--                count--;--newline--            if (count == 0)--newline--                result.add(start);--newline--        }--newline--        --newline--        return result;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "17ms Java sliding window"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> findAnagrams(string s, string p) {--newline--        vector<int> pv(256,0), sv(256,0), res;--newline--        if(s.size() < p.size())--newline--           return res;--newline--        for(int i = 0; i < p.size(); ++i)--newline--        {--newline--            ++pv[p[i]];--newline--            ++sv[s[i]];--newline--        }--newline--        if(pv == sv)--newline--           res.push_back(0);--newline--        for(int i = p.size(); i < s.size(); ++i)--newline--        {--newline--            ++sv[s[i]];--newline--            --sv[s[i-p.size()]];--newline--            if(pv == sv)--newline--               res.push_back(i-p.size()+1);--newline--        }--newline--        return res;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ O(n) sliding window concise solution with explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<Integer> findAnagrams(String s, String p) {--newline--        List<Integer> res = new ArrayList<>();--newline--        if (p == null || s == null || s.length() < p.length()) return res;--newline--        int m = s.length(), n = p.length();--newline--        for (int i = 0; i < m-n+1; i++) {--newline--            String cur = s.substring(i, i+n);--newline--            if (helper(cur, p)) res.add(i);--newline--        }--newline--        return res;--newline--    }--newline--    public boolean helper(String a, String b) {--newline--        if (a == null || b == null || a.length() != b.length()) return false;--newline--        int[] dict = new int[26];--newline--        for (int i = 0; i < a.length(); i++) {--newline--            char ch = a.charAt(i);--newline--            dict[ch-'a']++;--newline--        }--newline--        for (int i = 0; i < b.length(); i++) {--newline--            char ch = b.charAt(i);--newline--            dict[ch-'a']--;--newline--            if (dict[ch-'a'] < 0) return false;--newline--        }--newline--        return true;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java using isAnagram() helper function, easy to understand"
+        }
+    ],
+    "qc": "438.json"
+}

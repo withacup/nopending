@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int lengthOfLastWord(string s) { --newline--        int len = 0, tail = s.length() - 1;--newline--        while (tail >= 0 && s[tail] == ' ') tail--;--newline--        while (tail >= 0 && s[tail] != ' ') {--newline--            len++;--newline--            tail--;--newline--        }--newline--        return len;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "7-lines 4ms C++ Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--     int lengthOfLastWord(const char* s) {--newline--            int len = 0;--newline--            while (*s) {--newline--                if (*s++ != ' ')--newline--                    ++len;--newline--                else if (*s && *s != ' ')--newline--                    len = 0;--newline--        --newline--            }--newline--            return len;--newline--        }--newline--}",
+            "python": null,
+            "topic_title": "My simple solution in C++"
+        },
+        {
+            "java": "public class Solution {--newline--    public int lengthOfLastWord(String s) {--newline--        return s.trim().length()-s.trim().lastIndexOf(\" \")-1;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "A single line of Code in Java"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "This problem is not fun at all."
+        },
+        {
+            "java": "public class Solution {--newline--        public int lengthOfLastWord(String s) {--newline--    --tab--s = s.trim();--newline--        int lastIndex = s.lastIndexOf(' ') + 1;--newline--        return s.length() - lastIndex;        --newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My 3 line 0 ms java solution"
+        }
+    ],
+    "qc": "58.json"
+}

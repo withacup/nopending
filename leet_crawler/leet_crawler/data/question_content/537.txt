@@ -1,0 +1,34 @@
+---CONTENT_BEGIN---
+
+Given two strings representing two complex numbers.
+
+
+You need to return a string representing their multiplication. Note i2 = -1 according to the definition.
+
+
+Example 1:
+
+Input: "1+1i", "1+1i"
+Output: "0+2i"
+Explanation: (1 + i) * (1 + i) = 1 + i2 + 2 * i = 2i, and you need convert it to the form of 0+2i.
+
+
+
+Example 2:
+
+Input: "1+-1i", "1+-1i"
+Output: "0+-2i"
+Explanation: (1 - i) * (1 - i) = 1 + i2 - 2 * i = -2i, and you need convert it to the form of 0+-2i.
+
+
+
+Note:
+
+The input strings will not have extra blank.
+The input strings will be given in the form of a+bi, where the integer a and b will both belong to the range of [-100, 100]. And the output should be also in this form.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    string complexNumberMultiply(string a, string b) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public String complexNumberMultiply(String a, String b) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def complexNumberMultiply(self, a, b):--newline--        '''--newline--        :type a: str--newline--        :type b: str--newline--        :rtype: str--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "char* complexNumberMultiply(char* a, char* b) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public string ComplexNumberMultiply(string a, string b) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} a--newline-- * @param {string} b--newline-- * @return {string}--newline-- */--newline--var complexNumberMultiply = function(a, b) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} a--newline--# @param {String} b--newline--# @return {String}--newline--def complex_number_multiply(a, b)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func complexNumberMultiply(_ a: String, _ b: String) -> String {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func complexNumberMultiply(a string, b string) string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

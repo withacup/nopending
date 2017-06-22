@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int missingNumber(int[] nums) {--newline--    --newline--        int xor = 0, i = 0;--newline--    --tab--for (i = 0; i < nums.length; i++) {--newline--    --tab----tab--xor = xor ^ i ^ nums[i];--newline--    --tab--}--newline--    --newline--    --tab--return xor ^ i;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "4 Line Simple Java Bit Manipulate Solution with Explaination"
+        },
+        {
+            "java": "public class Solution {--newline--    public int missingNumber(int[] nums) { //binary search--newline--        Arrays.sort(nums);--newline--        int left = 0, right = nums.length, mid= (left + right)/2;--newline--        while(left<right){--newline--            mid = (left + right)/2;--newline--            if(nums[mid]>mid) right = mid;--newline--            else left = mid+1;--newline--        }--newline--        return left;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "3 different ideas: XOR, SUM, Binary Search. Java code"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int missingNumber(vector<int>& nums) {--newline--        int result = nums.size();--newline--        int i=0;--newline--        --newline--        for(int num:nums){--newline--            result ^= num;--newline--            result ^= i;--newline--            i++;--newline--        }--newline--        --newline--        return result;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ solution using bit manipulation"
+        },
+        {
+            "java": "public class Solution {--newline--    public int missingNumber(int[] nums) {--newline--        int sum = 0;--newline--        for(int num: nums)--newline--            sum += num;--newline--            --newline--        return (nums.length * (nums.length + 1) )/ 2 - sum;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java solution O(1) space and O(n) in time"
+        },
+        {
+            "java": "public class Solution {--newline--    public int missingNumber(int[] nums) {--newline--        long n = nums.length;--newline--        return (int) (n * (n+1) / 2 - IntStream.of(nums).sum());--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int missingNumber(vector<int>& nums) {--newline--        long n = nums.size();--newline--        return n * (n+1) / 2 - accumulate(begin(nums), end(nums), 0);--newline--    }--newline--    --newline--}",
+            "python": "class Solution :--newline----tab--    def missingNumber(self, nums):--newline----tab--        n = len(nums)--newline----tab--        return reduce(operator.xor, nums) ^ [n, 1, n+1, 0][n % 4]--newline----tab--    ",
+            "topic_title": "1+ lines Ruby, Python, Java, C++"
+        }
+    ],
+    "qc": "268.json"
+}

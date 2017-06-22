@@ -1,0 +1,35 @@
+---CONTENT_BEGIN---
+
+Given an input string, reverse the string word by word.
+
+
+
+For example,
+Given s = "the sky is blue",
+return "blue is sky the".
+
+
+
+Update (2015-02-12):
+For C programmers: Try to solve it in-place in O(1) space.
+
+
+click to show clarification.
+
+Clarification:
+
+
+
+What constitutes a word?
+A sequence of non-space characters constitutes a word.
+Could the input string contain leading or trailing spaces?
+Yes. However, your reversed string should not contain leading or trailing spaces.
+How about multiple spaces between two words?
+Reduce them to a single space in the reversed string.
+
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    void reverseWords(string &s) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public String reverseWords(String s) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def reverseWords(self, s):--newline--        '''--newline--        :type s: str--newline--        :rtype: str--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "void reverseWords(char *s) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public string ReverseWords(string s) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} str--newline-- * @returns {string}--newline-- */--newline--var reverseWords = function(str) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}]
+---SCRIPT_END---

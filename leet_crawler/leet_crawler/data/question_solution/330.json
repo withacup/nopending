@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int minPatches(vector<int>& nums, int n) {--newline--        int count = 0, i = 0;--newline--        for (long miss=1; miss <= n; count++)--newline--            miss += (i < nums.size() && nums[i] <= miss) ? nums[i++] : miss;--newline--        return count - i;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Solution + explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my thinking process"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--int minPatches(vector<int>& nums, int n) {--newline--    int cnt=0,i=0;--newline--    long long maxNum=0;--newline--    while (maxNum<n){--newline--       if (i<nums.size() && nums[i]<=maxNum+1)--newline--            maxNum+=nums[i++];--newline--       else{--newline--            maxNum+=maxNum+1;cnt++;--newline--       }--newline--   }--newline--   return cnt;--newline--}--newline--};",
+            "python": null,
+            "topic_title": "C++, 8ms, greedy solution with explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public static int minPatches(int[] nums, int n) {--newline--    --tab--long max = 0;--newline--    --tab--int cnt = 0;--newline--    --tab--for (int i = 0; max < n;) {--newline--    --tab----tab--if (i >= nums.length || max < nums[i] - 1) {--newline--    --tab----tab----tab--max += max + 1;--newline--    --tab----tab----tab--cnt++;--newline--    --tab----tab--} else {--newline--    --tab----tab----tab--max += nums[i];--newline--    --tab----tab----tab--i++;--newline--    --tab----tab--}--newline--    --tab--}--newline--    --tab--return cnt;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my greedy solution by Java with simple explanation (time: 1 ms)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--     int minPatches(vector<int>& nums, int n) {--newline--        --newline--        int len = nums.size();--newline--        int sum = 0;--newline--        int patch = 0;--newline--        int count = 0;--newline--    --newline--        while (sum < n) {--newline--            if (count != len && nums[count] <= sum + 1) {--newline--                sum += nums[count];--newline--                count ++;--newline--            }--newline--            else {--newline--                patch ++;--newline--                if (sum > (INT_MAX - 1) / 2) {--newline--                    sum = INT_MAX;--newline--                }--newline--                else {--newline--                    sum = sum * 2 + 1;--newline--                }--newline--            }--newline--        }--newline--        --newline--        return patch;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "My simple accepted C++ solution"
+        }
+    ],
+    "qc": "330.json"
+}

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public List<String> readBinaryWatch(int num) {--newline--        List<String> times = new ArrayList<>();--newline--        for (int h=0; h<12; h++)--newline--            for (int m=0; m<60; m++)--newline--                if (Integer.bitCount(h * 64 + m) == num)--newline--                    times.add(String.format(\"%d:%02d\", h, m));--newline--        return times;        --newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def readBinaryWatch(self, num):--newline----tab--        return ['%d:%02d' % (h, m)--newline----tab--                for h in range(12) for m in range(60)--newline----tab--                if (bin(h) + bin(m)).count('1') == num]--newline----tab--    ",
+            "topic_title": "Simple Python+Java"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<String> readBinaryWatch(int num) {--newline--        List<String> res = new ArrayList<>();--newline--        int[] nums1 = new int[]{8, 4, 2, 1}, nums2 = new int[]{32, 16, 8, 4, 2, 1};--newline--        for(int i = 0; i <= num; i++) {--newline--            List<Integer> list1 = generateDigit(nums1, i);--newline--            List<Integer> list2 = generateDigit(nums2, num - i);--newline--            for(int num1: list1) {--newline--                if(num1 >= 12) continue;--newline--                for(int num2: list2) {--newline--                    if(num2 >= 60) continue;--newline--                    res.add(num1 + \":\" + (num2 < 10 ? \"0\" + num2 : num2));--newline--                }--newline--            }--newline--        }--newline--        return res;--newline--    }--newline----newline--    private List<Integer> generateDigit(int[] nums, int count) {--newline--        List<Integer> res = new ArrayList<>();--newline--        generateDigitHelper(nums, count, 0, 0, res);--newline--        return res;--newline--    }--newline----newline--    private void generateDigitHelper(int[] nums, int count, int pos, int sum, List<Integer> res) {--newline--        if(count == 0) {--newline--            res.add(sum);--newline--            return;--newline--        }--newline--        --newline--        for(int i = pos; i < nums.length; i++) {--newline--            generateDigitHelper(nums, count - 1, i + 1, sum + nums[i], res);    --newline--        }--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "3ms Java Solution Using Backtracking and Idea of &quot;Permutation and Combination&quot;"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<string> readBinaryWatch(int num) {--newline--        vector<string> rs;--newline--        for (int h = 0; h < 12; h++)--newline--        for (int m = 0; m < 60; m++)--newline--            if (bitset<10>(h << 6 | m).count() == num)--newline--                rs.emplace_back(to_string(h) + (m < 10 ? \":0\" : \":\") + to_string(m));--newline--        return rs;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Straight-forward 6-line c++ solution, no need to explain"
+        },
+        {
+            "java": "public class Solution {--newline----tab----tab--String[][] hour = {{\"0\"}, --newline--                                   {\"1\", \"2\", \"4\", \"8\"},--newline----tab----tab----tab----tab--   {\"3\", \"5\", \"6\", \"9\", \"10\"},--newline----tab----tab----tab----tab--   {\"7\", \"11\"}};--newline----tab----tab--String[][] minute = {{\"00\"}, //1--newline----tab----tab----tab--             {\"01\", \"02\", \"04\", \"08\", \"16\", \"32\"}, //6--newline----tab----tab----tab--             {\"03\", \"05\", \"06\", \"09\", \"10\", \"12\", \"17\", \"18\", \"20\", \"24\", \"33\", \"34\", \"36\", \"40\", \"48\"}, //15--newline----tab----tab----tab--             {\"07\", \"11\", \"13\", \"14\", \"19\", \"21\", \"22\", \"25\", \"26\", \"28\", \"35\", \"37\", \"38\", \"41\", \"42\", \"44\", \"49\", \"50\", \"52\", \"56\"}, //20--newline----tab----tab----tab--             {\"15\", \"23\", \"27\", \"29\", \"30\", \"39\", \"43\", \"45\", \"46\", \"51\", \"53\", \"54\", \"57\", \"58\"}, //14--newline----tab----tab----tab--             {\"31\", \"47\", \"55\", \"59\"}}; //4--newline--    public List<String> readBinaryWatch(int num) {--newline----tab----tab--List<String> ret = new ArrayList();--newline----tab----tab--for (int i = 0; i <= 3 && i <= num; i++) {--newline----tab----tab----tab--if (num - i <= 5) {--newline----tab----tab----tab----tab--for (String str1 : hour[i]) {--newline----tab----tab----tab----tab----tab--for (String str2 : minute[num - i]) {--newline----tab----tab----tab----tab----tab----tab--ret.add(str1 + \":\" + str2);--newline----tab----tab----tab----tab----tab--}--newline----tab----tab----tab----tab--}--newline----tab----tab----tab--}--newline----tab----tab--}--newline----tab----tab--return ret;     --newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Just for fun!!!!!!!   java 1ms, beats 100%"
+        },
+        {
+            "java": "public class Solution {--newline--        public List<String> readBinaryWatch(int num) {--newline--            ArrayList<String> result = new ArrayList<>();--newline--            for (int i = 0; i < 12; i++) {--newline--                for (int j = 0; j < 60; j++) {--newline--                    if (Integer.bitCount(i) + Integer.bitCount(j) == num) {--newline--                        result.add(String.format(\"%d:%02d\", i, j));--newline--                    }--newline--                }--newline--            }--newline--            return result;--newline--        }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "straightforward java answer"
+        }
+    ],
+    "qc": "401.json"
+}

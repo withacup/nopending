@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int d(vector<int>& p1, vector<int>& p2) {--newline--        return (p1[0] - p2[0]) * (p1[0] - p2[0]) + (p1[1] - p2[1]) * (p1[1] - p2[1]);--newline--    }--newline--    bool validSquare(vector<int>& p1, vector<int>& p2, vector<int>& p3, vector<int>& p4) {--newline--        unordered_set<int> s({ d(p1, p2), d(p1, p3), d(p1, p4), d(p2, p3), d(p2, p4), d(p3, p4) });--newline--        return !s.count(0) && s.size() == 2;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "C++ 3 lines (unordered_set)"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean validSquare(int[] p1, int[] p2, int[] p3, int[] p4) {--newline--        long[] lengths = {length(p1, p2), length(p2, p3), length(p3, p4),--newline--                length(p4, p1), length(p1, p3),length(p2, p4)}; // all 6 sides--newline--    --newline--        long max = 0, nonMax = 0;--newline--        for(long len : lengths) {--newline--            max = Math.max(max, len);--newline--        }--newline--        int count = 0;--newline--        for(int i = 0; i < lengths.length; i++) {--newline--            if(lengths[i] == max) count++;--newline--            else nonMax = lengths[i]; // non diagonal side.--newline--        }--newline--        if(count != 2) return false; // diagonals lenghts have to be same.--newline--    --newline--        for(long len : lengths) {--newline--            if(len != max && len != nonMax) return false; // sides have to be same length--newline--        }--newline--        return true;--newline--    }--newline--    private long length(int[] p1, int[] p2) {--newline--        return (long)Math.pow(p1[0]-p2[0],2) + (long)Math.pow(p1[1]-p2[1], 2);--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java Solution - Square distances"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def validSquare(self, p1, p2, p3, p4):--newline----tab--        points = [p1, p2, p3, p4]--newline----tab--        --newline----tab--        dists = collections.Counter()--newline----tab--        for i in range(len(points)):--newline----tab--            for j in range(i+1, len(points)):--newline----tab--                dists[self.getDistance(points[i], points[j])] += 1--newline----tab--        --newline----tab--        return len(dists.values())==2 and 4 in dists.values() and 2 in dists.values()--newline----tab--        --newline----tab--    def getDistance(self, p1, p2):--newline----tab--        return (p1[0] - p2[0])**2 + (p1[1] - p2[1])**2--newline----tab--",
+            "topic_title": "Share my simple Python solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean validSquare(int[] p1, int[] p2, int[] p3, int[] p4) {--newline--        HashSet<Integer> hs = new HashSet<>(Arrays.asList(dis(p1, p2), dis(p1, p3), dis(p1, p4), dis(p2, p3), dis(p2, p4), dis(p3, p4)));        --newline--    --tab-- return !hs.contains(0) && hs.size()==2; //One each for side & diagonal--newline--        }--newline--        int dis(int[] a, int[] b){--newline--    --tab-- return (a[0]-b[0])*(a[0]-b[0]) + (a[1]-b[1])*(a[1]-b[1]);--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "4 Liner Java"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean validSquare(int[] p1, int[] p2, int[] p3, int[] p4) {--newline--        if (p1[0] == p2[0] && p1[1] == p2[1]--newline--            || p1[0] == p3[0] && p1[1] == p3[1]--newline--            || p1[0] == p4[0] && p1[1] == p4[1]) return false;--newline--        --newline--        int d2 = distSq(p1, p2);  // from p1 to p2--newline--        int d3 = distSq(p1, p3);  // from p1 to p3--newline--        int d4 = distSq(p1, p4);  // from p1 to p4--newline--     --newline--        // If lengths if (p1, p2) and (p1, p3) are same, then--newline--        // following conditions must met to form a square.--newline--        // 1) Square of length of (p1, p4) is same as twice--newline--        //    the square of (p1, p2)--newline--        // 2) p4 is at same distance from p2 and p3--newline--        if (d2 == d3 && 2 * d2 == d4) {--newline--            int d = distSq(p2, p4);--newline--            return (d == distSq(p3, p4) && d == d2);--newline--        }--newline--     --newline--        // The below two cases are similar to above case--newline--        if (d3 == d4 && 2 * d3 == d2) {--newline--            int d = distSq(p2, p3);--newline--            return (d == distSq(p2, p4) && d == d3);--newline--        }--newline--        --newline--        if (d2 == d4 && 2*d2 == d3) {--newline--            int d = distSq(p2, p3);--newline--            return (d == distSq(p3, p4) && d == d2);--newline--        }--newline--     --newline--        return false;--newline--    }--newline--    --newline--    int distSq(int[] p, int[] q) {--newline--        return (p[0] - q[0])*(p[0] - q[0]) + (p[1] - q[1])*(p[1] - q[1]);--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution, calculate distance from rest of the points"
+        }
+    ],
+    "qc": "593.json"
+}

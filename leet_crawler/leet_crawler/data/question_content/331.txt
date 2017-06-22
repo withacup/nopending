@@ -1,0 +1,37 @@
+---CONTENT_BEGIN---
+One way to serialize a binary tree is to use pre-order traversal. When we encounter a non-null node, we record the node's value. If it is a null node, we record using a sentinel value such as #.
+
+
+     _9_
+    /   \
+   3     2
+  / \   / \
+ 4   1  #  6
+/ \ / \   / \
+# # # #   # #
+
+
+For example, the above binary tree can be serialized to the string "9,3,4,#,#,1,#,#,2,#,6,#,#", where # represents a null node.
+
+
+Given a string of comma separated values, verify whether it is a correct preorder traversal serialization of a binary tree. Find an algorithm without reconstructing the tree.
+
+Each comma separated value in the string must be either an integer or a character '#' representing null pointer.
+
+You may assume that the input format is always valid, for example it could never contain two consecutive commas such as "1,,3".
+
+Example 1:
+"9,3,4,#,#,1,#,#,2,#,6,#,#"
+Return true
+Example 2:
+"1,#"
+Return false
+Example 3:
+"9,#,#,1"
+Return false
+
+Credits:Special thanks to @dietpepsi for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    bool isValidSerialization(string preorder) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public boolean isValidSerialization(String preorder) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def isValidSerialization(self, preorder):--newline--        '''--newline--        :type preorder: str--newline--        :rtype: bool--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "bool isValidSerialization(char* preorder) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public bool IsValidSerialization(string preorder) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} preorder--newline-- * @return {boolean}--newline-- */--newline--var isValidSerialization = function(preorder) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} preorder--newline--# @return {Boolean}--newline--def is_valid_serialization(preorder)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func isValidSerialization(_ preorder: String) -> Bool {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func isValidSerialization(preorder string) bool {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

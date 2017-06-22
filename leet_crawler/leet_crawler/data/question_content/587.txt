@@ -1,0 +1,35 @@
+---CONTENT_BEGIN---
+There are some trees, where each tree is represented by (x,y) coordinate in a two-dimensional garden. Your job is to fence the entire garden using the minimum length of rope as it is expensive. The garden is well fenced only if all the trees are enclosed. Your task is to help find the coordinates of trees which are exactly located on the fence perimeter.
+
+Example 1:
+
+Input: [[1,1],[2,2],[2,0],[2,4],[3,3],[4,2]]
+Output: [[1,1],[2,0],[4,2],[3,3],[2,4]]
+Explanation:
+
+
+
+
+Example 2:
+
+Input: [[1,2],[2,2],[4,2]]
+Output: [[1,2],[2,2],[4,2]]
+Explanation:
+
+Even you only have trees in a line, you need to use rope to enclose them. 
+
+
+
+ Note: 
+
+All trees should be enclosed together. You cannot cut the rope to enclose trees that will separate them in more than one group.
+All input integers will range from 0 to 100. 
+The garden has at least one tree. 
+All coordinates are distinct. 
+Input points have NO order. No order required for output.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "/**--newline-- * Definition for a point.--newline-- * struct Point {--newline-- *     int x;--newline-- *     int y;--newline-- *     Point() : x(0), y(0) {}--newline-- *     Point(int a, int b) : x(a), y(b) {}--newline-- * };--newline-- */--newline--class Solution {--newline--public:--newline--    vector<Point> outerTrees(vector<Point>& points) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "/**--newline-- * Definition for a point.--newline-- * class Point {--newline-- *     int x;--newline-- *     int y;--newline-- *     Point() { x = 0; y = 0; }--newline-- *     Point(int a, int b) { x = a; y = b; }--newline-- * }--newline-- */--newline--public class Solution {--newline--    public List<Point> outerTrees(Point[] points) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "# Definition for a point.--newline--# class Point(object):--newline--#     def __init__(self, a=0, b=0):--newline--#         self.x = a--newline--#         self.y = b--newline----newline--class Solution(object):--newline--    def outerTrees(self, points):--newline--        '''--newline--        :type points: List[Point]--newline--        :rtype: List[Point]--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "class Solution:--newline--    def outerTrees(self, points):--newline--        '''--newline--        :type points: List[Point]--newline--        :rtype: List[Point]--newline--        '''", "value": "python3", "text": "Python3"}, {"defaultCode": "/**--newline-- * Definition for a point.--newline-- * struct Point {--newline-- *     int x;--newline-- *     int y;--newline-- * }--newline-- */--newline--/**--newline-- * Return an array of size *returnSize.--newline-- * Note: The returned array must be malloced, assume caller calls free().--newline-- */--newline--struct Point* outerTrees(struct Point* points, int pointsSize, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "/**--newline-- * Definition for a point.--newline-- * public class Point {--newline-- *     public int x;--newline-- *     public int y;--newline-- *     public Point() { x = 0; y = 0; }--newline-- *     public Point(int a, int b) { x = a; y = b; }--newline-- * }--newline-- */--newline--public class Solution {--newline--    public IList<Point> OuterTrees(Point[] points) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * Definition for a point.--newline-- * function Point(x, y) {--newline-- *     this.x = x;--newline-- *     this.y = y;--newline-- * }--newline-- */--newline--/**--newline-- * @param {Point[]} points--newline-- * @return {Point[]}--newline-- */--newline--var outerTrees = function(points) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# Definition for a point.--newline--# class Point--newline--#     attr_accessor :x, :y--newline--#     def initialize(x=0, y=0)--newline--#         @x = x--newline--#         @y = y--newline--#     end--newline--# end--newline----newline--# @param {Point[]} points--newline--# @return {Point[]}--newline--def outer_trees(points)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "/**--newline-- * Definition for a point.--newline-- * public class Point {--newline-- *   public var x: Int--newline-- *   public var y: Int--newline-- *   public init(_ x: Int, _ y: Int) {--newline-- *     self.x = x--newline-- *     self.y = y--newline-- *   }--newline-- * }--newline-- */--newline--class Solution {--newline--    func outerTrees(_ points: [Point]) -> [Point] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "/**--newline-- * Definition for a point.--newline-- * type Point struct {--newline-- *     X int--newline-- *     Y int--newline-- * }--newline-- */--newline--func outerTrees(points []Point) []Point {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

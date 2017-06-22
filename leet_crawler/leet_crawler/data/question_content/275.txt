@@ -1,0 +1,8 @@
+---CONTENT_BEGIN---
+
+Follow up for H-Index: What if the citations array is sorted in ascending order? Could you optimize your algorithm?
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int hIndex(vector<int>& citations) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int hIndex(int[] citations) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def hIndex(self, citations):--newline--        '''--newline--        :type citations: List[int]--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int hIndex(int* citations, int citationsSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int HIndex(int[] citations) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} citations--newline-- * @return {number}--newline-- */--newline--var hIndex = function(citations) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} citations--newline--# @return {Integer}--newline--def h_index(citations)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "func hIndex(citations []int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

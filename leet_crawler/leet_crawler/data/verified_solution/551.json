@@ -1,0 +1,1 @@
+{"solution_code": "public class Solution {--newline--    public boolean checkRecord(String s) {--newline--        return !s.matches(\".*LLL.*|.*A.*A.*\");--newline--    }--newline--    --newline--}", "modified_code": null, "total_cases": 113, "l_type": "java"}

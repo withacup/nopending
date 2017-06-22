@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public String[] findWords(String[] words) {--newline--        return Stream.of(words).filter(s -> s.toLowerCase().matches(\"[qwertyuiop]*|[asdfghjkl]*|[zxcvbnm]*\")).toArray(String[]::new);--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 1-Line Solution via Regex and Stream"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def findWords(self, words):--newline----tab--        line1, line2, line3 = set('qwertyuiop'), set('asdfghjkl'), set('zxcvbnm')--newline----tab--        ret = []--newline----tab--        for word in words:--newline----tab--          w = set(word.lower())--newline----tab--          if w.issubset(line1) or w.issubset(line2) or w.issubset(line3):--newline----tab--            ret.append(word)--newline----tab--        return ret--newline----tab--    ",
+            "topic_title": "Easy understand solution in 7 lines for everyone"
+        },
+        {
+            "java": "public class Solution {--newline--    public String[] findWords(String[] words) {--newline--        String[] strs = {\"QWERTYUIOP\",\"ASDFGHJKL\",\"ZXCVBNM\"};--newline--        Map<Character, Integer> map = new HashMap<>();--newline--        for(int i = 0; i<strs.length; i++){--newline--            for(char c: strs[i].toCharArray()){--newline--                map.put(c, i);//put <char, rowIndex> pair into the map--newline--            }--newline--        }--newline--        List<String> res = new LinkedList<>();--newline--        for(String w: words){--newline--            if(w.equals(\"\")) continue;--newline--            int index = map.get(w.toUpperCase().charAt(0));--newline--            for(char c: w.toUpperCase().toCharArray()){--newline--                if(map.get(c)!=index){--newline--                    index = -1; //don't need a boolean flag. --newline--                    break;--newline--                }--newline--            }--newline--            if(index!=-1) res.add(w);//if index != -1, this is a valid string--newline--        }--newline--        return res.toArray(new String[0]);--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Short Easy Java with Explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "one-liner Ruby + Python"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<string> findWords(vector<string>& words) {--newline--        unordered_set<char> row1 {'q', 'w', 'e', 'r', 't', 'y','u', 'i', 'o', 'p'};--newline--        unordered_set<char> row2 {'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'}; --newline--        unordered_set<char> row3 { 'z', 'x', 'c', 'v', 'b' ,'n', 'm'};--newline--        vector<unordered_set<char>> rows {row1, row2, row3};--newline--        --newline--        --newline--        vector<string> validWords;--newline--        for(int i=0; i<words.size(); ++i){--newline--            int row=0;--newline--            --newline--            for(int k=0; k<3; ++k){--newline--                if(rows[k].count((char)tolower(words[i][0])) > 0) row = k;--newline--            }--newline--            --newline--            validWords.push_back(words[i]);--newline--            for(int j=1; j<words[i].size(); ++j){--newline--                if(rows[row].count((char)tolower(words[i][j])) == 0){--newline--                    validWords.pop_back();--newline--                    break;--newline--                }--newline--            }--newline--            --newline--        }--newline--        return validWords;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "C++ solution"
+        }
+    ],
+    "qc": "500.json"
+}

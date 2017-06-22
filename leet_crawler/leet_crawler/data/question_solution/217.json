@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public boolean containsDuplicate(int[] nums) {--newline--    --newline--        final Set<Integer> distinct = new HashSet<Integer>();--newline--        for(int num : nums) {--newline--            if(distinct.contains(num)) {--newline--                return true;--newline--            }--newline--            distinct.add(num);--newline--        }--newline--        return false;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Possible solutions."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "#include <set>--newline--using namespace std;--newline----newline--class Solution {--newline--public:--newline--    bool containsDuplicate(vector<int>& nums) {--newline--        return nums.size() > set<int>(nums.begin(), nums.end()).size();        --newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Single line C++ solution 60ms"
+        },
+        {
+            "java": "public class Solution {--newline--    public  boolean containsDuplicate(int[] nums) {--newline--    --tab----tab-- Set<Integer> set = new HashSet<Integer>();--newline--    --tab----tab-- for(int i : nums)--newline--    --tab----tab----tab-- if(!set.add(i))// if there is same--newline--    --tab----tab----tab----tab-- return true; --newline--    --tab----tab-- return false;--newline--    --tab-- }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "5 lines in Java"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--def containsDuplicate(self, nums):--newline----tab--    \"\"\"--newline----tab--    :type nums: List[int]--newline----tab--    :rtype: bool--newline----tab--    \"\"\"--newline----tab--    return len(nums) != len(set(nums))",
+            "topic_title": "One line solution in python"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--  public:--newline--    bool containsDuplicate(vector<int>& nums) {--newline--        return set<int>(nums.begin(), nums.end()).size() < nums.size();--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "C++ solution. simply one line."
+        }
+    ],
+    "qc": "217.json"
+}

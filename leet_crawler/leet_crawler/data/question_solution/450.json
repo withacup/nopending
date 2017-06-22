@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public TreeNode deleteNode(TreeNode root, int key) {--newline--        if(root == null){--newline--            return null;--newline--        }--newline--        if(key < root.val){--newline--            root.left = deleteNode(root.left, key);--newline--        }else if(key > root.val){--newline--            root.right = deleteNode(root.right, key);--newline--        }else{--newline--            if(root.left == null){--newline--                return root.right;--newline--            }else if(root.right == null){--newline--                return root.left;--newline--            }--newline--            --newline--            TreeNode minNode = findMin(root.right);--newline--            root.val = minNode.val;--newline--            root.right = deleteNode(root.right, root.val);--newline--        }--newline--        return root;--newline--    }--newline--    --newline--    private TreeNode findMin(TreeNode node){--newline--        while(node.left != null){--newline--            node = node.left;--newline--        }--newline--        return node;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Recursive Easy to Understand Java Solution"
+        },
+        {
+            "java": "public class Solution {--newline--        private TreeNode deleteRootNode(TreeNode root) {--newline--            if (root == null) {--newline--                return null;--newline--            }--newline--            if (root.left == null) {--newline--                return root.right;--newline--            }--newline--            if (root.right == null) {--newline--                return root.left;--newline--            }--newline--            TreeNode next = root.right;--newline--            TreeNode pre = null;--newline--            for(; next.left != null; pre = next, next = next.left);--newline--            next.left = root.left;--newline--            if(root.right != next) {--newline--                pre.left = next.right;--newline--                next.right = root.right;--newline--            }--newline--            return next;--newline--        }--newline--        --newline--        public TreeNode deleteNode(TreeNode root, int key) {--newline--            TreeNode cur = root;--newline--            TreeNode pre = null;--newline--            while(cur != null && cur.val != key) {--newline--                pre = cur;--newline--                if (key < cur.val) {--newline--                    cur = cur.left;--newline--                } else if (key > cur.val) {--newline--                    cur = cur.right;--newline--                }--newline--            }--newline--            if (pre == null) {--newline--                return deleteRootNode(cur);--newline--            }--newline--            if (pre.left == cur) {--newline--                pre.left = deleteRootNode(cur);--newline--            } else {--newline--                pre.right = deleteRootNode(cur);--newline--            }--newline--            return root;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Iterative solution in Java, O(h) time and O(1) space"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    TreeNode* deleteNode(TreeNode* root, int key) {--newline--        if (!root) return nullptr;--newline--        if (root->val == key) {--newline--            if (!root->right) {--newline--                TreeNode* left = root->left;--newline--                delete root;--newline--                return left;--newline--            }--newline--            else {--newline--                TreeNode* right = root->right;--newline--                while (right->left)--newline--                    right = right->left;--newline--                swap(root->val, right->val);    --newline--            }--newline--        }--newline--        root->left = deleteNode(root->left, key);--newline--        root->right = deleteNode(root->right, key);--newline--        return root;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Very Concise C++ Solution for General Binary Tree not only BST"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Error in Test Case? : Last executed input: &#91;&#93;"
+        },
+        {
+            "java": "public class Solution {--newline--        public TreeNode deleteNode(TreeNode root, int key) {--newline--            if (root == null) return root;--newline--            if (root.val > key) root.left = deleteNode(root.left, key);--newline--            else if (root.val < key) root.right = deleteNode(root.right, key);--newline--            else { // found node to be deleted--newline--                if (root.left == null) return root.right;--newline--                else if (root.right == null) return root.left;--newline--                // node with two children, replace with the inOrder successor(minVal) in the right subtree--newline--                root.val = getMin(root.right);--newline--                root.right = deleteNode(root.right, root.val);--newline--            }--newline--            return root;--newline--        }--newline--        private int getMin(TreeNode root) {--newline--            int min = root.val;--newline--            while (root.left != null) {--newline--                root = root.left;--newline--                min = root.val;--newline--            }--newline--            return min;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Easy to Understand Solution"
+        }
+    ],
+    "qc": "450.json"
+}

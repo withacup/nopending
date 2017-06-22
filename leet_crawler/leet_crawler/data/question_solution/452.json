@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def findMinArrowShots(self, points):--newline----tab--        \"\"\"--newline----tab--        :type points: List[List[int]]--newline----tab--        :rtype: int--newline----tab--        \"\"\"--newline----tab--        points = sorted(points, key = lambda x: x[1])--newline----tab--        res, end = 0, -float('inf')--newline----tab--        for interval in points:--newline----tab--            if interval[0] > end:--newline----tab--                res += 1--newline----tab--                end = interval[1]--newline----tab--        return res--newline----tab--",
+            "topic_title": "Greedy, Python (132 ms)"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findMinArrowShots(int[][] points) {--newline--    --tab--if(points==null || points.length==0 || points[0].length==0) return 0;--newline--    --tab--Arrays.sort(points, new Comparator<int[]>() {--newline--    --tab----tab--public int compare(int[] a, int[] b) {--newline--    --tab----tab----tab--if(a[0]==b[0]) return a[1]-b[1];--newline--    --tab----tab----tab--else return a[0]-b[0];--newline--    --tab----tab--}--newline--    --tab--});--newline--    --tab----newline--    --tab--int minArrows = 1;--newline--    --tab--int arrowLimit = points[0][1];--newline--    --tab--for(int i=1;i<points.length;i++) {--newline--    --tab----tab--int[] baloon = points[i];--newline--    --tab----tab--if(baloon[0]<=arrowLimit) {--newline--    --tab----tab----tab--arrowLimit=Math.min(arrowLimit, baloon[1]);--newline--    --tab----tab--} else {--newline--    --tab----tab----tab--minArrows++;--newline--    --tab----tab----tab--arrowLimit=baloon[1];--newline--    --tab----tab--}--newline--    --tab--}--newline--    --tab--return minArrows;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Greedy Soution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--        int findMinArrowShots(vector<pair<int, int>>& points) {--newline--            int count = 0, arrow = INT_MIN;--newline--            sort(points.begin(), points.end(), mysort);--newline--            for(int i = 0; i<points.size(); i++){--newline--                if(arrow!=INT_MIN && points[i].first<=arrow){continue;} //former arrow shot points[i] --newline--                arrow = points[i].second; // new arrow shot the end of points[i]--newline--                count++;--newline--            }--newline--            return count;--newline--        }--newline--        static bool mysort(pair<int, int>& a, pair<int, int>& b){--newline--            return a.second==b.second?a.first<b.first:a.second<b.second;--newline--        }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "C++ easy understood solution (sort)"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findMinArrowShots(int[][] points) {--newline--            if (points.length == 0) {--newline--                return 0;--newline--            }--newline--            Arrays.sort(points, (a, b) -> a[1] - b[1]);--newline--            int arrowPos = points[0][1];--newline--            int arrowCnt = 1;--newline--            for (int i = 1; i < points.length; i++) {--newline--                if (arrowPos >= points[i][0]) {--newline--                    continue;--newline--                }--newline--                arrowCnt++;--newline--                arrowPos = points[i][1];--newline--            }--newline--            return arrowCnt;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my explained Greedy solution as the highest voted java solution right now is not ideal"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findMinArrowShots(int[][] points) {--newline--        if(points == null || points.length < 1) return 0;--newline--        Arrays.sort(points, (a, b)->(a[0]-b[0]));--newline--        int result = 1;--newline--        int end = points[0][1];--newline--        for(int i = 1; i < points.length; i ++) {--newline--            if(points[i][0] > end) {--newline--                result ++;--newline--                end = points[i][1];--newline--            } else {--newline--                end = Math.min(end, points[i][1]);--newline--            }--newline--        }--newline--        return result;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Concise Java solution tracking the end of overlapping intervals"
+        }
+    ],
+    "qc": "452.json"
+}

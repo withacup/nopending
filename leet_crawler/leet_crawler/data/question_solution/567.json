@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public boolean checkInclusion(String s1, String s2) {--newline--        int len1 = s1.length(), len2 = s2.length();--newline--        if (len1 > len2) return false;--newline--        --newline--        int[] count = new int[26];--newline--        for (int i = 0; i < len1; i++) {--newline--            count[s1.charAt(i) - 'a']++;--newline--            count[s2.charAt(i) - 'a']--;--newline--        }--newline--        if (allZero(count)) return true;--newline--        --newline--        for (int i = len1; i < len2; i++) {--newline--            count[s2.charAt(i) - 'a']--;--newline--            count[s2.charAt(i - len1) - 'a']++;--newline--            if (allZero(count)) return true;--newline--        }--newline--        --newline--        return false;--newline--    }--newline--    --newline--    private boolean allZero(int[] count) {--newline--        for (int i = 0; i < 26; i++) {--newline--            if (count[i] != 0) return false;--newline--        }--newline--        return true;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution, Sliding Window"
+        },
+        {
+            "java": "public class Solution {--newline--        public boolean checkInclusion(String s1, String s2) {--newline--            int[] count = new int[128];--newline--            for(int i = 0; i < s1.length(); i++) count[s1.charAt(i)]--;--newline--            for(int l = 0, r = 0; r < s2.length(); r++) {--newline--                if (++count[s2.charAt(r)] > 0)--newline--                    while(--count[s2.charAt(l++)] != 0) { /* do nothing */}--newline--                else if ((r - l + 1) == s1.length()) return true;--newline--            }--newline--            return s1.length() == 0;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "8 lines slide window solution in Java"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def checkInclusion(self, s1, s2):--newline----tab--        A = [ord(x) - ord('a') for x in s1]--newline----tab--        B = [ord(x) - ord('a') for x in s2]--newline----tab--        --newline----tab--        target = [0] * 26--newline----tab--        for x in A:--newline----tab--            target[x] += 1--newline----tab--        --newline----tab--        window = [0] * 26--newline----tab--        for i, x in enumerate(B):--newline----tab--            window[x] += 1--newline----tab--            if i >= len(A):--newline----tab--                window[B[i - len(A)]] -= 1--newline----tab--            if window == target:--newline----tab--                return True--newline----tab--        return False--newline----tab--    ",
+            "topic_title": "Python, Simple with Explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool checkInclusion(string s1, string s2) {--newline--        return findAnagrams(s2, s1).size();--newline--    }--newline--    --newline--    // Copied&pasted old problem's solution--newline--    vector<int> findAnagrams(string s, string p) {--newline--        int miss[256] = {}, missSum = p.size();--newline--        for (char c : p)--newline--            miss[c]++;--newline--        vector<int> result;--newline--        for (int i=0; i<s.size(); i++) {--newline--            missSum -= miss[s[i]]-- > 0;--newline--            int start = i+1 - p.size();--newline--            if (!missSum)--newline--                result.push_back(start);--newline--            missSum += start >= 0 && ++miss[s[start]] > 0;--newline--        }--newline--        return result;--newline--    }--newline--};--newline--",
+            "python": "class Solution(object):--newline----tab--    def checkInclusion(self, s1, s2):--newline----tab--        return len(self.minWindow(s2, s1)) == len(s1)--newline----tab--    --newline----tab--    # Copied&pasted old problem's solution--newline----tab--    def minWindow(self, s, t):--newline----tab--        need, missing = collections.Counter(t), len(t)--newline----tab--        i = I = J = 0--newline----tab--        for j, c in enumerate(s, 1):--newline----tab--            missing -= need[c] > 0--newline----tab--            need[c] -= 1--newline----tab--            if not missing:--newline----tab--                while i < j and need[s[i]] < 0:--newline----tab--                    need[s[i]] += 1--newline----tab--                    i += 1--newline----tab--                if not J or j - i <= J - I:--newline----tab--                    I, J = i, j--newline----tab--        return s[I:J]--newline----tab--",
+            "topic_title": "&quot;Oneliners&quot; in Python and C++"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean checkInclusion(String s1, String s2) {--newline--        char[] ca1 = s1.toCharArray(), ca2 = s2.toCharArray();--newline--        int[] cnts = new int[256];--newline--        for (char ch : ca1) cnts[ch]++;--newline----newline--        int left = ca1.length;--newline--        for (int i = 0, j = 0; j < ca2.length; j++) {--newline--            if (cnts[ca2[j]]-- > 0) left--;--newline----newline--            while (left == 0) {--newline--                if (j + 1 - i == ca1.length) return true;--newline--                if (++cnts[ca2[i++]] > 0) left++;--newline--            }--newline--        }--newline----newline--        return false;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": "/**--newline-- * 1. try find a window (i, j) where s2.substr(i, j + 1 - i) contains all chars in s1;--newline-- * 2. once found, try reduce window(i, j) such that j + 1 - i == s1.size() while the window still contains all chars in s1 by moving i, return true;--newline-- * 3. if windows no longer contain all chars in s1, keep moving j forward;--newline-- */--newline--class Solution {--newline--public:--newline--    bool checkInclusion(string s1, string s2) {--newline--        vector<int> cnts(256, 0);--newline--        for (char ch : s1) {--newline--            cnts[ch]++;--newline--        }--newline----newline--        int left = s1.size();--newline--        for (int i = 0, j = 0; j < s2.size(); j++) {--newline--            if (cnts[s2[j]]-- > 0) {--newline--                left--;--newline--            }--newline----newline--            while (left == 0) {--newline--                if (j + 1 - i == s1.size()) {--newline--                    return true;--newline--                }--newline--                if (++cnts[s2[i++]] > 0) {--newline--                    left++;--newline--                }--newline--            }--newline--        }--newline----newline--        return false;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "&#91;C++&#93; &#91;Java&#93; Clean Code with Explanation"
+        }
+    ],
+    "qc": "567.json"
+}

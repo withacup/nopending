@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "  class Solution {--newline--    public:--newline--        int largestRectangleArea(vector<int> &height) {--newline--            --newline--            int ret = 0;--newline--            height.push_back(0);--newline--            vector<int> index;--newline--            --newline--            for(int i = 0; i < height.size(); i++)--newline--            {--newline--                while(index.size() > 0 && height[index.back()] >= height[i])--newline--                {--newline--                    int h = height[index.back()];--newline--                    index.pop_back();--newline--                    --newline--                    int sidx = index.size() > 0 ? index.back() : -1;--newline--                    if(h * (i-sidx-1) > ret)--newline--                        ret = h * (i-sidx-1);--newline--                }--newline--                index.push_back(i);--newline--            }--newline--            --newline--            return ret;--newline--        }--newline--    };",
+            "python": null,
+            "topic_title": "My concise C++ solution, AC 90 ms"
+        },
+        {
+            "java": "public class Solution {--newline--    public int largestRectangleArea(int[] height) {--newline--        int len = height.length;--newline--        Stack<Integer> s = new Stack<Integer>();--newline--        int maxArea = 0;--newline--        for(int i = 0; i <= len; i++){--newline--            int h = (i == len ? 0 : height[i]);--newline--            if(s.isEmpty() || h >= height[s.peek()]){--newline--                s.push(i);--newline--            }else{--newline--                int tp = s.pop();--newline--                maxArea = Math.max(maxArea, height[tp] * (s.isEmpty() ? i : i - 1 - s.peek()));--newline--                i--;--newline--            }--newline--        }--newline--        return maxArea;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "O(n) stack based JAVA solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--    int maxCombineArea(const vector<int> &height, int s, int m, int e) {--newline--        // Expand from the middle to find the max area containing height[m] and height[m+1]--newline--        int i = m, j = m+1;--newline--        int area = 0, h = min(height[i], height[j]);--newline--        while(i >= s && j <= e) {--newline--            h = min(h, min(height[i], height[j]));--newline--            area = max(area, (j-i+1) * h);--newline--            if (i == s) {--newline--                ++j;--newline--            }--newline--            else if (j == e) {--newline--                --i;--newline--            }--newline--            else {--newline--                // if both sides have not reached the boundary,--newline--                // compare the outer bars and expand towards the bigger side--newline--                if (height[i-1] > height[j+1]) {--newline--                    --i;--newline--                }--newline--                else {--newline--                    ++j;--newline--                }--newline--            }--newline--        }--newline--        return area;--newline--    }--newline--    int maxArea(const vector<int> &height, int s, int e) {--newline--        // if the range only contains one bar, return its height as area--newline--        if (s == e) {--newline--            return height[s];--newline--        }--newline--        // otherwise, divide & conquer, the max area must be among the following 3 values--newline--        int m = s + (e-s)/2;--newline--        // 1 - max area from left half--newline--        int area = maxArea(height, s, m);--newline--        // 2 - max area from right half--newline--        area = max(area, maxArea(height, m+1, e));--newline--        // 3 - max area across the middle--newline--        area = max(area, maxCombineArea(height, s, m, e));--newline--        return area;--newline--    }--newline--public:--newline--    int largestRectangleArea(vector<int> &height) {--newline--        if (height.empty()) {--newline--            return 0;--newline--        }--newline--        return maxArea(height, 0, height.size()-1);--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Simple Divide and Conquer AC solution without Segment Tree"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int largestRectangleArea(vector<int>& height) {--newline--        height.insert(height.begin(),0); // dummy \"0\" added to make sure stack s will never be empty--newline--        height.push_back(0); // dummy \"0\" added to clear the stack at the end--newline--        int len = height.size();--newline--        int i, res = 0, idx;--newline--        stack<int> s; // stack to save \"height\" index--newline--        s.push(0); // index to the first dummy \"0\"--newline--        for(i=1;i<len;i++)--newline--        {--newline--            while(height[i]<height[idx = s.top()]) // if the current entry is out of order--newline--            {--newline--                s.pop();--newline--                res = max(res, height[idx] * (i-s.top()-1) ); // note how the width is calculated, use the previous index entry--newline--            }--newline--            s.push(i);--newline--        }--newline--        height.erase(height.begin()); // remove two dummy \"0\"--newline--        height.pop_back();--newline--        return res;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "My concise code (20ms, stack based, O(n)), one trick used"
+        },
+        {
+            "java": "public class Solution {--newline--    public static int largestRectangleArea(int[] height) {--newline--        if (height == null || height.length == 0) {--newline--            return 0;--newline--        }--newline--        int[] lessFromLeft = new int[height.length]; // idx of the first bar the left that is lower than current--newline--        int[] lessFromRight = new int[height.length]; // idx of the first bar the right that is lower than current--newline--        lessFromRight[height.length - 1] = height.length;--newline--        lessFromLeft[0] = -1;--newline--    --newline--        for (int i = 1; i < height.length; i++) {--newline--            int p = i - 1;--newline--    --newline--            while (p >= 0 && height[p] >= height[i]) {--newline--                p = lessFromLeft[p];--newline--            }--newline--            lessFromLeft[i] = p;--newline--        }--newline--    --newline--        for (int i = height.length - 2; i >= 0; i--) {--newline--            int p = i + 1;--newline--    --newline--            while (p < height.length && height[p] >= height[i]) {--newline--                p = lessFromRight[p];--newline--            }--newline--            lessFromRight[i] = p;--newline--        }--newline--    --newline--        int maxArea = 0;--newline--        for (int i = 0; i < height.length; i++) {--newline--            maxArea = Math.max(maxArea, height[i] * (lessFromRight[i] - lessFromLeft[i] - 1));--newline--        }--newline--    --newline--        return maxArea;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "5ms O(n) Java solution explained (beats 96%)"
+        }
+    ],
+    "qc": "84.json"
+}

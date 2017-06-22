@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "import java.util.Random;--newline----newline--public class Solution {--newline--    private int[] nums;--newline--    private Random random;--newline----newline--    public Solution(int[] nums) {--newline--        this.nums = nums;--newline--        random = new Random();--newline--    }--newline--    --newline--    /** Resets the array to its original configuration and return it. */--newline--    public int[] reset() {--newline--        return nums;--newline--    }--newline--    --newline--    /** Returns a random shuffling of the array. */--newline--    public int[] shuffle() {--newline--        if(nums == null) return null;--newline--        int[] a = nums.clone();--newline--        for(int j = 1; j < a.length; j++) {--newline--            int i = random.nextInt(j + 1);--newline--            swap(a, i, j);--newline--        }--newline--        return a;--newline--    }--newline--    --newline--    private void swap(int[] a, int i, int j) {--newline--        int t = a[i];--newline--        a[i] = a[j];--newline--        a[j] = t;--newline--    }--newline--}--newline----newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "First Accepted Solution - Java"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Python hack"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--    vector<int> arr, idx;--newline--public:--newline--    Solution(vector<int> nums) {--newline--        srand(time(NULL));--newline--        arr.resize(nums.size());--newline--        idx.resize(nums.size());--newline--        for (int i=0;i<nums.size();i++){--newline--            arr[i] = nums[i];--newline--            idx[i] = nums[i];--newline--        }--newline--    }--newline--    --newline--    /** Resets the array to its original configuration and return it. */--newline--    vector<int> reset() {--newline--        for (int i=0;i<arr.size();i++)--newline--            arr[i] = idx[i];--newline--        return arr;    --newline--    }--newline--    --newline--    /** Returns a random shuffling of the array. */--newline--    vector<int> shuffle() {--newline--         int i,j;--newline--         for (i = arr.size() - 1; i > 0; i--) {--newline--            j = rand() % (i + 1);--newline--            swap(arr[i], arr[j]);--newline--         }--newline--         return arr;    --newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ solution with Fisher Yates algorithm"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--    vector<int> nums;--newline--public:--newline--    Solution(vector<int> nums) {--newline--        this->nums = nums;--newline--    }--newline--    --newline--    /** Resets the array to its original configuration and return it. */--newline--    vector<int> reset() {--newline--        return nums;--newline--    }--newline--    --newline--    /** Returns a random shuffling of the array. */--newline--    vector<int> shuffle() {--newline--        vector<int> result(nums);--newline--        for (int i = 0;i < result.size();i++) {--newline--            int pos = rand()%(result.size()-i);--newline--            swap(result[i+pos], result[i]);--newline--        }--newline--        return result;--newline--    }--newline--};--newline----newline--/**--newline-- * Your Solution object will be instantiated and called as such:--newline-- * Solution obj = new Solution(nums);--newline-- * vector<int> param_1 = obj.reset();--newline-- * vector<int> param_2 = obj.shuffle();--newline-- */--newline--",
+            "python": null,
+            "topic_title": "Straight-forward C++ solution"
+        },
+        {
+            "java": "public class Solution {--newline----newline--    private int[] nums;--newline--    --newline--    public Solution(int[] nums) {--newline--        this.nums = nums;--newline--    }--newline--    --newline--    /** Resets the array to its original configuration and return it. */--newline--    public int[] reset() {--newline--        return nums;--newline--    }--newline--    --newline--    /** Returns a random shuffling of the array. */--newline--    public int[] shuffle() {--newline--        int[] rand = new int[nums.length];--newline--        for (int i = 0; i < nums.length; i++){--newline--            int r = (int) (Math.random() * (i+1));--newline--            rand[i] = rand[r];--newline--            rand[r] = nums[i];--newline--        }--newline--        return rand;--newline--    }--newline--}--newline----newline--/**--newline-- * Your Solution object will be instantiated and called as such:--newline-- * Solution obj = new Solution(nums);--newline-- * int[] param_1 = obj.reset();--newline-- * int[] param_2 = obj.shuffle();--newline-- */--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "simple java solution"
+        }
+    ],
+    "qc": "384.json"
+}

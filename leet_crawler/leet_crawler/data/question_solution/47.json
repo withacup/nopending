@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    void recursion(vector<int> num, int i, int j, vector<vector<int> > &res) {--newline--        if (i == j-1) {--newline--            res.push_back(num);--newline--            return;--newline--        }--newline--        for (int k = i; k < j; k++) {--newline--            if (i != k && num[i] == num[k]) continue;--newline--            swap(num[i], num[k]);--newline--            recursion(num, i+1, j, res);--newline--        }--newline--    }--newline--    vector<vector<int> > permuteUnique(vector<int> &num) {--newline--        sort(num.begin(), num.end());--newline--        vector<vector<int> >res;--newline--        recursion(num, 0, num.size(), res);--newline--        return res;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "A simple C++ solution in only 20 lines"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<List<Integer>> permuteUnique(int[] nums) {--newline--        List<List<Integer>> res = new ArrayList<List<Integer>>();--newline--        if(nums==null || nums.length==0) return res;--newline--        boolean[] used = new boolean[nums.length];--newline--        List<Integer> list = new ArrayList<Integer>();--newline--        Arrays.sort(nums);--newline--        dfs(nums, used, list, res);--newline--        return res;--newline--    }--newline----newline--    public void dfs(int[] nums, boolean[] used, List<Integer> list, List<List<Integer>> res){--newline--        if(list.size()==nums.length){--newline--            res.add(new ArrayList<Integer>(list));--newline--            return;--newline--        }--newline--        for(int i=0;i<nums.length;i++){--newline--            if(used[i]) continue;--newline--            if(i>0 &&nums[i-1]==nums[i] && !used[i-1]) continue;--newline--            used[i]=true;--newline--            list.add(nums[i]);--newline--            dfs(nums,used,list,res);--newline--            used[i]=false;--newline--            list.remove(list.size()-1);--newline--        }--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Really easy Java solution, much easier than the solutions with very high vote"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline----tab--vector<vector<int> > permuteUnique(vector<int> &S) {--newline----tab----tab--// res.clear();--newline----tab----tab--sort(S.begin(), S.end());--tab----tab----newline----tab----tab--res.push_back(S);--newline----tab----tab--int j;--newline----tab----tab--int i = S.size()-1;--newline----tab----tab--while (1){--newline----tab----tab----tab--for (i=S.size()-1; i>0; i--){--newline----tab----tab----tab----tab--if (S[i-1]< S[i]){--newline----tab----tab----tab----tab----tab--break;--newline----tab----tab----tab----tab--}--newline----tab----tab----tab--}--newline----tab----tab----tab--if(i == 0){--newline----tab----tab----tab----tab--break;--newline----tab----tab----tab--}--newline----newline----tab----tab----tab--for (j=S.size()-1; j>i-1; j--){--newline----tab----tab----tab----tab--if (S[j]>S[i-1]){--newline----tab----tab----tab----tab----tab--break;--newline----tab----tab----tab----tab--}--newline----tab----tab----tab--}--tab----tab----tab----tab----tab----newline----tab----tab----tab--swap(S[i-1], S[j]);--newline----tab----tab----tab--reverse(S, i, S.size()-1);--newline----tab----tab----tab--res.push_back(S);--newline----tab----tab--}--newline----tab----tab--return res;--newline--    }--newline----tab--void reverse(vector<int> &S, int s, int e){--tab----tab----newline----tab----tab--while (s<e){--newline----tab----tab----tab--swap(S[s++], S[e--]);--newline----tab----tab--}--newline----tab--}--newline----tab----newline----tab--vector<vector<int> > res;--newline--};--newline--",
+            "python": null,
+            "topic_title": "A non-recursive C++ implementation with O(1) space cost"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--vector<vector<int> > permuteUnique(vector<int> &num) {--newline--    vector<vector<int>> v;--newline--    vector<int> r;--newline--    map<int, int> map;--newline--    for (int i : num)--newline--    {--newline--        if (map.find(i) == map.end()) map[i] = 0;--newline--        map[i]++;--newline--    }--newline--    permuteUnique(v, r, map, num.size());--newline--    return v;--newline--}--newline----newline--void permuteUnique(vector<vector<int>> &v, vector<int> &r, map<int, int> &map, int n)--newline--{--newline--    if (n <= 0)--newline--    {--newline--        v.push_back(r);--newline--        return;--newline--    }--newline--    for (auto &p : map)--newline--    {--newline--        if (p.second <= 0) continue;--newline--        p.second--;--newline--        r.push_back(p.first);--newline--        permuteUnique(v, r, map, n - 1);--newline--        r.pop_back();--newline--        p.second++;--newline--    }--newline--}--newline--};",
+            "python": null,
+            "topic_title": "Accepted backtracking C++ solution by using map (28ms)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def permuteUnique(self, nums):--newline----tab--        ans = [[]]--newline----tab--        for n in nums:--newline----tab--            new_ans = []--newline----tab--            for l in ans:--newline----tab--                for i in xrange(len(l)+1):--newline----tab--                    new_ans.append(l[:i]+[n]+l[i:])--newline----tab--                    if i<len(l) and l[i]==n: break              #handles duplication--newline----tab--            ans = new_ans--newline----tab--        return ans",
+            "topic_title": "9-line python solution with 1 line to handle duplication, beat 99% of others :-)"
+        }
+    ],
+    "qc": "47.json"
+}

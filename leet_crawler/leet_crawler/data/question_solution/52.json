@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    /**--newline--     * don't need to actually place the queen,--newline--     * instead, for each row, try to place without violation on--newline--     * col/ diagonal1/ diagnol2.--newline--     * trick: to detect whether 2 positions sit on the same diagnol:--newline--     * if delta(col, row) equals, same diagnol1;--newline--     * if sum(col, row) equals, same diagnal2.--newline--     */--newline--    private final Set<Integer> occupiedCols = new HashSet<Integer>();--newline--    private final Set<Integer> occupiedDiag1s = new HashSet<Integer>();--newline--    private final Set<Integer> occupiedDiag2s = new HashSet<Integer>();--newline--    public int totalNQueens(int n) {--newline--        return totalNQueensHelper(0, 0, n);--newline--    }--newline--    --newline--    private int totalNQueensHelper(int row, int count, int n) {--newline--        for (int col = 0; col < n; col++) {--newline--            if (occupiedCols.contains(col))--newline--                continue;--newline--            int diag1 = row - col;--newline--            if (occupiedDiag1s.contains(diag1))--newline--                continue;--newline--            int diag2 = row + col;--newline--            if (occupiedDiag2s.contains(diag2))--newline--                continue;--newline--            // we can now place a queen here--newline--            if (row == n-1)--newline--                count++;--newline--            else {--newline--                occupiedCols.add(col);--newline--                occupiedDiag1s.add(diag1);--newline--                occupiedDiag2s.add(diag2);--newline--                count = totalNQueensHelper(row+1, count, n);--newline--                // recover--newline--                occupiedCols.remove(col);--newline--                occupiedDiag1s.remove(diag1);--newline--                occupiedDiag2s.remove(diag2);--newline--            }--newline--        }--newline--        --newline--        return count;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Accepted Java Solution"
+        },
+        {
+            "java": "public class Solution {--newline--    int count = 0;--newline--    public int totalNQueens(int n) {--newline--        boolean[] cols = new boolean[n];     // columns   |--newline--        boolean[] d1 = new boolean[2 * n];   // diagonals \\--newline--        boolean[] d2 = new boolean[2 * n];   // diagonals /--newline--        backtracking(0, cols, d1, d2, n);--newline--        return count;--newline--    }--newline--    --newline--    public void backtracking(int row, boolean[] cols, boolean[] d1, boolean []d2, int n) {--newline--        if(row == n) count++;--newline----newline--        for(int col = 0; col < n; col++) {--newline--            int id1 = col - row + n;--newline--            int id2 = col + row;--newline--            if(cols[col] || d1[id1] || d2[id2]) continue;--newline--            --newline--            cols[col] = true; d1[id1] = true; d2[id2] = true;--newline--            backtracking(row + 1, cols, d1, d2, n);--newline--            cols[col] = false; d1[id1] = false; d2[id2] = false;--newline--        }--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easiest Java Solution (1ms, 98.22%)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int totalNQueens(int n) {--newline--        vector<bool> col(n, true);--newline--        vector<bool> anti(2*n-1, true);--newline--        vector<bool> main(2*n-1, true);--newline--        vector<int> row(n, 0);--newline--        int count = 0;--newline--        dfs(0, row, col, main, anti, count);--newline--        return count;--newline--    }--newline--    void dfs(int i, vector<int> &row, vector<bool> &col, vector<bool>& main, vector<bool> &anti, int &count) {--newline--            if (i == row.size()) {--newline--                count++;--newline--                return;--newline--            }--newline--           for (int j = 0; j < col.size(); j++) {--newline--             if (col[j] && main[i+j] && anti[i+col.size()-1-j]) {--newline--                 row[i] = j; --newline--                 col[j] = main[i+j] = anti[i+col.size()-1-j] = false;--newline--                 dfs(i+1, row, col, main, anti, count);--newline--                 col[j] = main[i+j] = anti[i+col.size()-1-j] = true;--newline--          }--newline--        }--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "C++ solution - DFS - easy understanding"
+        },
+        {
+            "java": "/*--newline--    \u5e38\u89c4n-queens\u89e3\u6cd5, \u6570\u7b54\u6848\u4e2a\u6570.--newline--    \u7528column\u6807\u8bb0\u6b64\u884c\u4e4b\u524d\u7684\u54ea\u4e9bcolumn\u5df2\u7ecf\u653e\u7f6e\u4e86queen. \u68cb\u76d8\u5750\u6807(row, col)\u5bf9\u5e94column\u7684\u7b2ccol\u4f4d(LSB --> MSB, \u4e0b\u540c).--newline--    \u7528diag\u6807\u8bb0\u6b64\u4f4d\u7f6e\u4e4b\u524d\u7684\u54ea\u4e9b\u4e3b\u5bf9\u89d2\u7ebf\u5df2\u7ecf\u653e\u7f6e\u4e86queen. \u68cb\u76d8\u5750\u6807(row, col)\u5bf9\u5e94diag\u7684\u7b2c(n - 1 + row - col)\u4f4d.--newline--    \u7528antiDiag\u6807\u8bb0\u6b64\u4f4d\u7f6e\u4e4b\u524d\u7684\u54ea\u4e9b\u526f\u5bf9\u89d2\u7ebf\u5df2\u7ecf\u653e\u7f6e\u4e86queen. \u68cb\u76d8\u5750\u6807(row, col)\u5bf9\u5e94antiDiag\u7684\u7b2c(row + col)\u4f4d.--newline--*/--newline--public class Solution {--newline--    int count = 0;--newline--    --newline--    public int totalNQueens(int n) {--newline--        dfs(0, n, 0, 0, 0);--newline--        return count;--newline--    }--newline--    --newline--    private void dfs(int row, int n, int column, int diag, int antiDiag) {--newline--        if (row == n) {--newline--            ++count;--newline--            return;--newline--        }--newline--        for (int i = 0; i < n; ++i) {--newline--            boolean isColSafe = ((1 << i) & column) == 0;--newline--            boolean isDiagSafe = ((1 << (n - 1 + row - i)) & diag) == 0;--newline--            boolean isAntiDiagSafe = ((1 << (row + i)) & antiDiag) == 0;--newline--            if (isColSafe && isDiagSafe && isAntiDiagSafe) {--newline--                dfs(row + 1, n, (1 << i) | column, (1 << (n - 1 + row - i)) | diag, (1 << (row + i)) | antiDiag);--newline--            }--newline--        }--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my Java code (beats 97.83% run times)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    /**--newline--     * @param {number} n--newline--     * @return {number}--newline--     */--newline--    var totalNQueens = function(n) {--newline--        var p = '', s = 0, l;--newline--        for (var i = 0; i < n; i++) {--newline--            l = '\\nfor (var s# = 0; s# < ' + n + '; s#++)';--newline--            for (var j = 0; j < i; j++)--newline--                l += 'if (s# !== s@ && Math.abs(s# - s@) !== (# - @)) '.replace(/@/g, j);--newline--            p += l.replace(/#/g, i);--newline--        }--newline--        p += '\\ns++;\\ns';--newline--        return eval(p);--newline--    };--newline--}",
+            "python": null,
+            "topic_title": "Never write codes like this - lets do eval"
+        }
+    ],
+    "qc": "52.json"
+}

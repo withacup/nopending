@@ -1,0 +1,27 @@
+---CONTENT_BEGIN---
+
+Given an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue.
+
+
+
+Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.
+
+
+
+Note:
+You are not suppose to use the library's sort function for this problem.
+
+
+click to show follow up.
+
+
+Follow up:
+A rather straight forward solution is a two-pass algorithm using counting sort.
+First, iterate the array counting number of 0's, 1's, and 2's, then overwrite array with total number of 0's, then 1's and followed by 2's.
+Could you come up with an one-pass algorithm using only constant space?
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    void sortColors(vector<int>& nums) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public void sortColors(int[] nums) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def sortColors(self, nums):--newline--        '''--newline--        :type nums: List[int]--newline--        :rtype: void Do not return anything, modify nums in-place instead.--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "void sortColors(int* nums, int numsSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public void SortColors(int[] nums) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} nums--newline-- * @return {void} Do not return anything, modify nums in-place instead.--newline-- */--newline--var sortColors = function(nums) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} nums--newline--# @return {Void} Do not return anything, modify nums in-place instead.--newline--def sort_colors(nums)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func sortColors(_ nums: inout [Int]) {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func sortColors(nums []int)  {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

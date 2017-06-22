@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int maxProfit(int[] prices) {--newline--        int hold1 = Integer.MIN_VALUE, hold2 = Integer.MIN_VALUE;--newline--        int release1 = 0, release2 = 0;--newline--        for(int i:prices){                              // Assume we only have 0 money at first--newline--            release2 = Math.max(release2, hold2+i);     // The maximum if we've just sold 2nd stock so far.--newline--            hold2    = Math.max(hold2,    release1-i);  // The maximum if we've just buy  2nd stock so far.--newline--            release1 = Math.max(release1, hold1+i);     // The maximum if we've just sold 1nd stock so far.--newline--            hold1    = Math.max(hold1,    -i);          // The maximum if we've just buy  1st stock so far. --newline--        }--newline--        return release2; ///Since release1 is initiated as 0, so release2 will always higher than release1.--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Is it Best Solution with O(n), O(1)."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int maxProfit(vector<int> &prices) {--newline--        // f[k, ii] represents the max profit up until prices[ii] (Note: NOT ending with prices[ii]) using at most k transactions. --newline--        // f[k, ii] = max(f[k, ii-1], prices[ii] - prices[jj] + f[k-1, jj]) { jj in range of [0, ii-1] }--newline--        //          = max(f[k, ii-1], prices[ii] + max(f[k-1, jj] - prices[jj]))--newline--        // f[0, ii] = 0; 0 times transation makes 0 profit--newline--        // f[k, 0] = 0; if there is only one price data point you can't make any money no matter how many times you can trade--newline--        if (prices.size() <= 1) return 0;--newline--        else {--newline--            int K = 2; // number of max transation allowed--newline--            int maxProf = 0;--newline--            vector<vector<int>> f(K+1, vector<int>(prices.size(), 0));--newline--            for (int kk = 1; kk <= K; kk++) {--newline--                int tmpMax = f[kk-1][0] - prices[0];--newline--                for (int ii = 1; ii < prices.size(); ii++) {--newline--                    f[kk][ii] = max(f[kk][ii-1], prices[ii] + tmpMax);--newline--                    tmpMax = max(tmpMax, f[kk-1][ii] - prices[ii]);--newline--                    maxProf = max(f[kk][ii], maxProf);--newline--                }--newline--            }--newline--            return maxProf;--newline--        }--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "A clean DP solution which generalizes to k transactions"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int maxProfit(vector<int>& prices) {--newline--        int states[2][4] = {INT_MIN, 0, INT_MIN, 0}; // 0: 1 buy, 1: one buy/sell, 2: 2 buys/1 sell, 3, 2 buys/sells--newline--        int len = prices.size(), i, cur = 0, next =1;--newline--        for(i=0; i<len; ++i)--newline--        {--newline--            states[next][0] = max(states[cur][0], -prices[i]);--newline--            states[next][1] = max(states[cur][1], states[cur][0]+prices[i]);--newline--            states[next][2] = max(states[cur][2], states[cur][1]-prices[i]);--newline--            states[next][3] = max(states[cur][3], states[cur][2]+prices[i]);--newline--            swap(next, cur);--newline--        }--newline--        return max(states[cur][1], states[cur][3]);--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "My C++ solution (O(N) time, O(1) space, 8ms)"
+        },
+        {
+            "java": "public class Solution {--newline--    public int maxProfit(int[] prices) {--newline--    --tab----tab--int sell1 = 0, sell2 = 0, buy1 = Integer.MIN_VALUE, buy2 = Integer.MIN_VALUE;--newline--    --tab----tab--for (int i = 0; i < prices.length; i++) {--newline--    --tab----tab----tab--buy1 = Math.max(buy1, -prices[i]);--newline--    --tab----tab----tab--sell1 = Math.max(sell1, buy1 + prices[i]);--newline--    --tab----tab----tab--buy2 = Math.max(buy2, sell1 - prices[i]);--newline--    --tab----tab----tab--sell2 = Math.max(sell2, buy2 + prices[i]);--newline--    --tab----tab--}--newline--    --tab----tab--return sell2;--newline--    --tab--}--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My explanation for O(N) solution!"
+        },
+        {
+            "java": "public class Solution {--newline--    public int maxProfit(int[] prices) {--newline--        // these four variables represent your profit after executing corresponding transaction--newline--        // in the beginning, your profit is 0. --newline--        // when you buy a stock ,the profit will be deducted of the price of stock.--newline--        int firstBuy = Integer.MIN_VALUE, firstSell = 0;--newline--        int secondBuy = Integer.MIN_VALUE, secondSell = 0;--newline--    --newline--        for (int curPrice : prices) {--newline--            if (firstBuy < -curPrice) firstBuy = -curPrice; // the max profit after you buy first stock--newline--            if (firstSell < firstBuy + curPrice) firstSell = firstBuy + curPrice; // the max profit after you sell it--newline--            if (secondBuy < firstSell - curPrice) secondBuy = firstSell - curPrice; // the max profit after you buy the second stock--newline--            if (secondSell < secondBuy + curPrice) secondSell = secondBuy + curPrice; // the max profit after you sell the second stock--newline--        }--newline--        --newline--        return secondSell; // secondSell will be the max profit after passing the prices--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "2ms Java DP Solution"
+        }
+    ],
+    "qc": "123.json"
+}

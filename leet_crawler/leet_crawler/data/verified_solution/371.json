@@ -1,0 +1,6 @@
+{
+    "solution_code": "public class Solution {--newline--       public int getSum(int a, int b) {--newline--         if(b == 0){//\u6ca1\u6709\u8fdb\u4e3a\u7684\u65f6\u5019\u5b8c\u6210\u8fd0\u7b97--newline--            return a;--newline--        }--newline--        int sum,carry;--newline--        sum = a^b;//\u5b8c\u6210\u7b2c\u4e00\u6b65\u52a0\u53d1\u7684\u8fd0\u7b97--newline--        carry = (a&b)<<1;//\u5b8c\u6210\u7b2c\u4e8c\u6b65\u8fdb\u4f4d\u5e76\u4e14\u5de6\u79fb\u8fd0\u7b97--newline--        return getSum(sum,carry);//--newline--        }--newline--}",
+    "l_type": "java",
+    "modified_code": null,
+    "total_cases": 13
+}

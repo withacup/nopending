@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> getRow(int rowIndex) {--newline--        vector<int> A(rowIndex+1, 0);--newline--        A[0] = 1;--newline--        for(int i=1; i<rowIndex+1; i++)--newline--            for(int j=i; j>=1; j--)--newline--                A[j] += A[j-1];--newline--        return A;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Here is my brief O(k) solution"
+        },
+        {
+            "java": "public class Solution {--newline--      public List<Integer> getRow(int rowIndex) {--newline--    --tab--List<Integer> list = new ArrayList<Integer>();--newline--    --tab--if (rowIndex < 0)--newline--    --tab----tab--return list;--newline--    --newline--    --tab--for (int i = 0; i < rowIndex + 1; i++) {--newline--    --tab----tab--list.add(0, 1);--newline--    --tab----tab--for (int j = 1; j < list.size() - 1; j++) {--newline--    --tab----tab----tab--list.set(j, list.get(j) + list.get(j + 1));--newline--    --tab----tab--}--newline--    --tab--}--newline--    --tab--return list;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My accepted java solution, any better code?"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<Integer> getRow(int rowIndex) {--newline--        List<Integer> res = new ArrayList<Integer>();--newline--        for(int i = 0;i<rowIndex+1;i++) {--newline--        --tab----tab--res.add(1);--newline--        --tab----tab--for(int j=i-1;j>0;j--) {--newline--        --tab----tab----tab--res.set(j, res.get(j-1)+res.get(j));--newline--        --tab----tab--}--newline--        }--newline--        return res;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My 8 lines java solution use ArrayList"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> getRow(int rowIndex) {--newline--        vector<int> vi(rowIndex + 1);--newline--       --tab--vi[0] = 1;--newline--        for (int i = 0; i <= rowIndex ; ++i)--newline--        {--newline--        --tab--for (int j = i; j > 0; --j)--newline--        --tab--{--newline----tab--        --tab--vi[j] = vi[j] + vi[j-1];--newline--        --tab--}--newline--        }--newline--        return vi;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Sharing my c++ code, very simple"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def getRow(self, rowIndex):--newline----tab--        \"\"\"--newline----tab--        :type rowIndex: int--newline----tab--        :rtype: List[int]--newline----tab--        \"\"\"--newline----tab--        row = [1]--newline----tab--        for _ in range(rowIndex):--newline----tab--            row = [x + y for x, y in zip([0]+row, row+[0])]--newline----tab--        return row--newline----tab--",
+            "topic_title": "Very simple Python solution"
+        }
+    ],
+    "qc": "119.json"
+}

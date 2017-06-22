@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool isIsomorphic(string s, string t) {--newline--        int m1[256] = {0}, m2[256] = {0}, n = s.size();--newline--        for (int i = 0; i < n; ++i) {--newline--            if (m1[s[i]] != m2[t[i]]) return false;--newline--            m1[s[i]] = i + 1;--newline--            m2[t[i]] = i + 1;--newline--        }--newline--        return true;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "My 6 lines solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isIsomorphic(String s1, String s2) {--newline--        int[] m = new int[512];--newline--        for (int i = 0; i < s1.length(); i++) {--newline--            if (m[s1.charAt(i)] != m[s2.charAt(i)+256]) return false;--newline--            m[s1.charAt(i)] = m[s2.charAt(i)+256] = i+1;--newline--        }--newline--        return true;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Short Java solution without maps"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def isIsomorphic1(self, s, t):--newline----tab--        d1, d2 = {}, {}--newline----tab--        for i, val in enumerate(s):--newline----tab--            d1[val] = d1.get(val, []) + [i]--newline----tab--        for i, val in enumerate(t):--newline----tab--            d2[val] = d2.get(val, []) + [i]--newline----tab--        return sorted(d1.values()) == sorted(d2.values())--newline----tab--            --newline----tab--    def isIsomorphic2(self, s, t):--newline----tab--        d1, d2 = [[] for _ in xrange(256)], [[] for _ in xrange(256)]--newline----tab--        for i, val in enumerate(s):--newline----tab--            d1[ord(val)].append(i)--newline----tab--        for i, val in enumerate(t):--newline----tab--            d2[ord(val)].append(i)--newline----tab--        return sorted(d1) == sorted(d2)--newline----tab--        --newline----tab--    def isIsomorphic3(self, s, t):--newline----tab--        return len(set(zip(s, t))) == len(set(s)) == len(set(t))--newline----tab--        --newline----tab--    def isIsomorphic4(self, s, t): --newline----tab--        return [s.find(i) for i in s] == [t.find(j) for j in t]--newline----tab--        --newline----tab--    def isIsomorphic5(self, s, t):--newline----tab--        return map(s.find, s) == map(t.find, t)--newline----tab--    --newline----tab--    def isIsomorphic(self, s, t):--newline----tab--        d1, d2 = [0 for _ in xrange(256)], [0 for _ in xrange(256)]--newline----tab--        for i in xrange(len(s)):--newline----tab--            if d1[ord(s[i])] != d2[ord(t[i])]:--newline----tab--                return False--newline----tab--            d1[ord(s[i])] = i+1--newline----tab--            d2[ord(t[i])] = i+1--newline----tab--        return True",
+            "topic_title": "Python different solutions (dictionary, etc)."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool isIsomorphic(char* s, char* t) {--newline--    --tab--char charArrS[256] = { 0 };--newline--    --tab--char charArrT[256] = { 0 };--newline--    --tab--int i = 0;--newline--    --tab--while (s[i] !=0)--newline--    --tab--{--newline--    --tab----tab--if (charArrS[s[i]] == 0 && charArrT[t[i]] == 0)--newline--    --tab----tab--{--newline--    --tab----tab----tab--charArrS[s[i]] = t[i];--newline--    --tab----tab----tab--charArrT[t[i]] = s[i];--newline--    --tab----tab--}--newline--    --tab----tab--else--newline--    --tab----tab--if (charArrS[s[i]] != t[i] || charArrT[t[i]] != s[i])--newline--    --tab----tab----tab--return false;--newline--    --tab----tab--i++;--newline--    --tab--}--newline--    --newline--    --tab--return true;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "My C 0ms solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isIsomorphic(String s, String t) {--newline--        if(s == null || s.length() <= 1) return true;--newline--        HashMap<Character, Character> map = new HashMap<Character, Character>();--newline--        for(int i = 0 ; i< s.length(); i++){--newline--            char a = s.charAt(i);--newline--            char b = t.charAt(i);--newline--            if(map.containsKey(a)){--newline--                 if(map.get(a).equals(b))--newline--                continue;--newline--                else--newline--                return false;--newline--            }else{--newline--                if(!map.containsValue(b))--newline--                map.put(a,b);--newline--                else return false;--newline--                --newline--            }--newline--        }--newline--        return true;--newline--        --newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java solution using HashMap"
+        }
+    ],
+    "qc": "205.json"
+}

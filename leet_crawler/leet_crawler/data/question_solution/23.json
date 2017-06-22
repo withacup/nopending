@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public ListNode mergeKLists(List<ListNode> lists) {--newline--        if (lists==null||lists.size()==0) return null;--newline--        --newline--        PriorityQueue<ListNode> queue= new PriorityQueue<ListNode>(lists.size(),new Comparator<ListNode>(){--newline--            @Override--newline--            public int compare(ListNode o1,ListNode o2){--newline--                if (o1.val<o2.val)--newline--                    return -1;--newline--                else if (o1.val==o2.val)--newline--                    return 0;--newline--                else --newline--                    return 1;--newline--            }--newline--        });--newline--        --newline--        ListNode dummy = new ListNode(0);--newline--        ListNode tail=dummy;--newline--        --newline--        for (ListNode node:lists)--newline--            if (node!=null)--newline--                queue.add(node);--newline--            --newline--        while (!queue.isEmpty()){--newline--            tail.next=queue.poll();--newline--            tail=tail.next;--newline--            --newline--            if (tail.next!=null)--newline--                queue.add(tail.next);--newline--        }--newline--        return dummy.next;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "A java solution based on Priority Queue"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    ListNode *mergeKLists(vector<ListNode *> &lists) {--newline--        if(lists.empty()){--newline--            return nullptr;--newline--        }--newline--        while(lists.size() > 1){--newline--            lists.push_back(mergeTwoLists(lists[0], lists[1]));--newline--            lists.erase(lists.begin());--newline--            lists.erase(lists.begin());--newline--        }--newline--        return lists.front();--newline--    }--newline--    ListNode *mergeTwoLists(ListNode *l1, ListNode *l2) {--newline--        if(l1 == nullptr){--newline--            return l2;--newline--        }--newline--        if(l2 == nullptr){--newline--            return l1;--newline--        }--newline--        if(l1->val <= l2->val){--newline--            l1->next = mergeTwoLists(l1->next, l2);--newline--            return l1;--newline--        }--newline--        else{--newline--            l2->next = mergeTwoLists(l1, l2->next);--newline--            return l2;--newline--        }--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Sharing my straightforward C++ solution without data structure other than vector"
+        },
+        {
+            "java": "public class Solution {--newline--    public static ListNode mergeKLists(ListNode[] lists){--newline--        return partion(lists,0,lists.length-1);--newline--    }--newline--    --newline--    public static ListNode partion(ListNode[] lists,int s,int e){--newline--        if(s==e)  return lists[s];--newline--        if(s<e){--newline--            int q=(s+e)/2;--newline--            ListNode l1=partion(lists,s,q);--newline--            ListNode l2=partion(lists,q+1,e);--newline--            return merge(l1,l2);--newline--        }else--newline--            return null;--newline--    }--newline--    --newline--    //This function is from Merge Two Sorted Lists.--newline--    public static ListNode merge(ListNode l1,ListNode l2){--newline--        if(l1==null) return l2;--newline--        if(l2==null) return l1;--newline--        if(l1.val<l2.val){--newline--            l1.next=merge(l1.next,l2);--newline--            return l1;--newline--        }else{--newline--            l2.next=merge(l1,l2.next);--newline--            return l2;--newline--        }--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My simple java Solution use recursion"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    static bool heapComp(ListNode* a, ListNode* b) {--newline--            return a->val > b->val;--newline--    }--newline--    ListNode* mergeKLists(vector<ListNode*>& lists) { //make_heap--newline--        ListNode head(0);--newline--        ListNode *curNode = &head;--newline--        vector<ListNode*> v;   --newline--        for(int i =0; i<lists.size(); i++){--newline--            if(lists[i]) v.push_back(lists[i]);--newline--        }--newline--        make_heap(v.begin(), v.end(), heapComp); //vector -> heap data strcture--newline--    --newline--        while(v.size()>0){--newline--            curNode->next=v.front();--newline--            pop_heap(v.begin(), v.end(), heapComp); --newline--            v.pop_back(); --newline--            curNode = curNode->next;--newline--            if(curNode->next) {--newline--                v.push_back(curNode->next); --newline--                push_heap(v.begin(), v.end(), heapComp);--newline--            }--newline--        }--newline--        return head.next;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Difference between Priority-Queue and Heap, and C++ implementation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "from Queue import PriorityQueue--newline--class Solution(object):--newline----tab--    def mergeKLists(self, lists):--newline----tab--        dummy = ListNode(None)--newline----tab--        curr = dummy--newline----tab--        q = PriorityQueue()--newline----tab--        for node in lists:--newline----tab--            if node: q.put((node.val,node))--newline----tab--        while q.qsize()>0:--newline----tab--            curr.next = q.get()[1]--newline----tab--            curr=curr.next--newline----tab--            if curr.next: q.put((curr.next.val, curr.next))--newline----tab--        return dummy.next",
+            "topic_title": "10-line python solution with priority queue"
+        }
+    ],
+    "qc": "23.json"
+}

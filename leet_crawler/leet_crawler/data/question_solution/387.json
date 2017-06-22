@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int firstUniqChar(String s) {--newline--        int freq [] = new int[26];--newline--        for(int i = 0; i < s.length(); i ++)--newline--            freq [s.charAt(i) - 'a'] ++;--newline--        for(int i = 0; i < s.length(); i ++)--newline--            if(freq [s.charAt(i) - 'a'] == 1)--newline--                return i;--newline--        return -1;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 7 lines solution 29ms"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int firstUniqChar(string s) {--newline--        unordered_map<char, pair<int, int>> m;--newline--        int idx = s.size();--newline--        for(int i = 0; i < s.size(); i++) {--newline--            m[s[i]].first++;--newline--            m[s[i]].second = i;--newline--        }--newline--        for(auto &p : m) {--newline--            if(p.second.first == 1) idx = min(idx, p.second.second);--newline--        }--newline--        return idx == s.size() ? -1 : idx;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ 2 solutions"
+        },
+        {
+            "java": "public class Solution {--newline--    public int firstUniqChar(String s) {--newline--        if (s==null || s.length()==0) return -1;--newline--        int len = s.length();--newline--        if (len==1) return 0;--newline--        char[] cc = s.toCharArray();--newline--        int slow =0, fast=1;--newline--        int[] count = new int[256];--newline--        count[cc[slow]]++;--newline--        while (fast < len) {--newline--            count[cc[fast]]++;--newline--            // if slow pointer is not a unique character anymore, move to the next unique one--newline--            while (slow < len && count[cc[slow]] > 1) slow++;  --newline--            if (slow >= len) return -1; // no unique character exist--newline--            if (count[cc[slow]]==0) { // not yet visited by the fast pointer--newline--                count[cc[slow]]++; --newline--                fast=slow; // reset the fast pointer--newline--            }--newline--            fast++;--newline--        }--newline--        return slow;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java two pointers (slow and fast) solution (18 ms)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def firstUniqChar(self, s):--newline----tab--        return min([s.find(c) for c,v in collections.Counter(s).iteritems() if v==1] or [-1])--newline----tab--",
+            "topic_title": "1-liners in Python, 76ms"
+        },
+        {
+            "java": "public class Solution {--newline--    public static int firstUniqChar(String s) {--newline--            --newline--    --tab----tab--char[] a = s.toCharArray();--newline--    --tab----tab----newline--    --tab----tab--for(int i=0; i<a.length;i++){--newline--    --tab----tab----tab--if(s.indexOf(a[i])==s.lastIndexOf(a[i])){return i;}--newline--    --tab----tab--}--newline--    --tab----tab--return -1;--newline--        }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "my 4 lines Java solution"
+        }
+    ],
+    "qc": "387.json"
+}

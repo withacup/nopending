@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int nthUglyNumber(int n) {--newline--        if(n <= 0) return false; // get rid of corner cases --newline--        if(n == 1) return true; // base case--newline--        int t2 = 0, t3 = 0, t5 = 0; //pointers for 2, 3, 5--newline--        vector<int> k(n);--newline--        k[0] = 1;--newline--        for(int i  = 1; i < n ; i ++)--newline--        {--newline--            k[i] = min(k[t2]*2,min(k[t3]*3,k[t5]*5));--newline--            if(k[i] == k[t2]*2) t2++; --newline--            if(k[i] == k[t3]*3) t3++;--newline--            if(k[i] == k[t5]*5) t5++;--newline--        }--newline--        return k[n-1];--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "My 16ms C++ DP solution with short explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public int nthUglyNumber(int n) {--newline--        int[] ugly = new int[n];--newline--        ugly[0] = 1;--newline--        int index2 = 0, index3 = 0, index5 = 0;--newline--        int factor2 = 2, factor3 = 3, factor5 = 5;--newline--        for(int i=1;i<n;i++){--newline--            int min = Math.min(Math.min(factor2,factor3),factor5);--newline--            ugly[i] = min;--newline--            if(factor2 == min)--newline--                factor2 = 2*ugly[++index2];--newline--            if(factor3 == min)--newline--                factor3 = 3*ugly[++index3];--newline--            if(factor5 == min)--newline--                factor5 = 5*ugly[++index5];--newline--        }--newline--        return ugly[n-1];--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "O(n) Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    struct Solution {--newline--        int nthUglyNumber(int n) {--newline--            vector <int> results (1,1);--newline--            int i = 0, j = 0, k = 0;--newline--            while (results.size() < n)--newline--            {--newline--                results.push_back(min(results[i] * 2, min(results[j] * 3, results[k] * 5)));--newline--                if (results.back() == results[i] * 2) ++i;--newline--                if (results.back() == results[j] * 3) ++j;--newline--                if (results.back() == results[k] * 5) ++k;--newline--            }--newline--            return results.back();--newline--        }--newline--    };--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Elegant C++ Solution O(N) space time with detailed explanation."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def nthUglyNumber(self, n):--newline----tab--        ugly = [1]--newline----tab--        i2, i3, i5 = 0, 0, 0--newline----tab--        while n > 1:--newline----tab--            u2, u3, u5 = 2 * ugly[i2], 3 * ugly[i3], 5 * ugly[i5]--newline----tab--            umin = min((u2, u3, u5))--newline----tab--            if umin == u2:--newline----tab--                i2 += 1--newline----tab--            if umin == u3:--newline----tab--                i3 += 1--newline----tab--            if umin == u5:--newline----tab--                i5 += 1--newline----tab--            ugly.append(umin)--newline----tab--            n -= 1--newline----tab--        return ugly[-1]",
+            "topic_title": "My expressive Python solution"
+        },
+        {
+            "java": "public class Solution {--newline----tab--public int nthUglyNumber(int n) {--newline----tab----tab--if(n<=0) return 0;--newline----tab----tab--int a=0,b=0,c=0;--newline----tab----tab--List<Integer> table = new ArrayList<Integer>();--newline----tab----tab--table.add(1);--newline----tab----tab--while(table.size()<n)--newline----tab----tab--{--newline----tab----tab----tab--int next_val = Math.min(table.get(a)*2,Math.min(table.get(b)*3,table.get(c)*5));--newline----tab----tab----tab--table.add(next_val);--newline----tab----tab----tab--if(table.get(a)*2==next_val) a++;--newline----tab----tab----tab--if(table.get(b)*3==next_val) b++;--newline----tab----tab----tab--if(table.get(c)*5==next_val) c++;--newline----tab----tab--}--newline----tab----tab--return table.get(table.size()-1);--newline----tab--}--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Easy Understand O(n) Solution"
+        }
+    ],
+    "qc": "264.json"
+}

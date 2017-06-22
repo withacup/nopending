@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    private TreeNode prev = null;--newline--    --newline--    public void flatten(TreeNode root) {--newline--        if (root == null)--newline--            return;--newline--        flatten(root.right);--newline--        flatten(root.left);--newline--        root.right = prev;--newline--        root.left = null;--newline--        prev = root;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My short post order traversal Java solution for share"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    void flatten(TreeNode *root) {--newline----tab----tab--TreeNode*now = root;--newline----tab----tab--while (now)--newline----tab----tab--{--newline----tab----tab----tab--if(now->left)--newline----tab----tab----tab--{--newline--                //Find current node's prenode that links to current node's right subtree--newline----tab----tab----tab----tab--TreeNode* pre = now->left;--newline----tab----tab----tab----tab--while(pre->right)--newline----tab----tab----tab----tab--{--newline----tab----tab----tab----tab----tab--pre = pre->right;--newline----tab----tab----tab----tab--}--newline----tab----tab----tab----tab--pre->right = now->right;--newline--                //Use current node's left subtree to replace its right subtree(original right --newline--                //subtree is already linked by current node's prenode--newline----tab----tab----tab----tab--now->right = now->left;--newline----tab----tab----tab----tab--now->left = NULL;--newline----tab----tab----tab--}--newline----tab----tab----tab--now = now->right;--newline----tab----tab--}--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Share my simple NON-recursive solution, O(1) space complexity!"
+        },
+        {
+            "java": "public class Solution {--newline--    public void flatten(TreeNode root) {--newline--            if (root == null) return;--newline--            --newline--            TreeNode left = root.left;--newline--            TreeNode right = root.right;--newline--            --newline--            root.left = null;--newline--            --newline--            flatten(left);--newline--            flatten(right);--newline--            --newline--            root.right = left;--newline--            TreeNode cur = root;--newline--            while (cur.right != null) cur = cur.right;--newline--            cur.right = right;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Straightforward Java Solution"
+        },
+        {
+            "java": "public class Solution {--newline--       public void flatten(TreeNode root) {--newline--            if (root == null) return;--newline--            Stack<TreeNode> stk = new Stack<TreeNode>();--newline--            stk.push(root);--newline--            while (!stk.isEmpty()){--newline--                TreeNode curr = stk.pop();--newline--                if (curr.right!=null)  --newline--                     stk.push(curr.right);--newline--                if (curr.left!=null)  --newline--                     stk.push(curr.left);--newline--                if (!stk.isEmpty()) --newline--                     curr.right = stk.peek();--newline--                curr.left = null;  // dont forget this!! --newline--            }--newline--        }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Accepted simple Java solution , iterative"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    void flatten(TreeNode *root) {--newline--    --tab--while (root) {--newline--    --tab----tab--if (root->left && root->right) {--newline--    --tab----tab----tab--TreeNode* t = root->left;--newline--    --tab----tab----tab--while (t->right)--newline--    --tab----tab----tab----tab--t = t->right;--newline--    --tab----tab----tab--t->right = root->right;--newline--    --tab----tab--}--newline--    --newline--            if(root->left)--newline--    --tab----tab--    root->right = root->left;--newline--    --tab----tab--root->left = NULL;--newline--    --tab----tab--root = root->right;--newline--    --tab--}--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "8ms, Non-recursive, No stack, C++ solution"
+        }
+    ],
+    "qc": "114.json"
+}

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int uniquePathsWithObstacles(int[][] obstacleGrid) {--newline--        int width = obstacleGrid[0].length;--newline--        int[] dp = new int[width];--newline--        dp[0] = 1;--newline--        for (int[] row : obstacleGrid) {--newline--            for (int j = 0; j < width; j++) {--newline--                if (row[j] == 1)--newline--                    dp[j] = 0;--newline--                else if (j > 0)--newline--                    dp[j] += dp[j - 1];--newline--            }--newline--        }--newline--        return dp[width - 1];--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Short JAVA solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int uniquePathsWithObstacles(vector<vector<int> > &obstacleGrid) {--newline--        int m = obstacleGrid.size() , n = obstacleGrid[0].size();--newline--        vector<vector<int>> dp(m+1,vector<int>(n+1,0));--newline--        dp[0][1] = 1;--newline--        for(int i = 1 ; i <= m ; ++i)--newline--            for(int j = 1 ; j <= n ; ++j)--newline--                if(!obstacleGrid[i-1][j-1])--newline--                    dp[i][j] = dp[i-1][j]+dp[i][j-1];--newline--        return dp[m][n];--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "My C++ Dp solution , very simple!"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {--newline--        int m = obstacleGrid.size();--newline--        int n = obstacleGrid[0].size();--newline--        vector<int> cur(m, 0);--newline--        for (int i = 0; i < m; i++) {--newline--            if (!obstacleGrid[i][0])--newline--                cur[i] = 1;--newline--            else break;--newline--        }--newline--        for (int j = 1; j < n; j++) {--newline--            bool flag = false;--newline--            if (obstacleGrid[0][j])--newline--                cur[0] = 0;--newline--            else flag = true;--newline--            for (int i = 1; i < m; i++) {--newline--                if (!obstacleGrid[i][j]) {--newline--                    cur[i] += cur[i - 1]; --newline--                    if (cur[i]) flag = true;--newline--                }--newline--                else cur[i] = 0; --newline--            }--newline--            if (!flag) return 0;--newline--        }--newline--        return cur[m - 1];--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "4ms O(n) DP Solution in C++ with Explanations"
+        },
+        {
+            "java": "public class Solution {--newline--    public int uniquePathsWithObstacles(int[][] obstacleGrid) {--newline--        --newline--        //Empty case--newline--        if(obstacleGrid.length == 0) return 0;--newline--        --newline--        int rows = obstacleGrid.length;--newline--        int cols = obstacleGrid[0].length;--newline--        --newline--        for(int i = 0; i < rows; i++){--newline--            for(int j = 0; j < cols; j++){--newline--                if(obstacleGrid[i][j] == 1)--newline--                    obstacleGrid[i][j] = 0;--newline--                else if(i == 0 && j == 0)--newline--                    obstacleGrid[i][j] = 1;--newline--                else if(i == 0)--newline--                    obstacleGrid[i][j] = obstacleGrid[i][j - 1] * 1;// For row 0, if there are no paths to left cell, then its 0,else 1--newline--                else if(j == 0)--newline--                    obstacleGrid[i][j] = obstacleGrid[i - 1][j] * 1;// For col 0, if there are no paths to upper cell, then its 0,else 1--newline--                else--newline--                    obstacleGrid[i][j] = obstacleGrid[i - 1][j] + obstacleGrid[i][j - 1];--newline--            }--newline--        }--newline--        --newline--        return obstacleGrid[rows - 1][cols - 1];--newline--        --newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution using Dynamic Programming, O(1) space"
+        },
+        {
+            "java": " public class Solution {--newline--        public int uniquePathsWithObstacles(int[][] obstacleGrid) {--newline--            int m = obstacleGrid.length;--newline--            int n = obstacleGrid[0].length;--newline--    --newline--            obstacleGrid[0][0]^=1;--newline--            for(int i = 1;i<m;i++){--newline--                obstacleGrid[i][0]=(obstacleGrid[i][0]==1)? 0:obstacleGrid[i-1][0];--newline--            }--newline--            --newline--            for(int j = 1;j<n;j++){--newline--                obstacleGrid[0][j] =(obstacleGrid[0][j]==1)? 0: obstacleGrid[0][j-1];--newline--            }--newline--            for(int i = 1;i<m;i++){--newline--                for(int j =1;j<n;j++){--newline--                    obstacleGrid[i][j] =(obstacleGrid[i][j]==1)? 0: obstacleGrid[i-1][j]+obstacleGrid[i][j-1];--newline--                }--newline--            }--newline--            return obstacleGrid[m-1][n-1];--newline--        }--newline--    }",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy Java solution, in-place, DP"
+        }
+    ],
+    "qc": "63.json"
+}

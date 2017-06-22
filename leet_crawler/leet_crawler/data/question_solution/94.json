@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public List<Integer> inorderTraversal(TreeNode root) {--newline--        List<Integer> list = new ArrayList<Integer>();--newline--    --newline--        Stack<TreeNode> stack = new Stack<TreeNode>();--newline--        TreeNode cur = root;--newline--    --newline--        while(cur!=null || !stack.empty()){--newline--            while(cur!=null){--newline--                stack.add(cur);--newline--                cur = cur.left;--newline--            }--newline--            cur = stack.pop();--newline--            list.add(cur.val);--newline--            cur = cur.right;--newline--        }--newline--    --newline--        return list;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Iterative solution in Java - simple and readable"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> inorderTraversal(TreeNode *root) {--newline--        vector<int> vector;--newline--        stack<TreeNode *> stack;--newline--        TreeNode *pCurrent = root;--newline--        --newline--        while(!stack.empty() || pCurrent)--newline--        {--newline--            if(pCurrent)--newline--            {--newline--                stack.push(pCurrent);--newline--                pCurrent = pCurrent->left;--newline--            }--newline--            else--newline--            {--newline--                TreeNode *pNode = stack.top();--newline--                vector.push_back(pNode->val);--newline--                stack.pop();--newline--                pCurrent = pNode->right;--newline--            }--newline--        }--newline--        return vector;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Three Methods to Solve (C++)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> inorderTraversal(TreeNode* root) {--newline--        TreeNode* curNode = root;--newline--        vector<int> nodes;--newline--        while (curNode) {--newline--            if (curNode -> left) {--newline--                TreeNode* predecessor = curNode -> left;--newline--                while (predecessor -> right && predecessor -> right != curNode)--newline--                    predecessor = predecessor -> right;--newline--                if (!(predecessor -> right)) {--newline--                    predecessor -> right = curNode;--newline--                    curNode = curNode -> left;--newline--                }--newline--                else {--newline--                    predecessor -> right = NULL;--newline--                    nodes.push_back(curNode -> val);--newline--                    curNode = curNode -> right;--newline--                }--newline--            }--newline--            else {--newline--                nodes.push_back(curNode -> val);--newline--                curNode = curNode -> right;--newline--            }--newline--        }--newline--        return nodes;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Clear C++ solutions --- iterative, recursive and Morris traversal (3 different solutions!)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    # recursively--newline----tab--    def inorderTraversal1(self, root):--newline----tab--        res = []--newline----tab--        self.helper(root, res)--newline----tab--        return res--newline----tab--        --newline----tab--    def helper(self, root, res):--newline----tab--        if root:--newline----tab--            self.helper(root.left, res)--newline----tab--            res.append(root.val)--newline----tab--            self.helper(root.right, res)--newline----tab--     --newline----tab--    # iteratively       --newline----tab--    def inorderTraversal(self, root):--newline----tab--        res, stack = [], []--newline----tab--        while True:--newline----tab--            while root:--newline----tab--                stack.append(root)--newline----tab--                root = root.left--newline----tab--            if not stack:--newline----tab--                return res--newline----tab--            node = stack.pop()--newline----tab--            res.append(node.val)--newline----tab--            root = node.right",
+            "topic_title": "Python recursive and iterative solutions."
+        },
+        {
+            "java": "public class Solution {--newline--    public List<Integer> inorderTraversal(TreeNode root) {--newline--    --tab--List<Integer> res = new LinkedList<Integer>();--newline--    --tab--if (root == null) return res;--newline--    --tab----newline--    --tab--Stack<TreeNode> stack = new Stack<TreeNode>();--newline--    --tab--TreeNode cur = root;--newline--    --tab--while (cur != null || !stack.isEmpty()) { --newline--    --tab----tab--while (cur != null) {// Travel to each node's left child, till reach the left leaf--newline--    --tab----tab----tab--stack.push(cur);--newline--    --tab----tab----tab--cur = cur.left;--tab----tab----tab----tab----newline--    --tab----tab--}--tab----tab-- --newline--    --tab----tab--cur = stack.pop(); // Backtrack to higher level node A--newline--    --tab----tab--res.add(cur.val);  // Add the node to the result list--newline--    --tab----tab--cur = cur.right;   // Switch to A'right branch--newline--    --tab--}--newline--    --tab--return res;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Concise JAVA solution based on Stack"
+        }
+    ],
+    "qc": "94.json"
+}

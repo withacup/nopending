@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "2-4 lines, every language"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isUgly(int num) {--newline--        if(num==1) return true;--newline--        if(num==0) return false;--newline--    --tab--while(num%2==0) num=num>>1;--newline--    --tab--while(num%3==0) num=num/3;--newline--    --tab--while(num%5==0) num=num/5;--newline--        return num==1;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My 2ms java solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isUgly(int num) {--newline--        if (num <= 0) {return false;}--newline--        if (num == 1) {return true;}--newline--        if (num % 2 == 0) {--newline--            return isUgly(num/2);--newline--        }--newline--        if (num % 3 == 0) {--newline--            return isUgly(num/3);--newline--        }--newline--        if (num % 5 == 0) {--newline--            return isUgly(num/5);--newline--        }--newline--        return false;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple java solution with explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public static boolean isUgly(int num) {--newline--        if (num <= 0) {--newline--            return false;--newline--        }--newline--        --newline--        int[] divisors = {2, 3, 5};--newline--        --newline--        for(int d : divisors) {--newline--            while (num % d == 0) {--newline--                num /= d;--newline--            }--newline--        }--newline--        return num == 1;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java solution, greatest divide by 2, 3, 5"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def isUgly(self, num):--newline----tab--        \"\"\"--newline----tab--        :type num: int--newline----tab--        :rtype: bool--newline----tab--        \"\"\"--newline----tab--        if num <= 0:--newline----tab--            return False--newline----tab--        for x in [2, 3, 5]:--newline----tab--            while num % x == 0:--newline----tab--                num = num / x--newline----tab--        return num == 1",
+            "topic_title": "My python solution"
+        }
+    ],
+    "qc": "263.json"
+}

@@ -1,0 +1,16 @@
+---CONTENT_BEGIN---
+
+Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
+
+
+
+Note: Do not modify the linked list.
+
+
+Follow up:
+Can you solve it without using extra space?
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "/**--newline-- * Definition for singly-linked list.--newline-- * struct ListNode {--newline-- *     int val;--newline-- *     ListNode *next;--newline-- *     ListNode(int x) : val(x), next(NULL) {}--newline-- * };--newline-- */--newline--class Solution {--newline--public:--newline--    ListNode *detectCycle(ListNode *head) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "/**--newline-- * Definition for singly-linked list.--newline-- * class ListNode {--newline-- *     int val;--newline-- *     ListNode next;--newline-- *     ListNode(int x) {--newline-- *         val = x;--newline-- *         next = null;--newline-- *     }--newline-- * }--newline-- */--newline--public class Solution {--newline--    public ListNode detectCycle(ListNode head) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "# Definition for singly-linked list.--newline--# class ListNode(object):--newline--#     def __init__(self, x):--newline--#         self.val = x--newline--#         self.next = None--newline----newline--class Solution(object):--newline--    def detectCycle(self, head):--newline--        '''--newline--        :type head: ListNode--newline--        :rtype: ListNode--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Definition for singly-linked list.--newline-- * struct ListNode {--newline-- *     int val;--newline-- *     struct ListNode *next;--newline-- * };--newline-- */--newline--struct ListNode *detectCycle(struct ListNode *head) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "/**--newline-- * Definition for singly-linked list.--newline-- * public class ListNode {--newline-- *     public int val;--newline-- *     public ListNode next;--newline-- *     public ListNode(int x) {--newline-- *         val = x;--newline-- *         next = null;--newline-- *     }--newline-- * }--newline-- */--newline--public class Solution {--newline--    public ListNode DetectCycle(ListNode head) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * Definition for singly-linked list.--newline-- * function ListNode(val) {--newline-- *     this.val = val;--newline-- *     this.next = null;--newline-- * }--newline-- */--newline----newline--/**--newline-- * @param {ListNode} head--newline-- * @return {ListNode}--newline-- */--newline--var detectCycle = function(head) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}]
+---SCRIPT_END---

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--     bool isMatch(const char *s, const char *p) {--newline--            const char* star=NULL;--newline--            const char* ss=s;--newline--            while (*s){--newline--                //advancing both pointers when (both characters match) or ('?' found in pattern)--newline--                //note that *p will not advance beyond its length --newline--                if ((*p=='?')||(*p==*s)){s++;p++;continue;} --newline--    --newline--                // * found in pattern, track index of *, only advancing pattern pointer --newline--                if (*p=='*'){star=p++; ss=s;continue;} --newline--    --newline--                //current characters didn't match, last pattern pointer was *, current pattern pointer is not *--newline--                //only advancing pattern pointer--newline--                if (star){ p = star+1; s=++ss;continue;} --newline--    --newline--               //current pattern pointer is not star, last patter pointer was not *--newline--               //characters do not match--newline--                return false;--newline--            }--newline--    --newline--           //check for remaining characters in pattern--newline--            while (*p=='*'){p++;}--newline--    --newline--            return !*p;  --newline--        }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Linear runtime and constant space solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool isMatch(string s, string p) {--newline--        int m = s.length(), n = p.length();--newline--        int i = 0, j = 0, asterisk = -1, match;--newline--        while (i < m) {--newline--            if (j < n && p[j] == '*') {--newline--                match = i; --newline--                asterisk = j++;--newline--            }--newline--            else if (j < n && (s[i] == p[j] || p[j] == '?')) {--newline--                i++; --newline--                j++;--newline--            }--newline--            else if (asterisk >= 0) {--newline--                i = ++match;--newline--                j = asterisk + 1;--newline--            }--newline--            else return false;--newline--        }--newline--        while (j < n && p[j] == '*') j++;--newline--        return j == n;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Accepted C++ DP Solution with a Trick"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isMatch(String s, String p) {--newline--        boolean[][] match=new boolean[s.length()+1][p.length()+1];--newline--        match[s.length()][p.length()]=true;--newline--        for(int i=p.length()-1;i>=0;i--){--newline--            if(p.charAt(i)!='*')--newline--                break;--newline--            else--newline--                match[s.length()][i]=true;--newline--        }--newline--        for(int i=s.length()-1;i>=0;i--){--newline--            for(int j=p.length()-1;j>=0;j--){--newline--                if(s.charAt(i)==p.charAt(j)||p.charAt(j)=='?')--newline--                        match[i][j]=match[i+1][j+1];--newline--                else if(p.charAt(j)=='*')--newline--                        match[i][j]=match[i+1][j]||match[i][j+1];--newline--                else--newline--                    match[i][j]=false;--newline--            }--newline--        }--newline--        return match[0][0];--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My java DP solution using 2D table"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isMatch(String s, String p) {--newline--        int count = 0;--newline--        for (char c : p.toCharArray()) {--newline--            if (c == '*')--newline--                count++;--newline--        }--newline--        if (p.length() - count > s.length())--newline--            return false;--newline--        boolean[][] dp = new boolean[p.length() + 1][s.length() + 1];--newline--        dp[0][0] = true;--newline--        for (int j = 1; j <= p.length(); j++) {--newline--            char pattern = p.charAt(j - 1);--newline--            dp[j][0] = dp[j - 1][0] && pattern == '*';--newline--            for (int i = 1; i <= s.length(); i++) {--newline--                char letter = s.charAt(i - 1);--newline--                if (pattern != '*') {--newline--                    dp[j][i] = dp[j - 1][i - 1] && (pattern == '?' || pattern == letter);--newline--                } else--newline--                    dp[j][i] = dp[j][i - 1] || dp[j - 1][i];--newline--            }--newline--        }--newline--        return dp[p.length()][s.length()];--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab--# @return a boolean--newline----tab--def isMatch(self, s, p):--newline----tab--    length = len(s)--newline----tab--    if len(p) - p.count('*') > length:--newline----tab--        return False--newline----tab--    dp = [True] + [False]*length--newline----tab--    for i in p:--newline----tab--        if i != '*':--newline----tab--            for n in reversed(range(length)):--newline----tab--                dp[n+1] = dp[n] and (i == s[n] or i == '?')--newline----tab--        else:--newline----tab--            for n in range(1, length+1):--newline----tab--                dp[n] = dp[n-1] or dp[n]--newline----tab--        dp[0] = dp[0] and i == '*'--newline----tab--    return dp[-1]--newline----tab--",
+            "topic_title": "Python DP solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--private:--newline--    bool helper(const string &s, const string &p, int si, int pi, int &recLevel)--newline--    {--newline--        int sSize = s.size(), pSize = p.size(), i, curLevel = recLevel;--newline--        bool first=true;--newline--        while(si<sSize && (p[pi]==s[si] || p[pi]=='?')) {++pi; ++si;} //match as many as possible--newline--        if(pi == pSize) return si == sSize; // if p reaches the end, return--newline--        if(p[pi]=='*')--newline--        { // if a star is met--newline--            while(p[++pi]=='*'); //skip all the following stars--newline--            if(pi>=pSize) return true; // if the rest of p are all star, return true--newline--            for(i=si; i<sSize; ++i)--newline--            {   // then do recursion--newline--                if(p[pi]!= '?' && p[pi]!=s[i]) continue;--newline--                if(first) {++recLevel; first = false;}--newline--                if(helper(s, p, i, pi, recLevel)) return true;--newline--                if(recLevel>curLevel+1) return false; // if the currently processed star is not the last one, return--newline--            }--newline--        }--newline--        return false;--newline--    }--newline--public:--newline--    bool isMatch(string s, string p) {--newline--        int recLevel = 0;--newline--        return helper(s, p, 0, 0, recLevel);--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "My three C++ solutions (iterative (16ms) &amp; DP (180ms) &amp; modified recursion (88ms))"
+        }
+    ],
+    "qc": "44.json"
+}

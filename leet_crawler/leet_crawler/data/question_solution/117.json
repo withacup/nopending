@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    --newline--    //based on level order traversal--newline--    public void connect(TreeLinkNode root) {--newline----newline--        TreeLinkNode head = null; //head of the next level--newline--        TreeLinkNode prev = null; //the leading node on the next level--newline--        TreeLinkNode cur = root;  //current node of current level--newline----newline--        while (cur != null) {--newline--            --newline--            while (cur != null) { //iterate on the current level--newline--                //left child--newline--                if (cur.left != null) {--newline--                    if (prev != null) {--newline--                        prev.next = cur.left;--newline--                    } else {--newline--                        head = cur.left;--newline--                    }--newline--                    prev = cur.left;--newline--                }--newline--                //right child--newline--                if (cur.right != null) {--newline--                    if (prev != null) {--newline--                        prev.next = cur.right;--newline--                    } else {--newline--                        head = cur.right;--newline--                    }--newline--                    prev = cur.right;--newline--                }--newline--                //move to next node--newline--                cur = cur.next;--newline--            }--newline--            --newline--            //move to next level--newline--            cur = head;--newline--            head = null;--newline--            prev = null;--newline--        }--newline--        --newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "O(1) space O(n) complexity Iterative Solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public void connect(TreeLinkNode root) {--newline--        --newline--        while(root != null){--newline--            TreeLinkNode tempChild = new TreeLinkNode(0);--newline--            TreeLinkNode currentChild = tempChild;--newline--            while(root!=null){--newline--                if(root.left != null) { currentChild.next = root.left; currentChild = currentChild.next;}--newline--                if(root.right != null) { currentChild.next = root.right; currentChild = currentChild.next;}--newline--                root = root.next;--newline--            }--newline--            root = tempChild.next;--newline--        }--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple solution using constant space"
+        },
+        {
+            "java": "public class Solution {--newline--    public void connect(TreeLinkNode root) {--newline--        TreeLinkNode dummyHead = new TreeLinkNode(0);--newline--        TreeLinkNode pre = dummyHead;--newline--        while (root != null) {--newline--    --tab--    if (root.left != null) {--newline--    --tab----tab--    pre.next = root.left;--newline--    --tab----tab--    pre = pre.next;--newline--    --tab--    }--newline--    --tab--    if (root.right != null) {--newline--    --tab----tab--    pre.next = root.right;--newline--    --tab----tab--    pre = pre.next;--newline--    --tab--    }--newline--    --tab--    root = root.next;--newline--    --tab--    if (root == null) {--newline--    --tab----tab--    pre = dummyHead;--newline--    --tab----tab--    root = dummyHead.next;--newline--    --tab----tab--    dummyHead.next = null;--newline--    --tab--    }--newline--        }--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java solution with constant space"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    void connect(TreeLinkNode *root) {--newline--        TreeLinkNode *now, *tail, *head;--newline--        --newline--        now = root;--newline--        head = tail = NULL;--newline--        while(now)--newline--        {--newline--            if (now->left)--newline--                if (tail) tail = tail->next =now->left;--newline--                else head = tail = now->left;--newline--            if (now->right)--newline--                if (tail) tail = tail->next =now->right;--newline--                else head = tail = now->right;--newline--            if(!(now = now->next))--newline--            {--newline--                now = head;--newline--                head = tail=NULL;--newline--            }--newline--        }--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Simple 40ms c++ o(n) ,o(1) solution with only one while loop"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def connect(self, node):--newline----tab--        tail = dummy = TreeLinkNode(0)--newline----tab--        while node:--newline----tab--            tail.next = node.left--newline----tab--            if tail.next:--newline----tab--                tail = tail.next--newline----tab--            tail.next = node.right--newline----tab--            if tail.next:--newline----tab--                tail = tail.next--newline----tab--            node = node.next--newline----tab--            if not node:--newline----tab--                tail = dummy--newline----tab--                node = dummy.next--newline----tab--    --newline----tab--    --newline----tab--    # 61 / 61 test cases passed.--newline----tab--    # Status: Accepted--newline----tab--    # Runtime: 100 ms--newline----tab--    # 95.26%",
+            "topic_title": "AC Python O(1) space solution 12 lines and easy to understand"
+        }
+    ],
+    "qc": "117.json"
+}

@@ -1,0 +1,48 @@
+---CONTENT_BEGIN---
+
+Given two non-empty binary trees s and t, check whether tree t has exactly the same structure and node values with a subtree of s. A subtree of s is a tree consists of a node in s and all of this node's descendants. The tree s could also be considered as a subtree of itself.
+
+
+Example 1:
+
+Given tree s:
+
+     3
+    / \
+   4   5
+  / \
+ 1   2
+
+Given tree t:
+
+   4 
+  / \
+ 1   2
+
+Return true, because t has the same structure and node values with a subtree of s.
+
+
+Example 2:
+
+Given tree s:
+
+     3
+    / \
+   4   5
+  / \
+ 1   2
+    /
+   0
+
+Given tree t:
+
+   4
+  / \
+ 1   2
+
+Return false.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * struct TreeNode {--newline-- *     int val;--newline-- *     TreeNode *left;--newline-- *     TreeNode *right;--newline-- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}--newline-- * };--newline-- */--newline--class Solution {--newline--public:--newline--    bool isSubtree(TreeNode* s, TreeNode* t) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * public class TreeNode {--newline-- *     int val;--newline-- *     TreeNode left;--newline-- *     TreeNode right;--newline-- *     TreeNode(int x) { val = x; }--newline-- * }--newline-- */--newline--public class Solution {--newline--    public boolean isSubtree(TreeNode s, TreeNode t) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "# Definition for a binary tree node.--newline--# class TreeNode(object):--newline--#     def __init__(self, x):--newline--#         self.val = x--newline--#         self.left = None--newline--#         self.right = None--newline----newline--class Solution(object):--newline--    def isSubtree(self, s, t):--newline--        '''--newline--        :type s: TreeNode--newline--        :type t: TreeNode--newline--        :rtype: bool--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "class Solution:--newline--    def isSubtree(self, s, t):--newline--        '''--newline--        :type s: TreeNode--newline--        :type t: TreeNode--newline--        :rtype: bool--newline--        '''", "value": "python3", "text": "Python3"}, {"defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * struct TreeNode {--newline-- *     int val;--newline-- *     struct TreeNode *left;--newline-- *     struct TreeNode *right;--newline-- * };--newline-- */--newline--bool isSubtree(struct TreeNode* s, struct TreeNode* t) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * public class TreeNode {--newline-- *     public int val;--newline-- *     public TreeNode left;--newline-- *     public TreeNode right;--newline-- *     public TreeNode(int x) { val = x; }--newline-- * }--newline-- */--newline--public class Solution {--newline--    public bool IsSubtree(TreeNode s, TreeNode t) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * function TreeNode(val) {--newline-- *     this.val = val;--newline-- *     this.left = this.right = null;--newline-- * }--newline-- */--newline--/**--newline-- * @param {TreeNode} s--newline-- * @param {TreeNode} t--newline-- * @return {boolean}--newline-- */--newline--var isSubtree = function(s, t) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# Definition for a binary tree node.--newline--# class TreeNode--newline--#     attr_accessor :val, :left, :right--newline--#     def initialize(val)--newline--#         @val = val--newline--#         @left, @right = nil, nil--newline--#     end--newline--# end--newline----newline--# @param {TreeNode} s--newline--# @param {TreeNode} t--newline--# @return {Boolean}--newline--def is_subtree(s, t)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * public class TreeNode {--newline-- *     public var val: Int--newline-- *     public var left: TreeNode?--newline-- *     public var right: TreeNode?--newline-- *     public init(_ val: Int) {--newline-- *         self.val = val--newline-- *         self.left = nil--newline-- *         self.right = nil--newline-- *     }--newline-- * }--newline-- */--newline--class Solution {--newline--    func isSubtree(_ s: TreeNode?, _ t: TreeNode?) -> Bool {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * type TreeNode struct {--newline-- *     Val int--newline-- *     Left *TreeNode--newline-- *     Right *TreeNode--newline-- * }--newline-- */--newline--func isSubtree(s *TreeNode, t *TreeNode) bool {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

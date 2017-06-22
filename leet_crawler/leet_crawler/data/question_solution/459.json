@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def repeatedSubstringPattern(self, str):--newline----tab--    --newline----tab--            \"\"\"--newline----tab--            :type str: str--newline----tab--            :rtype: bool--newline----tab--            \"\"\"--newline----tab--            if not str:--newline----tab--                return False--newline----tab--                --newline----tab--            ss = (str + str)[1:-1]--newline----tab--            return ss.find(str) != -1--newline----tab--    ",
+            "topic_title": "Easy python solution with explaination"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean repeatedSubstringPattern(String str) {--newline--    --tab--int l = str.length();--newline--    --tab--for(int i=l/2;i>=1;i--) {--newline--    --tab----tab--if(l%i==0) {--newline--    --tab----tab----tab--int m = l/i;--newline--    --tab----tab----tab--String subS = str.substring(0,i);--newline--    --tab----tab----tab--StringBuilder sb = new StringBuilder();--newline--    --tab----tab----tab--for(int j=0;j<m;j++) {--newline--    --tab----tab----tab----tab--sb.append(subS);--newline--    --tab----tab----tab--}--newline--    --tab----tab----tab--if(sb.toString().equals(str)) return true;--newline--    --tab----tab--}--newline--    --tab--}--newline--    --tab--return false;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Simple Solution with Explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean repeatedSubstringPattern(String str) {--newline--    --tab--        //This is the kmp issue--newline--    --tab--        int[] prefix = kmp(str);--newline--    --tab--        int len = prefix[str.length()-1];--newline--    --tab--        int n = str.length();--newline--    --tab--        return (len > 0 && n%(n-len) == 0);--newline--    --tab--    }--newline--    --tab--    private int[] kmp(String s){--newline--    --tab--        int len = s.length();--newline--    --tab--        int[] res = new int[len];--newline--    --tab--        char[] ch = s.toCharArray();--newline--    --tab--        int i = 0, j = 1;--newline--    --tab--        res[0] = 0;--newline--    --tab--        while(i < ch.length && j < ch.length){--newline--    --tab--            if(ch[j] == ch[i]){--newline--    --tab--                res[j] = i+1;--newline--    --tab--                i++;--newline--    --tab--                j++;--newline--    --tab--            }else{--newline--    --tab--                if(i == 0){--newline--    --tab--                    res[j] = 0;--newline--    --tab--                    j++;--newline--    --tab--                }else{--newline--    --tab--                    i = res[i-1];--newline--    --tab--                }--newline--    --tab--            }--newline--    --tab--        }--newline--    --tab--        return res;--newline--    --tab--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java &amp; O(n)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--        bool repeatedSubstringPattern(string str) {--newline--            int i = 1, j = 0, n = str.size();--newline--            vector<int> dp(n+1,0);--newline--            while( i < str.size() ){--newline--                if( str[i] == str[j] ) dp[++i]=++j;--newline--                else if( j == 0 ) i++;--newline--                else j = dp[j];--newline--            }--newline--            return dp[n]&&dp[n]%(n-dp[n])==0;--newline--        }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "C++ O(n) using KMP, 32ms, 8 lines of code with brief explanation."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool repeatedSubstringPattern(string str) {--newline--        string nextStr = str;--newline--        int len = str.length();--newline--        if(len < 1) return false;--newline--        for(int i = 1; i <= len / 2; i++){--newline--            if(len % i == 0){--newline--                nextStr = leftShift(str, i);--newline--                if(nextStr == str) return true;--newline--            }--newline--        }--newline--        return false;--newline--    }--newline--    --newline--    string leftShift(string &str, int l){--newline--        string ret = str.substr(l);--newline--        ret += str.substr(0, l);--newline--        return ret;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "29 ms CPP simple solution. No KMP."
+        }
+    ],
+    "qc": "459.json"
+}

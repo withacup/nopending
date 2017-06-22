@@ -1,0 +1,18 @@
+---CONTENT_BEGIN---
+Given an array of strings, group anagrams together.
+
+
+For example, given: ["eat", "tea", "tan", "ate", "nat", "bat"], 
+Return:
+
+[
+  ["ate", "eat","tea"],
+  ["nat","tan"],
+  ["bat"]
+]
+
+Note: All inputs will be in lower-case.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<vector<string>> groupAnagrams(vector<string>& strs) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public List<List<String>> groupAnagrams(String[] strs) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def groupAnagrams(self, strs):--newline--        '''--newline--        :type strs: List[str]--newline--        :rtype: List[List[str]]--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Return an array of arrays of size *returnSize.--newline-- * The sizes of the arrays are returned as *columnSizes array.--newline-- * Note: Both returned array and *columnSizes array must be malloced, assume caller calls free().--newline-- */--newline--char*** groupAnagrams(char** strs, int strsSize, int** columnSizes, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public IList<IList<string>> GroupAnagrams(string[] strs) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string[]} strs--newline-- * @return {string[][]}--newline-- */--newline--var groupAnagrams = function(strs) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String[]} strs--newline--# @return {String[][]}--newline--def group_anagrams(strs)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func groupAnagrams(_ strs: [String]) -> [[String]] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func groupAnagrams(strs []string) [][]string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

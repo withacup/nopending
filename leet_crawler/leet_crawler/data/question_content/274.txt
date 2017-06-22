@@ -1,0 +1,22 @@
+---CONTENT_BEGIN---
+
+Given an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher's h-index.
+
+
+
+According to the definition of h-index on Wikipedia: "A scientist has index h if h of his/her N papers have at least h citations each, and the other N &minus; h papers have no more than h citations each."
+
+
+
+For example, given citations = [3, 0, 6, 1, 5], which means the researcher has 5 papers in total and each of them had received 3, 0, 6, 1, 5 citations respectively. Since the researcher has 3 papers with at least 3 citations each and the remaining two with no more than 3 citations each, his h-index is 3.
+
+
+
+Note: If there are several possible values for h, the maximum one is taken as the h-index.
+
+
+Credits:Special thanks to @jianchao.li.fighter for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int hIndex(vector<int>& citations) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int hIndex(int[] citations) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def hIndex(self, citations):--newline--        '''--newline--        :type citations: List[int]--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int hIndex(int* citations, int citationsSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int HIndex(int[] citations) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} citations--newline-- * @return {number}--newline-- */--newline--var hIndex = function(citations) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} citations--newline--# @return {Integer}--newline--def h_index(citations)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func hIndex(_ citations: [Int]) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func hIndex(citations []int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

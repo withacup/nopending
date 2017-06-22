@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Yet another way to see what happens in the O(n) algorithm"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int maxArea(int* heights, int n) {--newline--        int water = 0, *i = heights, *j = i + n - 1;--newline--        while (i < j) {--newline--            int h = *i < *j ? *i : *j;--newline--            int w = (j - i) * h;--newline--            if (w > water) water = w;--newline--            while (*i <= h && i < j) i++;--newline--            while (*j <= h && i < j) j--;--newline--        }--newline--        return water;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Simple and fast C++&#x2F;C with explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public int maxArea(int[] height) {--newline--        int left = 0, right = height.length - 1;--newline--    --tab--int maxArea = 0;--newline--    --newline--    --tab--while (left < right) {--newline--    --tab----tab--maxArea = Math.max(maxArea, Math.min(height[left], height[right])--newline--    --tab----tab----tab----tab--* (right - left));--newline--    --tab----tab--if (height[left] < height[right])--newline--    --tab----tab----tab--left++;--newline--    --tab----tab--else--newline--    --tab----tab----tab--right--;--newline--    --tab--}--newline--    --newline--    --tab--return maxArea;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy Concise Java O(N) Solution with Proof and Explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab--    def maxArea(self, height):--newline----tab--        i, j = 0, len(height) - 1--newline----tab--        water = 0--newline----tab--        while i < j:--newline----tab--            water = max(water, (j - i) * min(height[i], height[j]))--newline----tab--            if height[i] < height[j]:--newline----tab--                i += 1--newline----tab--            else:--newline----tab--                j -= 1--newline----tab--        return water--newline----tab--",
+            "topic_title": "Simple and clear proof&#x2F;explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int maxArea(vector<int> &height)--newline--    {--newline--        int j=height.size()-1,i=0,mx=0;--newline--        --newline--        while(i<j)--newline--        {--newline--            mx=max(mx,((j-i)*(min(height[i],height[j]))));--newline--            --newline--            if(height[i]<height[j])--newline--             i++;--newline--             else if(height[i]>=height[j])--newline--             j--;--newline--        }--newline--        return mx;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Very simple O(n) solution"
+        }
+    ],
+    "qc": "11.json"
+}

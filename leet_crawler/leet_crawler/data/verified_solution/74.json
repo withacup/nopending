@@ -1,0 +1,6 @@
+{
+    "solution_code": "class Solution:--newline--        # @param matrix, a list of lists of integers--newline--        # @param target, an integer--newline--        # @return a boolean--newline--        # 8:21--newline--        def searchMatrix(self, matrix, target):--newline--            if not matrix or target is None:--newline--                return False--newline--    --newline--            rows, cols = len(matrix), len(matrix[0])--newline--            low, high = 0, rows * cols - 1--newline--            --newline--            while low <= high:--newline--                mid = (low + high) / 2--newline--                num = matrix[mid / cols][mid % cols]--newline--    --newline--                if num == target:--newline--                    return True--newline--                elif num < target:--newline--                    low = mid + 1--newline--                else:--newline--                    high = mid - 1--newline--            --newline--            return False",
+    "l_type": "python",
+    "modified_code": null,
+    "total_cases": 136
+}

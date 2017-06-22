@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int rob(TreeNode root) {--newline--        int[] res = robSub(root);--newline--        return Math.max(res[0], res[1]);--newline--    }--newline--    --newline--    private int[] robSub(TreeNode root) {--newline--        if (root == null) return new int[2];--newline--        --newline--        int[] left = robSub(root.left);--newline--        int[] right = robSub(root.right);--newline--        int[] res = new int[2];--newline--    --newline--        res[0] = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);--newline--        res[1] = root.val + left[0] + right[0];--newline--        --newline--        return res;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Step by step tackling of the problem"
+        },
+        {
+            "java": "public class Solution {--newline--    public int rob(TreeNode root) {--newline--        int[] num = dfs(root);--newline--        return Math.max(num[0], num[1]);--newline--    }--newline--    private int[] dfs(TreeNode x) {--newline--        if (x == null) return new int[2];--newline--        int[] left = dfs(x.left);--newline--        int[] right = dfs(x.right);--newline--        int[] res = new int[2];--newline--        res[0] = left[1] + right[1] + x.val;--newline--        res[1] = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);--newline--        return res;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy understanding solution with dfs"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "/**--newline-- * Definition for a binary tree node.--newline-- * struct TreeNode {--newline-- *     int val;--newline-- *     TreeNode *left;--newline-- *     TreeNode *right;--newline-- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}--newline-- * };--newline-- */--newline--class Solution {--newline--public:--newline--    int tryRob(TreeNode* root, int& l, int& r) {--newline--        if (!root)--newline--            return 0;--newline--            --newline--        int ll = 0, lr = 0, rl = 0, rr = 0;--newline--        l = tryRob(root->left, ll, lr);--newline--        r = tryRob(root->right, rl, rr);--newline--        --newline--        return max(root->val + ll + lr + rl + rr, l + r);--newline--    }--newline----newline--    int rob(TreeNode* root) {--newline--        int l, r;--newline--        return tryRob(root, l, r);--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Simple C++ solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int rob(TreeNode root) {--newline--        return robDFS(root)[1];--newline--    }--newline--    int[] robDFS(TreeNode node){--newline--        int [] res = new int[2];--newline--        if(node==null) return res;--newline--        int [] l = robDFS(node.left);--newline--        int [] r = robDFS(node.right);--newline--        res[0] = l[1] + r[1];--newline--        res[1] = Math.max(res[0], l[0] + r[0] + node.val);--newline--        return res;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int rob(TreeNode* root) {--newline--        return robDFS(root).second;--newline--    }--newline--    pair<int, int> robDFS(TreeNode* node){--newline--        if( !node) return make_pair(0,0);--newline--        auto l = robDFS(node->left);--newline--        auto r = robDFS(node->right);--newline--        int f2 = l.second + r.second;--newline--        int f1 = max(f2, l.first + r.first + node->val);--newline--        return make_pair(f2, f1);--newline--    }--newline--};--newline--",
+            "python": "class Solution(object):--newline----tab--    def rob(self, root):--newline----tab--        return self.robDFS(root)[1];--newline----tab--    def robDFS(self,node):--newline----tab--        if node is None:--newline----tab--            return (0,0)--newline----tab--        l = self.robDFS(node.left)--newline----tab--        r = self.robDFS(node.right)--newline----tab--        return (l[1] + r[1], max(l[1] + r[1], l[0] + r[0] + node.val))",
+            "topic_title": "C++, JAVA, PYTHON &amp;  explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public int rob(TreeNode root) {--newline--        if (root == null) return 0;--newline--        return Math.max(robInclude(root), robExclude(root));--newline--    }--newline--    --newline--    public int robInclude(TreeNode node) {--newline--        if(node == null) return 0;--newline--        return robExclude(node.left) + robExclude(node.right) + node.val;--newline--    }--newline--    --newline--    public int robExclude(TreeNode node) {--newline--        if(node == null) return 0;--newline--        return rob(node.left) + rob(node.right);--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy to understand(java)"
+        }
+    ],
+    "qc": "337.json"
+}

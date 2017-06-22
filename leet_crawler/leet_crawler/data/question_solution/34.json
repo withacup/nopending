@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> searchRange(int A[], int n, int target) {--newline--        int i = 0, j = n - 1;--newline--        vector<int> ret(2, -1);--newline--        // Search for the left one--newline--        while (i < j)--newline--        {--newline--            int mid = (i + j) /2;--newline--            if (A[mid] < target) i = mid + 1;--newline--            else j = mid;--newline--        }--newline--        if (A[i]!=target) return ret;--newline--        else ret[0] = i;--newline--        --newline--        // Search for the right one--newline--        j = n-1;  // We don't have to set i to 0 the second time.--newline--        while (i < j)--newline--        {--newline--            int mid = (i + j) /2 + 1;--tab--// Make mid biased to the right--newline--            if (A[mid] > target) j = mid - 1;  --newline--            else i = mid;--tab----tab----tab----tab--// So that this won't make the search range stuck.--newline--        }--newline--        ret[1] = j;--newline--        return ret; --newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Clean iterative solution with two binary searches (with explanation)"
+        },
+        {
+            "java": "public class Solution {--newline----tab--public int[] searchRange(int[] A, int target) {--newline----tab----tab--int start = Solution.firstGreaterEqual(A, target);--newline----tab----tab--if (start == A.length || A[start] != target) {--newline----tab----tab----tab--return new int[]{-1, -1};--newline----tab----tab--}--newline----tab----tab--return new int[]{start, Solution.firstGreaterEqual(A, target + 1) - 1};--newline----tab--}--newline----newline----tab--//find the first number that is greater than or equal to target.--newline----tab--//could return A.length if target is greater than A[A.length-1].--newline----tab--//actually this is the same as lower_bound in C++ STL.--newline----tab--private static int firstGreaterEqual(int[] A, int target) {--newline----tab----tab--int low = 0, high = A.length;--newline----tab----tab--while (low < high) {--newline----tab----tab----tab--int mid = low + ((high - low) >> 1);--newline----tab----tab----tab--//low <= mid < high--newline----tab----tab----tab--if (A[mid] < target) {--newline----tab----tab----tab----tab--low = mid + 1;--newline----tab----tab----tab--} else {--newline----tab----tab----tab----tab--//should not be mid-1 when A[mid]==target.--newline----tab----tab----tab----tab--//could be mid even if A[mid]>target because mid<high.--newline----tab----tab----tab----tab--high = mid;--newline----tab----tab----tab--}--newline----tab----tab--}--newline----tab----tab--return low;--newline----tab--}--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "A very simple Java solution, with only one binary search algorithm"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> searchRange(vector<int>& nums, int target) {--newline--        int lo = lower_bound(nums.begin(), nums.end(), target) - nums.begin();--newline--        if (lo == nums.size() || nums[lo] != target)--newline--            return {-1, -1};--newline--        int hi = upper_bound(nums.begin(), nums.end(), target) - nums.begin() - 1;--newline--        return {lo, hi};--newline--    }--newline--    --newline--}",
+            "python": "class Solution :--newline----tab--    def searchRange(self, nums, target):--newline----tab--        lo = bisect.bisect_left(nums, target)--newline----tab--        return [lo, bisect.bisect(nums, target)-1] if target in nums[lo:lo+1] else [-1, -1]--newline----tab--    ",
+            "topic_title": "9-11 lines O(log n)"
+        },
+        {
+            "java": "public class Solution {--newline--    public int[] searchRange(int[] A, int target) {--newline--        int[] range = {A.length, -1};--newline--        searchRange(A, target, 0, A.length - 1, range);--newline--        if (range[0] > range[1]) range[0] = -1; --newline--        return range;--newline--    }--newline--    --newline--    public void searchRange(int[] A, int target, int left, int right, int[] range) {--newline--        if (left > right) return;--newline--        int mid = left + (right - left) / 2;--newline--        if (A[mid] == target) {--newline--            if (mid < range[0]) {--newline--                range[0] = mid;--newline--                searchRange(A, target, left, mid - 1, range);--newline--            }--newline--            if (mid > range[1]) {--newline--                range[1] = mid;--newline--                searchRange(A, target, mid + 1, right, range);--newline--            }--newline--        } else if (A[mid] < target) {--newline--            searchRange(A, target, mid + 1, right, range);--newline--        } else {--newline--            searchRange(A, target, left, mid - 1, range);--newline--        }--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple and strict O(logn) solution in Java using recursion"
+        },
+        {
+            "java": "public class Solution {--newline--public int[] searchRange(int[] nums, int target) {--newline--    int[] result = new int[2];--newline--    result[0] = findFirst(nums, target);--newline--    result[1] = findLast(nums, target);--newline--    return result;--newline--}--newline----newline--private int findFirst(int[] nums, int target){--newline--    int idx = -1;--newline--    int start = 0;--newline--    int end = nums.length - 1;--newline--    while(start <= end){--newline--        int mid = (start + end) / 2;--newline--        if(nums[mid] >= target){--newline--            end = mid - 1;--newline--        }else{--newline--            start = mid + 1;--newline--        }--newline--        if(nums[mid] == target) idx = mid;--newline--    }--newline--    return idx;--newline--}--newline----newline--private int findLast(int[] nums, int target){--newline--    int idx = -1;--newline--    int start = 0;--newline--    int end = nums.length - 1;--newline--    while(start <= end){--newline--        int mid = (start + end) / 2;--newline--        if(nums[mid] <= target){--newline--            start = mid + 1;--newline--        }else{--newline--            end = mid - 1;--newline--        }--newline--        if(nums[mid] == target) idx = mid;--newline--    }--newline--    return idx;--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy java O(logn) solution"
+        }
+    ],
+    "qc": "34.json"
+}

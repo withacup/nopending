@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public void rotate(int[] nums, int k) {--newline--        k %= nums.length;--newline--        reverse(nums, 0, nums.length - 1);--newline--        reverse(nums, 0, k - 1);--newline--        reverse(nums, k, nums.length - 1);--newline--    }--newline--    --newline--    public void reverse(int[] nums, int start, int end) {--newline--        while (start < end) {--newline--            int temp = nums[start];--newline--            nums[start] = nums[end];--newline--            nums[end] = temp;--newline--            start++;--newline--            end--;--newline--        }--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy to read Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution --newline--{--newline--public:--newline--    void rotate(int nums[], int n, int k) --newline--    {--newline--        if ((n == 0) || (k <= 0) || (k%n == 0))--newline--        {--newline--            return;--newline--        }--newline--        --newline--        k = k%n;--newline--        // Rotation to the right by k steps is equivalent to swapping --newline--        // the two subarrays nums[0,...,n - k - 1] and nums[n - k,...,n - 1].--newline--        int start = 0;--newline--        int tmp = 0;--newline--        while (k > 0)--newline--        {--newline--            if (n - k >= k)--newline--            {--newline--                // The left subarray with size n - k is longer than --newline--                // the right subarray with size k. Exchange --newline--                // nums[n - 2*k,...,n - k - 1] with nums[n - k,...,n - 1].--newline--                for (int i = 0; i < k; i++)--newline--                {--newline--                    tmp = nums[start + n - 2*k + i];--newline--                    nums[start + n - 2*k + i] = nums[start + n - k + i];--newline--                    nums[start + n - k + i] = tmp;--newline--                }--newline--                --newline--                // nums[n - 2*k,...,n - k - 1] are in their correct positions now.--newline--                // Need to rotate the elements of nums[0,...,n - k - 1] to the right --newline--                // by k%n steps.--newline--                n = n - k;--newline--                k = k%n;--newline--            }--newline--            else--newline--            {--newline--                // The left subarray with size n - k is shorter than --newline--                // the right subarray with size k. Exchange --newline--                // nums[0,...,n - k - 1] with nums[n - k,...,2*(n - k) - 1].--newline--                for (int i = 0; i < n - k; i++)--newline--                {--newline--                    tmp = nums[start + i];--newline--                    nums[start + i] = nums[start + n - k + i];--newline--                    nums[start + n - k + i] = tmp;--newline--                }--newline--                --newline--                // nums[n - k,...,2*(n - k) - 1] are in their correct positions now.--newline--                // Need to rotate the elements of nums[n - k,...,n - 1] to the right --newline--                // by k - (n - k) steps.--newline--                tmp = n - k;--newline--                n = k;--newline--                k -= tmp;--newline--                start += tmp;--newline--            }--newline--        }--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Summary of C++ solutions"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    void rotate(int nums[], int n, int k) {--newline--        reverse(nums,nums+n);--newline--        reverse(nums,nums+k%n);--newline--        reverse(nums+k%n,nums+n);--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "3-line using reverse"
+        },
+        {
+            "java": "public class Solution {--newline--    public void rotate(int[] nums, int k) {--newline--    --newline--        if(nums == null || nums.length < 2){--newline--            return;--newline--        }--newline--        --newline--        k = k % nums.length;--newline--        reverse(nums, 0, nums.length - k - 1);--newline--        reverse(nums, nums.length - k, nums.length - 1);--newline--        reverse(nums, 0, nums.length - 1);--newline--        --newline--    }--newline--    --newline--    private void reverse(int[] nums, int i, int j){--newline--        int tmp = 0;       --newline--        while(i < j){--newline--            tmp = nums[i];--newline--            nums[i] = nums[j];--newline--            nums[j] = tmp;--newline--            i++;--newline--            j--;--newline--        }--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java O(1) space solution of Rotate Array."
+        },
+        {
+            "java": "public class Solution {--newline--    public void rotate(int[] nums, int k) {--newline--        if(nums.length <= 1){--newline--            return;--newline--        }--newline--        //step each time to move--newline--        int step = k % nums.length;--newline--        int[] tmp = new int[step];--newline--        for(int i = 0; i < step; i++){--newline--            tmp[i] = nums[nums.length - step + i];--newline--        }--newline--        for(int i = nums.length - step - 1; i >= 0; i--){--newline--            nums[i + step] = nums[i];--newline--        }--newline--        for(int i = 0; i < step; i++){--newline--            nums[i] = tmp[i];--newline--        }--newline--        --newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My three way to solve this problem, the first way is interesting(JAVA)"
+        }
+    ],
+    "qc": "189.json"
+}

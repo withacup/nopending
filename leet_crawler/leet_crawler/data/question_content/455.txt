@@ -1,0 +1,37 @@
+---CONTENT_BEGIN---
+
+Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie. Each child i has a greed factor gi, which is the minimum size of a cookie that the child will be content with; and each cookie j has a size sj. If sj >= gi, we can assign the cookie j to the child i, and the child i will be content. Your goal is to maximize the number of your content children and output the maximum number.
+
+
+Note:
+You may assume the greed factor is always positive. 
+You cannot assign more than one cookie to one child.
+
+
+Example 1:
+
+Input: [1,2,3], [1,1]
+
+Output: 1
+
+Explanation: You have 3 children and 2 cookies. The greed factors of 3 children are 1, 2, 3. 
+And even though you have 2 cookies, since their size is both 1, you could only make the child whose greed factor is 1 content.
+You need to output 1.
+
+
+
+Example 2:
+
+Input: [1,2], [1,2,3]
+
+Output: 2
+
+Explanation: You have 2 children and 3 cookies. The greed factors of 2 children are 1, 2. 
+You have 3 cookies and their sizes are big enough to gratify all of the children, 
+You need to output 2.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int findContentChildren(vector<int>& g, vector<int>& s) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int findContentChildren(int[] g, int[] s) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def findContentChildren(self, g, s):--newline--        '''--newline--        :type g: List[int]--newline--        :type s: List[int]--newline--        :rtype: int--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "int findContentChildren(int* g, int gSize, int* s, int sSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int FindContentChildren(int[] g, int[] s) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} g--newline-- * @param {number[]} s--newline-- * @return {number}--newline-- */--newline--var findContentChildren = function(g, s) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} g--newline--# @param {Integer[]} s--newline--# @return {Integer}--newline--def find_content_children(g, s)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func findContentChildren(_ g: [Int], _ s: [Int]) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func findContentChildren(g []int, s []int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

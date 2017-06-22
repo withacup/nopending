@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int numTrees(int n) {--newline--        int [] G = new int[n+1];--newline--        G[0] = G[1] = 1;--newline--        --newline--        for(int i=2; i<=n; ++i) {--newline--        --tab--for(int j=1; j<=i; ++j) {--newline--        --tab----tab--G[i] += G[j-1] * G[i-j];--newline--        --tab--}--newline--        }--newline--    --newline--        return G[n];--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "DP Solution in 6 lines with explanation. F(i, n) = G(i-1) * G(n-i)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    /**--newline--     * Taking 1~n as root respectively:--newline--     *      1 as root: # of trees = F(0) * F(n-1)  // F(0) == 1--newline--     *      2 as root: # of trees = F(1) * F(n-2) --newline--     *      3 as root: # of trees = F(2) * F(n-3)--newline--     *      ...--newline--     *      n-1 as root: # of trees = F(n-2) * F(1)--newline--     *      n as root:   # of trees = F(n-1) * F(0)--newline--     *--newline--     * So, the formulation is:--newline--     *      F(n) = F(0) * F(n-1) + F(1) * F(n-2) + F(2) * F(n-3) + ... + F(n-2) * F(1) + F(n-1) * F(0)--newline--     */--newline--    --newline--    int numTrees(int n) {--newline--        int dp[n+1];--newline--        dp[0] = dp[1] = 1;--newline--        for (int i=2; i<=n; i++) {--newline--            dp[i] = 0;--newline--            for (int j=1; j<=i; j++) {--newline--                dp[i] += dp[j-1] * dp[i-j];--newline--            }--newline--        }--newline--        return dp[n];--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Dp problem. 10+ lines with comments"
+        },
+        {
+            "java": "public class Solution {--newline--     public int numTrees(int n) {--newline--        int [] dp = new int[n+1];--newline--        dp[0]= 1;--newline--        dp[1] = 1;--newline--        for(int level = 2; level <=n; level++)--newline--            for(int root = 1; root<=level; root++)--newline--                dp[level] += dp[level-root]*dp[root-1];--newline--        return dp[n];--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Fantastic Clean Java DP Solution with Detail Explaination"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--        int numTrees(int n) {--newline--        //cantalan\u6811--newline--        //C(2n,n)/(n+1)--newline--        long long ans =1;--newline--        for(int i=n+1;i<=2*n;i++){--newline--            ans = ans*i/(i-n);--newline--        }--newline--        return ans/(n+1);--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "A very simple and straight ans based on Math,Catalan Number ,O(N) times,O(1)space"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple solution with easy explaination"
+        }
+    ],
+    "qc": "96.json"
+}

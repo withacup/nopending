@@ -1,0 +1,6 @@
+{
+    "solution_code": "--newline--public class Solution {--newline--    public TreeNode addOneRow(TreeNode root, int v, int d) {--newline--        if (d == 1) {--newline--            TreeNode newRoot = new TreeNode(v);--newline--            newRoot.left = root;--newline--            return newRoot;--newline--        }--newline--        add(root, v, d, 1);--newline--        return root;--newline--    }--newline----newline--    private void add(TreeNode node, int v, int d, int currentDepth) {--newline--        if (node == null) {--newline--            return;--newline--        }--newline----newline--        if (currentDepth == d - 1) {--newline--            TreeNode temp = node.left;--newline--            node.left = new TreeNode(v);--newline--            node.left.left = temp;--newline----newline--            temp = node.right;--newline--            node.right = new TreeNode(v);--newline--            node.right.right = temp;--newline--            return;--newline--        }--newline----newline--        add(node.left, v, d, currentDepth + 1);--newline--        add(node.right, v, d, currentDepth + 1);--newline--    }--newline--}--newline----newline--",
+    "l_type": "java",
+    "total_cases": 109,
+    "modified_code": null
+}

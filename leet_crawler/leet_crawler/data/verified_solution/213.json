@@ -1,0 +1,6 @@
+{
+    "solution_code": "class Solution {--newline--public:--newline--    int rob(vector<int>& nums) {--newline--        int n = nums.size(); --newline--        if (n < 2) return n ? nums[0] : 0;--newline--        return max(robber(nums, 0, n - 2), robber(nums, 1, n - 1));--newline--    }--newline--private:--newline--    int robber(vector<int>& nums, int l, int r) {--newline--        int pre = 0, cur = 0;--newline--        for (int i = l; i <= r; i++) {--newline--            int temp = max(pre + nums[i], cur);--newline--            pre = cur;--newline--            cur = temp;--newline--        }--newline--        return cur;--newline--    }--newline--};",
+    "l_type": "cpp",
+    "modified_code": null,
+    "total_cases": 74
+}

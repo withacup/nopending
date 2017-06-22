@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public TreeNode sortedArrayToBST(int[] num) {--newline--        if (num.length == 0) {--newline--            return null;--newline--        }--newline--        TreeNode head = helper(num, 0, num.length - 1);--newline--        return head;--newline--    }--newline--    --newline--    public TreeNode helper(int[] num, int low, int high) {--newline--        if (low > high) { // Done--newline--            return null;--newline--        }--newline--        int mid = (low + high) / 2;--newline--        TreeNode node = new TreeNode(num[mid]);--newline--        node.left = helper(num, low, mid - 1);--newline--        node.right = helper(num, mid + 1, high);--newline--        return node;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My Accepted Java Solution"
+        },
+        {
+            "java": "public class Solution {--newline--    --newline--    public TreeNode sortedArrayToBST(int[] nums) {--newline--        --newline--        int len = nums.length;--newline--        if ( len == 0 ) { return null; }--newline--        --newline--        // 0 as a placeholder--newline--        TreeNode head = new TreeNode(0); --newline--        --newline--        Deque<TreeNode> nodeStack       = new LinkedList<TreeNode>() {{ push(head);  }};--newline--        Deque<Integer>  leftIndexStack  = new LinkedList<Integer>()  {{ push(0);     }};--newline--        Deque<Integer>  rightIndexStack = new LinkedList<Integer>()  {{ push(len-1); }};--newline--        --newline--        while ( !nodeStack.isEmpty() ) {--newline--            TreeNode currNode = nodeStack.pop();--newline--            int left  = leftIndexStack.pop();--newline--            int right = rightIndexStack.pop();--newline--            int mid   = left + (right-left)/2; // avoid overflow--newline--            currNode.val = nums[mid];--newline--            if ( left <= mid-1 ) {--newline--                currNode.left = new TreeNode(0);  --newline--                nodeStack.push(currNode.left);--newline--                leftIndexStack.push(left);--newline--                rightIndexStack.push(mid-1);--newline--            }--newline--            if ( mid+1 <= right ) {--newline--                currNode.right = new TreeNode(0);--newline--                nodeStack.push(currNode.right);--newline--                leftIndexStack.push(mid+1);--newline--                rightIndexStack.push(right);--newline--            }--newline--        }--newline--        return head;--newline--    }--newline----newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Iterative Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    TreeNode *sortedArrayToBST(vector<int> &num) {--newline--        if(num.size() == 0) return NULL;--newline--        if(num.size() == 1)--newline--        {--newline--            return new TreeNode(num[0]);--newline--        }--newline--        --newline--        int middle = num.size()/2;--newline--        TreeNode* root = new TreeNode(num[middle]);--newline--        --newline--        vector<int> leftInts(num.begin(), num.begin()+middle);--newline--        vector<int> rightInts(num.begin()+middle+1, num.end());--newline--        --newline--        root->left = sortedArrayToBST(leftInts);--newline--        root->right = sortedArrayToBST(rightInts);--newline--        --newline--        return root;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Accepted C++ recursive solution within a single method"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "# Definition for a  binary tree node--newline--# class TreeNode:--newline--#     def __init__(self, x):--newline--#         self.val = x--newline--#         self.left = None--newline--#         self.right = None--newline----newline--class Solution:--newline----tab--    # @param num, a list of integers--newline----tab--    # @return a tree node--newline----tab--    # 12:37--newline----tab--    def sortedArrayToBST(self, num):--newline----tab--        if not num:--newline----tab--            return None--newline----tab----newline----tab--        mid = len(num) // 2--newline----tab----newline----tab--        root = TreeNode(num[mid])--newline----tab--        root.left = self.sortedArrayToBST(num[:mid])--newline----tab--        root.right = self.sortedArrayToBST(num[mid+1:])--newline----tab----newline----tab--        return root",
+            "topic_title": "An easy Python solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--    TreeNode* sortedArrayToBST(vector<int>& nums, int start, int end){--newline--        if(end<=start) return NULL; --newline--        int midIdx=(end+start)/2;--newline--        TreeNode* root=new TreeNode(nums[midIdx]);--newline--        root->left=sortedArrayToBST(nums, start, midIdx);--newline--        root->right=sortedArrayToBST(nums, midIdx+1,end);--newline--        return root;--newline--    }--newline--public:--newline--    TreeNode* sortedArrayToBST(vector<int>& nums) {--newline--        return sortedArrayToBST(nums, 0,nums.size());--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "16 ms C++ solution"
+        }
+    ],
+    "qc": "108.json"
+}

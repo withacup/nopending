@@ -1,0 +1,1 @@
+{"solution_code": "public class Solution {--newline--    public int[] constructRectangle(int area) {--newline--            int w = (int)Math.sqrt(area);--newline--        while (area%w!=0) w--;--newline--        return new int[]{area/w, w};--newline--    }--newline--    --newline--}", "modified_code": null, "total_cases": 50, "l_type": "java"}

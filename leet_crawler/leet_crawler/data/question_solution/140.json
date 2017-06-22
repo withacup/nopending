@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public List<String> wordBreak(String s, Set<String> wordDict) {--newline--        return DFS(s, wordDict, new HashMap<String, LinkedList<String>>());--newline--    }       --newline--    --newline--    // DFS function returns an array including all substrings derived from s.--newline--    List<String> DFS(String s, Set<String> wordDict, HashMap<String, LinkedList<String>>map) {--newline--        if (map.containsKey(s)) --newline--            return map.get(s);--newline--            --newline--        LinkedList<String>res = new LinkedList<String>();     --newline--        if (s.length() == 0) {--newline--            res.add(\"\");--newline--            return res;--newline--        }               --newline--        for (String word : wordDict) {--newline--            if (s.startsWith(word)) {--newline--                List<String>sublist = DFS(s.substring(word.length()), wordDict, map);--newline--                for (String sub : sublist) --newline--                    res.add(word + (sub.isEmpty() ? \"\" : \" \") + sub);               --newline--            }--newline--        }       --newline--        map.put(s, res);--newline--        return res;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My concise JAVA solution based on memorized DFS"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--    unordered_map<string, vector<string>> m;--newline----newline--    vector<string> combine(string word, vector<string> prev){--newline--        for(int i=0;i<prev.size();++i){--newline--            prev[i]+=\" \"+word;--newline--        }--newline--        return prev;--newline--    }--newline----newline--public:--newline--    vector<string> wordBreak(string s, unordered_set<string>& dict) {--newline--        if(m.count(s)) return m[s]; //take from memory--newline--        vector<string> result;--newline--        if(dict.count(s)){ //a whole string is a word--newline--            result.push_back(s);--newline--        }--newline--        for(int i=1;i<s.size();++i){--newline--            string word=s.substr(i);--newline--            if(dict.count(word)){--newline--                string rem=s.substr(0,i);--newline--                vector<string> prev=combine(word,wordBreak(rem,dict));--newline--                result.insert(result.end(),prev.begin(), prev.end());--newline--            }--newline--        }--newline--        m[s]=result; //memorize--newline--        return result;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "11ms C++ solution (concise)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Getting rid of TLE"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<string> wordBreak(string s, unordered_set<string>& wordDict) {--newline--        unordered_map<int, vector<string>> memo {{s.size(), {\"\"}}};--newline--        function<vector<string>(int)> sentences = [&](int i) {--newline--            if (!memo.count(i))--newline--                for (int j=i+1; j<=s.size(); j++)--newline--                    if (wordDict.count(s.substr(i, j-i)))--newline--                        for (string tail : sentences(j))--newline--                            memo[i].push_back(s.substr(i, j-i) + (tail==\"\" ? \"\" : ' ' + tail));--newline--            return memo[i];--newline--        };--newline--        return sentences(0);--newline--    }--newline--}",
+            "python": "class Solution :--newline----tab--    def wordBreak(self, s, wordDict):--newline----tab--        memo = {len(s): ['']}--newline----tab--        def sentences(i):--newline----tab--            if i not in memo:--newline----tab--                memo[i] = [s[i:j] + (tail and ' ' + tail)--newline----tab--                           for j in range(i+1, len(s)+1)--newline----tab--                           if s[i:j] in wordDict--newline----tab--                           for tail in sentences(j)]--newline----tab--            return memo[i]--newline----tab--        return sentences(0)--newline----tab--    ",
+            "topic_title": "9 lines Python, 10 lines C++"
+        },
+        {
+            "java": "public class Solution {--newline--public List<String> wordBreak(String s, Set<String> dict) {--newline--    List<String> result = new ArrayList<String>();--newline--    for(int j = s.length() - 1; j >= 0; j--){--newline--        if(dict.contains(s.substring(j)))--newline--            break;--newline--        else{--newline--            if(j == 0)--newline--                return result;--newline--        }--newline--    }--newline--    for(int i = 0; i < s.length()-1; i++)--newline--    {--newline--        if(dict.contains(s.substring(0,i+1)))--newline--        {--newline--            List<String> strs = wordBreak(s.substring(i+1,s.length()),dict);--newline--            if(strs.size() != 0)--newline--                for(Iterator<String> it = strs.iterator();it.hasNext();)--newline--                {--newline--                    result.add(s.substring(0,i+1)+\" \"+it.next());--newline--                }--newline--        }--newline--    }--newline--    if(dict.contains(s)) result.add(s);--newline--    return result;--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My concise answer."
+        }
+    ],
+    "qc": "140.json"
+}

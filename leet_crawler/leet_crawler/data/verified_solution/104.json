@@ -1,0 +1,1 @@
+{"solution_code": "public class Solution {--newline--    public int maxDepth(TreeNode root) {--newline--            if(root==null){--newline--                return 0;--newline--            }--newline--            return 1+Math.max(maxDepth(root.left),maxDepth(root.right));--newline--        }--newline--}", "modified_code": null, "total_cases": 38, "l_type": "java"}

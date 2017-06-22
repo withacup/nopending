@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public String multiply(String num1, String num2) {--newline--        int m = num1.length(), n = num2.length();--newline--        int[] pos = new int[m + n];--newline--       --newline--        for(int i = m - 1; i >= 0; i--) {--newline--            for(int j = n - 1; j >= 0; j--) {--newline--                int mul = (num1.charAt(i) - '0') * (num2.charAt(j) - '0'); --newline--                int p1 = i + j, p2 = i + j + 1;--newline--                int sum = mul + pos[p2];--newline--    --newline--                pos[p1] += sum / 10;--newline--                pos[p2] = (sum) % 10;--newline--            }--newline--        }  --newline--        --newline--        StringBuilder sb = new StringBuilder();--newline--        for(int p : pos) if(!(sb.length() == 0 && p == 0)) sb.append(p);--newline--        return sb.length() == 0 ? \"0\" : sb.toString();--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easiest JAVA Solution with Graph Explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string multiply(string num1, string num2) {--newline--        string sum(num1.size() + num2.size(), '0');--newline--        --newline--        for (int i = num1.size() - 1; 0 <= i; --i) {--newline--            int carry = 0;--newline--            for (int j = num2.size() - 1; 0 <= j; --j) {--newline--                int tmp = (sum[i + j + 1] - '0') + (num1[i] - '0') * (num2[j] - '0') + carry;--newline--                sum[i + j + 1] = tmp % 10 + '0';--newline--                carry = tmp / 10;--newline--            }--newline--            sum[i] += carry;--newline--        }--newline--        --newline--        size_t startpos = sum.find_first_not_of(\"0\");--newline--        if (string::npos != startpos) {--newline--            return sum.substr(startpos);--newline--        }--newline--        return \"0\";--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Brief C++ solution using only strings and without reversal"
+        },
+        {
+            "java": "public class Solution {--newline--    public String multiply(String num1, String num2) {--newline--        int n1 = num1.length(), n2 = num2.length();--newline--        int[] products = new int[n1 + n2];--newline--        for (int i = n1 - 1; i >= 0; i--) {--newline--            for (int j = n2 - 1; j >= 0; j--) {--newline--                int d1 = num1.charAt(i) - '0';--newline--                int d2 = num2.charAt(j) - '0';--newline--                products[i + j + 1] += d1 * d2;--newline--            }--newline--        }--newline--        int carry = 0;--newline--        for (int i = products.length - 1; i >= 0; i--) {--newline--            int tmp = (products[i] + carry) % 10;--newline--            carry = (products[i] + carry) / 10;--newline--            products[i] = tmp;--newline--        }--newline--        StringBuilder sb = new StringBuilder();--newline--        for (int num : products) sb.append(num);--newline--        while (sb.length() != 0 && sb.charAt(0) == '0') sb.deleteCharAt(0);--newline--        return sb.length() == 0 ? \"0\" : sb.toString();--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "AC solution in Java with explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string multiply(string num1, string num2) {--newline--        --newline--        unsigned int l1=num1.size(),l2=num2.size();--newline--        if (l1==0||l2==0) return \"0\";--newline--        --newline--        vector<int> v(l1+l2,0);--newline-- --newline--        for (unsigned int i=0;i<l1;i++){--newline--            int carry=0;--newline--            int n1=(int)(num1[l1-i-1]-'0');//Calculate from rightmost to left--newline--            for (unsigned int j=0;j<l2;j++){--newline--                int n2=(num2[l2-j-1]-'0');//Calculate from rightmost to left--newline--                --newline--                int sum=n1*n2+v[i+j]+carry;--newline--                carry=sum/10;--newline--                v[i+j]=sum%10;--newline--            }--newline--            if (carry>0)--newline--                v[i+l2]+=carry;--newline----newline--        }--newline--        int start=l1+l2-1;--newline--        while(v[start]==0) start--;--newline--        if (start==-1) return \"0\";--newline--        --newline--        string s=\"\";--newline--        for (int i=start;i>=0;i--)--newline--            s+=(char)(v[i]+'0');--newline--        return s;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "One Easy solution with C++"
+        },
+        {
+            "java": "public class Solution {--newline--    public String multiply(String num1, String num2) {--newline--        int len1 = num1.length();--newline--        int len2 = num2.length();--newline--        int[] product = new int[len1 + len2];--newline--        for (int i = len1 - 1; i >= 0; i--) {--newline--            for (int j = len2 - 1; j >= 0; j--) {--newline--                int index = len1 + len2 - i - j - 2;--newline--                product[index] += (num1.charAt(i) - '0') * (num2.charAt(j) - '0');--newline--                product[index + 1] += product[index] / 10;--newline--                product[index] %= 10;--newline--            }--newline--        }--newline--        StringBuilder stringBuilder = new StringBuilder();--newline--        for (int i = product.length - 1; i > 0; i--) {--newline--            if (stringBuilder.length() == 0 && product[i] == 0)--newline--                continue;--newline--            stringBuilder.append(product[i]);--newline--        }--newline--        stringBuilder.append(product[0]);--newline--        return stringBuilder.toString();--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Clear JAVA solution without reversal"
+        }
+    ],
+    "qc": "43.json"
+}

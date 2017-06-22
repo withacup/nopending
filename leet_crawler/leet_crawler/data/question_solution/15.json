@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public List<List<Integer>> threeSum(int[] num) {--newline--        Arrays.sort(num);--newline--        List<List<Integer>> res = new LinkedList<>(); --newline--        for (int i = 0; i < num.length-2; i++) {--newline--            if (i == 0 || (i > 0 && num[i] != num[i-1])) {--newline--                int lo = i+1, hi = num.length-1, sum = 0 - num[i];--newline--                while (lo < hi) {--newline--                    if (num[lo] + num[hi] == sum) {--newline--                        res.add(Arrays.asList(num[i], num[lo], num[hi]));--newline--                        while (lo < hi && num[lo] == num[lo+1]) lo++;--newline--                        while (lo < hi && num[hi] == num[hi-1]) hi--;--newline--                        lo++; hi--;--newline--                    } else if (num[lo] + num[hi] < sum) lo++;--newline--                    else hi--;--newline--               }--newline--            }--newline--        }--newline--        return res;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Concise O(N^2) Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<vector<int> > threeSum(vector<int> &num) {--newline--        --newline--        vector<vector<int> > res;--newline--    --newline--        std::sort(num.begin(), num.end());--newline--    --newline--        for (int i = 0; i < num.size(); i++) {--newline--            --newline--            int target = -num[i];--newline--            int front = i + 1;--newline--            int back = num.size() - 1;--newline--    --newline--            while (front < back) {--newline--    --newline--                int sum = num[front] + num[back];--newline--                --newline--                // Finding answer which start from number num[i]--newline--                if (sum < target)--newline--                    front++;--newline--    --newline--                else if (sum > target)--newline--                    back--;--newline--    --newline--                else {--newline--                    vector<int> triplet(3, 0);--newline--                    triplet[0] = num[i];--newline--                    triplet[1] = num[front];--newline--                    triplet[2] = num[back];--newline--                    res.push_back(triplet);--newline--                    --newline--                    // Processing duplicates of Number 2--newline--                    // Rolling the front pointer to the next different number forwards--newline--                    while (front < back && num[front] == triplet[1]) front++;--newline--    --newline--                    // Processing duplicates of Number 3--newline--                    // Rolling the back pointer to the next different number backwards--newline--                    while (front < back && num[back] == triplet[2]) rear--;--newline--                }--newline--                --newline--            }--newline--    --newline--            // Processing duplicates of Number 1--newline--            while (i + 1 < num.size() && num[i + 1] == num[i]) --newline--                i++;--newline--    --newline--        }--newline--        --newline--        return res;--newline--        --newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Share my AC C++ solution, around 50ms, O(N*N), with explanation and comments"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<List<Integer>> threeSum(int[] nums) {--newline--        List<List<Integer>> res = new ArrayList<>();--newline--        Arrays.sort(nums);--newline--        for (int i = 0; i + 2 < nums.length; i++) {--newline--            if (i > 0 && nums[i] == nums[i - 1]) {              // skip same result--newline--                continue;--newline--            }--newline--            int j = i + 1, k = nums.length - 1;  --newline--            int target = -nums[i];--newline--            while (j < k) {--newline--                if (nums[j] + nums[k] == target) {--newline--                    res.add(Arrays.asList(nums[i], nums[j], nums[k]));--newline--                    j++;--newline--                    k--;--newline--                    while (j < k && nums[j] == nums[j - 1]) j++;  // skip same result--newline--                    while (j < k && nums[k] == nums[k + 1]) k--;  // skip same result--newline--                } else if (nums[j] + nums[k] > target) {--newline--                    k--;--newline--                } else {--newline--                    j++;--newline--                }--newline--            }--newline--        }--newline--        return res;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easiest Java Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def threeSum(self, nums):--newline----tab--        res = []--newline----tab--        nums.sort()--newline----tab--        for i in xrange(len(nums)-2):--newline----tab--            if i > 0 and nums[i] == nums[i-1]:--newline----tab--                continue--newline----tab--            l, r = i+1, len(nums)-1--newline----tab--            while l < r:--newline----tab--                s = nums[i] + nums[l] + nums[r]--newline----tab--                if s < 0:--newline----tab--                    l +=1 --newline----tab--                elif s > 0:--newline----tab--                    r -= 1--newline----tab--                else:--newline----tab--                    res.append((nums[i], nums[l], nums[r]))--newline----tab--                    while l < r and nums[l] == nums[l+1]:--newline----tab--                        l += 1--newline----tab--                    while l < r and nums[r] == nums[r-1]:--newline----tab--                        r -= 1--newline----tab--                    l += 1; r -= 1--newline----tab--        return res",
+            "topic_title": "Python easy to understand solution (O(n*n) time)."
+        },
+        {
+            "java": "public class Solution {--newline--    public List<List<Integer>> threeSum(int[] nums) {--newline--        List<List<Integer>> result = new ArrayList<>();--newline--        if(nums.length < 3) return result;--newline--        Arrays.sort(nums);--newline--        int i = 0;--newline--        while(i < nums.length - 2) {--newline--            if(nums[i] > 0) break;--newline--            int j = i + 1;--newline--            int k = nums.length - 1;--newline--            while(j < k) {--newline--                int sum = nums[i] + nums[j] + nums[k];--newline--                if(sum == 0) result.add(Arrays.asList(nums[i], nums[j], nums[k]));--newline--                if(sum <= 0) while(nums[j] == nums[++j] && j < k);--newline--                if(sum >= 0) while(nums[k--] == nums[k] && j < k);--newline--            }--newline--            while(nums[i] == nums[++i] && i < nums.length - 2);--newline--        }--newline--        return result;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my simple java solution"
+        }
+    ],
+    "qc": "15.json"
+}

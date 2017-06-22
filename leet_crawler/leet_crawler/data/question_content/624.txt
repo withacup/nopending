@@ -1,0 +1,79 @@
+---CONTENT_BEGIN---
+
+Given m arrays, and each array is sorted in ascending order. Now you can pick up two integers from two different arrays (each array picks one) and calculate the distance. We define the distance between two integers a and b to be their absolute difference |a-b|. Your task is to find the maximum distance.
+
+
+Example 1:
+
+Input: 
+[[1,2,3],
+ [4,5],
+ [1,2,3]]
+Output: 4
+Explanation: 
+One way to reach the maximum distance 4 is to pick 1 in the first or third array and pick 5 in the second array.
+
+
+	
+Note:
+
+Each given array will have at least 1 number. There will be at least two non-empty arrays.
+The total number of the integers in all the m arrays will be in the range of [2, 10000].
+The integers in the m arrays will be in the range of [-10000, 10000].
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[
+    {
+        "text": "C++",
+        "value": "cpp",
+        "defaultCode": "class Solution {--newline--public:--newline--    int maxDistance(vector<vector<int>>& arrays) {--newline--        --newline--    }--newline--};"
+    },
+    {
+        "text": "Java",
+        "value": "java",
+        "defaultCode": "public class Solution {--newline--    public int maxDistance(List<List<Integer>> arrays) {--newline--        --newline--    }--newline--}"
+    },
+    {
+        "text": "Python",
+        "value": "python",
+        "defaultCode": "class Solution(object):--newline--    def maxDistance(self, arrays):--newline--        '''--newline--        :type arrays: List[List[int]]--newline--        :rtype: int--newline--        '''--newline--        "
+    },
+    {
+        "text": "Python3",
+        "value": "python3",
+        "defaultCode": "class Solution:--newline--    def maxDistance(self, arrays):--newline--        '''--newline--        :type arrays: List[List[int]]--newline--        :rtype: int--newline--        '''--newline--        "
+    },
+    {
+        "text": "C",
+        "value": "c",
+        "defaultCode": "int maxDistance(int** arrays, int arraysRowSize, int *arraysColSizes) {--newline--    --newline--}"
+    },
+    {
+        "text": "C#",
+        "value": "csharp",
+        "defaultCode": "public class Solution {--newline--    public int MaxDistance(IList<IList<int>> arrays) {--newline--        --newline--    }--newline--}"
+    },
+    {
+        "text": "JavaScript",
+        "value": "javascript",
+        "defaultCode": "/**--newline-- * @param {number[][]} arrays--newline-- * @return {number}--newline-- */--newline--var maxDistance = function(arrays) {--newline--    --newline--};"
+    },
+    {
+        "text": "Ruby",
+        "value": "ruby",
+        "defaultCode": "# @param {Integer[][]} arrays--newline--# @return {Integer}--newline--def max_distance(arrays)--newline--    --newline--end"
+    },
+    {
+        "text": "Swift",
+        "value": "swift",
+        "defaultCode": "class Solution {--newline--    func maxDistance(_ arrays: [[Int]]) -> Int {--newline--        --newline--    }--newline--}"
+    },
+    {
+        "text": "Go",
+        "value": "golang",
+        "defaultCode": "func maxDistance(arrays [][]int) int {--newline--    --newline--}"
+    }
+]
+---SCRIPT_END---

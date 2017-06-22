@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public String[] findRelativeRanks(int[] nums) {--newline--        Integer[] index = new Integer[nums.length];--newline--        --newline--        for (int i = 0; i < nums.length; i++) {--newline--            index[i] = i;--newline--        }--newline--        --newline--        Arrays.sort(index, (a, b) -> (nums[b] - nums[a]));--newline--        --newline--        String[] result = new String[nums.length];--newline----newline--        for (int i = 0; i < nums.length; i++) {--newline--            if (i == 0) {--newline--                result[index[i]] = \"Gold Medal\";--newline--            }--newline--            else if (i == 1) {--newline--                result[index[i]] = \"Silver Medal\";--newline--            }--newline--            else if (i == 2) {--newline--                result[index[i]] = \"Bronze Medal\";--newline--            }--newline--            else {--newline--                result[index[i]] = (i + 1) + \"\";--newline--            }--newline--        }--newline----newline--        return result;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy Java Solution, Sorting."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<string> findRelativeRanks(vector<int>& nums) {--newline--        vector<int> rank;--newline--        for(int i=0; i<nums.size(); ++i) rank.push_back(i);--newline--        --newline--        sort(rank.begin(), rank.end(), [&](int a, int b){return nums[a] > nums[b];});--newline--        vector<string> ranks(nums.size());--newline--        --newline--        for(int i=3; i<nums.size(); ++i){--newline--            ranks[rank[i]] = std::to_string(i+1);--newline--        }--newline--        --newline--        if(nums.size() > 0) ranks[rank[0]] = \"Gold Medal\";--newline--        if(nums.size() > 1) ranks[rank[1]] = \"Silver Medal\";--newline--        if(nums.size() > 2) ranks[rank[2]] = \"Bronze Medal\";--newline--        --newline--        return ranks;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Simple Sorting O(n log n) solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def findRelativeRanks(self, nums):--newline----tab--        sort = sorted(nums)[::-1]--newline----tab--        rank = [\"Gold Medal\", \"Silver Medal\", \"Bronze Medal\"] + map(str, range(4, len(nums) + 1))--newline----tab--        return map(dict(zip(sort, rank)).get, nums)",
+            "topic_title": "Python solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<string> findRelativeRanks(vector<int>& nums) {--newline--        priority_queue<pair<int,int> > pq;--newline--        for(int i=0;i<nums.size();i++)--newline--        {--newline--            pq.push(make_pair(nums[i],i));--newline--        }--newline--        vector<string> res(nums.size(),\"\");--newline--        int count = 1;--newline--        for(int i=0; i<nums.size();i++)--newline--        {--newline--            if(count==1) {res[pq.top().second] = \"Gold Medal\"; count++;}--newline--            else if(count==2) {res[pq.top().second] = \"Silver Medal\"; count++;}--newline--            else if(count==3) {res[pq.top().second] = \"Bronze Medal\"; count++;}--newline--            else {res[pq.top().second] = to_string(count); count++;}--newline--            pq.pop();--newline--        }--newline--        return res;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "C++ Easy to Understand"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    /**--newline--     * @param {number[]} nums--newline--     * @return {string[]}--newline--     */--newline--    var findRelativeRanks = function(nums) {--newline--      var sortedNums = nums.slice(0).sort(function(a , b){--newline--          return b - a;--newline--      });--newline--      // Create a map to the sorted nums--newline--      var sortedNumsMapping = {};--newline--      sortedNums.forEach(function(num, index){--newline--          sortedNumsMapping[num] = index + 1 + ''; --newline--      });--newline--    --newline--      return nums.map(function(num, index) {--newline--        if(sortedNumsMapping[num] === '1') return \"Gold Medal\";--newline--        else if(sortedNumsMapping[num] === '2' ) return \"Silver Medal\";--newline--        else if(sortedNumsMapping[num] === '3' ) return \"Bronze Medal\";--newline--        else return (sortedNumsMapping[num]);--newline--      });--newline--    --newline--    };--newline--    --newline--}",
+            "python": null,
+            "topic_title": "JavaScript solution"
+        }
+    ],
+    "qc": "506.json"
+}

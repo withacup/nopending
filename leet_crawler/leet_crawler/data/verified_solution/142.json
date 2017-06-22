@@ -1,0 +1,6 @@
+{
+    "solution_code": "public class Solution {--newline--            public ListNode detectCycle(ListNode head) {--newline--                ListNode slow = head;--newline--                ListNode fast = head;--newline--        --newline--                while (fast!=null && fast.next!=null){--newline--                    fast = fast.next.next;--newline--                    slow = slow.next;--newline--                    --newline--                    if (fast == slow){--newline--                        ListNode slow2 = head; --newline--                        while (slow2 != slow){--newline--                            slow = slow.next;--newline--                            slow2 = slow2.next;--newline--                        }--newline--                        return slow;--newline--                    }--newline--                }--newline--                return null;--newline--            }--newline--        }",
+    "l_type": "java",
+    "modified_code": null,
+    "total_cases": 16
+}

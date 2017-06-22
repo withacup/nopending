@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--  bool search(int A[], int n, int target) {--newline--    int lo =0, hi = n-1;--newline--    int mid = 0;--newline--    while(lo<hi){--newline--          mid=(lo+hi)/2;--newline--          if(A[mid]==target) return true;--newline--          if(A[mid]>A[hi]){--newline--              if(A[mid]>target && A[lo] <= target) hi = mid;--newline--              else lo = mid + 1;--newline--          }else if(A[mid] < A[hi]){--newline--              if(A[mid]<target && A[hi] >= target) lo = mid + 1;--newline--              else hi = mid;--newline--          }else{--newline--              hi--;--newline--          }--newline--          --newline--    }--newline--    return A[lo] == target ? true : false;--newline--  }--newline--};",
+            "python": null,
+            "topic_title": "C++ concise log(n) solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool search(vector<int>& nums, int target) {--newline--        int left = 0, right =  nums.size()-1, mid;--newline--        --newline--        while(left<=right)--newline--        {--newline--            mid = (left + right) >> 1;--newline--            if(nums[mid] == target) return true;--newline----newline--            // the only difference from the first one, trickly case, just updat left and right--newline--            if( (nums[left] == nums[mid]) && (nums[right] == nums[mid]) ) {++left; --right;}--newline----newline--            else if(nums[left] <= nums[mid])--newline--            {--newline--                if( (nums[left]<=target) && (nums[mid] > target) ) right = mid-1;--newline--                else left = mid + 1; --newline--            }--newline--            else--newline--            {--newline--                if((nums[mid] < target) &&  (nums[right] >= target) ) left = mid+1;--newline--                else right = mid-1;--newline--            }--newline--        }--newline--        return false;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "My 8ms C++ solution (o(logn) on average, o(n) worst case)"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean search(int[] A, int target) {--newline--        // IMPORTANT: Please reset any member data you declared, as--newline--        // the same Solution instance will be reused for each test case.--newline--        int i = 0;--newline--        int j = A.length - 1;--newline--        while(i <= j){--newline--            int mid = (i + j) / 2;--newline--            if(A[mid] == target)--newline--                return true;--newline--            else if(A[mid] < A[i]){--newline--                if(target > A[j])--newline--                    j = mid - 1;--newline--                else if(target < A[mid])--newline--                    j = mid - 1;--newline--                else--newline--                    i = mid + 1;--newline--            }else if(A[mid] > A[i]){--newline--                if(target < A[mid] && target >= A[i])--newline--                    j = mid - 1;--newline--                else--newline--                    i = mid + 1;--newline--            }else{ // A[mid] == A[i]--newline--                if(A[mid] != A[j])--newline--                    i = mid + 1;--newline--                else{--newline--                    boolean flag = true;--newline--                    for(int k = 1; mid - k >= i && mid + k <= j; k++){--newline--                        if(A[mid] != A[mid - k]){--newline--                            j = mid - k;--newline--                            flag = false;--newline--                            break;--newline--                        }else if(A[mid] != A[mid + k]){--newline--                            i = mid + k;--newline--                            flag = false;--newline--                            break;--newline--                        }--newline--                    }--newline--                    if(flag)--newline--                        return false;--newline--                }--newline--            }--newline--        }--newline--        return false;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "When there are duplicates, the worst case is O(n). Could we do better?"
+        },
+        {
+            "java": "public class Solution {--newline--        public boolean search(int[] nums, int target) {--newline--            int start = 0, end = nums.length - 1, mid = -1;--newline--            while(start <= end) {--newline--                mid = (start + end) / 2;--newline--                if (nums[mid] == target) {--newline--                    return true;--newline--                }--newline--                //If we know for sure right side is sorted or left side is unsorted--newline--                if (nums[mid] < nums[end] || nums[mid] < nums[start]) {--newline--                    if (target > nums[mid] && target <= nums[end]) {--newline--                        start = mid + 1;--newline--                    } else {--newline--                        end = mid - 1;--newline--                    }--newline--                //If we know for sure left side is sorted or right side is unsorted--newline--                } else if (nums[mid] > nums[start] || nums[mid] > nums[end]) {--newline--                    if (target < nums[mid] && target >= nums[start]) {--newline--                        end = mid - 1;--newline--                    } else {--newline--                        start = mid + 1;--newline--                    }--newline--                //If we get here, that means nums[start] == nums[mid] == nums[end], then shifting out--newline--                //any of the two sides won't change the result but can help remove duplicate from--newline--                //consideration, here we just use end-- but left++ works too--newline--                } else {--newline--                    end--;--newline--                }--newline--            }--newline--            --newline--            return false;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Neat JAVA solution using binary search"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Medium level question is follow up for a hard level question?"
+        }
+    ],
+    "qc": "81.json"
+}

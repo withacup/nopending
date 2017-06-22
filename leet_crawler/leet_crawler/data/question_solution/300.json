@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int lengthOfLIS(int[] nums) {            --newline--        int[] dp = new int[nums.length];--newline--        int len = 0;--newline----newline--        for(int x : nums) {--newline--            int i = Arrays.binarySearch(dp, 0, len, x);--newline--            if(i < 0) i = -(i + 1);--newline--            dp[i] = x;--newline--            if(i == len) len++;--newline--        }--newline----newline--        return len;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Short Java solution using DP O(n log n)"
+        },
+        {
+            "java": "public class Solution {--newline--    public int lengthOfLIS(int[] nums) {--newline--        int[] tails = new int[nums.length];--newline--        int size = 0;--newline--        for (int x : nums) {--newline--            int i = 0, j = size;--newline--            while (i != j) {--newline--                int m = (i + j) / 2;--newline--                if (tails[m] < x)--newline--                    i = m + 1;--newline--                else--newline--                    j = m;--newline--            }--newline--            tails[i] = x;--newline--            if (i == size) ++size;--newline--        }--newline--        return size;--newline--    }--newline--    // Runtime: 2 ms--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def lengthOfLIS(self, nums):--newline----tab--        tails = [0] * len(nums)--newline----tab--        size = 0--newline----tab--        for x in nums:--newline----tab--            i, j = 0, size--newline----tab--            while i != j:--newline----tab--                m = (i + j) / 2--newline----tab--                if tails[m] < x:--newline----tab--                    i = m + 1--newline----tab--                else:--newline----tab--                    j = m--newline----tab--            tails[i] = x--newline----tab--            size = max(i + 1, size)--newline----tab--        return size--newline----tab--    --newline----tab--    # Runtime: 48 ms",
+            "topic_title": "Java&#x2F;Python Binary search O(nlogn) time with explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int lengthOfLIS(vector<int>& nums) {--newline--        vector<int> res;--newline--        for(int i=0; i<nums.size(); i++) {--newline--            auto it = std::lower_bound(res.begin(), res.end(), nums[i]);--newline--            if(it==res.end()) res.push_back(nums[i]);--newline--            else *it = nums[i];--newline--        }--newline--        return res.size();--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "9 lines C++ code with O(NlogN) complexity"
+        },
+        {
+            "java": "public class Solution {--newline--        public int lengthOfLIS(int[] nums) --newline--    --tab--{--newline--    --tab----tab--// Base case--newline--    --tab----tab--if(nums.length <= 1) --newline--    --tab----tab----tab--return nums.length;--newline--    --newline--    --tab----tab--// This will be our array to track longest sequence length--newline--    --tab----tab--int T[] = new int[nums.length];--newline--    --newline--    --tab----tab--// Fill each position with value 1 in the array--newline--    --tab----tab--for(int i=0; i < nums.length; i++)--newline--    --tab----tab----tab--T[i] = 1;--newline--    --newline--    --newline--    --tab----tab--// Mark one pointer at i. For each i, start from j=0.--newline--    --tab----tab--for(int i=1; i < nums.length; i++)--newline--    --tab----tab--{--newline--    --tab----tab----tab--for(int j=0; j < i; j++)--newline--    --tab----tab----tab--{--newline--    --tab----tab----tab----tab--// It means next number contributes to increasing sequence.--newline--    --tab----tab----tab----tab--if(nums[j] < nums[i])--newline--    --tab----tab----tab----tab--{--newline--    --tab----tab----tab----tab----tab--// But increase the value only if it results in a larger value of the sequence than T[i]--newline--    --tab----tab----tab----tab----tab--// It is possible that T[i] already has larger value from some previous j'th iteration--newline--    --tab----tab----tab----tab----tab--if(T[j] + 1 > T[i])--newline--    --tab----tab----tab----tab----tab--{--newline--    --tab----tab----tab----tab----tab----tab--T[i] = T[j] + 1;--newline--    --tab----tab----tab----tab----tab--}--newline--    --tab----tab----tab----tab--}--newline--    --tab----tab----tab--}--newline--    --tab----tab--}--newline--    --newline--    --tab----tab--// Find the maximum length from the array that we just generated --newline--    --tab----tab--int longest = 0;--newline--    --tab----tab--for(int i=0; i < T.length; i++)--newline--    --tab----tab----tab--longest = Math.max(longest, T[i]);--newline--    --newline--    --tab----tab--return longest;--newline--    --tab--}--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My easy to understand O(n^2) solution using DP with video explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    // There's a typical DP solution with O(N^2) Time and O(N) space --newline--    // DP[i] means the result ends at i--newline--    // So for dp[i], dp[i] is max(dp[j]+1), for all j < i and nums[j] < nums[i]--newline--    int lengthOfLIS(vector<int>& nums) {--newline--        const int size = nums.size();--newline--        if (size == 0) { return 0; } --newline--        vector<int> dp(size, 1);--newline--        int res = 1;--newline--        for (int i = 1; i < size; ++i) {--newline--            for (int j = 0; j < i; ++j) {--newline--                if (nums[j] < nums[i]) {--newline--                    dp[i] = max(dp[i], dp[j]+1);--newline--                }--newline--            }--newline--            res = max (res, dp[i]);--newline--        }--newline--        return res;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "&#91;C++&#93; Typical DP N^2 solution and NLogN solution from GeekForGeek"
+        }
+    ],
+    "qc": "300.json"
+}

@@ -1,0 +1,15 @@
+---CONTENT_BEGIN---
+
+Given two binary strings, return their sum (also a binary string).
+
+
+
+For example,
+a = "11"
+b = "1"
+Return "100".
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    string addBinary(string a, string b) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public String addBinary(String a, String b) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def addBinary(self, a, b):--newline--        '''--newline--        :type a: str--newline--        :type b: str--newline--        :rtype: str--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "char* addBinary(char* a, char* b) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public string AddBinary(string a, string b) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} a--newline-- * @param {string} b--newline-- * @return {string}--newline-- */--newline--var addBinary = function(a, b) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} a--newline--# @param {String} b--newline--# @return {String}--newline--def add_binary(a, b)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func addBinary(_ a: String, _ b: String) -> String {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func addBinary(a string, b string) string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

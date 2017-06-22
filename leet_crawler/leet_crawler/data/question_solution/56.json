@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public List<Interval> merge(List<Interval> intervals) {--newline--        if (intervals.size() <= 1)--newline--            return intervals;--newline--        --newline--        // Sort by ascending starting point using an anonymous Comparator--newline--        intervals.sort((i1, i2) -> Integer.compare(i1.start, i2.start));--newline--        --newline--        List<Interval> result = new LinkedList<Interval>();--newline--        int start = intervals.get(0).start;--newline--        int end = intervals.get(0).end;--newline--        --newline--        for (Interval interval : intervals) {--newline--            if (interval.start <= end) // Overlapping intervals, move the end if needed--newline--                end = Math.max(end, interval.end);--newline--            else {                     // Disjoint intervals, add the previous one and reset bounds--newline--                result.add(new Interval(start, end));--newline--                start = interval.start;--newline--                end = interval.end;--newline--            }--newline--        }--newline--        --newline--        // Add the last interval--newline--        result.add(new Interval(start, end));--newline--        return result;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "A simple Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<Interval> merge(vector<Interval>& ins) {--newline--        if (ins.empty()) return vector<Interval>{};--newline--        vector<Interval> res;--newline--        sort(ins.begin(), ins.end(), [](Interval a, Interval b){return a.start < b.start;});--newline--        res.push_back(ins[0]);--newline--        for (int i = 1; i < ins.size(); i++) {--newline--            if (res.back().end < ins[i].start) res.push_back(ins[i]);--newline--            else--newline--                res.back().end = max(res.back().end, ins[i].end);--newline--        }--newline--        return res;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "C++ 10 line solution. easing understanding"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def merge(self, intervals):--newline----tab--        out = []--newline----tab--        for i in sorted(intervals, key=lambda i: i.start):--newline----tab--            if out and i.start <= out[-1].end:--newline----tab--                out[-1].end = max(out[-1].end, i.end)--newline----tab--            else:--newline----tab--                out += i,--newline----tab--        return out",
+            "topic_title": "7 lines, easy, Python"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<Interval> merge(List<Interval> intervals) {--newline--        Collections.sort(intervals, new Comparator<Interval>(){--newline--            @Override--newline--            public int compare(Interval obj0, Interval obj1) {--newline--                return obj0.start - obj1.start;--newline--            }--newline--        });--newline----newline--        List<Interval> ret = new ArrayList<>();--newline--        Interval prev = null;--newline--        for (Interval inter : intervals) {--newline--            if (  prev==null || inter.start>prev.end ) {--newline--                ret.add(inter);--newline--                prev = inter;--newline--            } else if (inter.end>prev.end) {--newline--                // Modify the element already in list--newline--                prev.end = inter.end;--newline--            }--newline--        }--newline--        return ret;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "A clean java solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<Interval> merge(List<Interval> intervals) {--newline--    --tab--// sort start&end--newline--    --tab--int n = intervals.size();--newline--    --tab--int[] starts = new int[n];--newline--    --tab--int[] ends = new int[n];--newline--    --tab--for (int i = 0; i < n; i++) {--newline--    --tab----tab--starts[i] = intervals.get(i).start;--newline--    --tab----tab--ends[i] = intervals.get(i).end;--newline--    --tab--}--newline--    --tab--Arrays.sort(starts);--newline--    --tab--Arrays.sort(ends);--newline--    --tab--// loop through--newline--    --tab--List<Interval> res = new ArrayList<Interval>();--newline--    --tab--for (int i = 0, j = 0; i < n; i++) { // j is start of interval.--newline--    --tab----tab--if (i == n - 1 || starts[i + 1] > ends[i]) {--newline--    --tab----tab----tab--res.add(new Interval(starts[j], ends[i]));--newline--    --tab----tab----tab--j = i + 1;--newline--    --tab----tab--}--newline--    --tab--}--newline--    --tab--return res;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Beat 98% Java. Sort start &amp; end respectively."
+        }
+    ],
+    "qc": "56.json"
+}

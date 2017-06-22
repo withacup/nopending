@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "1 line Ruby &#x2F; Python"
+        },
+        {
+            "java": "public class Solution {--newline--    public String reverseWords(String s) {--newline--        char[] ca = s.toCharArray();--newline--        for (int i = 0; i < ca.length; i++) {--newline--            if (ca[i] != ' ') {   // when i is a non-space--newline--                int j = i;--newline--                while (j + 1 < ca.length && ca[j + 1] != ' ') { j++; } // move j to the end of the word--newline--                reverse(ca, i, j);--newline--                i = j;--newline--            }--newline--        }--newline--        return new String(ca);--newline--    }--newline----newline--    private void reverse(char[] ca, int i, int j) {--newline--        for (; i < j; i++, j--) {--newline--            char tmp = ca[i];--newline--            ca[i] = ca[j];--newline--            ca[j] = tmp;--newline--        }--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string reverseWords(string s) {--newline--        for (int i = 0; i < s.length(); i++) {--newline--            if (s[i] != ' ') {   // when i is a non-space--newline--                int j = i;--newline--                for (; j < s.length() && s[j] != ' '; j++) { } // move j to the next space--newline--                reverse(s.begin() + i, s.begin() + j);--newline--                i = j - 1;--newline--            }--newline--        }--newline--        --newline--        return s;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "&#91;C++&#93; &#91;Java&#93; Clean Code"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string reverseWords(string s) {--newline--        size_t front = 0;--newline--        for(int i = 0; i <= s.length(); ++i){--newline--            if(i == s.length() || s[i] == ' '){--newline--                reverse(&s[front], &s[i]);--newline--                front = i + 1;--newline--            }--newline--        }--newline--        --newline--        return s;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def reverseWords(self, s):--newline----tab--        \"\"\"--newline----tab--        :type s: str--newline----tab--        :rtype: str--newline----tab--        \"\"\"--newline----tab--        return \" \".join(map(lambda x: x[::-1], s.split()))--newline----tab--",
+            "topic_title": "1 line Python"
+        },
+        {
+            "java": "public class Solution {--newline--    public String reverseWords(String s) --newline--    {--newline--        char[] s1 = s.toCharArray();--newline--        int i = 0;--newline--        for(int j = 0; j < s1.length; j++)--newline--        {--newline--            if(s1[j] == ' ')--newline--            {--newline--                reverse(s1, i, j - 1);--newline--                i = j + 1;--newline--            }--newline--        }--newline--        reverse(s1, i, s1.length - 1);--newline--        return new String(s1);--newline--    }--newline--    --newline--    public void reverse(char[] s, int l, int r)--newline--    {--newline--    --tab--while(l < r)--newline--    --tab--{--newline--    --tab----tab--char temp = s[l];--newline--    --tab----tab--s[l] = s[r];--newline--    --tab----tab--s[r] = temp;--newline--    --tab----tab--l++; r--;--newline--    --tab--}--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easiest Java Solution (9ms) - Similar to Reverse Words in a String II"
+        }
+    ],
+    "qc": "557.json"
+}

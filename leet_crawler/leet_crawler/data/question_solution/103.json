@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public List<List<Integer>> zigzagLevelOrder(TreeNode root) --newline--    {--newline--        List<List<Integer>> sol = new ArrayList<>();--newline--        travel(root, sol, 0);--newline--        return sol;--newline--    }--newline--    --newline--    private void travel(TreeNode curr, List<List<Integer>> sol, int level)--newline--    {--newline--        if(curr == null) return;--newline--        --newline--        if(sol.size() <= level)--newline--        {--newline--            List<Integer> newLevel = new LinkedList<>();--newline--            sol.add(newLevel);--newline--        }--newline--        --newline--        List<Integer> collection  = sol.get(level);--newline--        if(level % 2 == 0) collection.add(curr.val);--newline--        else collection.add(0, curr.val);--newline--        --newline--        travel(curr.left, sol, level + 1);--newline--        travel(curr.right, sol, level + 1);--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My accepted JAVA solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<vector<int> > zigzagLevelOrder(TreeNode* root) {--newline--        if (root == NULL) {--newline--            return vector<vector<int> > ();--newline--        }--newline--        vector<vector<int> > result;--newline--    --newline--        queue<TreeNode*> nodesQueue;--newline--        nodesQueue.push(root);--newline--        bool leftToRight = true;--newline--    --newline--        while ( !nodesQueue.empty()) {--newline--            int size = nodesQueue.size();--newline--            vector<int> row(size);--newline--            for (int i = 0; i < size; i++) {--newline--                TreeNode* node = nodesQueue.front();--newline--                nodesQueue.pop();--newline--    --newline--                // find position to fill node's value--newline--                int index = (leftToRight) ? i : (size - 1 - i);--newline--    --newline--                row[index] = node->val;--newline--                if (node->left) {--newline--                    nodesQueue.push(node->left);--newline--                }--newline--                if (node->right) {--newline--                    nodesQueue.push(node->right);--newline--                }--newline--            }--newline--            // after this level--newline--            leftToRight = !leftToRight;--newline--            result.push_back(row);--newline--        }--newline--        return result;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "&#91;c++&#93; 5ms version: one queue and without reverse operation by using size of each level"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "A concise and easy understanding Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {--newline--        vector<vector<int>> res;--newline--        if(!root) return res;--newline--        std::deque<TreeNode*> deq;--newline--        deq.push_back(root);--newline--        int iszig=1;--newline--        while(!deq.empty()) {--newline--            int sz=deq.size();--newline--            iszig=iszig^1;--newline--            vector<int> row;--newline--            while(sz--) {--newline--                if(iszig) { // pop_front, push_back, right then left--newline--                    root=deq.front();deq.pop_front();--newline--                    row.push_back(root->val);--newline--                    if(root->right) deq.push_back(root->right);--newline--                    if(root->left) deq.push_back(root->left);--newline--                }--newline--                else { // pop_back, push_front, left then right--newline--                    root=deq.back();deq.pop_back();--newline--                    row.push_back(root->val);--newline--                    if(root->left) deq.push_front(root->left);--newline--                    if(root->right) deq.push_front(root->right);--newline--                }--newline--            }--newline--            res.push_back(row);--newline--        }--newline--        return res;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Clear iterative solution with deque, no reverse"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {--newline--       TreeNode c=root;--newline--       List<List<Integer>> ans =new ArrayList<List<Integer>>();--newline--       if(c==null) return ans;--newline--       Stack<TreeNode> s1=new Stack<TreeNode>();--newline--       Stack<TreeNode> s2=new Stack<TreeNode>();--newline--       s1.push(root);--newline--       while(!s1.isEmpty()||!s2.isEmpty())--newline--       {--newline--           List<Integer> tmp=new ArrayList<Integer>();--newline--            while(!s1.isEmpty())--newline--            {--newline--                c=s1.pop();--newline--                tmp.add(c.val);--newline--                if(c.left!=null) s2.push(c.left);--newline--                if(c.right!=null) s2.push(c.right);--newline--            }--newline--            ans.add(tmp);--newline--            tmp=new ArrayList<Integer>();--newline--            while(!s2.isEmpty())--newline--            {--newline--                c=s2.pop();--newline--                tmp.add(c.val);--newline--                if(c.right!=null)s1.push(c.right);--newline--                if(c.left!=null)s1.push(c.left);--newline--            }--newline--            if(!tmp.isEmpty()) ans.add(tmp);--newline--       }--newline--       return ans;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "JAVA Double Stack Solution"
+        }
+    ],
+    "qc": "103.json"
+}

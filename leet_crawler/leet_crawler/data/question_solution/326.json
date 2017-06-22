@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--public boolean isPowerOfThree(int n) {--newline--    // 1162261467 is 3^19,  3^20 is bigger than int  --newline--    return ( n>0 &&  1162261467%n==0);--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "1 line java solution without loop &#x2F; recursion"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isPowerOfThree(int n) {--newline--        return Integer.toString(n, 3).matches(\"10*\");--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "** A summary of &#96;all&#96; solutions (new method included at 15:30pm Jan-8th)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int const Max3PowerInt = 1162261467; // 3^19, 3^20 = 3486784401 > MaxInt32--newline--    int const MaxInt32 = 2147483647; // 2^31 - 1--newline--    bool isPowerOfThree(int n) {--newline--        if (n <= 0 || n > Max3PowerInt) return false;--newline--        return Max3PowerInt % n == 0;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Without log and O(1)."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool isPowerOfThree(int n) {--newline--        return fmod(log10(n)/log10(3), 1)==0;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "1 line C++ no recursion&#x2F;loop"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "One line (cheating)"
+        }
+    ],
+    "qc": "326.json"
+}

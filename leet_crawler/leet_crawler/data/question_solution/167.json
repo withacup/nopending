@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int[] twoSum(int[] num, int target) {--newline--        int[] indice = new int[2];--newline--        if (num == null || num.length < 2) return indice;--newline--        int left = 0, right = num.length - 1;--newline--        while (left < right) {--newline--            int v = num[left] + num[right];--newline--            if (v == target) {--newline--                indice[0] = left + 1;--newline--                indice[1] = right + 1;--newline--                break;--newline--            } else if (v > target) {--newline--                right --;--newline--            } else {--newline--                left ++;--newline--            }--newline--        }--newline--        return indice;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my java AC solution."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> twoSum(vector<int>& numbers, int target) {--newline--        int lo=0, hi=numbers.size()-1;--newline--        while (numbers[lo]+numbers[hi]!=target){--newline--            if (numbers[lo]+numbers[hi]<target){--newline--                lo++;--newline--            } else {--newline--                hi--;--newline--            }--newline--        }--newline--        return vector<int>({lo+1,hi+1});--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "A simple O(n) solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> twoSum(vector<int> &numbers, int target) {--newline--        if(numbers.empty()) return {};--newline--        for(int i=0; i<numbers.size()-1; i++) {--newline--            int start=i+1, end=numbers.size()-1, gap=target-numbers[i];--newline--            while(start <= end) {--newline--                int m = start+(end-start)/2;--newline--                if(numbers[m] == gap) return {i+1,m+1};--newline--                else if(numbers[m] > gap) end=m-1;--newline--                else start=m+1;--newline--            }--newline--        }--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "A less efficient way (binary search)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    # two-pointer--newline----tab--    def twoSum1(self, numbers, target):--newline----tab--        l, r = 0, len(numbers)-1--newline----tab--        while l < r:--newline----tab--            s = numbers[l] + numbers[r]--newline----tab--            if s == target:--newline----tab--                return [l+1, r+1]--newline----tab--            elif s < target:--newline----tab--                l += 1--newline----tab--            else:--newline----tab--                r -= 1--newline----tab--     --newline----tab--    # dictionary           --newline----tab--    def twoSum2(self, numbers, target):--newline----tab--        dic = {}--newline----tab--        for i, num in enumerate(numbers):--newline----tab--            if target-num in dic:--newline----tab--                return [dic[target-num]+1, i+1]--newline----tab--            dic[num] = i--newline----tab--     --newline----tab--    # binary search        --newline----tab--    def twoSum(self, numbers, target):--newline----tab--        for i in xrange(len(numbers)):--newline----tab--            l, r = i+1, len(numbers)-1--newline----tab--            tmp = target - numbers[i]--newline----tab--            while l <= r:--newline----tab--                mid = l + (r-l)//2--newline----tab--                if numbers[mid] == tmp:--newline----tab--                    return [i+1, mid+1]--newline----tab--                elif numbers[mid] < tmp:--newline----tab--                    l = mid+1--newline----tab--                else:--newline----tab--                    r = mid-1",
+            "topic_title": "Python different solutions (two-pointer, dictionary, binary search)."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> twoSum(vector<int>& numbers, int target) {--newline--            --newline--            int l = 0;--newline--            int r = numbers.size() -1;--newline--            while(l < r){--newline--                if(numbers[l] + numbers[r] == target){--newline--                    vector<int> res{l+1,r+1};--newline--                    return res;--newline--                }--newline--                else if(numbers[l] + numbers[r] > target){--newline--                    r--;--newline--                }--newline--                else{--newline--                    l++;--newline--                }--newline--            }--newline--        }--newline--}",
+            "python": null,
+            "topic_title": "C++ solution simple and sweet"
+        }
+    ],
+    "qc": "167.json"
+}

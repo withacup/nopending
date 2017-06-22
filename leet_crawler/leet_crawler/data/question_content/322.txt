@@ -1,0 +1,27 @@
+---CONTENT_BEGIN---
+
+You are given coins of different denominations and a total amount of money amount. Write a function to compute the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.
+
+
+
+Example 1:
+coins = [1, 2, 5], amount = 11
+return 3 (11 = 5 + 5 + 1)
+
+
+
+Example 2:
+coins = [2], amount = 3
+return -1.
+
+
+
+Note:
+You may assume that you have an infinite number of each kind of coin.
+
+
+Credits:Special thanks to @jianchao.li.fighter for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int coinChange(vector<int>& coins, int amount) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int coinChange(int[] coins, int amount) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def coinChange(self, coins, amount):--newline--        '''--newline--        :type coins: List[int]--newline--        :type amount: int--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int coinChange(int* coins, int coinsSize, int amount) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int CoinChange(int[] coins, int amount) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} coins--newline-- * @param {number} amount--newline-- * @return {number}--newline-- */--newline--var coinChange = function(coins, amount) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} coins--newline--# @param {Integer} amount--newline--# @return {Integer}--newline--def coin_change(coins, amount)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func coinChange(_ coins: [Int], _ amount: Int) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func coinChange(coins []int, amount int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

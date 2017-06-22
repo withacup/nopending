@@ -1,0 +1,41 @@
+---CONTENT_BEGIN---
+The count-and-say sequence is the sequence of integers with the first five terms as following:
+
+1.     1
+2.     11
+3.     21
+4.     1211
+5.     111221
+
+
+
+1 is read off as "one 1" or 11.
+11 is read off as "two 1s" or 21.
+21 is read off as "one 2, then one 1" or 1211.
+
+
+
+Given an integer n, generate the nth term of the count-and-say sequence.
+
+
+
+Note: Each term of the sequence of integers will be represented as a string.
+
+
+Example 1:
+
+Input: 1
+Output: "1"
+
+
+
+Example 2:
+
+Input: 4
+Output: "1211"
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    string countAndSay(int n) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public String countAndSay(int n) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def countAndSay(self, n):--newline--        '''--newline--        :type n: int--newline--        :rtype: str--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "char* countAndSay(int n) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public string CountAndSay(int n) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} n--newline-- * @return {string}--newline-- */--newline--var countAndSay = function(n) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} n--newline--# @return {String}--newline--def count_and_say(n)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func countAndSay(_ n: Int) -> String {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func countAndSay(n int) string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

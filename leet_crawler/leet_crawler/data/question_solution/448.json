@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--        public List<Integer> findDisappearedNumbers(int[] nums) {--newline--            List<Integer> ret = new ArrayList<Integer>();--newline--            --newline--            for(int i = 0; i < nums.length; i++) {--newline--                int val = Math.abs(nums[i]) - 1;--newline--                if(nums[val] > 0) {--newline--                    nums[val] = -nums[val];--newline--                }--newline--            }--newline--            --newline--            for(int i = 0; i < nums.length; i++) {--newline--                if(nums[i] > 0) {--newline--                    ret.add(i+1);--newline--                }--newline--            }--newline--            return ret;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java accepted simple solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<Integer> findDisappearedNumbers(int[] nums) {--newline--            List<Integer> res = new ArrayList<>();--newline--            int n = nums.length;--newline--            for (int i = 0; i < nums.length; i ++) nums[(nums[i]-1) % n] += n;--newline--            for (int i = 0; i < nums.length; i ++) if (nums[i] <= n) res.add(i+1);--newline--            return res;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "5-line Java Easy-understanding"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> findDisappearedNumbers(vector<int>& nums) {--newline--        int len = nums.size();--newline--        for(int i=0; i<len; i++) {--newline--            int m = abs(nums[i])-1; // index start from 0--newline--            nums[m] = nums[m]>0 ? -nums[m] : nums[m];--newline--        }--newline--        vector<int> res;--newline--        for(int i = 0; i<len; i++) {--newline--            if(nums[i] > 0) res.push_back(i+1);--newline--        }--newline--        return res;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "c++ solution O(1) space"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def findDisappearedNumbers(self, nums):--newline----tab--        \"\"\"--newline----tab--        :type nums: List[int]--newline----tab--        :rtype: List[int]--newline----tab--        \"\"\"--newline----tab--        # For each number i in nums,--newline----tab--        # we mark the number that i points as negative.--newline----tab--        # Then we filter the list, get all the indexes--newline----tab--        # who points to a positive number--newline----tab--        for i in xrange(len(nums)):--newline----tab--            index = abs(nums[i]) - 1--newline----tab--            nums[index] = - abs(nums[index])--newline----tab----newline----tab--        return [i + 1 for i in range(len(nums)) if nums[i] > 0]--newline----tab----newline----tab--",
+            "topic_title": "Python 4 lines with short explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "2ms O(n) In-Space Java"
+        }
+    ],
+    "qc": "448.json"
+}

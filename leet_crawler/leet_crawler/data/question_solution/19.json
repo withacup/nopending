@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public ListNode removeNthFromEnd(ListNode head, int n) {--newline--        --newline--        ListNode start = new ListNode(0);--newline--        ListNode slow = start, fast = start;--newline--        slow.next = head;--newline--        --newline--        //Move fast in front so that the gap between slow and fast becomes n--newline--        for(int i=1; i<=n+1; i++)   {--newline--            fast = fast.next;--newline--        }--newline--        //Move fast to the end, maintaining the gap--newline--        while(fast != null) {--newline--            slow = slow.next;--newline--            fast = fast.next;--newline--        }--newline--        //Skip the desired node--newline--        slow.next = slow.next.next;--newline--        return start.next;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java solution in one pass"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution--newline--{--newline--public:--newline--    ListNode* removeNthFromEnd(ListNode* head, int n)--newline--    {--newline--        ListNode** t1 = &head, *t2 = head;--newline--        for(int i = 1; i < n; ++i)--newline--        {--newline--            t2 = t2->next;--newline--        }--newline--        while(t2->next != NULL)--newline--        {--newline--            t1 = &((*t1)->next);--newline--            t2 = t2->next;--newline--        }--newline--        *t1 = (*t1)->next;--newline--        return head;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "My short C++ solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab--    def removeNthFromEnd(self, head, n):--newline----tab--        fast = slow = head--newline----tab--        for _ in range(n):--newline----tab--            fast = fast.next--newline----tab--        if not fast:--newline----tab--            return head.next--newline----tab--        while fast.next:--newline----tab--            fast = fast.next--newline----tab--            slow = slow.next--newline----tab--        slow.next = slow.next.next--newline----tab--        return head",
+            "topic_title": "3 short Python solutions"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My one pass solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    ListNode *removeNthFromEnd(ListNode *head, int n) --newline--    {--newline--        if (!head)--newline--            return nullptr;--newline--    --newline--        ListNode new_head(-1);--newline--        new_head.next = head;--newline--    --newline--        ListNode *slow = &new_head, *fast = &new_head;--newline--    --newline--        for (int i = 0; i < n; i++)--newline--            fast = fast->next;--newline--    --newline--        while (fast->next) --newline--        {--newline--            fast = fast->next;--newline--            slow = slow->next;--newline--        }--newline--    --newline--        ListNode *to_de_deleted = slow->next;--newline--        slow->next = slow->next->next;--newline--        --newline--        delete to_be_deleted;--newline--    --newline--        return new_head.next;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "C++ solution, easy to understand with explanations."
+        }
+    ],
+    "qc": "19.json"
+}

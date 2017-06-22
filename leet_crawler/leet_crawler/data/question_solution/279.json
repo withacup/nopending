@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution --newline--{--newline--public:--newline--    int numSquares(int n) --newline--    {--newline--        if (n <= 0)--newline--        {--newline--            return 0;--newline--        }--newline--        --newline--        // perfectSquares contain all perfect square numbers which --newline--        // are smaller than or equal to n.--newline--        vector<int> perfectSquares;--newline--        // cntPerfectSquares[i - 1] = the least number of perfect --newline--        // square numbers which sum to i.--newline--        vector<int> cntPerfectSquares(n);--newline--        --newline--        // Get all the perfect square numbers which are smaller than --newline--        // or equal to n.--newline--        for (int i = 1; i*i <= n; i++)--newline--        {--newline--            perfectSquares.push_back(i*i);--newline--            cntPerfectSquares[i*i - 1] = 1;--newline--        }--newline--        --newline--        // If n is a perfect square number, return 1 immediately.--newline--        if (perfectSquares.back() == n)--newline--        {--newline--            return 1;--newline--        }--newline--        --newline--        // Consider a graph which consists of number 0, 1,...,n as--newline--        // its nodes. Node j is connected to node i via an edge if  --newline--        // and only if either j = i + (a perfect square number) or --newline--        // i = j + (a perfect square number). Starting from node 0, --newline--        // do the breadth-first search. If we reach node n at step --newline--        // m, then the least number of perfect square numbers which --newline--        // sum to n is m. Here since we have already obtained the --newline--        // perfect square numbers, we have actually finished the --newline--        // search at step 1.--newline--        queue<int> searchQ;--newline--        for (auto& i : perfectSquares)--newline--        {--newline--            searchQ.push(i);--newline--        }--newline--        --newline--        int currCntPerfectSquares = 1;--newline--        while (!searchQ.empty())--newline--        {--newline--            currCntPerfectSquares++;--newline--            --newline--            int searchQSize = searchQ.size();--newline--            for (int i = 0; i < searchQSize; i++)--newline--            {--newline--                int tmp = searchQ.front();--newline--                // Check the neighbors of node tmp which are the sum --newline--                // of tmp and a perfect square number.--newline--                for (auto& j : perfectSquares)--newline--                {--newline--                    if (tmp + j == n)--newline--                    {--newline--                        // We have reached node n.--newline--                        return currCntPerfectSquares;--newline--                    }--newline--                    else if ((tmp + j < n) && (cntPerfectSquares[tmp + j - 1] == 0))--newline--                    {--newline--                        // If cntPerfectSquares[tmp + j - 1] > 0, this is not --newline--                        // the first time that we visit this node and we should --newline--                        // skip the node (tmp + j).--newline--                        cntPerfectSquares[tmp + j - 1] = currCntPerfectSquares;--newline--                        searchQ.push(tmp + j);--newline--                    }--newline--                    else if (tmp + j > n)--newline--                    {--newline--                        // We don't need to consider the nodes which are greater ]--newline--                        // than n.--newline--                        break;--newline--                    }--newline--                }--newline--                --newline--                searchQ.pop();--newline--            }--newline--        }--newline--        --newline--        return 0;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Summary of 4 different solutions (BFS, DP, static DP and mathematics)"
+        },
+        {
+            "java": "public class Solution {--newline--    public int numSquares(int n) {--newline--    --tab--int[] dp = new int[n + 1];--newline--    --tab--Arrays.fill(dp, Integer.MAX_VALUE);--newline--    --tab--dp[0] = 0;--newline--    --tab--for(int i = 1; i <= n; ++i) {--newline--    --tab----tab--int min = Integer.MAX_VALUE;--newline--    --tab----tab--int j = 1;--newline--    --tab----tab--while(i - j*j >= 0) {--newline--    --tab----tab----tab--min = Math.min(min, dp[i - j*j] + 1);--newline--    --tab----tab----tab--++j;--newline--    --tab----tab--}--newline--    --tab----tab--dp[i] = min;--newline--    --tab--}--tab----tab----newline--    --tab--return dp[n];--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "An easy understanding DP solution in Java"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int numSquares(int n) {--newline--        int ub = sqrt(n);--newline--        for (int a=0; a<=ub; ++a) {--newline--            for (int b=a; b<=ub; ++b) {--newline--                int c = sqrt(n - a*a - b*b);--newline--                if (a*a + b*b + c*c == n)--newline--                    return !!a + !!b + !!c;--newline--            }--newline--        }--newline--        return 4;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "O(sqrt(n)) in Ruby, C++, C"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def numSquares(self, n):--newline----tab--        if n < 2:--newline----tab--            return n--newline----tab--        lst = []--newline----tab--        i = 1--newline----tab--        while i * i <= n:--newline----tab--            lst.append( i * i )--newline----tab--            i += 1--newline----tab--        cnt = 0--newline----tab--        toCheck = {n}--newline----tab--        while toCheck:--newline----tab--            cnt += 1--newline----tab--            temp = set()--newline----tab--            for x in toCheck:--newline----tab--                for y in lst:--newline----tab--                    if x == y:--newline----tab--                        return cnt--newline----tab--                    if x < y:--newline----tab--                        break--newline----tab--                    temp.add(x-y)--newline----tab--            toCheck = temp--newline----tab--    --newline----tab--        return cnt--newline----tab--    ",
+            "topic_title": "Short Python solution using BFS"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int numSquares(int n) {--newline--        static vector<int> dp {0};--newline--        int m = dp.size();--newline--        dp.resize(max(m, n+1), INT_MAX);--newline--        for (int i=1, i2; (i2 = i*i)<=n; ++i)--newline--            for (int j=max(m, i2); j<=n; ++j)--newline--                if (dp[j] > dp[j-i2] + 1)--newline--                    dp[j] = dp[j-i2] + 1;--newline--        return dp[n];--newline--    }--newline--    --newline--}",
+            "python": "class Solution(object):--newline----tab--    _dp = [0]--newline----tab--    def numSquares(self, n):--newline----tab--        dp = self._dp--newline----tab--        while len(dp) <= n:--newline----tab--            dp += min(dp[-i*i] for i in range(1, int(len(dp)**0.5+1))) + 1,--newline----tab--        return dp[n]--newline----tab--",
+            "topic_title": "Static DP, C++ 12 ms, Python 172 ms, Ruby 384 ms"
+        }
+    ],
+    "qc": "279.json"
+}

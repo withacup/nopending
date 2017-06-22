@@ -1,0 +1,21 @@
+---CONTENT_BEGIN---
+Write a function that takes a string as input and reverse only the vowels of a string.
+
+
+Example 1:
+Given s = "hello", return "holle".
+
+
+
+Example 2:
+Given s = "leetcode", return "leotcede".
+
+
+
+Note:
+The vowels does not include the letter "y".
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    string reverseVowels(string s) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public String reverseVowels(String s) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def reverseVowels(self, s):--newline--        '''--newline--        :type s: str--newline--        :rtype: str--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "char* reverseVowels(char* s) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public string ReverseVowels(string s) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} s--newline-- * @return {string}--newline-- */--newline--var reverseVowels = function(s) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} s--newline--# @return {String}--newline--def reverse_vowels(s)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func reverseVowels(_ s: String) -> String {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func reverseVowels(s string) string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

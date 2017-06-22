@@ -1,0 +1,6 @@
+{
+    "solution_code": "public class Solution {--newline--    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {--newline--        //boundary check--newline--        if(headA == null || headB == null) return null;--newline--        --newline--        ListNode a = headA;--newline--        ListNode b = headB;--newline--        --newline--        //if a & b have different len, then we will stop the loop after second iteration--newline--        while( a != b){--newline--            //for the end of first iteration, we just reset the pointer to the head of another linkedlist--newline--            a = a == null? headB : a.next;--newline--            b = b == null? headA : b.next;    --newline--        }--newline--        --newline--        return a;--newline--    }--newline--}",
+    "l_type": "java",
+    "modified_code": null,
+    "total_cases": 42
+}

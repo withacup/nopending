@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int countSegments(String s) {--newline--        int res=0;--newline--        for(int i=0; i<s.length(); i++)--newline--            if(s.charAt(i)!=' ' && (i==0 || s.charAt(i-1)==' '))--newline--                res++;        --newline--        return res;--newline--    }--newline--    --newline--    Time complexity:  O(n)--newline--    Space complexity: O(1)--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Clean java solution O(n)"
+        },
+        {
+            "java": "public class Solution {--newline--    public int countSegments(String s) {--newline--        return (\"x \" + s).split(\" +\").length - 1;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int countSegments(string s) {--newline--        return regex_replace(regex_replace(s, regex(\"\\\\S+\"), \"x\"), regex(\" \"), \"\").size();--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "one-liners"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int countSegments(string s) {--newline--        int res = 0;--newline--        s.push_back(' ');--newline--        for(int i = 1; i < s.size(); ++i)--newline--          if(s[i] == ' ' && s[i-1] != ' ') ++res;--newline--        return res;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "O(n) sentinel value concise solution, C++"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int countSegments(string s) {--newline--        int res = 0;--newline--        for (int i = 0; i < s.size(); i++) --newline--            res += s[i] != ' ' && (i + 1 == s.size() || s[i + 1] == ' ');--newline--        return res;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ concise three line solutions"
+        },
+        {
+            "java": "public class Solution {--newline--    public int countSegments(String s) {--newline--        String trimmed = s.trim();--newline--        if (trimmed.length() == 0) return 0;--newline--        else return trimmed.split(\"\\\\s+\").length;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "AC Solution Java with trim() and split()"
+        }
+    ],
+    "qc": "434.json"
+}

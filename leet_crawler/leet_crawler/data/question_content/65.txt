@@ -1,0 +1,23 @@
+---CONTENT_BEGIN---
+Validate if a given string is numeric.
+
+
+Some examples:
+"0" => true
+"   0.1  " => true
+"abc" => false
+"1 a" => false
+"2e10" => true
+
+
+Note: It is intended for the problem statement to be ambiguous. You should gather all requirements up front before implementing one.
+
+
+
+Update (2015-02-10):
+The signature of the C++ function had been updated. If you still see your function signature accepts a const char * argument, please click the reload button  to reset your code definition.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    bool isNumber(string s) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public boolean isNumber(String s) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def isNumber(self, s):--newline--        '''--newline--        :type s: str--newline--        :rtype: bool--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "bool isNumber(char* s) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public bool IsNumber(string s) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} s--newline-- * @return {boolean}--newline-- */--newline--var isNumber = function(s) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} s--newline--# @return {Boolean}--newline--def is_number(s)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func isNumber(_ s: String) -> Bool {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func isNumber(s string) bool {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

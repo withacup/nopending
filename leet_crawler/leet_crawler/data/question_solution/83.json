@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public ListNode deleteDuplicates(ListNode head) {--newline--            if(head == null || head.next == null)return head;--newline--            head.next = deleteDuplicates(head.next);--newline--            return head.val == head.next.val ? head.next : head;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "3 Line JAVA recursive solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public ListNode deleteDuplicates(ListNode head) {--newline--        ListNode list = head;--newline--         --newline--         while(list != null) {--newline--        --tab-- if (list.next == null) {--newline--        --tab----tab-- break;--newline--        --tab-- }--newline--        --tab-- if (list.val == list.next.val) {--newline--        --tab----tab-- list.next = list.next.next;--newline--        --tab-- } else {--newline--        --tab----tab-- list = list.next;--newline--        --tab-- }--newline--         }--newline--         --newline--         return head;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My pretty solution. Java."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    ListNode *deleteDuplicates(ListNode *head) {--newline--        ListNode* cur = head;--newline--        while (cur) {--newline--            while (cur->next && cur->val == cur->next->val)--newline--                cur->next = cur->next->next;--newline--            cur = cur->next;--newline--        }--newline--        return head;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Concise solution and memory freeing"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def deleteDuplicates(self, head):--newline----tab--        cur = head--newline----tab--        while cur:--newline----tab--            while cur.next and cur.next.val == cur.val:--newline----tab--                cur.next = cur.next.next     # skip duplicated node--newline----tab--            cur = cur.next     # not duplicate of current node, move to next node--newline----tab--        return head",
+            "topic_title": "Simple iterative Python 6 lines, 60 ms"
+        },
+        {
+            "java": "public class Solution {--newline--    public ListNode deleteDuplicates(ListNode head) {--newline--        if(head==null||head.next==null) return head;--newline--        ListNode dummy=head;--newline--        while(dummy.next!=null){--newline--            if(dummy.next.val==dummy.val){--newline--                dummy.next=dummy.next.next;--newline--            }else dummy=dummy.next;--newline--        }--newline--        return head;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Clean Java solution"
+        }
+    ],
+    "qc": "83.json"
+}

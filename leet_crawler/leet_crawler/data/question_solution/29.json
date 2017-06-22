@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int divide(int dividend, int divisor) {--newline--        if (!divisor || (dividend == INT_MIN && divisor == -1))--newline--            return INT_MAX;--newline--        int sign = ((dividend < 0) ^ (divisor < 0)) ? -1 : 1;--newline--        long long dvd = labs(dividend);--newline--        long long dvs = labs(divisor);--newline--        int res = 0;--newline--        while (dvd >= dvs) { --newline--            long long temp = dvs, multiple = 1;--newline--            while (dvd >= (temp << 1)) {--newline--                temp <<= 1;--newline--                multiple <<= 1;--newline--            }--newline--            dvd -= temp;--newline--            res += multiple;--newline--        }--newline--        return sign == 1 ? res : -res; --newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Detailed Explained 8ms C++ solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    typedef long long ll;--newline--    --newline--    int divide(int n_, int d_) {--newline--        ll ans=0;--newline--        ll n=abs((ll)n_);--newline--        ll d=abs((ll)d_);--newline--        while(n>=d){--newline--            ll a=d;--newline--            ll m=1;--newline--            while((a<<1) < n){a<<=1;m<<=1;}--newline--            ans+=m;--newline--            n-=a;--newline--        }--newline--        if((n_<0&&d_>=0)||(n_>=0&&d_<0))--newline--            return -ans;--newline--        return ans;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Simple O((log N) ^ 2) C++ solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int divide(int dividend, int divisor) {--newline--    --tab--//Reduce the problem to positive long integer to make it easier.--newline--    --tab--//Use long to avoid integer overflow cases.--newline--    --tab--int sign = 1;--newline--    --tab--if ((dividend > 0 && divisor < 0) || (dividend < 0 && divisor > 0))--newline--    --tab----tab--sign = -1;--newline--    --tab--long ldividend = Math.abs((long) dividend);--newline--    --tab--long ldivisor = Math.abs((long) divisor);--newline--    --tab----newline--    --tab--//Take care the edge cases.--newline--    --tab--if (ldivisor == 0) return Integer.MAX_VALUE;--newline--    --tab--if ((ldividend == 0) || (ldividend < ldivisor))--tab--return 0;--newline--    --tab----newline--    --tab--long lans = ldivide(ldividend, ldivisor);--newline--    --tab----newline--    --tab--int ans;--newline--    --tab--if (lans > Integer.MAX_VALUE){ //Handle overflow.--newline--    --tab----tab--ans = (sign == 1)? Integer.MAX_VALUE : Integer.MIN_VALUE;--newline--    --tab--} else {--newline--    --tab----tab--ans = (int) (sign * lans);--newline--    --tab--}--newline--    --tab--return ans;--newline--    }--newline--    --newline--    private long ldivide(long ldividend, long ldivisor) {--newline--    --tab--// Recursion exit condition--newline--    --tab--if (ldividend < ldivisor) return 0;--newline--    --tab----newline--    --tab--//  Find the largest multiple so that (divisor * multiple <= dividend), --newline--    --tab--//  whereas we are moving with stride 1, 2, 4, 8, 16...2^n for performance reason.--newline--    --tab--//  Think this as a binary search.--newline--    --tab--long sum = ldivisor;--newline--    --tab--long multiple = 1;--newline--    --tab--while ((sum+sum) <= ldividend) {--newline--    --tab----tab--sum += sum;--newline--    --tab----tab--multiple += multiple;--newline--    --tab--}--newline--    --tab--//Look for additional value for the multiple from the reminder (dividend - sum) recursively.--newline--    --tab--return multiple + ldivide(ldividend - sum, ldivisor);--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Clean Java solution with some comment."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab--# @return an integer--newline----tab--def divide(self, dividend, divisor):--newline----tab--    positive = (dividend < 0) is (divisor < 0)--newline----tab--    dividend, divisor = abs(dividend), abs(divisor)--newline----tab--    res = 0--newline----tab--    while dividend >= divisor:--newline----tab--        temp, i = divisor, 1--newline----tab--        while dividend >= temp:--newline----tab--            dividend -= temp--newline----tab--            res += i--newline----tab--            i <<= 1--newline----tab--            temp <<= 1--newline----tab--    if not positive:--newline----tab--        res = -res--newline----tab--    return min(max(-2147483648, res), 2147483647)",
+            "topic_title": "Clear python code"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab--# @return an integer--newline----tab--def divide(self, dividend, divisor):--newline----tab--    isMinus= ((dividend<0 and divisor >0) or (dividend>0 and divisor <0));--newline----tab--    ret=0;        --newline----tab--    dividend,divisor=abs(dividend),abs(divisor);--newline----tab--    c,sub=1,divisor;--newline----tab----newline----tab--    while(dividend >= divisor):--newline----tab--        if(dividend>=sub):--newline----tab--            dividend-=sub;--newline----tab--            ret+=c;--newline----tab--            sub=(sub<<1);--newline----tab--            c=(c<<1);--newline----tab--        else:--newline----tab--            sub=(sub>>1);--newline----tab--            c=(c>>1);--newline----tab--    --newline----tab--    if(isMinus):--newline----tab--        ret=-ret;--newline----tab--    return min(max(-2147483648,ret),2147483647);",
+            "topic_title": "15 line easy understand solution. 129ms"
+        }
+    ],
+    "qc": "29.json"
+}

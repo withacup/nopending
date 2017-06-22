@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int getMoneyAmount(int n) {--newline--        int[][] table = new int[n+1][n+1];--newline--        for(int j=2; j<=n; j++){--newline--            for(int i=j-1; i>0; i--){--newline--                int globalMin = Integer.MAX_VALUE;--newline--                for(int k=i+1; k<j; k++){--newline--                    int localMax = k + Math.max(table[i][k-1], table[k+1][j]);--newline--                    globalMin = Math.min(globalMin, localMax);--newline--                }--newline--                table[i][j] = i+1==j?i:globalMin;--newline--            }--newline--        }--newline--        return table[1][n];--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple DP solution with explanation~~"
+        },
+        {
+            "java": "public class Solution {--newline--    public int getMoneyAmount(int n) {--newline--        if (n == 1) {--newline--            return 0;--newline--        }--newline--        int[][] dp = new int[n + 1][n + 1];--newline--        for (int jminusi = 1; jminusi < n; jminusi++) {--newline--            for (int i = 0; i + jminusi <= n; i++) {--newline--                int j = i + jminusi;--newline--                dp[i][j] = Integer.MAX_VALUE;--newline--                for (int k = i; k <= j; k++) {--newline--                    dp[i][j] = Math.min(dp[i][j],--newline--                                        k + Math.max(k - 1 >= i ? dp[i][k - 1] : 0,--newline--                                                     j >= k + 1 ? dp[k + 1][j] : 0));--newline--                }--newline--            }--newline--        }--newline--        return dp[1][n];--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java DP solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Improve the Question and Example"
+        },
+        {
+            "java": "public class Solution {--newline--    public int getMoneyAmount(int n) {--newline--        // all intervals are inclusive--newline--        // uninitialized cells are assured to be zero--newline--        // the zero column and row will be uninitialized--newline--        // the illegal cells will also be uninitialized--newline--        // add 1 to the length just to make the index the same as numbers used--newline--        int[][] dp = new int[n + 1][n + 1]; // dp[i][j] means the min cost in the worst case for numbers (i...j)--newline----newline--        // iterate the lengths of the intervals since the calculations of longer intervals rely on shorter ones--newline--        for (int l = 2; l <= n; l++) {--newline--            // iterate all the intervals with length l, the start of which is i. Hence the interval will be [i, i + (l - 1)]--newline--            for (int i = 1; i <= n - (l - 1); i++) {--newline--                dp[i][i + (l - 1)] = Integer.MAX_VALUE;--newline--                // iterate all the first guesses g--newline--                for (int g = i; g <= i + (l - 1); g++) {--newline--                    int costForThisGuess;--newline--                    // since if g is the last integer, g + 1 does not exist, we have to separate this case--newline--                    // cost for [i, i + (l - 1)]: g (first guess) + max{the cost of left part [i, g - 1], the cost of right part [g + 1, i + (l - 1)]}--newline--                    if (g == n) {--newline--                        costForThisGuess = dp[i][g - 1] + g;--newline--                    } else {--newline--                        costForThisGuess = g + Math.max(dp[i][g - 1], dp[g + 1][i + (l - 1)]);--newline--                    }--newline--                    dp[i][i + (l - 1)] = Math.min(dp[i][i + (l - 1)], costForThisGuess); // keep track of the min cost among all first guesses--newline--                }--newline--            }--newline--        }--newline--        return dp[1][n];--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java commented DP solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Clarification on the problem description. &#91;Problem description need to be updated !!! &#93;"
+        }
+    ],
+    "qc": "375.json"
+}

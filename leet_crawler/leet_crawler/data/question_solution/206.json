@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public ListNode reverseList(ListNode head) {--newline--        /* iterative solution */--newline--        ListNode newHead = null;--newline--        while (head != null) {--newline--            ListNode next = head.next;--newline--            head.next = newHead;--newline--            newHead = head;--newline--            head = next;--newline--        }--newline--        return newHead;--newline--    }--newline--    --newline--    public ListNode reverseList(ListNode head) {--newline--        /* recursive solution */--newline--        return reverseListInt(head, null);--newline--    }--newline--    --newline--    private ListNode reverseListInt(ListNode head, ListNode newHead) {--newline--        if (head == null)--newline--            return newHead;--newline--        ListNode next = head.next;--newline--        head.next = newHead;--newline--        return reverseListInt(next, head);--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "In-place iterative and recursive Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:   --newline--    ListNode* reverseList(ListNode* head) {--newline--        if (!head || !(head -> next)) return head;--newline--        ListNode* node = reverseList(head -> next);--newline--        head -> next -> next = head;--newline--        head -> next = NULL;--newline--        return node; --newline--    }--newline--}; --newline--",
+            "python": null,
+            "topic_title": "8ms C++ Iterative and Recursive Solutions with Explanations"
+        },
+        {
+            "java": "public class Solution {--newline--    public ListNode reverseList(ListNode head) {--newline--        if(head==null || head.next==null)--newline--            return head;--newline--        ListNode nextNode=head.next;--newline--        ListNode newHead=reverseList(nextNode);--newline--        nextNode.next=head;--newline--        head.next=null;--newline--        return newHead;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My Java recursive solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    struct ListNode* reverseListRe(struct ListNode* head) {--newline--    --tab--if(NULL==head||NULL==head->next) return head;--newline--    --newline--    --tab--struct ListNode *p=head->next;--newline--    --tab--head->next=NULL;--newline--    --tab--struct ListNode *newhead=reverseListRe(p);--newline--    --tab--p->next=head;--newline--    --newline--    --tab--return newhead;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Accepted C Solutions both iteratively and recursively"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab--# @param {ListNode} head--newline----tab--# @return {ListNode}--newline----tab--def reverseList(self, head):--newline----tab--    return self._reverse(head)--newline----tab----newline----tab--def _reverse(self, node, prev=None):--newline----tab--    if not node:--newline----tab--        return prev--newline----tab--    n = node.next--newline----tab--    node.next = prev--newline----tab--    return self._reverse(n, node)",
+            "topic_title": "Python Iterative and Recursive Solution"
+        }
+    ],
+    "qc": "206.json"
+}

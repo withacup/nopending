@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int maxCoins(int[] iNums) {--newline--        int[] nums = new int[iNums.length + 2];--newline--        int n = 1;--newline--        for (int x : iNums) if (x > 0) nums[n++] = x;--newline--        nums[0] = nums[n++] = 1;--newline--    --newline--    --newline--        int[][] dp = new int[n][n];--newline--        for (int k = 2; k < n; ++k)--newline--            for (int left = 0; left < n - k; ++left) {--newline--                int right = left + k;--newline--                for (int i = left + 1; i < right; ++i)--newline--                    dp[left][right] = Math.max(dp[left][right], --newline--                    nums[left] * nums[i] * nums[right] + dp[left][i] + dp[i][right]);--newline--            }--newline--    --newline--        return dp[0][n - 1];--newline--    }--newline--    // 17 ms--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int maxCoinsDP(vector<int> &iNums) {--newline--        int nums[iNums.size() + 2];--newline--        int n = 1;--newline--        for (int x : iNums) if (x > 0) nums[n++] = x;--newline--        nums[0] = nums[n++] = 1;--newline--    --newline--    --newline--        int dp[n][n] = {};--newline--        for (int k = 2; k < n; ++k) {--newline--            for (int left = 0; left < n - k; ++left)--newline--                int right = left + k;--newline--                for (int i = left + 1; i < right; ++i)--newline--                    dp[left][right] = max(dp[left][right],--newline--                         nums[left] * nums[i] * nums[right] + dp[left][i] + dp[i][right]);--newline--            }--newline--    --newline--        return dp[0][n - 1];--newline--    }--newline--    // 16 ms--newline--    --newline--}",
+            "python": "class Solution :--newline----tab--    def maxCoins(self, iNums):--newline----tab--        nums = [1] + [i for i in iNums if i > 0] + [1]--newline----tab--        n = len(nums)--newline----tab--        dp = [[0]*n for _ in xrange(n)]--newline----tab--    --newline----tab--        for k in xrange(2, n):--newline----tab--            for left in xrange(0, n - k):--newline----tab--                right = left + k--newline----tab--                for i in xrange(left + 1,right):--newline----tab--                    dp[left][right] = max(dp[left][right],--newline----tab--                           nums[left] * nums[i] * nums[right] + dp[left][i] + dp[i][right])--newline----tab--        return dp[0][n - 1]--newline----tab--    --newline----tab--    # 528ms",
+            "topic_title": "Share some analysis and explanations"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int maxCoins(vector<int>& nums) {--newline--        int N = nums.size();--newline--        nums.insert(nums.begin(), 1);--newline--        nums.insert(nums.end(), 1);--newline--    --newline--        // rangeValues[i][j] is the maximum # of coins that can be obtained--newline--        // by popping balloons only in the range [i,j]--newline--        vector<vector<int>> rangeValues(nums.size(), vector<int>(nums.size(), 0));--newline--        --newline--        // build up from shorter ranges to longer ranges--newline--        for (int len = 1; len <= N; ++len) {--newline--            for (int start = 1; start <= N - len + 1; ++start) {--newline--                int end = start + len - 1;--newline--                // calculate the max # of coins that can be obtained by--newline--                // popping balloons only in the range [start,end].--newline--                // consider all possible choices of final balloon to pop--newline--                int bestCoins = 0;--newline--                for (int final = start; final <= end; ++final) {--newline--                    int coins = rangeValues[start][final-1] + rangeValues[final+1][end]; // coins from popping subranges--newline--                    coins += nums[start-1] * nums[final] * nums[end+1]; // coins from final pop--newline--                    if (coins > bestCoins) bestCoins = coins;--newline--                }--newline--                rangeValues[start][end] = bestCoins;--newline--            }--newline--        }--newline--        return rangeValues[1][N];--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "C++ dynamic programming, O(N^3), 32 ms, with comments"
+        },
+        {
+            "java": "public class Solution {--newline--public int maxCoins(int[] nums) {--newline--    if (nums == null || nums.length == 0) return 0;--newline--    --newline--    int[][] dp = new int[nums.length][nums.length];--newline--    for (int len = 1; len <= nums.length; len++) {--newline--        for (int start = 0; start <= nums.length - len; start++) {--newline--            int end = start + len - 1;--newline--            for (int i = start; i <= end; i++) {--newline--                int coins = nums[i] * getValue(nums, start - 1) * getValue(nums, end + 1);--newline--                coins += i != start ? dp[start][i - 1] : 0; // If not first one, we can add subrange on its left.--newline--                coins += i != end ? dp[i + 1][end] : 0; // If not last one, we can add subrange on its right--newline--                dp[start][end] = Math.max(dp[start][end], coins);--newline--            }--newline--        }--newline--    }--newline--    return dp[0][nums.length - 1];--newline--}--newline----newline--private int getValue(int[] nums, int i) { // Deal with num[-1] and num[num.length]--newline--    if (i < 0 || i >= nums.length) {--newline--        return 1;--newline--    }--newline--    return nums[i];--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java DP solution with detailed explanation, O(n^3)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int maxCoins(vector<int>& nums) {--newline--        int n = nums.size();--newline--        nums.insert(nums.begin(), 1);--newline--        nums.push_back(1);--newline--        vector<vector<int>> dp(nums.size(), vector<int>(nums.size(), 0));--newline--        for (int len = 1; len <= n; ++len)--newline--            for (int left = 1; left <= n - len + 1; ++left) {--newline--                int right = left + len - 1;--newline--                for (int k = left; k <= right; ++k)--newline--                    dp[left][right] = max(dp[left][right], nums[left-1]*nums[k]*nums[right+1] + dp[left][k-1] + dp[k+1][right]);--newline--            }--newline--        return dp[1][n];--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "C++ dp detailed explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": " class Solution(object):--newline--        def maxCoins(self, nums):--newline--            \"\"\"--newline--            :type nums: List[int]--newline--            :rtype: int--newline--            \"\"\"--newline--            nums = [1] + nums + [1] # build the complete array --newline--            n = len(nums)--newline--            dp = [[0] * n for _ in xrange(n)]--newline--    --newline--            for gap in xrange(2, n):--newline--                for i in xrange(n-gap):--newline--                    j = i + gap--newline--                    for k in xrange(i+1, j):--newline--                        dp[i][j] = max(dp[i][j], nums[i] * nums[k] * nums[j] + dp[i][k] + dp[k][j])--newline--            return dp[0][n-1]",
+            "topic_title": "Python DP N^3 Solutions"
+        }
+    ],
+    "qc": "312.json"
+}

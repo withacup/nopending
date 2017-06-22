@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public boolean canPartition(int[] nums) {--newline--        int sum = 0;--newline--        --newline--        for (int num : nums) {--newline--            sum += num;--newline--        }--newline--        --newline--        if ((sum & 1) == 1) {--newline--            return false;--newline--        }--newline--        sum /= 2;--newline--        --newline--        int n = nums.length;--newline--        boolean[] dp = new boolean[sum+1];--newline--        Arrays.fill(dp, false);--newline--        dp[0] = true;--newline--        --newline--        for (int num : nums) {--newline--            for (int i = sum; i > 0; i--) {--newline--                if (i >= num) {--newline--                    dp[i] = dp[i] || dp[i-num];--newline--                }--newline--            }--newline--        }--newline--        --newline--        return dp[sum];--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "0&#x2F;1 knapsack detailed explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean canPartition(int[] nums) {--newline--        // check edge case--newline--        if (nums == null || nums.length == 0) {--newline--            return true;--newline--        }--newline--        // preprocess--newline--        int volumn = 0;--newline--        for (int num : nums) {--newline--            volumn += num;--newline--        }--newline--        if (volumn % 2 != 0) {--newline--            return false;--newline--        }--newline--        volumn /= 2;--newline--        // dp def--newline--        boolean[] dp = new boolean[volumn + 1];--newline--        // dp init--newline--        dp[0] = true;--newline--        // dp transition--newline--        for (int i = 1; i <= nums.length; i++) {--newline--            for (int j = volumn; j >= nums[i-1]; j--) {--newline--                dp[j] = dp[j] || dp[j - nums[i-1]];--newline--            }--newline--        }--newline--        return dp[volumn];--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution similar to backpack problem - Easy to understand"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool canPartition(vector<int>& nums) {--newline--        bitset<10001> bits(1);--newline--        int sum = accumulate(nums.begin(), nums.end(), 0);--newline--        for (auto n : nums) bits |= bits << n;--newline--        return !(sum & 1) && bits[sum >> 1];--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Simple C++ 4-line solution using a bitset"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool canPartition(vector<int>& nums) {--newline--        bitset<5001> bits(1);--newline--        int sum = accumulate(nums.begin(), nums.end(), 0);--newline--        for (auto n : nums) bits |= bits << n;--newline--        return !(sum & 1) && bits[sum >> 1];--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Concise C++ Solution summary with DFS, DP, BIT"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean canPartition(int[] nums) {--newline--        int sum = 0;--newline--        for(int num: nums) sum += num;--newline--        if(sum % 2 == 1) return false;--newline--        --newline--        int target = sum / 2;--newline--        boolean[][] dp = new boolean[nums.length][target + 1];--newline--        // deal with the first row--newline--        if(nums[0] <= target) dp[0][nums[0]] = true;--newline--        --newline--        // deal with the first col--newline--        for(int i = 0; i < nums.length; i++) dp[i][0] = true;--newline--        --newline--        // deal with the rest--newline--        for(int i = 1; i < dp.length; i++) {--newline--            for(int j = 1; j < dp[0].length; j++) {--newline--                if(j < nums[i]) {--newline--                    dp[i][j] = dp[i - 1][j];--newline--                } else {--newline--                    dp[i][j] = dp[i - 1][j] || dp[i - 1][j - nums[i]];--newline--                }--newline--            }--newline--        }--newline--        return dp[dp.length - 1][dp[0].length - 1];--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution similar to &#x27;Subset Sum Problem&#x27;"
+        }
+    ],
+    "qc": "416.json"
+}

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    #define max(a, b) ((a)>(b)?(a):(b))--newline--    int rob(int num[], int n) {--newline--        int a = 0;--newline--        int b = 0;--newline--        --newline--        for (int i=0; i<n; i++)--newline--        {--newline--            if (i%2==0)--newline--            {--newline--                a = max(a+num[i], b);--newline--            }--newline--            else--newline--            {--newline--                b = max(a, b+num[i]);--newline--            }--newline--        }--newline--        --newline--        return max(a, b);--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "C 1ms, O(1)space,  very simple solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int rob(int[] num) {--newline--        int prevNo = 0;--newline--        int prevYes = 0;--newline--        for (int n : num) {--newline--            int temp = prevNo;--newline--            prevNo = Math.max(prevNo, prevYes);--newline--            prevYes = n + temp;--newline--        }--newline--        return Math.max(prevNo, prevYes);--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java O(n) solution, space O(1)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab--    --newline----tab--    def rob(self, nums):--newline----tab--        --newline----tab--        last, now = 0, 0--newline----tab--        --newline----tab--        for i in nums: last, now = now, max(last + i, now)--newline----tab--                --newline----tab--        return now",
+            "topic_title": "Python solution, 3 lines."
+        },
+        {
+            "java": "public class Solution {--newline--    public int rob(int[] num) {--newline--        int rob = 0; //max monney can get if rob current house--newline--        int notrob = 0; //max money can get if not rob current house--newline--        for(int i=0; i<num.length; i++) {--newline--            int currob = notrob + num[i]; //if rob current value, previous house must not be robbed--newline--            notrob = Math.max(notrob, rob); //if not rob ith house, take the max value of robbed (i-1)th house and not rob (i-1)th house--newline--            rob = currob;--newline--        }--newline--        return Math.max(rob, notrob);--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "JAVA DP Solution, O(n) runtime and O(1) space, with inline comment"
+        },
+        {
+            "java": "public class Solution {--newline--    public int rob(int[] num) {--newline--        int i = 0;--newline--        int e = 0;--newline--        for (int k = 0; k<num.length; k++) {--newline--            int tmp = i;--newline--            i = num[k] + e;--newline--            e = Math.max(tmp, e);--newline--        }--newline--        return Math.max(i,e);--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "DP O(N) time, O(1) space with easy to understand explanation"
+        }
+    ],
+    "qc": "198.json"
+}

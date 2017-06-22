@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def generateMatrix(self, n):--newline----tab--        A = [[0] * n for _ in range(n)]--newline----tab--        i, j, di, dj = 0, 0, 0, 1--newline----tab--        for k in xrange(n*n):--newline----tab--            A[i][j] = k + 1--newline----tab--            if A[(i+di)%n][(j+dj)%n]:--newline----tab--                di, dj = dj, -di--newline----tab--            i += di--newline----tab--            j += dj--newline----tab--        return A",
+            "topic_title": "4-9 lines Python solutions"
+        },
+        {
+            "java": "public class Solution {--newline--    public int[][] generateMatrix(int n) {--newline--        // Declaration--newline--        int[][] matrix = new int[n][n];--newline--        --newline--        // Edge Case--newline--        if (n == 0) {--newline--            return matrix;--newline--        }--newline--        --newline--        // Normal Case--newline--        int rowStart = 0;--newline--        int rowEnd = n-1;--newline--        int colStart = 0;--newline--        int colEnd = n-1;--newline--        int num = 1; //change--newline--        --newline--        while (rowStart <= rowEnd && colStart <= colEnd) {--newline--            for (int i = colStart; i <= colEnd; i ++) {--newline--                matrix[rowStart][i] = num ++; //change--newline--            }--newline--            rowStart ++;--newline--            --newline--            for (int i = rowStart; i <= rowEnd; i ++) {--newline--                matrix[i][colEnd] = num ++; //change--newline--            }--newline--            colEnd --;--newline--            --newline--            for (int i = colEnd; i >= colStart; i --) {--newline--                if (rowStart <= rowEnd)--newline--                    matrix[rowEnd][i] = num ++; //change--newline--            }--newline--            rowEnd --;--newline--            --newline--            for (int i = rowEnd; i >= rowStart; i --) {--newline--                if (colStart <= colEnd)--newline--                    matrix[i][colStart] = num ++; //change--newline--            }--newline--            colStart ++;--newline--        }--newline--        --newline--        return matrix;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My Super Simple Solution. Can be used for both Spiral Matrix I and II"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--    public:--newline--        vector<vector<int> > generateMatrix(int n) {--newline--            vector<vector<int> > ret( n, vector<int>(n) );--newline--        --tab--int k = 1, i = 0;--newline--        --tab--while( k <= n * n )--newline--        --tab--{--newline--        --tab----tab--int j = i;--newline--                    // four steps--newline--        --tab----tab--while( j < n - i )             // 1. horizonal, left to right--newline--        --tab----tab----tab--ret[i][j++] = k++;--newline--        --tab----tab--j = i + 1;--newline--        --tab----tab--while( j < n - i )             // 2. vertical, top to bottom--newline--        --tab----tab----tab--ret[j++][n-i-1] = k++;--newline--        --tab----tab--j = n - i - 2;--newline--        --tab----tab--while( j > i )                  // 3. horizonal, right to left --newline--        --tab----tab----tab--ret[n-i-1][j--] = k++;--newline--        --tab----tab--j = n - i - 1;--newline--        --tab----tab--while( j > i )                  // 4. vertical, bottom to  top --newline--        --tab----tab----tab--ret[j--][i] = k++;--newline--        --tab----tab--i++;      // next loop--newline--        --tab--}--newline--        --tab--return ret;--newline--        }--newline--    };",
+            "python": null,
+            "topic_title": "Simple C++ solution(with explaination)"
+        },
+        {
+            "java": "public class Solution {--newline--    public static int[][] generateMatrix(int n) {--newline--    --tab--int[][] ret = new int[n][n];--newline--    --tab--int left = 0,top = 0;--newline--    --tab--int right = n -1,down = n - 1;--newline--    --tab--int count = 1;--newline--    --tab--while (left <= right) {--newline--    --tab----tab--for (int j = left; j <= right; j ++) {--newline--    --tab----tab----tab--ret[top][j] = count++;--newline--    --tab----tab--}--newline--    --tab----tab--top ++;--newline--    --tab----tab--for (int i = top; i <= down; i ++) {--newline--    --tab----tab----tab--ret[i][right] = count ++;--newline--    --tab----tab--}--newline--    --tab----tab--right --;--newline--    --tab----tab--for (int j = right; j >= left; j --) {--newline--    --tab----tab----tab--ret[down][j] = count ++;--newline--    --tab----tab--}--newline--    --tab----tab--down --;--newline--    --tab----tab--for (int i = down; i >= top; i --) {--newline--    --tab----tab----tab--ret[i][left] = count ++;--newline--    --tab----tab--}--newline--    --tab----tab--left ++;--newline--    --tab--}--newline--    --tab--return ret;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--     vector<vector<int> > generateMatrix(int n) {--newline--                int dir = 0;--newline--                vector< vector<int> > matrix(n, vector<int> (n, 0));--newline--                int i = 0, j = 0, k = 1;--newline--                while (k <= n * n) {--newline--                    matrix[i][j] = k++;--newline--                    if (dir == 0){--newline--                        j++;--newline--                        if (j == n || matrix[i][j] != 0) dir = 1, j--, i++;--newline--                    } else--newline--                    if (dir == 1) {--newline--                        i++;--newline--                        if (i == n || matrix[i][j] != 0) dir = 2, i--, j--;--newline--                    } else--newline--                    if (dir == 2) {--newline--                        j--;--newline--                        if (j < 0 || matrix[i][j] != 0) dir = 3, j++, i--;--newline--                    } else--newline--                    if (dir == 3) {--newline--                        i--;--newline--                        if (i < 0 || matrix[i][j] != 0) dir = 0, i++, j++;--newline--                    }--newline--                }--newline--                return matrix;--newline--            }--newline--}",
+            "python": null,
+            "topic_title": "My AC solution with using direction variable"
+        }
+    ],
+    "qc": "59.json"
+}

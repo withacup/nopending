@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int reverse(int x)--newline--    {--newline--        int result = 0;--newline--    --newline--        while (x != 0)--newline--        {--newline--            int tail = x % 10;--newline--            int newResult = result * 10 + tail;--newline--            if ((newResult - tail) / 10 != result)--newline--            { return 0; }--newline--            result = newResult;--newline--            x = x / 10;--newline--        }--newline--    --newline--        return result;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My accepted 15 lines of code for Java"
+        },
+        {
+            "java": "public class Solution {--newline--    public int reverse(int x) {--newline--            long rev= 0;--newline--            while( x != 0){--newline--                rev= rev*10 + x % 10;--newline--                x= x/10;--newline--                if( rev > Integer.MAX_VALUE || rev < Integer.MIN_VALUE)--newline--                    return 0;--newline--            }--newline--            return (int) rev;--newline--        }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Very Short (7 lines) and Elegant Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int reverse(int x) {--newline--        long long res = 0;--newline--        while(x) {--newline--            res = res*10 + x%10;--newline--            x /= 10;--newline--        }--newline--        return (res<INT_MIN || res>INT_MAX) ? 0 : res;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Shortest code possible in c++"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int reverse(int x) {--newline--        int ans = 0;--newline--        while (x) {--newline--            int temp = ans * 10 + x % 10;--newline--            if (temp / 10 != ans)--newline--                return 0;--newline--            ans = temp;--newline--            x /= 10;--newline--        }--newline--        return ans;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "8 ms simple C++ solution which checks overflow"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "How do we handle the overflow case?"
+        }
+    ],
+    "qc": "7.json"
+}

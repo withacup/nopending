@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int getSum(int a, int b) {--newline--        return b==0? a:getSum(a^b, (a&b)<<1); //be careful about the terminating condition;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "A summary: how to use bit manipulation to solve problems easily and efficiently"
+        },
+        {
+            "java": "public class Solution {--newline--    // Iterative--newline--    public int getSum(int a, int b) {--newline--    --tab--if (a == 0) return b;--newline--    --tab--if (b == 0) return a;--newline--    --newline--    --tab--while (b != 0) {--newline--    --tab----tab--int carry = a & b;--newline--    --tab----tab--a = a ^ b;--newline--    --tab----tab--b = carry << 1;--newline--    --tab--}--newline--    --tab----newline--    --tab--return a;--newline--    }--newline--    --newline--    // Iterative--newline--    public int getSubtract(int a, int b) {--newline--    --tab--while (b != 0) {--newline--    --tab----tab--int borrow = (~a) & b;--newline--    --tab----tab--a = a ^ b;--newline--    --tab----tab--b = borrow << 1;--newline--    --tab--}--newline--    --tab----newline--    --tab--return a;--newline--    }--newline--    --newline--    // Recursive--newline--    public int getSum(int a, int b) {--newline--    --tab--return (b == 0) ? a : getSum(a ^ b, (a & b) << 1);--newline--    }--newline--    --newline--    // Recursive--newline--    public int getSubtract(int a, int b) {--newline--    --tab--return (b == 0) ? a : getSubtract(a ^ b, (~a & b) << 1);--newline--    }--newline--    --newline--    // Get negative number--newline--    public int negate(int x) {--newline--    --tab--return ~x + 1;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java simple easy understand solution with explanation"
+        },
+        {
+            "java": "public class Solution {--newline--       public int getSum(int a, int b) {--newline--         if(b == 0){//\u6ca1\u6709\u8fdb\u4e3a\u7684\u65f6\u5019\u5b8c\u6210\u8fd0\u7b97--newline--            return a;--newline--        }--newline--        int sum,carry;--newline--        sum = a^b;//\u5b8c\u6210\u7b2c\u4e00\u6b65\u52a0\u53d1\u7684\u8fd0\u7b97--newline--        carry = (a&b)<<1;//\u5b8c\u6210\u7b2c\u4e8c\u6b65\u8fdb\u4f4d\u5e76\u4e14\u5de6\u79fb\u8fd0\u7b97--newline--        return getSum(sum,carry);//--newline--        }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "0ms AC java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int getSum(int a, int b) {--newline--        int sum = a;--newline--        --newline--        while (b != 0)--newline--        {--newline--            sum = a ^ b;//calculate sum of a and b without thinking the carry --newline--            b = (a & b) << 1;//calculate the carry--newline--            a = sum;//add sum(without carry) and carry--newline--        }--newline--        --newline--        return sum;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Share my C++ solutions,easy to understand"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def getSum(self, a, b):--newline----tab--        \"\"\"--newline----tab--        :type a: int--newline----tab--        :type b: int--newline----tab--        :rtype: int--newline----tab--        \"\"\"--newline----tab--        # 32 bits integer max--newline----tab--        MAX = 0x7FFFFFFF--newline----tab--        # 32 bits interger min--newline----tab--        MIN = 0x80000000--newline----tab--        # mask to get last 32 bits--newline----tab--        mask = 0xFFFFFFFF--newline----tab--        while b != 0:--newline----tab--            # ^ get different bits and & gets double 1s, << moves carry--newline----tab--            a, b = (a ^ b) & mask, ((a & b) << 1) & mask--newline----tab--        # if a is negative, get a's 32 bits complement positive first--newline----tab--        # then get 32-bit positive's Python complement negative--newline----tab--        return a if a <= MAX else ~(a ^ mask)--newline----tab--",
+            "topic_title": "Python solution with no &quot;+-*&#x2F;%&quot;, completely bit manipulation guaranteed"
+        }
+    ],
+    "qc": "371.json"
+}

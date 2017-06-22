@@ -1,0 +1,6 @@
+{
+    "solution_code": "import java.util.Random;--newline----newline--public class Solution {--newline--    private int[] nums;--newline--    private Random random;--newline----newline--    public Solution(int[] nums) {--newline--        this.nums = nums;--newline--        random = new Random();--newline--    }--newline--    --newline--    /** Resets the array to its original configuration and return it. */--newline--    public int[] reset() {--newline--        return nums;--newline--    }--newline--    --newline--    /** Returns a random shuffling of the array. */--newline--    public int[] shuffle() {--newline--        if(nums == null) return null;--newline--        int[] a = nums.clone();--newline--        for(int j = 1; j < a.length; j++) {--newline--            int i = random.nextInt(j + 1);--newline--            swap(a, i, j);--newline--        }--newline--        return a;--newline--    }--newline--    --newline--    private void swap(int[] a, int i, int j) {--newline--        int t = a[i];--newline--        a[i] = a[j];--newline--        a[j] = t;--newline--    }--newline--}--newline----newline--",
+    "l_type": "java",
+    "modified_code": null,
+    "total_cases": 10
+}

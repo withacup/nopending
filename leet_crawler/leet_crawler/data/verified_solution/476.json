@@ -1,0 +1,1 @@
+{"solution_code": "public class Solution {--newline--    public int findComplement(int num) {--newline--        return ~num & (Integer.highestOneBit(num) - 1);--newline--    }--newline--}--newline--", "modified_code": null, "total_cases": 149, "l_type": "java"}

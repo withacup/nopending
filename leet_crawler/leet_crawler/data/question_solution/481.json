@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int magicalString(int n) {--newline--        if (n <= 0) return 0;--newline--        if (n <= 3) return 1;--newline--        --newline--        int[] a = new int[n + 1];--newline--        a[0] = 1; a[1] = 2; a[2] = 2;--newline--        int head = 2, tail = 3, num = 1, result = 1;--newline--        --newline--        while (tail < n) {--newline--            for (int i = 0; i < a[head]; i++) {--newline--                a[tail] = num;--newline--                if (num == 1 && tail < n) result++;--newline--                tail++;--newline--            }--newline--            num = num ^ 3;--newline--            head++;--newline--        }--newline--        --newline--        return result;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java solution using one array and two pointers"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int magicalString(int n) {--newline--        string S = \"122\";--newline--        int i = 2;--newline--        while (S.size() < n)--newline--            S += string(S[i++] - '0', S.back() ^ 3);--newline--        return count(S.begin(), S.begin() + n, '1');--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Short C++"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Is the magical string unique?"
+        },
+        {
+            "java": "public class Solution {--newline--    public int magicalString(int n) {--newline--            StringBuilder magic = new StringBuilder(\"1221121221221121122\");--newline--            int pt1 = 12, pt2 = magic.length(), count = 0; //initiate pointers--newline--            //generate sequence directly--newline--            while(magic.length() < n){--newline--                if(magic.charAt(pt1) == '1'){--newline--                    if(magic.charAt(pt2-1) == '1') magic.append(2);--newline--                    else magic.append(1);--newline--                    pt2++;--newline--                }else{ //==2--newline--                    if(magic.charAt(pt2-1) == '1') magic.append(22);--newline--                    else magic.append(11);--newline--                    pt2+=2;--newline--                }--newline--                pt1++;--newline--            }--newline--            for(int i=0;i<n;i++)--newline--                if(magic.charAt(i)=='1') count++;--newline--            return count;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Very Straightforward and simple Java solution O(n)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "import itertools--newline----newline--class Solution(object):--newline----tab--    def magicalString(self, n):--newline----tab--        def gen():--newline----tab--            global generators, yields--newline----tab--            generators += 1--newline----tab--            for x in 1, 2, 2:--newline----tab--                yields += 1--newline----tab--                yield x--newline----tab--            for i, x in enumerate(gen()):--newline----tab--                if i > 1:--newline----tab--                    for _ in range(x):--newline----tab--                        yields += 1--newline----tab--                        yield i % 2 + 1--newline----tab--        return sum(x & 1 for x in itertools.islice(gen(), n))--newline----tab----newline----tab--print '     n      generators  yields'--newline----tab--print '             (=space)   (=time)'--newline----tab--for e in range(9):--newline----tab--    n = 10**e--newline----tab--    generators = yields = 0--newline----tab--    Solution().magicalString(n)--newline----tab--    print '%10d' * 3 % (n, generators, yields)--newline----tab--",
+            "topic_title": "O(log n) space using recursive generators"
+        }
+    ],
+    "qc": "481.json"
+}

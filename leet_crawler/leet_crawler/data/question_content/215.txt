@@ -1,0 +1,15 @@
+---CONTENT_BEGIN---
+Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.
+
+For example,
+Given [3,2,1,5,6,4] and k = 2, return 5.
+
+
+Note: 
+You may assume k is always valid, 1 â¤ k â¤ array's length.
+
+Credits:Special thanks to @mithmatt for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int findKthLargest(vector<int>& nums, int k) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int findKthLargest(int[] nums, int k) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def findKthLargest(self, nums, k):--newline--        '''--newline--        :type nums: List[int]--newline--        :type k: int--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int findKthLargest(int* nums, int numsSize, int k) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int FindKthLargest(int[] nums, int k) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} nums--newline-- * @param {number} k--newline-- * @return {number}--newline-- */--newline--var findKthLargest = function(nums, k) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} nums--newline--# @param {Integer} k--newline--# @return {Integer}--newline--def find_kth_largest(nums, k)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func findKthLargest(_ nums: [Int], _ k: Int) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func findKthLargest(nums []int, k int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

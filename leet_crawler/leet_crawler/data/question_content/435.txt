@@ -1,0 +1,45 @@
+---CONTENT_BEGIN---
+
+Given a collection of intervals, find the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.
+
+
+Note:
+
+You may assume the interval's end point is always bigger than its start point.
+Intervals like [1,2] and [2,3] have borders "touching" but they don't overlap each other.
+
+
+
+Example 1:
+
+Input: [ [1,2], [2,3], [3,4], [1,3] ]
+
+Output: 1
+
+Explanation: [1,3] can be removed and the rest of intervals are non-overlapping.
+
+
+
+Example 2:
+
+Input: [ [1,2], [1,2], [1,2] ]
+
+Output: 2
+
+Explanation: You need to remove two [1,2] to make the rest of intervals non-overlapping.
+
+
+
+Example 3:
+
+Input: [ [1,2], [2,3] ]
+
+Output: 0
+
+Explanation: You don't need to remove any of the intervals since they're already non-overlapping.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "/**--newline-- * Definition for an interval.--newline-- * struct Interval {--newline-- *     int start;--newline-- *     int end;--newline-- *     Interval() : start(0), end(0) {}--newline-- *     Interval(int s, int e) : start(s), end(e) {}--newline-- * };--newline-- */--newline--class Solution {--newline--public:--newline--    int eraseOverlapIntervals(vector<Interval>& intervals) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "/**--newline-- * Definition for an interval.--newline-- * public class Interval {--newline-- *     int start;--newline-- *     int end;--newline-- *     Interval() { start = 0; end = 0; }--newline-- *     Interval(int s, int e) { start = s; end = e; }--newline-- * }--newline-- */--newline--public class Solution {--newline--    public int eraseOverlapIntervals(Interval[] intervals) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "# Definition for an interval.--newline--# class Interval(object):--newline--#     def __init__(self, s=0, e=0):--newline--#         self.start = s--newline--#         self.end = e--newline----newline--class Solution(object):--newline--    def eraseOverlapIntervals(self, intervals):--newline--        '''--newline--        :type intervals: List[Interval]--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Definition for an interval.--newline-- * struct Interval {--newline-- *     int start;--newline-- *     int end;--newline-- * };--newline-- */--newline--int eraseOverlapIntervals(struct Interval* intervals, int intervalsSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "/**--newline-- * Definition for an interval.--newline-- * public class Interval {--newline-- *     public int start;--newline-- *     public int end;--newline-- *     public Interval() { start = 0; end = 0; }--newline-- *     public Interval(int s, int e) { start = s; end = e; }--newline-- * }--newline-- */--newline--public class Solution {--newline--    public int EraseOverlapIntervals(Interval[] intervals) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * Definition for an interval.--newline-- * function Interval(start, end) {--newline-- *     this.start = start;--newline-- *     this.end = end;--newline-- * }--newline-- */--newline--/**--newline-- * @param {Interval[]} intervals--newline-- * @return {number}--newline-- */--newline--var eraseOverlapIntervals = function(intervals) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# Definition for an interval.--newline--# class Interval--newline--#     attr_accessor :start, :end--newline--#     def initialize(s=0, e=0)--newline--#         @start = s--newline--#         @end = e--newline--#     end--newline--# end--newline----newline--# @param {Interval[]} intervals--newline--# @return {Integer}--newline--def erase_overlap_intervals(intervals)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "/**--newline-- * Definition for an interval.--newline-- * public class Interval {--newline-- *   public var start: Int--newline-- *   public var end: Int--newline-- *   public init(_ start: Int, _ end: Int) {--newline-- *     self.start = start--newline-- *     self.end = end--newline-- *   }--newline-- * }--newline-- */--newline--class Solution {--newline--    func eraseOverlapIntervals(_ intervals: [Interval]) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "/**--newline-- * Definition for an interval.--newline-- * type Interval struct {--newline-- *--tab--   Start int--newline-- *--tab--   End   int--newline-- * }--newline-- */--newline--func eraseOverlapIntervals(intervals []Interval) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

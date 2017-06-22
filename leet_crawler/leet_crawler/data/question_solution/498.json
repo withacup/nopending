@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int[] findDiagonalOrder(int[][] matrix) {--newline--        if (matrix == null || matrix.length == 0) return new int[0];--newline--        int m = matrix.length, n = matrix[0].length;--newline--        --newline--        int[] result = new int[m * n];--newline--        int row = 0, col = 0, d = 0;--newline--        int[][] dirs = {{-1, 1}, {1, -1}};--newline--        --newline--        for (int i = 0; i < m * n; i++) {--newline--            result[i] = matrix[row][col];--newline--            row += dirs[d][0];--newline--            col += dirs[d][1];--newline--            --newline--            if (row >= m) { row = m - 1; col += 2; d = 1 - d;}--newline--            if (col >= n) { col = n - 1; row += 2; d = 1 - d;}--newline--            if (row < 0)  { row = 0; d = 1 - d;}--newline--            if (col < 0)  { col = 0; d = 1 - d;}--newline--        }--newline--        --newline--        return result;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Concise Java Solution"
+        },
+        {
+            "java": "public class Solution {--newline--        public int[] findDiagonalOrder(int[][] matrix) {--newline--            if (matrix.length == 0) return new int[0];--newline--            int r = 0, c = 0, m = matrix.length, n = matrix[0].length, arr[] = new int[m * n];--newline--            for (int i = 0; i < arr.length; i++) {--newline--                arr[i] = matrix[r][c];--newline--                if ((r + c) % 2 == 0) { // moving up--newline--                    if      (c == n - 1) { r++; }--newline--                    else if (r == 0)     { c++; }--newline--                    else            { r--; c++; }--newline--                } else {                // moving down--newline--                    if      (r == m - 1) { c++; }--newline--                    else if (c == 0)     { r++; }--newline--                    else            { r++; c--; }--newline--                }   --newline--            }   --newline--            return arr;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 15 lines without using boolean"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> findDiagonalOrder(vector<vector<int>>& matrix) {--newline--        int m = matrix.size();--newline--        if (m == 0) return vector<int>();--newline--        int n = matrix[0].size();--newline--        vector<vector<int>> tmp (m+n-1);--newline--        for (int i = 0; i < m+n-1 ; i++) {--newline--            int row = max(0, i-n+1);--newline--            int col = min(i, n-1);--newline--            for (; col >= 0 && row < m; row++, col--) {--newline--                tmp[i].push_back(matrix[row][col]);--newline--            }--newline--        }--newline--        vector<int> res;--newline--        for (int i = 0; i< tmp.size(); i++) {--newline--            if (i % 2) res.insert(res.end(), tmp[i].begin(), tmp[i].end());--newline--            else res.insert(res.end(), tmp[i].rbegin(), tmp[i].rend());--newline--        }--newline--        return res;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ without paying too much attention on direction switch"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def findDiagonalOrder(self, matrix):--newline----tab--        m, n = len(matrix), len(matrix and matrix[0])--newline----tab--        return [matrix[i][d-i]--newline----tab--                for d in range(m+n-1)--newline----tab--                for i in range(max(0, d-n+1), min(d+1, m))[::d%2*2-1]]--newline----tab--    ",
+            "topic_title": "sorting and normal Python"
+        },
+        {
+            "java": "public class Solution {--newline--    public int[] findDiagonalOrder(int[][] matrix) {--newline--    --tab--if (matrix.length == 0) return new int[0];--newline--    --tab--int h = matrix.length, w = matrix[0].length, id = 0;--newline--    --tab--int[] res  = new int[h*w];--newline--    --tab--for (int i = 0; i < h+w; i++) {--newline--    --tab----tab--// find lower bound and upper bound--newline--    --tab----tab--int lb = (int)Math.max(0, i-w+1), ub = (int)Math.min(i,h-1);--newline--    --tab----tab--if (i%2 == 0) for (int j = ub; j >= lb; j--) res[id++] = matrix[j][i-j];--newline--    --tab----tab--else for (int j = lb;j <= ub; j++) res[id++] = matrix[j][i-j];--newline--    --tab--}--newline--    --tab--return res;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My 8ms Short Solution, 9line"
+        }
+    ],
+    "qc": "498.json"
+}

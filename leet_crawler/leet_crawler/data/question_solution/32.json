@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int longestValidParentheses(string s) {--newline--        int n = s.length(), longest = 0;--newline--        stack<int> st;--newline--        for (int i = 0; i < n; i++) {--newline--            if (s[i] == '(') st.push(i);--newline--            else {--newline--                if (!st.empty()) {--newline--                    if (s[st.top()] == '(') st.pop();--newline--                    else st.push(i);--newline--                }--newline--                else st.push(i);--newline--            }--newline--        }--newline--        if (st.empty()) longest = n;--newline--        else {--newline--            int a = n, b = 0;--newline--            while (!st.empty()) {--newline--                b = st.top(); st.pop();--newline--                longest = max(longest, a-b-1);--newline--                a = b;--newline--            }--newline--            longest = max(longest, a);--newline--        }--newline--        return longest;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "My O(n) solution using a stack"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int longestValidParentheses(string s) {--newline--            if(s.length() <= 1) return 0;--newline--            int curMax = 0;--newline--            vector<int> longest(s.size(),0);--newline--            for(int i=1; i < s.length(); i++){--newline--                if(s[i] == ')' && i-longest[i-1]-1 >= 0 && s[i-longest[i-1]-1] == '('){--newline--                        longest[i] = longest[i-1] + 2 + ((i-longest[i-1]-2 >= 0)?longest[i-longest[i-1]-2]:0);--newline--                        curMax = max(longest[i],curMax);--newline--                }--newline--            }--newline--            return curMax;--newline--        }--newline--}",
+            "python": null,
+            "topic_title": "My DP, O(n) solution without using stack"
+        },
+        {
+            "java": "public class Solution {--newline--    public int longestValidParentheses(String s) {--newline--        Stack<Integer> stack = new Stack<Integer>();--newline--        int max=0;--newline--        int left = -1;--newline--        for(int j=0;j<s.length();j++){--newline--            if(s.charAt(j)=='(') stack.push(j);            --newline--            else {--newline--                if (stack.isEmpty()) left=j;--newline--                else{--newline--                    stack.pop();--newline--                    if(stack.isEmpty()) max=Math.max(max,j-left);--newline--                    else max=Math.max(max,j-stack.peek());--newline--                }--newline--            }--newline--        }--newline--        return max;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple JAVA solution, O(n) time, one stack"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int longestValidParentheses(string s) {--newline--        stack<int> stk;--newline--        stk.push(-1);--newline--        int maxL=0;--newline--        for(int i=0;i<s.size();i++)--newline--        {--newline--            int t=stk.top();--newline--            if(t!=-1&&s[i]==')'&&s[t]=='(')--newline--            {--newline--                stk.pop();--newline--                maxL=max(maxL,i-stk.top());--newline--            }--newline--            else--newline--                stk.push(i);--newline--        }--newline--        return maxL;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "My simple 8ms C++ code"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--     // Using a stack. One pass--newline--        int longestValidParentheses(string s) {--newline--            vector<int> stack;--newline--            int maxLen = 0;--newline--            for (int i = 0; i < s.size(); ++i)--newline--            {--newline--                if (s[i] == '(')--newline--                    stack.push_back(i);--newline--                else {--newline--                    if (!stack.empty() && s[stack.back()] == '(') {--newline--                        stack.pop_back();--newline--                        int lastPos = -1;--newline--                        if (!stack.empty())--newline--                            lastPos = stack.back();--newline--                        int curLen = i - lastPos;--newline--                        maxLen = (maxLen < curLen) ? curLen : maxLen;--newline--                    } else--newline--                        stack.push_back(i);--newline--                }--newline--            }--newline--            return maxLen;--newline--        }--newline--}",
+            "python": null,
+            "topic_title": "My solution using one stack in one pass"
+        }
+    ],
+    "qc": "32.json"
+}

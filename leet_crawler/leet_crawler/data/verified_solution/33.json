@@ -1,0 +1,6 @@
+{
+    "solution_code": "public class Solution {--newline--    public int search(int[] nums, int target) {--newline--        int start = 0;--newline--        int end = nums.length - 1;--newline--        while (start <= end){--newline--            int mid = (start + end) / 2;--newline--            if (nums[mid] == target)--newline--                return mid;--newline--        --newline--            if (nums[start] <= nums[mid]){--newline--                 if (target < nums[mid] && target >= nums[start]) --newline--                    end = mid - 1;--newline--                 else--newline--                    start = mid + 1;--newline--            } --newline--        --newline--            if (nums[mid] <= nums[end]){--newline--                if (target > nums[mid] && target <= nums[end])--newline--                    start = mid + 1;--newline--                 else--newline--                    end = mid - 1;--newline--            }--newline--        }--newline--        return -1;--newline--    }--newline--}",
+    "l_type": "java",
+    "modified_code": null,
+    "total_cases": 196
+}

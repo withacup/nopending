@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public String tree2str(TreeNode t) {--newline--        if (t == null) return \"\";--newline--        --newline--        String result = t.val + \"\";--newline--        --newline--        String left = tree2str(t.left);--newline--        String right = tree2str(t.right);--newline--        --newline--        if (left == \"\" && right == \"\") return result;--newline--        if (left == \"\") return result + \"()\" + \"(\" + right + \")\";--newline--        if (right == \"\") return result + \"(\" + left + \")\";--newline--        return result + \"(\" + left + \")\" + \"(\" + right + \")\";--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution, Tree Traversal"
+        },
+        {
+            "java": "public class Solution {--newline--     public String tree2str(TreeNode t) {--newline--            StringBuilder sb = new StringBuilder();--newline--            helper(sb,t);--newline--            return sb.toString();--newline--        }--newline--        public void helper(StringBuilder sb,TreeNode t){--newline--            if(t!=null){--newline--                sb.append(t.val);--newline--                if(t.left!=null||t.right!=null){--newline--                    sb.append(\"(\");--newline--                    helper(sb,t.left);--newline--                    sb.append(\")\");--newline--                    if(t.right!=null){--newline--                        sb.append(\"(\");--newline--                    helper(sb,t.right);--newline--                    sb.append(\")\");--newline--                    }--newline--                }--newline--            }--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java simple recursion"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def tree2str(self, t):--newline----tab--        if not t: return ''--newline----tab--        left = '({})'.format(self.tree2str(t.left)) if (t.left or t.right) else ''--newline----tab--        right = '({})'.format(self.tree2str(t.right)) if t.right else ''--newline----tab--        return '{}{}{}'.format(t.val, left, right)--newline----tab--    ",
+            "topic_title": "Python, Straightforward with Explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string tree2str(TreeNode* t) {--newline--        if (!t) return \"\";--newline--        string s = to_string(t->val);--newline----newline--        if (t->left) {--newline--            s += \"(\" + tree2str(t->left) + \")\";--newline--        }--newline--        else if (t->right) {--newline--            s += \"()\";--newline--        }--newline--        --newline--        if (t->right) {--newline--            s += \"(\" + tree2str(t->right) + \")\";--newline--        }--newline----newline--        return s;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "&#91;C++&#93; 1 liner"
+        },
+        {
+            "java": "public class Solution {--newline--    public static String tree2str(TreeNode t) {--newline--            if(t == null) return \"\";--newline--            return tree2str1(t).toString();--newline--        }--newline--    --newline--        public static StringBuilder tree2str1(TreeNode t) {--newline--            if(t == null) return null;--newline--    --newline--            StringBuilder sb = new StringBuilder();--newline--            sb.append(t.val);--newline--    --newline--            StringBuilder left = tree2str1(t.left);--newline--            StringBuilder right = tree2str1(t.right);--newline--    --newline--            if(right == null && left == null) return sb;--newline--            sb.append(\"(\").append(left == null ? \"\" : left).append(\")\");--newline--            if(right != null) sb.append(\"(\").append(right).append(\")\");--newline--            return sb;--newline--        }--newline--    --newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java recursion StringBuilder"
+        }
+    ],
+    "qc": "606.json"
+}

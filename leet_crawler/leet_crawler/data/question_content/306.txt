@@ -1,0 +1,29 @@
+---CONTENT_BEGIN---
+Additive number is a string whose digits can form additive sequence.
+
+A valid additive sequence should contain at least three numbers. Except for the first two numbers, each subsequent number in the sequence must be the sum of the preceding two.
+
+
+For example:
+"112358" is an additive number because the digits can form an additive sequence: 1, 1, 2, 3, 5, 8.
+1 + 1 = 2, 1 + 2 = 3, 2 + 3 = 5, 3 + 5 = 8
+"199100199" is also an additive number, the additive sequence is: 1, 99, 100, 199.
+1 + 99 = 100, 99 + 100 = 199
+
+
+
+Note: Numbers in the additive sequence cannot have leading zeros, so sequence 1, 2, 03 or 1, 02, 3 is invalid.
+
+
+Given a string containing only digits '0'-'9', write a function to determine if it's an additive number.
+
+
+Follow up:
+How would you handle overflow for very large input integers?
+
+
+Credits:Special thanks to @jeantimex for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    bool isAdditiveNumber(string num) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public boolean isAdditiveNumber(String num) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def isAdditiveNumber(self, num):--newline--        '''--newline--        :type num: str--newline--        :rtype: bool--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "bool isAdditiveNumber(char* num) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public bool IsAdditiveNumber(string num) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} num--newline-- * @return {boolean}--newline-- */--newline--var isAdditiveNumber = function(num) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} num--newline--# @return {Boolean}--newline--def is_additive_number(num)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func isAdditiveNumber(_ num: String) -> Bool {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func isAdditiveNumber(num string) bool {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int[] maxSlidingWindow(int[] a, int k) {--tab----tab----newline--    --tab----tab--if (a == null || k <= 0) {--newline--    --tab----tab----tab--return new int[0];--newline--    --tab----tab--}--newline--    --tab----tab--int n = a.length;--newline--    --tab----tab--int[] r = new int[n-k+1];--newline--    --tab----tab--int ri = 0;--newline--    --tab----tab--// store index--newline--    --tab----tab--Deque<Integer> q = new ArrayDeque<>();--newline--    --tab----tab--for (int i = 0; i < a.length; i++) {--newline--    --tab----tab----tab--// remove numbers out of range k--newline--    --tab----tab----tab--while (!q.isEmpty() && q.peek() < i - k + 1) {--newline--    --tab----tab----tab----tab--q.poll();--newline--    --tab----tab----tab--}--newline--    --tab----tab----tab--// remove smaller numbers in k range as they are useless--newline--    --tab----tab----tab--while (!q.isEmpty() && a[q.peekLast()] < a[i]) {--newline--    --tab----tab----tab----tab--q.pollLast();--newline--    --tab----tab----tab--}--newline--    --tab----tab----tab--// q contains index... r contains content--newline--    --tab----tab----tab--q.offer(i);--newline--    --tab----tab----tab--if (i >= k - 1) {--newline--    --tab----tab----tab----tab--r[ri++] = a[q.peek()];--newline--    --tab----tab----tab--}--newline--    --tab----tab--}--newline--    --tab----tab--return r;--newline--    --tab--}--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java O(n) solution using deque with explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "O(n) solution in Java with two simple pass in the array"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> maxSlidingWindow(vector<int>& nums, int k) {--newline--        deque<int> dq;--newline--        vector<int> ans;--newline--        for (int i=0; i<nums.size(); i++) {--newline--            if (!dq.empty() && dq.front() == i-k) dq.pop_front();--newline--            while (!dq.empty() && nums[dq.back()] < nums[i])--newline--                dq.pop_back();--newline--            dq.push_back(i);--newline--            if (i>=k-1) ans.push_back(nums[dq.front()]);--newline--        }--newline--        return ans;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Clean C++ O(n) solution using a deque"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Monoqueue--newline--{--newline--    deque<pair<int, int>> m_deque; //pair.first: the actual value, --newline--                                   //pair.second: how many elements were deleted between it and the one before it.--newline--    public:--newline--        void push(int val)--newline--        {--newline--            int count = 0;--newline--            while(!m_deque.empty() && m_deque.back().first < val)--newline--            {--newline--                count += m_deque.back().second + 1;--newline--                m_deque.pop_back();--newline--            }--newline--            m_deque.emplace_back(val, count);--newline--        };--newline--        int max()--newline--        {--newline--            return m_deque.front().first;--newline--        }--newline--        void pop ()--newline--        {--newline--            if (m_deque.front().second > 0)--newline--            {--newline--                m_deque.front().second --;--newline--                return;--newline--            }--newline--            m_deque.pop_front();--newline--        }--newline--};--newline--struct Solution {--newline--    vector<int> maxSlidingWindow(vector<int>& nums, int k) {--newline--        vector<int> results;--newline--        Monoqueue mq;--newline--        k = min(k, (int)nums.size());--newline--        int i = 0;--newline--        for (;i < k - 1; ++i) //push first k - 1 numbers;--newline--        {--newline--            mq.push(nums[i]);--newline--        }--newline--        for (; i < nums.size(); ++i)--newline--        {--newline--            mq.push(nums[i]);            // push a new element to queue;--newline--            results.push_back(mq.max()); // report the current max in queue;--newline--            mq.pop();                    // pop first element in queue;--newline--        }--newline--        return results;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "This is a typical monotonic queue problem"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> maxSlidingWindow(vector<int>& nums, int k) {--newline--        deque<int> buffer;--newline--        vector<int> res;--newline----newline--        for(auto i=0; i<nums.size();++i)--newline--        {--newline--            while(!buffer.empty() && nums[i]>=nums[buffer.back()]) buffer.pop_back();--newline--            buffer.push_back(i);--newline----newline--            if(i>=k-1) res.push_back(nums[buffer.front()]);--newline--            if(buffer.front()<= i-k + 1) buffer.pop_front();--newline--        }--newline--        return res;--newline--    }",
+            "python": null,
+            "topic_title": "My C++ O(n) deque based solution with explanation"
+        }
+    ],
+    "qc": "239.json"
+}

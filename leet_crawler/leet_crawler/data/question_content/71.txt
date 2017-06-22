@@ -1,0 +1,24 @@
+---CONTENT_BEGIN---
+Given an absolute path for a file (Unix-style), simplify it.
+
+For example,
+path = "/home/", => "/home"
+path = "/a/./b/../../c/", => "/c"
+
+
+click to show corner cases.
+
+Corner Cases:
+
+
+
+Did you consider the case where path = "/../"?
+In this case, you should return "/".
+Another corner case is the path might contain multiple slashes '/' together, such as "/home//foo/".
+In this case, you should ignore redundant slashes and return "/home/foo".
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    string simplifyPath(string path) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public String simplifyPath(String path) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def simplifyPath(self, path):--newline--        '''--newline--        :type path: str--newline--        :rtype: str--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "char* simplifyPath(char* path) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public string SimplifyPath(string path) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} path--newline-- * @return {string}--newline-- */--newline--var simplifyPath = function(path) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} path--newline--# @return {String}--newline--def simplify_path(path)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func simplifyPath(_ path: String) -> String {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func simplifyPath(path string) string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

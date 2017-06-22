@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public boolean isValid(String code) {--newline--        Stack<String> stack = new Stack<>();--newline--        for(int i = 0; i < code.length();){--newline--            if(i>0 && stack.isEmpty()) return false;--newline--            if(code.startsWith(\"<![CDATA[\", i)){--newline--                int j = i+9;--newline--                i = code.indexOf(\"]]>\", j);--newline--                if(i < 0) return false;--newline--                i += 3;--newline--            }else if(code.startsWith(\"</\", i)){--newline--                int j = i + 2;--newline--                i = code.indexOf('>', j);--newline--                if(i < 0 || i == j || i - j > 9) return false;--newline--                for(int k = j; k < i; k++){--newline--                    if(!Character.isUpperCase(code.charAt(k))) return false;--newline--                }--newline--                String s = code.substring(j, i++);--newline--                if(stack.isEmpty() || !stack.pop().equals(s)) return false;--newline--            }else if(code.startsWith(\"<\", i)){--newline--                int j = i + 1;--newline--                i = code.indexOf('>', j);--newline--                if(i < 0 || i == j || i - j > 9) return false;--newline--                for(int k = j; k < i; k++){--newline--                    if(!Character.isUpperCase(code.charAt(k))) return false;--newline--                }--newline--                String s = code.substring(j, i++);--newline--                stack.push(s);--newline--            }else{--newline--                i++;--newline--            }--newline--        }--newline--        return stack.isEmpty();--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution: Use startsWith and indexOf"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def isValid(self, code):--newline----tab--        code = re.sub(r'<!\\[CDATA\\[.*?\\]\\]>|t', '-', code)--newline----tab--        prev = None--newline----tab--        while code != prev:--newline----tab--            prev = code--newline----tab--            code = re.sub(r'<([A-Z]{1,9})>[^<]*</\\1>', 't', code)--newline----tab--        return code == 't'",
+            "topic_title": "Short Python, accepted but not sure if correct"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isValid(String code) {--newline--        if (code.equals(\"t\")) return false;--newline--        code = code.replaceAll(\"<!\\\\[CDATA\\\\[.*?\\\\]\\\\]>\", \"c\");--newline----newline--        String prev = \"\";--newline--        while (!code.equals(prev)) {--newline--            prev = code;--newline--            code = code.replaceAll(\"<([A-Z]{1,9})>[^<]*</\\\\1>\", \"t\");--newline--        }--newline----newline--        return code.equals(\"t\");--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution, 7 lines, Regular Expression"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Should add more test case"
+        },
+        {
+            "java": "public class Solution {--newline----tab--public boolean isValid(String code) {--newline----tab----tab--if (!code.startsWith(\"<\")) return false;--newline----tab----tab--if (code.length() < 2 || !(code.charAt(1) >= 'A' && code.charAt(1) <= 'Z')) return false;--newline----tab----tab----newline----tab----tab--Stack<String> stack = new Stack<>();--newline----tab----tab--String cur = \"\";--newline----tab----tab--for (int i = 0; i < code.length(); i++) {--newline----tab----tab----tab--cur += code.charAt(i);--newline----tab----tab----tab--if (cur.startsWith(\"<![CDATA[\")) {--newline----tab----tab----tab----tab--if (cur.endsWith(\"]]>\")) {--newline----tab----tab----tab----tab----tab--cur = \"\";--newline----tab----tab----tab----tab--}--newline----tab----tab----tab--} else if (cur.startsWith(\"</\")) {--newline----tab----tab----tab----tab--if (cur.endsWith(\">\")) {--newline----tab----tab----tab----tab----tab--String tag = cur.substring(2, cur.length()-1);--newline----tab----tab----tab----tab----tab--if (stack.isEmpty() || !stack.peek().equals(\"<\"+tag+\">\")) return false;--newline----tab----tab----tab----tab----tab--stack.pop();--newline----tab----tab----tab----tab----tab--cur = \"\";--newline----tab----tab----tab----tab----tab--if (i < code.length()-1 && stack.isEmpty()) return false;--newline----tab----tab----tab----tab--}--newline----tab----tab----tab--} else if (cur.startsWith(\"<\")) {--newline----tab----tab----tab----tab--if (cur.endsWith(\">\")) {--newline----tab----tab----tab----tab----tab--if (!valid_tag(cur)) return false;--newline----tab----tab----tab----tab----tab--stack.push(cur);--newline----tab----tab----tab----tab----tab--cur = \"\";--newline----tab----tab----tab----tab--}--newline----tab----tab----tab--} else {--newline----tab----tab----tab----tab--cur = \"\";--newline----tab----tab----tab--}--newline----tab----tab--}--newline----tab----tab--return stack.isEmpty() && cur.length() == 0;--newline--        }--newline----tab--boolean valid_tag(String tag) {--newline----tab----tab--if (!tag.startsWith(\"<\") || !tag.endsWith(\">\")) return false;--newline----tab----tab--if (tag.length() < 3 || tag.length() > 11) return false;--newline----tab----tab--for (int i = 1; i < tag.length()-1; i++) {--newline----tab----tab----tab--char c = tag.charAt(i);--newline----tab----tab----tab--if (!Character.isUpperCase(c)) return false;--newline----tab----tab--}--newline----tab----tab--return true;--newline----tab--}--newline--}--newline----newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java solution. Sequentially build current structure, use stack for tag matching"
+        }
+    ],
+    "qc": "591.json"
+}

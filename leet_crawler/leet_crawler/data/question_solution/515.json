@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public List<Integer> largestValues(TreeNode root) {--newline--        List<Integer> res = new ArrayList<Integer>();--newline--        helper(root, res, 0);--newline--        return res;--newline--    }--newline--    private void helper(TreeNode root, List<Integer> res, int d){--newline--        if(root == null){--newline--            return;--newline--        }--newline--       //expand list size--newline--        if(d == res.size()){--newline--            res.add(root.val);--newline--        }--newline--        else{--newline--        //or set value--newline--            res.set(d, Math.max(res.get(d), root.val));--newline--        }--newline--        helper(root.left, res, d+1);--newline--        helper(root.right, res, d+1);--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "9ms JAVA DFS solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Python BFS"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java BFS"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Verbose Java Solution, Binary tree level order traversal, again."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--    vector<int> solution;--newline--public:--newline--    void helper(TreeNode* node, int cl) {--newline--        if (node == NULL) {--newline--            return;--newline--        }--newline--        if (solution.size() < cl + 1) {--newline--            solution.push_back(node->val);--newline--        } else {--newline--            if (solution[cl] < node->val) {--newline--                solution[cl] = node->val;--newline--            }--newline--        }--newline--        helper(node->left, cl+1);--newline--        helper(node->right, cl+1);--newline--    }--newline--    //vector<int> largestValues(TreeNode* root) {--newline--    vector<int> findValueMostElement(TreeNode* root) {--newline--        if(root == NULL) {--newline--            return solution;--newline--        }--newline--        --newline--        helper(root, 0);--newline--        return solution;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ a different approach (12ms beats 100%)"
+        }
+    ],
+    "qc": "515.json"
+}

@@ -1,0 +1,37 @@
+---CONTENT_BEGIN---
+You have a total of n coins that you want to form in a staircase shape, where every k-th row must have exactly k coins.
+ 
+Given n, find the total number of full staircase rows that can be formed.
+
+n is a non-negative integer and fits within the range of a 32-bit signed integer.
+
+Example 1:
+
+n = 5
+
+The coins can form the following rows:
+Â¤
+Â¤ Â¤
+Â¤ Â¤
+
+Because the 3rd row is incomplete, we return 2.
+
+
+
+Example 2:
+
+n = 8
+
+The coins can form the following rows:
+Â¤
+Â¤ Â¤
+Â¤ Â¤ Â¤
+Â¤ Â¤
+
+Because the 4th row is incomplete, we return 3.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int arrangeCoins(int n) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int arrangeCoins(int n) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def arrangeCoins(self, n):--newline--        '''--newline--        :type n: int--newline--        :rtype: int--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "int arrangeCoins(int n) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int ArrangeCoins(int n) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} n--newline-- * @return {number}--newline-- */--newline--var arrangeCoins = function(n) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} n--newline--# @return {Integer}--newline--def arrange_coins(n)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func arrangeCoins(_ n: Int) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func arrangeCoins(n int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

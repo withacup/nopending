@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    void wiggleSort(vector<int>& nums) {--newline--        int n = nums.size();--newline--        --newline--        // Find a median.--newline--        auto midptr = nums.begin() + n / 2;--newline--        nth_element(nums.begin(), midptr, nums.end());--newline--        int mid = *midptr;--newline--        --newline--        // Index-rewiring.--newline--        #define A(i) nums[(1+2*(i)) % (n|1)]--newline--    --newline--        // 3-way-partition-to-wiggly in O(n) time with O(1) space.--newline--        int i = 0, j = 0, k = n - 1;--newline--        while (j <= k) {--newline--            if (A(j) > mid)--newline--                swap(A(i++), A(j++));--newline--            else if (A(j) < mid)--newline--                swap(A(j), A(k--));--newline--            else--newline--                j++;--newline--        }--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "O(n)+O(1) after median --- Virtual Indexing"
+        },
+        {
+            "java": "public class Solution {--newline--       public void wiggleSort(int[] nums) {--newline--            int median = findKthLargest(nums, (nums.length + 1) / 2);--newline--            int n = nums.length;--newline--    --newline--            int left = 0, i = 0, right = n - 1;--newline--    --newline--            while (i <= right) {--newline--    --newline--                if (nums[newIndex(i,n)] > median) {--newline--                    swap(nums, newIndex(left++,n), newIndex(i++,n));--newline--                }--newline--                else if (nums[newIndex(i,n)] < median) {--newline--                    swap(nums, newIndex(right--,n), newIndex(i,n));--newline--                }--newline--                else {--newline--                    i++;--newline--                }--newline--            }--newline--    --newline--    --newline--        }--newline--    --newline--        private int newIndex(int index, int n) {--newline--            return (1 + 2*index) % (n | 1);--newline--        }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Step by step explanation of index mapping in Java"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def wiggleSort(self, nums):--newline----tab--        nums.sort()--newline----tab--        half = len(nums[::2]) - 1--newline----tab--        nums[::2], nums[1::2] = nums[half::-1], nums[:half:-1]--newline----tab--    ",
+            "topic_title": "3 lines Python, with Explanation &#x2F; Proof"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline----tab--void wiggleSort(vector<int>& nums) {--newline----tab----tab--if (nums.empty()) {--newline----tab----tab----tab--return;--newline----tab----tab--}    --newline----tab----tab--int n = nums.size();--newline----tab----tab----newline----tab----tab--// Step 1: Find the median    --tab----tab----newline----tab----tab--vector<int>::iterator nth = next(nums.begin(), n / 2);--newline----tab----tab--nth_element(nums.begin(), nth, nums.end());--newline----tab----tab--int median = *nth;--newline----newline----tab----tab--// Step 2: Tripartie partition within O(n)-time & O(1)-space.    --tab----tab----newline----tab----tab--auto m = [n](int idx) { return (2 * idx + 1) % (n | 1); };    --tab----tab----newline----tab----tab--int first = 0, mid = 0, last = n - 1;--newline----tab----tab--while (mid <= last) {--newline----tab----tab----tab--if (nums[m(mid)] > median) {--newline----tab----tab----tab----tab--swap(nums[m(first)], nums[m(mid)]);--newline----tab----tab----tab----tab--++first;--newline----tab----tab----tab----tab--++mid;--newline----tab----tab----tab--}--newline----tab----tab----tab--else if (nums[m(mid)] < median) {--newline----tab----tab----tab----tab--swap(nums[m(mid)], nums[m(last)]);--newline----tab----tab----tab----tab----last;--newline----tab----tab----tab--}--tab----tab----tab----tab----newline----tab----tab----tab--else {--newline----tab----tab----tab----tab--++mid;--newline----tab----tab----tab--}--newline----tab----tab--}--newline----tab--}    --newline--};",
+            "python": null,
+            "topic_title": "O(n)-time O(1)-space solution with detail explanations"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    void wiggleSort(vector<int>& nums) {--newline--        vector<int> sorted(nums);--newline--        sort(sorted.begin(), sorted.end());--newline--        for (int i=nums.size()-1, j=0, k=i/2+1; i>=0; i--)--newline--            nums[i] = sorted[i&1 ? k++ : j++];--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Short simple C++"
+        }
+    ],
+    "qc": "324.json"
+}

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--     public List<List<Integer>> combinationSum2(int[] cand, int target) {--newline--        Arrays.sort(cand);--newline--        List<List<Integer>> res = new ArrayList<List<Integer>>();--newline--        List<Integer> path = new ArrayList<Integer>();--newline--        dfs_com(cand, 0, target, path, res);--newline--        return res;--newline--    }--newline--    void dfs_com(int[] cand, int cur, int target, List<Integer> path, List<List<Integer>> res) {--newline--        if (target == 0) {--newline--            res.add(new ArrayList(path));--newline--            return ;--newline--        }--newline--        if (target < 0) return;--newline--        for (int i = cur; i < cand.length; i++){--newline--            if (i > cur && cand[i] == cand[i-1]) continue;--newline--            path.add(path.size(), cand[i]);--newline--            dfs_com(cand, i+1, target - cand[i], path, res);--newline--            path.remove(path.size()-1);--newline--        }--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java solution using dfs, easy understand"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<List<Integer>> combinationSum2(int[] candidates, int target) {--newline--       List<List<Integer>> list = new LinkedList<List<Integer>>();--newline--       Arrays.sort(candidates);--newline--       backtrack(list, new ArrayList<Integer>(), candidates, target, 0);--newline--       return list;--newline--    }--newline--    --newline--    private void backtrack(List<List<Integer>> list, List<Integer> tempList, int[] cand, int remain, int start) {--newline--       --newline--       if(remain < 0) return; /** no solution */--newline--       else if(remain == 0) list.add(new ArrayList<>(tempList));--newline--       else{--newline--          for (int i = start; i < cand.length; i++) {--newline--             if(i > start && cand[i] == cand[i-1]) continue; /** skip duplicates */--newline--             tempList.add(cand[i]);--newline--             backtrack(list, tempList, cand, remain - cand[i], i+1);--newline--             tempList.remove(tempList.size() - 1);--newline--          }--newline--       }--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Combination Sum I, II and III Java solution (see the similarities yourself)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<vector<int> > combinationSum2(vector<int> &num, int target) --newline--    {--newline--        vector<vector<int>> res;--newline--        sort(num.begin(),num.end());--newline--        vector<int> local;--newline--        findCombination(res, 0, target, local, num);--newline--        return res;--newline--    }--newline--    void findCombination(vector<vector<int>>& res, const int order, const int target, vector<int>& local, const vector<int>& num)--newline--    {--newline--        if(target==0)--newline--        {--newline--            res.push_back(local);--newline--            return;--newline--        }--newline--        else--newline--        {--newline--            for(int i = order;i<num.size();i++) // iterative component--newline--            {--newline--                if(num[i]>target) return;--newline--                if(i&&num[i]==num[i-1]&&i>order) continue; // check duplicate combination--newline--                local.push_back(num[i]),--newline--                findCombination(res,i+1,target-num[i],local,num); // recursive componenet--newline--                local.pop_back();--newline--            }--newline--        }--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "C++ backtracking solution with detailed explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def combinationSum2(self, candidates, target):--newline----tab--        candidates.sort()--newline----tab--        table = [None] + [set() for i in range(target)]--newline----tab--        for i in candidates:--newline----tab--            if i > target:--newline----tab--                break--newline----tab--            for j in range(target - i, 0, -1):--newline----tab--                table[i + j] |= {elt + (i,) for elt in table[j]}--newline----tab--            table[i].add((i,))--newline----tab--        return map(list, table[target])",
+            "topic_title": "DP solution in Python"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab--    def combinationSum2(self, candidates, target):--newline----tab--        candidates.sort()--newline----tab--        return self.search(candidates, 0 ,target)--newline----tab----newline----tab--    def search(self, candidates, start, target):--newline----tab--        if target==0:--newline----tab--            return [[]]--newline----tab--        res=[]--newline----tab--        for i in xrange(start,len(candidates)):--newline----tab--            if i!=start and candidates[i]==candidates[i-1]:--newline----tab--                continue--newline----tab--            if candidates[i]>target:--newline----tab--                break--newline----tab--            for r in self.search(candidates, i+1, target-candidates[i]):--newline----tab--                res.append([candidates[i]]+r)--newline----tab--        return res",
+            "topic_title": "My 84ms python recursive solution."
+        }
+    ],
+    "qc": "40.json"
+}

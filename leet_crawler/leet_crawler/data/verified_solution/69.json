@@ -1,0 +1,6 @@
+{
+    "solution_code": "class Solution {--newline--public:--newline--    int mySqrt(int x) {--newline--        long long r = x;--newline--        while (r*r > x)--newline--            r = (r + x/r) / 2;--newline--        return r;--newline--    }--newline--};",
+    "l_type": "cpp",
+    "modified_code": null,
+    "total_cases": 1017
+}

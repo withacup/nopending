@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    void reverseWords(string &s) {--newline--        reverse(s.begin(), s.end());--newline--        int storeIndex = 0;--newline--        for (int i = 0; i < s.size(); i++) {--newline--            if (s[i] != ' ') {--newline--                if (storeIndex != 0) s[storeIndex++] = ' ';--newline--                int j = i;--newline--                while (j < s.size() && s[j] != ' ') { s[storeIndex++] = s[j++]; }--newline--                reverse(s.begin() + storeIndex - (j - i), s.begin() + storeIndex);--newline--                i = j;--newline--            }--newline--        }--newline--        s.erase(s.begin() + storeIndex, s.end());--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "In place simple solution"
+        },
+        {
+            "java": "public class Solution {--newline--  --newline--  public String reverseWords(String s) {--newline--    if (s == null) return null;--newline--    --newline--    char[] a = s.toCharArray();--newline--    int n = a.length;--newline--    --newline--    // step 1. reverse the whole string--newline--    reverse(a, 0, n - 1);--newline--    // step 2. reverse each word--newline--    reverseWords(a, n);--newline--    // step 3. clean up spaces--newline--    return cleanSpaces(a, n);--newline--  }--newline--  --newline--  void reverseWords(char[] a, int n) {--newline--    int i = 0, j = 0;--newline--      --newline--    while (i < n) {--newline--      while (i < j || i < n && a[i] == ' ') i++; // skip spaces--newline--      while (j < i || j < n && a[j] != ' ') j++; // skip non spaces--newline--      reverse(a, i, j - 1);                      // reverse the word--newline--    }--newline--  }--newline--  --newline--  // trim leading, trailing and multiple spaces--newline--  String cleanSpaces(char[] a, int n) {--newline--    int i = 0, j = 0;--newline--      --newline--    while (j < n) {--newline--      while (j < n && a[j] == ' ') j++;             // skip spaces--newline--      while (j < n && a[j] != ' ') a[i++] = a[j++]; // keep non spaces--newline--      while (j < n && a[j] == ' ') j++;             // skip spaces--newline--      if (j < n) a[i++] = ' ';                      // keep only one space--newline--    }--newline--  --newline--    return new String(a).substring(0, i);--newline--  }--newline--  --newline--  // reverse a[] from a[i] to a[j]--newline--  private void reverse(char[] a, int i, int j) {--newline--    while (i < j) {--newline--      char t = a[i];--newline--      a[i++] = a[j];--newline--      a[j--] = t;--newline--    }--newline--  }--newline--  --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Clean Java two-pointers solution (no trim( ), no split( ), no StringBuilder)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My accepted Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline----newline--    // function to reverse any part of string from i to j (just one word or entire string)--newline--    void reverseword(string &s, int i, int j){--newline--        while(i<j){--newline--          char t=s[i];--newline--          s[i++]=s[j];--newline--          s[j--]=t;--newline--        } --newline--    }--newline--    --newline--    void reverseWords(string &s) {--newline--        --newline--        int i=0, j=0;--newline--        int l=0;--newline--        int len=s.length();--newline--        int wordcount=0;--newline--        --newline--        while(true){--newline--            while(i<len && s[i] == ' ') i++;  // skip spaces in front of the word--newline--            if(i==len) break;--newline--            if(wordcount) s[j++]=' ';--newline--            l=j;--newline--            while(i<len && s[i] != ' ') {s[j]=s[i]; j++; i++;} --newline--            reverseword(s,l,j-1);                // reverse word in place--newline--            wordcount++;--newline--            --newline--        }--newline--        --newline--        s.resize(j);                           // resize result string--newline--        reverseword(s,0,j-1);                  // reverse whole string--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ solution, in place: runtime O(n), memory O(1)"
+        },
+        {
+            "java": "public class Solution {--newline--    public String reverseWords(String s) {--newline--        String[] words = s.trim().split(\" +\");--newline--        Collections.reverse(Arrays.asList(words));--newline--        return String.join(\" \", words);--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 3-line builtin solution"
+        }
+    ],
+    "qc": "151.json"
+}

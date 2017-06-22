@@ -1,0 +1,50 @@
+---CONTENT_BEGIN---
+
+A magical string S consists of only '1' and '2' and obeys the following rules:
+
+
+The string S is magical because concatenating the number of contiguous occurrences of characters '1' and '2' generates the string S itself.
+
+
+
+The first few elements of string S is the following:
+S = "1221121221221121122â¦â¦"
+
+
+
+If we group the consecutive '1's and '2's in S, it will be:
+
+
+1   22  11  2  1  22  1  22  11  2  11  22 ......
+
+
+and the occurrences of '1's or '2's in each group are:
+
+
+1   2	   2    1   1    2     1    2     2    1    2    2 ......
+
+
+
+You can see that the occurrence sequence above is the S itself. 
+
+
+
+Given an integer N as input, return the number of '1's in the first N number in the magical string S.
+
+
+Note:
+N will not exceed 100,000.
+
+
+
+Example 1:
+
+Input: 6
+Output: 3
+Explanation: The first 6 elements of magical string S is "12211" and it contains three 1's, so return 3.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int magicalString(int n) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int magicalString(int n) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def magicalString(self, n):--newline--        '''--newline--        :type n: int--newline--        :rtype: int--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "int magicalString(int n) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int MagicalString(int n) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} n--newline-- * @return {number}--newline-- */--newline--var magicalString = function(n) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} n--newline--# @return {Integer}--newline--def magical_string(n)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func magicalString(_ n: Int) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func magicalString(n int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

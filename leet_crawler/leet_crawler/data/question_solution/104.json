@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Can leetcode share top performing solution(s) of problems for each supported language ?"
+        },
+        {
+            "java": "public class Solution {--newline--    public int maxDepth(TreeNode root) {--newline--            if(root==null){--newline--                return 0;--newline--            }--newline--            return 1+Math.max(maxDepth(root.left),maxDepth(root.right));--newline--        }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple solution using Java"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int maxDepth(TreeNode *root)--newline--    {--newline--        if(root == NULL)--newline--            return 0;--newline--        --newline--        int res = 0;--newline--        queue<TreeNode *> q;--newline--        q.push(root);--newline--        while(!q.empty())--newline--        {--newline--            ++ res;--newline--            for(int i = 0, n = q.size(); i < n; ++ i)--newline--            {--newline--                TreeNode *p = q.front();--newline--                q.pop();--newline--                --newline--                if(p -> left != NULL)--newline--                    q.push(p -> left);--newline--                if(p -> right != NULL)--newline--                    q.push(p -> right);--newline--            }--newline--        }--newline--        --newline--        return res;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "My code of C++, Depth-first-search and Breadth-first-search"
+        },
+        {
+            "java": "public class Solution {--newline--    public int maxDepth(TreeNode root) {--newline--    --tab--if (root == null)--newline--    --tab----tab--return 0;--newline--    --tab----newline--    --tab--Deque<TreeNode> stack = new LinkedList<TreeNode>();--newline--    --tab----newline--    --tab--stack.push(root);--newline--    --tab--int count = 0;--newline--    --tab----newline--    --tab--while (!stack.isEmpty()) {--newline--    --tab----tab--int size = stack.size();--newline--    --tab----tab--while (size-- > 0) {--newline--    --tab----tab----tab--TreeNode cur = stack.pop();--newline--    --tab----tab----tab--if (cur.left != null)--newline--    --tab----tab----tab----tab--stack.addLast(cur.left);--newline--    --tab----tab----tab--if (cur.right != null)--newline--    --tab----tab----tab----tab--stack.addLast(cur.right);--newline--    --tab----tab--}--newline--    --tab----tab--count++;--newline--    --newline--    --tab--}--newline--    --tab--return count;--newline--    --newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Clean Java Iterative Solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int maxDepth(TreeNode root) {--newline--        if(root == null) {--newline--            return 0;--newline--        }--newline--        Queue<TreeNode> queue = new LinkedList<>();--newline--        queue.offer(root);--newline--        int count = 0;--newline--        while(!queue.isEmpty()) {--newline--            int size = queue.size();--newline--            while(size-- > 0) {--newline--                TreeNode node = queue.poll();--newline--                if(node.left != null) {--newline--                    queue.offer(node.left);--newline--                }--newline--                if(node.right != null) {--newline--                    queue.offer(node.right);--newline--                }--newline--            }--newline--            count++;--newline--        }--newline--        return count;--newline--    }--newline--    // 3ms--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Two Java Iterative solution DFS and BFS"
+        }
+    ],
+    "qc": "104.json"
+}

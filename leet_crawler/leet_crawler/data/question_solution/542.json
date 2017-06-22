@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int[][] updateMatrix(int[][] matrix) {--newline--        int m = matrix.length;--newline--        int n = matrix[0].length;--newline--        --newline--        Queue<int[]> queue = new LinkedList<>();--newline--        for (int i = 0; i < m; i++) {--newline--            for (int j = 0; j < n; j++) {--newline--                if (matrix[i][j] == 0) {--newline--                    queue.offer(new int[] {i, j});--newline--                }--newline--                else {--newline--                    matrix[i][j] = Integer.MAX_VALUE;--newline--                }--newline--            }--newline--        }--newline--        --newline--        int[][] dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};--newline--        --newline--        while (!queue.isEmpty()) {--newline--            int[] cell = queue.poll();--newline--            for (int[] d : dirs) {--newline--                int r = cell[0] + d[0];--newline--                int c = cell[1] + d[1];--newline--                if (r < 0 || r >= m || c < 0 || c >= n || --newline--                    matrix[r][c] <= matrix[cell[0]][cell[1]] + 1) continue;--newline--                queue.add(new int[] {r, c});--newline--                matrix[r][c] = matrix[cell[0]][cell[1]] + 1;--newline--            }--newline--        }--newline--        --newline--        return matrix;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution, BFS"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<List<Integer>> updateMatrix(List<List<Integer>> matrix) {--newline--            List<List<Integer>> answer = new LinkedList();--newline--    --tab----tab--if(matrix.size() == 0) return answer;--newline--    --tab----tab--int[][] array = new int[matrix.size()][matrix.get(0).size()];--newline--    --tab----tab--int i = 0, j = 0;--newline--    --tab----tab--for(List<Integer> list : matrix) {--newline--    --tab----tab----tab--for(Integer x : list) {--newline--    --tab----tab----tab----tab--if(x == 0) {--newline--    --tab----tab----tab----tab----tab--array[i][j] = 0;--newline--    --tab----tab----tab----tab--}--newline--    --tab----tab----tab----tab--else {--newline--    --tab----tab----tab----tab----tab--int left = Integer.MAX_VALUE - 1, top = Integer.MAX_VALUE - 1;--newline--    --tab----tab----tab----tab----tab--if(i - 1 >= 0) top = array[i - 1][j];--newline--    --tab----tab----tab----tab----tab--if(j - 1 >= 0) left = array[i][j - 1];--newline--    --tab----tab----tab----tab----tab--array[i][j] = Math.min(Integer.MAX_VALUE - 1, Math.min(top, left) + 1);--newline--    --tab----tab----tab----tab--}--newline--    --tab----tab----tab----tab--j++;--newline--    --tab----tab----tab--}--newline--    --tab----tab----tab--j = 0;--newline--    --tab----tab----tab--i++;--newline--    --tab----tab--}--newline--    --tab----tab--for(int k = array.length - 1; k >= 0; k--) {--newline--    --tab----tab----tab--for(int m = array[0].length - 1; m >= 0; m--) {--newline--    --tab----tab----tab----tab--if(array[k][m] != 0 && array[k][m] != 1) {--newline--    --tab----tab----tab----tab----tab--int down = Integer.MAX_VALUE - 1, right = Integer.MAX_VALUE - 1;--newline--    --tab----tab----tab----tab----tab--if(k + 1 < array.length) down = array[k + 1][m];--newline--    --tab----tab----tab----tab----tab--if(m + 1 < array[0].length) right = array[k][m + 1];--newline--    --tab----tab----tab----tab----tab--array[k][m] = Math.min(array[k][m], Math.min(down, right) + 1);--newline--    --tab----tab----tab----tab--}--newline--    --tab----tab----tab--}--newline--    --tab----tab--}--newline--    --tab----tab--for(int[] l : array) {--newline--    --tab----tab----tab--List<Integer> tmp = new LinkedList();--newline--    --tab----tab----tab--for(int n : l) {--newline--    --tab----tab----tab----tab--tmp.add(n);--newline--    --tab----tab----tab--}--newline--    --tab----tab----tab--answer.add(tmp);--newline--    --tab----tab--}--newline--    --tab----tab--return answer;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 33ms solution with two sweeps in O(n)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Can you change the input and return type to be a int&#91;&#93;&#91;&#93; for Java ?"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<vector<int>> updateMatrix(vector<vector<int>>& matrix) {--newline--        int h=matrix.size(), w=matrix[0].size();--newline--        vector<vector<int>> dp(h,vector<int>(w,INT_MAX));--newline--        for(int times=0;times<=1;times++) // two passes, first forward then backward--newline--            for(int i=times?h-1:0;times?i>=0:i<h;times?i--:i++) --newline--                for(int j=times?w-1:0;times?j>=0:j<w;times?j--:j++)--newline--                        if(matrix[i][j]==0)--newline--                            dp[i][j]=0;--newline--                        else {--newline--                            if(i&&dp[i-1][j]!=INT_MAX&&dp[i][j]>dp[i-1][j]+1) // look up--newline--                                dp[i][j]=dp[i-1][j]+1;--newline--                            if(j&&dp[i][j-1]!=INT_MAX&&dp[i][j]>dp[i][j-1]+1) // look left--newline--                                dp[i][j]=dp[i][j-1]+1;--newline--                            if(i<h-1&&dp[i+1][j]!=INT_MAX&&dp[i][j]>dp[i+1][j]+1) // look down--newline--                                dp[i][j]=dp[i+1][j]+1;--newline--                            if(j<w-1&&dp[i][j+1]!=INT_MAX&&dp[i][j]>dp[i][j+1]+1) // look right--newline--                                dp[i][j]=dp[i][j+1]+1;--newline--                        }--newline--        return dp;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "18-line C++ DP Solution, O(n), Easy to Understand"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def updateMatrix(self, matrix):--newline----tab--        answer = [[10000 * x for x in row] for row in matrix]--newline----tab--        for _ in range(4):--newline----tab--            for row in answer:--newline----tab--                for j in range(1, len(row)):--newline----tab--                    row[j] = min(row[j], row[j-1] + 1)--newline----tab--            answer = map(list, zip(*answer[::-1]))--newline----tab--        return answer--newline----tab--    ",
+            "topic_title": "Short solution - Each path needs at most one turn"
+        }
+    ],
+    "qc": "542.json"
+}

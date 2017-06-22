@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public List<Integer> findMinHeightTrees(int n, int[][] edges) {--newline--        if (n == 1) return Collections.singletonList(0);--newline--    --newline--        List<Set<Integer>> adj = new ArrayList<>(n);--newline--        for (int i = 0; i < n; ++i) adj.add(new HashSet<>());--newline--        for (int[] edge : edges) {--newline--            adj.get(edge[0]).add(edge[1]);--newline--            adj.get(edge[1]).add(edge[0]);--newline--        }--newline--    --newline--        List<Integer> leaves = new ArrayList<>();--newline--        for (int i = 0; i < n; ++i)--newline--            if (adj.get(i).size() == 1) leaves.add(i);--newline--    --newline--        while (n > 2) {--newline--            n -= leaves.size();--newline--            List<Integer> newLeaves = new ArrayList<>();--newline--            for (int i : leaves) {--newline--                int j = adj.get(i).iterator().next();--newline--                adj.get(j).remove(i);--newline--                if (adj.get(j).size() == 1) newLeaves.add(j);--newline--            }--newline--            leaves = newLeaves;--newline--        }--newline--        return leaves;--newline--    }--newline--    --newline--    // Runtime: 53 ms--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def findMinHeightTrees(self, n, edges):--newline----tab--        if n == 1: return [0] --newline----tab--        adj = [set() for _ in xrange(n)]--newline----tab--        for i, j in edges:--newline----tab--            adj[i].add(j)--newline----tab--            adj[j].add(i)--newline----tab--    --newline----tab--        leaves = [i for i in xrange(n) if len(adj[i]) == 1]--newline----tab--    --newline----tab--        while n > 2:--newline----tab--            n -= len(leaves)--newline----tab--            newLeaves = []--newline----tab--            for i in leaves:--newline----tab--                j = adj[i].pop()--newline----tab--                adj[j].remove(i)--newline----tab--                if len(adj[j]) == 1: newLeaves.append(j)--newline----tab--            leaves = newLeaves--newline----tab--        return leaves--newline----tab--    --tab----newline----tab--    # Runtime : 104ms",
+            "topic_title": "Share some thoughts"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Two O(n) solutions"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "    class Solution {--newline--    public:--newline--        --newline--        struct Node--newline--        {--newline--            unordered_set<int> neighbor;--newline--            bool isLeaf()const{return neighbor.size()==1;}--newline--        };--newline--        --newline--        vector<int> findMinHeightTrees(int n, vector<pair<int, int>>& edges) {--newline--            --newline--            vector<int> buffer1;--newline--            vector<int> buffer2;--newline--            vector<int>* pB1 = &buffer1;--newline--            vector<int>* pB2 = &buffer2;--newline--            if(n==1)--newline--            {--newline--                buffer1.push_back(0);--newline--                return buffer1;--newline--            }--newline--            if(n==2)--newline--            {--newline--                buffer1.push_back(0);--newline--                buffer1.push_back(1);--newline--                return buffer1;--newline--            }--newline--            --newline--            // build the graph--newline--            vector<Node> nodes(n);--newline--            for(auto p:edges)--newline--            {--newline--                nodes[p.first].neighbor.insert(p.second);--newline--                nodes[p.second].neighbor.insert(p.first);--newline--            }--newline--            --newline--            // find all leaves--newline--            for(int i=0; i<n; ++i)--newline--            {--newline--                if(nodes[i].isLeaf()) pB1->push_back(i);--newline--            }--newline----newline--            // remove leaves layer-by-layer            --newline--            while(1)--newline--            {--newline--                for(int i : *pB1)--newline--                {--newline--                    for(auto n: nodes[i].neighbor)--newline--                    {--newline--                        nodes[n].neighbor.erase(i);--newline--                        if(nodes[n].isLeaf()) pB2->push_back(n);--newline--                    }--newline--                }--newline--                if(pB2->empty())--newline--                {--newline--                    return *pB1;--newline--                }--newline--                pB1->clear();--newline--                swap(pB1, pB2);--newline--            }--newline--            --newline--        }--newline--    };",
+            "python": null,
+            "topic_title": "C++ Solution. O(n)-Time, O(n)-Space"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline-- public:--newline--  vector<int> findMinHeightTrees(int n, vector<pair<int, int>>& edges) {--newline--    // Initialize the undirected graph--newline--    vector<unordered_set<int>> adj(n);--newline--    for (pair<int, int> p : edges) {--newline--      adj[p.first].insert(p.second);--newline--      adj[p.second].insert(p.first);--newline--    }--newline--    // Corner case--newline--    vector<int> current;--newline--    if (n == 1) {--newline--      current.push_back(0);--newline--      return current;--newline--    }--newline--    // Create first leaf layer--newline--    for (int i = 0; i < adj.size(); ++i) {--newline--      if (adj[i].size() == 1) {--newline--        current.push_back(i);--newline--      }--newline--    }--newline--    // BFS the graph--newline--    while (true) {--newline--      vector<int> next;--newline--      for (int node : current) {--newline--        for (int neighbor : adj[node]) {--newline--          adj[neighbor].erase(node);--newline--          if (adj[neighbor].size() == 1) next.push_back(neighbor);--newline--        }--newline--      }--newline--      if (next.empty()) return current;--newline--      current = next;--newline--    }--newline--  }--newline--};",
+            "python": null,
+            "topic_title": "C++ BFS short clean solution with explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public: --newline--    vector<int> findMinHeightTrees(int n, vector<pair<int, int>>& edges) {--newline--        vector<unordered_set<int>> graph(n);--newline--        for(auto e: edges){--newline--            graph[e.first].insert(e.second);--newline--            graph[e.second].insert(e.first);--newline--        }--newline--        vector<int> degree(n, 0);  //degree--newline--        for(int i=0; i<n; i++) degree[i]=graph[i].size();--newline--        for(int remain=n, j; remain>2;){--newline--            vector<int> del; // nodes to delete--newline--            for(j=0; j<n; j++){--newline--                if(degree[j]==1) { //find leaves--newline--                    remain--;--newline--                    del.push_back(j);--newline--                    degree[j]=-1;--newline--                }--newline--            }--newline--            for(auto k: del){ //delete this node and its edges --newline--                for(auto neigh: graph[k]) degree[neigh]--;--newline--            }--newline--        }--newline--        vector<int> res;--newline--        for(int i=0; i<n; i++) if(degree[i]>=0) res.push_back(i);--newline--        return res;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "O(n) super clean solution just iteratively deleting leaves"
+        }
+    ],
+    "qc": "310.json"
+}

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public List<Integer> killProcess(List<Integer> pid, List<Integer> ppid, int kill) {--newline--        --newline--        // Store process tree as an adjacency list--newline--        Map<Integer, List<Integer>> adjacencyLists = new HashMap<>();--newline--        for (int i=0;i<ppid.size();i++) {--newline--            adjacencyLists.putIfAbsent(ppid.get(i), new LinkedList<>());--newline--            adjacencyLists.get(ppid.get(i)).add(pid.get(i));--newline--        }--newline--        --newline--        // Kill all processes in the subtree rooted at process \"kill\"--newline--        List<Integer> res = new LinkedList<>();--newline--        Stack<Integer> stack = new Stack<>();--newline--        stack.add(kill);--newline--        while (!stack.isEmpty()) {--newline--            int cur = stack.pop();--newline--            res.add(cur);--newline--            List<Integer> adjacencyList = adjacencyLists.get(cur);--newline--            if (adjacencyList == null) continue;--newline--            stack.addAll(adjacencyList);--newline--        }--newline--        return res;   --newline--    --newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java DFS O(n) Time O(n) Space"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<Integer> killProcess(List<Integer> pid, List<Integer> ppid, int kill) {--newline--        if (kill == 0) return pid;--newline--        --newline--        int n = pid.size();--newline--        Map<Integer, Set<Integer>> tree = new HashMap<>();--newline--        for (int i = 0; i < n; i++) {--newline--            tree.put(pid.get(i), new HashSet<Integer>());--newline--        }--newline--        for (int i = 0; i < n; i++) {--newline--            if (tree.containsKey(ppid.get(i))) {--newline--                Set<Integer> children = tree.get(ppid.get(i));--newline--                children.add(pid.get(i));--newline--                tree.put(ppid.get(i), children);--newline--            }--newline--        }--newline--        --newline--        List<Integer> result = new ArrayList<>();--newline--        traverse(tree, result, kill);--newline--        --newline--        return result;--newline--    }--newline--    --newline--    private void traverse(Map<Integer, Set<Integer>> tree, List<Integer> result, int pid) {--newline--        result.add(pid);--newline--        --newline--        Set<Integer> children = tree.get(pid);--newline--        for (Integer child : children) {--newline--            traverse(tree, result, child);--newline--        }--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution, HashMap"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> killProcess(vector<int>& pid, vector<int>& ppid, int kill) {--newline--        vector<int> killed;--newline--        map<int, set<int>> children;--newline--        for (int i = 0; i < pid.size(); i++) {--newline--            children[ppid[i]].insert(pid[i]);--newline--        }--newline----newline--        queue<int> q;--newline--        q.push(kill);--newline--        while (!q.empty()) {--newline--            int p = q.front(); q.pop();--newline--            killed.push_back(p);--newline--            for (int child : children[p]) {--newline--                q.push(child);--newline--            }--newline--        }--newline----newline--        return killed;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "&#91;C++&#93; Clean Code - 2 Solution - DFS &amp; BFS"
+        },
+        {
+            "java": "public static List<Integer> killProcess(List<Integer> pid, List<Integer> ppid, int kill) {--newline--        HashMap<Integer, Node> map = new HashMap<>();--newline--        for(Integer i : pid) {--newline--            map.put(i, new Node(i));--newline--        }--newline----newline--        for(int i = 0; i < ppid.size(); i++) {--newline--            if(ppid.get(i) != 0) {--newline--                map.get(ppid.get(i)).childs.add(map.get(pid.get(i)));--newline--            }--newline--        }--newline--        List<Integer> res = new ArrayList<>();--newline--        dfs(map.get(kill), res);--newline--        return res;--newline--    }--newline----newline--public static void dfs(Node node, List<Integer> res) {--newline--        if(node == null) return;--newline--        res.add(node.id);--newline--        for(Node n : node.childs) {--newline--            dfs(n, res);--newline--        }--newline--    }--newline----newline--private static class Node {--newline--        Integer id;--newline--        List<Node> childs;--newline----newline--        public Node(Integer id) {--newline--            this.id = id;--newline--            this.childs = new ArrayList<>();--newline--        }--newline--    }--newline----newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java Solution using DFS"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def killProcess(self, pid, ppid, kill):--newline----tab--            d = collections.defaultdict(list)--newline----tab--            for c, p in zip(pid, ppid): d[p].append(c)--newline----tab--            bfs = [kill]--newline----tab--            for i in bfs: bfs.extend(d.get(i, []))--newline----tab--            return bfs",
+            "topic_title": "Simple python bfs solution"
+        }
+    ],
+    "qc": "582.json"
+}

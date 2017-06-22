@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int countNodes(TreeNode root) {--newline--        if (root == null)--newline--            return 0;--newline--        return 1 + countNodes(root.left) + countNodes(root.right)--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Concise Java solutions O(log(n)^2)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline----newline--public:--newline----newline--    int countNodes(TreeNode* root) {--newline----newline--        if(!root) return 0;--newline----newline--        int hl=0, hr=0;--newline----newline--        TreeNode *l=root, *r=root;--newline----newline--        while(l) {hl++;l=l->left;}--newline----newline--        while(r) {hr++;r=r->right;}--newline----newline--        if(hl==hr) return pow(2,hl)-1;--newline----newline--        return 1+countNodes(root->left)+countNodes(root->right);--newline----newline--    }--newline----newline--};",
+            "python": null,
+            "topic_title": "Easy short c++ recursive solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int countNodes(TreeNode root) {--newline--    --newline--        int leftDepth = leftDepth(root);--newline--    --tab--int rightDepth = rightDepth(root);--newline--    --newline--    --tab--if (leftDepth == rightDepth)--newline--    --tab----tab--return (1 << leftDepth) - 1;--newline--    --tab--else--newline--    --tab----tab--return 1+countNodes(root.left) + countNodes(root.right);--newline--    --newline--    }--newline--    --newline--    private int rightDepth(TreeNode root) {--newline--    --tab--// TODO Auto-generated method stub--newline--    --tab--int dep = 0;--newline--    --tab--while (root != null) {--newline--    --tab----tab--root = root.right;--newline--    --tab----tab--dep++;--newline--    --tab--}--newline--    --tab--return dep;--newline--    }--newline--    --newline--    private int leftDepth(TreeNode root) {--newline--    --tab--// TODO Auto-generated method stub--newline--    --tab--int dep = 0;--newline--    --tab--while (root != null) {--newline--    --tab----tab--root = root.left;--newline--    --tab----tab--dep++;--newline--    --tab--}--newline--    --tab--return dep;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Accepted Easy Understand Java Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "    /**--newline--     * Definition for a binary tree node.--newline--     * struct TreeNode {--newline--     *     int val;--newline--     *     TreeNode *left;--newline--     *     TreeNode *right;--newline--     *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}--newline--     * };--newline--     */--newline--    class Solution {--newline--    public:--newline--        int countNodes(TreeNode* root) {--newline--            if(!root) return 0;--newline--            int lh = height(root->left);--newline--            int rh = height(root->right);     --newline--            if(lh == rh) --newline--               return (1 << lh) + countNodes(root->right);  /*1(\u6839\u8282\u70b9) + (1<<lh)-1(\u5b8c\u5168\u5de6\u5b50\u6811) + # of rightNode */               --newline--            else --newline--               return (1 << rh) + countNodes(root->left);  /*1(\u6839\u8282\u70b9) + (1<<rh)-1(\u5b8c\u5168\u53f3\u5b50\u6811) + # of leftNode*/--newline--        }--newline--    private:--newline--        int height(TreeNode *root){ //get the height of a complete binary tree.--newline--            if(!root) return 0;--newline--            return 1 + height(root->left);--newline--        }--newline--    };",
+            "python": null,
+            "topic_title": "A very clear recursive solution, isn&#x27;t it?"
+        },
+        {
+            "java": "public class Solution {--newline--    public int countNodes(TreeNode root) {--newline--    --tab--if (root==null) return 0;--newline--    --tab--if (root.left==null) return 1;--newline--    --tab--int height = 0;--newline--        int nodesSum = 0;--newline--    --tab--TreeNode curr = root;--newline--        while(curr.left!=null) {--newline--        --tab--nodesSum += (1<<height);--newline--        --tab--height++;--newline--        --tab--curr = curr.left;--newline--        }--newline--        return nodesSum + countLastLevel(root, height);--newline--    }--newline--    --newline--    private int countLastLevel(TreeNode root, int height) {--newline--    --tab--if(height==1) --newline--    --tab----tab--if (root.right!=null) return 2;--newline--    --tab----tab--else if (root.left!=null) return 1;--newline--    --tab----tab--else return 0;--newline--    --tab--TreeNode midNode = root.left;--newline--    --tab--int currHeight = 1;--newline--    --tab--while(currHeight<height) {--newline--    --tab----tab--currHeight++;--newline--    --tab----tab--midNode = midNode.right;--newline--    --tab--}--newline--    --tab--if (midNode==null) return countLastLevel(root.left, height-1);--newline--    --tab--else return (1<<(height-1)) + countLastLevel(root.right, height-1);--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My JAVA solution with explanation which beats 99%"
+        }
+    ],
+    "qc": "222.json"
+}

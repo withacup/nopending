@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool isPowerOfTwo(int n) {--newline--        if(n<=0) return false;--newline--        return !(n&(n-1));--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Using n&amp;(n-1) trick"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isPowerOfTwo(int n) {--newline--        return n>0 && Integer.bitCount(n) == 1;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "One line java solution using bitCount"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool isPowerOfTwo(int n) {--newline--        return n > 0 && !(n&(n-1));--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "One line of C++"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "4 different ways to solve -- Iterative &#x2F; Recursive &#x2F; Bit operation &#x2F; Math"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "One line Java solution"
+        }
+    ],
+    "qc": "231.json"
+}

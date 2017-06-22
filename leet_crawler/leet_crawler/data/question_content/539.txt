@@ -1,0 +1,20 @@
+---CONTENT_BEGIN---
+Given a list of 24-hour clock time points in "Hour:Minutes" format, find the minimum minutes difference between any two time points in the list. 
+
+Example 1:
+
+Input: ["23:59","00:00"]
+Output: 1
+
+
+
+Note:
+
+The number of time points in the given list is at least 2 and won't exceed 20000.
+The input time is legal and ranges from 00:00 to 23:59.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int findMinDifference(vector<string>& timePoints) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int findMinDifference(List<String> timePoints) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def findMinDifference(self, timePoints):--newline--        '''--newline--        :type timePoints: List[str]--newline--        :rtype: int--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "int findMinDifference(char** timePoints, int timePointsSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int FindMinDifference(IList<string> timePoints) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string[]} timePoints--newline-- * @return {number}--newline-- */--newline--var findMinDifference = function(timePoints) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String[]} time_points--newline--# @return {Integer}--newline--def find_min_difference(time_points)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func findMinDifference(_ timePoints: [String]) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func findMinDifference(timePoints []string) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

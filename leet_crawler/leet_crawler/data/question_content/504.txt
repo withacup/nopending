@@ -1,0 +1,24 @@
+---CONTENT_BEGIN---
+Given an integer, return its base 7 string representation.
+
+Example 1:
+
+Input: 100
+Output: "202"
+
+
+
+Example 2:
+
+Input: -7
+Output: "-10"
+
+
+
+Note:
+The input will be in range of [-1e7, 1e7].
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"value": "cpp", "defaultCode": "class Solution {--newline--public:--newline--    string convertToBase7(int num) {--newline--        --newline--    }--newline--};", "text": "C++"}, {"value": "java", "defaultCode": "public class Solution {--newline--    public String convertToBase7(int num) {--newline--        --newline--    }--newline--}", "text": "Java"}, {"value": "python", "defaultCode": "class Solution(object):--newline--    def convertToBase7(self, num):--newline--        '''--newline--        :type num: int--newline--        :rtype: str--newline--        '''--newline--        ", "text": "Python"}, {"value": "c", "defaultCode": "char* convertToBase7(int num) {--newline--    --newline--}", "text": "C"}, {"value": "csharp", "defaultCode": "public class Solution {--newline--    public string ConvertToBase7(int num) {--newline--        --newline--    }--newline--}", "text": "C#"}, {"value": "javascript", "defaultCode": "/**--newline-- * @param {number} num--newline-- * @return {string}--newline-- */--newline--var convertToBase7 = function(num) {--newline--    --newline--};", "text": "JavaScript"}, {"value": "ruby", "defaultCode": "# @param {Integer} num--newline--# @return {String}--newline--def convert_to_base7(num)--newline--    --newline--end", "text": "Ruby"}, {"value": "swift", "defaultCode": "class Solution {--newline--    func convertToBase7(_ num: Int) -> String {--newline--        --newline--    }--newline--}", "text": "Swift"}, {"value": "golang", "defaultCode": "func convertToBase7(num int) string {--newline--    --newline--}", "text": "Go"}]
+---SCRIPT_END---

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Python, Simple Explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findLUSlength(String[] strs) {--newline--        Map<String, Integer> subseqFreq = new HashMap<>();--newline--        for (String s : strs) --newline--            for (String subSeq : getSubseqs(s))--newline--                subseqFreq.put(subSeq, subseqFreq.getOrDefault(subSeq, 0) + 1);--newline--        int longest = -1;--newline--        for (Map.Entry<String, Integer> entry : subseqFreq.entrySet()) --newline--            if (entry.getValue() == 1) longest = Math.max(longest, entry.getKey().length());--newline--        return longest;--newline--    }--newline--    --newline--    public static Set<String> getSubseqs(String s) {--newline--        Set<String> res = new HashSet<>();--newline--        if (s.length() == 0) {--newline--             res.add(\"\");--newline--             return res;--newline--        }--newline--        Set<String> subRes = getSubseqs(s.substring(1));--newline--        res.addAll(subRes);--newline--        for (String seq : subRes) res.add(s.charAt(0) + seq);--newline--        return res;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Hashing Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "bool cmp(pair<string,int> &a, pair<string,int> &b)--newline--{--newline--    return a.first.size() > b.first.size();--newline--}--newline----newline--bool isS1subsOfS2(string &s1, string &s2){--newline--    int j = 0, i = 0;--newline--    for(; i < s1.size(); ++i){--newline--        while(j < s2.size() && s1[i] != s2[j]) ++j;--newline--        if(j == s2.size())--newline--           return false;--newline--        ++j;--newline--    }--newline--    return true;--newline--}--newline--class Solution {--newline--public:--newline--    int findLUSlength(vector<string>& strs) {--newline--        unordered_map<string,int> m;--newline--        for(int i = 0; i < strs.size(); ++i)--newline--          ++m[strs[i]];--newline--        vector<pair<string,int>> v;--newline--        for(auto it = m.begin(); it != m.end(); ++it)--newline--           v.push_back(*it);--newline--        sort(v.begin(),v.end(),cmp);--newline--        for(int i = 0; i < v.size(); ++i)--newline--        {--newline--           if(v[i].second == 1){--newline--               int j = 0;--newline--               for(; j < i; ++j)--newline--                 if(isS1subsOfS2(v[i].first,v[j].first))--newline--                     break;--newline--               if(j == i) return v[i].first.size();--newline--           }--newline--        }--newline--        return -1;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "hashmap + sort solution, c++"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    //This is used to determine if a has common subsequence in b--newline--    bool hasCommon(string a,string b){--newline--        int remine = a.size();--newline--        int remine2 = b.size();--newline--        for(;remine>0&&remine2>0;){--newline--            int i = a.size()-remine;--newline--            int j = b.size()-remine2;--newline--            if(a.at(i) == b.at(j)){--newline--                remine--;remine2--;--newline--            }else{--newline--                remine2--;--newline--            }--newline--        }--newline--        return remine==0;--newline--    }--newline--    int findLUSlength(vector<string>& strs) {--newline--        int maxLen = -1;--newline--        for(int i = 0;i<strs.size();++i){--newline--            int currentLen = strs[i].length();--newline--            bool all = true;--newline--            for(int j = 0;j<strs.size();++j){--newline--                if(i!=j&&hasCommon(strs[i], strs[j])){--newline--                    all = false;--newline--                    break;--newline--                }--newline--            }--newline--            if(all){--newline--                maxLen = maxLen<currentLen?currentLen:maxLen;--newline--            }--newline--        }--newline--        return maxLen;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Clean C++ O(n^2) with Explanation"
+        },
+        {
+            "java": "public class Solution {--newline--        public int findLUSlength(String[] strs) {--newline--            Arrays.sort(strs, new Comparator<String>() {--newline--                public int compare(String o1, String o2) {--newline--                    return o2.length() - o1.length();--newline--                }--newline--            });--newline--            --newline--            Set<String> duplicates = getDuplicates(strs);--newline--            for(int i = 0; i < strs.length; i++) {--newline--                if(!duplicates.contains(strs[i])) {--newline--                    if(i == 0) return strs[0].length();--newline--                    for(int j = 0; j < i; j++) {--newline--                        if(isSubsequence(strs[j], strs[i])) break;--newline--                        if(j == i-1) return strs[i].length();--newline--                    }--newline--                }--newline--            }--newline--            return -1;--newline--        }--newline--        --newline--        public boolean isSubsequence(String a, String b) {--newline--            int i = 0, j = 0;--newline--            while(i < a.length() && j < b.length()) {--newline--                if(a.charAt(i) == b.charAt(j)) j++;--newline--                i++;--newline--            }--newline--            return j == b.length();--newline--        }--newline--        --newline--        private Set<String> getDuplicates(String[] strs) {--newline--            Set<String> set = new HashSet<String>();--newline--            Set<String> duplicates = new HashSet<String>();--newline--            for(String s : strs) {--newline--                if(set.contains(s)) duplicates.add(s);--newline--                set.add(s);--newline--            }--newline--            return duplicates;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java(15ms) - Sort + check subsequence"
+        }
+    ],
+    "qc": "522.json"
+}

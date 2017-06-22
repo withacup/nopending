@@ -1,0 +1,12 @@
+---CONTENT_BEGIN---
+Given an array S of n integers, find three integers in S such that the sum is closest to a given number, target. Return the sum of the three integers. You may assume that each input would have exactly one solution.
+
+
+    For example, given array S = {-1 2 1 -4}, and target = 1.
+
+    The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int threeSumClosest(vector<int>& nums, int target) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int threeSumClosest(int[] nums, int target) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def threeSumClosest(self, nums, target):--newline--        '''--newline--        :type nums: List[int]--newline--        :type target: int--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int threeSumClosest(int* nums, int numsSize, int target) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int ThreeSumClosest(int[] nums, int target) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} nums--newline-- * @param {number} target--newline-- * @return {number}--newline-- */--newline--var threeSumClosest = function(nums, target) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} nums--newline--# @param {Integer} target--newline--# @return {Integer}--newline--def three_sum_closest(nums, target)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func threeSumClosest(_ nums: [Int], _ target: Int) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func threeSumClosest(nums []int, target int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

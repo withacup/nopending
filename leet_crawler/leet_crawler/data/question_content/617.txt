@@ -1,0 +1,36 @@
+---CONTENT_BEGIN---
+
+Given two binary trees and imagine that when you put one of them to cover the other, some nodes of the two trees are overlapped while the others are not. 
+
+
+You need to merge them into a new binary tree. The merge rule is that if two nodes overlap, then sum node values up as the new value of the merged node. Otherwise, the NOT null node will be used as the node of new tree.
+
+
+
+Example 1:
+
+Input: 
+	Tree 1                     Tree 2                  
+          1                         2                             
+         / \                       / \                            
+        3   2                     1   3                        
+       /                           \   \                      
+      5                             4   7                  
+Output: 
+Merged tree:
+	     3
+	    / \
+	   4   5
+	  / \   \ 
+	 5   4   7
+
+
+
+
+Note:
+The merging process must start from the root nodes of both trees.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * struct TreeNode {--newline-- *     int val;--newline-- *     TreeNode *left;--newline-- *     TreeNode *right;--newline-- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}--newline-- * };--newline-- */--newline--class Solution {--newline--public:--newline--    TreeNode* mergeTrees(TreeNode* t1, TreeNode* t2) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * public class TreeNode {--newline-- *     int val;--newline-- *     TreeNode left;--newline-- *     TreeNode right;--newline-- *     TreeNode(int x) { val = x; }--newline-- * }--newline-- */--newline--public class Solution {--newline--    public TreeNode mergeTrees(TreeNode t1, TreeNode t2) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "# Definition for a binary tree node.--newline--# class TreeNode(object):--newline--#     def __init__(self, x):--newline--#         self.val = x--newline--#         self.left = None--newline--#         self.right = None--newline----newline--class Solution(object):--newline--    def mergeTrees(self, t1, t2):--newline--        '''--newline--        :type t1: TreeNode--newline--        :type t2: TreeNode--newline--        :rtype: TreeNode--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "class Solution:--newline--    def mergeTrees(self, t1, t2):--newline--        '''--newline--        :type t1: TreeNode--newline--        :type t2: TreeNode--newline--        :rtype: TreeNode--newline--        '''", "value": "python3", "text": "Python3"}, {"defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * struct TreeNode {--newline-- *     int val;--newline-- *     struct TreeNode *left;--newline-- *     struct TreeNode *right;--newline-- * };--newline-- */--newline--struct TreeNode* mergeTrees(struct TreeNode* t1, struct TreeNode* t2) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * public class TreeNode {--newline-- *     public int val;--newline-- *     public TreeNode left;--newline-- *     public TreeNode right;--newline-- *     public TreeNode(int x) { val = x; }--newline-- * }--newline-- */--newline--public class Solution {--newline--    public TreeNode MergeTrees(TreeNode t1, TreeNode t2) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * function TreeNode(val) {--newline-- *     this.val = val;--newline-- *     this.left = this.right = null;--newline-- * }--newline-- */--newline--/**--newline-- * @param {TreeNode} t1--newline-- * @param {TreeNode} t2--newline-- * @return {TreeNode}--newline-- */--newline--var mergeTrees = function(t1, t2) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# Definition for a binary tree node.--newline--# class TreeNode--newline--#     attr_accessor :val, :left, :right--newline--#     def initialize(val)--newline--#         @val = val--newline--#         @left, @right = nil, nil--newline--#     end--newline--# end--newline----newline--# @param {TreeNode} t1--newline--# @param {TreeNode} t2--newline--# @return {TreeNode}--newline--def merge_trees(t1, t2)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * public class TreeNode {--newline-- *     public var val: Int--newline-- *     public var left: TreeNode?--newline-- *     public var right: TreeNode?--newline-- *     public init(_ val: Int) {--newline-- *         self.val = val--newline-- *         self.left = nil--newline-- *         self.right = nil--newline-- *     }--newline-- * }--newline-- */--newline--class Solution {--newline--    func mergeTrees(_ t1: TreeNode?, _ t2: TreeNode?) -> TreeNode? {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "/**--newline-- * Definition for a binary tree node.--newline-- * type TreeNode struct {--newline-- *     Val int--newline-- *     Left *TreeNode--newline-- *     Right *TreeNode--newline-- * }--newline-- */--newline--func mergeTrees(t1 *TreeNode, t2 *TreeNode) *TreeNode {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

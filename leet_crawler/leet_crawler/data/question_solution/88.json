@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    void merge(int A[], int m, int B[], int n) {--newline--        int i=m-1;--newline----tab----tab--int j=n-1;--newline----tab----tab--int k = m+n-1;--newline----tab----tab--while(i >=0 && j>=0)--newline----tab----tab--{--newline----tab----tab----tab--if(A[i] > B[j])--newline----tab----tab----tab----tab--A[k--] = A[i--];--newline----tab----tab----tab--else--newline----tab----tab----tab----tab--A[k--] = B[j--];--newline----tab----tab--}--newline----tab----tab--while(j>=0)--newline----tab----tab----tab--A[k--] = B[j--];--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "This is my AC code, may help you"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {--newline--        int i = m - 1, j = n - 1, tar = m + n - 1;--newline--        while (j >= 0) {--newline--            nums1[tar--] = i >= 0 && nums1[i] > nums2[j] ? nums1[i--] : nums2[j--];--newline--        }--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "4ms C++ solution with single loop"
+        },
+        {
+            "java": "public class Solution {--newline--    public void merge(int A[], int m, int B[], int n) {--newline--        int i=m-1, j=n-1, k=m+n-1;--newline--        while (i>-1 && j>-1) A[k--]= (A[i]>B[j]) ? A[i--] : B[j--];--newline--        while (j>-1)         A[k--]=B[j--];--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "3 line Java Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def merge(self, nums1, m, nums2, n):--newline----tab--            while m > 0 and n > 0:--newline----tab--                if nums1[m-1] >= nums2[n-1]:--newline----tab--                    nums1[m+n-1] = nums1[m-1]--newline----tab--                    m -= 1--newline----tab--                else:--newline----tab--                    nums1[m+n-1] = nums2[n-1]--newline----tab--                    n -= 1--newline----tab--            if n > 0:--newline----tab--                nums1[:n] = nums2[:n]",
+            "topic_title": "Beautiful Python Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "1 Line Solution"
+        }
+    ],
+    "qc": "88.json"
+}

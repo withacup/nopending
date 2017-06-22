@@ -1,0 +1,42 @@
+---CONTENT_BEGIN---
+
+Suppose Andy and Doris want to choose a restaurant for dinner, and they both have a list of favorite restaurants represented by strings. 
+
+
+You need to help them find out their common interest with the least list index sum. If there is a choice tie between answers, output all of them with no order requirement. You could assume there always exists an answer.
+
+
+
+Example 1:
+
+Input:
+["Shogun", "Tapioca Express", "Burger King", "KFC"]
+["Piatti", "The Grill at Torrey Pines", "Hungry Hunter Steakhouse", "Shogun"]
+Output: ["Shogun"]
+Explanation: The only restaurant they both like is "Shogun".
+
+
+
+Example 2:
+
+Input:
+["Shogun", "Tapioca Express", "Burger King", "KFC"]
+["KFC", "Shogun", "Burger King"]
+Output: ["Shogun"]
+Explanation: The restaurant they both like and have the least index sum is "Shogun" with index sum 1 (0+1).
+
+
+
+
+Note:
+
+The length of both lists will be in the range of [1, 1000].
+The length of strings in both lists will be in the range of [1, 30].
+The index is starting from 0 to the list length minus 1.
+No duplicates in both lists.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<string> findRestaurant(vector<string>& list1, vector<string>& list2) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public String[] findRestaurant(String[] list1, String[] list2) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def findRestaurant(self, list1, list2):--newline--        '''--newline--        :type list1: List[str]--newline--        :type list2: List[str]--newline--        :rtype: List[str]--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "class Solution:--newline--    def findRestaurant(self, list1, list2):--newline--        '''--newline--        :type list1: List[str]--newline--        :type list2: List[str]--newline--        :rtype: List[str]--newline--        '''", "value": "python3", "text": "Python3"}, {"defaultCode": "/**--newline-- * Return an array of size *returnSize.--newline-- * Note: The returned array must be malloced, assume caller calls free().--newline-- */--newline--char** findRestaurant(char** list1, int list1Size, char** list2, int list2Size, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public string[] FindRestaurant(string[] list1, string[] list2) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string[]} list1--newline-- * @param {string[]} list2--newline-- * @return {string[]}--newline-- */--newline--var findRestaurant = function(list1, list2) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String[]} list1--newline--# @param {String[]} list2--newline--# @return {String[]}--newline--def find_restaurant(list1, list2)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func findRestaurant(_ list1: [String], _ list2: [String]) -> [String] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func findRestaurant(list1 []string, list2 []string) []string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

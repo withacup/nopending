@@ -1,0 +1,40 @@
+{
+    "qc": "616.json",
+    "posts": [
+        {
+            "python": null,
+            "cpp": null,
+            "topic_title": "Java Solution, boolean array",
+            "is_locked": false,
+            "java": "public class Solution {--newline--    public String addBoldTag(String s, String[] dict) {--newline--        boolean[] bold = new boolean[s.length()];--newline--        for (int i = 0; i < s.length(); i++) {--newline--            int len = 0;--newline--            for (String word : dict) {--newline--                if (i + word.length() <= s.length() --newline--                    && s.substring(i, i + word.length()).equals(word)) {--newline--                    len = Math.max(len, word.length());--newline--                }--newline--            }--newline--            for (int j = i; j < i + len; j++) {--newline--                bold[j] = true;--newline--            }--newline--        }--newline--        --newline--        StringBuilder result = new StringBuilder();--newline--        for (int i = 0; i < s.length(); i++) {--newline--            if (!bold[i]) {--newline--                result.append(s.charAt(i));--newline--                continue;--newline--            }--newline--            int j = i;--newline--            while (j < s.length() && bold[j]) j++;--newline--            result.append(\"<b>\" + s.substring(i, j) + \"</b>\");--newline--            i = j - 1;--newline--        }--newline--        --newline--        return result.toString();--newline--    }--newline--}--newline--"
+        },
+        {
+            "python": null,
+            "cpp": null,
+            "topic_title": "Java solution, Same as Merge Interval.",
+            "is_locked": false,
+            "java": "public String addBoldTag(String s, String[] dict) {--newline--        List<Interval> intervals = new ArrayList<>();--newline--        for (String str : dict) {--newline--        --tab--int index = -1;--newline--        --tab--index = s.indexOf(str, index);--newline--        --tab--while (index != -1) {--newline--        --tab----tab--intervals.add(new Interval(index, index + str.length()));--newline--        --tab----tab--index +=1;--newline--        --tab----tab--index = s.indexOf(str, index);--newline--        --tab--}--newline--        }--newline--        System.out.println(Arrays.toString(intervals.toArray()));--newline--        intervals = merge(intervals);--newline--        System.out.println(Arrays.toString(intervals.toArray()));--newline--        int prev = 0;--newline--        StringBuilder sb = new StringBuilder();--newline--        for (Interval interval : intervals) {--newline--        --tab--sb.append(s.substring(prev, interval.start));--newline--        --tab--sb.append(\"<b>\");--newline--        --tab--sb.append(s.substring(interval.start, interval.end));--newline--        --tab--sb.append(\"</b>\");--newline--        --tab--prev = interval.end;--newline--        }--newline--        if (prev < s.length()) {--newline--        --tab--sb.append(s.substring(prev));--newline--        }--newline--        return sb.toString();--newline--    }--newline----tab----newline----tab--class Interval {--newline----tab----tab--int start, end;--newline----tab----tab--public Interval(int s, int e) {--newline----tab----tab----tab--start = s;--newline----tab----tab----tab--end = e;--newline----tab----tab--}--newline----tab----tab----newline----tab----tab--public String toString() {--newline----tab----tab----tab--return \"[\" + start + \", \" + end + \"]\" ;--newline----tab----tab--}--newline----tab--}--newline----tab----newline----tab--public List<Interval> merge(List<Interval> intervals) {--newline--        if (intervals == null || intervals.size() <= 1) {--newline--            return intervals;--newline--        }--newline--        Collections.sort(intervals, new Comparator<Interval>(){--newline--            public int compare(Interval a, Interval b) {--newline--                return a.start - b.start;--newline--            }--newline--        });--newline--        --newline--        int start = intervals.get(0).start;--newline--        int end = intervals.get(0).end;--newline--        List<Interval> res = new ArrayList<>();--newline--        for (Interval i : intervals) {--newline--            if (i.start <= end) {--newline--                end = Math.max(end, i.end);--newline--            } else {--newline--                res.add(new Interval(start, end));--newline--                start = i.start;--newline--                end = i.end;--newline--            }--newline--        }--newline--        res.add(new Interval(start, end));--newline--        return res;--newline--    }--newline--"
+        },
+        {
+            "python": null,
+            "cpp": null,
+            "topic_title": "Java Parsing Solution",
+            "is_locked": false,
+            "java": "public class Solution {--newline--    public static String addBoldTag(String s, String[] dict) {--newline--        int n = s.length();--newline--        boolean[] marked = new boolean[n];--newline--        for (String word : dict) {--newline--            int m = word.length();--newline--            for (int i=0;i<=n-m;i++) --newline--                if (s.substring(i, i + m).equals(word)) --newline--                    for (int j=i;j<i+m;j++) marked[j] = true;--newline--        }--newline--        --newline--        int i = 0;--newline--        StringBuilder res = new StringBuilder();--newline--        while (i < n) {--newline--            if (marked[i]) {             --newline--              int j = i;--newline--              while (j < n && marked[j]) j++;--newline--              res.append(\"<b>\").append(s.substring(i,j)).append(\"</b>\");--newline--              i = j;                 --newline--            }--newline--            else res.append(s.charAt(i++));--newline--        }--newline--        --newline--        return res.toString();   --newline--        --newline--    }--newline--    --newline--}"
+        },
+        {
+            "python": null,
+            "cpp": null,
+            "topic_title": "short java solution",
+            "is_locked": false,
+            "java": "public class Solution {--newline--        public String addBoldTag(String s, String[] dict) {--newline--            int n = s.length();--newline--            int[] mark = new int[n+1];--newline--            for(String d : dict) {--newline--                int i = -1;--newline--                while((i = s.indexOf(d, i+1)) >= 0) {--newline--                    mark[i]++;--newline--                    mark[i + d.length()]--;--newline--                }--newline--            }--newline--            StringBuilder sb = new StringBuilder();--newline--            int sum = 0;--newline--            for(int i = 0; i <= n; i++) {--newline--                int cur = sum + mark[i];--newline--                if (cur > 0 && sum == 0) sb.append(\"<b>\");--newline--                if (cur == 0 && sum > 0) sb.append(\"</b>\");--newline--                if (i == n) break;--newline--                sb.append(s.charAt(i));--newline--                sum = cur;--newline--            }--newline--            return sb.toString();--newline--        }--newline--    --newline--}"
+        },
+        {
+            "python": null,
+            "cpp": null,
+            "topic_title": "TireNode solution",
+            "is_locked": false,
+            "java": null
+        }
+    ]
+}

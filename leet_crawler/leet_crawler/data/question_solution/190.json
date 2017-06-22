@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    uint32_t reverseBits(uint32_t n) {--newline--        n = (n >> 16) | (n << 16);--newline--        n = ((n & 0xff00ff00) >> 8) | ((n & 0x00ff00ff) << 8);--newline--        n = ((n & 0xf0f0f0f0) >> 4) | ((n & 0x0f0f0f0f) << 4);--newline--        n = ((n & 0xcccccccc) >> 2) | ((n & 0x33333333) << 2);--newline--        n = ((n & 0xaaaaaaaa) >> 1) | ((n & 0x55555555) << 1);--newline--        return n;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "O(1) bit operation C++ solution (8ms)"
+        },
+        {
+            "java": "public class Solution {--newline--    // cache--newline--    private final Map<Byte, Integer> cache = new HashMap<Byte, Integer>();--newline--    public int reverseBits(int n) {--newline--        byte[] bytes = new byte[4];--newline--        for (int i = 0; i < 4; i++) // convert int into 4 bytes--newline--            bytes[i] = (byte)((n >>> 8*i) & 0xFF);--newline--        int result = 0;--newline--        for (int i = 0; i < 4; i++) {--newline--            result += reverseByte(bytes[i]); // reverse per byte--newline--            if (i < 3)--newline--                result <<= 8;--newline--        }--newline--        return result;--newline--    }--newline--    --newline--    private int reverseByte(byte b) {--newline--        Integer value = cache.get(b); // first look up from cache--newline--        if (value != null)--newline--            return value;--newline--        value = 0;--newline--        // reverse by bit--newline--        for (int i = 0; i < 8; i++) {--newline--            value += ((b >>> i) & 1);--newline--            if (i < 7)--newline--                value <<= 1;--newline--        }--newline--        cache.put(b, value);--newline--        return value;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution and Optimization"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    uint32_t reverseBits(uint32_t n) {--newline--        uint32_t m = 0;--newline--        for (int i = 0; i < 32; i++, n >>= 1) {--newline--            m <<= 1;--newline--            m |= n & 1;--newline--        }--newline--        return m;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "My 3ms pure C solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int reverseBits(int n) {--newline--        if (n == 0) return 0;--newline--        --newline--        int result = 0;--newline--        for (int i = 0; i < 32; i++) {--newline--            result <<= 1;--newline--            if ((n & 1) == 1) result++;--newline--            n >>= 1;--newline--        }--newline--        return result;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Sharing my 2ms Java Solution with Explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    uint32_t  reverseBits(uint32_t n) {--newline--        uint32_t result= 0;--newline--        for(int i=0; i<32; i++)--newline--            result = (result<<1) + (n>>i &1);--newline--        --newline--        return result;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "The concise C++ solution(9ms)"
+        }
+    ],
+    "qc": "190.json"
+}

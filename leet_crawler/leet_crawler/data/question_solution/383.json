@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public boolean canConstruct(String ransomNote, String magazine) {--newline--        int[] arr = new int[26];--newline--        for (int i = 0; i < magazine.length(); i++) {--newline--            arr[magazine.charAt(i) - 'a']++;--newline--        }--newline--        for (int i = 0; i < ransomNote.length(); i++) {--newline--            if(--arr[ransomNote.charAt(i)-'a'] < 0) {--newline--                return false;--newline--            }--newline--        }--newline--        return true;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java O(n) Solution---Easy to understand"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "O(m+n) one-liner Python"
+        },
+        {
+            "java": "public class Solution {--newline--     public boolean canConstruct(String ransomNote, String magazine) {--newline--            Map<Character, Integer> magM = new HashMap<>();--newline--            for (char c:magazine.toCharArray()){--newline--                int newCount = magM.getOrDefault(c, 0)+1;--newline--                magM.put(c, newCount);--newline--            }--newline--            for (char c:ransomNote.toCharArray()){--newline--                int newCount = magM.getOrDefault(c,0)-1;--newline--                if (newCount<0)--newline--                    return false;--newline--                magM.put(c, newCount);--newline--            }--newline--            return true;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Map solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean canConstruct3(String ransomNote, String magazine) {--newline--        Map<Character, Integer> map = new HashMap<>();--newline--        for (char c : magazine.toCharArray()) {--newline--            int count = map.containsKey(c) ? map.get(c) + 1 : 1;--newline--            map.put(c, count);--newline--        }--newline--        for (char c : ransomNote.toCharArray()) {--newline--            int newCount = map.containsKey(c) ? map.get(c) - 1 : -1;--newline--            if (newCount == -1) return false;--newline--            map.put(c, newCount);--newline--        }--newline--        return true;--newline--    }--newline--    --newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share My Easy to Understand 5 lines of Java Code, 13ms beats 96%"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool canConstruct(string ransomNote, string magazine) {--newline--        vector<int> vec(26, 0);--newline--        for (int i = 0; i < magazine.size(); ++i)--newline--            ++vec[magazine[i] - 'a'];--newline--        for (int j = 0; j < ransomNote.size(); ++j)--newline--            if (--vec[ransomNote[j] - 'a'] < 0)--newline--                return false;--newline--        return true;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Two AC C++ solutions (unordered_map&#x2F;vector)"
+        }
+    ],
+    "qc": "383.json"
+}

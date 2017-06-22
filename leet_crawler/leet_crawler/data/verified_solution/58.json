@@ -1,0 +1,1 @@
+{"solution_code": "public class Solution {--newline--    public int lengthOfLastWord(String s) {--newline--        return s.trim().length()-s.trim().lastIndexOf(\" \")-1;--newline--    }--newline--}", "modified_code": null, "total_cases": 59, "l_type": "java"}

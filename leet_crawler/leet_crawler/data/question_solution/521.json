@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "I feel this problem is just perfect for April Fools&#x27; day"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findLUSlength(String a, String b) {--newline--        return a.equals(b) ? -1 : Math.max(a.length(), b.length());--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 1-liner"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def findLUSlength(self, A, B):--newline----tab--        if A == B:--newline----tab--            return -1--newline----tab--        return max(len(A), len(B))--newline----tab--    ",
+            "topic_title": "Python, Simple Explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findLUSlength(String a, String b) {--newline--        return a.equals(b) ? -1 : Math.max(a.length(), b.length());--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java solution, 1 line"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "c# solution"
+        }
+    ],
+    "qc": "521.json"
+}

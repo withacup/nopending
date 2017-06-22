@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My simple solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int myAtoi(String str) {--newline--        int index = 0, sign = 1, total = 0;--newline--        //1. Empty string--newline--        if(str.length() == 0) return 0;--newline--    --newline--        //2. Remove Spaces--newline--        while(str.charAt(index) == ' ' && index < str.length())--newline--            index ++;--newline--    --newline--        //3. Handle signs--newline--        if(str.charAt(index) == '+' || str.charAt(index) == '-'){--newline--            sign = str.charAt(index) == '+' ? 1 : -1;--newline--            index ++;--newline--        }--newline--        --newline--        //4. Convert number and avoid overflow--newline--        while(index < str.length()){--newline--            int digit = str.charAt(index) - '0';--newline--            if(digit < 0 || digit > 9) break;--newline--    --newline--            //check if total will be overflow after 10 times and add digit--newline--            if(Integer.MAX_VALUE/10 < total || Integer.MAX_VALUE/10 == total && Integer.MAX_VALUE %10 < digit)--newline--                return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;--newline--    --newline--            total = 10 * total + digit;--newline--            index ++;--newline--        }--newline--        return total * sign;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution with 4 steps explanations"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Such a shitty problem"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int myAtoi(string str) {--newline--        long result = 0;--newline--        int indicator = 1;--newline--        for(int i = 0; i<str.size();)--newline--        {--newline--            i = str.find_first_not_of(' ');--newline--            if(str[i] == '-' || str[i] == '+')--newline--                indicator = (str[i++] == '-')? -1 : 1;--newline--            while('0'<= str[i] && str[i] <= '9') --newline--            {--newline--                result = result*10 + (str[i++]-'0');--newline--                if(result*indicator >= INT_MAX) return INT_MAX;--newline--                if(result*indicator <= INT_MIN) return INT_MIN;                --newline--            }--newline--            return result*indicator;--newline--        }--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "8ms C++ solution, easy to understand"
+        },
+        {
+            "java": "public class Solution {--newline--    --tab--public static int myAtoi(String str) {--newline--    --tab--if (str == null || str.length() == 0)--newline--    --tab----tab--return 0;//--newline--    --tab--str = str.trim();--newline--    --tab--char firstChar = str.charAt(0);--newline--    --tab--int sign = 1, start = 0, len = str.length();--newline--    --tab--long sum = 0;--newline--    --tab--if (firstChar == '+') {--newline--    --tab----tab--sign = 1;--newline--    --tab----tab--start++;--newline--    --tab--} else if (firstChar == '-') {--newline--    --tab----tab--sign = -1;--newline--    --tab----tab--start++;--newline--    --tab--}--newline--    --tab--for (int i = start; i < len; i++) {--newline--    --tab----tab--if (!Character.isDigit(str.charAt(i)))--newline--    --tab----tab----tab--return (int) sum * sign;--newline--    --tab----tab--sum = sum * 10 + str.charAt(i) - '0';--newline--    --tab----tab--if (sign == 1 && sum > Integer.MAX_VALUE)--newline--    --tab----tab----tab--return Integer.MAX_VALUE;--newline--    --tab----tab--if (sign == -1 && (-1) * sum < Integer.MIN_VALUE)--newline--    --tab----tab----tab--return Integer.MIN_VALUE;--newline--    --tab--}--newline--    --newline--    --tab--return (int) sum * sign;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "JAVA-------Easy  Version To Understand!!!!!!!!!!"
+        }
+    ],
+    "qc": "8.json"
+}

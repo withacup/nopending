@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Reversing a list is not considered &quot;O(1) space&quot;"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool isPalindrome(ListNode* head) {--newline--        if(head==NULL||head->next==NULL)--newline--            return true;--newline--        ListNode* slow=head;--newline--        ListNode* fast=head;--newline--        while(fast->next!=NULL&&fast->next->next!=NULL){--newline--            slow=slow->next;--newline--            fast=fast->next->next;--newline--        }--newline--        slow->next=reverseList(slow->next);--newline--        slow=slow->next;--newline--        while(slow!=NULL){--newline--            if(head->val!=slow->val)--newline--                return false;--newline--            head=head->next;--newline--            slow=slow->next;--newline--        }--newline--        return true;--newline--    }--newline--    ListNode* reverseList(ListNode* head) {--newline--        ListNode* pre=NULL;--newline--        ListNode* next=NULL;--newline--        while(head!=NULL){--newline--            next=head->next;--newline--            head->next=pre;--newline--            pre=head;--newline--            head=next;--newline--        }--newline--        return pre;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Share my C++ solution, O(n) time and O(1) memory"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def isPalindrome(self, head):--newline----tab--        rev = None--newline----tab--        fast = head--newline----tab--        while fast and fast.next:--newline----tab--            fast = fast.next.next--newline----tab--            rev, rev.next, head = head, rev, head.next--newline----tab--        tail = head.next if fast else head--newline----tab--        isPali = True--newline----tab--        while rev:--newline----tab--            isPali = isPali and rev.val == tail.val--newline----tab--            head, head.next, rev = rev, head, rev.next--newline----tab--            tail = tail.next--newline----tab--        return isPali",
+            "topic_title": "11 lines, 12 with restore, O(n) time, O(1) space"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isPalindrome(ListNode head) {--newline--        ListNode fast = head, slow = head;--newline--        while (fast != null && fast.next != null) {--newline--            fast = fast.next.next;--newline--            slow = slow.next;--newline--        }--newline--        if (fast != null) { // odd nodes: let right half smaller--newline--            slow = slow.next;--newline--        }--newline--        slow = reverse(slow);--newline--        fast = head;--newline--        --newline--        while (slow != null) {--newline--            if (fast.val != slow.val) {--newline--                return false;--newline--            }--newline--            fast = fast.next;--newline--            slow = slow.next;--newline--        }--newline--        return true;--newline--    }--newline--    --newline--    public ListNode reverse(ListNode head) {--newline--        ListNode prev = null;--newline--        while (head != null) {--newline--            ListNode next = head.next;--newline--            head.next = prev;--newline--            prev = head;--newline--            head = next;--newline--        }--newline--        return prev;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java, easy to understand"
+        },
+        {
+            "java": "/**--newline-- * Definition for singly-linked list.--newline-- * public class ListNode {--newline-- *     int val;--newline-- *     ListNode next;--newline-- *     ListNode(int x) { val = x; }--newline-- * }--newline-- */--newline--public class Solution {--newline--    public boolean isPalindrome(ListNode head) {--newline--        if(head == null) {--newline--            return true;--newline--        }--newline--        ListNode p1 = head;--newline--        ListNode p2 = head;--newline--        ListNode p3 = p1.next;--newline--        ListNode pre = p1;--newline--        //find mid pointer, and reverse head half part--newline--        while(p2.next != null && p2.next.next != null) {--newline--            p2 = p2.next.next;--newline--            pre = p1;--newline--            p1 = p3;--newline--            p3 = p3.next;--newline--            p1.next = pre;--newline--        }--newline----newline--        //odd number of elements, need left move p1 one step--newline--        if(p2.next == null) {--newline--            p1 = p1.next;--newline--        }--newline--        else {   //even number of elements, do nothing--newline--            --newline--        }--newline--        //compare from mid to head/tail--newline--        while(p3 != null) {--newline--            if(p1.val != p3.val) {--newline--                return false;--newline--            }--newline--            p1 = p1.next;--newline--            p3 = p3.next;--newline--        }--newline--        return true;--newline--        --newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy understand JAVA solution (O(1) space cost)"
+        }
+    ],
+    "qc": "234.json"
+}

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int distributeCandies(int[] candies) {--newline--        Set<Integer> kinds = new HashSet<>();--newline--        for (int candy : candies) kinds.add(candy);--newline--        return kinds.size() >= candies.length / 2 ? candies.length / 2 : kinds.size();--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution, 3 lines, HashSet"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Python, Straightforward with Explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int distributeCandies(vector<int>& candies) {--newline--        size_t kinds = 1;--newline--        sort(candies.begin(), candies.end());--newline--        for (int i = 0; i < candies.size(); i++) {--newline--            kinds += candies[i] != candies[i - 1];--newline--        }--newline--        return min(kinds, candies.size() / 2);--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "&#91;C++&#93; Clean Code - 2 Solutions: Set and Sort"
+        },
+        {
+            "java": "public class Solution {--newline--    public int distributeCandies(int[] candies) {--newline--        return Math.min(candies.length / 2, IntStream.of(candies).boxed().collect(Collectors.toSet()).size());--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 8 one line solution O(n)"
+        },
+        {
+            "java": "public class Solution {--newline--    public int distributeCandies(int[] candies) {--newline--        Set<Integer> set = new HashSet<>();--newline--        for(Integer candie : candies) {--newline--            set.add(candie);--newline--            if(set.size() == candies.length/2) return set.size();--newline--        }--newline--        return Math.min(set.size(), candies.length/2);--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java hashset solution"
+        }
+    ],
+    "qc": "575.json"
+}

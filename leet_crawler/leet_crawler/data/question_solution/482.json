@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--        public String licenseKeyFormatting(String s, int k) {--newline--            StringBuilder sb = new StringBuilder();--newline--            for (int i = s.length() - 1; i >= 0; i--)--newline--                if (s.charAt(i) != '-')--newline--                    sb.append(sb.length() % (k + 1) == k ? '-' : \"\").append(s.charAt(i));--newline--            return sb.reverse().toString().toUpperCase();--newline--        } --newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 5 lines clean solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def licenseKeyFormatting(self, S, K):--newline----tab--        \"\"\"--newline----tab--        :type S: str--newline----tab--        :type K: int--newline----tab--        :rtype: str--newline----tab--        \"\"\"--newline----tab--        S = S.upper().replace('-','')--newline----tab--        size = len(S)--newline----tab--        s1 = K if size%K==0 else size%K--newline----tab--        res = S[:s1]--newline----tab--        while s1<size:--newline----tab--            res += '-'+S[s1:s1+K]--newline----tab--            s1 += K--newline----tab--        return res--newline----tab--",
+            "topic_title": "Python solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--        string licenseKeyFormatting(string S, int K) {--newline--          string res;--newline--          for (auto i = S.rbegin(); i < S.rend(); i++)--newline--            if (*i != '-') { // ignore '-' in original string--newline--              if (res.size()%(K+1) == K) res += '-'; // every (K+1)th char is '-' from tail--newline--              res += toupper(*i);--newline--            }--newline--            --newline--          reverse(res.begin(), res.end());--newline--          return res;--newline--        }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "4-line C++ concise solution to scan string backward"
+        },
+        {
+            "java": "public class Solution {--newline--    public String licenseKeyFormatting(String S, int K) {--newline--        // Replacing all - and converting all letters to uppercase--newline--        String S1 = S.replace(\"-\",\"\");--newline--        S1 = S1.toUpperCase();--newline--        --newline--        // Making stringBuilder --newline--        StringBuilder sb = new StringBuilder();--newline--         for(int i=0; i<S1.length();i++) {--newline--            sb.append(S1.charAt(i));--newline--        }--newline--        int len = sb.toString().length();--newline--        // Inserting '-' from back at every K position--newline--        for(int i=K; i < len; i=i+K) {--newline--                sb.insert(len-i,'-');--newline--            }--newline--        return sb.toString();   --newline--    }--newline--}--newline----newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy to understand using StringBuilder"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    import (--newline--    --tab--\"fmt\"--newline--    --tab--\"strings\"--newline--    )--newline--    --newline--    func licenseKeyFormatting(S string, K int) string {--newline--            S = strings.Replace(S, \"-\", \"\", -1)--newline--            S = strings.ToUpper(S)--newline--            mod := len(S) % K--newline--            --newline--            if mod == 0 {--newline--                mod += K--newline--            }--newline--            for mod < len(S) {--newline--                S = S[:mod] + \"-\" + S[mod:]--newline--                mod += K + 1--newline--            }--newline--            return S--newline--    }--newline--    --newline--    --newline--}",
+            "python": null,
+            "topic_title": "Golang beats 100% at 6ms"
+        }
+    ],
+    "qc": "482.json"
+}

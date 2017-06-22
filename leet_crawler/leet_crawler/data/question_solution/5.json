@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--private int lo, maxLen;--newline----newline--public String longestPalindrome(String s) {--newline----tab--int len = s.length();--newline----tab--if (len < 2)--newline----tab----tab--return s;--newline----tab----newline--    for (int i = 0; i < len-1; i++) {--newline--     --tab--extendPalindrome(s, i, i);  //assume odd length, try to extend Palindrome as possible--newline--     --tab--extendPalindrome(s, i, i+1); //assume even length.--newline--    }--newline--    return s.substring(lo, lo + maxLen);--newline--}--newline----newline--private void extendPalindrome(String s, int j, int k) {--newline----tab--while (j >= 0 && k < s.length() && s.charAt(j) == s.charAt(k)) {--newline----tab----tab--j--;--newline----tab----tab--k++;--newline----tab--}--newline----tab--if (maxLen < k - j - 1) {--newline----tab----tab--lo = j + 1;--newline----tab----tab--maxLen = k - j - 1;--newline----tab--}--newline--}}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Very simple clean java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string longestPalindrome(string s) {--newline--        if (s.empty()) return \"\";--newline--        if (s.size() == 1) return s;--newline--        int min_start = 0, max_len = 1;--newline--        for (int i = 0; i < s.size();) {--newline--          if (s.size() - i <= max_len / 2) break;--newline--          int j = i, k = i;--newline--          while (k < s.size()-1 && s[k+1] == s[k]) ++k; // Skip duplicate characters.--newline--          i = k+1;--newline--          while (k < s.size()-1 && j > 0 && s[k + 1] == s[j - 1]) { ++k; --j; } // Expand.--newline--          int new_len = k - j + 1;--newline--          if (new_len > max_len) { min_start = j; max_len = new_len; }--newline--        }--newline--        return s.substr(min_start, max_len);--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Simple C++ solution (8ms, 13 lines)"
+        },
+        {
+            "java": "public class Solution {--newline--    public String longestPalindrome(String s) {--newline--        String res = \"\";--newline--        int currLength = 0;--newline--        for(int i=0;i<s.length();i++){--newline--            if(isPalindrome(s,i-currLength-1,i)){--newline--                res = s.substring(i-currLength-1,i+1);--newline--                currLength = currLength+2;--newline--            }--newline--            else if(isPalindrome(s,i-currLength,i)){--newline--                res = s.substring(i-currLength,i+1);--newline--                currLength = currLength+1;--newline--            }--newline--        }--newline--        return res;--newline--    }--newline--    --newline--    public boolean isPalindrome(String s, int begin, int end){--newline--        if(begin<0) return false;--newline--        while(begin<end){--newline--        --tab--if(s.charAt(begin++)!=s.charAt(end--)) return false;--newline--        }--newline--        return true;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "(AC) relatively short and very clear Java solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public String longestPalindrome(String s) {--newline--      int n = s.length();--newline--      String res = null;--newline--        --newline--      boolean[][] dp = new boolean[n][n];--newline--        --newline--      for (int i = n - 1; i >= 0; i--) {--newline--        for (int j = i; j < n; j++) {--newline--          dp[i][j] = s.charAt(i) == s.charAt(j) && (j - i < 3 || dp[i + 1][j - 1]);--newline--                --newline--          if (dp[i][j] && (res == null || j - i + 1 > res.length())) {--newline--            res = s.substring(i, j + 1);--newline--          }--newline--        }--newline--      }--newline--        --newline--      return res;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my Java solution using dynamic programming"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab--    # @return a string--newline----tab--    def longestPalindrome(self, s):--newline----tab--        if len(s)==0:--newline----tab--        --tab--return 0--newline----tab--        maxLen=1--newline----tab--        start=0--newline----tab--        for i in xrange(len(s)):--newline----tab--        --tab--if i-maxLen >=1 and s[i-maxLen-1:i+1]==s[i-maxLen-1:i+1][::-1]:--newline----tab--        --tab----tab--start=i-maxLen-1--newline----tab--        --tab----tab--maxLen+=2--newline----tab--        --tab----tab--continue--newline----tab----newline----tab--        --tab--if i-maxLen >=0 and s[i-maxLen:i+1]==s[i-maxLen:i+1][::-1]:--newline----tab--        --tab----tab--start=i-maxLen--newline----tab--        --tab----tab--maxLen+=1--newline----tab--        return s[start:start+maxLen]",
+            "topic_title": "Python O(n^2) method with some optimization, 88ms."
+        }
+    ],
+    "qc": "5.json"
+}

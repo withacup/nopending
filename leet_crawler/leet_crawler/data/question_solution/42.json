@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int trap(int A[], int n) {--newline--        int left=0; int right=n-1;--newline--        int res=0;--newline--        int maxleft=0, maxright=0;--newline--        while(left<=right){--newline--            if(A[left]<=A[right]){--newline--                if(A[left]>=maxleft) maxleft=A[left];--newline--                else res+=maxleft-A[left];--newline--                left++;--newline--            }--newline--            else{--newline--                if(A[right]>=maxright) maxright= A[right];--newline--                else res+=maxright-A[right];--newline--                right--;--newline--            }--newline--        }--newline--        return res;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Sharing my simple c++ code: O(n) time, O(1) space"
+        },
+        {
+            "java": "public class Solution {--newline--    public int trap(int[] A){--newline--        int a=0;--newline--        int b=A.length-1;--newline--        int max=0;--newline--        int leftmax=0;--newline--        int rightmax=0;--newline--        while(a<=b){--newline--            leftmax=Math.max(leftmax,A[a]);--newline--            rightmax=Math.max(rightmax,A[b]);--newline--            if(leftmax<rightmax){--newline--                max+=(leftmax-A[a]);       // leftmax is smaller than rightmax, so the (leftmax-A[a]) water can be stored--newline--                a++;--newline--            }--newline--            else{--newline--                max+=(rightmax-A[b]);--newline--                b--;--newline--            }--newline--        }--newline--        return max;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my short solution."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int trap(vector<int>& height) {--newline--        auto l = height.begin(), r = height.end() - 1;--newline--        int level = 0, water = 0;--newline--        while (l != r + 1) {--newline--            int lower = *l < *r ? *l++ : *r--;--newline--            level = max(level, lower);--newline--            water += level - lower;--newline--        }--newline--        return water;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "7 lines C &#x2F; C++"
+        },
+        {
+            "java": "public class Solution {--newline--    public int trap(int[] A) {--newline--            if (A==null) return 0;--newline--            Stack<Integer> s = new Stack<Integer>();--newline--            int i = 0, maxWater = 0, maxBotWater = 0;--newline--            while (i < A.length){--newline--                if (s.isEmpty() || A[i]<=A[s.peek()]){--newline--                    s.push(i++);--newline--                }--newline--                else {--newline--                    int bot = s.pop();--newline--                    maxBotWater = s.isEmpty()? // empty means no il--newline--                    0:(Math.min(A[s.peek()],A[i])-A[bot])*(i-s.peek()-1);--newline--                    maxWater += maxBotWater;--newline--                }--newline--            }--newline--            return maxWater;--newline--        }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "A stack based solution for reference, inspired by Histogram"
+        },
+        {
+            "java": "public class Solution {--newline--    public int trap(int[] A) {--newline--        if (A.length < 3) return 0;--newline--        --newline--        int ans = 0;--newline--        int l = 0, r = A.length - 1;--newline--        --newline--        // find the left and right edge which can hold water--newline--        while (l < r && A[l] <= A[l + 1]) l++;--newline--        while (l < r && A[r] <= A[r - 1]) r--;--newline--        --newline--        while (l < r) {--newline--            int left = A[l];--newline--            int right = A[r];--newline--            if (left <= right) {--newline--                // add volum until an edge larger than the left edge--newline--                while (l < r && left >= A[++l]) {--newline--                    ans += left - A[l];--newline--                }--newline--            } else {--newline--                // add volum until an edge larger than the right volum--newline--                while (l < r && A[--r] <= right) {--newline--                    ans += right - A[r];--newline--                }--newline--            }--newline--        }--newline--        return ans;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Sharing my Java code: O(n) time, O(1) space"
+        }
+    ],
+    "qc": "42.json"
+}

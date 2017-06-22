@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--      int candy(vector<int> &ratings)--newline--     {--newline--    --tab-- int size=ratings.size();--newline--    --tab-- if(size<=1)--newline--    --tab----tab-- return size;--newline--    --tab-- vector<int> num(size,1);--newline--    --tab-- for (int i = 1; i < size; i++)--newline--    --tab-- {--newline--    --tab----tab-- if(ratings[i]>ratings[i-1])--newline--    --tab----tab----tab-- num[i]=num[i-1]+1;--newline--    --tab-- }--newline--    --tab-- for (int i= size-1; i>0 ; i--)--newline--    --tab-- {--newline--    --tab----tab-- if(ratings[i-1]>ratings[i])--newline--    --tab----tab----tab-- num[i-1]=max(num[i]+1,num[i-1]);--newline--    --tab-- }--newline--    --tab-- int result=0;--newline--    --tab-- for (int i = 0; i < size; i++)--newline--    --tab-- {--newline--    --tab----tab-- result+=num[i];--newline--    --tab----tab--// cout<<num[i]<<\" \";--newline--    --tab-- }--newline--    --tab-- return result;--newline--     }--newline--}",
+            "python": null,
+            "topic_title": "A simple solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int candy(int[] ratings) {--newline--        if (ratings == null || ratings.length == 0) return 0;--newline--        int total = 1, prev = 1, countDown = 0;--newline--        for (int i = 1; i < ratings.length; i++) {--newline--            if (ratings[i] >= ratings[i-1]) {--newline--                if (countDown > 0) {--newline--                    total += countDown*(countDown+1)/2; // arithmetic progression--newline--                    if (countDown >= prev) total += countDown - prev + 1;--newline--                    countDown = 0;--newline--                    prev = 1;--newline--                }--newline--                prev = ratings[i] == ratings[i-1] ? 1 : prev+1;--newline--                total += prev;--newline--            } else countDown++;--newline--        }--newline--        if (countDown > 0) { // if we were descending at the end--newline--            total += countDown*(countDown+1)/2;--newline--            if (countDown >= prev) total += countDown - prev + 1;--newline--        }--newline--        return total;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "One-pass constant space Java solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int candy(int[] ratings) {--newline--        int candies[] = new int[ratings.length];        --newline--        Arrays.fill(candies, 1);// Give each child 1 candy --newline--        --tab----newline--        for (int i = 1; i < candies.length; i++){// Scan from left to right, to make sure right higher rated child gets 1 more candy than left lower rated child--newline--            if (ratings[i] > ratings[i - 1]) candies[i] = (candies[i - 1] + 1);--newline--        }--newline--         --newline--        for (int i = candies.length - 2; i >= 0; i--) {// Scan from right to left, to make sure left higher rated child gets 1 more candy than right lower rated child--newline--    --tab--    if (ratings[i] > ratings[i + 1]) candies[i] = Math.max(candies[i], (candies[i + 1] + 1));--newline--        }--newline--        --newline--        int sum = 0;        --newline--        for (int candy : candies)  --newline--        --tab--sum += candy;        --newline--        return sum;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple O(n) Java solution with comments"
+        },
+        {
+            "java": "public class Solution {--newline--    public int candy(int[] ratings) {--newline--            int sum=0;--newline--            int[] a=new int[ratings.length];--newline--            for(int i=0;i<a.length;i++)--newline--            {--newline--                a[i]=1;--newline--            }--newline--            for(int i=0;i<ratings.length-1;i++)--newline--            {--newline--                if(ratings[i+1]>ratings[i])--newline--                {--newline--                    a[i+1]=a[i]+1;--newline--                }--newline--            }--newline--            for(int i=ratings.length-1;i>0;i--)--newline--            {--newline--                if(ratings[i-1]>ratings[i])--newline--                {--newline--                    if(a[i-1]<(a[i]+1))--newline--                    {--newline--                        a[i-1]=a[i]+1;--newline--                    }--newline--                }--newline--            }--newline--            for(int i=0;i<a.length;i++)--newline--            {--newline--                sum+=a[i];--newline--            }--newline--            return sum;--newline--        }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Very Simple Java Solution with detail explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "    class Solution {--newline--    public:--newline--        int candy(vector<int>& ratings) {--newline--            const int len = ratings.size();--newline--            if(len<=1) return len;--newline--            --newline--            int i, pPos, res=1, peak=1; // peak: # candies given to the i-1 child--newline--            bool neg_peak = false; // flag to indicate if it is a local dip--newline--            for(i=1; i<len;i++)--newline--            {--newline--                if(ratings[i] >= ratings[i-1]) --newline--                {   // it is increasing--newline--                    if(neg_peak) --newline--                    {  // it is a local dip, we need to make sure i-1 has one candy--newline--                        res -= (peak-1) * (i-pPos - (peak>0));--newline--                        peak = 1;--newline--                        neg_peak = false;--newline--                    }--newline--                   // update child i candy number, if equal, set to 1--newline--                    peak = (ratings[i] == ratings[i-1])? 1:++peak;--newline--                    res += peak;--newline--                }--newline--                else--newline--                { // decreasing, just give one less candy, if it is the starting point of a decrease, update pPos--newline--                    if(!neg_peak) {pPos = i-1; neg_peak = true;}--newline--                    res += --peak;--newline--                }--newline--            }--newline--// don't forget to update res, if the last one is a local dip--newline--            return !neg_peak? res : res - (peak-1) * (i-pPos - (peak>0));--newline--    --newline--        }--newline--    };",
+            "python": null,
+            "topic_title": "Two C++ solutions given with explanation (both with O(N) time, one with O(1) space, the other with O(N) space)"
+        }
+    ],
+    "qc": "135.json"
+}

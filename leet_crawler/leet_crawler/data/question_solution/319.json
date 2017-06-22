@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Math solution.."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int bulbSwitch(int n) {--newline--        return sqrt(n);--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Share my o(1) solution with explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int bulbSwitch(int n) {--newline--        int counts = 0;--newline--        --newline--        for (int i=1; i*i<=n; ++i) {--newline--            ++ counts;    --newline--        }--newline--        --newline--        return counts;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "My 0 ms C++ solution with explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "The simplest and most efficient solution well-explained"
+        },
+        {
+            "java": "public class Solution {--newline--    public int bulbSwitch(int n) {--newline--        return (int)Math.sqrt(n);--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "One line java with explanation"
+        }
+    ],
+    "qc": "319.json"
+}

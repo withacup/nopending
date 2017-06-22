@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--public TreeNode sortedListToBST(ListNode head) {--newline--    if(head==null) return null;--newline--    return toBST(head,null);--newline--}--newline--public TreeNode toBST(ListNode head, ListNode tail){--newline--    ListNode slow = head;--newline--    ListNode fast = head;--newline--    if(head==tail) return null;--newline--    --newline--    while(fast!=tail&&fast.next!=tail){--newline--        fast = fast.next.next;--newline--        slow = slow.next;--newline--    }--newline--    TreeNode thead = new TreeNode(slow.val);--newline--    thead.left = toBST(head,slow);--newline--    thead.right = toBST(slow.next,tail);--newline--    return thead;--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my JAVA solution, 1ms, very short and concise."
+        },
+        {
+            "java": "public class Solution {--newline--    private ListNode node;--newline--    --newline--    public TreeNode sortedListToBST(ListNode head) {--newline--    --tab--if(head == null){--newline--    --tab----tab--return null;--newline--    --tab--}--newline--    --tab----newline--    --tab--int size = 0;--newline--    --tab--ListNode runner = head;--newline--    --tab--node = head;--newline--    --tab----newline--    --tab--while(runner != null){--newline--    --tab----tab--runner = runner.next;--newline--    --tab----tab--size ++;--newline--    --tab--}--newline--    --tab----newline--    --tab--return inorderHelper(0, size - 1);--newline--    }--newline--    --newline--    public TreeNode inorderHelper(int start, int end){--newline--    --tab--if(start > end){--newline--    --tab----tab--return null;--newline--    --tab--}--newline--    --tab----newline--    --tab--int mid = start + (end - start) / 2;--newline--    --tab--TreeNode left = inorderHelper(start, mid - 1);--newline--    --tab----newline--    --tab--TreeNode treenode = new TreeNode(node.val);--newline--    --tab--treenode.left = left;--newline--    --tab--node = node.next;--newline--    --newline--    --tab--TreeNode right = inorderHelper(mid + 1, end);--newline--    --tab--treenode.right = right;--newline--    --tab----newline--    --tab--return treenode;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my O(1) space and O(n) time Java code"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    ListNode *list;--newline--    int count(ListNode *node){--newline--        int size = 0;--newline--        while (node) {--newline--            ++size;--newline--            node = node->next;--newline--        }--newline--        return size;--newline--    }--newline--    --newline--    TreeNode *generate(int n){--newline--        if (n == 0)--newline--            return NULL;--newline--        TreeNode *node = new TreeNode(0);--newline--        node->left = generate(n / 2);--newline--        node->val = list->val;--newline--        list = list->next;--newline--        node->right = generate(n - n / 2 - 1);--newline--        return node;--newline--    }--newline--    --newline--    TreeNode *sortedListToBST(ListNode *head) {--newline--        this->list = head;--newline--        return generate(count(head));--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Share my code with O(n) time and O(1) space"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    TreeNode *sortedListToBST(ListNode *head)--newline--    {--newline--    --tab--return sortedListToBST( head, NULL );--newline--    }--newline--    --newline--private:--newline--    TreeNode *sortedListToBST(ListNode *head, ListNode *tail)--newline--    {--newline--    --tab--if( head == tail )--newline--    --tab----tab--return NULL;--newline--    --tab--if( head->next == tail )    // --newline--    --tab--{--tab----newline--    --tab----tab--TreeNode *root = new TreeNode( head->val );--newline--    --tab----tab--return root;--newline--    --tab--}--newline--    --tab--ListNode *mid = head, *temp = head;--newline--    --tab--while( temp != tail && temp->next != tail )    // \u5bfb\u627e\u4e2d\u95f4\u8282\u70b9--newline--    --tab--{--newline--    --tab----tab--mid = mid->next;--newline--    --tab----tab--temp = temp->next->next;--newline--    --tab--}--newline--    --tab--TreeNode *root = new TreeNode( mid->val );--newline--    --tab--root->left = sortedListToBST( head, mid );--newline--    --tab--root->right = sortedListToBST( mid->next, tail );--newline--    --tab--return root;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "My Accepted C++ solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public TreeNode sortedListToBST(ListNode head) {--newline--        if(head == null)--newline--            return null;--newline--        ListNode fast = head;--newline--        ListNode slow = head;--newline--        ListNode prev =null; --newline--        while(fast != null && fast.next != null)--newline--        {--newline--            fast = fast.next.next;--newline--            prev =slow;--newline--            slow=slow.next;--newline--        }--newline--        TreeNode root = new TreeNode(slow.val);--newline--        if(prev != null)--newline--            prev.next = null;--newline--        else--newline--            head  = null;--newline--            --newline--        root.left = sortedListToBST(head);--newline--        root.right = sortedListToBST(slow.next);--newline--        return root;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Recursive BST construction using slow-fast traversal on linked list"
+        }
+    ],
+    "qc": "109.json"
+}

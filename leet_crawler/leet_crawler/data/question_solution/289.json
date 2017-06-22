@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public void gameOfLife(int[][] board) {--newline--        if (board == null || board.length == 0) return;--newline--        int m = board.length, n = board[0].length;--newline--    --newline--        for (int i = 0; i < m; i++) {--newline--            for (int j = 0; j < n; j++) {--newline--                int lives = liveNeighbors(board, m, n, i, j);--newline--    --newline--                // In the beginning, every 2nd bit is 0;--newline--                // So we only need to care about when will the 2nd bit become 1.--newline--                if (board[i][j] == 1 && lives >= 2 && lives <= 3) {  --newline--                    board[i][j] = 3; // Make the 2nd bit 1: 01 ---> 11--newline--                }--newline--                if (board[i][j] == 0 && lives == 3) {--newline--                    board[i][j] = 2; // Make the 2nd bit 1: 00 ---> 10--newline--                }--newline--            }--newline--        }--newline--    --newline--        for (int i = 0; i < m; i++) {--newline--            for (int j = 0; j < n; j++) {--newline--                board[i][j] >>= 1;  // Get the 2nd state.--newline--            }--newline--        }--newline--    }--newline--    --newline--    public int liveNeighbors(int[][] board, int m, int n, int i, int j) {--newline--        int lives = 0;--newline--        for (int x = Math.max(i - 1, 0); x <= Math.min(i + 1, m - 1); x++) {--newline--            for (int y = Math.max(j - 1, 0); y <= Math.min(j + 1, n - 1); y++) {--newline--                lives += board[x][y] & 1;--newline--            }--newline--        }--newline--        lives -= board[i][j] & 1;--newline--        return lives;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easiest JAVA solution with explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    void gameOfLife(vector<vector<int>>& board) {--newline--        int m = board.size(), n = m ? board[0].size() : 0;--newline--        for (int i=0; i<m; ++i) {--newline--            for (int j=0; j<n; ++j) {--newline--                int count = 0;--newline--                for (int I=max(i-1, 0); I<min(i+2, m); ++I)--newline--                    for (int J=max(j-1, 0); J<min(j+2, n); ++J)--newline--                        count += board[I][J] & 1;--newline--                if (count == 3 || count - board[i][j] == 3)--newline--                    board[i][j] |= 2;--newline--            }--newline--        }--newline--        for (int i=0; i<m; ++i)--newline--            for (int j=0; j<n; ++j)--newline--                board[i][j] >>= 1;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "C++ O(1) space, O(mn) time"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "// Game of Life--newline--/*--newline--\u72b6\u6001: \u524d\u4e00\u4f4d\u8868\u793a\u4e0b\u4e00\u4ee3\u7684\u72b6\u6001,\u540e\u4e00\u4f4d\u8868\u793a\u5f53\u524d\u7684\u72b6\u6001--newline--00: \u6b7b->\u6b7b--newline--10: \u6b7b->\u6d3b--newline--01: \u6d3b->\u6b7b--newline--11: \u6d3b->\u6d3b--newline--*/--newline--class Solution {--newline--public:--newline--    void gameOfLife(vector<vector<int>>& board) {--newline--        int d[][2] = {{1,-1},{1,0},{1,1},{0,-1},{0,1},{-1,-1},{-1,0},{-1,1}};--newline--        for(int i = 0; i < board.size(); i++){--newline--            for(int j = 0; j < board[0].size(); j++){--newline--                int live = 0;--newline--                for(int k = 0; k < 8; k++){--newline--                    int x = d[k][0] + i;--newline--                    int y = d[k][1] + j;--newline--                    if(x < 0 || x >= board.size() || y < 0 || y >= board[0].size()) {--newline--                        continue;--newline--                    }--newline--                    if(board[x][y] & 1) {--newline--                        live++;--newline--                    }--newline--                }--newline--                // \u6b7b\u7684--newline--                if(board[i][j] == 0) {--newline--                    if(live == 3){--newline--                        board[i][j] = 2; // 2 : (10)--newline--                    }--newline--                }--newline--                // \u6d3b\u7684--newline--                else {--newline--                    if(live < 2 || live > 3){--newline--                        board[i][j] = 1; // 1 : (01)--newline--                    }else{--newline--                        board[i][j] = 3; // 3 : (11)   --newline--                    }--newline--                }--newline--            }--newline--        }--newline--        for(int i = 0; i < board.size(); i++){--newline--            for(int j=0; j < board[0].size(); j++){--newline--                board[i][j] >>=1;--newline--            }--newline--        }--newline--    }--newline--};enter code here",
+            "python": null,
+            "topic_title": "C++ AC Code  O(1) space, O(mn) time"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def gameOfLife(self, board):--newline----tab--        live = {(i, j) for i, row in enumerate(board) for j, live in enumerate(row) if live}--newline----tab--        live = self.gameOfLifeInfinite(live)--newline----tab--        for i, row in enumerate(board):--newline----tab--            for j in range(len(row)):--newline----tab--                row[j] = int((i, j) in live)",
+            "topic_title": "Infinite board solution"
+        },
+        {
+            "java": "public class Solution {--newline--int[][] dir ={{1,-1},{1,0},{1,1},{0,-1},{0,1},{-1,-1},{-1,0},{-1,1}};--newline--public void gameOfLife(int[][] board) {--newline--    for(int i=0;i<board.length;i++){--newline--        for(int j=0;j<board[0].length;j++){--newline--            int live=0;--newline--            for(int[] d:dir){--newline--                if(d[0]+i<0 || d[0]+i>=board.length || d[1]+j<0 || d[1]+j>=board[0].length) continue;--newline--                if(board[d[0]+i][d[1]+j]==1 || board[d[0]+i][d[1]+j]==2) live++;--newline--            }--newline--            if(board[i][j]==0 && live==3) board[i][j]=3;--newline--            if(board[i][j]==1 && (live<2 || live>3)) board[i][j]=2;--newline--        }--newline--    }--newline--    for(int i=0;i<board.length;i++){--newline--        for(int j=0;j<board[0].length;j++){--newline--            board[i][j] %=2;--newline--        }--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Clean O(1) space O(mn) time Java Solution"
+        }
+    ],
+    "qc": "289.json"
+}

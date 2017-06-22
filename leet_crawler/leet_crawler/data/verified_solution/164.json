@@ -1,0 +1,6 @@
+{
+    "solution_code": "class Solution:--newline--        # @param num, a list of integer--newline--        # @return an integer--newline--        def maximumGap(self, num):--newline--            if len(num) < 2:--newline--                return 0--newline--            num = self.radixSort(num)--newline--            res = 0--newline--            for i in range(1, len(num)):--newline--                res = max(num[i] - num[i - 1], res)--newline--            return res--newline--        --newline--        def radixSort(self, num):--newline--            for i in range(31):--newline--                onebucket = []--newline--                zerobucket = []--newline--                needle = 1 << i--newline--                for j in range(len(num)):--newline--                    if num[j] & needle != 0:--newline--                        onebucket.append(num[j])--newline--                    else:--newline--                        zerobucket.append(num[j])--newline--                num = []--newline--                num += zerobucket--newline--                num += onebucket--newline--            return num",
+    "l_type": "python",
+    "modified_code": null,
+    "total_cases": 18
+}

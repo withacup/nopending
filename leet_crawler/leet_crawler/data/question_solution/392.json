@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool isSubsequence(char* s, char* t) {--newline--        while (*t)--newline--            s += *s == *t++;--newline--        return !*s;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "3 lines C"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isSubsequence(String s, String t) {--newline--        if (s.length() == 0) return true;--newline--        int indexS = 0, indexT = 0;--newline--        while (indexT < t.length()) {--newline--            if (t.charAt(indexT) == s.charAt(indexS)) {--newline--                indexS++;--newline--                if (indexS == s.length()) return true;--newline--            }--newline--            indexT++;--newline--        }--newline--        return false;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Straight forward Java simple solution"
+        },
+        {
+            "java": "public class Solution {--newline--        // Follow-up: O(N) time for pre-processing, O(Mlog?) for each S.--newline--        // Eg-1. s=\"abc\", t=\"bahbgdca\"--newline--        // idx=[a={1,7}, b={0,3}, c={6}]--newline--        //  i=0 ('a'): prev=1--newline--        //  i=1 ('b'): prev=3--newline--        //  i=2 ('c'): prev=6 (return true)--newline--        // Eg-2. s=\"abc\", t=\"bahgdcb\"--newline--        // idx=[a={1}, b={0,6}, c={5}]--newline--        //  i=0 ('a'): prev=1--newline--        //  i=1 ('b'): prev=6--newline--        //  i=2 ('c'): prev=? (return false)--newline--        public boolean isSubsequence(String s, String t) {--newline--            List<Integer>[] idx = new List[256]; // Just for clarity--newline--            for (int i = 0; i < t.length(); i++) {--newline--                if (idx[t.charAt(i)] == null)--newline--                    idx[t.charAt(i)] = new ArrayList<>();--newline--                idx[t.charAt(i)].add(i);--newline--            }--newline--            --newline--            int prev = 0;--newline--            for (int i = 0; i < s.length(); i++) {--newline--                if (idx[s.charAt(i)] == null) return false; // Note: char of S does NOT exist in T causing NPE--newline--                int j = Collections.binarySearch(idx[s.charAt(i)], prev);--newline--                if (j < 0) j = -j - 1;--newline--                if (j == idx[s.charAt(i)].size()) return false;--newline--                prev = idx[s.charAt(i)].get(j) + 1;--newline--            }--newline--            return true;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Binary search solution for follow-up with detailed comments"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "2 lines Python"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "from collections import defaultdict--newline--from bisect import bisect_left--newline--class Solution(object):--newline----tab--    --newline----tab--    def createMap(self, s):--newline----tab--        # create a map. key is char. value is index of apperance in acending order. --newline----tab--        posMap = defaultdict(list)--newline----tab--        for i, char in enumerate(s):--newline----tab--            posMap[char].append(i)--newline----tab--        return posMap--newline----tab--        --newline----tab--    --newline----tab--    def isSubsequence(self, s, t):--newline----tab--        \"\"\"--newline----tab--        :type s: str--newline----tab--        :type t: str--newline----tab--        :rtype: bool--newline----tab--        \"\"\"--newline----tab--        posMap = self.createMap(t)--newline----tab--        # lowBound is the minimum index the current char has to be at.--newline----tab--        lowBound = 0--newline----tab--        for char in s:--newline----tab--            if char not in posMap: return False--newline----tab--            charIndexList = posMap[char]--newline----tab--            # try to find an index that is larger than or equal to lowBound--newline----tab--            i = bisect_left(charIndexList, lowBound)--newline----tab--            if i == len(charIndexList): return False--newline----tab--            lowBound = charIndexList[i] + 1--newline----tab--        return True--newline----tab--",
+            "topic_title": "Easy to understand binary search solution"
+        }
+    ],
+    "qc": "392.json"
+}

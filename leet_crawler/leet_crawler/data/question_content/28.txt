@@ -1,0 +1,11 @@
+---CONTENT_BEGIN---
+
+Implement strStr().
+
+
+Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int strStr(string haystack, string needle) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int strStr(String haystack, String needle) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def strStr(self, haystack, needle):--newline--        '''--newline--        :type haystack: str--newline--        :type needle: str--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int strStr(char* haystack, char* needle) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int StrStr(string haystack, string needle) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} haystack--newline-- * @param {string} needle--newline-- * @return {number}--newline-- */--newline--var strStr = function(haystack, needle) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} haystack--newline--# @param {String} needle--newline--# @return {Integer}--newline--def str_str(haystack, needle)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func strStr(_ haystack: String, _ needle: String) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func strStr(haystack string, needle string) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

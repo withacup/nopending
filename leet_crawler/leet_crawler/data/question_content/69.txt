@@ -1,0 +1,8 @@
+---CONTENT_BEGIN---
+Implement int sqrt(int x).
+
+Compute and return the square root of x.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int mySqrt(int x) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int mySqrt(int x) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def mySqrt(self, x):--newline--        '''--newline--        :type x: int--newline--        :rtype: int--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "int mySqrt(int x) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int MySqrt(int x) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} x--newline-- * @return {number}--newline-- */--newline--var mySqrt = function(x) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} x--newline--# @return {Integer}--newline--def my_sqrt(x)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func mySqrt(_ x: Int) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func mySqrt(x int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

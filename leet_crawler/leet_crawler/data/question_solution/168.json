@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My 1 lines code in Java, C++, and Python"
+        },
+        {
+            "java": "public class Solution {--newline--    public String convertToTitle(int n) {--newline--        StringBuilder result = new StringBuilder();--newline----newline--        while(n>0){--newline--            n--;--newline--            result.insert(0, (char)('A' + n % 26));--newline--            n /= 26;--newline--        }--newline----newline--        return result.toString();--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Accepted Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string convertToTitle(int n) {--newline--            string ans;--newline--            while (n) {--newline--                ans = char ((n - 1) % 26 + 'A') + ans;--newline--                n = (n - 1) / 26;--newline--            }--newline--            return ans;--newline--        }--newline--}",
+            "python": null,
+            "topic_title": "Share my simple solution, just a little trick to handle corner case 26"
+        },
+        {
+            "java": "public class Solution {--newline--public String convertToTitle(int n) {--newline--    String res = \"\";--newline--    while(n != 0) {--newline--        char ch = (char)((n - 1) % 26 + 65);--newline--        n = (n - 1) / 26;--newline--        res = ch + res;--newline--    }--newline--    return res;--newline--}--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My easy to understand JAVA solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab--    # @return a string--newline----tab--    def convertToTitle(self, num):--newline----tab--        capitals = [chr(x) for x in range(ord('A'), ord('Z')+1)]--newline----tab--        result = []--newline----tab--        while num > 0:--newline----tab--            result.append(capitals[(num-1)%26])--newline----tab--            num = (num-1) // 26--newline----tab--        result.reverse()--newline----tab--        return ''.join(result)",
+            "topic_title": "Python solution with explanation"
+        }
+    ],
+    "qc": "168.json"
+}

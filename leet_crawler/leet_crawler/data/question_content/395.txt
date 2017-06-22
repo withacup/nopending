@@ -1,0 +1,32 @@
+---CONTENT_BEGIN---
+
+Find the length of the longest substring T of a given string (consists of lowercase letters only) such that every character in T appears no less than k times.
+
+
+Example 1:
+
+Input:
+s = "aaabb", k = 3
+
+Output:
+3
+
+The longest substring is "aaa", as 'a' is repeated 3 times.
+
+
+
+Example 2:
+
+Input:
+s = "ababbc", k = 2
+
+Output:
+5
+
+The longest substring is "ababb", as 'a' is repeated 2 times and 'b' is repeated 3 times.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int longestSubstring(string s, int k) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int longestSubstring(String s, int k) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def longestSubstring(self, s, k):--newline--        '''--newline--        :type s: str--newline--        :type k: int--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int longestSubstring(char* s, int k) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int LongestSubstring(string s, int k) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} s--newline-- * @param {number} k--newline-- * @return {number}--newline-- */--newline--var longestSubstring = function(s, k) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} s--newline--# @param {Integer} k--newline--# @return {Integer}--newline--def longest_substring(s, k)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func longestSubstring(_ s: String, _ k: Int) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func longestSubstring(s string, k int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

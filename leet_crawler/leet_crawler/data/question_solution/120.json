@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int minimumTotal(vector<vector<int> > &triangle) {--newline--        int n = triangle.size();--newline--        vector<int> minlen(triangle.back());--newline--        for (int layer = n-2; layer >= 0; layer--) // For each layer--newline--        {--newline--            for (int i = 0; i <= layer; i++) // Check its every 'node'--newline--            {--newline--                // Find the lesser of its two children, and sum the current value in the triangle with it.--newline--                minlen[i] = min(minlen[i], minlen[i+1]) + triangle[layer][i]; --newline--            }--newline--        }--newline--        return minlen[0];--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "DP Solution for Triangle"
+        },
+        {
+            "java": "public class Solution {--newline--    public int minimumTotal(List<List<Integer>> triangle) {--newline--        int[] A = new int[triangle.size()+1];--newline--        for(int i=triangle.size()-1;i>=0;i--){--newline--            for(int j=0;j<triangle.get(i).size();j++){--newline--                A[j] = Math.min(A[j],A[j+1])+triangle.get(i).get(j);--newline--            }--newline--        }--newline--        return A[0];--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "7 lines neat Java Solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int minimumTotal(List<List<Integer>> triangle) {--newline--        for(int i = triangle.size() - 2; i >= 0; i--)--newline--            for(int j = 0; j <= i; j++)--newline--                triangle.get(i).set(j, triangle.get(i).get(j) + Math.min(triangle.get(i + 1).get(j), triangle.get(i + 1).get(j + 1)));--newline--        return triangle.get(0).get(0);--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My 8 line DP Java code(4 meaningful lines) with O(1) space"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int minimumTotal(vector<vector<int> > &triangle) --newline--    {--newline--        vector<int> mini = triangle[triangle.size()-1];--newline--        for ( int i = triangle.size() - 2; i>= 0 ; --i )--newline--            for ( int j = 0; j < triangle[i].size() ; ++ j )--newline--                mini[j] = triangle[i][j] + min(mini[j],mini[j+1]);--newline--        return mini[0];--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Bottom Up 5 line C++ Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    # O(n*n/2) space, top-down --newline----tab--    def minimumTotal1(self, triangle):--newline----tab--        if not triangle:--newline----tab--            return --newline----tab--        res = [[0 for i in xrange(len(row))] for row in triangle]--newline----tab--        res[0][0] = triangle[0][0]--newline----tab--        for i in xrange(1, len(triangle)):--newline----tab--            for j in xrange(len(triangle[i])):--newline----tab--                if j == 0:--newline----tab--                    res[i][j] = res[i-1][j] + triangle[i][j]--newline----tab--                elif j == len(triangle[i])-1:--newline----tab--                    res[i][j] = res[i-1][j-1] + triangle[i][j]--newline----tab--                else:--newline----tab--                    res[i][j] = min(res[i-1][j-1], res[i-1][j]) + triangle[i][j]--newline----tab--        return min(res[-1])--newline----tab--        --newline----tab--    # Modify the original triangle, top-down--newline----tab--    def minimumTotal2(self, triangle):--newline----tab--        if not triangle:--newline----tab--            return --newline----tab--        for i in xrange(1, len(triangle)):--newline----tab--            for j in xrange(len(triangle[i])):--newline----tab--                if j == 0:--newline----tab--                    triangle[i][j] += triangle[i-1][j]--newline----tab--                elif j == len(triangle[i])-1:--newline----tab--                    triangle[i][j] += triangle[i-1][j-1]--newline----tab--                else:--newline----tab--                    triangle[i][j] += min(triangle[i-1][j-1], triangle[i-1][j])--newline----tab--        return min(triangle[-1])--newline----tab--        --newline----tab--    # Modify the original triangle, bottom-up--newline----tab--    def minimumTotal3(self, triangle):--newline----tab--        if not triangle:--newline----tab--            return --newline----tab--        for i in xrange(len(triangle)-2, -1, -1):--newline----tab--            for j in xrange(len(triangle[i])):--newline----tab--                triangle[i][j] += min(triangle[i+1][j], triangle[i+1][j+1])--newline----tab--        return triangle[0][0]--newline----tab--    --newline----tab--    # bottom-up, O(n) space--newline----tab--    def minimumTotal(self, triangle):--newline----tab--        if not triangle:--newline----tab--            return --newline----tab--        res = triangle[-1]--newline----tab--        for i in xrange(len(triangle)-2, -1, -1):--newline----tab--            for j in xrange(len(triangle[i])):--newline----tab--                res[j] = min(res[j], res[j+1]) + triangle[i][j]--newline----tab--        return res[0]",
+            "topic_title": "Python easy to understand solutions (top-down, bottom-up)."
+        }
+    ],
+    "qc": "120.json"
+}

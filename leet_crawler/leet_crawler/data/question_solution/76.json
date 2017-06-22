@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string minWindow(string s, string t) {--newline--            vector<int> map(128,0);--newline--            for(auto c: t) map[c]++;--newline--            int counter=t.size(), begin=0, end=0, d=INT_MAX, head=0;--newline--            while(end<s.size()){--newline--                if(map[s[end++]]-->0) counter--; //in t--newline--                while(counter==0){ //valid--newline--                    if(end-begin<d)  d=end-(head=begin);--newline--                    if(map[s[begin++]]++==0) counter++;  //make it invalid--newline--                }  --newline--            }--newline--            return d==INT_MAX? \"\":s.substr(head, d);--newline--        }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Here is a 10-line template that can solve most &#x27;substring&#x27; problems"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string minWindow(string S, string T) {--newline--        if (S.empty() || T.empty())--newline--        {--newline--            return \"\";--newline--        }--newline--        int count = T.size();--newline--        int require[128] = {0};--newline--        bool chSet[128] = {false};--newline--        for (int i = 0; i < count; ++i)--newline--        {--newline--            require[T[i]]++;--newline--            chSet[T[i]] = true;--newline--        }--newline--        int i = -1;--newline--        int j = 0;--newline--        int minLen = INT_MAX;--newline--        int minIdx = 0;--newline--        while (i < (int)S.size() && j < (int)S.size())--newline--        {--newline--            if (count)--newline--            {--newline--                i++;--newline--                require[S[i]]--;--newline--                if (chSet[S[i]] && require[S[i]] >= 0)--newline--                {--newline--                    count--;--newline--                }--newline--            }--newline--            else--newline--            {--newline--                if (minLen > i - j + 1)--newline--                {--newline--                    minLen = i - j + 1;--newline--                    minIdx = j;--newline--                }--newline--                require[S[j]]++;--newline--                if (chSet[S[j]] && require[S[j]] > 0)--newline--                {--newline--                    count++;--newline--                }--newline--                j++;--newline--            }--newline--        }--newline--        if (minLen == INT_MAX)--newline--        {--newline--            return \"\";--newline--        }--newline--        return S.substr(minIdx, minLen);--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Accepted O(n) solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def minWindow(self, s, t):--newline----tab--        need, missing = collections.Counter(t), len(t)--newline----tab--        i = I = J = 0--newline----tab--        for j, c in enumerate(s, 1):--newline----tab--            missing -= need[c] > 0--newline----tab--            need[c] -= 1--newline----tab--            if not missing:--newline----tab--                while i < j and need[s[i]] < 0:--newline----tab--                    need[s[i]] += 1--newline----tab--                    i += 1--newline----tab--                if not J or j - i <= J - I:--newline----tab--                    I, J = i, j--newline----tab--        return s[I:J]",
+            "topic_title": "12 lines Python"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string minWindow(string S, string T) {--newline--        string result;--newline--        if(S.empty() || T.empty()){--newline--            return result;--newline--        }--newline--        unordered_map<char, int> map;--newline--        unordered_map<char, int> window;--newline--        for(int i = 0; i < T.length(); i++){--newline--            map[T[i]]++;--newline--        }--newline--        int minLength = INT_MAX;--newline--        int letterCounter = 0;--newline--        for(int slow = 0, fast = 0; fast < S.length(); fast++){--newline--            char c = S[fast];--newline--            if(map.find(c) != map.end()){--newline--                window[c]++;--newline--                if(window[c] <= map[c]){--newline--                    letterCounter++;--newline--                }--newline--            }--newline--            if(letterCounter >= T.length()){--newline--                while(map.find(S[slow]) == map.end() || window[S[slow]] > map[S[slow]]){--newline--                    window[S[slow]]--;--newline--                    slow++;--newline--                }--newline--                if(fast - slow + 1 < minLength){--newline--                    minLength = fast - slow + 1;--newline--                    result = S.substr(slow, minLength);--newline--                }--newline--            }--newline--        }--newline--        return result;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Sharing my straightforward O(n) solution with explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Can T have characters repeating ?"
+        }
+    ],
+    "qc": "76.json"
+}

@@ -1,0 +1,21 @@
+---CONTENT_BEGIN---
+
+Remove the minimum number of invalid parentheses in order to make the input string valid. Return all possible results.
+
+Note: The input string may contain letters other than the parentheses ( and ). 
+
+
+
+Examples:
+
+"()())()" -> ["()()()", "(())()"]
+"(a)())()" -> ["(a)()()", "(a())()"]
+")(" -> [""]
+
+
+
+Credits:Special thanks to @hpplayer for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<string> removeInvalidParentheses(string s) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public List<String> removeInvalidParentheses(String s) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def removeInvalidParentheses(self, s):--newline--        '''--newline--        :type s: str--newline--        :rtype: List[str]--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Return an array of size *returnSize.--newline-- * Note: The returned array must be malloced, assume caller calls free().--newline-- */--newline--char** removeInvalidParentheses(char* s, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public IList<string> RemoveInvalidParentheses(string s) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} s--newline-- * @return {string[]}--newline-- */--newline--var removeInvalidParentheses = function(s) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} s--newline--# @return {String[]}--newline--def remove_invalid_parentheses(s)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func removeInvalidParentheses(_ s: String) -> [String] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func removeInvalidParentheses(s string) []string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

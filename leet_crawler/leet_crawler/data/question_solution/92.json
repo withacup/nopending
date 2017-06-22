@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public ListNode reverseBetween(ListNode head, int m, int n) {--newline--        if(head == null) return null;--newline--        ListNode dummy = new ListNode(0); // create a dummy node to mark the head of this list--newline--        dummy.next = head;--newline--        ListNode pre = dummy; // make a pointer pre as a marker for the node before reversing--newline--        for(int i = 0; i<m-1; i++) pre = pre.next;--newline--        --newline--        ListNode start = pre.next; // a pointer to the beginning of a sub-list that will be reversed--newline--        ListNode then = start.next; // a pointer to a node that will be reversed--newline--        --newline--        // 1 - 2 -3 - 4 - 5 ; m=2; n =4 ---> pre = 1, start = 2, then = 3--newline--        // dummy-> 1 -> 2 -> 3 -> 4 -> 5--newline--        --newline--        for(int i=0; i<n-m; i++)--newline--        {--newline--            start.next = then.next;--newline--            then.next = pre.next;--newline--            pre.next = then;--newline--            then = start.next;--newline--        }--newline--        --newline--        // first reversing : dummy->1 - 3 - 2 - 4 - 5; pre = 1, start = 2, then = 4--newline--        // second reversing: dummy->1 - 4 - 3 - 2 - 5; pre = 1, start = 2, then = 5 (finish)--newline--        --newline--        return dummy.next;--newline--        --newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java solution with clear explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--     ListNode *reverseBetween(ListNode *head, int m, int n) {--newline--        if(m==n)return head;--newline--    --tab--n-=m;--newline--        ListNode prehead(0);--newline--        prehead.next=head;--newline--        ListNode* pre=&prehead;--newline--        while(--m)pre=pre->next;        --newline--        ListNode* pstart=pre->next;--newline--        while(n--)--newline--        {--newline--            ListNode *p=pstart->next;--newline--            pstart->next=p->next;--newline--            p->next=pre->next;--newline--            pre->next=p;--newline--        }--newline--        return prehead.next;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Share my 14 lines C++ solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {  --newline--public:--newline--    ListNode* reverseBetween(ListNode* head, int m, int n) {--newline--        ListNode* new_head = new ListNode(0);--newline--        new_head -> next = head;--newline--        ListNode* pre = new_head;--newline--        for (int i = 0; i < m - 1; i++)--newline--            pre = pre -> next;--newline--        ListNode* cur = pre -> next;--newline--        for (int i = 0; i < n - m; i++) {--newline--            ListNode* move = cur -> next; --newline--            cur -> next = move -> next;--newline--            move -> next = pre -> next;--newline--            pre -> next = move;--newline--        }--newline--        return new_head -> next;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "12-lines 4ms C++"
+        },
+        {
+            "java": "public class Solution {--newline--    public ListNode reverseBetween(ListNode head, int m, int n) {--newline--    --tab--ListNode dummyhead = new ListNode(0);--newline--    --tab--dummyhead.next = head;--newline--    --tab--ListNode sublisthead = new ListNode(0);--newline--    --tab--ListNode sublisttail = new ListNode(0);--newline--    --tab--int count = 1;--newline--    --tab--ListNode pre_cur = dummyhead, cur = head;--newline--    --tab--while(count <=n){--newline--    --tab----tab--ListNode temp = cur.next;--newline--    --tab----tab--if (count < m)--newline--    --tab----tab----tab--pre_cur = cur;--newline--    --tab----tab--else if (count == m){--newline--    --tab----tab----tab--sublisttail = cur;--newline--    --tab----tab----tab--sublisthead.next = cur;--newline--    --tab----tab--}else if (count > m){--newline--    --tab----tab----tab--cur.next = sublisthead.next;--newline--    --tab----tab----tab--sublisthead.next = cur;--newline--    --tab----tab--}--newline--    --tab----tab--cur = temp;--newline--    --tab----tab--++count;--newline--    --tab--}--newline--    --tab--pre_cur.next = sublisthead.next;--newline--    --tab--sublisttail.next = cur;--newline--    --tab--return dummyhead.next;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my Java code"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab--    # @param head, a ListNode--newline----tab--    # @param m, an integer--newline----tab--    # @param n, an integer--newline----tab--    # @return a ListNode--newline----tab--    def reverseBetween(self, head, m, n):--newline----tab--        if m == n:--newline----tab--            return head--newline----tab----newline----tab--        dummyNode = ListNode(0)--newline----tab--        dummyNode.next = head--newline----tab--        pre = dummyNode--newline----tab----newline----tab--        for i in range(m - 1):--newline----tab--            pre = pre.next--newline----tab--        --newline----tab--        # reverse the [m, n] nodes--newline----tab--        reverse = None--newline----tab--        cur = pre.next--newline----tab--        for i in range(n - m + 1):--newline----tab--            next = cur.next--newline----tab--            cur.next = reverse--newline----tab--            reverse = cur--newline----tab--            cur = next--newline----tab----newline----tab--        pre.next.next = cur--newline----tab--        pre.next = reverse--newline----tab----newline----tab--        return dummyNode.next",
+            "topic_title": "Python one pass iterative solution"
+        }
+    ],
+    "qc": "92.json"
+}

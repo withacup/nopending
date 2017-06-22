@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class MinStack {--newline--    long min;--newline--    Stack<Long> stack;--newline----newline--    public MinStack(){--newline--        stack=new Stack<>();--newline--    }--newline--    --newline--    public void push(int x) {--newline--        if (stack.isEmpty()){--newline--            stack.push(0L);--newline--            min=x;--newline--        }else{--newline--            stack.push(x-min);//Could be negative if min value needs to change--newline--            if (x<min) min=x;--newline--        }--newline--    }--newline----newline--    public void pop() {--newline--        if (stack.isEmpty()) return;--newline--        --newline--        long pop=stack.pop();--newline--        --newline--        if (pop<0)  min=min-pop;//If negative, increase the min value--newline--        --newline--    }--newline----newline--    public int top() {--newline--        long top=stack.peek();--newline--        if (top>0){--newline--            return (int)(top+min);--newline--        }else{--newline--           return (int)(min);--newline--        }--newline--    }--newline----newline--    public int getMin() {--newline--        return (int)min;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my Java solution with ONLY ONE stack"
+        },
+        {
+            "java": "class MinStack {--newline--    int min = Integer.MAX_VALUE;--newline--    Stack<Integer> stack = new Stack<Integer>();--newline--    public void push(int x) {--newline--        // only push the old minimum value when the current --newline--        // minimum value changes after pushing the new value x--newline--        if(x <= min){          --newline--            stack.push(min);--newline--            min=x;--newline--        }--newline--        stack.push(x);--newline--    }--newline----newline--    public void pop() {--newline--        // if pop operation could result in the changing of the current minimum value, --newline--        // pop twice and change the current minimum value to the last minimum value.--newline--        if(stack.pop() == min) min=stack.pop();--newline--    }--newline----newline--    public int top() {--newline--        return stack.peek();--newline--    }--newline----newline--    public int getMin() {--newline--        return min;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java accepted solution using one stack"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class MinStack {--newline--private:--newline--    stack<int> s1;--newline--    stack<int> s2;--newline--public:--newline--    void push(int x) {--newline----tab--    s1.push(x);--newline----tab--    if (s2.empty() || x <= getMin())  s2.push(x);--tab--    --newline--    }--newline--    void pop() {--newline----tab--    if (s1.top() == getMin())  s2.pop();--newline----tab--    s1.pop();--newline--    }--newline--    int top() {--newline----tab--    return s1.top();--newline--    }--newline--    int getMin() {--newline----tab--    return s2.top();--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "C++ using two stacks, quite short and easy to understand"
+        },
+        {
+            "java": "class MinStack {--newline--    private Node head;--newline--    --newline--    public void push(int x) {--newline--        if(head == null) --newline--            head = new Node(x, x);--newline--        else --newline--            head = new Node(x, Math.min(x, head.min), head);--newline--    }--newline----newline--    public void pop() {--newline--        head = head.next;--newline--    }--newline----newline--    public int top() {--newline--        return head.val;--newline--    }--newline----newline--    public int getMin() {--newline--        return head.min;--newline--    }--newline--    --newline--    private class Node {--newline--        int val;--newline--        int min;--newline--        Node next;--newline--        --newline--        private Node(int val, int min) {--newline--            this(val, min, null);--newline--        }--newline--        --newline--        private Node(int val, int min, Node next) {--newline--            this.val = val;--newline--            this.min = min;--newline--            this.next = next;--newline--        }--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Clean 6ms Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class MinStack:--newline----tab----newline----tab--def __init__(self):--newline----tab--    self.q = []--newline----tab----newline----tab--# @param x, an integer--newline----tab--# @return an integer--newline----tab--def push(self, x):--newline----tab--    curMin = self.getMin()--newline----tab--    if curMin == None or x < curMin:--newline----tab--        curMin = x--newline----tab--    self.q.append((x, curMin));--newline----tab----newline----tab--# @return nothing--newline----tab--def pop(self):--newline----tab--    self.q.pop()--newline----tab----newline----tab----newline----tab--# @return an integer--newline----tab--def top(self):--newline----tab--    if len(self.q) == 0:--newline----tab--        return None--newline----tab--    else:--newline----tab--        return self.q[len(self.q) - 1][0]--newline----tab----newline----tab----newline----tab--# @return an integer--newline----tab--def getMin(self):--newline----tab--    if len(self.q) == 0:--newline----tab--        return None--newline----tab--    else:--newline----tab--        return self.q[len(self.q) - 1][1]",
+            "topic_title": "My Python solution"
+        }
+    ],
+    "qc": "155.json"
+}

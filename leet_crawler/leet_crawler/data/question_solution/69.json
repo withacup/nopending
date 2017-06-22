@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "A Binary Search Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int mySqrt(int x) {--newline--        long long r = x;--newline--        while (r*r > x)--newline--            r = (r + x/r) / 2;--newline--        return r;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "3-4 short lines, Integer Newton, Every Language"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my O(log n) Solution using bit manipulation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Solve this problem with  Binary Search"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Newton&#x27;s Iterative Method in C++"
+        }
+    ],
+    "qc": "69.json"
+}

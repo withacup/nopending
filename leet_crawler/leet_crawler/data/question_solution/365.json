@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public boolean canMeasureWater(int x, int y, int z) {--newline--        //limit brought by the statement that water is finallly in one or both buckets--newline--        if(x + y < z) return false;--newline--        //case x or y is zero--newline--        if( x == z || y == z || x + y == z ) return true;--newline--        --newline--        //get GCD, then we can use the property of B\u00e9zout's identity--newline--        return z%GCD(x, y) == 0;--newline--    }--newline--    --newline--    public int GCD(int a, int b){--newline--        while(b != 0 ){--newline--            int temp = b;--newline--            b = a%b;--newline--            a = temp;--newline--        }--newline--        return a;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Math solution - Java solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean canMeasureWater(int x, int y, int z) {--newline--        return z == 0 || (long)x + y >= z && z % gcd(x, y) == 0;--newline--    }--newline--    public int gcd(int x, int y) {--newline--        return y == 0 ? x : gcd(y, x % y);--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool canMeasureWater(int x, int y, int z) {--newline--        return z == 0 || z <= (long long)x + y && z % __gcd(x, y) == 0;--newline--    }--newline--    --newline--}",
+            "python": "class Solution :--newline----tab--    def canMeasureWater(self, x, y, z):--newline----tab--        from fractions import gcd--newline----tab--        return z == 0 or x + y >= z and z % gcd(x, y) == 0--newline----tab--    ",
+            "topic_title": "A little explanation on GCD method. C++&#x2F;Java&#x2F;Python"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "This problem should be classified as HARD"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--bool canMeasureWater(int x, int y, int z) {--newline--    return z == 0 || (z - x <= y && z % gcd(x, y) == 0);--newline--}--newline--private:--newline--int gcd(int x, int y)--newline--{--newline--    return y == 0 ? x : gcd(y, x % y);--newline--}--newline--};--newline--",
+            "python": null,
+            "topic_title": "Clear Explanation of Why Using GCD"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool canMeasureWater(int x, int y, int z) {--newline--        if (x+y == z)--newline--            return true;--newline--        if (x+y < z)--newline--            return false;--newline--        if (x > y) {--newline--            int temp = x;--newline--            x = y;--newline--            y = temp;--newline--        }--newline--        int volume = 0;--newline--        while (1) {--newline--            if (volume < x)--newline--                volume += y;--newline--            else--newline--                volume -= x;--newline--            if (volume == z)--newline--                return true;--newline--            if (volume == 0)--newline--                return false;--newline--        }--newline--    }--newline--",
+            "python": null,
+            "topic_title": "&#91;c++ solution&#93; follow the procedure"
+        }
+    ],
+    "qc": "365.json"
+}

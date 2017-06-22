@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public String getHint(String secret, String guess) {--newline--        int bulls = 0;--newline--        int cows = 0;--newline--        int[] numbers = new int[10];--newline--        for (int i = 0; i<secret.length(); i++) {--newline--            if (secret.charAt(i) == guess.charAt(i)) bulls++;--newline--            else {--newline--                if (numbers[secret.charAt(i)-'0']++ < 0) cows++;--newline--                if (numbers[guess.charAt(i)-'0']-- > 0) cows++;--newline--            }--newline--        }--newline--        return bulls + \"A\" + cows + \"B\";--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "One pass Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    // only contains digits --newline--    string getHint(string secret, string guess) {--newline--        int aCnt = 0;--newline--        int bCnt = 0;--newline--        vector<int> sVec(10, 0); // 0 ~ 9 for secret--newline--        vector<int> gVec(10, 0); // 0 ~ 9 for guess --newline--        if (secret.size() != guess.size() || secret.empty()) { return \"0A0B\"; }--newline--        for (int i = 0; i < secret.size(); ++i) {--newline--            char c1 = secret[i]; char c2 = guess[i];--newline--            if (c1 == c2) {--newline--                ++aCnt; --newline--            } else {--newline--                ++sVec[c1-'0'];--newline--                ++gVec[c2-'0'];--newline--            }--newline--        }--newline--        // count b --newline--        for (int i = 0; i < sVec.size(); ++i) {--newline--            bCnt += min(sVec[i], gVec[i]);--newline--        }--newline--        return to_string(aCnt) + 'A' + to_string(bCnt) + 'B';--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "&#91;C++&#93; 4ms Straight forward solution two pass O(N) time"
+        },
+        {
+            "java": "public class Solution {--newline--    public String getHint(String secret, String guess) {--newline--        int len = secret.length();--newline----tab----tab--int[] secretarr = new int[10];--newline----tab----tab--int[] guessarr = new int[10];--newline----tab----tab--int bull = 0, cow = 0;--newline----tab----tab--for (int i = 0; i < len; ++i) {--newline----tab----tab----tab--if (secret.charAt(i) == guess.charAt(i)) {--newline----tab----tab----tab----tab--++bull;--newline----tab----tab----tab--} else {--newline----tab----tab----tab----tab--++secretarr[secret.charAt(i) - '0'];--newline----tab----tab----tab----tab--++guessarr[guess.charAt(i) - '0'];--newline----tab----tab----tab--}--newline----tab----tab--}--newline----tab----tab--for (int i = 0; i < 10; ++i) {--newline----tab----tab----tab--cow += Math.min(secretarr[i], guessarr[i]);--newline----tab----tab--}--newline----tab----tab--return \"\" + bull + \"A\" + cow + \"B\";--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My 3ms Java solution may help u"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Python 3 lines solution"
+        },
+        {
+            "java": "public class Solution {--newline--public String getHint(String secret, String guess) {--newline--    int temp = 0;--newline--    int bulls = 0;--newline--    int[] nums1 = new int[10];--newline--    int[] nums2 = new int[10];--newline--    for(int i = 0; i < secret.length(); i++){--newline--        char s = secret.charAt(i);--newline--        char g = guess.charAt(i);--newline--        if(s == g){--newline--            bulls++;--newline--        }--newline--        else{--newline--            nums1[s - '0']++;--newline--            nums2[g - '0']++;--newline--        }--newline--    }--newline--    int cows = 0;--newline--    for(int i = 0; i < 10; i++){--newline--        cows += Math.min(nums1[i], nums2[i]);--newline--    }--newline--    String res = bulls + \"A\" + cows + \"B\";--newline--    return res;--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Very easy solution using two arrays"
+        }
+    ],
+    "qc": "299.json"
+}

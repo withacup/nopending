@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public ListNode insertionSortList(ListNode head) {--newline--    --tab----tab--if( head == null ){--newline--    --tab----tab----tab--return head;--newline--    --tab----tab--}--newline--    --tab----tab----newline--    --tab----tab--ListNode helper = new ListNode(0); //new starter of the sorted list--newline--    --tab----tab--ListNode cur = head; //the node will be inserted--newline--    --tab----tab--ListNode pre = helper; //insert node between pre and pre.next--newline--    --tab----tab--ListNode next = null; //the next node will be inserted--newline--    --tab----tab--//not the end of input list--newline--    --tab----tab--while( cur != null ){--newline--    --tab----tab----tab--next = cur.next;--newline--    --tab----tab----tab--//find the right place to insert--newline--    --tab----tab----tab--while( pre.next != null && pre.next.val < cur.val ){--newline--    --tab----tab----tab----tab--pre = pre.next;--newline--    --tab----tab----tab--}--newline--    --tab----tab----tab--//insert between pre and pre.next--newline--    --tab----tab----tab--cur.next = pre.next;--newline--    --tab----tab----tab--pre.next = cur;--newline--    --tab----tab----tab--pre = helper;--newline--    --tab----tab----tab--cur = next;--newline--    --tab----tab--}--newline--    --tab----tab----newline--    --tab----tab--return helper.next;--newline--    --tab--}--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "An easy and clear way to sort ( O(1) space )"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Thoughts from a Google interviewer"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution { --newline--public:--newline--    ListNode* insertionSortList(ListNode* head) {--newline--        ListNode* new_head = new ListNode(0);--newline--        new_head -> next = head;--newline--        ListNode* pre = new_head;--newline--        ListNode* cur = head;--newline--        while (cur) {--newline--            if (cur -> next && cur -> next -> val < cur -> val) {--newline--                while (pre -> next && pre -> next -> val < cur -> next -> val)--newline--                    pre = pre -> next;--newline--                /* Insert cur -> next after pre.*/--newline--                ListNode* temp = pre -> next;--newline--                pre -> next = cur -> next;--newline--                cur -> next = cur -> next -> next;--newline--                pre -> next -> next = temp;--newline--                /* Move pre back to new_head. */--newline--                pre = new_head;--newline--            }--newline--            else cur = cur -> next;--newline--        }--newline--        ListNode* res = new_head -> next;--newline--        delete new_head;--newline--        return res;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Explained C++ solution (24ms)"
+        },
+        {
+            "java": "public class Solution {--newline--public ListNode insertionSortList(ListNode head) {--newline--    ListNode helper=new ListNode(0);--newline--    ListNode pre=helper;--newline--    ListNode current=head;--newline--    while(current!=null) {--newline--        pre=helper;--newline--        while(pre.next!=null&&pre.next.val<current.val) {--newline--            pre=pre.next;--newline--        }--newline--        ListNode next=current.next;--newline--        current.next=pre.next;--newline--        pre.next=current;--newline--        current=next;--newline--    }--newline--    return helper.next;--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Accepted Solution using JAVA"
+        },
+        {
+            "java": "public class Solution {--newline--    public ListNode insertionSortList(ListNode head) {--newline--      ListNode curr = head, next = null;--newline--      // l is a fake head--newline--      ListNode l = new ListNode(0);--newline--      --newline--      while (curr != null) {--newline--        next = curr.next;--newline--        --newline--        ListNode p = l;--newline--        while (p.next != null && p.next.val < curr.val)--newline--          p = p.next;--newline--        --newline--        // insert curr between p and p.next--newline--        curr.next = p.next;--newline--        p.next = curr;--newline--        curr = next;--newline--      }--newline--      --newline--      return l.next;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Clean Java solution using a fake head"
+        }
+    ],
+    "qc": "147.json"
+}

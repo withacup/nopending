@@ -1,0 +1,29 @@
+---CONTENT_BEGIN---
+You are playing the following Bulls and Cows game with your friend: You write down a number and ask your friend to guess what the number is. Each time your friend makes a guess, you provide a hint that indicates how many digits in said guess match your secret number exactly in both digit and position (called "bulls") and how many digits match the secret number but locate in the wrong position (called "cows"). Your friend will use successive guesses and hints to eventually derive the secret number.
+
+
+For example:
+
+Secret number:  "1807"
+Friend's guess: "7810"
+
+Hint: 1 bull and 3 cows. (The bull is 8, the cows are 0, 1 and 7.)
+
+
+Write a function to return a hint according to the secret number and friend's guess, use A to indicate the bulls and B to indicate the cows. In the above example, your function should return "1A3B". 
+
+Please note that both secret number and friend's guess may contain duplicate digits, for example:
+
+Secret number:  "1123"
+Friend's guess: "0111"
+
+In this case, the 1st 1 in friend's guess is a bull, the 2nd or 3rd 1 is a cow, and your function should return "1A1B".
+
+
+You may assume that the secret number and your friend's guess only contain digits, and their lengths are always equal.
+
+Credits:Special thanks to @jeantimex for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    string getHint(string secret, string guess) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public String getHint(String secret, String guess) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def getHint(self, secret, guess):--newline--        '''--newline--        :type secret: str--newline--        :type guess: str--newline--        :rtype: str--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "char* getHint(char* secret, char* guess) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public string GetHint(string secret, string guess) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} secret--newline-- * @param {string} guess--newline-- * @return {string}--newline-- */--newline--var getHint = function(secret, guess) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} secret--newline--# @param {String} guess--newline--# @return {String}--newline--def get_hint(secret, guess)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func getHint(_ secret: String, _ guess: String) -> String {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func getHint(secret string, guess string) string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

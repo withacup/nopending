@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public List<List<Integer>> pathSum(TreeNode root, int sum){--newline--    --tab--List<List<Integer>> result  = new LinkedList<List<Integer>>();--newline--    --tab--List<Integer> currentResult  = new LinkedList<Integer>();--newline--    --tab--pathSum(root,sum,currentResult,result);--newline--    --tab--return result;--newline--    }--newline--    --newline--    public void pathSum(TreeNode root, int sum, List<Integer> currentResult,--newline--    --tab----tab--List<List<Integer>> result) {--newline--    --newline--    --tab--if (root == null)--newline--    --tab----tab--return;--newline--    --tab--currentResult.add(new Integer(root.val));--newline--    --tab--if (root.left == null && root.right == null && sum == root.val) {--newline--    --tab----tab--result.add(new LinkedList(currentResult));--newline--    --tab----tab--currentResult.remove(currentResult.size() - 1);//don't forget to remove the last integer--newline--    --tab----tab--return;--newline--    --tab--} else {--newline--    --tab----tab--pathSum(root.left, sum - root.val, currentResult, result);--newline--    --tab----tab--pathSum(root.right, sum - root.val, currentResult, result);--newline--    --tab--}--newline--    --tab--currentResult.remove(currentResult.size() - 1);--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "DFS with one LinkedList , accepted java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<vector<int>> pathSum(TreeNode* root, int sum) {--newline--        vector<vector<int> > paths;--newline--        vector<int> path;--newline--        findPaths(root, sum, path, paths);--newline--        return paths;  --newline--    }--newline--private:--newline--    void findPaths(TreeNode* node, int sum, vector<int>& path, vector<vector<int> >& paths) {--newline--        if (!node) return;--newline--        path.push_back(node -> val);--newline--        if (!(node -> left) && !(node -> right) && sum == node -> val)--newline--            paths.push_back(path);--newline--        findPaths(node -> left, sum - node -> val, path, paths);--newline--        findPaths(node -> right, sum - node -> val, path, paths);--newline--        path.pop_back();--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "12ms 11-lines C++ Solution"
+        },
+        {
+            "java": "public class Solution {--newline--    private List<List<Integer>> resultList = new ArrayList<List<Integer>>();--newline--    --newline--    public void pathSumInner(TreeNode root, int sum, Stack<Integer>path) {--newline--        path.push(root.val);--newline--        if(root.left == null && root.right == null)--newline--            if(sum == root.val) resultList.add(new ArrayList<Integer>(path));--newline--        if(root.left!=null) pathSumInner(root.left, sum-root.val, path);--newline--        if(root.right!=null)pathSumInner(root.right, sum-root.val, path);--newline--        path.pop();--newline--    }--newline--    --newline--    public List<List<Integer>> pathSum(TreeNode root, int sum) {--newline--        if(root==null) return resultList;--newline--        Stack<Integer> path = new Stack<Integer>();--newline--        pathSumInner(root, sum, path);--newline--        return resultList;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple DFS Java Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<vector<int> > pathSum(TreeNode *root, int sum) {--newline--            vector<vector<int> > result;--newline--            vector<int> cur_path(0);--newline--            pathSumRec(root, sum, result, cur_path);--newline--            return result;--newline--        }--newline--        --newline--        // pass the current path as a reference and remember to pop out the last added element--newline--        // this improves the performance by 5 times--newline--        void pathSumRec(TreeNode* root, int sum, vector<vector<int> >& result, vector<int>& cur_path) {--newline--            if (root == NULL) {--newline--                return;--newline--            }--newline--            --newline--            if (root->val == sum && root->left == NULL && root->right == NULL) {--newline--                cur_path.push_back(root->val);--newline--                result.push_back(cur_path);--newline--                cur_path.pop_back();--newline--                return;--newline--            }--newline--            --newline--            int sum_left = sum - root->val;--newline--            cur_path.push_back(root->val);--newline--            pathSumRec(root->left, sum_left, result, cur_path);--newline--            //cur_path.pop_back();--newline--            pathSumRec(root->right, sum_left, result, cur_path);--newline--            cur_path.pop_back();--newline--        }--newline--}",
+            "python": null,
+            "topic_title": "18 ms c++ recursive solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab----newline----tab--def pathSum(self, root, sum):--newline----tab--    if not root: return []--newline----tab--    if root.left == None and root.right == None:--newline----tab--        if sum == root.val: --newline----tab--            return [[root.val]]--newline----tab--        else: --newline----tab--            return []--newline----tab--    a = self.pathSum(root.left, sum - root.val) + \\--newline----tab--        self.pathSum(root.right, sum - root.val)--newline----tab--    return [[root.val] + i for i in a]",
+            "topic_title": "Short python solution"
+        }
+    ],
+    "qc": "113.json"
+}

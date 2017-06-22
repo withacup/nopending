@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public TreeNode buildTree(int[] preorder, int[] inorder) {--newline--        return helper(0, 0, inorder.length - 1, preorder, inorder);--newline--    }--newline--    --newline--    public TreeNode helper(int preStart, int inStart, int inEnd, int[] preorder, int[] inorder) {--newline--        if (preStart > preorder.length - 1 || inStart > inEnd) {--newline--            return null;--newline--        }--newline--        TreeNode root = new TreeNode(preorder[preStart]);--newline--        int inIndex = 0; // Index of current root in inorder--newline--        for (int i = inStart; i <= inEnd; i++) {--newline--            if (inorder[i] == root.val) {--newline--                inIndex = i;--newline--            }--newline--        }--newline--        root.left = helper(preStart + 1, inStart, inIndex - 1, preorder, inorder);--newline--        root.right = helper(preStart + inIndex - inStart + 1, inIndex + 1, inEnd, preorder, inorder);--newline--        return root;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My Accepted Java Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {--newline--        --newline--        if(preorder.size()==0)--newline--            return NULL;--newline--        --newline--        stack<int> s;--newline--        stack<TreeNode *> st;--newline--        TreeNode *t,*r,*root;--newline--        int i,j,f;--newline--        --newline--        f=i=j=0;--newline--        s.push(preorder[i]);--newline--        --newline--        root = new TreeNode(preorder[i]);--newline--        st.push(root);--newline--        t = root;--newline--        i++;--newline--        --newline--        while(i<preorder.size())--newline--        {--newline--            if(!st.empty() && st.top()->val==inorder[j])--newline--            {--newline--                t = st.top();--newline--                st.pop();--newline--                s.pop();--newline--                f = 1;--newline--                j++;--newline--            }--newline--            else--newline--            {--newline--                if(f==0)--newline--                {--newline--                    s.push(preorder[i]);--newline--                    t -> left = new TreeNode(preorder[i]);--newline--                    t = t -> left;--newline--                    st.push(t);--newline--                    i++;--newline--                }--newline--                else --newline--                {--newline--                    f = 0;--newline--                    s.push(preorder[i]);--newline--                    t -> right = new TreeNode(preorder[i]);--newline--                    t = t -> right;--newline--                    st.push(t);--newline--                    i++;--newline--                }--newline--            }--newline--        }--newline--        --newline--        return root;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "The iterative solution is easier than you think!"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {--newline--        return create(preorder, inorder, 0, preorder.size() - 1, 0, inorder.size() - 1);--newline--    }--newline--    --newline--    TreeNode* create(vector<int>& preorder, vector<int>& inorder, int ps, int pe, int is, int ie){--newline--        if(ps > pe){--newline--            return nullptr;--newline--        }--newline--        TreeNode* node = new TreeNode(preorder[ps]);--newline--        int pos;--newline--        for(int i = is; i <= ie; i++){--newline--            if(inorder[i] == node->val){--newline--                pos = i;--newline--                break;--newline--            }--newline--        }--newline--        node->left = create(preorder, inorder, ps + 1, ps + pos - is, is, pos - 1);--newline--        node->right = create(preorder, inorder, pe - ie + pos + 1, pe, pos + 1, ie);--newline--        return node;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Sharing my straightforward recursive solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def buildTree(self, preorder, inorder):--newline----tab--        if inorder:--newline----tab--            ind = inorder.index(preorder.pop(0))--newline----tab--            root = TreeNode(inorder[ind])--newline----tab--            root.left = self.buildTree(preorder, inorder[0:ind])--newline----tab--            root.right = self.buildTree(preorder, inorder[ind+1:])--newline----tab--            return root",
+            "topic_title": "Python short recursive solution."
+        },
+        {
+            "java": "public class Solution {--newline--    public TreeNode buildTree(int[] preorder, int[] inorder) {--newline--        Map<Integer, Integer> inMap = new HashMap<Integer, Integer>();--newline--        --newline--        for(int i = 0; i < inorder.length; i++) {--newline--            inMap.put(inorder[i], i);--newline--        }--newline--    --newline--        TreeNode root = buildTree(preorder, 0, preorder.length - 1, inorder, 0, inorder.length - 1, inMap);--newline--        return root;--newline--    }--newline--    --newline--    public TreeNode buildTree(int[] preorder, int preStart, int preEnd, int[] inorder, int inStart, int inEnd, Map<Integer, Integer> inMap) {--newline--        if(preStart > preEnd || inStart > inEnd) return null;--newline--        --newline--        TreeNode root = new TreeNode(preorder[preStart]);--newline--        int inRoot = inMap.get(root.val);--newline--        int numsLeft = inRoot - inStart;--newline--        --newline--        root.left = buildTree(preorder, preStart + 1, preStart + numsLeft, inorder, inStart, inRoot - 1, inMap);--newline--        root.right = buildTree(preorder, preStart + numsLeft + 1, preEnd, inorder, inRoot + 1, inEnd, inMap);--newline--        --newline--        return root;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "5ms Java Clean Solution with Caching"
+        }
+    ],
+    "qc": "105.json"
+}

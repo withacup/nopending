@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--     public String largestNumber(int[] num) {--newline----tab----tab--if(num == null || num.length == 0)--newline----tab----tab--    return \"\";--newline----tab----tab----newline----tab----tab--// Convert int array to String array, so we can sort later on--newline----tab----tab--String[] s_num = new String[num.length];--newline----tab----tab--for(int i = 0; i < num.length; i++)--newline----tab----tab--    s_num[i] = String.valueOf(num[i]);--newline----tab----tab----tab----newline----tab----tab--// Comparator to decide which string should come first in concatenation--newline----tab----tab--Comparator<String> comp = new Comparator<String>(){--newline----tab----tab--    @Override--newline----tab----tab--    public int compare(String str1, String str2){--newline----tab----tab--        String s1 = str1 + str2;--newline----tab----tab----tab--String s2 = str2 + str1;--newline----tab----tab----tab--return s2.compareTo(s1); // reverse order here, so we can do append() later--newline----tab----tab--    }--newline----tab--        };--newline----tab----tab----newline----tab----tab--Arrays.sort(s_num, comp);--newline--                // An extreme edge case by lc, say you have only a bunch of 0 in your int array--newline--                if(s_num[0].charAt(0) == '0')--newline--                    return \"0\";--newline--            --newline----tab----tab--StringBuilder sb = new StringBuilder();--newline----tab----tab--for(String s: s_num)--newline----tab--            sb.append(s);--newline----tab----tab----newline----tab----tab--return sb.toString();--newline----tab----tab----newline----tab--}--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My Java Solution to share"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string largestNumber(vector<int> &num) {--newline--        vector<string> arr;--newline--        for(auto i:num)--newline--            arr.push_back(to_string(i));--newline--        sort(begin(arr), end(arr), [](string &s1, string &s2){ return s1+s2>s2+s1; });--newline--        string res;--newline--        for(auto s:arr)--newline--            res+=s;--newline--        while(res[0]=='0' && res.length()>1)--newline--            res.erase(0,1);--newline--        return  res;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "A simple C++ solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public String largestNumber(int[] num) {--newline--        String[] array = Arrays.stream(num).mapToObj(String::valueOf).toArray(String[]::new);--newline--        Arrays.sort(array, (String s1, String s2) -> (s2 + s1).compareTo(s1 + s2));--newline--        return Arrays.stream(array).reduce((x, y) -> x.equals(\"0\") ? y : x + y).get();--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab--    # @param num, a list of integers--newline----tab--    # @return a string--newline----tab--    def largestNumber(self, num):--newline----tab--        num = [str(x) for x in num]--newline----tab--        num.sort(cmp=lambda x, y: cmp(y+x, x+y))--newline----tab--        return ''.join(num).lstrip('0') or '0'",
+            "topic_title": "My 3-lines code in Java and Python"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string largestNumber(vector<int> &num) {--newline--        sort(num.begin(), num.end(), [](int a, int b){--newline--            return to_string(a)+to_string(b) > to_string(b)+to_string(a);--newline--        });--newline--        string ans;--newline--        for(int i=0; i<num.size(); i++){--newline--            ans += to_string(num[i]);--newline--        }--newline--        return ans[0]=='0' ? \"0\" : ans;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Share a short code in c++"
+        },
+        {
+            "java": "public class Solution {--newline--    public String largestNumber(int[] nums) {--newline--        if (nums == null || nums.length == 0) return \"\";--newline--        String[] strs = new String[nums.length];--newline--        for (int i = 0; i < nums.length; i++) {--newline--            strs[i] = nums[i]+\"\";--newline--        }--newline--        Arrays.sort(strs, new Comparator<String>() {--newline--            @Override--newline--            public int compare(String i, String j) {--newline--                String s1 = i+j;--newline--                String s2 = j+i;--newline--                return s1.compareTo(s2);--newline--            }--newline--        });--newline--        if (strs[strs.length-1].charAt(0) == '0') return \"0\";--newline--        String res = new String();--newline--        for (int i = 0; i < strs.length; i++) {--newline--            res = strs[i]+res;--newline--        }--newline--        return res;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my fast JAVA solution, beat 98.64%!"
+        }
+    ],
+    "qc": "179.json"
+}

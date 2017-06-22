@@ -1,0 +1,17 @@
+---CONTENT_BEGIN---
+Determine if a Sudoku is valid, according to: Sudoku Puzzles - The Rules.
+
+The Sudoku board could be partially filled, where empty cells are filled with the character '.'.
+
+
+
+A partially filled sudoku which is valid.
+
+
+Note:
+A valid Sudoku board (partially filled) is not necessarily solvable. Only the filled cells need to be validated.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    bool isValidSudoku(vector<vector<char>>& board) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public boolean isValidSudoku(char[][] board) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def isValidSudoku(self, board):--newline--        '''--newline--        :type board: List[List[str]]--newline--        :rtype: bool--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "bool isValidSudoku(char** board, int boardRowSize, int boardColSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public bool IsValidSudoku(char[,] board) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {character[][]} board--newline-- * @return {boolean}--newline-- */--newline--var isValidSudoku = function(board) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Character[][]} board--newline--# @return {Boolean}--newline--def is_valid_sudoku(board)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func isValidSudoku(_ board: [[Character]]) -> Bool {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func isValidSudoku(board [][]byte) bool {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

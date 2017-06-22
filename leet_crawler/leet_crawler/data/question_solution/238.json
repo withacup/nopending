@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--public int[] productExceptSelf(int[] nums) {--newline--    int n = nums.length;--newline--    int[] res = new int[n];--newline--    res[0] = 1;--newline--    for (int i = 1; i < n; i++) {--newline--        res[i] = res[i - 1] * nums[i - 1];--newline--    }--newline--    int right = 1;--newline--    for (int i = n - 1; i >= 0; i--) {--newline--        res[i] *= right;--newline--        right *= nums[i];--newline--    }--newline--    return res;--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java solution in O(n) without extra space"
+        },
+        {
+            "java": "public class Solution {--newline--    public int[] productExceptSelf(int[] nums) {--newline--        int[] result = new int[nums.length];--newline--        for (int i = 0, tmp = 1; i < nums.length; i++) {--newline--            result[i] = tmp;--newline--            tmp *= nums[i];--newline--        }--newline--        for (int i = nums.length - 1, tmp = 1; i >= 0; i--) {--newline--            result[i] *= tmp;--newline--            tmp *= nums[i];--newline--        }--newline--        return result;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My simple Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> productExceptSelf(vector<int>& nums) {--newline--        int n=nums.size();--newline--        int fromBegin=1;--newline--        int fromLast=1;--newline--        vector<int> res(n,1);--newline--        --newline--        for(int i=0;i<n;i++){--newline--            res[i]*=fromBegin;--newline--            fromBegin*=nums[i];--newline--            res[n-1-i]*=fromLast;--newline--            fromLast*=nums[n-1-i];--newline--        }--newline--        return res;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "O(n) time and O(1) space C++ solution with explanation"
+        },
+        {
+            "java": "public class Solution {--newline--public int[] productExceptSelf(int[] nums) {--newline--    int leng = nums.length;--newline--    int[] ret = new int[leng];--newline--    if(leng == 0)--newline--        return ret;--newline--    int runningprefix = 1;--newline--    for(int i = 0; i < leng; i++){--newline--        ret[i] = runningprefix;--newline--        runningprefix*= nums[i];--newline--    }--newline--    int runningsufix = 1;--newline--    for(int i = leng -1; i >= 0; i--){--newline--        ret[i] *= runningsufix;--newline--        runningsufix *= nums[i];--newline--    }--newline--    return ret;--newline--    --newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My solution beats 100% java solutions"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab--    # @param {integer[]} nums--newline----tab--    # @return {integer[]}--newline----tab--    def productExceptSelf(self, nums):--newline----tab--        p = 1--newline----tab--        n = len(nums)--newline----tab--        output = []--newline----tab--        for i in range(0,n):--newline----tab--            output.append(p)--newline----tab--            p = p * nums[i]--newline----tab--        p = 1--newline----tab--        for i in range(n-1,-1,-1):--newline----tab--            output[i] = output[i] * p--newline----tab--            p = p * nums[i]--newline----tab--        return output",
+            "topic_title": "Python solution (Accepted), O(n) time, O(1) space"
+        }
+    ],
+    "qc": "238.json"
+}

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline----newline--     public List<List<Integer>> findSubsequences(int[] nums) {--newline--         Set<List<Integer>> res= new HashSet<List<Integer>>();--newline--         List<Integer> holder = new ArrayList<Integer>();--newline--         findSequence(res, holder, 0, nums);--newline--         List result = new ArrayList(res);--newline--         return result;--newline--     }--newline----newline--    public void findSequence(Set<List<Integer>> res, List<Integer> holder, int index, int[] nums) {--newline--        if (holder.size() >= 2) {--newline--            res.add(new ArrayList(holder));--newline--        }--newline--        for (int i = index; i < nums.length; i++) {--newline--            if(holder.size() == 0 || holder.get(holder.size() - 1) <= nums[i]) {--newline--                holder.add(nums[i]);--newline--                findSequence(res, holder, i + 1, nums);--newline--                holder.remove(holder.size() - 1);--newline--            }--newline--        }--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 20 lines backtracking solution using set, beats 100%."
+        },
+        {
+            "java": "public class Solution {--newline--    public List<List<Integer>> findSubsequences(int[] nums) {--newline--    --tab--List<List<Integer>> res = new ArrayList<>();--newline--    --tab--helper(res, new ArrayList<Integer>(), nums, 0);--newline--    --tab--return res;--newline--    }--newline--    --tab----newline--    private void helper(List<List<Integer>> res, List<Integer> list, int[] nums, int id) {--newline--    --tab--if (list.size() > 1) res.add(new ArrayList<Integer>(list));--newline--    --tab--List<Integer> unique = new ArrayList<Integer>();--newline--    --tab--for (int i = id; i < nums.length; i++) {--newline--    --tab----tab--if (id > 0 && nums[i] < nums[id-1]) continue; // skip non-increase--newline--    --tab----tab--if (unique.contains(nums[i])) continue; // skip duplicate--newline--    --tab----tab--unique.add(nums[i]);--newline--    --tab----tab--list.add(nums[i]);--newline--    --tab----tab--helper(res, list, nums, i+1);--newline--    --tab----tab--list.remove(list.size()-1);--newline--    --tab--}--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Clean 20ms solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<List<Integer>> findSubsequences(int[] nums) {--newline--        List<List<Integer>> res = new LinkedList<>();--newline--        helper(new LinkedList<Integer>(), 0, nums, res);--newline--        return res; --newline--    }--newline--    private void helper(LinkedList<Integer> list, int index, int[] nums, List<List<Integer>> res){--newline--        if(list.size()>1) res.add(new LinkedList<Integer>(list));--newline--        Set<Integer> used = new HashSet<>();--newline--        for(int i = index; i<nums.length; i++){--newline--            if(used.contains(nums[i])) continue;--newline--            if(list.size()==0 || nums[i]>=list.peekLast()){--newline--                used.add(nums[i]);--newline--                list.add(nums[i]); --newline--                helper(list, i+1, nums, res);--newline--                list.remove(list.size()-1);--newline--            }--newline--        }--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java solution beats 100%"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def findSubsequences(self, nums):--newline----tab--        subs = {()}--newline----tab--        for num in nums:--newline----tab--            subs |= {sub + (num,)--newline----tab--                     for sub in subs--newline----tab--                     if not sub or sub[-1] <= num}--newline----tab--        return [sub for sub in subs if len(sub) >= 2]",
+            "topic_title": "Simple Python"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<vector<int>> findSubsequences(vector<int>& nums) {--newline--        vector<vector<int>> res;--newline--        vector<int> seq;--newline--        dfs(res, seq, nums, 0);--newline--        return res;--newline--    }--newline--    --newline--    void dfs(vector<vector<int>>& res, vector<int>& seq, vector<int>& nums, int pos) {--newline--        if(seq.size() > 1) res.push_back(seq);--newline--        unordered_set<int> hash;--newline--        for(int i = pos; i < nums.size(); ++i) {--newline--            if((seq.empty() || nums[i] >= seq.back()) && hash.find(nums[i]) == hash.end()) {--newline--                seq.push_back(nums[i]);--newline--                dfs(res, seq, nums, i + 1);--newline--                seq.pop_back();--newline--                hash.insert(nums[i]);--newline--            }--newline--        }--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ dfs solution using unordered_set"
+        }
+    ],
+    "qc": "491.json"
+}

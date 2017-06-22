@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public List<Integer> rightSideView(TreeNode root) {--newline--        List<Integer> result = new ArrayList<Integer>();--newline--        rightView(root, result, 0);--newline--        return result;--newline--    }--newline--    --newline--    public void rightView(TreeNode curr, List<Integer> result, int currDepth){--newline--        if(curr == null){--newline--            return;--newline--        }--newline--        if(currDepth == result.size()){--newline--            result.add(curr.val);--newline--        }--newline--        --newline--        rightView(curr.right, result, currDepth + 1);--newline--        rightView(curr.left, result, currDepth + 1);--newline--        --newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My simple accepted solution(JAVA)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    void recursion(TreeNode *root, int level, vector<int> &res)--newline--    {--newline--        if(root==NULL) return ;--newline--        if(res.size()<level) res.push_back(root->val);--newline--        recursion(root->right, level+1, res);--newline--        recursion(root->left, level+1, res);--newline--    }--newline--    --newline--    vector<int> rightSideView(TreeNode *root) {--newline--        vector<int> res;--newline--        recursion(root, 1, res);--newline--        return res;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "My C++ solution, modified preorder traversal"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<Integer> rightSideView(TreeNode root) {--newline--        // reverse level traversal--newline--        List<Integer> result = new ArrayList();--newline--        Queue<TreeNode> queue = new LinkedList();--newline--        if (root == null) return result;--newline--        --newline--        queue.offer(root);--newline--        while (queue.size() != 0) {--newline--            int size = queue.size();--newline--            for (int i=0; i<size; i++) {--newline--                TreeNode cur = queue.poll();--newline--                if (i == 0) result.add(cur.val);--newline--                if (cur.right != null) queue.offer(cur.right);--newline--                if (cur.left != null) queue.offer(cur.left);--newline--            }--newline--            --newline--        }--newline--        return result;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Reverse Level Order Traversal, java"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    void dfs(TreeNode* root, int lv, vector<int> &res){--newline--        if(!root)   return;--newline--        if(lv>=res.size()) res.push_back(root->val);--newline--        dfs(root->right,lv+1,res);--newline--        dfs(root->left,lv+1,res);--newline--    }--newline----newline--    vector<int> rightSideView(TreeNode* root) {--newline--        vector<int> res;--newline--        dfs(root, 0, res);--newline--        return res;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Simple C++ solution (BTW: I like clean codes)"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<Integer> rightSideView(TreeNode root) {--newline--        if(root==null)--newline--            return new ArrayList<Integer>();--newline--        List<Integer> left = rightSideView(root.left);--newline--        List<Integer> right = rightSideView(root.right);--newline--        List<Integer> re = new ArrayList<Integer>();--newline--        re.add(root.val);--newline--        for(int i=0;i<Math.max(left.size(), right.size());i++){--newline--            if(i>=right.size())--newline--                re.add(left.get(i));--newline--            else--newline--                re.add(right.get(i));--newline--        }--newline--        return re;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution using Divide and Conquer"
+        }
+    ],
+    "qc": "199.json"
+}

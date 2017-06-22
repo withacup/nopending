@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public boolean wordBreak(String s, List<String> wordDict) {--newline--        Set<String> dict = new HashSet<String>(wordDict);--newline--        boolean[] f = new boolean[s.length() + 1];--newline--        --newline--        f[0] = true;--newline--        --newline--        --newline--        /* First DP--newline--        for(int i = 1; i <= s.length(); i++){--newline--            for(String str: dict){--newline--                if(str.length() <= i){--newline--                    if(f[i - str.length()]){--newline--                        if(s.substring(i-str.length(), i).equals(str)){--newline--                            f[i] = true;--newline--                            break;--newline--                        }--newline--                    }--newline--                }--newline--            }--newline--        }*/--newline--        --newline--        //Second DP--newline--        for(int i=1; i <= s.length(); i++){--newline--            for(int j=0; j < i; j++){--newline--                if(f[j] && dict.contains(s.substring(j, i))){--newline--                    f[i] = true;--newline--                    break;--newline--                }--newline--            }--newline--        }--newline--        --newline--        return f[s.length()];--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java implementation using DP in two ways"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool wordBreak(string s, unordered_set<string> &dict) {--newline--            if(dict.size()==0) return false;--newline--            --newline--            vector<bool> dp(s.size()+1,false);--newline--            dp[0]=true;--newline--            --newline--            for(int i=1;i<=s.size();i++)--newline--            {--newline--                for(int j=i-1;j>=0;j--)--newline--                {--newline--                    if(dp[j])--newline--                    {--newline--                        string word = s.substr(j,i-j);--newline--                        if(dict.find(word)!= dict.end())--newline--                        {--newline--                            dp[i]=true;--newline--                            break; //next i--newline--                        }--newline--                    }--newline--                }--newline--            }--newline--            --newline--            return dp[s.size()];--newline--        }--newline--}",
+            "python": null,
+            "topic_title": "C++ Dynamic Programming simple and fast solution (4ms) with optimization"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool wordBreak(string s, unordered_set<string> &dict) {--newline--        // BFS--newline--        queue<int> BFS;--newline--        unordered_set<int> visited;--newline--        --newline--        BFS.push(0);--newline--        while(BFS.size() > 0)--newline--        {--newline--            int start = BFS.front();--newline--            BFS.pop();--newline--            if(visited.find(start) == visited.end())--newline--            {--newline--                visited.insert(start);--newline--                for(int j=start; j<s.size(); j++)--newline--                {--newline--                    string word(s, start, j-start+1);--newline--                    if(dict.find(word) != dict.end())--newline--                    {--newline--                        BFS.push(j+1);--newline--                        if(j+1 == s.size())--newline--                            return true;--newline--                    }--newline--                }--newline--            }--newline--        }--newline--        --newline--        return false;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "A solution using BFS"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple DP solution in Python with description"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean wordBreak(String s, Set<String> dict) {--newline--        boolean [] breakable = new boolean[s.length()+1];--newline--        breakable[0] = true;--newline----newline--        for(int i=1;i<=s.length();i++){--newline--            for(int j=0;j<i;j++){--newline--                if(breakable[j]&&dict.contains(s.substring(j,i))){--newline--                    breakable[i] = true;--newline--                    break;--newline--                }--newline--            }--newline--        }--newline--        return breakable[s.length()];--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Accepted Java Solution"
+        }
+    ],
+    "qc": "139.json"
+}

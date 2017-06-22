@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int longestPalindrome(String s) {--newline--            if(s==null || s.length()==0) return 0;--newline--            HashSet<Character> hs = new HashSet<Character>();--newline--            int count = 0;--newline--            for(int i=0; i<s.length(); i++){--newline--                if(hs.contains(s.charAt(i))){--newline--                    hs.remove(s.charAt(i));--newline--                    count++;--newline--                }else{--newline--                    hs.add(s.charAt(i));--newline--                }--newline--            }--newline--            if(!hs.isEmpty()) return count*2+1;--newline--            return count*2;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple HashSet solution Java"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int longestPalindrome(string s) {--newline--        int odds = 0;--newline--        for (char c='A'; c<='z'; c++)--newline--            odds += count(s.begin(), s.end(), c) & 1;--newline--        return s.size() - odds + (odds > 0);--newline--    }--newline--    --newline--}",
+            "python": "class Solution :--newline----tab--    def longestPalindrome(self, s):--newline----tab--        use = sum(v & ~1 for v in collections.Counter(s).values())--newline----tab--        return use + (use < len(s))--newline----tab--    --newline----tab--    def longestPalindrome(self, s):--newline----tab--        counts = collections.Counter(s).values()--newline----tab--        return sum(v & ~1 for v in counts) + any(v & 1 for v in counts)--newline----tab--    --newline----tab--    int longestPalindrome(string s) {--newline----tab--        int use = 0;--newline----tab--        for (char c='A'; c<='z'; c++)--newline----tab--            use += count(s.begin(), s.end(), c) & ~1;--newline----tab--        return use + (use < s.size());--newline----tab--    }--newline----tab--    --newline----tab--    int longestPalindrome(string s) {--newline----tab--        vector<int> count(256);--newline----tab--        for (char c : s)--newline----tab--            ++count[c];--newline----tab--        int odds = 0;--newline----tab--        for (int c : count)--newline----tab--            odds += c & 1;--newline----tab--        return s.size() - odds + (odds > 0);--newline----tab--    }--newline----tab--    --newline----tab--    int longestPalindrome(string s) {--newline----tab--        vector<int> count(256);--newline----tab--        int odds = 0;--newline----tab--        for (char c : s)--newline----tab--            odds += ++count[c] & 1 ? 1 : -1;--newline----tab--        return s.size() - odds + (odds > 0);--newline----tab--    }",
+            "topic_title": "What are the odds? (Python &amp; C++)"
+        },
+        {
+            "java": "public class Solution {--newline--    public int longestPalindrome(String s) {--newline--        int[] lowercase = new int[26];--newline--        int[] uppercase = new int[26];--newline--        int res = 0;--newline--        for (int i = 0; i < s.length(); i++){--newline--            char temp = s.charAt(i);--newline--            if (temp >= 97) lowercase[temp-'a']++;--newline--            else uppercase[temp-'A']++;--newline--        }--newline--        for (int i = 0; i < 26; i++){--newline--            res+=(lowercase[i]/2)*2;--newline--            res+=(uppercase[i]/2)*2;--newline--        }--newline--        return res == s.length() ? res : res+1;--newline--            --newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "JAVA Solution. Simple and Clear, Using int&#91;26&#93;"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--        int longestPalindrome(string s) {--newline--            vector<int> v(256,0);--newline--            for(int i = 0; i < s.size(); ++i)--newline--               ++v[s[i]];--newline--            int res = 0;--newline--            bool odd = false;--newline--            for(int i = 0; i < 256; ++i)--newline--               if(v[i]%2 == 0)--newline--                   res += v[i];--newline--                else--newline--                {--newline--                   res += v[i] - 1;--newline--                   odd = true;--newline--                }--newline--            if(odd)--newline--              ++res;--newline--            return res;--newline--        }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Easy to understand accepted solution with explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public int longestPalindrome(String s) {--newline--            boolean[] map = new boolean[128];--newline--            int len = 0;--newline--            for (char c : s.toCharArray()) {--newline--                map[c] = !map[c];         // flip on each occurrence, false when seen n*2 times--newline--                if (!map[c]) len+=2;--newline--            }--newline--            if (len < s.length()) len++; // if more than len, atleast one single is present--newline--            return len;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java Solution in One Pass"
+        }
+    ],
+    "qc": "409.json"
+}

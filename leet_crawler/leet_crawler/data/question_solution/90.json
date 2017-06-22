@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "    class Solution {--newline--public:--newline--    vector<vector<int> > subsetsWithDup(vector<int> &S) {--newline--        vector<vector<int> > totalset = {{}};--newline--        sort(S.begin(),S.end());--newline--        for(int i=0; i<S.size();){--newline--            int count = 0; // num of elements are the same--newline--            while(count + i<S.size() && S[count+i]==S[i])  count++;--newline--            int previousN = totalset.size();--newline--            for(int k=0; k<previousN; k++){--newline--                vector<int> instance = totalset[k];--newline--                for(int j=0; j<count; j++){--newline--                    instance.push_back(S[i]);--newline--                    totalset.push_back(instance);--newline--                }--newline--            }--newline--            i += count;--newline--        }--newline--        return totalset;--newline--        }--newline--};",
+            "python": null,
+            "topic_title": "C++ solution and explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<vector<int> > subsetsWithDup(vector<int> &S) {--newline--        sort(S.begin(), S.end());--newline--        vector<vector<int>> ret = {{}};--newline--        int size = 0, startIndex = 0;--newline--        for (int i = 0; i < S.size(); i++) {--newline--            startIndex = i >= 1 && S[i] == S[i - 1] ? size : 0;--newline--            size = ret.size();--newline--            for (int j = startIndex; j < size; j++) {--newline--                vector<int> temp = ret[j];--newline--                temp.push_back(S[i]);--newline--                ret.push_back(temp);--newline--            }--newline--        }--newline--        return ret;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Simple iterative solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    std::vector<std::vector<int> > subsetsWithDup(std::vector<int> &nums) {--newline----tab----tab--std::sort(nums.begin(), nums.end());--newline--        std::vector<std::vector<int> > res;--newline----tab----tab--std::vector<int> vec;--newline----tab----tab--subsetsWithDup(res, nums, vec, 0);--newline----tab----tab--return res;--newline--    }--newline--private:--newline----tab--void subsetsWithDup(std::vector<std::vector<int> > &res, std::vector<int> &nums, std::vector<int> &vec, int begin) {--newline----tab----tab--res.push_back(vec);--newline----tab----tab--for (int i = begin; i != nums.size(); ++i)--newline----tab----tab----tab--if (i == begin || nums[i] != nums[i - 1]) { --newline----tab----tab----tab----tab--vec.push_back(nums[i]);--newline----tab----tab----tab----tab--subsetsWithDup(res, nums, vec, i + 1);--newline----tab----tab----tab----tab--vec.pop_back();--newline----tab----tab----tab--}--newline----tab--}--newline--};--newline--",
+            "python": null,
+            "topic_title": "Accepted 10ms c++ solution use backtracking, only 10 lines, easy understand."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab--    # @param num, a list of integer--newline----tab--    # @return a list of lists of integer--newline----tab--    def subsetsWithDup(self, S):--newline----tab--        res = [[]]--newline----tab--        S.sort()--newline----tab--        for i in range(len(S)):--newline----tab--            if i == 0 or S[i] != S[i - 1]:--newline----tab--                l = len(res)--newline----tab--            for j in range(len(res) - l, len(res)):--newline----tab--                res.append(res[j] + [S[i]])--newline----tab--        return res--newline----tab--",
+            "topic_title": "Simple python solution without extra space."
+        },
+        {
+            "java": "public class Solution {--newline--    public List<List<Integer>> subsetsWithDup(int[] nums) {--newline--        Arrays.sort(nums);--newline--        List<List<Integer>> res = new ArrayList<>();--newline--        List<Integer> each = new ArrayList<>();--newline--        helper(res, each, 0, nums);--newline--        return res;--newline--    }--newline--    public void helper(List<List<Integer>> res, List<Integer> each, int pos, int[] n) {--newline--        if (pos <= n.length) {--newline--            res.add(each);--newline--        }--newline--        int i = pos;--newline--        while (i < n.length) {--newline--            each.add(n[i]);--newline--            helper(res, new ArrayList<>(each), i + 1, n);--newline--            each.remove(each.size() - 1);--newline--            i++;--newline--            while (i < n.length && n[i] == n[i - 1]) {i++;}--newline--        }--newline--        return;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Very simple and fast java solution"
+        }
+    ],
+    "qc": "90.json"
+}

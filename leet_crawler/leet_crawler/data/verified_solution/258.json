@@ -1,0 +1,1 @@
+{"solution_code": "public class Solution {--newline----newline--    public int addDigits(int num) {--newline----newline--        return num==0?0:(num%9==0?9:(num%9));--newline----newline--    }--newline----newline--}", "modified_code": null, "total_cases": 1101, "l_type": "java"}

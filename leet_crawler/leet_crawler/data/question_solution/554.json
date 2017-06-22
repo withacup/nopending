@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int leastBricks(List<List<Integer>> wall) {--newline--        if(wall.size() == 0) return 0;--newline--        int count = 0;--newline--        Map<Integer, Integer> map = new HashMap<Integer, Integer>();--newline--        for(List<Integer> list : wall){--newline--            int length = 0;--newline--            for(int i = 0; i < list.size() - 1; i++){--newline--                length += list.get(i);--newline--                map.put(length, map.getOrDefault(length, 0) + 1);--newline--                count = Math.max(count, map.get(length));--newline--            }--newline--        }--newline--        return wall.size() - count;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "I DON&#x27;T THINK THERE IS A BETTER PERSON THAN ME TO ANSWER THIS QUESTION"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int leastBricks(vector<vector<int>>& wall) {--newline--        unordered_map<int, int> edges;--newline--        auto min_bricks = wall.size();--newline--        for (auto row : wall)--newline--            for (auto i = 0, width = 0; i < row.size() - 1; ++i) // skip last brick--newline--                min_bricks = min(min_bricks, wall.size() - (++edges[width += row[i]]));--newline--        return min_bricks;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "C++ 6 lines (hash map)"
+        },
+        {
+            "java": "public class Solution {--newline--    public int leastBricks(List < List < Integer >> wall) {--newline--        HashMap < Integer, Integer > map = new HashMap < > ();--newline--        for (List < Integer > row: wall) {--newline--            int sum = 0;--newline--            for (int i = 0; i < row.size() - 1; i++) {--newline--                sum += row.get(i);--newline--                if (map.containsKey(sum))--newline--                    map.put(sum, map.get(sum) + 1);--newline--                else--newline--                    map.put(sum, 1);--newline--            }--newline--        }--newline--        int res = wall.size();--newline--        for (int key: map.keySet())--newline--            res = Math.min(res, wall.size() - map.get(key));--newline--        return res;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Neat Java Solution O(n) using hashmap"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def leastBricks(self, wall):--newline----tab--        \"\"\"--newline----tab--        :type wall: List[List[int]]--newline----tab--        :rtype: int--newline----tab--        \"\"\"--newline----tab--        d = collections.defaultdict(int)--newline----tab--        for line in wall:--newline----tab--            i = 0--newline----tab--            for brick in line[:-1]:--newline----tab--                i += brick--newline----tab--                d[i] += 1--newline----tab--        # print len(wall), d--newline----tab--        return len(wall)-max(d.values()+[0])--newline----tab--",
+            "topic_title": "Clear Python Solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int leastBricks(List<List<Integer>> wall) {--newline--        int R = wall.size(), min = R;--newline--        if (R == 1 && wall.get(0).size() > 1) return 0;--newline--        --newline--        // [0: end, 1: row, 2: col]--newline--        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> (a[0] - b[0]));--newline--        --newline--        for (int i = 0; i < R; i++) {--newline--            pq.add(new int[] {wall.get(i).get(0), i, 0});--newline--        }--newline--        --newline--        while (!pq.isEmpty()) {--newline--            int end = pq.peek()[0], count = 0;--newline--            --newline--            while (!pq.isEmpty() && pq.peek()[0] == end) {--newline--                count++;--newline--                int[] brick = pq.poll();--newline--                if (brick[2] < wall.get(brick[1]).size() - 1) {--newline--                    pq.add(new int[] {end + wall.get(brick[1]).get(brick[2] + 1), brick[1], brick[2] + 1});--newline--                }--newline--            }--newline--            --newline--            if (!pq.isEmpty()) {--newline--                min = Math.min(min, R - count);--newline--            }--newline--        }--newline--        --newline--        return min;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Verbose Java Solution, PriorityQueue"
+        }
+    ],
+    "qc": "554.json"
+}

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public List<Integer> lexicalOrder(int n) {--newline--            List<Integer> list = new ArrayList<>(n);--newline--            int curr = 1;--newline--            for (int i = 1; i <= n; i++) {--newline--                list.add(curr);--newline--                if (curr * 10 <= n) {--newline--                    curr *= 10;--newline--                } else if (curr % 10 != 9 && curr + 1 <= n) {--newline--                    curr++;--newline--                } else {--newline--                    while ((curr / 10) % 10 == 9) {--newline--                        curr /= 10;--newline--                    }--newline--                    curr = curr / 10 + 1;--newline--                }--newline--            }--newline--            return list;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java O(n) time, O(1) space iterative solution 130ms"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<Integer> lexicalOrder(int n) {--newline--        List<Integer> res = new ArrayList<>();--newline--        for(int i=1;i<10;++i){--newline--          dfs(i, n, res); --newline--        }--newline--        return res;--newline--    }--newline--    --newline--    public void dfs(int cur, int n, List<Integer> res){--newline--        if(cur>n)--newline--            return;--newline--        else{--newline--            res.add(cur);--newline--            for(int i=0;i<10;++i){--newline--                if(10*cur+i>n)--newline--                    return;--newline--                dfs(10*cur+i, n, res);--newline--            }--newline--        }--newline--    }--newline--}--newline----newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java DFS Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> lexicalOrder(int n) {--newline--        vector<int> res(n);--newline--        int cur = 1;--newline--        for (int i = 0; i < n; i++) {--newline--            res[i] = cur;--newline--            if (cur * 10 <= n) {--newline--                cur *= 10;--newline--            } else {--newline--                if (cur >= n) --newline--                    cur /= 10;--newline--                cur += 1;--newline--                while (cur % 10 == 0)--newline--                    cur /= 10;--newline--            }--newline--        }--newline--        return res;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "AC 200ms c++ solution, beats 98%"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def lexicalOrder(self, n):--newline----tab--        return sorted(xrange(1, n+1), lambda a, b, s=str: 1 if s(b) < s(a) else -1)--newline----tab--    ",
+            "topic_title": "Python with Sorting"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def lexicalOrder(self, n):--newline----tab--        ans = [1]--newline----tab--        while len(ans) < n:--newline----tab--            new = ans[-1] * 10--newline----tab--            while new > n:--newline----tab--                new /= 10--newline----tab--                new += 1--newline----tab--                while new % 10 == 0:    # deal with case like 199+1=200 when we need to restart from 2.--newline----tab--                    new /= 10--newline----tab--            ans.append(new)    --newline----tab--        return ans--newline----tab--",
+            "topic_title": "The most elegant python solution so far. 10 liner. iterative. O(n) time, O(1) space."
+        }
+    ],
+    "qc": "386.json"
+}

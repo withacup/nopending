@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public boolean containsNearbyDuplicate(int[] nums, int k) {--newline--            Set<Integer> set = new HashSet<Integer>();--newline--            for(int i = 0; i < nums.length; i++){--newline--                if(i > k) set.remove(nums[i-k-1]);--newline--                if(!set.add(nums[i])) return true;--newline--            }--newline--            return false;--newline--     }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool containsNearbyDuplicate(vector<int>& nums, int k)--newline--    {--newline--       unordered_set<int> s;--newline--       --newline--       if (k <= 0) return false;--newline--       if (k >= nums.size()) k = nums.size() - 1;--newline--       --newline--       for (int i = 0; i < nums.size(); i++)--newline--       {--newline--           if (i > k) s.erase(nums[i - k - 1]);--newline--           if (s.find(nums[i]) != s.end()) return true;--newline--           s.insert(nums[i]);--newline--       }--newline--       --newline--       return false;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ solution with unordered_set"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean containsNearbyDuplicate(int[] nums, int k) {--newline--        Map<Integer, Integer> map = new HashMap<Integer, Integer>();--newline--        for (int i = 0; i < nums.length; i++) {--newline--            if (map.containsKey(nums[i])) {--newline--                if (i - map.get(nums[i]) <= k) return true;--newline--            }--newline--            map.put(nums[i], i);--newline--        }--newline--        return false;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Short AC JAVA solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def containsNearbyDuplicate(self, nums, k):--newline----tab--        dic = {}--newline----tab--        for i, v in enumerate(nums):--newline----tab--            if v in dic and i - dic[v] <= k:--newline----tab--                return True--newline----tab--            dic[v] = i--newline----tab--        return False",
+            "topic_title": "Python concise solution with dictionary."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool containsNearbyDuplicate(vector<int>& nums, int k) {--newline--        set<int> cand;--newline--        for (int i = 0; i < nums.size(); i++) {--newline--            if (i > k) cand.erase(nums[i-k-1]);--newline--            if (!cand.insert(nums[i]).second) return true;--newline--        }--newline--        return false;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "C++ 6 line solution. simple code and easy understanding"
+        }
+    ],
+    "qc": "219.json"
+}

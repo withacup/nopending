@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": " public class Solution {--newline--    public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {--newline--        if (k < 1 || t < 0) return false;--newline--        Map<Long, Long> map = new HashMap<>();--newline--        for (int i = 0; i < nums.length; i++) {--newline--            long remappedNum = (long) nums[i] - Integer.MIN_VALUE;--newline--            long bucket = remappedNum / ((long) t + 1);--newline--            if (map.containsKey(bucket)--newline--                    || (map.containsKey(bucket - 1) && remappedNum - map.get(bucket - 1) <= t)--newline--                        || (map.containsKey(bucket + 1) && map.get(bucket + 1) - remappedNum <= t))--newline--                            return true;--newline--            if (map.entrySet().size() >= k) {--newline--                long lastBucket = ((long) nums[i - k] - Integer.MIN_VALUE) / ((long) t + 1);--newline--                map.remove(lastBucket);--newline--            }--newline--            map.put(bucket, remappedNum);--newline--        }--newline--        return false;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "AC O(N) solution in Java using buckets with explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {--newline--        if (nums == null || nums.length == 0 || k <= 0) {--newline--            return false;--newline--        }--newline----newline--        final TreeSet<Integer> values = new TreeSet<>();--newline--        for (int ind = 0; ind < nums.length; ind++) {--newline----newline--            final Integer floor = values.floor(nums[ind] + t);--newline--            final Integer ceil = values.ceiling(nums[ind] - t);--newline--            if ((floor != null && floor >= nums[ind])--newline--                    || (ceil != null && ceil <= nums[ind])) {--newline--                return true;--newline--            }--newline----newline--            values.add(nums[ind]);--newline--            if (ind >= k) {--newline--                values.remove(nums[ind - k]);--newline--            }--newline--        }--newline----newline--        return false;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java O(N lg K) solution"
+        },
+        {
+            "java": "public class Solution {--newline--    private long getID(long i, long w) {--newline--        return i < 0 ? (i + 1) / w - 1 : i / w;--newline--    }--newline--    --newline--    public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {--newline--        if (t < 0) return false;--newline--        Map<Long, Long> d = new HashMap<>();--newline--        long w = (long)t + 1;--newline--        for (int i = 0; i < nums.length; ++i) {--newline--            long m = getID(nums[i], w);--newline--            if (d.containsKey(m))--newline--                return true;--newline--            if (d.containsKey(m - 1) && Math.abs(nums[i] - d.get(m - 1)) < w)--newline--                return true;--newline--            if (d.containsKey(m + 1) && Math.abs(nums[i] - d.get(m + 1)) < w)--newline--                return true;--newline--            d.put(m, (long)nums[i]);--newline--            if (i >= k) d.remove(getID(nums[i - k], w));--newline--        }--newline--        return false;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def containsNearbyAlmostDuplicate(self, nums, k, t):--newline----tab--        if t < 0: return False--newline----tab--        n = len(nums)--newline----tab--        d = {}--newline----tab--        w = t + 1--newline----tab--        for i in xrange(n):--newline----tab--            m = nums[i] / w--newline----tab--            if m in d:--newline----tab--                return True--newline----tab--            if m - 1 in d and abs(nums[i] - d[m - 1]) < w:--newline----tab--                return True--newline----tab--            if m + 1 in d and abs(nums[i] - d[m + 1]) < w:--newline----tab--                return True--newline----tab--            d[m] = nums[i]--newline----tab--            if i >= k: del d[nums[i - k] / w]--newline----tab--        return False--newline----tab--    --newline----tab--    --newline----tab--    # 30 / 30 test cases passed.--newline----tab--    # Status: Accepted--newline----tab--    # Runtime: 56 ms--newline----tab--    # 93.81%--newline----tab--    ",
+            "topic_title": "Java&#x2F;Python one pass solution, O(n) time O(n) space using buckets"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--     bool containsNearbyAlmostDuplicate(vector<int>& nums, int k, int t) {--newline--        set<int> window; // set is ordered automatically --newline--        for (int i = 0; i < nums.size(); i++) {--newline--            if (i > k) window.erase(nums[i-k-1]); // keep the set contains nums i j at most k--newline--            // |x - nums[i]| <= t  ==> -t <= x - nums[i] <= t;--newline--            auto pos = window.lower_bound(nums[i] - t); // x-nums[i] >= -t ==> x >= nums[i]-t --newline--            // x - nums[i] <= t ==> |x - nums[i]| <= t    --newline--            if (pos != window.end() && *pos - nums[i] <= t) return true;--newline--            window.insert(nums[i]);--newline--        }--newline--        return false;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "C++ using set (less 10 lines), with simple explanation."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def containsNearbyAlmostDuplicate(self, nums, k, t):--newline----tab--        # Bucket sort. Each bucket has size of t. For each number, the possible--newline----tab--        # candidate can only be in the same bucket or the two buckets besides.--newline----tab--        # Keep as many as k buckets to ensure that the difference is at most k.--newline----tab--        buckets = {}--newline----tab--        for i, v in enumerate(nums):--newline----tab--            # t == 0 is a special case where we only have to check the bucket--newline----tab--            # that v is in.--newline----tab--            bucketNum, offset = (v / t, 1) if t else (v, 0)--newline----tab--            for idx in xrange(bucketNum - offset, bucketNum + offset + 1):--newline----tab--                if idx in buckets and abs(buckets[idx] - nums[i]) <= t:--newline----tab--                    return True--newline----tab--    --newline----tab--            buckets[bucketNum] = nums[i]--newline----tab--            if len(buckets) > k:--newline----tab--                # Remove the bucket which is too far away. Beware of zero t.--newline----tab--                del buckets[nums[i - k] / t if t else nums[i - k]]--newline----tab--    --newline----tab--        return False",
+            "topic_title": "O(n) Python using buckets with explanation, 10 lines."
+        }
+    ],
+    "qc": "220.json"
+}

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int findSubstringInWraproundString(String p) {--newline--        // count[i] is the maximum unique substring end with ith letter.--newline--        // 0 - 'a', 1 - 'b', ..., 25 - 'z'.--newline--        int[] count = new int[26];--newline--        --newline--        // store longest contiguous substring ends at current position.--newline--        int maxLengthCur = 0; --newline----newline--        for (int i = 0; i < p.length(); i++) {--newline--            if (i > 0 && (p.charAt(i) - p.charAt(i - 1) == 1 || (p.charAt(i - 1) - p.charAt(i) == 25))) {--newline--                maxLengthCur++;--newline--            }--newline--            else {--newline--                maxLengthCur = 1;--newline--            }--newline--            --newline--            int index = p.charAt(i) - 'a';--newline--            count[index] = Math.max(count[index], maxLengthCur);--newline--        }--newline--        --newline--        // Sum to get result--newline--        int sum = 0;--newline--        for (int i = 0; i < 26; i++) {--newline--            sum += count[i];--newline--        }--newline--        return sum;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Concise Java solution using DP"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int findSubstringInWraproundString(string p) {--newline--            vector<int> letters(26, 0);--newline--            int res = 0, len = 0;--newline--            for (int i = 0; i < p.size(); i++) {--newline--                int cur = p[i] - 'a';--newline--                if (i > 0 && p[i - 1] != (cur + 26 - 1) % 26 + 'a') len = 0;--newline--                if (++len > letters[cur]) {--newline--                    res += len - letters[cur];--newline--                    letters[cur] = len;--newline--                }--newline--            }--newline--            return res;--newline--        }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "C++ Concise Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def findSubstringInWraproundString(self, p):--newline----tab--        \"\"\"--newline----tab--        :type p: str--newline----tab--        :rtype: int--newline----tab--        \"\"\"--newline----tab--        pattern = 'zabcdefghijklmnopqrstuvwxyz'--newline----tab--        cmap = collections.defaultdict(int)--newline----tab--        start = end = 0--newline----tab--        for c in range(len(p)):--newline----tab--            if c and p[c-1:c+1] not in pattern:--newline----tab--                for x in range(start, end):--newline----tab--                    cmap[p[x]] = max(end - x, cmap[p[x]])--newline----tab--                start = c--newline----tab--            end = c + 1--newline----tab--        for x in range(start, end):--newline----tab--            cmap[p[x]] = max(end - x, cmap[p[x]])--newline----tab--        return sum(cmap.values())--newline----tab--",
+            "topic_title": "Python O(n) DP"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findSubstringInWraproundString(String p) {--newline--        if(p == null || p.isEmpty()) return 0;--newline--        int dp[] = new int[26];--newline--        int i = 0;--newline--        int n = p.length();--newline--        char [] s = p.toCharArray();--newline--        int len = 1;--newline--        while(i<n){--newline--            char prev = s[i];--newline--            i++;--newline--            dp[prev - 'a'] = Math.max(dp[prev-'a'], len);--newline--            while(i<p.length() && s[i]-'a' == (prev-'a'+1)%26){--newline--                prev = s[i];--newline--                len++;--newline--                i++;--newline--                dp[prev - 'a'] = Math.max(dp[prev-'a'], len);--newline--            }--newline--            dp[prev - 'a'] = Math.max(dp[prev-'a'], len);--newline--            len = 1;--newline--        }--newline--        int count = 0;--newline--        for(int j = 0;j<26;j++) count+=dp[j];--newline--        return count;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java two different solutions with explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def findSubstringInWraproundString(self, p):--newline----tab--        p, d, lo = '0'+p, collections.defaultdict(int), 0--newline----tab--        for hi in range(1, len(p)):--newline----tab--            if p[hi-1]+p[hi] not in 'abcdefghijklmnopqrstuvwxyza':--newline----tab--                lo = hi--newline----tab--            d[p[hi]] = max(d[p[hi]], hi+1-lo)--newline----tab--        return sum(d.values())--newline----tab--",
+            "topic_title": "Concise O(n) 6-liner in Python"
+        }
+    ],
+    "qc": "467.json"
+}

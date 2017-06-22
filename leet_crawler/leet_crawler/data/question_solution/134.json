@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int canCompleteCircuit(vector<int> &gas, vector<int> &cost) {--newline--        int start(0),total(0),tank(0);--newline--        //if car fails at 'start', record the next station--newline--        for(int i=0;i<gas.size();i++) if((tank=tank+gas[i]-cost[i])<0) {start=i+1;total+=tank;tank=0;}--newline--        return (total+tank<0)? -1:start;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Share some of my ideas."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int canCompleteCircuit(vector<int> &gas, vector<int> &cost) {--newline----newline--       int start = gas.size()-1;--newline--       int end = 0;--newline--       int sum = gas[start] - cost[start];--newline--       while (start > end) {--newline--          if (sum >= 0) {--newline--             sum += gas[end] - cost[end];--newline--             ++end;--newline--          }--newline--          else {--newline--             --start;--newline--             sum += gas[start] - cost[start];--newline--          }--newline--       }--newline--       return sum >= 0 ? start : -1;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "My AC is O(1) space O(n) running time solution. Does anybody have posted this solution?"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {--newline--        int n = gas.size();--newline--        int total(0), subsum(INT_MAX), start(0);--newline--        for(int i = 0; i < n; ++i){--newline--            total += gas[i] - cost[i];--newline--            if(total < subsum) {--newline--                subsum = total;--newline--                start = i + 1;--newline--            }--newline--        }--newline--        return (total < 0) ?  -1 : (start%n); --newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Proof of &quot;if total gas is greater than total cost, there is a solution&quot;. C++"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int canCompleteCircuit(vector<int> &gas, vector<int> &cost) {--newline--        int i, j, n = gas.size();--newline----newline--        /*--newline--         * If start from i, stop before station x -> no station k from i + 1 to x - 1 can reach x.--newline--         * Bcoz if so, i can reach k and k can reach x, then i reaches x. Contradiction.--newline--         * Thus i can jump directly to x instead of i + 1, bringing complexity from O(n^2) to O(n).--newline--         */--newline--        // start from station i--newline--        for (i = 0; i < n; i += j) {--newline--            int gas_left = 0;--newline--            // forward j stations--newline--            for (j = 1; j <= n; j++) {--newline--                int k = (i + j - 1) % n;--newline--                gas_left += gas[k] - cost[k];--newline--                if (gas_left < 0)--newline--                    break;--newline--            }--newline--            if (j > n)--newline--                return i;--newline--        }--newline----newline--        return -1;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Fully-commented O(n) C++ solution enabled by a single observation of mine"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {--newline--    int size=gas.size();--newline--    int sum=0;--newline--    int res=0;--newline--    int total=0;--newline--    for(int i=0; i<size; ++i){--newline--        sum+=gas[i]-cost[i];--newline--        if(sum<0){--newline--            total+=sum;--newline--            sum=0;--newline--            res=i+1;--newline--        }--newline--    }--newline--    total+=sum;--newline--    return total<0?-1:res;--newline--}};--newline--",
+            "python": null,
+            "topic_title": "My one pass solution."
+        }
+    ],
+    "qc": "134.json"
+}

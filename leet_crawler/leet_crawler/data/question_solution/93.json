@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public List<String> restoreIpAddresses(String s) {--newline--        List<String> res = new ArrayList<String>();--newline--        int len = s.length();--newline--        for(int i = 1; i<4 && i<len-2; i++){--newline--            for(int j = i+1; j<i+4 && j<len-1; j++){--newline--                for(int k = j+1; k<j+4 && k<len; k++){--newline--                    String s1 = s.substring(0,i), s2 = s.substring(i,j), s3 = s.substring(j,k), s4 = s.substring(k,len);--newline--                    if(isValid(s1) && isValid(s2) && isValid(s3) && isValid(s4)){--newline--                        res.add(s1+\".\"+s2+\".\"+s3+\".\"+s4);--newline--                    }--newline--                }--newline--            }--newline--        }--newline--        return res;--newline--    }--newline--    public boolean isValid(String s){--newline--        if(s.length()>3 || s.length()==0 || (s.charAt(0)=='0' && s.length()>1) || Integer.parseInt(s)>255)--newline--            return false;--newline--        return true;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My code in Java"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<String> restoreIpAddresses(String s) {--newline--        List<String> solutions = new ArrayList<String>();--newline--        restoreIp(s, solutions, 0, \"\", 0);--newline--        return solutions;--newline--    }--newline--    --newline--    private void restoreIp(String ip, List<String> solutions, int idx, String restored, int count) {--newline--        if (count > 4) return;--newline--        if (count == 4 && idx == ip.length()) solutions.add(restored);--newline--        --newline--        for (int i=1; i<4; i++) {--newline--            if (idx+i > ip.length()) break;--newline--            String s = ip.substring(idx,idx+i);--newline--            if ((s.startsWith(\"0\") && s.length()>1) || (i==3 && Integer.parseInt(s) >= 256)) continue;--newline--            restoreIp(ip, solutions, idx+i, restored+s+(count==3?\"\" : \".\"), count+1);--newline--        }--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Very simple DFS solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--        // c++  code--newline--        vector<string> restoreIpAddresses(string s) {--newline--            vector<string> ret;--newline--            string ans;--newline--            --newline--            for (int a=1; a<=3; a++)--newline--            for (int b=1; b<=3; b++)--newline--            for (int c=1; c<=3; c++)--newline--            for (int d=1; d<=3; d++)--newline--                if (a+b+c+d == s.length()) {--newline--                    int A = stoi(s.substr(0, a));--newline--                    int B = stoi(s.substr(a, b));--newline--                    int C = stoi(s.substr(a+b, c));--newline--                    int D = stoi(s.substr(a+b+c, d));--newline--                    if (A<=255 && B<=255 && C<=255 && D<=255)--newline--                        if ( (ans=to_string(A)+\".\"+to_string(B)+\".\"+to_string(C)+\".\"+to_string(D)).length() == s.length()+3)--newline--                            ret.push_back(ans);--newline--                }    --newline--            --newline--            return ret;--newline--        }--newline--}",
+            "python": null,
+            "topic_title": "WHO CAN BEAT THIS CODE ?"
+        },
+        {
+            "java": "public class Solution {--newline--    static List<String> restoreIpAddresses(String s) {--newline--    --tab--List<String> ans = new ArrayList<String>();--newline--    --tab--int len = s.length();--newline--    --tab--for (int i = 1; i <=3; ++i){  // first cut--newline--    --tab----tab--if (len-i > 9) continue;    --tab----tab----newline--    --tab----tab--for (int j = i+1; j<=i+3; ++j){  //second cut--newline--    --tab----tab----tab--if (len-j > 6) continue;    --tab----tab----tab----newline--    --tab----tab----tab--for (int k = j+1; k<=j+3 && k<len; ++k){  // third cut--newline--    --tab----tab----tab----tab--int a,b,c,d;                // the four int's seperated by \".\"--newline--    --tab----tab----tab----tab--a = Integer.parseInt(s.substring(0,i));  --newline--    --tab----tab----tab----tab--b = Integer.parseInt(s.substring(i,j)); // notice that \"01\" can be parsed into 1. Need to deal with that later.--newline--    --tab----tab----tab----tab--c = Integer.parseInt(s.substring(j,k));--newline--    --tab----tab----tab----tab--d = Integer.parseInt(s.substring(k));--newline--    --tab----tab----tab----tab--if (a>255 || b>255 || c>255 || d>255) continue; --newline--    --tab----tab----tab----tab--String ip = a+\".\"+b+\".\"+c+\".\"+d;--newline--    --tab----tab----tab----tab--if (ip.length()<len+3) continue;  // this is to reject those int's parsed from \"01\" or \"00\"-like substrings--newline--    --tab----tab----tab----tab--ans.add(ip);--newline--    --tab----tab----tab--}--newline--    --tab----tab--}--newline--    --tab--}--newline--    --tab--return ans;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My concise AC java code"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "What is the definition of a valid IP address?"
+        }
+    ],
+    "qc": "93.json"
+}

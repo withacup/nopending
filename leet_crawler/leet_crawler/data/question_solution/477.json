@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int totalHammingDistance(int[] nums) {--newline--        int total = 0, n = nums.length;--newline--        for (int j=0;j<32;j++) {--newline--            int bitCount = 0;--newline--            for (int i=0;i<n;i++) --newline--                bitCount += (nums[i] >> j) & 1;--newline--            total += bitCount*(n - bitCount);--newline--        }--newline--        return total;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java O(n) time O(1) Space"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int totalHammingDistance(vector<int>& nums) {--newline--        int size = nums.size();--newline--        if(size < 2) return 0;--newline--        int ans = 0;--newline--        int *zeroOne = new int[2];--newline--        while(true)--newline--        {--newline--            int zeroCount = 0;--newline--            zeroOne[0] = 0;--newline--            zeroOne[1] = 0;--newline--            for(int i = 0; i < nums.size(); i++)--newline--            {--newline--                if(nums[i] == 0) zeroCount++;--newline--                zeroOne[nums[i] % 2]++;--newline--                nums[i] = nums[i] >> 1;--newline--            }--newline--            ans += zeroOne[0] * zeroOne[1];--newline--            if(zeroCount == nums.size()) return ans;--newline--        }--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Share my O(n) C++ bitwise solution with thinking process and explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def totalHammingDistance(self, nums):--newline----tab--        return sum(b.count('0') * b.count('1') for b in zip(*map('{:032b}'.format, nums)))",
+            "topic_title": "Python via Strings"
+        },
+        {
+            "java": "public class Solution {--newline--    public int totalHammingDistance(int[] nums) {--newline--        int n = 31;--newline--        int len = nums.length;--newline--        int[] countOfOnes = new int[n];--newline--        for (int i = 0; i < len; i++) {--newline--            for (int j = 0; j < n; j++) {--newline--                countOfOnes[j] += (nums[i] >> j) & 1;--newline--            }--newline--        }--newline--        int sum = 0;--newline--        for (int count: countOfOnes) {--newline--            sum += count * (len - count);--newline--        }--newline--        return sum;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution with Explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Python Explanation"
+        }
+    ],
+    "qc": "477.json"
+}

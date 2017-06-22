@@ -1,0 +1,37 @@
+---CONTENT_BEGIN---
+
+    Given a string array words, find the maximum value of length(word[i]) * length(word[j]) where the two words do not share common letters.
+    You may assume that each word will contain only lower case letters.
+    If no such two words exist, return 0.
+
+
+
+    Example 1:
+
+
+    Given ["abcw", "baz", "foo", "bar", "xtfn", "abcdef"]
+    Return 16
+    The two words can be "abcw", "xtfn".
+
+
+    Example 2:
+
+
+    Given ["a", "ab", "abc", "d", "cd", "bcd", "abcd"]
+    Return 4
+    The two words can be "ab", "cd".
+
+
+    Example 3:
+
+
+    Given ["a", "aa", "aaa", "aaaa"]
+    Return 0
+    No such pair of words.    
+
+
+Credits:Special thanks to @dietpepsi for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int maxProduct(vector<string>& words) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int maxProduct(String[] words) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def maxProduct(self, words):--newline--        '''--newline--        :type words: List[str]--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int maxProduct(char** words, int wordsSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int MaxProduct(string[] words) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string[]} words--newline-- * @return {number}--newline-- */--newline--var maxProduct = function(words) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String[]} words--newline--# @return {Integer}--newline--def max_product(words)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func maxProduct(_ words: [String]) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func maxProduct(words []string) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

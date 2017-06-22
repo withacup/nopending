@@ -1,0 +1,77 @@
+---CONTENT_BEGIN---
+Given a positive integer a, find the smallest positive integer b whose multiplication of each digit equals to a. 
+
+
+If there is no answer or the answer is not fit in 32-bit signed integer, then return 0.
+
+
+Example 1
+Input:
+48 
+Output:
+68
+
+
+
+Example 2
+Input: 
+15
+
+Output:
+35
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[
+    {
+        "text": "C++",
+        "value": "cpp",
+        "defaultCode": "class Solution {--newline--public:--newline--    int smallestFactorization(int a) {--newline--        --newline--    }--newline--};"
+    },
+    {
+        "text": "Java",
+        "value": "java",
+        "defaultCode": "public class Solution {--newline--    public int smallestFactorization(int a) {--newline--        --newline--    }--newline--}"
+    },
+    {
+        "text": "Python",
+        "value": "python",
+        "defaultCode": "class Solution(object):--newline--    def smallestFactorization(self, a):--newline--        '''--newline--        :type a: int--newline--        :rtype: int--newline--        '''"
+    },
+    {
+        "text": "Python3",
+        "value": "python3",
+        "defaultCode": "class Solution:--newline--    def smallestFactorization(self, a):--newline--        '''--newline--        :type a: int--newline--        :rtype: int--newline--        '''"
+    },
+    {
+        "text": "C",
+        "value": "c",
+        "defaultCode": "int smallestFactorization(int a) {--newline--    --newline--}"
+    },
+    {
+        "text": "C#",
+        "value": "csharp",
+        "defaultCode": "public class Solution {--newline--    public int SmallestFactorization(int a) {--newline--        --newline--    }--newline--}"
+    },
+    {
+        "text": "JavaScript",
+        "value": "javascript",
+        "defaultCode": "/**--newline-- * @param {number} a--newline-- * @return {number}--newline-- */--newline--var smallestFactorization = function(a) {--newline--    --newline--};"
+    },
+    {
+        "text": "Ruby",
+        "value": "ruby",
+        "defaultCode": "# @param {Integer} a--newline--# @return {Integer}--newline--def smallest_factorization(a)--newline--    --newline--end"
+    },
+    {
+        "text": "Swift",
+        "value": "swift",
+        "defaultCode": "class Solution {--newline--    func smallestFactorization(_ a: Int) -> Int {--newline--        --newline--    }--newline--}"
+    },
+    {
+        "text": "Go",
+        "value": "golang",
+        "defaultCode": "func smallestFactorization(a int) int {--newline--    --newline--}"
+    }
+]
+---SCRIPT_END---

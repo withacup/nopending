@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--public int calculate(String s) {--newline--    int len;--newline--    if(s==null || (len = s.length())==0) return 0;--newline--    Stack<Integer> stack = new Stack<Integer>();--newline--    int num = 0;--newline--    char sign = '+';--newline--    for(int i=0;i<len;i++){--newline--        if(Character.isDigit(s.charAt(i))){--newline--            num = num*10+s.charAt(i)-'0';--newline--        }--newline--        if((!Character.isDigit(s.charAt(i)) &&' '!=s.charAt(i)) || i==len-1){--newline--            if(sign=='-'){--newline--                stack.push(-num);--newline--            }--newline--            if(sign=='+'){--newline--                stack.push(num);--newline--            }--newline--            if(sign=='*'){--newline--                stack.push(stack.pop()*num);--newline--            }--newline--            if(sign=='/'){--newline--                stack.push(stack.pop()/num);--newline--            }--newline--            sign = s.charAt(i);--newline--            num = 0;--newline--        }--newline--    }--newline----newline--    int re = 0;--newline--    for(int i:stack){--newline--        re += i;--newline--    }--newline--    return re;--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my  java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int calculate(string s) {--newline--        istringstream in('+' + s + '+');--newline--        long long total = 0, term = 0, n;--newline--        char op;--newline--        while (in >> op) {--newline--            if (op == '+' or op == '-') {--newline--                total += term;--newline--                in >> term;--newline--                term *= 44 - op;--newline--            } else {--newline--                in >> n;--newline--                if (op == '*')--newline--                    term *= n;--newline--                else--newline--                    term /= n;--newline--            }--newline--        }--newline--        return total;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "17 lines C++, easy, 20 ms"
+        },
+        {
+            "java": "public class Solution {--newline--    public int calculate(String s) {--newline--        if (s == null) return 0;--newline--        s = s.trim().replaceAll(\" +\", \"\");--newline--        int length = s.length();--newline--        --newline--        int res = 0;--newline--        long preVal = 0; // initial preVal is 0--newline--        char sign = '+'; // initial sign is +--newline--        int i = 0;--newline--        while (i < length) {--newline--            long curVal = 0;--newline--            while (i < length && (int)s.charAt(i) <= 57 && (int)s.charAt(i) >= 48) { // int--newline--                curVal = curVal*10 + (s.charAt(i) - '0');--newline--                i++;--newline--            }--newline--            if (sign == '+') {--newline--                res += preVal;  // update res--newline--                preVal = curVal;--newline--            } else if (sign == '-') {--newline--                res += preVal;  // update res--newline--                preVal = -curVal;--newline--            } else if (sign == '*') {--newline--                preVal = preVal * curVal; // not update res, combine preVal & curVal and keep loop--newline--            } else if (sign == '/') {--newline--                preVal = preVal / curVal; // not update res, combine preVal & curVal and keep loop--newline--            }--newline--            if (i < length) { // getting new sign--newline--                sign = s.charAt(i);--newline--                i++;--newline--            }--newline--        }--newline--        res += preVal;--newline--        return res;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java straight forward iteration Solution with comments, No Stack, O(N) &amp; O(1)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int calculate(string s) {--newline--        int result = 0, cur_res = 0;--newline--        char op = '+';--newline--        for(int pos = s.find_first_not_of(' '); pos < s.size(); pos = s.find_first_not_of(' ', pos)) {--newline--            if(isdigit(s[pos])) {--newline--                int tmp = s[pos] - '0';--newline--                while(++pos < s.size() && isdigit(s[pos]))--newline--                    tmp = tmp*10 + (s[pos] - '0');--newline--                switch(op) {--newline--                    case '+' : cur_res += tmp; break;--newline--                    case '-' : cur_res -= tmp; break;--newline--                    case '*' : cur_res *= tmp; break;--newline--                    case '/' : cur_res /= tmp; break;--newline--                }--newline--            }--newline--            else {--newline--                if(s[pos] == '+' || s[pos] == '-') {--newline--                    result += cur_res;--newline--                    cur_res = 0;--newline--                }--newline--                op = s[pos++];--newline--            }--newline--        }--newline--        return result + cur_res;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "My 16 ms No stack One pass short C++ solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int calculate(string s) {--newline--        stack<int> myStack;--newline--        char sign = '+';--newline--        int res = 0, tmp = 0;--newline--        for (unsigned int i = 0; i < s.size(); i++) {--newline--            if (isdigit(s[i]))--newline--                tmp = 10*tmp + s[i]-'0';--newline--            if (!isdigit(s[i]) && !isspace(s[i]) || i == s.size()-1) {--newline--                if (sign == '-')--newline--                    myStack.push(-tmp);--newline--                else if (sign == '+')--newline--                    myStack.push(tmp);--newline--                else {--newline--                    int num;--newline--                    if (sign == '*' )--newline--                        num = myStack.top()*tmp;--newline--                    else--newline--                        num = myStack.top()/tmp;--newline--                    myStack.pop();--newline--                    myStack.push(num);--newline--                } --newline--                sign = s[i];--newline--                tmp = 0;--newline--            }--newline--        }--newline--        while (!myStack.empty()) {--newline--            res += myStack.top();--newline--            myStack.pop();--newline--        }--newline--        return res;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "C++ stack solution."
+        }
+    ],
+    "qc": "227.json"
+}

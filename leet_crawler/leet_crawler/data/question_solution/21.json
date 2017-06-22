@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    ListNode *mergeTwoLists(ListNode *l1, ListNode *l2) {--newline--        if(l1 == NULL) return l2;--newline--        if(l2 == NULL) return l1;--newline--        --newline--        if(l1->val < l2->val) {--newline--            l1->next = mergeTwoLists(l1->next, l2);--newline--            return l1;--newline--        } else {--newline--            l2->next = mergeTwoLists(l2->next, l1);--newline--            return l2;--newline--        }--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "A recursive solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    ListNode *mergeTwoLists(ListNode *l1, ListNode *l2) {--newline--        ListNode dummy(INT_MIN);--newline--        ListNode *tail = &dummy;--newline--        --newline--        while (l1 && l2) {--newline--            if (l1->val < l2->val) {--newline--                tail->next = l1;--newline--                l1 = l1->next;--newline--            } else {--newline--                tail->next = l2;--newline--                l2 = l2->next;--newline--            }--newline--            tail = tail->next;--newline--        }--newline----newline--        tail->next = l1 ? l1 : l2;--newline--        return dummy.next;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "14 line clean C++ Solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {--newline--        if(l1 == null){--newline--            return l2;--newline--        }--newline--        if(l2 == null){--newline--            return l1;--newline--        }--newline--        --newline--        ListNode mergeHead;--newline--        if(l1.val < l2.val){--newline--            mergeHead = l1;--newline--            mergeHead.next = mergeTwoLists(l1.next, l2);--newline--        }--newline--        else{--newline--            mergeHead = l2;--newline--            mergeHead.next = mergeTwoLists(l1, l2.next);--newline--        }--newline--        return mergeHead;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My recursive way to solve this problem(JAVA, easy understanding)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    # iteratively--newline----tab--    def mergeTwoLists1(self, l1, l2):--newline----tab--        dummy = cur = ListNode(0)--newline----tab--        while l1 and l2:--newline----tab--            if l1.val < l2.val:--newline----tab--                cur.next = l1--newline----tab--                l1 = l1.next--newline----tab--            else:--newline----tab--                cur.next = l2--newline----tab--                l2 = l2.next--newline----tab--            cur = cur.next--newline----tab--        cur.next = l1 or l2--newline----tab--        return dummy.next--newline----tab--        --newline----tab--    # recursively    --newline----tab--    def mergeTwoLists2(self, l1, l2):--newline----tab--        if not l1 or not l2:--newline----tab--            return l1 or l2--newline----tab--        if l1.val < l2.val:--newline----tab--            l1.next = self.mergeTwoLists(l1.next, l2)--newline----tab--            return l1--newline----tab--        else:--newline----tab--            l2.next = self.mergeTwoLists(l1, l2.next)--newline----tab--            return l2--newline----tab--            --newline----tab--    # in-place, iteratively        --newline----tab--    def mergeTwoLists(self, l1, l2):--newline----tab--        if None in (l1, l2):--newline----tab--            return l1 or l2--newline----tab--        dummy = cur = ListNode(0)--newline----tab--        dummy.next = l1--newline----tab--        while l1 and l2:--newline----tab--            if l1.val < l2.val:--newline----tab--                l1 = l1.next--newline----tab--            else:--newline----tab--                nxt = cur.next--newline----tab--                cur.next = l2--newline----tab--                tmp = l2.next--newline----tab--                l2.next = nxt--newline----tab--                l2 = tmp--newline----tab--            cur = cur.next--newline----tab--        cur.next = l1 or l2--newline----tab--        return dummy.next",
+            "topic_title": "Python solutions (iteratively, recursively, iteratively in-place)."
+        },
+        {
+            "java": "public class Solution {--newline--    public ListNode mergeTwoLists(ListNode l1, ListNode l2){--newline--    --tab----tab--if(l1 == null) return l2;--newline--    --tab----tab--if(l2 == null) return l1;--newline--    --tab----tab--if(l1.val < l2.val){--newline--    --tab----tab----tab--l1.next = mergeTwoLists(l1.next, l2);--newline--    --tab----tab----tab--return l1;--newline--    --tab----tab--} else{--newline--    --tab----tab----tab--l2.next = mergeTwoLists(l1, l2.next);--newline--    --tab----tab----tab--return l2;--newline--    --tab----tab--}--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java, 1 ms, 4 lines codes, using recursion"
+        }
+    ],
+    "qc": "21.json"
+}

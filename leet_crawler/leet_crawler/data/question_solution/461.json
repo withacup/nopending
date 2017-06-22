@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int hammingDistance(int x, int y) {--newline--        return Integer.bitCount(x ^ y);--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 1 Line Solution :D"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int hammingDistance(int x, int y) {--newline--        int dist = 0, n = x ^ y;--newline--        while (n) {--newline--            ++dist;--newline--            n &= n - 1;--newline--        }--newline--        return dist;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "My C++ solution using bit manipulation"
+        },
+        {
+            "java": "public class Solution {--newline--    public int hammingDistance(int x, int y) {--newline--        int xor = x ^ y, count = 0;--newline--        for (int i=0;i<32;i++) count += (xor >> i) & 1;--newline--        return count;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 3-Line Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Python 1 line 49ms"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int hammingDistance(int x, int y) {--newline--        --newline--        int tmpInt=x^y;--newline--        int dis=0;--newline--        --newline--        while(tmpInt)--newline--        {--newline--            if((tmpInt>>1)<<1 != tmpInt)--newline--            {--newline--                ++dis;--newline--            }--newline--            --newline--            tmpInt>>=1;--newline--        }--newline--        --newline--        return dis;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "C simple solution, 0MS"
+        }
+    ],
+    "qc": "461.json"
+}

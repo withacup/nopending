@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public boolean isValidSerialization(String preorder) {--newline--        String[] nodes = preorder.split(\",\");--newline--        int diff = 1;--newline--        for (String node: nodes) {--newline--            if (--diff < 0) return false;--newline--            if (!node.equals(\"#\")) diff += 2;--newline--        }--newline--        return diff == 0;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "7 lines Easy Java Solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isValidSerialization(String preorder) {--newline--        // using a stack, scan left to right--newline--        // case 1: we see a number, just push it to the stack--newline--        // case 2: we see #, check if the top of stack is also #--newline--        // if so, pop #, pop the number in a while loop, until top of stack is not #--newline--        // if not, push it to stack--newline--        // in the end, check if stack size is 1, and stack top is #--newline--        if (preorder == null) {--newline--            return false;--newline--        }--newline--        Stack<String> st = new Stack<>();--newline--        String[] strs = preorder.split(\",\");--newline--        for (int pos = 0; pos < strs.length; pos++) {--newline--            String curr = strs[pos];--newline--            while (curr.equals(\"#\") && !st.isEmpty() && st.peek().equals(curr)) {--newline--                st.pop();--newline--                if (st.isEmpty()) {--newline--                    return false;--newline--                }--newline--                st.pop();--newline--            }--newline--            st.push(curr);--newline--        }--newline--        return st.size() == 1 && st.peek().equals(\"#\");--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java intuitive 22ms solution with stack"
+        },
+        {
+            "java": "public class Solution {--newline--     public boolean isValidSerialization(String preorder) {--newline--        String[] strs = preorder.split(\",\");--newline--        int degree = -1;         // root has no indegree, for compensate init with -1--newline--        for (String str: strs) {--newline--            degree++;             // all nodes have 1 indegree (root compensated)--newline--            if (degree > 0) {     // total degree should never exceeds 0--newline--                return false;--newline--            }      --newline--            if (!str.equals(\"#\")) {// only non-leaf node has 2 outdegree--newline--                degree -= 2;--newline--            }  --newline--        }--newline--        return degree == 0;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "JAVA, Counting Indegree and Outdegree, SIMPLE &amp; CLEAR!"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def isValidSerialization(self, preorder):--newline----tab--        \"\"\"--newline----tab--        :type preorder: str--newline----tab--        :rtype: bool--newline----tab--        \"\"\"--newline----tab--        # remember how many empty slots we have--newline----tab--        # non-null nodes occupy one slot but create two new slots--newline----tab--        # null nodes occupy one slot--newline----tab--        --newline----tab--        p = preorder.split(',')--newline----tab--        --newline----tab--        #initially we have one empty slot to put the root in it--newline----tab--        slot = 1--newline----tab--        for node in p:--newline----tab--            --newline----tab--            # no empty slot to put the current node--newline----tab--            if slot == 0:--newline----tab--                return False--newline----tab--                --newline----tab--            # a null node?--newline----tab--            if node == '#':--newline----tab--                # ocuppy slot--newline----tab--                slot -= 1--newline----tab--            else:--newline----tab--                # create new slot--newline----tab--                slot += 1--newline----tab--        --newline----tab--        #we don't allow empty slots at the end--newline----tab--        return slot==0",
+            "topic_title": "The simplest python solution with explanation (no stack, no recursion)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--def isValidSerialization(self, preorder):--newline----tab--    \"\"\"--newline----tab--    :type preorder: str--newline----tab--    :rtype: bool--newline----tab--    \"\"\"--newline----tab--    stack = []--newline----tab--    top = -1--newline----tab--    preorder = preorder.split(',')--newline----tab--    for s in preorder:--newline----tab--        stack.append(s)--newline----tab--        top += 1--newline----tab--        while(self.endsWithTwoHashes(stack,top)):--newline----tab--            h = stack.pop()--newline----tab--            top -= 1--newline----tab--            h = stack.pop()--newline----tab--            top -= 1--newline----tab--            if top < 0:--newline----tab--                return False--newline----tab--            h = stack.pop()--newline----tab--            stack.append('#')--newline----tab--        #print stack--newline----tab--    if len(stack) == 1:--newline----tab--        if stack[0] == '#':--newline----tab--            return True--newline----tab--    return False--newline----tab----newline----tab--def endsWithTwoHashes(self,stack,top):--newline----tab--    if top<1:--newline----tab--        return False--newline----tab--    if stack[top]=='#' and stack[top-1]=='#':--newline----tab--        return True--newline----tab--    return False",
+            "topic_title": "Simple Python solution using stack. With Explanation."
+        }
+    ],
+    "qc": "331.json"
+}

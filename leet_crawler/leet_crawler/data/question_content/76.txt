@@ -1,0 +1,25 @@
+---CONTENT_BEGIN---
+
+Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).
+
+
+
+For example,
+S = "ADOBECODEBANC"
+T = "ABC"
+
+
+Minimum window is "BANC".
+
+
+
+Note:
+If there is no such window in S that covers all characters in T, return the empty string "".
+
+
+If there are multiple such windows, you are guaranteed that there will always be only one unique minimum window in S.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    string minWindow(string s, string t) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public String minWindow(String s, String t) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def minWindow(self, s, t):--newline--        '''--newline--        :type s: str--newline--        :type t: str--newline--        :rtype: str--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "char* minWindow(char* s, char* t) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public string MinWindow(string s, string t) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} s--newline-- * @param {string} t--newline-- * @return {string}--newline-- */--newline--var minWindow = function(s, t) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} s--newline--# @param {String} t--newline--# @return {String}--newline--def min_window(s, t)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func minWindow(_ s: String, _ t: String) -> String {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func minWindow(s string, t string) string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

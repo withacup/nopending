@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Right-to-Left BFS (Python + Java)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Verbose Java Solution, Binary tree level order traversal"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findBottomLeftValue(TreeNode root) {--newline--        return findBottomLeftValue(root, 1, new int[]{0,0});--newline--    }--newline--    public int findBottomLeftValue(TreeNode root, int depth, int[] res) {--newline--        if (res[1]<depth) {res[0]=root.val;res[1]=depth;}--newline--        if (root.left!=null) findBottomLeftValue(root.left, depth+1, res);--newline--        if (root.right!=null) findBottomLeftValue(root.right, depth+1, res);--newline--        return res[0];--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java Solution, beats 100.0%!"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "C++ BFS solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    void findBottomLeftValue(TreeNode* root, int& maxDepth, int& leftVal, int depth) {--newline--        if (root == NULL) {--newline--            return;--newline--        }--newline--        //Go to the left and right of each node --newline--        findBottomLeftValue(root->left, maxDepth, leftVal, depth+1);--newline--        findBottomLeftValue(root->right, maxDepth, leftVal, depth+1);--newline--        --newline--        //Update leftVal and maxDepth--newline--        if (depth > maxDepth) {--newline--            maxDepth = depth;--newline--            leftVal = root->val;--newline--        }--newline--    }--newline--    --newline--    //Entry function--newline--    int findBottomLeftValue(TreeNode* root) {--newline--        int maxDepth = 0;--newline--        //Initialize leftVal with root's value to cover the edge case with single node--newline--        int leftVal = root->val;--newline--        findBottomLeftValue(root, maxDepth, leftVal, 0);--newline--        return leftVal;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ recursive solution (beats 100%) with basic explanation"
+        }
+    ],
+    "qc": "513.json"
+}

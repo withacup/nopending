@@ -1,0 +1,18 @@
+---CONTENT_BEGIN---
+
+There are N children standing in a line. Each child is assigned a rating value. 
+
+
+You are giving candies to these children subjected to the following requirements:
+
+
+Each child must have at least one candy.
+Children with a higher rating get more candies than their neighbors.
+
+
+What is the minimum candies you must give?
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int candy(vector<int>& ratings) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int candy(int[] ratings) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def candy(self, ratings):--newline--        '''--newline--        :type ratings: List[int]--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int candy(int* ratings, int ratingsSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int Candy(int[] ratings) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} ratings--newline-- * @return {number}--newline-- */--newline--var candy = function(ratings) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} ratings--newline--# @return {Integer}--newline--def candy(ratings)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func candy(_ ratings: [Int]) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func candy(ratings []int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

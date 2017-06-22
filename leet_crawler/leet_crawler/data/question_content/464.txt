@@ -1,0 +1,33 @@
+---CONTENT_BEGIN---
+In the "100 game," two players take turns adding, to a running total, any integer from 1..10. The player who first causes the running total to reach or exceed 100 wins. 
+
+What if we change the game so that players cannot re-use integers? 
+
+For example, two players might take turns drawing from a common pool of numbers of 1..15 without replacement until they reach a total >= 100.
+
+Given an integer maxChoosableInteger and another integer desiredTotal, determine if the first player to move can force a win, assuming both players play optimally. 
+
+You can always assume that maxChoosableInteger will not be larger than 20 and desiredTotal will not be larger than 300.
+
+
+Example
+
+Input:
+maxChoosableInteger = 10
+desiredTotal = 11
+
+Output:
+false
+
+Explanation:
+No matter which integer the first player choose, the first player will lose.
+The first player can choose an integer from 1 up to 10.
+If the first player choose 1, the second player can only choose integers from 2 up to 10.
+The second player will win by choosing 10 and get a total = 11, which is >= desiredTotal.
+Same with other integers chosen by the first player, the second player will always win.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    bool canIWin(int maxChoosableInteger, int desiredTotal) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public boolean canIWin(int maxChoosableInteger, int desiredTotal) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def canIWin(self, maxChoosableInteger, desiredTotal):--newline--        '''--newline--        :type maxChoosableInteger: int--newline--        :type desiredTotal: int--newline--        :rtype: bool--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "bool canIWin(int maxChoosableInteger, int desiredTotal) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public bool CanIWin(int maxChoosableInteger, int desiredTotal) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} maxChoosableInteger--newline-- * @param {number} desiredTotal--newline-- * @return {boolean}--newline-- */--newline--var canIWin = function(maxChoosableInteger, desiredTotal) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} max_choosable_integer--newline--# @param {Integer} desired_total--newline--# @return {Boolean}--newline--def can_i_win(max_choosable_integer, desired_total)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func canIWin(_ maxChoosableInteger: Int, _ desiredTotal: Int) -> Bool {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func canIWin(maxChoosableInteger int, desiredTotal int) bool {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

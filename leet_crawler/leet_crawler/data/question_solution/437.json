@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--        public int pathSum(TreeNode root, int sum) {--newline--            HashMap<Integer, Integer> preSum = new HashMap();--newline--            preSum.put(0,1);--newline--            return helper(root, 0, sum, preSum);--newline--        }--newline--        --newline--        public int helper(TreeNode root, int currSum, int target, HashMap<Integer, Integer> preSum) {--newline--            if (root == null) {--newline--                return 0;--newline--            }--newline--            --newline--            currSum += root.val;--newline--            int res = preSum.getOrDefault(currSum - target, 0);--newline--            preSum.put(currSum, preSum.getOrDefault(currSum, 0) + 1);--newline--            --newline--            res += helper(root.left, currSum, target, preSum) + helper(root.right, currSum, target, preSum);--newline--            preSum.put(currSum, preSum.get(currSum) - 1);--newline--            return res;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "17 ms O(n) java Prefix sum method"
+        },
+        {
+            "java": "public class Solution {--newline--    public int pathSum(TreeNode root, int sum) {--newline--        if (root == null) return 0;--newline--        return pathSumFrom(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum);--newline--    }--newline--    --newline--    private int pathSumFrom(TreeNode node, int sum) {--newline--        if (node == null) return 0;--newline--        return (node.val == sum ? 1 : 0) --newline--            + pathSumFrom(node.left, sum - node.val) + pathSumFrom(node.right, sum - node.val);--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java DFS"
+        },
+        {
+            "java": "public class Solution {--newline--        public int pathSum(TreeNode root, int sum) {--newline--            Map<Integer, Integer> map = new HashMap<>();--newline--            map.put(0, 1);  //Default sum = 0 has one count--newline--            return backtrack(root, 0, sum, map); --newline--        }--newline--        //BackTrack one pass--newline--        public int backtrack(TreeNode root, int sum, int target, Map<Integer, Integer> map){--newline--            if(root == null)--newline--                return 0;--newline--            sum += root.val;--newline--            int res = map.getOrDefault(sum - target, 0);    //See if there is a subarray sum equals to target--newline--            map.put(sum, map.getOrDefault(sum, 0)+1);--newline--            //Extend to left and right child--newline--            res += backtrack(root.left, sum, target, map) + backtrack(root.right, sum, target, map);--newline--            map.put(sum, map.get(sum)-1);   //Remove the current node so it wont affect other path--newline--            return res;--newline--        }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple AC Java Solution DFS"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int pathSum(TreeNode* root, int sum) {--newline--        if(!root) return 0;--newline--        return sumUp(root, 0, sum) + pathSum(root->left, sum) + pathSum(root->right, sum);--newline--    }--newline--private:--newline--    int sumUp(TreeNode* root, int pre, int& sum){--newline--        if(!root) return 0;--newline--        int current = pre + root->val;--newline--        return (current == sum) + sumUp(root->left, current, sum) + sumUp(root->right, current, sum);--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ 5 Line Body Code DFS Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def helper(self, root, target, so_far, cache):--newline----tab--        if root:--newline----tab--            complement = so_far + root.val - target--newline----tab--            if complement in cache:--newline----tab--                self.result += cache[complement]--newline----tab--            cache.setdefault(so_far+root.val, 0)--newline----tab--            cache[so_far+root.val] += 1--newline----tab--            self.helper(root.left, target, so_far+root.val, cache)--newline----tab--            self.helper(root.right, target, so_far+root.val, cache)--newline----tab--            cache[so_far+root.val] -= 1--newline----tab--        return--newline----tab----newline----tab--    def pathSum(self, root, sum):--newline----tab--        \"\"\"--newline----tab--        :type root: TreeNode--newline----tab--        :type sum: int--newline----tab--        :rtype: int--newline----tab--        \"\"\"--newline----tab--        self.result = 0--newline----tab--        self.helper(root, sum, 0, {0:1})--newline----tab--        return self.result--newline----tab--",
+            "topic_title": "Python solution with detailed explanation"
+        }
+    ],
+    "qc": "437.json"
+}

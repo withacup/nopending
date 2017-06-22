@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public void dfs(int[][] M, int[] visited, int i) {--newline--        for (int j = 0; j < M.length; j++) {--newline--            if (M[i][j] == 1 && visited[j] == 0) {--newline--                visited[j] = 1;--newline--                dfs(M, visited, j);--newline--            }--newline--        }--newline--    }--newline--    public int findCircleNum(int[][] M) {--newline--        int[] visited = new int[M.length];--newline--        int count = 0;--newline--        for (int i = 0; i < M.length; i++) {--newline--            if (visited[i] == 0) {--newline--                dfs(M, visited, i);--newline--                count++;--newline--            }--newline--        }--newline--        return count;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Neat DFS java solution"
+        },
+        {
+            "java": "public class Solution {--newline--    class UnionFind {--newline--        private int count = 0;--newline--        private int[] parent, rank;--newline--        --newline--        public UnionFind(int n) {--newline--            count = n;--newline--            parent = new int[n];--newline--            rank = new int[n];--newline--            for (int i = 0; i < n; i++) {--newline--                parent[i] = i;--newline--            }--newline--        }--newline--        --newline--        public int find(int p) {--newline--        --tab--while (p != parent[p]) {--newline--                parent[p] = parent[parent[p]];    // path compression by halving--newline--                p = parent[p];--newline--            }--newline--            return p;--newline--        }--newline--        --newline--        public void union(int p, int q) {--newline--            int rootP = find(p);--newline--            int rootQ = find(q);--newline--            if (rootP == rootQ) return;--newline--            if (rank[rootQ] > rank[rootP]) {--newline--                parent[rootP] = rootQ;--newline--            }--newline--            else {--newline--                parent[rootQ] = rootP;--newline--                if (rank[rootP] == rank[rootQ]) {--newline--                    rank[rootP]++;--newline--                }--newline--            }--newline--            count--;--newline--        }--newline--        --newline--        public int count() {--newline--            return count;--newline--        }--newline--    }--newline--    --newline--    public int findCircleNum(int[][] M) {--newline--        int n = M.length;--newline--        UnionFind uf = new UnionFind(n);--newline--        for (int i = 0; i < n - 1; i++) {--newline--            for (int j = i + 1; j < n; j++) {--newline--                if (M[i][j] == 1) uf.union(i, j);--newline--            }--newline--        }--newline--        return uf.count();--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java solution, Union Find"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "import numpy as np--newline----newline--class Solution(object):--newline----tab--    def findCircleNum(self, M):--newline----tab--        return len(set(map(tuple, (np.matrix(M, dtype='bool')**len(M)).A)))--newline----tab--",
+            "topic_title": "Oneliners :-P"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int findCircleNum(vector<vector<int>>& M) {--newline--        if (M.empty()) return 0;--newline--        int n = M.size();--newline----newline--        vector<int> leads(n, 0);--newline--        for (int i = 0; i < n; i++) { leads[i] = i; }   // initialize leads for every kid as themselves--newline----newline--        int groups = n;--newline--        for (int i = 0; i < n; i++) {--newline--            for (int j = i + 1; j < n; j++) {   // avoid recalculate M[i][j], M[j][i]--newline--                if (M[i][j]) {--newline--                    int lead1 = find(i, leads);--newline--                    int lead2 = find(j, leads);--newline--                    if (lead1 != lead2) {       // if 2 group belongs 2 different leads, merge 2 group to 1--newline--                        leads[lead1] = lead2;--newline--                        groups--;--newline--                    }--newline--                }--newline--            }--newline--        }--newline--        return groups;--newline--    }--newline----newline--private:--newline--    int find(int x, vector<int>& parents) {--newline--        return parents[x] == x ? x : find(parents[x], parents);--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "&#91;C++&#93; Clean Code - DFS|UnionFind"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def findCircleNum(self, A):--newline----tab--        N = len(A)--newline----tab--        seen = set()--newline----tab--        def dfs(node):--newline----tab--            for nei, adj in enumerate(A[node]):--newline----tab--                if adj and nei not in seen:--newline----tab--                    seen.add(nei)--newline----tab--                    dfs(nei)--newline----tab--        --newline----tab--        ans = 0--newline----tab--        for i in xrange(N):--newline----tab--            if i not in seen:--newline----tab--                dfs(i)--newline----tab--                ans += 1--newline----tab--        return ans--newline----tab--    ",
+            "topic_title": "Python, Simple Explanation"
+        }
+    ],
+    "qc": "547.json"
+}

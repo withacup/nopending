@@ -1,0 +1,18 @@
+---CONTENT_BEGIN---
+
+You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad. 
+
+
+
+Suppose you have n versions [1, 2, ..., n] and you want to find out the first bad one, which causes all the following ones to be bad.
+
+
+
+You are given an API bool isBadVersion(version) which will return whether version is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.
+
+
+Credits:Special thanks to @jianchao.li.fighter for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "// Forward declaration of isBadVersion API.--newline--bool isBadVersion(int version);--newline----newline--class Solution {--newline--public:--newline--    int firstBadVersion(int n) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "/* The isBadVersion API is defined in the parent class VersionControl.--newline--      boolean isBadVersion(int version); */--newline----newline--public class Solution extends VersionControl {--newline--    public int firstBadVersion(int n) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "# The isBadVersion API is already defined for you.--newline--# @param version, an integer--newline--# @return a bool--newline--# def isBadVersion(version):--newline----newline--class Solution(object):--newline--    def firstBadVersion(self, n):--newline--        '''--newline--        :type n: int--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "// Forward declaration of isBadVersion API.--newline--bool isBadVersion(int version);--newline----newline--int firstBadVersion(int n) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "/* The isBadVersion API is defined in the parent class VersionControl.--newline--      bool IsBadVersion(int version); */--newline----newline--public class Solution : VersionControl {--newline--    public int FirstBadVersion(int n) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * Definition for isBadVersion()--newline-- * --newline-- * @param {integer} version number--newline-- * @return {boolean} whether the version is bad--newline-- * isBadVersion = function(version) {--newline-- *     ...--newline-- * };--newline-- */--newline----newline--/**--newline-- * @param {function} isBadVersion()--newline-- * @return {function}--newline-- */--newline--var solution = function(isBadVersion) {--newline--    /**--newline--     * @param {integer} n Total versions--newline--     * @return {integer} The first bad version--newline--     */--newline--    return function(n) {--newline--        --newline--    };--newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# The is_bad_version API is already defined for you.--newline--# @param {Integer} version--newline--# @return {boolean} whether the version is bad--newline--# def is_bad_version(version):--newline----newline--# @param {Integer} n--newline--# @return {Integer}--newline--def first_bad_version(n)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}]
+---SCRIPT_END---

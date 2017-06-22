@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string frequencySort(string s) {--newline--        unordered_map<char,int> freq;--newline--        vector<string> bucket(s.size()+1, \"\");--newline--        string res;--newline--        --newline--        //count frequency of each character--newline--        for(char c:s) freq[c]++;--newline--        //put character into frequency bucket--newline--        for(auto& it:freq) {--newline--            int n = it.second;--newline--            char c = it.first;--newline--            bucket[n].append(n, c);--newline--        }--newline--        //form descending sorted string--newline--        for(int i=s.size(); i>0; i--) {--newline--            if(!bucket[i].empty())--newline--                res.append(bucket[i]);--newline--        }--newline--        return res;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ O(n) solution without sort()"
+        },
+        {
+            "java": "public class Solution {--newline--    public String frequencySort(String s) {--newline--        if (s == null) {--newline--            return null;--newline--        }--newline--        Map<Character, Integer> map = new HashMap();--newline--        char[] charArray = s.toCharArray();--newline--        int max = 0;--newline--        for (Character c : charArray) {--newline--            if (!map.containsKey(c)) {--newline--                map.put(c, 0);--newline--            }--newline--            map.put(c, map.get(c) + 1);--newline--            max = Math.max(max, map.get(c));--newline--        }--newline--    --newline--        List<Character>[] array = buildArray(map, max);--newline--    --newline--        return buildString(array);--newline--    }--newline--    --newline--    private List<Character>[] buildArray(Map<Character, Integer> map, int maxCount) {--newline--        List<Character>[] array = new List[maxCount + 1];--newline--        for (Character c : map.keySet()) {--newline--            int count = map.get(c);--newline--            if (array[count] == null) {--newline--                array[count] = new ArrayList();--newline--            }--newline--            array[count].add(c);--newline--        }--newline--        return array;--newline--    }--newline--    --newline--    private String buildString(List<Character>[] array) {--newline--        StringBuilder sb = new StringBuilder();--newline--        for (int i = array.length - 1; i > 0; i--) {--newline--            List<Character> list = array[i];--newline--            if (list != null) {--newline--                for (Character c : list) {--newline--                    for (int j = 0; j < i; j++) {--newline--                        sb.append(c);--newline--                    }--newline--                }--newline--            }--newline--        }--newline--        return sb.toString();--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "O(n) Easy to understand Java Solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public String frequencySort(String s) {--newline--        Map<Character, Integer> map = new HashMap<>();--newline--        for (char c : s.toCharArray()) {--newline--            if (map.containsKey(c)) {--newline--                map.put(c, map.get(c) + 1);--newline--            } else {--newline--                map.put(c, 1);--newline--            }--newline--        }--newline--        PriorityQueue<Map.Entry<Character, Integer>> pq = new PriorityQueue<>(--newline--            new Comparator<Map.Entry<Character, Integer>>() {--newline--                @Override--newline--                public int compare(Map.Entry<Character, Integer> a, Map.Entry<Character, Integer> b) {--newline--                    return b.getValue() - a.getValue();--newline--                }--newline--            }--newline--        );--newline--        pq.addAll(map.entrySet());--newline--        StringBuilder sb = new StringBuilder();--newline--        while (!pq.isEmpty()) {--newline--            Map.Entry e = pq.poll();--newline--            for (int i = 0; i < (int)e.getValue(); i++) {--newline--                sb.append(e.getKey());--newline--            }--newline--        }--newline--        return sb.toString();--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java O(n) Bucket Sort Solution &#x2F; O(nlogn) PriorityQueue Solution, easy to understand"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string frequencySort(string s) {--newline--        int counts[256] = {0};--newline--        for (char ch : s)--newline--            ++counts[ch];--newline--        sort(s.begin(), s.end(), [&](char a, char b) { --newline--            return counts[a] > counts[b] || (counts[a] == counts[b] && a < b); --newline--        });--newline--        return s;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Concise C++ solution using STL sort"
+        },
+        {
+            "java": "public class Solution {--newline--    public String frequencySort(String s) {--newline--            if(s.length() < 3)--newline--                return s;--newline--            int max = 0;--newline--            int[] map = new int[256];--newline--            for(char ch : s.toCharArray()) {--newline--                map[ch]++;--newline--                max = Math.max(max,map[ch]);--newline--            }--newline--            String[] buckets = new String[max + 1]; // create max buckets--newline--            for(int i = 0 ; i < 256; i++) { // join chars in the same bucket--newline--                String str = buckets[map[i]];--newline--                if(map[i] > 0)--newline--                    buckets[map[i]] = (str == null) ? \"\" + (char)i : (str + (char) i);--newline--            }--newline--            StringBuilder strb = new StringBuilder();--newline--            for(int i = max; i >= 0; i--) { // create string for each bucket.--newline--                if(buckets[i] != null)--newline--                    for(char ch : buckets[i].toCharArray())--newline--                        for(int j = 0; j < i; j++)--newline--                            strb.append(ch);--newline--            }--newline--            return strb.toString();--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Super simple O(n) Bucket Sort based Java solution (11 ms). No fancy Data structure needed. Beats 96%."
+        }
+    ],
+    "qc": "451.json"
+}

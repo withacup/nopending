@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public boolean isSubtree(TreeNode s, TreeNode t) {--newline--        if (s == null) return false;--newline--        if (isSame(s, t)) return true;--newline--        return isSubtree(s.left, t) || isSubtree(s.right, t);--newline--    }--newline--    --newline--    private boolean isSame(TreeNode s, TreeNode t) {--newline--        if (s == null && t == null) return true;--newline--        if (s == null || t == null) return false;--newline--        --newline--        if (s.val != t.val) return false;--newline--        --newline--        return isSame(s.left, t.left) && isSame(s.right, t.right);--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution, tree traversal"
+        },
+        {
+            "java": "public class Solution {--newline-- public boolean isSubtree(TreeNode s, TreeNode t) {--newline--        String spreorder = generatepreorderString(s); --newline--        String tpreorder = generatepreorderString(t);--newline--        --newline--        return spreorder.contains(tpreorder) ;--newline--    }--newline--    public String generatepreorderString(TreeNode s){--newline--        StringBuilder sb = new StringBuilder();--newline--        Stack<TreeNode> stacktree = new Stack();--newline--        stacktree.push(s);--newline--        while(!stacktree.isEmpty()){--newline--           TreeNode popelem = stacktree.pop();--newline--           if(popelem==null)--newline--              sb.append(\",#\"); // Appending # inorder to handle same values but not subtree cases--newline--           else      --newline--              sb.append(\",\"+popelem.val);--newline--           if(popelem!=null){--newline--                stacktree.push(popelem.right);    --newline--                stacktree.push(popelem.left);  --newline--           }--newline--        }--newline--        return sb.toString();--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy O(n) java solution using preorder traversal"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isSubtree(TreeNode s, TreeNode t) {--newline--        return serialize(s).contains(serialize(t)); // Java uses a naive contains algorithm so to ensure linear time, --newline--                                                    // replace with KMP algorithm--newline--    }--newline--    --newline--    public String serialize(TreeNode root) {--newline--        StringBuilder res = new StringBuilder();--newline--        serialize(root, res);--newline--        return res.toString();--newline--    }--newline--    --newline--    private void serialize(TreeNode cur, StringBuilder res) {--newline--        if (cur == null) {res.append(\",#\"); return;}--newline--        res.append(\",\" + cur.val);--newline--        serialize(cur.left, res);--newline--        serialize(cur.right, res);--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Concise O(n+m) Time O(n+m) Space"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def isSubtree(self, s, t):--newline----tab--        from hashlib import sha256--newline----tab--        def hash_(x):--newline----tab--            S = sha256()--newline----tab--            S.update(x)--newline----tab--            return S.hexdigest()--newline----tab--            --newline----tab--        def merkle(node):--newline----tab--            if not node:--newline----tab--                return '#'--newline----tab--            m_left = merkle(node.left)--newline----tab--            m_right = merkle(node.right)--newline----tab--            node.merkle = hash_(m_left + str(node.val) + m_right)--newline----tab--            return node.merkle--newline----tab--            --newline----tab--        merkle(s)--newline----tab--        merkle(t)--newline----tab--        def dfs(node):--newline----tab--            if not node:--newline----tab--                return False--newline----tab--            return (node.merkle == t.merkle or --newline----tab--                    dfs(node.left) or dfs(node.right))--newline----tab--                        --newline----tab--        return dfs(s)--newline----tab--    ",
+            "topic_title": "Python, Straightforward with Explanation (O(ST) and O(S+T) approaches)"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isSubtree(TreeNode s, TreeNode t) {--newline--        return t == null || s != null && (same(s, t) || isSubtree(s.left, t) || isSubtree(s.right, t));--newline--    }--newline----newline--    private boolean same(TreeNode s, TreeNode t) {--newline--        return s == null ? t == null : t != null && s.val == t.val && same(s.left, t.left) && same(s.right, t.right);--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool isSubtree(TreeNode* s, TreeNode* t) {--newline--        return !t || s && (same(s, t) || isSubtree(s->left, t) || isSubtree(s->right, t));--newline--    }--newline----newline--private:--newline--    bool isSameTree(TreeNode* s, TreeNode* t) {--newline--        return !s ? !t : t && s->val == t->val && isSameTree(s->left, t->left) && isSameTree(s->right, t->right);--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "&#91;C++&#93; &#91;Java&#93; Clean Code - 2 one liner"
+        }
+    ],
+    "qc": "572.json"
+}

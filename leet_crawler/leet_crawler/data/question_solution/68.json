@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<string> fullJustify(vector<string> &words, int L) {--newline--        vector<string> res;--newline--        for(int i = 0, k, l; i < words.size(); i += k) {--newline--            for(k = l = 0; i + k < words.size() and l + words[i+k].size() <= L - k; k++) {--newline--                l += words[i+k].size();--newline--            }--newline--            string tmp = words[i];--newline--            for(int j = 0; j < k - 1; j++) {--newline--                if(i + k >= words.size()) tmp += \" \";--newline--                else tmp += string((L - l) / (k - 1) + (j < (L - l) % (k - 1)), ' ');--newline--                tmp += words[i+j+1];--newline--            }--newline--            tmp += string(L - tmp.size(), ' ');--newline--            res.push_back(tmp);--newline--        }--newline--        return res;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Share my concise c++ solution - less than 20 lines"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def fullJustify(self, words, maxWidth):--newline----tab--        res, cur, num_of_letters = [], [], 0--newline----tab--        for w in words:--newline----tab--            if num_of_letters + len(w) + len(cur) > maxWidth:--newline----tab--                if len(cur) == 1:--newline----tab--                    res.append( cur[0] + ' '*(maxWidth - num_of_letters) )--newline----tab--                else:--newline----tab--                    num_spaces = maxWidth - num_of_letters--newline----tab--                    space_between_words, num_extra_spaces = divmod( num_spaces, len(cur)-1)--newline----tab--                    for i in range(num_extra_spaces):--newline----tab--                        cur[i] += ' '--newline----tab--                    res.append( (' '*space_between_words).join(cur) )--newline----tab--                cur, num_of_letters = [], 0--newline----tab--            cur += [w]--newline----tab--            num_of_letters += len(w)--newline----tab--        res.append( ' '.join(cur) + ' '*(maxWidth - num_of_letters - len(cur) + 1) )--newline----tab--        return res",
+            "topic_title": "Concise python solution, 10 lines."
+        },
+        {
+            "java": "public class Solution {--newline--    public List<String> fullJustify(String[] words, int L) {--newline--        List<String> lines = new ArrayList<String>();--newline--        --newline--        int index = 0;--newline--        while (index < words.length) {--newline--            int count = words[index].length();--newline--            int last = index + 1;--newline--            while (last < words.length) {--newline--                if (words[last].length() + count + 1 > L) break;--newline--                count += words[last].length() + 1;--newline--                last++;--newline--            }--newline--            --newline--            StringBuilder builder = new StringBuilder();--newline--            int diff = last - index - 1;--newline--            // if last line or number of words in the line is 1, left-justified--newline--            if (last == words.length || diff == 0) {--newline--                for (int i = index; i < last; i++) {--newline--                    builder.append(words[i] + \" \");--newline--                }--newline--                builder.deleteCharAt(builder.length() - 1);--newline--                for (int i = builder.length(); i < L; i++) {--newline--                    builder.append(\" \");--newline--                }--newline--            } else {--newline--                // middle justified--newline--                int spaces = (L - count) / diff;--newline--                int r = (L - count) % diff;--newline--                for (int i = index; i < last; i++) {--newline--                    builder.append(words[i]);--newline--                    if (i < last - 1) {--newline--                        for (int j = 0; j <= (spaces + ((i - index) < r ? 1 : 0)); j++) {--newline--                            builder.append(\" \");--newline--                        }--newline--                    }--newline--                }--newline--            }--newline--            lines.add(builder.toString());--newline--            index = last;--newline--        }--newline--        --newline--        --newline--        return lines;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "What does this question aim to teach?"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<string> fullJustify(vector<string> &words, int L) {--newline--        vector<string> ans;--newline--        int begin = 0;--newline--        while (begin < words.size()) {--newline--            int last = begin;--newline--            int linesize = words[begin++].size();--newline--            while (begin < words.size() && linesize + 1 + words[begin].size() <= L) {--newline--                linesize += 1 + words[begin].size();--newline--                begin++;--newline--            }--newline--            --newline--            int spaces = 1, extra = 0;--newline--            if (begin < words.size() && begin != last + 1) {--newline--                spaces = (L - linesize) / (begin - last - 1) + 1;--newline--                extra = (L - linesize) % (begin - last - 1);--newline--            }--newline--            --newline--            ans.push_back(words[last++]);--newline--            while (extra--) {--newline--                ans.back().append(spaces+1, ' ');--newline--                ans.back().append(words[last++]);--newline--            }--newline--            while (last < begin) {--newline--                ans.back().append(spaces, ' ');--newline--                ans.back().append(words[last++]);--newline--            }--newline--            ans.back().append(L-ans.back().size(), ' ');--newline--        }--newline--        --newline--        return ans;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Share my 2 ms, 30 lines solution"
+        }
+    ],
+    "qc": "68.json"
+}

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public String reverseString(String s) {--newline--        int length = s.length();--newline--        if (length <= 1) return s;--newline--        String leftStr = s.substring(0, length / 2);--newline--        String rightStr = s.substring(length / 2, length);--newline--        return reverseString(rightStr) + reverseString(leftStr);--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "&#91;JAVA&#93; Simple and Clean with Explanations &#91;6 Solutions&#93;"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string reverseString(string s) {--newline--        int i = 0, j = s.size() - 1;--newline--        while(i < j){--newline--            swap(s[i++], s[j--]); --newline--        }--newline--        --newline--        return s;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Simple C++ solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "   class Solution(object):--newline--        def reverseString(self, s):--newline--            \"\"\"--newline--            :type s: str--newline--            :rtype: str--newline--            \"\"\"--newline--            return s[::-1]",
+            "topic_title": "Python solution"
+        },
+        {
+            "java": "public class Solution {--newline--    //method 1: use StringBuilder--newline--        public String reverseString(String s) {--newline--            StringBuilder sb = new StringBuilder(s);--newline--            return sb.reverse().toString();--newline--        }--newline--    --newline--        //method 2: use swap method--newline--        public String reverseString(String s){--newline--            if(s == null || s.length() == 0)--newline--                return \"\";--newline--            char[] cs = s.toCharArray();--newline--            int begin = 0, end = s.length() - 1;--newline--            while(begin <= end){--newline--                char c = cs[begin];--newline--                cs[begin] = cs[end];--newline--                cs[end] = c;--newline--                begin++;--newline--                end--;--newline--            }--newline--            --newline--            return new String(cs);--newline--        }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java- easiest method- 2-line code, attached another method"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def reverseString(self, s):--newline----tab--        l = len(s)--newline----tab--        if l < 2:--newline----tab--            return s--newline----tab--        return self.reverseString(s[l/2:]) + self.reverseString(s[:l/2])--newline----tab----newline----tab----newline----tab--class SolutionClassic(object):--newline----tab--    def reverseString(self, s):--newline----tab--        r = list(s)--newline----tab--        i, j  = 0, len(r) - 1--newline----tab--        while i < j:--newline----tab--            r[i], r[j] = r[j], r[i]--newline----tab--            i += 1--newline----tab--            j -= 1--newline----tab----newline----tab--        return \"\".join(r)--newline----tab----newline----tab--class SolutionPythonic(object):--newline----tab--    def reverseString(self, s):--newline----tab--        return s[::-1]--newline----tab--",
+            "topic_title": "Python 3 solutions: Recursive, Classic, Pythonic"
+        }
+    ],
+    "qc": "344.json"
+}

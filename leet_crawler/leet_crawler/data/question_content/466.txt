@@ -1,0 +1,19 @@
+---CONTENT_BEGIN---
+Define S = [s,n] as the string S which consists of n connected strings s. For example, ["abc", 3] ="abcabcabc". 
+On the other hand, we define that string s1 can be obtained from string s2 if we can remove some characters from s2 such that it becomes s1. For example, âabcâ  can be obtained from âabdbecâ based on our definition, but it can not be obtained from âacbbeâ.
+You are given two non-empty strings s1 and s2 (each at most 100 characters long) and two integers 0 &le; n1 &le; 106 and 1 &le; n2 &le; 106. Now consider the strings S1 and S2, where S1=[s1,n1] and S2=[s2,n2]. Find the maximum integer M such that [S2,M] can be obtained from S1.
+
+Example:
+
+Input:
+s1="acb", n1=4
+s2="ab", n2=2
+
+Return:
+2
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int getMaxRepetitions(string s1, int n1, string s2, int n2) {--newline--        --newline--    }--newline--};", "text": "C++", "value": "cpp"}, {"defaultCode": "public class Solution {--newline--    public int getMaxRepetitions(String s1, int n1, String s2, int n2) {--newline--        --newline--    }--newline--}", "text": "Java", "value": "java"}, {"defaultCode": "class Solution(object):--newline--    def getMaxRepetitions(self, s1, n1, s2, n2):--newline--        '''--newline--        :type s1: str--newline--        :type n1: int--newline--        :type s2: str--newline--        :type n2: int--newline--        :rtype: int--newline--        '''", "text": "Python", "value": "python"}, {"defaultCode": "int getMaxRepetitions(char* s1, int n1, char* s2, int n2) {--newline--    --newline--}", "text": "C", "value": "c"}, {"defaultCode": "public class Solution {--newline--    public int GetMaxRepetitions(string s1, int n1, string s2, int n2) {--newline--        --newline--    }--newline--}", "text": "C#", "value": "csharp"}, {"defaultCode": "/**--newline-- * @param {string} s1--newline-- * @param {number} n1--newline-- * @param {string} s2--newline-- * @param {number} n2--newline-- * @return {number}--newline-- */--newline--var getMaxRepetitions = function(s1, n1, s2, n2) {--newline--    --newline--};", "text": "JavaScript", "value": "javascript"}, {"defaultCode": "# @param {String} s1--newline--# @param {Integer} n1--newline--# @param {String} s2--newline--# @param {Integer} n2--newline--# @return {Integer}--newline--def get_max_repetitions(s1, n1, s2, n2)--newline--    --newline--end", "text": "Ruby", "value": "ruby"}, {"defaultCode": "class Solution {--newline--    func getMaxRepetitions(_ s1: String, _ n1: Int, _ s2: String, _ n2: Int) -> Int {--newline--        --newline--    }--newline--}", "text": "Swift", "value": "swift"}, {"defaultCode": "func getMaxRepetitions(s1 string, n1 int, s2 string, n2 int) int {--newline--    --newline--}", "text": "Go", "value": "golang"}]
+---SCRIPT_END---

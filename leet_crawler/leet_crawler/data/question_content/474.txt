@@ -1,0 +1,37 @@
+---CONTENT_BEGIN---
+In the computer world, use restricted resource you have to generate maximum benefit is what we always want to pursue.
+For now, suppose you are a dominator of m 0s and n 1s respectively. On the other hand, there is an array with strings consisting of only 0s and 1s.
+
+
+Now your task is to find the maximum number of strings that you can form with given m 0s and n 1s. Each 0 and 1 can be used at most once.
+
+
+
+Note:
+
+The given numbers of 0s and 1s will both not exceed 100
+The size of given string array won't exceed 600.
+
+
+
+Example 1:
+
+Input: Array = {"10", "0001", "111001", "1", "0"}, m = 5, n = 3
+Output: 4
+
+Explanation: This are totally 4 strings can be formed by the using of 5 0s and 3 1s, which are â10,â0001â,â1â,â0â
+
+
+
+Example 2:
+
+Input: Array = {"10", "0", "1"}, m = 1, n = 1
+Output: 2
+
+Explanation: You could form "10", but then you'd have nothing left. Better form "0" and "1".
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int findMaxForm(vector<string>& strs, int m, int n) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int findMaxForm(String[] strs, int m, int n) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def findMaxForm(self, strs, m, n):--newline--        '''--newline--        :type strs: List[str]--newline--        :type m: int--newline--        :type n: int--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int findMaxForm(char** strs, int strsSize, int m, int n) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int FindMaxForm(string[] strs, int m, int n) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string[]} strs--newline-- * @param {number} m--newline-- * @param {number} n--newline-- * @return {number}--newline-- */--newline--var findMaxForm = function(strs, m, n) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String[]} strs--newline--# @param {Integer} m--newline--# @param {Integer} n--newline--# @return {Integer}--newline--def find_max_form(strs, m, n)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func findMaxForm(_ strs: [String], _ m: Int, _ n: Int) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func findMaxForm(strs []string, m int, n int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

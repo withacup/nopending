@@ -1,0 +1,38 @@
+---CONTENT_BEGIN---
+For an integer n, we call k>=2 a good base of n, if all digits of n base k are 1.
+Now given a string representing n, you should return the smallest good base of n in string format. 
+
+Example 1:
+
+Input: "13"
+Output: "3"
+Explanation: 13 base 3 is 111.
+
+
+
+Example 2:
+
+Input: "4681"
+Output: "8"
+Explanation: 4681 base 8 is 11111.
+
+
+
+Example 3:
+
+Input: "1000000000000000000"
+Output: "999999999999999999"
+Explanation: 1000000000000000000 base 999999999999999999 is 11.
+
+
+
+Note:
+
+The range of n is [3, 10^18].
+The string representing n is always valid and will not have leading zeros.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    string smallestGoodBase(string n) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public String smallestGoodBase(String n) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def smallestGoodBase(self, n):--newline--        '''--newline--        :type n: str--newline--        :rtype: str--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "char* smallestGoodBase(char* n) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public string SmallestGoodBase(string n) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} n--newline-- * @return {string}--newline-- */--newline--var smallestGoodBase = function(n) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} n--newline--# @return {String}--newline--def smallest_good_base(n)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func smallestGoodBase(_ n: String) -> String {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func smallestGoodBase(n string) string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

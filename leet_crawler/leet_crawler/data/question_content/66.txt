@@ -1,0 +1,10 @@
+---CONTENT_BEGIN---
+Given a non-negative integer represented as a non-empty array of digits, plus one to the integer.
+
+You may assume the integer do not contain any leading zero, except the number 0 itself.
+
+The digits are stored such that the most significant digit is at the head of the list.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<int> plusOne(vector<int>& digits) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int[] plusOne(int[] digits) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def plusOne(self, digits):--newline--        '''--newline--        :type digits: List[int]--newline--        :rtype: List[int]--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Return an array of size *returnSize.--newline-- * Note: The returned array must be malloced, assume caller calls free().--newline-- */--newline--int* plusOne(int* digits, int digitsSize, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int[] PlusOne(int[] digits) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} digits--newline-- * @return {number[]}--newline-- */--newline--var plusOne = function(digits) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} digits--newline--# @return {Integer[]}--newline--def plus_one(digits)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func plusOne(_ digits: [Int]) -> [Int] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func plusOne(digits []int) []int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

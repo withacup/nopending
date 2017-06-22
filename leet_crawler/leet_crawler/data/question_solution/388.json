@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int lengthLongestPath(String input) {--newline--        String[] paths = input.split(\"\\n\");--newline--        int[] stack = new int[paths.length+1];--newline--        int maxLen = 0;--newline--        for(String s:paths){--newline--            int lev = s.lastIndexOf(\"\\t\")+1, curLen = stack[lev+1] = stack[lev]+s.length()-lev+1;--newline--            if(s.contains(\".\")) maxLen = Math.max(maxLen, curLen-1);--newline--        }--newline--        return maxLen;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "9 lines 4ms Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def lengthLongestPath(self, input):--newline----tab--        maxlen = 0--newline----tab--        pathlen = {0: 0}--newline----tab--        for line in input.splitlines():--newline----tab--            name = line.lstrip('\\t')--newline----tab--            depth = len(line) - len(name)--newline----tab--            if '.' in name:--newline----tab--                maxlen = max(maxlen, pathlen[depth] + len(name))--newline----tab--            else:--newline----tab--                pathlen[depth + 1] = pathlen[depth] + len(name) + 1--newline----tab--        return maxlen",
+            "topic_title": "Simple Python solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "This problem is not well-defined. It should state that 4-space is considered as a TAB under certain situation."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    public:--newline--        int lengthLongestPath(string input) {--newline--            int maxi=0,count=0,ln=1;--newline--            bool isFile=false;--newline--            vector<int> level(200);--newline--            level[0]=0;--newline--            for(int i=0,fin=input.size();i<fin;++i){--newline--                //find which level--newline--                while(input[i]=='\\t'){--newline--                    ++ln;++i;--newline--                }--newline--                //read file name--newline--                while(input[i]!='\\n'&&i<fin){--newline--                    if(input[i]=='.')isFile=true;--newline--                    ++count;++i;--newline--                }--newline--                //calculate--newline--                if(isFile){--newline--                    maxi=max(maxi,level[ln-1]+count);--newline--                }--newline--                else{--newline--                    level[ln]=level[ln-1]+count+1;// 1 means '/'--newline--                }--newline--                //reset--newline--                count=0;ln=1;isFile=false;--newline--            }--newline--            return maxi;--newline--        }--newline--    };--newline--}",
+            "python": null,
+            "topic_title": "Simple C++ O(n) Solution,0ms"
+        },
+        {
+            "java": "public class Solution {--newline--    public int lengthLongestPath(String input) {--newline--        String[] tokens = input.split(\"\\n\");--newline--        int result = 0;--newline--        int curLen = 0;--newline--        Stack<Integer> stack = new Stack<>();--newline----newline--        for (String s : tokens) {--newline--            int level = countLevel(s);--newline----newline--            // if current directory/file depth is lower that the top directory/file on the stack, pop from stack --newline--            while (stack.size() > level) {--newline--                curLen -= stack.pop();--newline--            }--newline----newline--            // +1 here because a \"/\" needs to be counted following each diretory--newline--            int len = s.replaceAll(\"\\t\", \"\").length() + 1;--newline--            curLen += len;--newline----newline--            // if s contains \".\", we have found a file!--newline--            if (s.contains(\".\")) {--newline--                result = curLen - 1 > result ? curLen - 1 : result;--newline--            }--newline--            stack.add(len);--newline--        }--newline--        return result;--newline--    }--newline--    --newline--    private int countLevel(String s) {--newline--        String cur = s.replaceAll(\"\\t\", \"\");--newline--        return s.length() - cur.length();--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java O(n) Solution Using Stack"
+        }
+    ],
+    "qc": "388.json"
+}

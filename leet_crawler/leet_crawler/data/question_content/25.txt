@@ -1,0 +1,28 @@
+---CONTENT_BEGIN---
+
+Given a linked list, reverse the nodes of a linked list k at a time and return its modified list.
+
+
+
+k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is.
+
+You may not alter the values in the nodes, only nodes itself may be changed.
+
+Only constant memory is allowed.
+
+
+For example,
+Given this linked list: 1->2->3->4->5
+
+
+
+For k = 2, you should return: 2->1->4->3->5
+
+
+
+For k = 3, you should return: 3->2->1->4->5
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "/**--newline-- * Definition for singly-linked list.--newline-- * struct ListNode {--newline-- *     int val;--newline-- *     ListNode *next;--newline-- *     ListNode(int x) : val(x), next(NULL) {}--newline-- * };--newline-- */--newline--class Solution {--newline--public:--newline--    ListNode* reverseKGroup(ListNode* head, int k) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "/**--newline-- * Definition for singly-linked list.--newline-- * public class ListNode {--newline-- *     int val;--newline-- *     ListNode next;--newline-- *     ListNode(int x) { val = x; }--newline-- * }--newline-- */--newline--public class Solution {--newline--    public ListNode reverseKGroup(ListNode head, int k) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "# Definition for singly-linked list.--newline--# class ListNode(object):--newline--#     def __init__(self, x):--newline--#         self.val = x--newline--#         self.next = None--newline----newline--class Solution(object):--newline--    def reverseKGroup(self, head, k):--newline--        '''--newline--        :type head: ListNode--newline--        :type k: int--newline--        :rtype: ListNode--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Definition for singly-linked list.--newline-- * struct ListNode {--newline-- *     int val;--newline-- *     struct ListNode *next;--newline-- * };--newline-- */--newline--struct ListNode* reverseKGroup(struct ListNode* head, int k) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "/**--newline-- * Definition for singly-linked list.--newline-- * public class ListNode {--newline-- *     public int val;--newline-- *     public ListNode next;--newline-- *     public ListNode(int x) { val = x; }--newline-- * }--newline-- */--newline--public class Solution {--newline--    public ListNode ReverseKGroup(ListNode head, int k) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * Definition for singly-linked list.--newline-- * function ListNode(val) {--newline-- *     this.val = val;--newline-- *     this.next = null;--newline-- * }--newline-- */--newline--/**--newline-- * @param {ListNode} head--newline-- * @param {number} k--newline-- * @return {ListNode}--newline-- */--newline--var reverseKGroup = function(head, k) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# Definition for singly-linked list.--newline--# class ListNode--newline--#     attr_accessor :val, :next--newline--#     def initialize(val)--newline--#         @val = val--newline--#         @next = nil--newline--#     end--newline--# end--newline----newline--# @param {ListNode} head--newline--# @param {Integer} k--newline--# @return {ListNode}--newline--def reverse_k_group(head, k)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "/**--newline-- * Definition for singly-linked list.--newline-- * public class ListNode {--newline-- *     public var val: Int--newline-- *     public var next: ListNode?--newline-- *     public init(_ val: Int) {--newline-- *         self.val = val--newline-- *         self.next = nil--newline-- *     }--newline-- * }--newline-- */--newline--class Solution {--newline--    func reverseKGroup(_ head: ListNode?, _ k: Int) -> ListNode? {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "/**--newline-- * Definition for singly-linked list.--newline-- * type ListNode struct {--newline-- *     Val int--newline-- *     Next *ListNode--newline-- * }--newline-- */--newline--func reverseKGroup(head *ListNode, k int) *ListNode {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

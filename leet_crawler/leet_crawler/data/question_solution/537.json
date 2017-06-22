@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public String complexNumberMultiply(String a, String b) {--newline--        int[] coefs1 = Stream.of(a.split(\"\\\\+|i\")).mapToInt(Integer::parseInt).toArray(), --newline--              coefs2 = Stream.of(b.split(\"\\\\+|i\")).mapToInt(Integer::parseInt).toArray();--newline--        return (coefs1[0]*coefs2[0] - coefs1[1]*coefs2[1]) + \"+\" + (coefs1[0]*coefs2[1] + coefs1[1]*coefs2[0]) + \"i\";--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 3-liner"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string complexNumberMultiply(string a, string b) {--newline--        int ra, ia, rb, ib;--newline--        char buff;--newline--        stringstream aa(a), bb(b), ans;--newline--        aa >> ra >> buff >> ia >> buff;--newline--        bb >> rb >> buff >> ib >> buff;--newline--        ans << ra*rb - ia*ib << \"+\" << ra*ib + rb*ia << \"i\";--newline--        return ans.str();--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "c++ using stringstream"
+        },
+        {
+            "java": "public class Solution {--newline--    public String complexNumberMultiply(String a, String b) {--newline--        String result = \"\";--newline--        String[] A = a.split(\"\\\\+\");--newline--        String[] B = b.split(\"\\\\+\");--newline--        int a1 = Integer.parseInt(A[0]);--newline--        int b1 = Integer.parseInt(A[1].replace(\"i\",\"\"));--newline--    --newline--        int a2 = Integer.parseInt(B[0]);--newline--        int b2 = Integer.parseInt(B[1].replace(\"i\",\"\"));--newline--    --newline--        int a1a2 = a1 * a2;--newline--        int b1b2 = b1 * b2;--newline--        int a1b2a2b1 = (a1 * b2) + (b1 * a2);--newline--    --newline--        String afinal = (a1a2 + (-1 * b1b2)) + \"\";--newline--        String bfinal = a1b2a2b1 + \"i\";--newline--        result = afinal+\"+\"+bfinal;--newline--        return result;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java - (a1+b1)*(a2+b2) = (a1a2 + b1b2 + (a1b2+b1a2))"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def complexNumberMultiply(self, a, b):--newline----tab--        \"\"\"--newline----tab--        :type a: str--newline----tab--        :type b: str--newline----tab--        :rtype: str--newline----tab--        \"\"\"--newline----tab--        a1, a2 = map(int, a[:-1].split('+'))--newline----tab--        b1, b2 = map(int, b[:-1].split('+'))--newline----tab--        return '%d+%di' % (a1 * b1 - a2 * b2, a1 * b2 + a2 * b1)--newline----tab--",
+            "topic_title": "python simple 3 lines solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public String complexNumberMultiply(String a, String b) {--newline--        int[] valA = getValue(a);--newline--        int[] valB = getValue(b);--newline--        --newline--        int real = valA[0] * valB[0] - valA[1] * valB[1];--newline--        int img = valA[0] * valB[1] + valA[1] * valB[0];--newline--        --newline--        return real + \"+\" + img + \"i\";--newline--    }--newline--    --newline--    private int[] getValue(String s) {--newline--        String[] str = s.split(\"\\\\+\");--newline--        int[] val = new int[2];--newline--        val[0] = Integer.valueOf(str[0]);--newline--        int indexOfI = str[1].indexOf(\"i\");--newline--        val[1] = Integer.valueOf(str[1].substring(0, indexOfI));--newline--        --newline--        return val;--newline--    }--newline--}--newline----newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 7ms easy to understand solution"
+        }
+    ],
+    "qc": "537.json"
+}

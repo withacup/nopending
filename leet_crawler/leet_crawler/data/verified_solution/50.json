@@ -1,0 +1,6 @@
+{
+    "solution_code": "class Solution {--newline--public:--newline--    double myPow(double x, int n) {--newline--        double ans = 1;--newline--        unsigned long long p;--newline--        if (n < 0) {--newline--            p = -n;--newline--            x = 1 / x;--newline--        } else {--newline--            p = n;--newline--        }--newline--        while (p) {--newline--            if (p & 1)--newline--                ans *= x;--newline--            x *= x;--newline--            p >>= 1;--newline--        }--newline--        return ans;--newline--    }--newline--};",
+    "l_type": "cpp",
+    "modified_code": null,
+    "total_cases": 300
+}

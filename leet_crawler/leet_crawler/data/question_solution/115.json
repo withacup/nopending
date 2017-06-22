@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int numDistinct(String S, String T) {--newline--        // array creation--newline--        int[][] mem = new int[T.length()+1][S.length()+1];--newline--    --newline--        // filling the first row: with 1s--newline--        for(int j=0; j<=S.length(); j++) {--newline--            mem[0][j] = 1;--newline--        }--newline--        --newline--        // the first column is 0 by default in every other rows but the first, which we need.--newline--        --newline--        for(int i=0; i<T.length(); i++) {--newline--            for(int j=0; j<S.length(); j++) {--newline--                if(T.charAt(i) == S.charAt(j)) {--newline--                    mem[i+1][j+1] = mem[i][j] + mem[i+1][j];--newline--                } else {--newline--                    mem[i+1][j+1] = mem[i+1][j];--newline--                }--newline--            }--newline--        }--newline--        --newline--        return mem[T.length()][S.length()];--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy to understand DP in Java"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    /**--newline--     * Solution (DP):--newline--     * We keep a m*n matrix and scanning through string S, while--newline--     * m = T.length() + 1 and n = S.length() + 1--newline--     * and each cell in matrix Path[i][j] means the number of distinct subsequences of --newline--     * T.substr(1...i) in S(1...j)--newline--     * --newline--     * Path[i][j] = Path[i][j-1]            (discard S[j])--newline--     *              +     Path[i-1][j-1]    (S[j] == T[i] and we are going to use S[j])--newline--     *                 or 0                 (S[j] != T[i] so we could not use S[j])--newline--     * while Path[0][j] = 1 and Path[i][0] = 0.--newline--     */--newline--    int numDistinct(string S, string T) {--newline--        int m = T.length();--newline--        int n = S.length();--newline--        if (m > n) return 0;    // impossible for subsequence--newline--        vector<vector<int>> path(m+1, vector<int>(n+1, 0));--newline--        for (int k = 0; k <= n; k++) path[0][k] = 1;    // initialization--newline--        --newline--        for (int j = 1; j <= n; j++) {--newline--            for (int i = 1; i <= m; i++) {--newline--                path[i][j] = path[i][j-1] + (T[i-1] == S[j-1] ? path[i-1][j-1] : 0);--newline--            }--newline--        }--newline--        --newline--        return path[m][n];--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Any better solution that takes less than O(n^2) space while in O(n^2) time?"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Task clarification"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "The question should be reworded."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int numDistinct(string s, string t) {--newline--        int m = t.length(), n = s.length();--newline--        vector<int> cur(m + 1, 0);--newline--        cur[0] = 1;--newline--        for (int j = 1; j <= n; j++) { --newline--            int pre = 1;--newline--            for (int i = 1; i <= m; i++) {--newline--                int temp = cur[i];--newline--                cur[i] = cur[i] + (t[i - 1] == s[j - 1] ? pre : 0);--newline--                pre = temp;--newline--            }--newline--        }--newline--        return cur[m];--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "7-10 lines C++ Solutions with Detailed Explanations (O(m*n) time and O(m) space)"
+        }
+    ],
+    "qc": "115.json"
+}

@@ -1,0 +1,23 @@
+---CONTENT_BEGIN---
+Given the coordinates of four points in 2D space, return whether the four points could construct a square.
+
+The coordinate (x,y) of a point is represented by an integer array with two integers.
+
+Example:
+
+Input: p1 = [0,0], p2 = [1,1], p3 = [1,0], p4 = [0,1]
+Output: True
+
+
+
+ Note: 
+
+All the input integers are in the range [-10000, 10000].
+A valid square has four equal sides with positive length and four equal angles (90-degree angles).
+Input points have no order.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    bool validSquare(vector<int>& p1, vector<int>& p2, vector<int>& p3, vector<int>& p4) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public boolean validSquare(int[] p1, int[] p2, int[] p3, int[] p4) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def validSquare(self, p1, p2, p3, p4):--newline--        '''--newline--        :type p1: List[int]--newline--        :type p2: List[int]--newline--        :type p3: List[int]--newline--        :type p4: List[int]--newline--        :rtype: bool--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "class Solution:--newline--    def validSquare(self, p1, p2, p3, p4):--newline--        '''--newline--        :type p1: List[int]--newline--        :type p2: List[int]--newline--        :type p3: List[int]--newline--        :type p4: List[int]--newline--        :rtype: bool--newline--        '''", "value": "python3", "text": "Python3"}, {"defaultCode": "bool validSquare(int* p1, int p1Size, int* p2, int p2Size, int* p3, int p3Size, int* p4, int p4Size) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public bool ValidSquare(int[] p1, int[] p2, int[] p3, int[] p4) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} p1--newline-- * @param {number[]} p2--newline-- * @param {number[]} p3--newline-- * @param {number[]} p4--newline-- * @return {boolean}--newline-- */--newline--var validSquare = function(p1, p2, p3, p4) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} p1--newline--# @param {Integer[]} p2--newline--# @param {Integer[]} p3--newline--# @param {Integer[]} p4--newline--# @return {Boolean}--newline--def valid_square(p1, p2, p3, p4)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func validSquare(_ p1: [Int], _ p2: [Int], _ p3: [Int], _ p4: [Int]) -> Bool {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func validSquare(p1 []int, p2 []int, p3 []int, p4 []int) bool {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

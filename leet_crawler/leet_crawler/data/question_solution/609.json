@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<vector<string>> findDuplicate(vector<string>& paths) {--newline--        unordered_map<string, vector<string>> files;--newline--        vector<vector<string>> result;--newline--    --newline--        for (auto path : paths) {--newline--    --tab--    stringstream ss(path);--newline--    --tab--    string root;--newline--    --tab--    string s;--newline--    --tab--    getline(ss, root, ' ');--newline--    --tab--    while (getline(ss, s, ' ')) {--newline--    --tab----tab--    string fileName = root + '/' + s.substr(0, s.find('('));--newline--    --tab----tab--    string fileContent = s.substr(s.find('(') + 1, s.find(')') - s.find('(') - 1);--newline--    --tab----tab--    files[fileContent].push_back(fileName);--newline--    --tab--    }--newline--        }--newline--    --newline--        for (auto file : files) {--newline--    --tab--    if (file.second.size() > 1)--newline--    --tab----tab--    result.push_back(file.second);--newline--        }--newline--    --newline--        return result;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "C++ clean solution, answers to follow up"
+        },
+        {
+            "java": "public class Solution {--newline--    public static List<List<String>> findDuplicate(String[] paths) {--newline--            Map<String, List<String>> map = new HashMap<>();--newline--            for(String path : paths) {--newline--                String[] tokens = path.split(\" \");--newline--                for(int i = 1; i < tokens.length; i++) {--newline--                    String file = tokens[i].substring(0, tokens[i].indexOf('('));--newline--                    String content = tokens[i].substring(tokens[i].indexOf('(') + 1, tokens[i].indexOf(')'));--newline--                    map.putIfAbsent(content, new ArrayList<>());--newline--                    map.get(content).add(tokens[0] + \"/\" + file);--newline--                }--newline--            }--newline--            return map.values().stream().filter(e -> e.size() > 1).collect(Collectors.toList());--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Straight forward solution with a tiny bit of Java8"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<List<String>> findDuplicate(String[] paths) {--newline--        List<List<String>> result = new ArrayList<List<String>>();--newline--        int n = paths.length;--newline--        if (n == 0) return result;--newline--        --newline--        Map<String, Set<String>> map = new HashMap<>();--newline--        for (String path : paths) {--newline--            String[] strs = path.split(\"\\\\s+\");--newline--            for (int i = 1; i < strs.length; i++) {--newline--                int idx = strs[i].indexOf(\"(\");--newline--                String content = strs[i].substring(idx);--newline--                String filename = strs[0] + \"/\" + strs[i].substring(0, idx);--newline--                Set<String> filenames = map.getOrDefault(content, new HashSet<String>());--newline--                filenames.add(filename);--newline--                map.put(content, filenames);--newline--            }--newline--        }--newline--        --newline--        for (String key : map.keySet()) {--newline--            if (map.get(key).size() > 1) {--newline--                result.add(new ArrayList<String>(map.get(key)));--newline--            }--newline--        }--newline--        --newline--        return result;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution, HashMap"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def findDuplicate(self, paths):--newline----tab--        M = collections.defaultdict(list)--newline----tab--        for line in paths:--newline----tab--            data = line.split()--newline----tab--            root = data[0]--newline----tab--            for file in data[1:]:--newline----tab--                name, _, content = file.partition('(')--newline----tab--                M[content[:-1]].append(root + '/' + name)--newline----tab--                --newline----tab--        return [x for x in M.values() if len(x) > 1]--newline----tab--    ",
+            "topic_title": "Python, Straightforward with Explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<vector<string>> findDuplicate(vector<string>& paths) {--newline--        vector<vector<string>> res;--newline--        map<string, vector<string>> files;--newline--        for (string s : paths) {--newline--            std::istringstream ss(s);--newline--            vector<string> toks{ istream_iterator<string>{ss}, istream_iterator<string>{} };--newline--            string path = toks[0];--newline--            for (int i = 1; i < toks.size(); i++) {--newline--                int pos = toks[i].find('(');--newline--                string file = toks[i].substr(0, pos);--newline--                string content = toks[i].substr(pos + 1, toks[i].size() - 2 - pos);--newline--                files[content].push_back(path + \"/\" + file);--newline--            }--newline--        }--newline----newline--        for (auto p : files) {--newline--            if (p.second.size() > 1) {--newline--                res.push_back(p.second);--newline--            }--newline--        }--newline--        return res;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "&#91;C++&#93; Clean Code"
+        }
+    ],
+    "qc": "609.json"
+}

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--        public int characterReplacement(String s, int k) {--newline--            int len = s.length();--newline--            int[] count = new int[26];--newline--            int start = 0, maxCount = 0, maxLength = 0;--newline--            for (int end = 0; end < len; end++) {--newline--                maxCount = Math.max(maxCount, ++count[s.charAt(end) - 'A']);--newline--                while (end - start + 1 - maxCount > k) {--newline--                    count[s.charAt(start) - 'A']--;--newline--                    start++;--newline--                }--newline--                maxLength = Math.max(maxLength, end - start + 1);--newline--            }--newline--            return maxLength;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 12 lines O(n) sliding window solution with explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int characterReplacement(string s, int k) {--newline--        vector<int> counts(26, 0);--newline--        int start = 0;--newline--        int maxCharCount = 0;--newline--        int n = s.length();--newline--        int result = 0;--newline--        for(int end = 0; end < n; end++){--newline--            counts[s[end]-'A']++;--newline--            if(maxCharCount < counts[s[end]-'A']){--newline--                maxCharCount = counts[s[end]-'A'];--newline--            }--newline--            while(end-start-maxCharCount+1 > k){--newline--                counts[s[start]-'A']--;--newline--                start++;--newline--                for(int i = 0; i < 26; i++){--newline--                    if(maxCharCount < counts[i]){--newline--                        maxCharCount = counts[i];--newline--                    }--newline--                }--newline--            }--newline--            result = max(result, end-start+1);--newline--        }--newline--        return result;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Sliding window, similar to finding longest substring with k distinct characters"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int characterReplacement(string s, int k) {--newline--        int i = 0, j = 0, ctr[91] = {};--newline--        while (j < s.size()) {--newline--            ctr[s[j++]]++;--newline--            if (j-i - *max_element(ctr+65, ctr+91) > k)--newline--                ctr[s[i++]]--;--newline--        }--newline--        return j - i;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "7 lines C++"
+        },
+        {
+            "java": "public class Solution {--newline--    public int characterReplacement(String s, int k) {--newline--        if(s == null || s.length() == 0){--newline--            return 0;--newline--        }--newline--        int max = 0;--newline--        int[] ch = new int[26];--newline--        char[] str = s.toCharArray();--newline--        for(int i=0, j=0; i<s.length(); i++){--newline--            while(j < s.length()){--newline--                ch[str[j] - 'A']++;--newline--                if(count(ch) > k){  //If exceed k, break--newline--                    ch[str[j] - 'A']--;--newline--                    break;--newline--                }--newline--                j++;--newline--            }--newline--            max = Math.max(max, j-i);--newline--            ch[str[i] - 'A']--;--newline--        }--newline--        return max;--newline--    }--newline--    //Count the number of character that is different to the longest character--newline--    public int count(int[] ch){--newline--        int max = 0;--newline--        int sum = 0;--newline--        for(int val:ch){--newline--            sum += val;--newline--            max = Math.max(max, val);--newline--        }--newline--        return sum - max;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Sliding Window Easy to Understand"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def characterReplacement(self, s, k):--newline----tab--        res = lo = 0--newline----tab--        counts = collections.Counter()--newline----tab--        for hi in range(len(s)):--newline----tab--            counts[s[hi]] += 1--newline----tab--            max_char_n = counts.most_common(1)[0][1]--newline----tab--            while (hi - lo - max_char_n + 1 > k):--newline----tab--                counts[s[lo]] -= 1--newline----tab--                lo += 1--newline----tab--            res = max(res, hi - lo + 1)--newline----tab--        return res--newline----tab--    ",
+            "topic_title": "Consise Python sliding window"
+        }
+    ],
+    "qc": "424.json"
+}

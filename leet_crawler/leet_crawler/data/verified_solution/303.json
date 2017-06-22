@@ -1,0 +1,6 @@
+{
+    "solution_code": "public class NumArray {--newline--    int[] nums;--newline--    --newline--    public NumArray(int[] nums) {--newline--        for(int i = 1; i < nums.length; i++)--newline--            nums[i] += nums[i - 1];--newline--        --newline--        this.nums = nums;--newline--    }--newline--    --newline--    public int sumRange(int i, int j) {--newline--        if(i == 0)--newline--            return nums[j];--newline--        --newline--        return nums[j] - nums[i - 1];--newline--    }--newline--    --newline--}",
+    "l_type": "java",
+    "modified_code": null,
+    "total_cases": 16
+}

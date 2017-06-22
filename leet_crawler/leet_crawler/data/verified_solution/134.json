@@ -1,0 +1,6 @@
+{
+    "solution_code": "class Solution {--newline--public:--newline--    int canCompleteCircuit(vector<int> &gas, vector<int> &cost) {--newline--        int start(0),total(0),tank(0);--newline--        //if car fails at 'start', record the next station--newline--        for(int i=0;i<gas.size();i++) if((tank=tank+gas[i]-cost[i])<0) {start=i+1;total+=tank;tank=0;}--newline--        return (total+tank<0)? -1:start;--newline--    }--newline--};",
+    "l_type": "cpp",
+    "modified_code": null,
+    "total_cases": 16
+}

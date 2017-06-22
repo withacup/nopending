@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--public int maxProfit(int[] prices) {--newline--    int total = 0;--newline--    for (int i=0; i< prices.length-1; i++) {--newline--        if (prices[i+1]>prices[i]) total += prices[i+1]-prices[i];--newline--    }--newline--    --newline--    return total;--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Is this question a joke?"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int maxProfit(vector<int> &prices) {--newline--        int ret = 0;--newline--        for (size_t p = 1; p < prices.size(); ++p) --newline--          ret += max(prices[p] - prices[p - 1], 0);    --newline--        return ret;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Three lines in C++, with explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public int maxProfit(int[] prices) {--newline--        int profit = 0, i = 0;--newline--        while (i < prices.length) {--newline--            // find next local minimum--newline--            while (i < prices.length-1 && prices[i+1] <= prices[i]) i++;--newline--            int min = prices[i++]; // need increment to avoid infinite loop for \"[1]\"--newline--            // find next local maximum--newline--            while (i < prices.length-1 && prices[i+1] >= prices[i]) i++;--newline--            profit += i < prices.length ? prices[i++] - min : 0;--newline--        }--newline--        return profit;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java O(n) solution if we&#x27;re not greedy"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def maxProfit(self, prices):--newline----tab--        return sum(max(prices[i + 1] - prices[i], 0) for i in range(len(prices) - 1))",
+            "topic_title": "Clear 1-line Python Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "A simple solution with O(n) time and O(1) space"
+        }
+    ],
+    "qc": "122.json"
+}

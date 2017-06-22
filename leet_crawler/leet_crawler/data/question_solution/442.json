@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    // when find a number i, flip the number at position i-1 to negative. --newline--    // if the number at position i-1 is already negative, i is the number that occurs twice.--newline--    --newline--    public List<Integer> findDuplicates(int[] nums) {--newline--        List<Integer> res = new ArrayList<>();--newline--        for (int i = 0; i < nums.length; ++i) {--newline--            int index = Math.abs(nums[i])-1;--newline--            if (nums[index] < 0)--newline--                res.add(Math.abs(index+1));--newline--            nums[index] = -nums[index];--newline--        }--newline--        return res;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Simple Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> findDuplicates(vector<int>& nums) {--newline--        vector<int> res;--newline--        int i = 0;--newline--        while (i < nums.size()) {--newline--            if (nums[i] != nums[nums[i]-1]) swap(nums[i], nums[nums[i]-1]);--newline--            else i++;--newline--        }--newline--        for (i = 0; i < nums.size(); i++) {--newline--            if (nums[i] != i + 1) res.push_back(nums[i]);--newline--        }--newline--        return res;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Very simple C++ solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<Integer> findDuplicates(int[] nums) {--newline--         List<Integer> result = new ArrayList<Integer>();--newline--        if(nums == null)--newline--            return result;--newline--        for(int i=0; i<nums.length; i++){--newline--            int location = Math.abs(nums[i])-1;--newline--            if(nums[location] < 0){--newline--                result.add(Math.abs(nums[i]));--newline--            }else{--newline--                nums[location] = -nums[location];--newline--            }--newline--        }--newline--        for(int i=0; i<nums.length; i++)--newline--            nums[i] = Math.abs(nums[i]);--newline--       --newline--        return result;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java solution without destroying the input array. O(n) time. O(1) space."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def findDuplicates(self, nums):--newline----tab--        \"\"\"--newline----tab--        :type nums: List[int]--newline----tab--        :rtype: List[int]--newline----tab--        \"\"\"--newline----tab--        res = []--newline----tab--        for x in nums:--newline----tab--            if nums[abs(x)-1] < 0:--newline----tab--                res.append(abs(x))--newline----tab--            else:--newline----tab--                nums[abs(x)-1] *= -1--newline----tab--        return res--newline----tab--",
+            "topic_title": "Python O(n) time O(1) space"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Easy to understand solution without extra space and in O(n) time"
+        }
+    ],
+    "qc": "442.json"
+}

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "    public int eraseOverlapIntervals(Interval[] intervals) {--newline--        if (intervals.length == 0)  return 0;--newline----newline--        Arrays.sort(intervals, new myComparator());--newline--        int end = intervals[0].end;--newline--        int count = 1;        --newline----newline--        for (int i = 1; i < intervals.length; i++) {--newline--            if (intervals[i].start >= end) {--newline--                end = intervals[i].end;--newline--                count++;--newline--            }--newline--        }--newline--        return intervals.length - count;--newline--    }--newline--    --newline--    class myComparator implements Comparator<Interval> {--newline--        public int compare(Interval a, Interval b) {--newline--            return a.end - b.end;--newline--        }--newline--    }--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java: Least is Most"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def eraseOverlapIntervals(self, intervals):--newline----tab--        end = float('-inf')--newline----tab--        erased = 0--newline----tab--        for i in sorted(intervals, key=lambda i: i.end):--newline----tab--            if i.start >= end:--newline----tab--                end = i.end--newline----tab--            else:--newline----tab--                erased += 1--newline----tab--        return erased",
+            "topic_title": "Short Ruby and Python"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int eraseOverlapIntervals(vector<Interval>& intervals) {--newline--        auto comp = [](const Interval& i1, const Interval& i2){ return i1.start < i2.start; };--newline--        sort(intervals.begin(), intervals.end(), comp);--newline--        int res = 0, pre = 0;--newline--        for (int i = 1; i < intervals.size(); i++) {--newline--            if (intervals[i].start < intervals[pre].end) {--newline--                res++;--newline--                if (intervals[i].end < intervals[pre].end) pre = i;--newline--            }--newline--            else pre = i;--newline--        }--newline--        return res;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Concise C++ Solution"
+        },
+        {
+            "java": "public class Solution {--newline--    /**--newline--         * 16 / 16 test cases passed--newline--         * Status: Accepted--newline--         * Runtime: 9 - 10 ms--newline--         *--newline--         * @param intervals--newline--         * @return--newline--         */--newline--    public int eraseOverlapIntervals(Interval[] intervals) {--newline--            Arrays.sort(intervals, new Comparator<Interval>() {--newline--                @Override--newline--                public int compare(Interval o1, Interval o2) {--newline--                    if (o1.end != o2.end) return o1.end - o2.end;  //first sort by end--newline--                    return o2.start - o1.start;  //second sort by start--newline--                }--newline--            });--newline--    --newline--            int end = Integer.MIN_VALUE;--newline--            int count = 0;--newline--            for (Interval interval : intervals) {--newline--                if (interval.start >= end) end = interval.end;--newline--                else count++;--newline--            }--newline--    --newline--            return count;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution with clear explain"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def eraseOverlapIntervals(self, intervals):--newline----tab--            \"\"\"--newline----tab--            :type intervals: List[Interval]--newline----tab--            :rtype: int--newline----tab--            \"\"\"--newline----tab--            if not intervals: return 0--newline----tab--            intervals.sort(key=lambda x: x.start)  # sort on start time--newline----tab--            currEnd, cnt = intervals[0].end, 0--newline----tab--            for x in intervals[1:]:--newline----tab--                if x.start < currEnd:  # find overlapping interval--newline----tab--                    cnt += 1--newline----tab--                    currEnd = min(currEnd, x.end)  # erase the one with larger end time--newline----tab--                else:--newline----tab--                    currEnd = x.end   # update end time--newline----tab--            return cnt--newline----tab--    ",
+            "topic_title": "Python greedy solution with explanation"
+        }
+    ],
+    "qc": "435.json"
+}

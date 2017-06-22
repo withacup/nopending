@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int[] constructRectangle(int area) {--newline--            int w = (int)Math.sqrt(area);--newline--    --tab--while (area%w!=0) w--;--newline--    --tab--return new int[]{area/w, w};--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "3 line Clean and easy understand solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int[] constructRectangle(int area) {--newline--            int[] result = new int[2];--newline--            if(area == 0){--newline--                return result;--newline--            }--newline--            int a = (int)Math.sqrt(area);--newline--            while(area%a != 0){--newline--                a--;--newline--            }--newline--            int b = area/a;--newline--            result[0] = b;--newline--            result[1] = a;--newline--            return result;--newline--        }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java Solution, Beats 100%"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def constructRectangle(self, area):--newline----tab--        mid = int(math.sqrt(area))--newline----tab--        while mid > 0:--newline----tab--            if area % mid == 0:--newline----tab--                return [int(area / mid), int(mid)]--newline----tab--            mid -= 1--newline----tab--",
+            "topic_title": "Simple Python"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> constructRectangle(int area) {--newline--            for(int mid = sqrt(area); mid>0; mid--)--newline--                if (!(area%mid))--newline--                    return {area/mid, mid};--newline--        }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "3 line C++ clean solution with Explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    var largestDividable = (area) => {--newline--      for (let i = Math.sqrt(area) | 0; i > 0; i--) {--newline--        if (area % i === 0) return i;--newline--      }--newline--    }--newline--    --newline--    var constructRectangle = function(area) {--newline--      if (area === 0) return [0, 0];--newline--    --newline--      let w = largestDividable(area);--newline--      let l = area / w;--newline--      return [l, w];--newline--    };--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Clean JavaScript Solution"
+        }
+    ],
+    "qc": "492.json"
+}

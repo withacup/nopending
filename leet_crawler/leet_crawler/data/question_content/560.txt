@@ -1,0 +1,20 @@
+---CONTENT_BEGIN---
+Given an array of integers and an integer k, you need to find the total number of continuous subarrays whose sum equals to k.
+
+Example 1:
+
+Input:nums = [1,1,1], k = 2
+Output: 2
+
+
+
+Note:
+
+The length of the array is in range [1, 20,000].
+The range of numbers in the array is [-1000, 1000] and the range of the integer k is [-1e7, 1e7].
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int subarraySum(vector<int>& nums, int k) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int subarraySum(int[] nums, int k) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def subarraySum(self, nums, k):--newline--        '''--newline--        :type nums: List[int]--newline--        :type k: int--newline--        :rtype: int--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "int subarraySum(int* nums, int numsSize, int k) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int SubarraySum(int[] nums, int k) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} nums--newline-- * @param {number} k--newline-- * @return {number}--newline-- */--newline--var subarraySum = function(nums, k) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} nums--newline--# @param {Integer} k--newline--# @return {Integer}--newline--def subarray_sum(nums, k)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func subarraySum(_ nums: [Int], _ k: Int) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func subarraySum(nums []int, k int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

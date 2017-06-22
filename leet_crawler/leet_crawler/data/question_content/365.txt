@@ -1,0 +1,34 @@
+---CONTENT_BEGIN---
+You are given two jugs with capacities x and y litres. There is an infinite amount of water supply available.
+You need to determine whether it is possible to measure exactly z litres using these two jugs.
+
+If z liters of water is measurable, you must have z liters of water contained within one or both buckets by the end.
+
+
+Operations allowed:
+
+Fill any of the jugs completely with water.
+Empty any of the jugs.
+Pour water from one jug into another till the other jug is completely full or the first jug itself is empty.
+
+
+
+Example 1: (From the famous "Die Hard" example)
+
+Input: x = 3, y = 5, z = 4
+Output: True
+
+
+
+Example 2:
+
+Input: x = 2, y = 6, z = 5
+Output: False
+
+
+
+Credits:Special thanks to @vinod23 for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    bool canMeasureWater(int x, int y, int z) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public boolean canMeasureWater(int x, int y, int z) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def canMeasureWater(self, x, y, z):--newline--        '''--newline--        :type x: int--newline--        :type y: int--newline--        :type z: int--newline--        :rtype: bool--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "bool canMeasureWater(int x, int y, int z) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public bool CanMeasureWater(int x, int y, int z) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} x--newline-- * @param {number} y--newline-- * @param {number} z--newline-- * @return {boolean}--newline-- */--newline--var canMeasureWater = function(x, y, z) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} x--newline--# @param {Integer} y--newline--# @param {Integer} z--newline--# @return {Boolean}--newline--def can_measure_water(x, y, z)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func canMeasureWater(_ x: Int, _ y: Int, _ z: Int) -> Bool {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func canMeasureWater(x int, y int, z int) bool {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

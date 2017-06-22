@@ -1,0 +1,17 @@
+---CONTENT_BEGIN---
+Reverse bits of a given 32 bits unsigned integer.
+
+For example, given input 43261596 (represented in binary as 00000010100101000001111010011100), return 964176192 (represented in binary as 00111001011110000010100101000000).
+
+
+Follow up:
+If this function is called many times, how would you optimize it?
+
+
+Related problem: Reverse Integer
+
+Credits:Special thanks to @ts for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    uint32_t reverseBits(uint32_t n) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    // you need treat n as an unsigned value--newline--    public int reverseBits(int n) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution:--newline--    # @param n, an integer--newline--    # @return an integer--newline--    def reverseBits(self, n):--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "uint32_t reverseBits(uint32_t n) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public uint reverseBits(uint n) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} n - a positive integer--newline-- * @return {number} - a positive integer--newline-- */--newline--var reverseBits = function(n) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} n, a positive integer--newline--# @return {Integer}--newline--def reverse_bits(n)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}]
+---SCRIPT_END---

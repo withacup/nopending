@@ -1,0 +1,22 @@
+---CONTENT_BEGIN---
+Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
+
+
+
+For example,
+Given the following matrix:
+
+
+[
+ [ 1, 2, 3 ],
+ [ 4, 5, 6 ],
+ [ 7, 8, 9 ]
+]
+
+
+You should return [1,2,3,6,9,8,7,4,5].
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<int> spiralOrder(vector<vector<int>>& matrix) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public List<Integer> spiralOrder(int[][] matrix) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def spiralOrder(self, matrix):--newline--        '''--newline--        :type matrix: List[List[int]]--newline--        :rtype: List[int]--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Note: The returned array must be malloced, assume caller calls free().--newline-- */--newline--int* spiralOrder(int** matrix, int matrixRowSize, int matrixColSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public IList<int> SpiralOrder(int[,] matrix) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[][]} matrix--newline-- * @return {number[]}--newline-- */--newline--var spiralOrder = function(matrix) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[][]} matrix--newline--# @return {Integer[]}--newline--def spiral_order(matrix)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func spiralOrder(_ matrix: [[Int]]) -> [Int] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func spiralOrder(matrix [][]int) []int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

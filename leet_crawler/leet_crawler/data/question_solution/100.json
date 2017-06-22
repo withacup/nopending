@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public boolean isSameTree(TreeNode p, TreeNode q) {--newline--        if(p == null && q == null) return true;--newline--        if(p == null || q == null) return false;--newline--        if(p.val == q.val)--newline--            return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);--newline--        return false;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Five line Java solution with recursion"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    //--newline--    // Algorithm for the recursion:--newline--    // 1)--newline--    // If one of the node is NULL then return the equality result of p an q.--newline--    // This boils down to if both are NULL then return true, --newline--    // but if one of them is NULL but not the other one then return false--newline--    // 2)--newline--    // At this point both root nodes represent valid pointers.--newline--    // Return true if the root nodes have same value and --newline--    // the left tree of the roots are same (recursion)--newline--    // and the right tree of the roots are same (recursion). --newline--    // Otherwise return false. --newline--    //--newline--    --newline--    bool isSameTree(TreeNode *p, TreeNode *q) {--newline--        if (p == NULL || q == NULL) return (p == q);--newline--        return (p->val == q->val && isSameTree(p->left, q->left) && isSameTree(p->right, q->right));--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Here&#x27;s a C++ recursion solution in minimal lines of code"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isSameTree(TreeNode p, TreeNode q) {--newline--    --tab--     Stack<TreeNode> stack_p = new Stack <> ();       --newline--    --tab--     Stack<TreeNode> stack_q = new Stack <> ();--newline--    --tab--     if (p != null) stack_p.push( p ) ;--newline--    --tab--     if (q != null) stack_q.push( q ) ;--newline--    --tab--     while (!stack_p.isEmpty() && !stack_q.isEmpty()) {--newline--    --tab--    --tab-- TreeNode pn = stack_p.pop() ;--newline--    --tab--    --tab-- TreeNode qn = stack_q.pop() ;--tab--    --tab----newline--    --tab--    --tab-- if (pn.val != qn.val) return false ;--newline--    --tab--    --tab-- if (pn.right != null) stack_p.push(pn.right) ;--newline--    --tab--    --tab-- if (qn.right != null) stack_q.push(qn.right) ;--newline--    --tab--    --tab-- if (stack_p.size() != stack_q.size()) return false ;--newline--    --tab--    --tab-- if (pn.left != null) stack_p.push(pn.left) ;--tab--    --tab-- --tab--    --tab-- --newline--    --tab--    --tab-- if (qn.left != null) stack_q.push(qn.left) ;--newline--    --tab--    --tab-- if (stack_p.size() != stack_q.size()) return false ;--newline--    --tab--     }--tab----tab--     --newline--    --tab--     return stack_p.size() == stack_q.size() ;--tab-- --newline--    --tab-- }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My non-recursive method"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def isSameTree(self, p, q):--newline----tab--        return p and q and p.val == q.val and all(map(self.isSameTree, (p.left, p.right), (q.left, q.right))) or p is q",
+            "topic_title": "Shortest+simplest Python"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isSameTree(TreeNode p, TreeNode q) {--newline--        if (p == null && q == null) return true;--newline--        return p != null && q != null && p.val == q.val && isSameTree(p.left, q.left) && isSameTree(p.right, q.right);--newline--    } }",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "2 Lines Java Code"
+        }
+    ],
+    "qc": "100.json"
+}

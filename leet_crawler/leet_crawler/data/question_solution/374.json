@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "The key point is to read the problem carefully."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--        def guessNumber(self, n):--newline----tab--            lo, hi = 1, n--newline----tab--            while lo < hi:--newline----tab--                mid = (lo + hi) / 2--newline----tab--                lo, hi = ((mid, mid), (mid+1, hi), (lo, mid-1))[guess(mid)]--newline----tab--            return lo--newline----tab--    ",
+            "topic_title": "2 lines as usual"
+        },
+        {
+            "java": "public class Solution {--newline--    public int guessNumber(int n) {--newline--        int i = 1, j = n;--newline--        while(i < j) {--newline--            int mid = i + (j - i) / 2;--newline--            if(guess(mid) == 0) {--newline--                return mid;--newline--            } else if(guess(mid) == 1) {--newline--                i = mid + 1;--newline--            } else {--newline--                j = mid;--newline--            }--newline--        }--newline--        return i;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Short Java code using binary search"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int guessNumber(int n) {--newline--            int maxNumber = n, minNumber = 1;--newline--            while (true) {--newline--                int meanNumber = (maxNumber - minNumber) / 2 + minNumber;--newline--                // Do NOT use (maxNumber+minNumber)/2 in case of over flow--newline--                int res = guess(meanNumber);--newline--                if (res == 0) { --newline--                    return meanNumber;--newline--                } else if (res == 1) {--newline--                    minNumber = meanNumber + 1;--newline--                } else {--newline--                    maxNumber = meanNumber - 1;--newline--                }--newline--            }--newline--        }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "0ms c++ binary search"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int guessNumber(int n) {--newline--        //simple binary search : low = 1; high = n--newline--        int low = 1;--newline--        while(low <= n){--newline--            int mid = low + (n-low) / 2;--newline--            int res = guess(mid);--newline--            if(res == 0)--newline--                return mid;--newline--            else if(res == -1)--newline--                n = mid - 1;--newline--            else--newline--                low = mid + 1;--newline--        }--newline--        return -1;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "c++ binary search"
+        }
+    ],
+    "qc": "374.json"
+}

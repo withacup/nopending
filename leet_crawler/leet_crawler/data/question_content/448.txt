@@ -1,0 +1,20 @@
+---CONTENT_BEGIN---
+Given an array of integers where 1 â¤ a[i] â¤ n (n = size of array), some elements appear twice and others appear once.
+
+Find all the elements of [1, n] inclusive that do not appear in this array.
+
+Could you do it without extra space and in O(n) runtime? You may assume the returned list does not count as extra space.
+
+Example:
+
+Input:
+[4,3,2,7,8,2,3,1]
+
+Output:
+[5,6]
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<int> findDisappearedNumbers(vector<int>& nums) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public List<Integer> findDisappearedNumbers(int[] nums) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def findDisappearedNumbers(self, nums):--newline--        '''--newline--        :type nums: List[int]--newline--        :rtype: List[int]--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Return an array of size *returnSize.--newline-- * Note: The returned array must be malloced, assume caller calls free().--newline-- */--newline--int* findDisappearedNumbers(int* nums, int numsSize, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public IList<int> FindDisappearedNumbers(int[] nums) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} nums--newline-- * @return {number[]}--newline-- */--newline--var findDisappearedNumbers = function(nums) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} nums--newline--# @return {Integer[]}--newline--def find_disappeared_numbers(nums)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func findDisappearedNumbers(_ nums: [Int]) -> [Int] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func findDisappearedNumbers(nums []int) []int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

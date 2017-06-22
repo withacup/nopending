@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int findDuplicate3(vector<int>& nums)--newline--    {--newline--    --tab--if (nums.size() > 1)--newline--    --tab--{--newline--    --tab----tab--int slow = nums[0];--newline--    --tab----tab--int fast = nums[nums[0]];--newline--    --tab----tab--while (slow != fast)--newline--    --tab----tab--{--newline--    --tab----tab----tab--slow = nums[slow];--newline--    --tab----tab----tab--fast = nums[nums[fast]];--newline--    --tab----tab--}--newline--    --newline--    --tab----tab--fast = 0;--newline--    --tab----tab--while (fast != slow)--newline--    --tab----tab--{--newline--    --tab----tab----tab--fast = nums[fast];--newline--    --tab----tab----tab--slow = nums[slow];--newline--    --tab----tab--}--newline--    --tab----tab--return slow;--newline--    --tab--}--newline--    --tab--return -1;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "My easy understood solution with O(n) time and O(1) space without modifying the array. With clear explanation."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def findDuplicate(self, nums):--newline----tab--        \"\"\"--newline----tab--        :type nums: List[int]--newline----tab--        :rtype: int--newline----tab--        \"\"\"--newline----tab--        low = 1--newline----tab--        high = len(nums)-1--newline----tab--        --newline----tab--        while low < high:--newline----tab--            mid = low+(high-low)/2--newline----tab--            count = 0--newline----tab--            for i in nums:--newline----tab--                if i <= mid:--newline----tab--                    count+=1--newline----tab--            if count <= mid:--newline----tab--                low = mid+1--newline----tab--            else:--newline----tab--                high = mid--newline----tab--        return low--newline----tab--",
+            "topic_title": "Two Solutions (with explanation): O(nlog(n)) and O(n) time , O(1) space, without changing the input array"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findDuplicate(int[] nums) {--newline--        int n = nums.length;--newline--        int slow = n;--newline--        int fast = n;--newline--        do{--newline--            slow = nums[slow-1];--newline--            fast = nums[nums[fast-1]-1];--newline--        }while(slow != fast);--newline--        slow = n;--newline--        while(slow != fast){--newline--            slow = nums[slow-1];--newline--            fast = nums[fast-1];--newline--        }--newline--        return slow;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java O(n) time and O(1) space solution. Similar to find loop in linkedlist."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int findDuplicate(vector<int>& nums) {--newline--        int n=nums.size()-1;--newline--        int low=1;--newline--        int high=n;--newline--        int mid;--newline--        while(low<high){--newline--            mid=(low+high)/2;--newline--            int count=0;--newline--            for(int num:nums){--newline--                if(num<=mid) count++;--newline--            }--newline--            if(count>mid) high=mid;--newline--            else low=mid+1; --newline--        }--newline--        return low;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Simple C++ code with O(1) space and O(nlogn) time complexity"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--int findDuplicate(vector<int>& nums) {--newline--    int slow = 0;--newline----tab--int fast = 0;--newline----tab--int finder = 0;--newline----newline----tab--while (true)--newline----tab--{--newline----tab----tab--slow = nums[slow];--newline----tab----tab--fast = nums[nums[fast]];--newline----newline----tab----tab--if (slow == fast)--newline----tab----tab----tab--break;--newline----tab--}--newline----tab--while (true)--newline----tab--{--newline----tab----tab--slow = nums[slow];--newline----tab----tab--finder = nums[finder];--newline----tab----tab--if (slow == finder)--newline----tab----tab----tab--return slow;--newline----tab--}--newline--}--newline--",
+            "python": null,
+            "topic_title": "Share my solution O(N) time O(1) space. 12 ms"
+        }
+    ],
+    "qc": "287.json"
+}

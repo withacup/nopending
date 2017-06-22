@@ -1,0 +1,26 @@
+---CONTENT_BEGIN---
+Given a triangle, find the minimum path sum from top to bottom. Each step you may move to adjacent numbers on the row below.
+
+
+For example, given the following triangle
+
+[
+     [2],
+    [3,4],
+   [6,5,7],
+  [4,1,8,3]
+]
+
+
+
+The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).
+
+
+
+Note:
+Bonus point if you are able to do this using only O(n) extra space, where n is the total number of rows in the triangle.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int minimumTotal(vector<vector<int>>& triangle) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int minimumTotal(List<List<Integer>> triangle) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def minimumTotal(self, triangle):--newline--        '''--newline--        :type triangle: List[List[int]]--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int minimumTotal(int** triangle, int triangleRowSize, int *triangleColSizes) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int MinimumTotal(IList<IList<int>> triangle) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[][]} triangle--newline-- * @return {number}--newline-- */--newline--var minimumTotal = function(triangle) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[][]} triangle--newline--# @return {Integer}--newline--def minimum_total(triangle)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func minimumTotal(_ triangle: [[Int]]) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func minimumTotal(triangle [][]int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

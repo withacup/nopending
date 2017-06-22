@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--        public int thirdMax(int[] nums) {--newline--            Integer max1 = null;--newline--            Integer max2 = null;--newline--            Integer max3 = null;--newline--            for (Integer n : nums) {--newline--                if (n.equals(max1) || n.equals(max2) || n.equals(max3)) continue;--newline--                if (max1 == null || n > max1) {--newline--                    max3 = max2;--newline--                    max2 = max1;--newline--                    max1 = n;--newline--                } else if (max2 == null || n > max2) {--newline--                    max3 = max2;--newline--                    max2 = n;--newline--                } else if (max3 == null || n > max3) {--newline--                    max3 = n;--newline--                }--newline--            }--newline--            return max3 == null ? max1 : max3;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java neat and easy understand solution, O(n) time, O(1) space"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int thirdMax(vector<int>& nums) {--newline--        set<int> top3;--newline--        for (int num : nums)--newline--            if (top3.insert(num).second && top3.size() > 3)--newline--                top3.erase(top3.begin());--newline--        return top3.size() == 3 ? *top3.begin() : *top3.rbegin();--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Short easy C++ using set"
+        },
+        {
+            "java": "public class Solution {--newline--    public int thirdMax(int[] nums) {--newline--        PriorityQueue<Integer> pq = new PriorityQueue<>();--newline--        Set<Integer> set = new HashSet<>();--newline--        for (int i : nums) {--newline--            if (!set.contains(i)) {--newline--                pq.offer(i);--newline--                set.add(i);--newline--                if (pq.size() > 3) {--newline--                    set.remove(pq.poll());--newline--                }--newline--            }--newline--        }--newline--        if (pq.size() < 3) {--newline--            while (pq.size() > 1) {--newline--                pq.poll();--newline--            }--newline--        }--newline--        return pq.peek();--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java PriorityQueue O(n) + O(1)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def thirdMax(self, nums):--newline----tab--            nums = set(nums)--newline----tab--            if len(nums) < 3:--newline----tab--                return max(nums)--newline----tab--            nums.remove(max(nums))--newline----tab--            nums.remove(max(nums))--newline----tab--            return max(nums)--newline----tab--    ",
+            "topic_title": "A python amusing solution, which actually beats 98%..."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def thirdMax(self, nums):--newline----tab--        v = [float('-inf'), float('-inf'), float('-inf')]--newline----tab--        for num in nums:--newline----tab--            if num not in v:--newline----tab--                if num > v[0]:   v = [num, v[0], v[1]]--newline----tab--                elif num > v[1]: v = [v[0], num, v[1]]--newline----tab--                elif num > v[2]: v = [v[0], v[1], num]--newline----tab--        return max(nums) if float('-inf') in v else v[2]--newline----tab--",
+            "topic_title": "Intuitive and Short Python solution"
+        }
+    ],
+    "qc": "414.json"
+}

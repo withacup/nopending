@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public void deleteNode(ListNode node) {--newline--        node.val = node.next.val;--newline--        node.next = node.next.next;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    var deleteNode = function(node) {--newline--        node.val = node.next.val;--newline--        node.next = node.next.next;--newline--    };--newline--    --newline--}",
+            "python": null,
+            "topic_title": "1-3 lines, C++&#x2F;Java&#x2F;Python&#x2F;C&#x2F;C#&#x2F;JavaScript&#x2F;Ruby"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Why LeetCode accepted such stupid question?"
+        },
+        {
+            "java": "public class Solution {--newline--    public void deleteNode(ListNode node) {--newline--        node.val=node.next.val;--newline--        node.next=node.next.next;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy solution in java"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "post the answer first:--newline--class Solution {--newline--public:--newline--    void deleteNode(ListNode* node) {--newline--        node->val = node->next->val;--newline--        node->next = node->next->next;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "This question is wrong.You cannot delete the node"
+        },
+        {
+            "java": "public class Solution {--newline--    public void deleteNode(ListNode node) {--newline--        if(node != null && node.next != null) {--newline--            node.val = node.next.val;--newline--            node.next = node.next.next;--newline--        }--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy question, Easy solution(JAVA)"
+        }
+    ],
+    "qc": "237.json"
+}

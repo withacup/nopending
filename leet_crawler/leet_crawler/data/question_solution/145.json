@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> postorderTraversal(TreeNode *root) {--newline--        stack<TreeNode*> nodeStack;--newline--        vector<int> result;--newline--        //base case--newline--        if(root==NULL)--newline--        return result;--newline--        nodeStack.push(root);--newline--    while(!nodeStack.empty())--newline--    {--newline--        TreeNode* node= nodeStack.top();  --newline--        result.push_back(node->val);--newline--        nodeStack.pop();--newline--        if(node->left)--newline--        nodeStack.push(node->left);--newline--        if(node->right)--newline--        nodeStack.push(node->right);--newline--    }--newline--     reverse(result.begin(),result.end());--newline--     return result;--newline--    --newline--}--newline--",
+            "python": null,
+            "topic_title": "My Accepted code with explaination. Does anyone have a better idea?"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<Integer> postorderTraversal(TreeNode root) {--newline--        LinkedList<Integer> result = new LinkedList<>();--newline--        Deque<TreeNode> stack = new ArrayDeque<>();--newline--        TreeNode p = root;--newline--        while(!stack.isEmpty() || p != null) {--newline--            if(p != null) {--newline--                stack.push(p);--newline--                result.addFirst(p.val);  // Reverse the process of preorder--newline--                p = p.right;             // Reverse the process of preorder--newline--            } else {--newline--                TreeNode node = stack.pop();--newline--                p = node.left;           // Reverse the process of preorder--newline--            }--newline--        }--newline--        return result;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Preorder, Inorder, and Postorder Iteratively Summarization"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> postorderTraversal(TreeNode *root) {--newline--        vector<int> v;--newline--        if (!root) return v;--newline--        --newline--        stack<TreeNode *> s;--newline--        s.push(root);--newline--        --newline--        TreeNode *p = NULL;--newline--        while(!s.empty()) {--newline--            p = s.top();--newline--            s.pop();--newline--            v.insert(v.begin(), p->val);--newline--            if (p->left) s.push(p->left);--newline--            if (p->right) s.push(p->right);--newline--        }--newline--        --newline--        return v;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "A very concise solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    void reverseNodes(TreeNode* start, TreeNode* end) {--newline--        if (start == end) return;--newline--        TreeNode* x = start;--newline--        TreeNode* y = start -> right;--newline--        TreeNode* z;--newline--        while (x != end) {--newline--            z = y -> right;--newline--            y -> right = x;--newline--            x = y;--newline--            y = z;--newline--        }--newline--    }--newline--    void reverseAddNodes(TreeNode* start, TreeNode* end, vector<int>& nodes) {--newline--        reverseNodes(start, end);--newline--        TreeNode* node = end;--newline--        while (true) {--newline--            nodes.push_back(node -> val);--newline--            if (node == start) break;--newline--            node = node -> right;--newline--        }--newline--        reverseNodes(end, start);--newline--    }--newline--    vector<int> postorderTraversal(TreeNode* root) {--newline--        vector<int> nodes;--newline--        TreeNode* dump = new TreeNode(0);--newline--        dump -> left = root;--newline--        TreeNode* curNode = dump;--newline--        while (curNode) {--newline--            if (curNode -> left) {--newline--                TreeNode* predecessor = curNode -> left;--newline--                while (predecessor -> right && predecessor -> right != curNode)--newline--                    predecessor = predecessor -> right;--newline--                if (!(predecessor -> right)) {--newline--                    predecessor -> right = curNode;--newline--                    curNode = curNode -> left;--newline--                }--newline--                else {--newline--                    reverseAddNodes(curNode -> left, predecessor, nodes);--newline--                    predecessor -> right = NULL;--newline--                    curNode = curNode -> right;--newline--                }--newline--            }--newline--            else curNode = curNode -> right;--newline--        }--newline--        return nodes;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "0 ms Clear C++ solutions --- iterative, recursive, Morris traversal (3 different solutions!)"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<Integer> postorderTraversal(TreeNode root) {--newline--    --tab--LinkedList<Integer> ans = new LinkedList<>();--newline--    --tab--Stack<TreeNode> stack = new Stack<>();--newline--    --tab--if (root == null) return ans;--newline--    --tab----newline--    --tab--stack.push(root);--newline--    --tab--while (!stack.isEmpty()) {--newline--    --tab----tab--TreeNode cur = stack.pop();--newline--    --tab----tab--ans.addFirst(cur.val);--newline--    --tab----tab--if (cur.left != null) {--newline--    --tab----tab----tab--stack.push(cur.left);--newline--    --tab----tab--}--newline--    --tab----tab--if (cur.right != null) {--newline--    --tab----tab----tab--stack.push(cur.right);--newline--    --tab----tab--} --newline--    --tab--}--newline--    --tab--return ans;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java simple and clean"
+        }
+    ],
+    "qc": "145.json"
+}

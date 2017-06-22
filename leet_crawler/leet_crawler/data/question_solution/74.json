@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool searchMatrix(vector<vector<int> > &matrix, int target) {--newline--        int n = matrix.size();--newline--        int m = matrix[0].size();--newline--        int l = 0, r = m * n - 1;--newline--        while (l != r){--newline--            int mid = (l + r - 1) >> 1;--newline--            if (matrix[mid / m][mid % m] < target)--newline--                l = mid + 1;--newline--            else --newline--                r = mid;--newline--        }--newline--        return matrix[r / m][r % m] == target;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Don&#x27;t treat it as a 2D matrix, just treat it as a sorted list"
+        },
+        {
+            "java": "public class Solution {--newline--    /**--newline--     *  Do binary search in this \"ordered\" matrix--newline--     */--newline--    public boolean searchMatrix(int[][] matrix, int target) {--newline--    --tab----newline--    --tab--int row_num = matrix.length;--newline--    --tab--int col_num = matrix[0].length;--newline--    --tab----newline--    --tab--int begin = 0, end = row_num * col_num - 1;--newline--    --tab----newline--    --tab--while(begin <= end){--newline--    --tab----tab--int mid = (begin + end) / 2;--newline--    --tab----tab--int mid_value = matrix[mid/col_num][mid%col_num];--newline--    --tab----tab----newline--    --tab----tab--if( mid_value == target){--newline--    --tab----tab----tab--return true;--newline--    --tab----tab----newline--    --tab----tab--}else if(mid_value < target){--newline--    --tab----tab----tab--//Should move a bit further, otherwise dead loop.--newline--    --tab----tab----tab--begin = mid+1;--newline--    --tab----tab--}else{--newline--    --tab----tab----tab--end = mid-1;--newline--    --tab----tab--}--newline--    --tab--}--newline--    --tab----newline--    --tab--return false;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Binary search on an ordered matrix"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab--    # @param matrix, a list of lists of integers--newline----tab--    # @param target, an integer--newline----tab--    # @return a boolean--newline----tab--    # 8:21--newline----tab--    def searchMatrix(self, matrix, target):--newline----tab--        if not matrix or target is None:--newline----tab--            return False--newline----tab----newline----tab--        rows, cols = len(matrix), len(matrix[0])--newline----tab--        low, high = 0, rows * cols - 1--newline----tab--        --newline----tab--        while low <= high:--newline----tab--            mid = (low + high) / 2--newline----tab--            num = matrix[mid / cols][mid % cols]--newline----tab----newline----tab--            if num == target:--newline----tab--                return True--newline----tab--            elif num < target:--newline----tab--                low = mid + 1--newline----tab--            else:--newline----tab--                high = mid - 1--newline----tab--        --newline----tab--        return False",
+            "topic_title": "A Python binary search solution - O(logn)"
+        },
+        {
+            "java": "public class Solution {--newline--      public boolean searchMatrix(int[][] matrix, int target) {--newline--                int i = 0, j = matrix[0].length - 1;--newline--                while (i < matrix.length && j >= 0) {--newline--                        if (matrix[i][j] == target) {--newline--                            return true;--newline--                        } else if (matrix[i][j] > target) {--newline--                            j--;--newline--                        } else {--newline--                            i++;--newline--                        }--newline--                    }--newline--                --newline--                return false;--newline--            }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java clear solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool searchMatrix(vector<vector<int>>& matrix, int target) {--newline--        // treat the matrix as an array, just taking care of indices--newline--        // [0..n*m]--newline--        // (row, col) -> row*n + col--newline--        // i -> [i/n][i%n]--newline--        if(matrix.empty() || matrix[0].empty())--newline--        {--newline--            return false;--newline--        }--newline--        int m = matrix.size(), n = matrix[0].size();--newline--        int start = 0, end = m*n - 1;--newline--        while(start <= end)--newline--        {--newline--            int mid = start + (end - start)/2;--newline--            int e = matrix[mid/n][mid%n];--newline--            if(target < e)--newline--            {--newline--                end = mid - 1;--newline--            }--newline--            else if(target > e)--newline--            {--newline--                start = mid + 1;--newline--            }--newline--            else--newline--            {--newline--                return true;--newline--            }--newline--        }--newline--        return false;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "C++ 12ms, O(log(mn)), no library functions, treat matrix as an array"
+        }
+    ],
+    "qc": "74.json"
+}

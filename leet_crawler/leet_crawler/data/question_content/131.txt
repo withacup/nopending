@@ -1,0 +1,22 @@
+---CONTENT_BEGIN---
+
+Given a string s, partition s such that every substring of the partition is a palindrome.
+
+
+Return all possible palindrome partitioning of s.
+
+
+For example, given s = "aab",
+
+Return
+
+[
+  ["aa","b"],
+  ["a","a","b"]
+]
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<vector<string>> partition(string s) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public List<List<String>> partition(String s) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def partition(self, s):--newline--        '''--newline--        :type s: str--newline--        :rtype: List[List[str]]--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Return an array of arrays of size *returnSize.--newline-- * The sizes of the arrays are returned as *columnSizes array.--newline-- * Note: Both returned array and *columnSizes array must be malloced, assume caller calls free().--newline-- */--newline--char*** partition(char* s, int** columnSizes, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public IList<IList<string>> Partition(string s) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} s--newline-- * @return {string[][]}--newline-- */--newline--var partition = function(s) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} s--newline--# @return {String[][]}--newline--def partition(s)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func partition(_ s: String) -> [[String]] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func partition(s string) [][]string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

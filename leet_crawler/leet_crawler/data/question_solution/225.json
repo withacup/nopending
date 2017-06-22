@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class MyStack {--newline--public:--newline----tab--queue<int> que;--newline----tab--// Push element x onto stack.--newline----tab--void push(int x) {--newline----tab----tab--que.push(x);--newline----tab----tab--for(int i=0;i<que.size()-1;++i){--newline----tab----tab----tab--que.push(que.front());--newline----tab----tab----tab--que.pop();--newline----tab----tab--}--newline----tab--}--newline----newline----tab--// Removes the element on top of the stack.--newline----tab--int pop() {int res = que.front();--newline----tab----tab--que.pop();return res;--newline----tab--}--newline----newline----tab--// Get the top element.--newline----tab--int top() {--newline----tab----tab--return que.front();--newline----tab--}--newline----newline----tab--// Return whether the stack is empty.--newline----tab--bool empty() {--newline----tab----tab--return que.empty();--newline----tab--}--newline--};",
+            "python": null,
+            "topic_title": "A simple C++ solution"
+        },
+        {
+            "java": "class MyStack --newline--{--newline--    Queue<Integer> queue;--newline--    --newline--    public MyStack()--newline--    {--newline--        this.queue=new LinkedList<Integer>();--newline--    }--newline--    --newline--    // Push element x onto stack.--newline--    public void push(int x) --newline--    {--newline--       queue.add(x);--newline--       for(int i=0;i<queue.size()-1;i++)--newline--       {--newline--           queue.add(queue.poll());--newline--       }--newline--    }--newline----newline--    // Removes the element on top of the stack.--newline--    public int pop() --newline--    {--newline--        return queue.poll();--newline--    }--newline----newline--    // Get the top element.--newline--    public int top() --newline--    {--newline--        return queue.peek();--newline--    }--newline----newline--    // Return whether the stack is empty.--newline--    public boolean empty() --newline--    {--newline--        return queue.isEmpty();--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Only push is O(n), others are O(1). Using one queue. Combination of two shared solutions"
+        },
+        {
+            "java": "class MyStack{--newline--//using two queue. The pop and top are inefficient.--newline--private Queue<Integer> q1 = new LinkedList<Integer>();--newline--private Queue<Integer> q2 = new LinkedList<Integer>();--newline--public void push(int x) {--newline--    if(!q1.isEmpty()) --newline--        q1.add(x);--newline--    else--newline--        q2.add(x);--newline--}--newline--public void pop() {--newline--    if(q1.isEmpty()) {--newline--        int size = q2.size();--newline--        for(int i = 1; i < size; i ++) {--newline--            q1.add(q2.poll());--newline--        }--newline--        q2.poll();--newline--    }else {--newline--        int size = q1.size();--newline--        for(int i = 1; i < size; i ++) {--newline--            q2.add(q1.poll());--newline--        }--newline--        q1.poll();--newline--    }--newline--}--newline--public int top() {--newline--    int res;--newline--    if(q1.isEmpty()) {--newline--        int size = q2.size();--newline--        for(int i = 1; i < size; i ++) {--newline--            q1.add(q2.poll());--newline--        }--newline--        res = q2.poll();--newline--        q1.add(res);--newline--    }else {--newline--        int size = q1.size();--newline--        for(int i = 1; i < size; i ++) {--newline--            q2.add(q1.poll());--newline--        }--newline--        res = q1.poll();--newline--        q2.add(res);--newline--    }--newline--    return res;--newline--}--newline--public boolean empty() {--newline--    return q1.isEmpty() && q2.isEmpty();--newline--}--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java solutions about three ways one of which utilizes one queue, and the others utilize two queues"
+        },
+        {
+            "java": "class MyStack {--newline----newline--    private Queue<Integer> queue = new LinkedList<>();--newline----newline--    public void push(int x) {--newline--        queue.add(x);--newline--        for (int i=1; i<queue.size(); i++)--newline--            queue.add(queue.remove());--newline--    }--newline----newline--    public void pop() {--newline--        queue.remove();--newline--    }--newline----newline--    public int top() {--newline--        return queue.peek();--newline--    }--newline----newline--    public boolean empty() {--newline--        return queue.isEmpty();--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": "class Stack {--newline--    queue<int> q;--newline--public:--newline--    void push(int x) {--newline--        q.push(x);--newline--        for (int i=1; i<q.size(); i++) {--newline--            q.push(q.front());--newline--            q.pop();--newline--        }--newline--    }--newline----newline--    void pop() {--newline--        q.pop();--newline--    }--newline----newline--    int top() {--newline--        return q.front();--newline--    }--newline----newline--    bool empty() {--newline--        return q.empty();--newline--    }--newline--};--newline--",
+            "python": "class Stack:--newline----tab----newline----tab--    def __init__(self):--newline----tab--        self._queue = collections.deque()--newline----tab----newline----tab--    def push(self, x):--newline----tab--        q = self._queue--newline----tab--        q.append(x)--newline----tab--        for _ in range(len(q) - 1):--newline----tab--            q.append(q.popleft())--newline----tab--        --newline----tab--    def pop(self):--newline----tab--        return self._queue.popleft()--newline----tab----newline----tab--    def top(self):--newline----tab--        return self._queue[0]--newline----tab--    --newline----tab--    def empty(self):--newline----tab--        return not len(self._queue)",
+            "topic_title": "Concise 1 Queue - Java, C++, Python"
+        },
+        {
+            "java": "class MyStack {--newline----newline--    private Queue queue;--newline----newline--    public void push(int x) {--newline--        Queue q = new LinkedList();     // could be any queue type, see note above--newline--        q.add(x);--newline--        q.add(queue);--newline--        queue = q;--newline--    }--newline----newline--    public void pop() {--newline--        queue.remove();--newline--        queue = (Queue) queue.peek();--newline--    }--newline----newline--    public int top() {--newline--        return (int) queue.peek();--newline--    }--newline----newline--    public boolean empty() {--newline--        return queue == null;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "O(1) purely with queues"
+        }
+    ],
+    "qc": "225.json"
+}

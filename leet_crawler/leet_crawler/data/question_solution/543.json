@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    int max = 0;--newline--    --newline--    public int diameterOfBinaryTree(TreeNode root) {--newline--        maxDepth(root);--newline--        return max;--newline--    }--newline--    --newline--    private int maxDepth(TreeNode root) {--newline--        if (root == null) return 0;--newline--        --newline--        int left = maxDepth(root.left);--newline--        int right = maxDepth(root.right);--newline--        --newline--        max = Math.max(max, left + right);--newline--        --newline--        return Math.max(left, right) + 1;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution, MaxDepth"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def diameterOfBinaryTree(self, root):--newline----tab--        self.best = 1--newline----tab--        def depth(root):--newline----tab--            if not root: return 0--newline----tab--            ansL = depth(root.left)--newline----tab--            ansR = depth(root.right)--newline----tab--            self.best = max(self.best, ansL + ansR + 1)--newline----tab--            return 1 + max(ansL, ansR)--newline----tab--            --newline----tab--        depth(root)--newline----tab--        return self.best - 1--newline----tab--    ",
+            "topic_title": "Python, Simple with Explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--int diameterOfBinaryTree(TreeNode* root) {--newline--    if(root == nullptr) return 0;--newline--    int res = depth(root->left) + depth(root->right);--newline--    return max(res, max(diameterOfBinaryTree(root->left), diameterOfBinaryTree(root->right)));--newline--}--newline----newline--int depth(TreeNode* root){--newline--    if(root == nullptr) return 0;--newline--    return 1 + max(depth(root->left), depth(root->right));--newline--}--newline--};",
+            "python": null,
+            "topic_title": "&#91;543. Diameter of Binary Tree&#93; C++_Recursive_with brief explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int maxdiadepth = 0;--newline--    --newline--    int dfs(TreeNode* root){        --newline--        if(root == NULL) return 0;--newline--        --newline--        int leftdepth = dfs(root->left);--newline--        int rightdepth = dfs(root->right);--newline--        --newline--        if(leftdepth + rightdepth > maxdiadepth) maxdiadepth = leftdepth + rightdepth;--newline--        return max(leftdepth +1, rightdepth + 1);     --newline--    }--newline--    --newline--    int diameterOfBinaryTree(TreeNode* root) {        --newline--        dfs(root);--newline--        --newline--        return maxdiadepth;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ Solution, DFS"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def diameterOfBinaryTree(self, root):--newline----tab--        \"\"\"--newline----tab--        :type root: TreeNode--newline----tab--        :rtype: int--newline----tab--        \"\"\"--newline----tab--        self.ans = 0--newline----tab--        --newline----tab--        def depth(p):--newline----tab--            if not p: return 0--newline----tab--            left, right = depth(p.left), depth(p.right)--newline----tab--            self.ans = max(self.ans, left+right)--newline----tab--            return 1 + max(left, right)--newline----tab--            --newline----tab--        depth(root)--newline----tab--        return self.ans--newline----tab--",
+            "topic_title": "Simple Python"
+        }
+    ],
+    "qc": "543.json"
+}

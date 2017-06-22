@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public String findLongestWord(String s, List<String> d) {--newline--        String longest = \"\";--newline--        for (String dictWord : d) {--newline--            int i = 0;--newline--            for (char c : s.toCharArray()) --newline--                if (i < dictWord.length() && c == dictWord.charAt(i)) i++;--newline--    --newline--            if (i == dictWord.length() && dictWord.length() >= longest.length()) --newline--                if (dictWord.length() > longest.length() || dictWord.compareTo(longest) < 0)--newline--                    longest = dictWord;--newline--        }--newline--        return longest;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Short Java Solutions - Sorting Dictionary and Without Sorting"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def findLongestWord(self, s, d):--newline----tab--        heap = [(-len(word), word) for word in d]--newline----tab--        heapq.heapify(heap)--newline----tab--        while heap:--newline----tab--            word = heapq.heappop(heap)[1]--newline----tab--            it = iter(s)--newline----tab--            if all(c in it for c in word):--newline----tab--                return word--newline----tab--        return ''",
+            "topic_title": "Short Python solutions"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def findLongestWord(self, S, D):--newline----tab--        D.sort(key = lambda x: (-len(x), x))--newline----tab--        for word in D:--newline----tab--            i = 0--newline----tab--            for c in S:--newline----tab--                if i < len(word) and word[i] == c:--newline----tab--                    i += 1--newline----tab--            if i == len(word):--newline----tab--                return word--newline----tab--        return \"\"--newline----tab--    ",
+            "topic_title": "Python Simple (Two pointer)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--        string findLongestWord(string s, vector<string>& d) {--newline--            string ans;--newline--            for (int i = 0; i < d.size(); i++) {--newline--                int pi = 0, pj = 0;--newline--                for (; pi < s.size() && pj < d[i].size(); pi++) {--newline--                    pj += s[pi] == d[i][pj];--newline--                }--newline--                if (pj == d[i].size() && (ans.size() < d[i].size() || (ans.size() == d[i].size() && ans > d[i])))--newline--                    ans = d[i];--newline--            }--newline--            return ans;--newline--        }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "10 lines solutions for c++"
+        },
+        {
+            "java": "public class Solution {--newline--    public String findLongestWord(String s, List<String> d) {--newline--        if (s.length() == 0 || d.size() == 0) return \"\";--newline--        --newline--        Collections.sort(d, (a, b) -> {--newline--           if (a.length() != b.length()) return b.length() - a.length();--newline--           return a.compareTo(b);--newline--        });--newline--        --newline--        for (String p : d) {--newline--            if (s.length() < p.length()) continue;--newline--            if (isSubSeq(s, p)) return p;--newline--        }--newline--        --newline--        return \"\";--newline--    }--newline--    --newline--    private boolean isSubSeq(String s, String p) {--newline--        int i = 0, j = 0;--newline--        while (i < s.length() && j < p.length()) {--newline--            if (s.charAt(i) == p.charAt(j)) {--newline--                i++; j++;--newline--            }--newline--            else {--newline--                i++;--newline--            }--newline--        }--newline--        return j == p.length();--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy Java Solution, isSubSequence"
+        }
+    ],
+    "qc": "524.json"
+}

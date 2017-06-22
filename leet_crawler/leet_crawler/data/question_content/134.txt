@@ -1,0 +1,21 @@
+---CONTENT_BEGIN---
+
+There are N gas stations along a circular route, where the amount of gas at station i is gas[i].
+
+
+
+You have a car with an unlimited gas tank and it costs cost[i] of gas to travel from station i to its next station (i+1). You begin the journey with an empty tank at one of the gas stations.
+
+
+
+Return the starting gas station's index if you can travel around the circuit once, otherwise return -1.
+
+
+
+Note:
+The solution is guaranteed to be unique.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int canCompleteCircuit(int[] gas, int[] cost) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def canCompleteCircuit(self, gas, cost):--newline--        '''--newline--        :type gas: List[int]--newline--        :type cost: List[int]--newline--        :rtype: int--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "int canCompleteCircuit(int* gas, int gasSize, int* cost, int costSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int CanCompleteCircuit(int[] gas, int[] cost) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} gas--newline-- * @param {number[]} cost--newline-- * @return {number}--newline-- */--newline--var canCompleteCircuit = function(gas, cost) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} gas--newline--# @param {Integer[]} cost--newline--# @return {Integer}--newline--def can_complete_circuit(gas, cost)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func canCompleteCircuit(_ gas: [Int], _ cost: [Int]) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func canCompleteCircuit(gas []int, cost []int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

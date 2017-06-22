@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    ListNode* rotateRight(ListNode* head, int k) {--newline--        if(!head) return head;--newline--        --newline--        int len=1; // number of nodes--newline--        ListNode *newH, *tail;--newline--        newH=tail=head;--newline--        --newline--        while(tail->next)  // get the number of nodes in the list--newline--        {--newline--            tail = tail->next;--newline--            len++;--newline--        }--newline--        tail->next = head; // circle the link--newline----newline--        if(k %= len) --newline--        {--newline--            for(auto i=0; i<len-k; i++) tail = tail->next; // the tail node is the (len-k)-th node (1st node is head)--newline--        }--newline--        newH = tail->next; --newline--        tail->next = NULL;--newline--        return newH;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "My clean C++ code, quite standard (find tail and reconnect the list)"
+        },
+        {
+            "java": "public class Solution {--newline--    public ListNode rotateRight(ListNode head, int n) {--newline--        if (head==null||head.next==null) return head;--newline--        ListNode dummy=new ListNode(0);--newline--        dummy.next=head;--newline--        ListNode fast=dummy,slow=dummy;--newline--    --newline--        int i;--newline--        for (i=0;fast.next!=null;i++)//Get the total length --newline--        --tab--fast=fast.next;--newline--        --newline--        for (int j=i-n%i;j>0;j--) //Get the i-n%i th node--newline--        --tab--slow=slow.next;--newline--        --newline--        fast.next=dummy.next; //Do the rotation--newline--        dummy.next=slow.next;--newline--        slow.next=null;--newline--        --newline--        return dummy.next;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my java solution with explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    ListNode *rotateRight(ListNode *head, int k) {--newline--            if (head == NULL || head->next == NULL || k == 0) return head;--newline--            int len = 1;--newline--            ListNode *tail = head;--newline--    --newline--            /* find the end of list */--newline--            while (tail->next != NULL) {--newline--                tail = tail->next;--newline--                len++;--newline--            }--newline--    --newline--            /* form a circle */--newline--            tail->next = head;--newline--            k = k % len;--newline--            for (int i = 0; i < len - k; i++) {--newline--                tail = tail->next;--newline--            }--newline--            head = tail->next;--newline--            tail->next = NULL;--newline--            return head;--newline--        }--newline--}",
+            "python": null,
+            "topic_title": "Anyone solve the problem without counting the length of List?"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "What to do when k is greater than size of list ?"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Clean Java Solution with Brief Explanation"
+        }
+    ],
+    "qc": "61.json"
+}

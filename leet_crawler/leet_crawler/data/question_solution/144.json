@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public List<Integer> preorderTraversal(TreeNode node) {--newline--    --tab--List<Integer> list = new LinkedList<Integer>();--newline--    --tab--Stack<TreeNode> rights = new Stack<TreeNode>();--newline--    --tab--while(node != null) {--newline--    --tab----tab--list.add(node.val);--newline--    --tab----tab--if (node.right != null) {--newline--    --tab----tab----tab--rights.push(node.right);--newline--    --tab----tab--}--newline--    --tab----tab--node = node.left;--newline--    --tab----tab--if (node == null && !rights.isEmpty()) {--newline--    --tab----tab----tab--node = rights.pop();--newline--    --tab----tab--}--newline--    --tab--}--newline--        return list;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Accepted iterative solution in Java using stack."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<int> preorderTraversal(TreeNode *root) {--newline--        stack<TreeNode*> nodeStack;--newline--        vector<int> result;--newline--        //base case--newline--        if(root==NULL)--newline--        return result;--newline--        nodeStack.push(root);--newline--        while(!nodeStack.empty())--newline--        {--newline--            TreeNode* node= nodeStack.top();--newline--            result.push_back(node->val);--newline--            nodeStack.pop();--newline--            if(node->right)--newline--            nodeStack.push(node->right);--newline--            if(node->left)--newline--            nodeStack.push(node->left);--newline--        }--newline--        return result;--newline--        --newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Accepted code. Explaination with Algo."
+        },
+        {
+            "java": "public class Solution {--newline--    --tab--public List<Integer> preorderTraversal(TreeNode root) {--newline--    --tab----tab--List<Integer> pre = new LinkedList<Integer>();--newline--    --tab----tab--preHelper(root,pre);--newline--    --tab----tab--return pre;--newline--    --tab--}--newline--    --tab--public void preHelper(TreeNode root, List<Integer> pre) {--newline--    --tab----tab--if(root==null) return;--newline--    --tab----tab--pre.add(root.val);--newline--    --tab----tab--preHelper(root.left,pre);--newline--    --tab----tab--preHelper(root.right,pre);--newline--    --tab--}--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "3 Different Solutions"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--vector<int> preorderTraversal(TreeNode *root) {--newline--    if (root==NULL) {--newline--        return vector<int>();--newline--    }--newline--    vector<int> result;--newline--    stack<TreeNode *> treeStack;--newline--    treeStack.push(root);--newline--    while (!treeStack.empty()) {--newline--        TreeNode *temp = treeStack.top();--newline--        result.push_back(temp->val);--newline--        treeStack.pop();--newline--        if (temp->right!=NULL) {--newline--            treeStack.push(temp->right);--newline--        }--newline--        if (temp->left!=NULL) {--newline--            treeStack.push(temp->left);--newline--        }--newline--    }--newline--    return result;--newline--}--newline--};",
+            "python": null,
+            "topic_title": "Easy C++ solution using Stack"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def preorderTraversal(self, root):--newline----tab--        ret = []--newline----tab--        stack = [root]--newline----tab--        while stack:--newline----tab--            node = stack.pop()--newline----tab--            if node:--newline----tab--                ret.append(node.val)--newline----tab--                stack.append(node.right)--newline----tab--                stack.append(node.left)--newline----tab--        return ret",
+            "topic_title": "Very simple iterative Python solution"
+        }
+    ],
+    "qc": "144.json"
+}

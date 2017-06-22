@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "/*--newline--Basic idea: each time we take a look at the last four digits of--newline--            binary verion of the input, and maps that to a hex char--newline--            shift the input to the right by 4 bits, do it again--newline--            until input becomes 0.--newline----newline--*/--newline----newline--public class Solution {--newline--    --newline--    char[] map = {'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'};--newline--    --newline--    public String toHex(int num) {--newline--        if(num == 0) return \"0\";--newline--        String result = \"\";--newline--        while(num != 0){--newline--            result = map[(num & 15)] + result; --newline--            num = (num >>> 4);--newline--        }--newline--        return result;--newline--    }--newline--    --newline--    --newline--}````",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java solution with comment"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "const string HEX = \"0123456789abcdef\";--newline--class Solution {--newline--public:--newline--    string toHex(int num) {--newline--        if (num == 0) return \"0\";--newline--        string result;--newline--        int count = 0;--newline--        while (num && count++ < 8) {--newline--            result = HEX[(num & 0xf)] + result;--newline--            num >>= 4;--newline--        }--newline--        return result;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Concise C++ Solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public String toHex(int num) {--newline--        if (num == 0) return \"0\";--newline--        char[] map = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};--newline--        StringBuilder sb = new StringBuilder();--newline--        while (num != 0) {--newline--            sb.insert(0, map[num & 0b1111]);--newline--            num = num >>> 4;--newline--        }--newline--        return sb.toString();--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "&#91;JAVA&#93; Clean Code with Explanations and Running Time &#91;2 Solutions&#93;"
+        },
+        {
+            "java": "public class Solution {--newline--      public String toHex(int dec) {--newline--          if (dec == 0) return \"0\";--newline--          StringBuilder res = new StringBuilder();--newline--          --newline--          while (dec != 0) {--newline--              int digit = dec & 0xf;--newline--              res.append(digit < 10 ? (char)(digit + '0') : (char)(digit - 10 + 'a'));--newline--              dec >>>= 4;--newline--          }--newline--          --newline--        return res.reverse().toString();--newline--      }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def toHex(self, num):--newline----tab--        return   ''.join(--newline----tab--                        '0123456789abcdef'[(num >> 4 * i) & 15] --newline----tab--                        for i in range(8)--newline----tab--                        )[::-1].lstrip('0') or '0'--newline----tab--",
+            "topic_title": "1-liner in Python"
+        }
+    ],
+    "qc": "405.json"
+}

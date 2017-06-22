@@ -1,0 +1,15 @@
+---CONTENT_BEGIN---
+Find the total area covered by two rectilinear rectangles in a 2D plane.
+Each rectangle is defined by its bottom left corner and top right corner as shown in the figure.
+
+
+
+
+Assume that the total area is never beyond the maximum possible value of int.
+
+
+Credits:Special thanks to @mithmatt for adding this problem, creating the above image and all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int computeArea(int A, int B, int C, int D, int E, int F, int G, int H) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int computeArea(int A, int B, int C, int D, int E, int F, int G, int H) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def computeArea(self, A, B, C, D, E, F, G, H):--newline--        '''--newline--        :type A: int--newline--        :type B: int--newline--        :type C: int--newline--        :type D: int--newline--        :type E: int--newline--        :type F: int--newline--        :type G: int--newline--        :type H: int--newline--        :rtype: int--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "int computeArea(int A, int B, int C, int D, int E, int F, int G, int H) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int ComputeArea(int A, int B, int C, int D, int E, int F, int G, int H) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} A--newline-- * @param {number} B--newline-- * @param {number} C--newline-- * @param {number} D--newline-- * @param {number} E--newline-- * @param {number} F--newline-- * @param {number} G--newline-- * @param {number} H--newline-- * @return {number}--newline-- */--newline--var computeArea = function(A, B, C, D, E, F, G, H) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} a--newline--# @param {Integer} b--newline--# @param {Integer} c--newline--# @param {Integer} d--newline--# @param {Integer} e--newline--# @param {Integer} f--newline--# @param {Integer} g--newline--# @param {Integer} h--newline--# @return {Integer}--newline--def compute_area(a, b, c, d, e, f, g, h)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func computeArea(_ A: Int, _ B: Int, _ C: Int, _ D: Int, _ E: Int, _ F: Int, _ G: Int, _ H: Int) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func computeArea(A int, B int, C int, D int, E int, F int, G int, H int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

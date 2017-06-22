@@ -1,0 +1,20 @@
+---CONTENT_BEGIN---
+Given two strings s and t, determine if they are isomorphic.
+
+Two strings are isomorphic if the characters in s can be replaced to get t.
+
+All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.
+
+For example,
+Given "egg", "add", return true.
+
+Given "foo", "bar", return false.
+
+Given "paper", "title", return true.
+
+Note:
+You may assume both s and t have the same length.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    bool isIsomorphic(string s, string t) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public boolean isIsomorphic(String s, String t) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def isIsomorphic(self, s, t):--newline--        '''--newline--        :type s: str--newline--        :type t: str--newline--        :rtype: bool--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "bool isIsomorphic(char* s, char* t) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public bool IsIsomorphic(string s, string t) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} s--newline-- * @param {string} t--newline-- * @return {boolean}--newline-- */--newline--var isIsomorphic = function(s, t) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} s--newline--# @param {String} t--newline--# @return {Boolean}--newline--def is_isomorphic(s, t)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func isIsomorphic(_ s: String, _ t: String) -> Bool {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func isIsomorphic(s string, t string) bool {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--     public List<String> generateParenthesis(int n) {--newline--            List<String> list = new ArrayList<String>();--newline--            backtrack(list, \"\", 0, 0, n);--newline--            return list;--newline--        }--newline--        --newline--        public void backtrack(List<String> list, String str, int open, int close, int max){--newline--            --newline--            if(str.length() == max*2){--newline--                list.add(str);--newline--                return;--newline--            }--newline--            --newline--            if(open < max)--newline--                backtrack(list, str+\"(\", open+1, close, max);--newline--            if(close < open)--newline--                backtrack(list, str+\")\", open, close+1, max);--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy to understand Java backtracking solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<string> generateParenthesis(int n) {--newline--        vector<string> res;--newline--        addingpar(res, \"\", n, 0);--newline--        return res;--newline--    }--newline--    void addingpar(vector<string> &v, string str, int n, int m){--newline--        if(n==0 && m==0) {--newline--            v.push_back(str);--newline--            return;--newline--        }--newline--        if(m > 0){ addingpar(v, str+\")\", n, m-1); }--newline--        if(n > 0){ addingpar(v, str+\"(\", n-1, m+1); }--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Concise recursive C++ solution"
+        },
+        {
+            "java": "public class Solution--newline--{--newline--    public List<String> generateParenthesis(int n)--newline--    {--newline--        List<List<String>> lists = new ArrayList<>();--newline--        lists.add(Collections.singletonList(\"\"));--newline--        --newline--        for (int i = 1; i <= n; ++i)--newline--        {--newline--            final List<String> list = new ArrayList<>();--newline--            --newline--            for (int j = 0; j < i; ++j)--newline--            {--newline--                for (final String first : lists.get(j))--newline--                {--newline--                    for (final String second : lists.get(i - 1 - j))--newline--                    {--newline--                        list.add(\"(\" + first + \")\" + second);--newline--                    }--newline--                }--newline--            }--newline--            --newline--            lists.add(list);--newline--        }--newline--        --newline--        return lists.get(lists.size() - 1);--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "An iterative method."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def generateParenthesis(self, n, open=0):--newline----tab--        if n > 0 <= open:--newline----tab--            return ['(' + p for p in self.generateParenthesis(n-1, open+1)] + \\--newline----tab--                   [')' + p for p in self.generateParenthesis(n, open-1)]--newline----tab--        return [')' * open] * (not n)",
+            "topic_title": "4-7 lines Python"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<String> generateParenthesis(int n) {--newline--        List<String> list = new ArrayList<String>();--newline--        generateOneByOne(\"\", list, n, n);--newline--        return list;--newline--    }--newline--    public void generateOneByOne(String sublist, List<String> list, int left, int right){--newline--        if(left > right){--newline--            return;--newline--        }--newline--        if(left > 0){--newline--            generateOneByOne( sublist + \"(\" , list, left-1, right);--newline--        }--newline--        if(right > 0){--newline--            generateOneByOne( sublist + \")\" , list, left, right-1);--newline--        }--newline--        if(left == 0 && right == 0){--newline--            list.add(sublist);--newline--            return;--newline--        }--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java DFS way solution"
+        }
+    ],
+    "qc": "22.json"
+}

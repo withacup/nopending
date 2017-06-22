@@ -1,0 +1,1 @@
+{"solution_code": "public class Solution {--newline--    public int findLUSlength(String a, String b) {--newline--        return a.equals(b) ? -1 : Math.max(a.length(), b.length());--newline--    }--newline--    --newline--}", "modified_code": null, "total_cases": 41, "l_type": "java"}

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline----newline--    int sum = 0;--newline--    --newline--    public TreeNode convertBST(TreeNode root) {--newline--        convert(root);--newline--        return root;--newline--    }--newline--    --newline--    public void convert(TreeNode cur) {--newline--        if (cur == null) return;--newline--        convert(cur.right);--newline--        cur.val += sum;--newline--        sum = cur.val;--newline--        convert(cur.left);--newline--    }--newline--    --newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Recursive O(n) time"
+        },
+        {
+            "java": "public class Solution {--newline--    int sum = 0;--newline--    --newline--    public TreeNode convertBST(TreeNode root) {--newline--        if (root == null) return null;--newline--        --newline--        convertBST(root.right);--newline--        --newline--        root.val += sum;--newline--        sum = root.val;--newline--        --newline--        convertBST(root.left);--newline--        --newline--        return root;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution, 7 liner, reversed traversal"
+        },
+        {
+            "java": "public class Solution {--newline--    public TreeNode convertBST(TreeNode root) {--newline--        if(root == null) return null;--newline--        DFS(root, 0);--newline--        return root;--newline--    }--newline--    --newline--    public int DFS(TreeNode root, int preSum){--newline--        if(root.right != null) preSum = DFS(root.right, preSum);--newline--        root.val = root.val + preSum;--newline--        return (root.left != null) ? DFS(root.left, root.val) : root.val;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 6 lines"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--private:--newline--    int cur_sum = 0;--newline--public:--newline--    void travel(TreeNode* root){--newline--        if (!root) return;--newline--        if (root->right) travel(root->right);--newline--        --newline--        root->val = (cur_sum += root->val);--newline--        if (root->left) travel(root->left);--newline--    }--newline--    TreeNode* convertBST(TreeNode* root) {--newline--        travel(root);--newline--        return root;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "c++ solution beats 100%"
+        },
+        {
+            "java": "public class Solution {--newline--        public TreeNode convertBST(TreeNode root) {--newline--            TreeNode cur= root;--newline--            int sum = 0;--newline--            while (cur != null) {--newline--                if (cur.right == null) {--newline--                    int tmp = cur.val;--newline--                    cur.val += sum;--newline--                    sum += tmp;--newline--                    cur = cur.left;--newline--                } else {--newline--                    TreeNode prev = cur.right;--newline--                    while (prev.left != null && prev.left != cur)--newline--                        prev = prev.left;--newline--                    if (prev.left == null) {--newline--                        prev.left = cur;--newline--                        cur = cur.right;--newline--                    } else {--newline--                        prev.left = null;--newline--                        int tmp = cur.val;--newline--                        cur.val += sum;--newline--                        sum += tmp;--newline--                        cur = cur.left;--newline--                    }--newline--                }--newline--            }--newline--            return root;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Three O(n) Methods: Recursive, Iterative, and Morris Traversal"
+        }
+    ],
+    "qc": "538.json"
+}

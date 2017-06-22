@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    --tab--public static int maxProduct(String[] words) {--newline--    --tab--if (words == null || words.length == 0)--newline--    --tab----tab--return 0;--newline--    --tab--int len = words.length;--newline--    --tab--int[] value = new int[len];--newline--    --tab--for (int i = 0; i < len; i++) {--newline--    --tab----tab--String tmp = words[i];--newline--    --tab----tab--value[i] = 0;--newline--    --tab----tab--for (int j = 0; j < tmp.length(); j++) {--newline--    --tab----tab----tab--value[i] |= 1 << (tmp.charAt(j) - 'a');--newline--    --tab----tab--}--newline--    --tab--}--newline--    --tab--int maxProduct = 0;--newline--    --tab--for (int i = 0; i < len; i++)--newline--    --tab----tab--for (int j = i + 1; j < len; j++) {--newline--    --tab----tab----tab--if ((value[i] & value[j]) == 0 && (words[i].length() * words[j].length() > maxProduct))--newline--    --tab----tab----tab----tab--maxProduct = words[i].length() * words[j].length();--newline--    --tab----tab--}--newline--    --tab--return maxProduct;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "JAVA----------Easy Version To Understand!!!!!!!!!!!!!!!!!"
+        },
+        {
+            "java": "public class Solution {--newline--    public int maxProduct(String[] words) {--newline--        int max = 0;--newline----newline--        Arrays.sort(words, new Comparator<String>(){--newline--            public int compare(String a, String b){--newline--                return b.length() - a.length();--newline--            }--newline--        });--newline----newline--        int[] masks = new int[words.length]; // alphabet masks--newline----newline--        for(int i = 0; i < masks.length; i++){--newline--            for(char c: words[i].toCharArray()){--newline--                masks[i] |= 1 << (c - 'a');--newline--            }--newline--        }--newline--    --newline--        for(int i = 0; i < masks.length; i++){--newline--            if(words[i].length() * words[i].length() <= max) break; //prunning--newline--            for(int j = i + 1; j < masks.length; j++){--newline--                if((masks[i] & masks[j]) == 0){--newline--                    max = Math.max(max, words[i].length() * words[j].length());--newline--                    break; //prunning--newline--                }--newline--            }--newline--        }--newline----newline--        return max;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "32ms Java AC solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int maxProduct(vector<string>& words) {--newline--        unordered_map<int,int> maxlen;--newline--        int result = 0;--newline--        for (string word : words) {--newline--            int mask = 0;--newline--            for (char c : word)--newline--                mask |= 1 << (c - 'a');--newline--            maxlen[mask] = max(maxlen[mask], (int) word.size());--newline--            for (auto maskAndLen : maxlen)--newline--                if (!(mask & maskAndLen.first))--newline--                    result = max(result, (int) word.size() * maskAndLen.second);--newline--        }--newline--        return result;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Bit shorter C++"
+        },
+        {
+            "java": "public class Solution {--newline--public int maxProduct(String[] words) {--newline--    int max = 0;--newline--    int[] bytes = new int[words.length];--newline--    for(int i=0;i<words.length;i++){--newline--        int val = 0;--newline--        for(int j=0;j<words[i].length();j++){--newline--            val |= 1<<(words[i].charAt(j)-'a');--newline--        }--newline--        bytes[i] = val;--newline--    }--newline--    for(int i=0; i<bytes.length; i++){--newline--        for(int j=i+1; j<bytes.length; j++){--newline--            if((bytes[i] & bytes[j])==0)max = Math.max(max,words[i].length()*words[j].length());--newline--        }--newline--    }--newline--    return max;--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Bit manipulation Java O(n^2)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def maxProduct(self, words):--newline----tab--        d = {}--newline----tab--        for w in words:--newline----tab--            mask = 0--newline----tab--            for c in set(w):--newline----tab--                mask |= (1 << (ord(c) - 97))--newline----tab--            d[mask] = max(d.get(mask, 0), len(w))--newline----tab--        return max([d[x] * d[y] for x in d for y in d if not x & y] or [0])",
+            "topic_title": "Python solution, beats 99.67%"
+        }
+    ],
+    "qc": "318.json"
+}

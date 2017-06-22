@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "import java.util.Stack;--newline----newline--public class Solution {--newline--    public int evalRPN(String[] tokens) {--newline--        int a,b;--newline----tab----tab--Stack<Integer> S = new Stack<Integer>();--newline----tab----tab--for (String s : tokens) {--newline----tab----tab----tab--if(s.equals(\"+\")) {--newline----tab----tab----tab----tab--S.add(S.pop()+S.pop());--newline----tab----tab----tab--}--newline----tab----tab----tab--else if(s.equals(\"/\")) {--newline----tab----tab----tab----tab--b = S.pop();--newline----tab----tab----tab----tab--a = S.pop();--newline----tab----tab----tab----tab--S.add(a / b);--newline----tab----tab----tab--}--newline----tab----tab----tab--else if(s.equals(\"*\")) {--newline----tab----tab----tab----tab--S.add(S.pop() * S.pop());--newline----tab----tab----tab--}--newline----tab----tab----tab--else if(s.equals(\"-\")) {--newline----tab----tab----tab----tab--b = S.pop();--newline----tab----tab----tab----tab--a = S.pop();--newline----tab----tab----tab----tab--S.add(a - b);--newline----tab----tab----tab--}--newline----tab----tab----tab--else {--newline----tab----tab----tab----tab--S.add(Integer.parseInt(s));--newline----tab----tab----tab--}--newline----tab----tab--}--tab----newline----tab----tab--return S.pop();--newline----tab--}--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "&#91;Java&#93; Accepted Code: Stack implementation."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "6&#x2F;\uff08-132\uff09= 0 or -1"
+        },
+        {
+            "java": "public class Solution {--newline--    public int evalRPN(String[] a) {--newline--      Stack<Integer> stack = new Stack<Integer>();--newline--      --newline--      for (int i = 0; i < a.length; i++) {--newline--        switch (a[i]) {--newline--          case \"+\":--newline--            stack.push(stack.pop() + stack.pop());--newline--            break;--newline--              --newline--          case \"-\":--newline--            stack.push(-stack.pop() + stack.pop());--newline--            break;--newline--              --newline--          case \"*\":--newline--            stack.push(stack.pop() * stack.pop());--newline--            break;--newline--    --newline--          case \"/\":--newline--            int n1 = stack.pop(), n2 = stack.pop();--newline--            stack.push(n2 / n1);--newline--            break;--newline--              --newline--          default:--newline--            stack.push(Integer.parseInt(a[i]));--newline--        }--newline--      }--newline--      --newline--      return stack.pop();--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Accepted clean Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Accepted C++ recursive solution (56 ms)  with explanation. Simplest possible?"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def evalRPN(self, tokens):--newline----tab--        stack = []--newline----tab--        for t in tokens:--newline----tab--            if t not in [\"+\", \"-\", \"*\", \"/\"]:--newline----tab--                stack.append(int(t))--newline----tab--            else:--newline----tab--                r, l = stack.pop(), stack.pop()--newline----tab--                if t == \"+\":--newline----tab--                    stack.append(l+r)--newline----tab--                elif t == \"-\":--newline----tab--                    stack.append(l-r)--newline----tab--                elif t == \"*\":--newline----tab--                    stack.append(l*r)--newline----tab--                else:--newline----tab--                    # here take care of the case like \"1/-22\",--newline----tab--                    # in Python 2.x, it returns -1, while in --newline----tab--                    # Leetcode it should return 0--newline----tab--                    if l*r < 0 and l % r != 0:--newline----tab--                        stack.append(l/r+1)--newline----tab--                    else:--newline----tab--                        stack.append(l/r)--newline----tab--        return stack.pop()",
+            "topic_title": "Python solution with comments (don&#x27;t use eval() function)."
+        }
+    ],
+    "qc": "150.json"
+}

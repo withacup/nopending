@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public TreeNode invertTree(TreeNode root) {--newline--        --newline--        if (root == null) {--newline--            return null;--newline--        }--newline----newline--        final Queue<TreeNode> queue = new LinkedList<>();--newline--        queue.offer(root);--newline----newline--        while(!queue.isEmpty()) {--newline--            final TreeNode node = queue.poll();--newline--            final TreeNode left = node.left;--newline--            node.left = node.right;--newline--            node.right = left;--newline----newline--            if(node.left != null) {--newline--                queue.offer(node.left);--newline--            }--newline--            if(node.right != null) {--newline--                queue.offer(node.right);--newline--            }--newline--        }--newline--        return root;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Straightforward DFS recursive, iterative, BFS solutions"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    TreeNode* invertTree(TreeNode* root) {--newline--        std::stack<TreeNode*> stk;--newline--        stk.push(root);--newline--        --newline--        while (!stk.empty()) {--newline--            TreeNode* p = stk.top();--newline--            stk.pop();--newline--            if (p) {--newline--                stk.push(p->left);--newline--                stk.push(p->right);--newline--                std::swap(p->left, p->right);--newline--            }--newline--        }--newline--        return root;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Recursive and non-recursive C++ both 4ms"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def invertTree(self, root):--newline----tab--        stack = [root]--newline----tab--        while stack:--newline----tab--            node = stack.pop()--newline----tab--            if node:--newline----tab--                node.left, node.right = node.right, node.left--newline----tab--                stack += node.left, node.right--newline----tab--        return root",
+            "topic_title": "3-4 lines Python"
+        },
+        {
+            "java": "public class Solution {--newline--    public TreeNode invertTree(TreeNode root) {--newline--        if(root == null) return null;--newline--        TreeNode tmp = root.left;--newline--        root.left = invertTree(root.right);--newline--        root.right = invertTree(tmp);--newline--        return root;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My simple recursion java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    # recursively--newline----tab--    def invertTree1(self, root):--newline----tab--        if root:--newline----tab--            root.left, root.right = self.invertTree(root.right), self.invertTree(root.left)--newline----tab--            return root--newline----tab--            --newline----tab--    # BFS--newline----tab--    def invertTree2(self, root):--newline----tab--        queue = collections.deque([(root)])--newline----tab--        while queue:--newline----tab--            node = queue.popleft()--newline----tab--            if node:--newline----tab--                node.left, node.right = node.right, node.left--newline----tab--                queue.append(node.left)--newline----tab--                queue.append(node.right)--newline----tab--        return root--newline----tab--        --newline----tab--    # DFS--newline----tab--    def invertTree(self, root):--newline----tab--        stack = [root]--newline----tab--        while stack:--newline----tab--            node = stack.pop()--newline----tab--            if node:--newline----tab--                node.left, node.right = node.right, node.left--newline----tab--                stack.extend([node.right, node.left])--newline----tab--        return root",
+            "topic_title": "Python solutions (recursively, dfs, bfs)."
+        }
+    ],
+    "qc": "226.json"
+}

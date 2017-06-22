@@ -1,0 +1,14 @@
+---CONTENT_BEGIN---
+
+Convert a non-negative integer to its english words representation. Given input is guaranteed to be less than 231 - 1.
+
+
+For example,
+
+123 -> "One Hundred Twenty Three"
+12345 -> "Twelve Thousand Three Hundred Forty Five"
+1234567 -> "One Million Two Hundred Thirty Four Thousand Five Hundred Sixty Seven"
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    string numberToWords(int num) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public String numberToWords(int num) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def numberToWords(self, num):--newline--        '''--newline--        :type num: int--newline--        :rtype: str--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "char* numberToWords(int num) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public string NumberToWords(int num) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} num--newline-- * @return {string}--newline-- */--newline--var numberToWords = function(num) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} num--newline--# @return {String}--newline--def number_to_words(num)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func numberToWords(_ num: Int) -> String {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func numberToWords(num int) string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--        public boolean canCross(int[] stones) {--newline--            if (stones.length == 0) {--newline--            --tab--return true;--newline--            }--newline--            --newline--            HashMap<Integer, HashSet<Integer>> map = new HashMap<Integer, HashSet<Integer>>(stones.length);--newline--            map.put(0, new HashSet<Integer>());--newline--            map.get(0).add(1);--newline--            for (int i = 1; i < stones.length; i++) {--newline--            --tab--map.put(stones[i], new HashSet<Integer>() );--newline--            }--newline--            --newline--            for (int i = 0; i < stones.length - 1; i++) {--newline--            --tab--int stone = stones[i];--newline--            --tab--for (int step : map.get(stone)) {--newline--            --tab----tab--int reach = step + stone;--newline--            --tab----tab--if (reach == stones[stones.length - 1]) {--newline--            --tab----tab----tab--return true;--newline--            --tab----tab--}--newline--            --tab----tab--HashSet<Integer> set = map.get(reach);--newline--            --tab----tab--if (set != null) {--newline--            --tab----tab--    set.add(step);--newline--            --tab----tab--    if (step - 1 > 0) set.add(step - 1);--newline--            --tab----tab--    set.add(step + 1);--newline--            --tab----tab--}--newline--            --tab--}--newline--            }--newline--            --newline--            return false;--newline--        } --newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Very easy to understand JAVA solution with explanations"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    unordered_map<int, bool> dp;--newline--    --newline--    bool canCross(vector<int>& stones, int pos = 0, int k = 0) {--newline--        int key = pos | k << 11;--newline--    --newline--        if (dp.count(key) > 0)--newline--            return dp[key];--newline--    --newline--        for (int i = pos + 1; i < stones.size(); i++) {--newline--            int gap = stones[i] - stones[pos];--newline--            if (gap < k - 1)--newline--                continue;--newline--            if (gap > k + 1)--newline--                return dp[key] = false;--newline--            if (canCross(stones, i, gap))--newline--                return dp[key] = true;--newline--        }--newline--    --newline--        return dp[key] = (pos == stones.size() - 1);--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Straight-forward 9ms 7-line c++ solution with explanation"
+        },
+        {
+            "java": "public class Solution {--newline--     public boolean canCross(int[] stones) {--newline--            if (stones == null || stones.length == 0) {return false;}--newline--            int n = stones.length;--newline--            if (n == 1) {return true;}--newline--            if (stones[1] != 1) {return false;}--newline--            if (n == 2) {return true;}--newline--            int last = stones[n - 1];--newline--            HashSet<Integer> hs = new HashSet();--newline--            for (int i = 0; i < n; i++) {--newline--                if (i > 3 && stones[i] > stones[i - 1] * 2) {return false;} // The two stones are too far away. --newline--                hs.add(stones[i]);--newline--            }--newline--            return canReach(hs, last, 1, 1);--newline--        }--newline--        --newline--        private boolean canReach(HashSet<Integer> hs, int last, int pos, int jump) {--newline--            if (pos + jump - 1 == last || pos + jump == last || pos + jump + 1 == last) {--newline--                return true;--newline--            }--newline--            if (hs.contains(pos + jump + 1)) {--newline--                if (canReach(hs, last, pos + jump + 1, jump + 1)) {return true;}--newline--            }--newline--            if (hs.contains(pos + jump)) {--newline--                if (canReach(hs, last, pos + jump, jump)) {return true;}--newline--            }--newline--            if (jump > 1 && hs.contains(pos + jump - 1)) {--newline--                if (canReach(hs, last, pos + jump - 1, jump - 1)) {return true;}--newline--            }--newline--            return false;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "JAVA DFS 17ms beat 99.28% so far"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean canCross(int[] stones) {--newline--            if(stones[1] > 1) return false;--newline--            if(stones.length == 2) return true;--newline--            return helper(stones, 1, 1);--newline--        }--newline--        private boolean helper(int[] arr, int i, int step){--newline--            boolean pass = false;--newline--            if(i == arr.length-1) return true;--newline--            for(int j = i+1; j < arr.length; j++){--newline--                if(arr[j] <= arr[i] + step + 1 && arr[j] >= arr[i]+step-1){--newline--                    pass = pass || helper(arr, j, arr[j] - arr[i]);--newline--                }--newline--            }--newline--            return pass;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy Version java"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def canCross(self, stones):--newline----tab--        self.memo = set()--newline----tab--        target = stones[-1]--newline----tab--        stones = set(stones)--newline----tab----newline----tab--        res = self.bt(stones, 1, 1, target)--newline----tab--        return res--newline----tab----newline----tab--    def bt(self, stones, cur, speed, target):--newline----tab--        # check memo--newline----tab--        if (cur, speed) in self.memo:--newline----tab--            return False--newline----tab----newline----tab--        if cur==target:--newline----tab--            return True--newline----tab--        --newline----tab--        if cur>target or cur<0 or speed<=0 or cur not in stones:--newline----tab--            return False--newline----tab--        # dfs--newline----tab--        candidate = [speed-1, speed, speed+1]--newline----tab--        for c in candidate:--newline----tab--            if (cur + c) in stones:--newline----tab--                if self.bt(stones, cur+c, c, target):--newline----tab--                    return True--newline----tab----newline----tab--        self.memo.add((cur,speed))--newline----tab--        return False--newline----tab--",
+            "topic_title": "Python DFS easy understanding using memo"
+        }
+    ],
+    "qc": "403.json"
+}

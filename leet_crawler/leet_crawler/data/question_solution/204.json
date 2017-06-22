@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int countPrimes(int n) {--newline--        boolean[] notPrime = new boolean[n];--newline--        int count = 0;--newline--        for (int i = 2; i < n; i++) {--newline--            if (notPrime[i] == false) {--newline--                count++;--newline--                for (int j = 2; i*j < n; j++) {--newline--                    notPrime[i*j] = true;--newline--                }--newline--            }--newline--        }--newline--        --newline--        return count;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My simple Java solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int countPrimes(int n) {--newline--        if (n<=2) return 0;--newline--    --tab--vector<bool> passed(n, false);--newline--    --tab--int sum = 1;--newline--    --tab--int upper = sqrt(n);--newline--    --tab--for (int i=3; i<n; i+=2) {--newline--    --tab----tab--if (!passed[i]) {--newline--    --tab----tab----tab--sum++;--newline--    --tab----tab----tab--//avoid overflow--newline--    --tab----tab----tab--if (i>upper) continue;--newline--    --tab----tab----tab--for (int j=i*i; j<n; j+=i) {--newline--    --tab----tab----tab----tab--passed[j] = true;--newline--    --tab----tab----tab--}--newline--    --tab----tab--}--newline--    --tab--}--newline--    --tab--return sum;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "My easy one round c++ code"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution:--newline----tab--# @param {integer} n--newline----tab--# @return {integer}--newline----tab--def countPrimes(self, n):--newline----tab--    if n < 3:--newline----tab--        return 0--newline----tab--    primes = [True] * n--newline----tab--    primes[0] = primes[1] = False--newline----tab--    for i in range(2, int(n ** 0.5) + 1):--newline----tab--        if primes[i]:--newline----tab--            primes[i * i: n: i] = [False] * len(primes[i * i: n: i])--newline----tab--    return sum(primes)",
+            "topic_title": "Fast Python Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int countPrimes(int n) {--newline--        vector<bool> prime(n, true);--newline--        prime[0] = false, prime[1] = false;--newline--        for (int i = 0; i < sqrt(n); ++i) {--newline--            if (prime[i]) {--newline--                for (int j = i*i; j < n; j += i) {--newline--                    prime[j] = false;--newline--                }    --newline--            }    --newline--        }--newline--        return count(prime.begin(), prime.end(), true);--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Short C++ Sieve of Eratosthenes solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    publib int countPrimes(int n) {--newline--        if (n < 3)--newline--            return 0;--newline--            --newline--        boolean[] f = new boolean[n];--newline--        //Arrays.fill(f, true); boolean[] are initialed as false by default--newline--        int count = n / 2;--newline--        for (int i = 3; i * i < n; i += 2) {--newline--            if (f[i])--newline--                continue;--newline--            --newline--            for (int j = i * i; j < n; j += 2 * i) {--newline--                if (!f[j]) {--newline--                    --count;--newline--                    f[j] = true;--newline--                }--newline--            }--newline--        }--newline--        return count;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "12 ms Java solution modified from the hint method, beats 99.95%"
+        }
+    ],
+    "qc": "204.json"
+}

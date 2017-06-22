@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "class PeekingIterator implements Iterator<Integer> {  --newline--    private Integer next = null;--newline--    private Iterator<Integer> iter;--newline----newline--    public PeekingIterator(Iterator<Integer> iterator) {--newline--        // initialize any member here.--newline--        iter = iterator;--newline--        if (iter.hasNext())--newline--            next = iter.next();--newline--    }--newline--    --newline--    // Returns the next element in the iteration without advancing the iterator. --newline--    public Integer peek() {--newline--        return next; --newline--    }--newline----newline--    // hasNext() and next() should behave the same as in the Iterator interface.--newline--    // Override them if needed.--newline--    @Override--newline--    public Integer next() {--newline--        Integer res = next;--newline--        next = iter.hasNext() ? iter.next() : null;--newline--        return res; --newline--    }--newline----newline--    @Override--newline--    public boolean hasNext() {--newline--        return next != null;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Concise Java Solution"
+        },
+        {
+            "java": "class PeekingIterator : public Iterator--newline--{--newline--public:--newline--    PeekingIterator(const vector<int> &nums) : Iterator(nums)--newline--    {--newline--    }--newline----newline--    int peek()--newline--    {--newline--        return Iterator(*this).next();--newline--    }--newline----newline--    int next()--newline--    {--newline--        return Iterator::next();--newline--    }--newline----newline--    bool hasNext() const--newline--    {--newline--        return Iterator::hasNext();--newline--    }--newline--};",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple C++ solution (1 line per method) without extra member variables"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class PeekingIterator(object):--newline----tab--    def __init__(self, iterator):--newline----tab--        self.iter = iterator--newline----tab--        self.temp = self.iter.next() if self.iter.hasNext() else None--newline----tab----newline----tab--    def peek(self):--newline----tab--        return self.temp--newline----tab----newline----tab--    def next(self):--newline----tab--        ret = self.temp--newline----tab--        self.temp = self.iter.next() if self.iter.hasNext() else None--newline----tab--        return ret--newline----tab----newline----tab--    def hasNext(self):--newline----tab--        return self.temp is not None",
+            "topic_title": "Simple Python Solution"
+        },
+        {
+            "java": "class PeekingIterator : public Iterator {--newline--private:--newline--    int m_next;--newline--    bool m_hasnext;--newline--public:--newline----tab--PeekingIterator(const vector<int>& nums) : Iterator(nums) {--newline----tab--    m_hasnext = Iterator::hasNext();--newline----tab--    if (m_hasnext) m_next = Iterator::next();--newline----tab--}--newline----newline----tab--int peek() {--newline--        return m_next;--newline----tab--}--newline----newline----tab--int next() {--newline----tab--    int t = m_next;--newline----tab--    m_hasnext = Iterator::hasNext();--newline----tab--    if (m_hasnext) m_next = Iterator::next();--newline----tab--    return t;--newline----tab--}--newline----newline----tab--bool hasNext() const {--newline----tab--    return m_hasnext;--newline----tab--}--newline--};",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Another C++ solution with one line in peek() and hasNext(), AC"
+        },
+        {
+            "java": "class PeekingIterator : public Iterator {--newline-- public:--newline-- PeekingIterator(const vector<int>& nums) : Iterator(nums) {--newline--    // Initialize any member here.--newline--    // **DO NOT** save a copy of nums and manipulate it directly.--newline--    // You should only use the Iterator interface methods.--newline----newline--}--newline----newline--// Returns the next element in the iteration without advancing the iterator.--newline--int peek() {--newline--    if(hasNext()){--newline--        Iterator it(*this);--newline--        return it.next();--newline--    }--newline--}--newline----newline--// hasNext() and next() should behave the same as in the Iterator interface.--newline--// Override them if needed.--newline--int next() {--newline--    Iterator::next();--newline--}--newline----newline--bool hasNext() const {--newline--    Iterator::hasNext();--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My 4ms  c++ supper easy solution"
+        }
+    ],
+    "qc": "284.json"
+}

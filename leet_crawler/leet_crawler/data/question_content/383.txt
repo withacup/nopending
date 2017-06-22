@@ -1,0 +1,23 @@
+---CONTENT_BEGIN---
+
+Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom 
+note can be constructed from the magazines ; otherwise, it will return false. 
+
+
+Each letter in the magazine string can only be used once in your ransom note.
+
+
+Note:
+You may assume that both strings contain only lowercase letters.
+
+
+
+canConstruct("a", "b") -> false
+canConstruct("aa", "ab") -> false
+canConstruct("aa", "aab") -> true
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    bool canConstruct(string ransomNote, string magazine) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public boolean canConstruct(String ransomNote, String magazine) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def canConstruct(self, ransomNote, magazine):--newline--        '''--newline--        :type ransomNote: str--newline--        :type magazine: str--newline--        :rtype: bool--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "bool canConstruct(char* ransomNote, char* magazine) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public bool CanConstruct(string ransomNote, string magazine) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} ransomNote--newline-- * @param {string} magazine--newline-- * @return {boolean}--newline-- */--newline--var canConstruct = function(ransomNote, magazine) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} ransom_note--newline--# @param {String} magazine--newline--# @return {Boolean}--newline--def can_construct(ransom_note, magazine)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func canConstruct(_ ransomNote: String, _ magazine: String) -> Bool {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func canConstruct(ransomNote string, magazine string) bool {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

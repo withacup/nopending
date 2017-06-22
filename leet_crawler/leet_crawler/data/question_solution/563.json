@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    int result = 0;--newline--    --newline--    public int findTilt(TreeNode root) {--newline--        postOrder(root);--newline--        return result;--newline--    }--newline--    --newline--    private int postOrder(TreeNode root) {--newline--        if (root == null) return 0;--newline--        --newline--        int left = postOrder(root.left);--newline--        int right = postOrder(root.right);--newline--        --newline--        result += Math.abs(left - right);--newline--        --newline--        return left + right + root.val;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution, post-order traversal"
+        },
+        {
+            "java": "public class Solution {--newline--    --newline--    int tilt = 0;--newline--    --newline--    public int findTilt(TreeNode root) {--newline--        postorder(root);--newline--        return tilt;--newline--    }--newline--    --newline--    public int postorder(TreeNode root) {--newline--        if (root == null) return 0;--newline--        int leftSum = postorder(root.left);--newline--        int rightSum = postorder(root.right);--newline--        tilt += Math.abs(leftSum - rightSum);--newline--        return leftSum + rightSum + root.val;--newline--    }--newline--    --newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java O(n) Postorder Traversal"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def findTilt(self, root):--newline----tab--        self.ans = 0--newline----tab--        def _sum(node):--newline----tab--            if not node: return 0--newline----tab--            left, right = _sum(node.left), _sum(node.right)--newline----tab--            self.ans += abs(left - right)--newline----tab--            return node.val + left + right--newline----tab--        _sum(root)--newline----tab--        return self.ans--newline----tab--    ",
+            "topic_title": "Python, Simple with Explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findTilt(TreeNode root) {--newline--        int[] ret = new int[1];--newline--        helper(root, ret);--newline--        return ret[0];--newline--    }--newline--        --newline--    private int helper(TreeNode node, int[] ret){--newline--        if(node == null){--newline--            return 0;--newline--        }--newline--        int l_sum = helper(node.left, ret);--newline--        int r_sum = helper(node.right, ret);--newline--        ret[0] += Math.abs(l_sum - r_sum);--newline--        return l_sum + r_sum + node.val--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Simple Java Solution  -- without Global Variable"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int findTilt(TreeNode* root) {--newline--        if(root == NULL) return 0;--newline--        --newline--        int res = 0;--newline--        --newline--        postorder(root, res);--newline--        --newline--        return res;--newline--    }--newline--private:--newline--    int postorder(TreeNode* root, int& res){--newline--        if(root == NULL) return 0;--newline--        --newline--        int leftsum= postorder(root->left,res);--newline--        --newline--        int rightsum = postorder(root->right,res);--newline--        --newline--        res += abs(leftsum - rightsum);--newline--        --newline--        return leftsum + rightsum + root->val;--newline--        --newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "C++ postorder traverse solution"
+        }
+    ],
+    "qc": "563.json"
+}

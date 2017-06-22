@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--      public int countNumbersWithUniqueDigits(int n) {--newline--            if (n == 0)     return 1;--newline--            --newline--            int res = 10;--newline--            int uniqueDigits = 9;--newline--            int availableNumber = 9;--newline--            while (n-- > 1 && availableNumber > 0) {--newline--                uniqueDigits = uniqueDigits * availableNumber;--newline--                res += uniqueDigits;--newline--                availableNumber--;--newline--            }--newline--            return res;--newline--        }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "JAVA DP O(1) solution."
+        },
+        {
+            "java": "public class Solution {--newline--    public static int countNumbersWithUniqueDigits(int n) {--newline--        if (n == 0) {--newline--            return 1;--newline--        }--newline--        int ans = 10, base = 9;--newline--        for (int i = 2; i <= n && i <= 10; i++) {--newline--            base = base * (9 - i + 2);--newline--            ans += base;--newline--        }--newline--        return ans;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java, O(1), with explanation"
+        },
+        {
+            "java": "public class Solution {--newline----tab--public static int countNumbersWithUniqueDigits(int n) {--newline----tab----tab--if (n > 10) {--newline----tab----tab----tab--return countNumbersWithUniqueDigits(10);--newline----tab----tab--}--newline----tab----tab--int count = 1; // x == 0--newline----tab----tab--long max = (long) Math.pow(10, n);--newline----newline----tab----tab--boolean[] used = new boolean[10];--newline----newline----tab----tab--for (int i = 1; i < 10; i++) {--newline----tab----tab----tab--used[i] = true;--newline----tab----tab----tab--count += search(i, max, used);--newline----tab----tab----tab--used[i] = false;--newline----tab----tab--}--newline----newline----tab----tab--return count;--newline----tab--}--newline----newline----tab--private static int search(long prev, long max, boolean[] used) {--newline----tab----tab--int count = 0;--newline----tab----tab--if (prev < max) {--newline----tab----tab----tab--count += 1;--newline----tab----tab--} else {--newline----tab----tab----tab--return count;--newline----tab----tab--}--newline----newline----tab----tab--for (int i = 0; i < 10; i++) {--newline----tab----tab----tab--if (!used[i]) {--newline----tab----tab----tab----tab--used[i] = true;--newline----tab----tab----tab----tab--long cur = 10 * prev + i;--newline----tab----tab----tab----tab--count += search(cur, max, used);--newline----tab----tab----tab----tab--used[i] = false;--newline----tab----tab----tab--}--newline----tab----tab--}--newline----newline----tab----tab--return count;--newline----tab--}--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Backtracking solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int permutation(int n, int r)--newline--    {--newline--        if(r == 0)--newline--        {--newline--            return 1;--newline--        }else{--newline--            return n * permutation(n - 1, r - 1);--newline--        }--newline--    }--newline--    int countNumbersWithUniqueDigits(int n) {--newline--        int sum = 1;--newline--        if(n > 0)--newline--        {--newline--           int end = (n > 10)? 10 : n;--newline--           for(int i = 0; i < end; i++)--newline--           {--newline--               sum += 9 * permutation(9, i);--newline--           }--newline--        }--newline--        return sum;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Share my 0ms C++ solution with proof and explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def countNumbersWithUniqueDigits(self, n):--newline----tab--        \"\"\"--newline----tab--        :type n: int--newline----tab--        :rtype: int--newline----tab--        \"\"\"--newline----tab--        choices = [9, 9, 8, 7, 6, 5, 4, 3, 2, 1]--newline----tab--        ans, product = 1, 1--newline----tab--        --newline----tab--        for i in range(n if n <= 10 else 10):--newline----tab--            product *= choices[i]--newline----tab--            ans += product--newline----tab--            --newline----tab--        return ans--newline----tab--",
+            "topic_title": "Simple Python solution, 90%"
+        }
+    ],
+    "qc": "357.json"
+}

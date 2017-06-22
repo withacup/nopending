@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int coinChange(vector<int>& coins, int amount) {--newline--        int Max = amount + 1;--newline--        vector<int> dp(amount + 1, Max);--newline--        dp[0] = 0;--newline--        for (int i = 1; i <= amount; i++) {--newline--            for (int j = 0; j < coins.size(); j++) {--newline--                if (coins[j] <= i) {--newline--                    dp[i] = min(dp[i], dp[i - coins[j]] + 1);--newline--                }--newline--            }--newline--        }--newline--        return dp[amount] > amount ? -1 : dp[amount];--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "&#91;C++&#93; O(n*amount) time O(amount) space DP solution"
+        },
+        {
+            "java": "public class Solution {--newline--public int coinChange(int[] coins, int amount) {--newline--    if(amount<1) return 0;--newline--    int[] dp = new int[amount+1];--newline--    int sum = 0;--newline--    --newline----tab--while(++sum<=amount) {--newline----tab----tab--int min = -1;--newline--    --tab--for(int coin : coins) {--newline--    --tab----tab--if(sum >= coin && dp[sum-coin]!=-1) {--newline--    --tab----tab----tab--int temp = dp[sum-coin]+1;--newline--    --tab----tab----tab--min = min<0 ? temp : (temp < min ? temp : min);--newline--    --tab----tab--}--newline--    --tab--}--newline--    --tab--dp[sum] = min;--newline----tab--}--newline----tab--return dp[amount];--newline--}--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "*Java* Both iterative and recursive solutions with explanations"
+        },
+        {
+            "java": "public class Solution {--newline--    Map<Integer,Integer> amountDict = new HashMap<Integer,Integer>();--newline--    public int coinChange(int[] coins, int amount) {--newline--        if(amount==0)--newline--            return 0;--newline--        if(amountDict.containsKey(amount))--newline--            return amountDict.get(amount);--newline--        int n = amount+1;--newline--        for(int coin : coins) {--newline--            int curr = 0;--newline--            if (amount >= coin) {--newline--                int next = coinChange(coins, amount-coin);--newline--                if(next >= 0)--newline--                    curr = 1+next;--newline--            }--newline--            if(curr > 0)--newline--                n = Math.min(n,curr);--newline--        }--newline--        int finalCount = (n==amount+1) ? -1 : n;--newline--        amountDict.put(amount,finalCount);--newline--        return finalCount;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Easy-To-Understand Recursive DP solution using Java (with explanations)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def coinChange(self, coins, amount):--newline----tab--        \"\"\"--newline----tab--        :type coins: List[int]--newline----tab--        :type amount: int--newline----tab--        :rtype: int--newline----tab--        \"\"\"--newline----tab--        if amount == 0:--newline----tab--            return 0--newline----tab--        value1 = [0]--newline----tab--        value2 = []--newline----tab--        nc =  0--newline----tab--        visited = [False]*(amount+1)--newline----tab--        visited[0] = True--newline----tab--        while value1:--newline----tab--            nc += 1--newline----tab--            for v in value1:--newline----tab--                for coin in coins:--newline----tab--                    newval = v + coin--newline----tab--                    if newval == amount:--newline----tab--                        return nc--newline----tab--                    elif newval > amount:--newline----tab--                        continue--newline----tab--                    elif not visited[newval]:--newline----tab--                        visited[newval] = True--newline----tab--                        value2.append(newval)--newline----tab--            value1, value2 = value2, []--newline----tab--        return -1--newline----tab--",
+            "topic_title": "Fast Python BFS Solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public static int coinChange(int[] coins, int amount) {--newline--    --tab--if (coins == null || coins.length == 0 || amount <= 0)--newline--    --tab----tab--return 0;--newline--    --tab--int[] minNumber = new int[amount + 1];--newline--    --tab--for (int i = 1; i <= amount; i++) {--newline--    --tab----tab--minNumber[i] = Integer.MAX_VALUE;--newline--    --tab----tab--for (int j = 0; j < coins.length; j++) {--newline--    --tab----tab----tab--if (coins[j] <= i && minNumber[i - coins[j]] != Integer.MAX_VALUE)--newline--    --tab----tab----tab----tab--minNumber[i] = Integer.min(minNumber[i], 1 + minNumber[i - coins[j]]);--newline--    --tab----tab--}--newline--    --tab--}--newline--    --tab--if (minNumber[amount] == Integer.MAX_VALUE)--newline--    --tab----tab--return -1;--newline--    --tab--else--newline--    --tab----tab--return minNumber[amount];--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "JAVA---Easy Version To Understand!!!!!"
+        }
+    ],
+    "qc": "322.json"
+}

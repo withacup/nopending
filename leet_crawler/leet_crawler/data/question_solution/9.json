@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public boolean isPalindrome(int x) {--newline--        if (x<0 || (x!=0 && x%10==0)) return false;--newline--        int rev = 0;--newline--        while (x>rev){--newline--        --tab--rev = rev*10 + x%10;--newline--        --tab--x = x/10;--newline--        }--newline--        return (x==rev || x==rev/10);--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "9-line accepted Java code, without the need of handling overflow"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool isPalindrome(int x) {--newline--        if(x<0|| (x!=0 &&x%10==0)) return false;--newline--        int sum=0;--newline--        while(x>sum)--newline--        {--newline--            sum = sum*10+x%10;--newline--            x = x/10;--newline--        }--newline--        return (x==sum)||(x==sum/10);--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "An easy c++ 8 lines code (only reversing till half and then compare)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "This problem is meanless"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isPalindrome(int x) {--newline--        --newline--        if (x < 0) return false;--newline--    --newline--        int p = x; --newline--        int q = 0; --newline--        --newline--        while (p >= 10){--newline--            q *=10; --newline--            q += p%10; --newline--            p /=10; --newline--        }--newline--        --newline--        return q == x / 10 && p == x % 10;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "O(1) space, O(lgn) time java solution, no overflow risk"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "-2147447412 is not a palindromic number"
+        }
+    ],
+    "qc": "9.json"
+}

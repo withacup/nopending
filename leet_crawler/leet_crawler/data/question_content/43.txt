@@ -1,0 +1,15 @@
+---CONTENT_BEGIN---
+Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2.
+
+Note:
+
+The length of both num1 and num2 is < 110.
+Both num1 and num2 contains only digits 0-9.
+Both num1 and num2 does not contain any leading zero.
+You must not use any built-in BigInteger library or convert the inputs to integer directly.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    string multiply(string num1, string num2) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public String multiply(String num1, String num2) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def multiply(self, num1, num2):--newline--        '''--newline--        :type num1: str--newline--        :type num2: str--newline--        :rtype: str--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "char* multiply(char* num1, char* num2) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public string Multiply(string num1, string num2) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string} num1--newline-- * @param {string} num2--newline-- * @return {string}--newline-- */--newline--var multiply = function(num1, num2) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String} num1--newline--# @param {String} num2--newline--# @return {String}--newline--def multiply(num1, num2)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func multiply(_ num1: String, _ num2: String) -> String {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func multiply(num1 string, num2 string) string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

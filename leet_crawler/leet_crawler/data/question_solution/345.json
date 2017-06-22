@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--public String reverseVowels(String s) {--newline--    if(s == null || s.length()==0) return s;--newline--    String vowels = \"aeiouAEIOU\";--newline--    char[] chars = s.toCharArray();--newline--    int start = 0;--newline--    int end = s.length()-1;--newline--    while(start<end){--newline--        --newline--        while(start<end && !vowels.contains(chars[start]+\"\")){--newline--            start++;--newline--        }--newline--        --newline--        while(start<end && !vowels.contains(chars[end]+\"\")){--newline--            end--;--newline--        }--newline--        --newline--        char temp = chars[start];--newline--        chars[start] = chars[end];--newline--        chars[end] = temp;--newline--        --newline--        start++;--newline--        end--;--newline--    }--newline--    return new String(chars);--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Standard Two Pointer Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string reverseVowels(string s) {--newline--        int i = 0, j = s.size() - 1;--newline--        while (i < j) {--newline--            i = s.find_first_of(\"aeiouAEIOU\", i);--newline--            j = s.find_last_of(\"aeiouAEIOU\", j);--newline--            if (i < j) {--newline--                swap(s[i++], s[j--]);--newline--            }--newline--        }--newline--        return s;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Super clean C++ solution using find_first_of and find_last_of"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def reverseVowels(self, s):--newline----tab--        vowels = (c for c in reversed(s) if c in 'aeiouAEIOU')--newline----tab--        return re.sub('(?i)[aeiou]', lambda m: next(vowels), s)",
+            "topic_title": "1-2 lines Python&#x2F;Ruby"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string reverseVowels(string s) {--newline--        int dict[256] = {0};--newline--        dict['a'] = 1, dict['A'] = 1;--newline--        dict['e'] = 1, dict['E'] = 1;--newline--        dict['i'] = 1, dict['I'] = 1;--newline--        dict['o'] = 1, dict['O'] = 1;--newline--        dict['u'] = 1, dict['U'] = 1;--newline--        int start = 0, end = (int)s.size() - 1;--newline--        while(start < end){--newline--            while(start < end && dict[s[start]] == 0) start++;--newline--            while(start < end && dict[s[end]] == 0) end--;--newline--            swap(s[start],s[end]);--newline--            start++;end--;--newline--        }--newline--        return s;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "C++ easy understanding solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public String reverseVowels(String s) {--newline--        char[] list=s.toCharArray();--newline--        Set<Character> set=new HashSet<>();--newline--        set.add('a');--newline--        set.add('e');--newline--        set.add('i');--newline--        set.add('o');--newline--        set.add('u');--newline--        set.add('A');--newline--        set.add('E');--newline--        set.add('I');--newline--        set.add('O');--newline--        set.add('U');--newline--        for (int i=0, j=list.length-1; i<j; ) {--newline--            if (!set.contains(list[i])) {--newline--                i++;--newline--                continue;--newline--            }--newline--            if (!set.contains(list[j])) {--newline--                j--;--newline--                continue;--newline--            }--newline--            char temp=list[i];--newline--            list[i]=list[j];--newline--            list[j]=temp;--newline--            i++;--newline--            j--;--newline--        }--newline--        return String.valueOf(list);--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "One pass Java Solution 13ms"
+        }
+    ],
+    "qc": "345.json"
+}

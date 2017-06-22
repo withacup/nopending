@@ -1,0 +1,24 @@
+---CONTENT_BEGIN---
+
+Equations are given in the format A / B = k, where  A and B are variables represented as strings, and k is a real number (floating point number). Given some queries, return the answers. If the answer does not exist, return -1.0.
+
+Example:
+Given  a / b = 2.0, b / c = 3.0. queries are:  a / c = ?,  b / a = ?, a / e = ?,  a / a = ?, x / x = ? . return  [6.0, 0.5, -1.0, 1.0, -1.0 ].
+
+
+The input is:  vector&lt;pair&lt;string, string&gt;&gt; equations, vector&lt;double&gt;&amp; values, vector&lt;pair&lt;string, string&gt;&gt; queries , where equations.size() == values.size(), and the values are positive. This represents the equations. Return  vector&lt;double&gt;.
+
+
+According to the example above:
+equations = [ ["a", "b"], ["b", "c"] ],
+values = [2.0, 3.0],
+queries = [ ["a", "c"], ["b", "a"], ["a", "e"], ["a", "a"], ["x", "x"] ]. 
+
+
+
+The input is always valid. You may assume that evaluating the queries will result in no division by zero and there is no contradiction.
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<double> calcEquation(vector<pair<string, string>> equations, vector<double>& values, vector<pair<string, string>> queries) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public double[] calcEquation(String[][] equations, double[] values, String[][] queries) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def calcEquation(self, equations, values, queries):--newline--        '''--newline--        :type equations: List[List[str]]--newline--        :type values: List[float]--newline--        :type queries: List[List[str]]--newline--        :rtype: List[float]--newline--        '''--newline--        ", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Return an array of size *returnSize.--newline-- * Note: The returned array must be malloced, assume caller calls free().--newline-- */--newline--double* calcEquation(char*** equations, int equationsRowSize, int equationsColSize, double* values, int valuesSize, char*** queries, int queriesRowSize, int queriesColSize, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public double[] CalcEquation(string[,] equations, double[] values, string[,] queries) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string[][]} equations--newline-- * @param {number[]} values--newline-- * @param {string[][]} queries--newline-- * @return {number[]}--newline-- */--newline--var calcEquation = function(equations, values, queries) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {string[][]} equations--newline--# @param {Float[]} values--newline--# @param {string[][]} queries--newline--# @return {Float[]}--newline--def calc_equation(equations, values, queries)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func calcEquation(_ equations: [[String]], _ values: [Double], _ queries: [[String]]) -> [Double] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func calcEquation(equations [][]string, values []float64, queries [][]string) []float64 {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

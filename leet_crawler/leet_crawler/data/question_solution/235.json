@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {--newline--        return (root.val - p.val) * (root.val - q.val) < 1 ? root :--newline--               lowestCommonAncestor(p.val < root.val ? root.left : root.right, p, q);--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def lowestCommonAncestor(self, root, p, q):--newline----tab--        if p.val < root.val > q.val:--newline----tab--            return self.lowestCommonAncestor(root.left, p, q)--newline----tab--        if p.val > root.val < q.val:--newline----tab--            return self.lowestCommonAncestor(root.right, p, q)--newline----tab--        return root",
+            "topic_title": "3 lines with O(1) space, 1-Liners, Alternatives"
+        },
+        {
+            "java": "public class Solution {--newline--    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {--newline--        if(root.val > p.val && root.val > q.val){--newline--            return lowestCommonAncestor(root.left, p, q);--newline--        }else if(root.val < p.val && root.val < q.val){--newline--            return lowestCommonAncestor(root.right, p, q);--newline--        }else{--newline--            return root;--newline--        }--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My Java Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution { --newline--public:--newline--    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {--newline--        TreeNode* cur = root;--newline--        while (true) {--newline--            if (p -> val < cur -> val && q -> val < cur -> val)--newline--                cur = cur -> left;--newline--            else if (p -> val > cur -> val && q -> val > cur -> val)--newline--                cur = cur -> right;--newline--            else return cur; --newline--        }--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "Easy C++ Recursive and Iterative Solutions"
+        },
+        {
+            "java": "public class Solution {--newline--     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {--newline--        if(root.val<Math.min(p.val,q.val)) return lowestCommonAncestor(root.right,p,q);--newline--        if(root.val>Math.max(p.val,q.val)) return lowestCommonAncestor(root.left,p,q);--newline--        return root;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "11ms java solution, 3 lines"
+        },
+        {
+            "java": "public class Solution {--newline--    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {--newline--        if(root==null) return null;--newline--        if(p.val<root.val&&q.val<root.val) {--newline--            return lowestCommonAncestor(root.left,p,q);--newline--        }--newline--        else if(p.val>root.val&&q.val>root.val){--newline--            return lowestCommonAncestor(root.right,p,q);--newline--        }--newline--        else--newline--        return root;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Clear Java 10 ms"
+        }
+    ],
+    "qc": "235.json"
+}

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int removeDuplicates(int[] nums) {--newline--        int i = 0;--newline--        for (int n : nums)--newline--            if (i < 2 || n > nums[i-2])--newline--                nums[i++] = n;--newline--        return i;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int removeDuplicates(vector<int>& nums) {--newline--        int i = 0;--newline--        for (int n : nums)--newline--            if (i < 2 || n > nums[i-2])--newline--                nums[i++] = n;--newline--        return i;--newline--    }--newline--    --newline--}",
+            "python": "class Solution :--newline----tab--    def removeDuplicates(self, nums):--newline----tab--        i = 0--newline----tab--        for n in nums:--newline----tab--            if i < 2 or n > nums[i-2]:--newline----tab--                nums[i] = n--newline----tab--                i += 1--newline----tab--        return i--newline----tab--    ",
+            "topic_title": "3-6 easy lines, C++, Java, Python, Ruby"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int removeDuplicates(int A[], int n, int k) {--newline--    --newline--                if (n <= k) return n;--newline--    --newline--                int i = 1, j = 1;--newline--                int cnt = 1;--newline--                while (j < n) {--newline--                    if (A[j] != A[j-1]) {--newline--                        cnt = 1;--newline--                        A[i++] = A[j];--newline--                    }--newline--                    else {--newline--                        if (cnt < k) {--newline--                            A[i++] = A[j];--newline--                            cnt++;--newline--                        }--newline--                    }--newline--                    ++j;--newline--                }--newline--                return i;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Share my O(N) time and O(1) solution when duplicates are allowed at most K times"
+        },
+        {
+            "java": "public class Solution {--newline--    public int removeDuplicates(int[] nums) {--newline--       int i = 0;--newline--       for (int n : nums)--newline--          if (i < 2 || n > nums[i - 2])--newline--             nums[i++] = n;--newline--       return i;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Short and Simple Java solution (easy to understand)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int removeDuplicates(vector<int>& nums) {--newline--        int n = nums.size(), count = 0;--newline--        for (int i = 2; i < n; i++)--newline--            if (nums[i] == nums[i - 2 - count]) count++;--newline--            else nums[i - count] = nums[i];--newline--        return n - count;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "My C++ solution. 16ms, 5 lines"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int removeDuplicates(int A[], int n) {--newline--        if (n <= 2)--newline--            return n;--newline--        int rear = 1;--newline--        for(int i = 2; i < n; i++){--newline--            if(!(A[i] == A[rear] && A[i] == A[rear -1])){--newline--                A[++rear] = A[i];--newline--            }--newline--        }--newline--        return rear+1;--newline--    }--newline--};",
+            "python": null,
+            "topic_title": "C++ simple AC solution in 10 lines 21ms"
+        }
+    ],
+    "qc": "80.json"
+}

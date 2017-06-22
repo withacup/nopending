@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int longestPalindromeSubseq(String s) {--newline--        return helper(s, 0, s.length() - 1, new Integer[s.length()][s.length()]);--newline--    }--newline--    --newline--    private int helper(String s, int i, int j, Integer[][] memo) {--newline--        if (memo[i][j] != null) {--newline--            return memo[i][j];--newline--        }--newline--        if (i > j)      return 0;--newline--        if (i == j)     return 1;--newline--        --newline--        if (s.charAt(i) == s.charAt(j)) {--newline--            memo[i][j] = helper(s, i + 1, j - 1, memo) + 2;--newline--        } else {--newline--            memo[i][j] = Math.max(helper(s, i + 1, j, memo), helper(s, i, j - 1, memo));--newline--        }--newline--        return memo[i][j];--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Straight forward Java DP solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--        int longestPalindromeSubseq(string s) {--newline--            int n = s.size();--newline--            vector<int> v0(n), v1(n,1), v(n), *i_2=&v0, *i_1=&v1, *i_=&v;--newline--            for(int i=2;i<=n;i++) {//length--newline--                for(int j=0;j<n-i+1;j++)//start index--newline--                    i_->at(j) = s[j]==s[i+j-1]?2+i_2->at(j+1):max(i_1->at(j),i_1->at(j+1));--newline--                swap(i_1,i_2);    --newline--                swap(i_1,i_); //rotate i_2, i_1, i_--newline--            }--newline--            return i_1->at(0); --newline--        }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Evolve from brute force to dp"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def longestPalindromeSubseq(self, s):--newline----tab--        \"\"\"--newline----tab--        :type s: str--newline----tab--        :rtype: int--newline----tab--        \"\"\"--newline----tab--        n = len(s)--newline----tab--        dp = [1] * n--newline----tab--        for j in xrange(1, len(s)):--newline----tab--            pre = dp[j]--newline----tab--            for i in reversed(xrange(0, j)):--newline----tab--                tmp = dp[i]--newline----tab--                if s[i] == s[j]:--newline----tab--                    dp[i] = 2 + pre if i + 1 <= j - 1 else 2--newline----tab--                else:--newline----tab--                    dp[i] = max(dp[i + 1], dp[i])--newline----tab--                pre = tmp--newline----tab--        return dp[0]--newline----tab--",
+            "topic_title": "Python DP O(n) space O(n^2) time"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def longestPalindromeSubseq(self, s):--newline----tab--        d = {}--newline----tab--        def f(s):--newline----tab--            if s not in d:--newline----tab--                maxL = 0    --newline----tab--                for c in set(s):--newline----tab--                    i, j = s.find(c), s.rfind(c)--newline----tab--                    maxL = max(maxL, 1 if i==j else 2+f(s[i+1:j]))--newline----tab--                d[s] = maxL--newline----tab--            return d[s]--newline----tab--        return f(s)--newline----tab--",
+            "topic_title": "Fast and concise Python solution that actually gets AC"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    //lhs means left hand side, rhs means right hand side--newline--    int longestPalindromeSubseq(string s) {--newline--        if (s.empty()) return 0;--newline--        --newline--        vector<vector<int>> longest(s.size(), vector<int>(s.size()));--newline--        for (int len=1; len<=s.size(); len++) {--newline--            for (int lhs=0; lhs+len<=s.size(); lhs++) {--newline--                int rhs = lhs+len-1;--newline--                if (lhs == rhs) {--newline--                    longest[lhs][rhs] = 1;--newline--                } else if (lhs+1 == rhs) {--newline--                    longest[lhs][rhs] = (s[lhs] == s[rhs]) ? 2 : 1;--newline--                } else {--newline--                    int add = s[lhs] == s[rhs] ? 2 : 0;--newline--                    longest[lhs][rhs] = max(max(longest[lhs][rhs-1], longest[lhs+1][rhs]), longest[lhs+1][rhs-1] + add);--newline--                }--newline--            }--newline--        }--newline--        --newline--        return longest[0].back();--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "Sharing my clean O(n^2) C++ DP solution, super easy and clear"
+        }
+    ],
+    "qc": "516.json"
+}

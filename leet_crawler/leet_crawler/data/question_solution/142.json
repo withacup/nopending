@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--        ListNode *detectCycle(ListNode *head) {--newline--        if (head == NULL || head->next == NULL) return NULL;--newline--        --newline--        ListNode* firstp = head;--newline--        ListNode* secondp = head;--newline--        bool isCycle = false;--newline--        --newline--        while(firstp != NULL && secondp != NULL) {--newline--            firstp = firstp->next;--newline--            if (secondp->next == NULL) return NULL;--newline--            secondp = secondp->next->next;--newline--            if (firstp == secondp) { isCycle = true; break; }--newline--        }--newline--        --newline--        if(!isCycle) return NULL;--newline--        firstp = head;--newline--        while( firstp != secondp) {--newline--            firstp = firstp->next;--newline--            secondp = secondp->next;--newline--        }--newline--    --newline--        return firstp;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "O(n) solution by using two pointers without change anything"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    ListNode *detectCycle(ListNode *head) {--newline--        if (head == NULL || head->next == NULL)--newline--            return NULL;--newline--        --newline--        ListNode *slow  = head;--newline--        ListNode *fast  = head;--newline--        ListNode *entry = head;--newline--        --newline--        while (fast->next && fast->next->next) {--newline--            slow = slow->next;--newline--            fast = fast->next->next;--newline--            if (slow == fast) {                      // there is a cycle--newline--                while(slow != entry) {               // found the entry location--newline--                    slow  = slow->next;--newline--                    entry = entry->next;--newline--                }--newline--                return entry;--newline--            }--newline--        }--newline--        return NULL;                                 // there has no cycle--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "Concise O(n) solution by using C++ with Detailed Alogrithm Description"
+        },
+        {
+            "java": "public class Solution {--newline--            public ListNode detectCycle(ListNode head) {--newline--                ListNode slow = head;--newline--                ListNode fast = head;--newline--        --newline--                while (fast!=null && fast.next!=null){--newline--                    fast = fast.next.next;--newline--                    slow = slow.next;--newline--                    --newline--                    if (fast == slow){--newline--                        ListNode slow2 = head; --newline--                        while (slow2 != slow){--newline--                            slow = slow.next;--newline--                            slow2 = slow2.next;--newline--                        }--newline--                        return slow;--newline--                    }--newline--                }--newline--                return null;--newline--            }--newline--        }",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java O(1) space solution with detailed explanation."
+        },
+        {
+            "java": "public class Solution {--newline--    public ListNode detectCycle(ListNode head) {--newline--    --tab--ListNode slow = head, fast = head;--newline--    --tab--while(fast != null && fast.next != null) {--newline--    --tab----tab--fast = fast.next.next;--newline--    --tab----tab--slow = slow.next;--newline--    --tab----tab--if (slow == fast) {--newline--    --tab----tab----tab--while (head != slow) {--newline--    --tab----tab----tab----tab--head = head.next;--newline--    --tab----tab----tab----tab--slow = slow.next;--newline--    --tab----tab----tab--}--newline--    --tab----tab----tab--return slow;--tab----tab----tab----tab----newline--    --tab----tab--}--newline--    --tab--}--tab----tab----tab----newline--    --tab--return null;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Concise JAVA solution based on slow fast pointers"
+        },
+        {
+            "java": "public class Solution {--newline--        (CIRCLE-START-POINT)--newline--                |--newline--    -------A----@------------------newline--                |               |--newline--                |               |--newline--                C               B--newline--                |               |--newline--                |-------@-------|--newline--                        |--newline--                   (MEET-POINT)--newline--    --newline--    --newline--    public ListNode detectCycle(ListNode head) {--newline--        if(head==null || head.next==null || head.next.next==null)  return null;--newline--        ListNode pointer1 = head.next;--newline--        ListNode pointer2 = head.next.next;--newline--        //Step 1--newline--        while(pointer1!=pointer2){--newline--            if(pointer2.next==null || pointer2.next.next==null)   return null;--newline--            pointer1 = pointer1.next;--newline--            pointer2 = pointer2.next.next;--newline--        }--newline--        pointer1 = head;--newline--        //Step 2--newline--        while(pointer1!=pointer2){--newline--            pointer1 = pointer1.next;--newline--            pointer2 = pointer2.next;--newline--        }--newline--        return pointer1;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java solution without extra space with explanation"
+        }
+    ],
+    "qc": "142.json"
+}

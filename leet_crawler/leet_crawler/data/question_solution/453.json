@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int minMoves(int[] nums) {--newline--        if (nums.length == 0) return 0;--newline--        int min = nums[0];--newline--        for (int n : nums) min = Math.min(min, n);--newline--        int res = 0;--newline--        for (int n : nums) res += n - min;--newline--        return res;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java O(n) solution. Short."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "It is a math question"
+        },
+        {
+            "java": "public class Solution {--newline--    public int minMoves(int[] nums) {--newline--        return IntStream.of(nums).sum() - nums.length * IntStream.of(nums).min().getAsInt();--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int minMoves(vector<int>& nums) {--newline--        return accumulate(begin(nums), end(nums), 0L) - nums.size() * *min_element(begin(nums), end(nums));--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Simple one-liners"
+        },
+        {
+            "java": "public class Solution {--newline--    public int minMoves(int[] nums) {--newline--            if(nums==null||nums.length<=1) return 0;--newline--            long min=(long)nums[0];--newline--            long sum=0;--newline--            for(int i=0;i<nums.length;i++){--newline--                sum+=(long)nums[i];--newline--                min=Math.min(min,nums[i]);--newline--            }--newline--            return (int)(sum-min*nums.length);--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "What if we are not smart enough to come up with decrease 1. Here is how we do it."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def minMoves(self, nums):--newline----tab--        \"\"\"--newline----tab--        :type nums: List[int]--newline----tab--        :rtype: int--newline----tab--        \"\"\"--newline----tab--        nums.sort()--newline----tab--        c = 0--newline----tab--        for i in range(len(nums)-1, -1, -1):--newline----tab--            if nums[i] == nums[0]:--newline----tab--                break--newline----tab--            c += nums[i] - nums[0]--newline----tab--        return c--newline----tab--",
+            "topic_title": "Four Python solutions with detailed explanation"
+        }
+    ],
+    "qc": "453.json"
+}

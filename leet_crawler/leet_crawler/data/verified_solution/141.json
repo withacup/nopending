@@ -1,0 +1,6 @@
+{
+    "solution_code": "public class Solution {--newline--    public boolean hasCycle(ListNode head) {--newline--        if(head==null) return false;--newline--        ListNode walker = head;--newline--        ListNode runner = head;--newline--        while(runner.next!=null && runner.next.next!=null) {--newline--            walker = walker.next;--newline--            runner = runner.next.next;--newline--            if(walker==runner) return true;--newline--        }--newline--        return false;--newline--    }--newline--    --newline--}",
+    "l_type": "java",
+    "modified_code": null,
+    "total_cases": 16
+}

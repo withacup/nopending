@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--        public int maxProfit(int[] prices) {--newline--            int maxCur = 0, maxSoFar = 0;--newline--            for(int i = 1; i < prices.length; i++) {--newline--                maxCur = Math.max(0, maxCur += prices[i] - prices[i-1]);--newline--                maxSoFar = Math.max(maxCur, maxSoFar);--newline--            }--newline--            return maxSoFar;--newline--        }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Kadane&#x27;s Algorithm - Since no one has mentioned about this so far :) (In case if interviewer twists the input)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int maxProfit(vector<int> &prices) {--newline--        int maxPro = 0;--newline--        int minPrice = INT_MAX;--newline--        for(int i = 0; i < prices.size(); i++){--newline--            minPrice = min(minPrice, prices[i]);--newline--            maxPro = max(maxPro, prices[i] - minPrice);--newline--        }--newline--        return maxPro;--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "Sharing my simple and clear C++ solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Please explain the problem more clearly!!!"
+        },
+        {
+            "java": "public class Solution {--newline--    public int maxProfit(int[] prices) {--newline--        --newline--        if (prices.length == 0)--newline--        {--newline--            return 0;--newline--        }--newline--        --newline--        int max = 0, min = prices[0];--newline--        int profit = 0;--newline--        --newline--        for (int i = 1; i < prices.length; i++)--newline--        {--newline--            if (prices[i] < min)--newline--            {--newline--                --newline--                min = prices[i];--newline--            }--newline--            else--newline--            {--newline--                if (prices[i] - min > profit)--newline--                {--newline--                    profit = prices[i] - min;--newline--                }--newline--                --newline--            }--newline--        }--newline--     --newline--   --newline--     --newline--     return profit;--newline--     --newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "A O(1*n)  solution"
+        },
+        {
+            "java": "public class Solution {--newline--     public int maxProfit(int[] prices) {--newline--    --tab----tab-- if (prices.length == 0) {--newline--    --tab----tab----tab-- return 0 ;--newline--    --tab----tab-- }--tab----tab----newline--    --tab----tab-- int max = 0 ;--newline--    --tab----tab-- int sofarMin = prices[0] ;--newline--    --tab--     for (int i = 0 ; i < prices.length ; ++i) {--newline--    --tab--    --tab-- if (prices[i] > sofarMin) {--newline--    --tab--    --tab----tab-- max = Math.max(max, prices[i] - sofarMin) ;--newline--    --tab--    --tab-- } else{--newline--    --tab--    --tab----tab--sofarMin = prices[i];  --newline--    --tab--    --tab-- }--newline--    --tab--     }--tab--     --newline--    --tab--    return  max ;--newline--    --tab-- }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My jave accepted solution with O(N) time and O(1) space"
+        }
+    ],
+    "qc": "121.json"
+}

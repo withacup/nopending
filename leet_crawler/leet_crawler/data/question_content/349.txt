@@ -1,0 +1,19 @@
+---CONTENT_BEGIN---
+
+Given two arrays, write a function to compute their intersection.
+
+
+Example:
+Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].
+
+
+Note:
+
+Each element in the result must be unique.
+The result can be in any order.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int[] intersection(int[] nums1, int[] nums2) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def intersection(self, nums1, nums2):--newline--        '''--newline--        :type nums1: List[int]--newline--        :type nums2: List[int]--newline--        :rtype: List[int]--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Return an array of size *returnSize.--newline-- * Note: The returned array must be malloced, assume caller calls free().--newline-- */--newline--int* intersection(int* nums1, int nums1Size, int* nums2, int nums2Size, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int[] Intersection(int[] nums1, int[] nums2) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[]} nums1--newline-- * @param {number[]} nums2--newline-- * @return {number[]}--newline-- */--newline--var intersection = function(nums1, nums2) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[]} nums1--newline--# @param {Integer[]} nums2--newline--# @return {Integer[]}--newline--def intersection(nums1, nums2)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func intersection(_ nums1: [Int], _ nums2: [Int]) -> [Int] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func intersection(nums1 []int, nums2 []int) []int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

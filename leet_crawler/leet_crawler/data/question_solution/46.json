@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public List<List<Integer>> permuteUnique(int[] nums) {--newline--        List<List<Integer>> list = new ArrayList<>();--newline--        Arrays.sort(nums);--newline--        backtrack(list, new ArrayList<>(), nums, new boolean[nums.length]);--newline--        return list;--newline--    }--newline--    --newline--    private void backtrack(List<List<Integer>> list, List<Integer> tempList, int [] nums, boolean [] used){--newline--        if(tempList.size() == nums.length){--newline--            list.add(new ArrayList<>(tempList));--newline--        } else{--newline--            for(int i = 0; i < nums.length; i++){--newline--                if(used[i] || i > 0 && nums[i] == nums[i-1] && !used[i - 1]) continue;--newline--                used[i] = true; --newline--                tempList.add(nums[i]);--newline--                backtrack(list, tempList, nums, used);--newline--                used[i] = false; --newline--                tempList.remove(tempList.size() - 1);--newline--            }--newline--        }--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "A general approach to backtracking questions in Java (Subsets, Permutations, Combination Sum, Palindrome Partioning)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    vector<vector<int> > permute(vector<int> &num) {--newline----tab--    vector<vector<int> > result;--newline----tab--    --newline----tab--    permuteRecursive(num, 0, result);--newline----tab--    return result;--newline--    }--newline--    --newline--    // permute num[begin..end]--newline--    // invariant: num[0..begin-1] have been fixed/permuted--newline----tab--void permuteRecursive(vector<int> &num, int begin, vector<vector<int> > &result)--tab--{--newline----tab----tab--if (begin >= num.size()) {--newline----tab----tab--    // one permutation instance--newline----tab----tab--    result.push_back(num);--newline----tab----tab--    return;--newline----tab----tab--}--newline----tab----tab----newline----tab----tab--for (int i = begin; i < num.size(); i++) {--newline----tab----tab--    swap(num[begin], num[i]);--newline----tab----tab--    permuteRecursive(num, begin + 1, result);--newline----tab----tab--    // reset--newline----tab----tab--    swap(num[begin], num[i]);--newline----tab----tab--}--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "My elegant recursive C++ solution with inline explanation"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<List<Integer>> permute(int[] num) {--newline--        List<List<Integer>> ans = new ArrayList<List<Integer>>();--newline--        if (num.length ==0) return ans;--newline--        List<Integer> l0 = new ArrayList<Integer>();--newline--        l0.add(num[0]);--newline--        ans.add(l0);--newline--        for (int i = 1; i< num.length; ++i){--newline--            List<List<Integer>> new_ans = new ArrayList<List<Integer>>(); --newline--            for (int j = 0; j<=i; ++j){            --newline--               for (List<Integer> l : ans){--newline--            --tab--   List<Integer> new_l = new ArrayList<Integer>(l);--newline--            --tab--   new_l.add(j,num[i]);--newline--            --tab--   new_ans.add(new_l);--newline--               }--newline--            }--newline--            ans = new_ans;--newline--        }--newline--        return ans;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def permute(self, nums):--newline----tab--        perms = [[]]   --newline----tab--        for n in nums:--newline----tab--            new_perms = []--newline----tab--            for perm in perms:--newline----tab--                for i in xrange(len(perm)+1):   --newline----tab--                    new_perms.append(perm[:i] + [n] + perm[i:])   ###insert n--newline----tab--            perms = new_perms--newline----tab--        return perms",
+            "topic_title": "My AC simple iterative java&#x2F;python solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public List<List<Integer>> permute(int[] num) {--newline--        LinkedList<List<Integer>> res = new LinkedList<List<Integer>>();--newline--        res.add(new ArrayList<Integer>());--newline--        for (int n : num) {--newline--            int size = res.size();--newline--            for (; size > 0; size--) {--newline--                List<Integer> r = res.pollFirst();--newline--                for (int i = 0; i <= r.size(); i++) {--newline--                    List<Integer> t = new ArrayList<Integer>(r);--newline--                    t.add(i, n);--newline--                    res.add(t);--newline--                }--newline--            }--newline--        }--newline--        return res;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Share my short iterative JAVA solution"
+        },
+        {
+            "java": "public class Solution {--newline--   public List<List<Integer>> permute(int[] nums) {--newline----tab----tab--return permute(Arrays.stream(nums).boxed().collect(Collectors.toList()));--newline--   }--newline----newline----tab--private List<List<Integer>> permute(List<Integer> nums) {--newline----tab----tab--List<List<Integer>> permutations = new ArrayList<>();--newline----tab----tab--if (nums.size() == 0) {--newline----tab----tab----tab--return permutations;--newline----tab----tab--}--newline----tab----tab--if (nums.size() == 1) {--newline----tab----tab----tab--List<Integer> permutation = new ArrayList<>();--newline----tab----tab----tab--permutation.add(nums.get(0));--newline----tab----tab----tab--permutations.add(permutation);--newline----tab----tab----tab--return permutations;--newline----tab----tab--}--newline----tab----tab----newline----tab----tab--List<List<Integer>> smallPermutations = permute(nums.subList(1, nums.size()));--newline----tab----tab--int first = nums.get(0);--newline----tab----tab--for(List<Integer> permutation : smallPermutations) {--newline----tab----tab----tab--for (int i = 0; i <= permutation.size(); i++) {--newline----tab----tab----tab----tab--List<Integer> newPermutation = new ArrayList<>(permutation);--newline----tab----tab----tab----tab--newPermutation.add(i, first);--newline----tab----tab----tab----tab--permutations.add(newPermutation);--newline----tab----tab----tab--}--newline----tab----tab--}--newline----tab----tab--return permutations;--newline----tab--}--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Clean Code - Two recursive solutions"
+        }
+    ],
+    "qc": "46.json"
+}

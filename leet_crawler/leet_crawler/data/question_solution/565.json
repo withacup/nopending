@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int arrayNesting(int[] a) {--newline--        int maxsize = 0;--newline--        for (int i = 0; i < a.length; i++) {--newline--            int size = 0;--newline--            for (int k = i; a[k] >= 0; size++) {--newline--                int ak = a[k];--newline--                a[k] = -1; // mark a[k] as visited;--newline--                k = ak;--newline--            }--newline--            maxsize = Integer.max(maxsize, size);--newline--        }--newline----newline--        return maxsize;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int arrayNesting(vector<int>& a) {--newline--        size_t maxsize = 0;--newline--        for (int i = 0; i < a.size(); i++) {--newline--            size_t size = 0;--newline--            for (int k = i; a[k] >= 0; size++) {--newline--                int ak = a[k];--newline--                a[k] = -1; // mark a[k] as visited;--newline--                k = ak;--newline--            }--newline--            maxsize = max(maxsize, size);--newline--        }--newline----newline--        return maxsize;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "&#91;C++&#93; &#91;Java&#93; Clean Code - O(N)"
+        },
+        {
+            "java": "public class Solution {--newline--    public int arrayNesting(int[] nums) {--newline--        int res = 0;--newline--        for (int i=0;i<nums.length;i++) {--newline--            if (nums[i] < 0) continue;--newline--            int length = 1, val = nums[i];--newline--            while (Math.abs(val) != i) {--newline--                length++;--newline--                val = nums[Math.abs(val)];--newline--                nums[Math.abs(val)] *= -1;--newline--            }--newline--            res = Math.max(res, length);--newline--        }--newline--        return res;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java O(n) Time O(1) Space"
+        },
+        {
+            "java": "public class Solution {--newline--    --tab--/ ** --newline--    --tab-- * This is actually a DFS.  Use a visited map to keep track of visited node. If a --newline--    number is visited before, then the set that starts at this number must be smaller then--newline--     previous max. So we can safely skip this number. In total it's O(n) complexity.--newline--    --tab-- */--newline--    --newline--    --newline--    --newline--    public int arrayNesting(int[] nums) {--newline--            int max = Integer.MIN_VALUE;--newline--            boolean[] visited = new boolean[nums.length];--newline--            for (int i = 0; i < nums.length; i++) {--newline--            --tab--if (visited[i]) --newline--            --tab----tab--continue;--newline--            --tab--max = Math.max(max, calcLength(nums, i, visited));--newline--            }--newline--            return max;--newline--        }--newline--    --tab----newline--    --tab--private int calcLength(int[] nums, int start, boolean[] visited) {--newline--    --tab----tab--int i = start, count = 0;--newline--    --tab----tab--while (count == 0 || i != start) {--newline--    --tab----tab----tab--visited[i] = true;--newline--    --tab----tab----tab--i = nums[i];--newline--    --tab----tab----tab--count++;--newline--    --tab----tab--}--newline--    --tab----tab--return count;--newline--    --tab--}--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "This is actually DFS"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def arrayNesting(self, nums):--newline----tab--        \"\"\"--newline----tab--        :type nums: List[int]--newline----tab--        :rtype: int--newline----tab--        \"\"\"--newline----tab--        ans, step, n = 0, 0, len(nums)--newline----tab--        seen = [False] * n--newline----tab--        for i in range(n):--newline----tab--            while not seen[i]:--newline----tab--                seen[i] = True--newline----tab--                i, step = nums[i], step + 1--newline----tab--            ans = max(ans, step)--newline----tab--            step = 0--newline----tab--        return ans--newline----tab--",
+            "topic_title": "Short Python"
+        },
+        {
+            "java": "public class Solution {--newline--    class UnionFind {--newline--        private int count = 0;--newline--        private int[] parent, rank;--newline--        --newline--        public UnionFind(int n) {--newline--            count = n;--newline--            parent = new int[n];--newline--            rank = new int[n];--newline--            for (int i = 0; i < n; i++) {--newline--                parent[i] = i;--newline--            }--newline--        }--newline--        --newline--        public int find(int p) {--newline--            int q = parent[p];--newline--            while (q != parent[q]) {--newline--                q = parent[q];--newline--            }--newline--            parent[p] = q;--newline--            return q;--newline--        }--newline--        --newline--        public void union(int p, int q) {--newline--            int rootP = find(p);--newline--            int rootQ = find(q);--newline--            if (rootP == rootQ) return;--newline--            if (rank[rootQ] > rank[rootP]) {--newline--                parent[rootP] = rootQ;--newline--            }--newline--            else {--newline--                parent[rootQ] = rootP;--newline--                if (rank[rootP] == rank[rootQ]) {--newline--                    rank[rootP]++;--newline--                }--newline--            }--newline--            count--;--newline--        }--newline--        --newline--        public int count() {--newline--            return count;--newline--        }--newline--        --newline--        public int getMaxUnion() {--newline--            Map<Integer, Integer> map = new HashMap<>();--newline--            int max = 1;--newline--            for (int i = 0; i < parent.length; i++) {--newline--                int p = find(i);--newline--                map.put(p, map.getOrDefault(p, 0) + 1);--newline--                max = Math.max(max, map.get(p));--newline--            }--newline--            return max;--newline--        }--newline--    }--newline--    --newline--    public int arrayNesting(int[] nums) {--newline--        int n = nums.length;--newline--        UnionFind uf = new UnionFind(n);--newline--        for (int i = 0; i < n; i++) {--newline--            uf.union(i, nums[i]);--newline--        }--newline--        return uf.getMaxUnion();--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Solution, Union Find"
+        }
+    ],
+    "qc": "565.json"
+}

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int numDecodings(String s) {--newline--        int n = s.length();--newline--        if (n == 0) return 0;--newline--        --newline--        int[] memo = new int[n+1];--newline--        memo[n]  = 1;--newline--        memo[n-1] = s.charAt(n-1) != '0' ? 1 : 0;--newline--        --newline--        for (int i = n - 2; i >= 0; i--)--newline--            if (s.charAt(i) == '0') continue;--newline--            else memo[i] = (Integer.parseInt(s.substring(i,i+2))<=26) ? memo[i+1]+memo[i+2] : memo[i+1];--newline--        --newline--        return memo[0];--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "DP Solution (Java) for reference"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int numDecodings(string s) {--newline--        if (!s.size() || s.front() == '0') return 0;--newline--        // r2: decode ways of s[i-2] , r1: decode ways of s[i-1] --newline--        int r1 = 1, r2 = 1;--newline--        --newline--        for (int i = 1; i < s.size(); i++) {--newline--            // zero voids ways of the last because zero cannot be used separately--newline--            if (s[i] == '0') r1 = 0;--newline--    --newline--            // possible two-digit letter, so new r1 is sum of both while new r2 is the old r1--newline--            if (s[i - 1] == '1' || s[i - 1] == '2' && s[i] <= '6') {--newline--                r1 = r2 + r1;--newline--                r2 = r1 - r2;--newline--            }--newline--    --newline--            // one-digit letter, no new way added--newline--            else {--newline--                r2 = r1;--newline--            }--newline--        }--newline--    --newline--        return r1;--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "A concise dp solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public int numDecodings(String s) {--newline--        if(s == null || s.length() == 0) {--newline--            return 0;--newline--        }--newline--        int n = s.length();--newline--        int[] dp = new int[n+1];--newline--        dp[0] = 1;--newline--        dp[1] = s.charAt(0) != '0' ? 1 : 0;--newline--        for(int i = 2; i <= n; i++) {--newline--            int first = Integer.valueOf(s.substring(i-1, i));--newline--            int second = Integer.valueOf(s.substring(i-2, i));--newline--            if(first >= 1 && first <= 9) {--newline--               dp[i] += dp[i-1];  --newline--            }--newline--            if(second >= 10 && second <= 26) {--newline--                dp[i] += dp[i-2];--newline--            }--newline--        }--newline--        return dp[n];--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java clean DP solution with explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "My c++ 0ms DP solution O(n)"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Input &quot;&quot; should return 1 instead of 0"
+        }
+    ],
+    "qc": "91.json"
+}

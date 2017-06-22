@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public String reverseStr(String s, int k) {--newline--        char[] arr = s.toCharArray();--newline--        int n = arr.length;--newline--        int i = 0;--newline--        while(i < n) {--newline--            int j = Math.min(i + k - 1, n - 1);--newline--            swap(arr, i, j);--newline--            i += 2 * k;--newline--        }--newline--        return String.valueOf(arr);--newline--    }--newline--    private void swap(char[] arr, int l, int r) {--newline--        while (l < r) {--newline--            char temp = arr[l];--newline--            arr[l++] = arr[r];--newline--            arr[r--] = temp;--newline--        }--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Concise Solution"
+        },
+        {
+            "java": "public class Solution {--newline--    public String reverseStr(String s, int k) {--newline--        char[] ca = s.toCharArray();--newline--        for (int left = 0; left < ca.length; left += 2 * k) {--newline--            for (int i = left, j = Math.min(left + k - 1, ca.length - 1); i < j; i++, j--) {--newline--                char tmp = ca[i];--newline--                ca[i] = ca[j];--newline--                ca[j] = tmp;--newline--            }--newline--        }--newline--        return new String(ca);--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    /**--newline--     * 0            k           2k          3k--newline--     * |-----------|-----------|-----------|-----newline--     * +--reverse--+           +--reverse--+--newline--     */--newline--    string reverseStr(string s, int k) {--newline--        for (int left = 0; left < s.size(); left += 2 * k) {--newline--            for (int i = left, j = min(left + k - 1, (int)s.size() - 1); i < j; i++, j--) {--newline--                swap(s[i], s[j]);--newline--            }--newline--        }--newline--        return s;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "&#91;C++&#93;&#91;Java&#93; Clean Code"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution :--newline----tab--    def reverseStr(self, s, k):--newline----tab--        s = list(s)--newline----tab--        for i in xrange(0, len(s), 2*k):--newline----tab--            s[i:i+k] = reversed(s[i:i+k])--newline----tab--        return \"\".join(s)--newline----tab--    ",
+            "topic_title": "Python, Straightforward with Explanation"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def reverseStr(self, s, k):--newline----tab--        \"\"\"--newline----tab--        :type s: str--newline----tab--        :type k: int--newline----tab--        :rtype: str--newline----tab--        \"\"\"--newline----tab--        return s[:k][::-1] + s[k:2*k] + self.reverseStr(s[2*k:], k) if s else \"\"--newline----tab--",
+            "topic_title": "1 line simple recursive Python"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    string reverseStr(string s, int k) {--newline--        for (int i = 0; i < s.size(); i += 2*k) reverse(s.begin()+i, min(s.begin()+i+k, s.end()));--newline--        return s;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "One line C++"
+        }
+    ],
+    "qc": "541.json"
+}

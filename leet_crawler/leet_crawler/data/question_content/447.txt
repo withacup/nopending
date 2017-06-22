@@ -1,0 +1,21 @@
+---CONTENT_BEGIN---
+Given n points in the plane that are all pairwise distinct, a "boomerang" is a tuple of points (i, j, k) such that the distance between i and j equals the distance between i and k (the order of the tuple matters).
+
+Find the number of boomerangs. You may assume that n will be at most 500 and coordinates of points are all in the range [-10000, 10000] (inclusive).
+
+Example:
+
+Input:
+[[0,0],[1,0],[2,0]]
+
+Output:
+2
+
+Explanation:
+The two boomerangs are [[1,0],[0,0],[2,0]] and [[1,0],[2,0],[0,0]]
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    int numberOfBoomerangs(vector<pair<int, int>>& points) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public int numberOfBoomerangs(int[][] points) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def numberOfBoomerangs(self, points):--newline--        '''--newline--        :type points: List[List[int]]--newline--        :rtype: int--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "int numberOfBoomerangs(int** points, int pointsRowSize, int pointsColSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public int NumberOfBoomerangs(int[,] points) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number[][]} points--newline-- * @return {number}--newline-- */--newline--var numberOfBoomerangs = function(points) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer[][]} points--newline--# @return {Integer}--newline--def number_of_boomerangs(points)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func numberOfBoomerangs(_ points: [[Int]]) -> Int {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func numberOfBoomerangs(points [][]int) int {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

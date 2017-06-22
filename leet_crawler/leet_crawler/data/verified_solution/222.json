@@ -1,0 +1,6 @@
+{
+    "solution_code": "public class Solution {--newline--    public int countNodes(TreeNode root) {--newline--    --newline--        int leftDepth = leftDepth(root);--newline--        int rightDepth = rightDepth(root);--newline--    --newline--        if (leftDepth == rightDepth)--newline--            return (1 << leftDepth) - 1;--newline--        else--newline--            return 1+countNodes(root.left) + countNodes(root.right);--newline--    --newline--    }--newline--    --newline--    private int rightDepth(TreeNode root) {--newline--        // TODO Auto-generated method stub--newline--        int dep = 0;--newline--        while (root != null) {--newline--            root = root.right;--newline--            dep++;--newline--        }--newline--        return dep;--newline--    }--newline--    --newline--    private int leftDepth(TreeNode root) {--newline--        // TODO Auto-generated method stub--newline--        int dep = 0;--newline--        while (root != null) {--newline--            root = root.left;--newline--            dep++;--newline--        }--newline--        return dep;--newline--    }--newline--    --newline--}",
+    "l_type": "java",
+    "modified_code": null,
+    "total_cases": 18
+}

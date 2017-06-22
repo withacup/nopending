@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int findMaxForm(vector<string>& strs, int m, int n) {--newline--      vector<vector<int>> memo(m+1, vector<int>(n+1, 0));--newline--      int numZeroes, numOnes;--newline--    --newline--      for (auto &s : strs) {--newline--        numZeroes = numOnes = 0;--newline--        // count number of zeroes and ones in current string--newline--        for (auto c : s) {--newline--          if (c == '0')--newline--    --tab--numZeroes++;--newline--          else if (c == '1')--newline--    --tab--numOnes++;--newline--        }--newline--    --newline--        // memo[i][j] = the max number of strings that can be formed with i 0's and j 1's--newline--        // from the first few strings up to the current string s--newline--        // Catch: have to go from bottom right to top left--newline--        // Why? If a cell in the memo is updated(because s is selected),--newline--        // we should be adding 1 to memo[i][j] from the previous iteration (when we were not considering s)--newline--        // If we go from top left to bottom right, we would be using results from this iteration => overcounting--newline--        for (int i = m; i >= numZeroes; i--) {--newline--    --tab--for (int j = n; j >= numOnes; j--) {--newline--              memo[i][j] = max(memo[i][j], memo[i - numZeroes][j - numOnes] + 1);--newline--    --tab--}--newline--        }--newline--      }--newline--      return memo[m][n];--newline--    }--newline--    --newline--}",
+            "python": null,
+            "topic_title": "c++ DP solution with comments"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findMaxForm(String[] strs, int m, int n) {--newline--        int[][] dp = new int[m+1][n+1];--newline--        for (String s : strs) {--newline--            int[] count = count(s);--newline--            for (int i=m;i>=count[0];i--) --newline--                for (int j=n;j>=count[1];j--) --newline--                    dp[i][j] = Math.max(1 + dp[i-count[0]][j-count[1]], dp[i][j]);--newline--        }--newline--        return dp[m][n];--newline--    }--newline--        --newline--    public int[] count(String str) {--newline--        int[] res = new int[2];--newline--        for (int i=0;i<str.length();i++)--newline--            res[str.charAt(i) - '0']++;--newline--        return res;--newline--     }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java Iterative DP Solution - O(mn) Space"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def findMaxForm(self, strs, m, n):--newline----tab--        --newline----tab--        dp = [[0] * (n+1) for _ in range(m+1)]--newline----tab--        --newline----tab--        def count(s):--newline----tab--            return sum(1 for c in s if c == '0'), sum(1 for c in s if c == '1')--newline----tab--        --newline----tab--        for z, o in [count(s) for s in strs]:--newline----tab--            for x in range(m, -1, -1):--newline----tab--                for y in range(n, -1, -1):--newline----tab--                    if x >= z and y >= o:--newline----tab--                        dp[x][y] = max(1 + dp[x-z][y-o], dp[x][y])--newline----tab--                        --newline----tab--        return dp[m][n]--newline----tab--",
+            "topic_title": "0-1 knapsack in python"
+        },
+        {
+            "java": "public class Solution {--newline--    public int findMaxForm(String[] strs, int m, int n) {--newline--        int l = strs.length;--newline--        int[][] dp = new int[m+1][n+1];--newline--        --newline--        for (int i = 0; i < m+1; i++) {--newline--            Arrays.fill(dp[i], 0);--newline--        }--newline--        --newline--        int[] nums = new int[]{0,0};--newline--        for (String str : strs) {--newline--            nums = calculate(str);--newline--            for (int j = m; j >= nums[0]; j--) {--newline--                for (int k = n; k >= nums[1]; k--) {--newline--                    if (j>=nums[0] && k>=nums[1]) {--newline--                        dp[j][k] = Math.max(dp[j][k], dp[j-nums[0]][k-nums[1]]+1);--newline--                    } else {--newline--                        dp[j][k] = dp[j][k];--newline--                    }--newline--                }--newline--            }--newline--        }--newline--        --newline--        return dp[m][n];--newline--    }--newline--    --newline--    private int[] calculate(String str) {--newline--        int[] res = new int[2];--newline--        Arrays.fill(res, 0);--newline--        --newline--        for (char ch : str.toCharArray()) {--newline--            if (ch == '0') {--newline--                res[0]++;--newline--            } else if (ch == '1') {--newline--                res[1]++;--newline--            }--newline--        }--newline--        --newline--        return res;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "0-1 knapsack detailed explanation."
+        },
+        {
+            "java": "public class Solution {--newline--    public int findMaxForm(String[] strs, int m, int n) {--newline--        int[][] max = new int[m + 1][n + 1];--newline--        for (int i = 0; i < strs.length; i++) {--newline--            String str = strs[i];--newline--            --newline--            int neededZero = 0;--newline--            int neededOne = 0;--newline--            for (int j = 0; j < str.length(); j++) {--newline--                if (str.charAt(j) == '0') {--newline--                    neededZero++;--newline--                } else {--newline--                    neededOne++;--newline--                }--newline--            }--newline--            --newline--            int[][] newMax = new int[m + 1][n + 1];--newline--            --newline--            for (int zero = 0; zero <= m; zero++) {--newline--                for (int one = 0; one <= n; one++) {--newline--                    if (zero >= neededZero && one >= neededOne) {--newline--                        int zeroLeft = zero - neededZero;--newline--                        int oneLeft = one - neededOne;--newline--                        newMax[zero][one] = Math.max(1 + max[zeroLeft][oneLeft], max[zero][one]);--newline--                    } else {--newline--                        newMax[zero][one] = max[zero][one];--newline--                    }--newline--                }--newline--            }--newline--            --newline--            max = newMax;--newline--        }--newline--        return max[m][n];--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java DP solution with explanation"
+        }
+    ],
+    "qc": "474.json"
+}

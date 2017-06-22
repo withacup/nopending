@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "The worst problem i have ever met in this oj"
+        },
+        {
+            "java": "public class Solution {--newline--    public boolean isNumber(String s) {--newline--        s = s.trim();--newline--        --newline--        boolean pointSeen = false;--newline--        boolean eSeen = false;--newline--        boolean numberSeen = false;--newline--        boolean numberAfterE = true;--newline--        for(int i=0; i<s.length(); i++) {--newline--            if('0' <= s.charAt(i) && s.charAt(i) <= '9') {--newline--                numberSeen = true;--newline--                numberAfterE = true;--newline--            } else if(s.charAt(i) == '.') {--newline--                if(eSeen || pointSeen) {--newline--                    return false;--newline--                }--newline--                pointSeen = true;--newline--            } else if(s.charAt(i) == 'e') {--newline--                if(eSeen || !numberSeen) {--newline--                    return false;--newline--                }--newline--                numberAfterE = false;--newline--                eSeen = true;--newline--            } else if(s.charAt(i) == '-' || s.charAt(i) == '+') {--newline--                if(i != 0 && s.charAt(i-1) != 'e') {--newline--                    return false;--newline--                }--newline--            } else {--newline--                return false;--newline--            }--newline--        }--newline--        --newline--        return numberSeen && numberAfterE;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Clear Java solution with ifs"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool isNumber(const char *s) --newline--    {--newline--        int i = 0;--newline--        --newline--        // skip the whilespaces--newline--        for(; s[i] == ' '; i++) {}--newline--        --newline--        // check the significand--newline--        if(s[i] == '+' || s[i] == '-') i++; // skip the sign if exist--newline--        --newline--        int n_nm, n_pt;--newline--        for(n_nm=0, n_pt=0; (s[i]<='9' && s[i]>='0') || s[i]=='.'; i++)--newline--            s[i] == '.' ? n_pt++:n_nm++;       --newline--        if(n_pt>1 || n_nm<1) // no more than one point, at least one digit--newline--            return false;--newline--        --newline--        // check the exponent if exist--newline--        if(s[i] == 'e') {--newline--            i++;--newline--            if(s[i] == '+' || s[i] == '-') i++; // skip the sign--newline--            --newline--            int n_nm = 0;--newline--            for(; s[i]>='0' && s[i]<='9'; i++, n_nm++) {}--newline--            if(n_nm<1)--newline--                return false;--newline--        }--newline--        --newline--        // skip the trailing whitespaces--newline--        for(; s[i] == ' '; i++) {}--newline--        --newline--        return s[i]==0;  // must reach the ending 0 of the string--newline--    }--newline--}",
+            "python": null,
+            "topic_title": "A simple solution in cpp"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--  def isNumber(self, s):--newline----tab--      \"\"\"--newline----tab--      :type s: str--newline----tab--      :rtype: bool--newline----tab--      \"\"\"--newline----tab--      #define a DFA--newline----tab--      state = [{}, --newline----tab--              {'blank': 1, 'sign': 2, 'digit':3, '.':4}, --newline----tab--              {'digit':3, '.':4},--newline----tab--              {'digit':3, '.':5, 'e':6, 'blank':9},--newline----tab--              {'digit':5},--newline----tab--              {'digit':5, 'e':6, 'blank':9},--newline----tab--              {'sign':7, 'digit':8},--newline----tab--              {'digit':8},--newline----tab--              {'digit':8, 'blank':9},--newline----tab--              {'blank':9}]--newline----tab--      currentState = 1--newline----tab--      for c in s:--newline----tab--          if c >= '0' and c <= '9':--newline----tab--              c = 'digit'--newline----tab--          if c == ' ':--newline----tab--              c = 'blank'--newline----tab--          if c in ['+', '-']:--newline----tab--              c = 'sign'--newline----tab--          if c not in state[currentState].keys():--newline----tab--              return False--newline----tab--          currentState = state[currentState][c]--newline----tab--      if currentState not in [3,5,8,9]:--newline----tab--          return False--newline----tab--      return True--newline----tab--",
+            "topic_title": "A simple solution in Python based on DFA"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    bool isNumber(string str) {--newline--        int state=0, flag=0; // flag to judge the special case \".\"--newline--        while(str[0]==' ')  str.erase(0,1);//delete the  prefix whitespace --newline--        while(str[str.length()-1]==' ') str.erase(str.length()-1, 1);//delete the suffix whitespace--newline--        for(int i=0; i<str.length(); i++){--newline--            if('0'<=str[i] && str[i]<='9'){--newline--                flag=1;--newline--                if(state<=2) state=2;--newline--                else state=(state<=5)?5:7;--newline--            }--newline--            else if('+'==str[i] || '-'==str[i]){--newline--                if(state==0 || state==3) state++;--newline--                else return false;--newline--            }--newline--            else if('.'==str[i]){--newline--                if(state<=2) state=6;--newline--                else return false;--newline--            }--newline--            else if('e'==str[i]){--newline--                if(flag&&(state==2 || state==6 || state==7)) state=3;--newline--                else return false;--newline--            }--newline--            else return false;--newline--        }--newline--        return (state==2 || state==5 || (flag&&state==6) || state==7);--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "&#91;C++&#93; My thought with DFA"
+        }
+    ],
+    "qc": "65.json"
+}

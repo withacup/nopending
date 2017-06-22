@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "// (c[25] - 1) * (n + 1) + 25 - i  is frame size--newline--// when inserting chars, the frame might be \"burst\", then tasks.length takes precedence--newline--// when 25 - i > n, the frame is already full at construction, the following is still valid.--newline--public class Solution {--newline--    public int leastInterval(char[] tasks, int n) {--newline----newline--        int[] c = new int[26];--newline--        for(char t : tasks){--newline--            c[t - 'A']++;--newline--        }--newline--        Arrays.sort(c);--newline--        int i = 25;--newline--        while(i >= 0 && c[i] == c[25]) i--;--newline----newline--        return Math.max(tasks.length, (c[25] - 1) * (n + 1) + 25 - i);--newline--    }--newline--}--newline--",
+            "topic_title": "concise Java Solution O(N) time O(26) space",
+            "python": null,
+            "is_locked": false,
+            "cpp": null
+        },
+        {
+            "java": "public class Solution {--newline--    public int leastInterval(char[] tasks, int n) {--newline--        Map<Character, Integer> counts = new HashMap<Character, Integer>();--newline--        for (char t : tasks) {--newline--            counts.put(t, counts.getOrDefault(t, 0) + 1);--newline--        }--newline----newline--        PriorityQueue<Integer> pq = new PriorityQueue<Integer>((a, b) -> b - a);--newline--        pq.addAll(counts.values());--newline----newline--        int alltime = 0;--newline--        int cycle = n + 1;--newline--        while (!pq.isEmpty()) {--newline--            int worktime = 0;--newline--            List<Integer> tmp = new ArrayList<Integer>();--newline--            for (int i = 0; i < cycle; i++) {--newline--                if (!pq.isEmpty()) {--newline--                    tmp.add(pq.poll());--newline--                    worktime++;--newline--                }--newline--            }--newline--            for (int cnt : tmp) {--newline--                if (--cnt > 0) {--newline--                    pq.offer(cnt);--newline--                }--newline--            }--newline--            alltime += !pq.isEmpty() ? cycle : worktime;--newline--        }--newline--        --newline--        return alltime;--newline--    }--newline--}--newline--",
+            "topic_title": "&#91;C++&#93; &#91;Java&#93; Clean Code - Priority Queue",
+            "python": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int leastInterval(vector<char>& tasks, int n) {--newline--        unordered_map<char, int> counts;--newline--        for (char t : tasks) {--newline--            counts[t]++;--newline--        }--newline--        priority_queue<int> pq;--newline--        for (pair<char, int> count : counts) {--newline--            pq.push(count.second);--newline--        }--newline--        int alltime = 0;--newline--        int cycle = n + 1;--newline--        while (!pq.empty()) {--newline--            int time = 0;--newline--            vector<int> tmp;--newline--            for (int i = 0; i < cycle; i++) {--newline--                if (!pq.empty()) {--newline--                    tmp.push_back(pq.top());--newline--                    pq.pop();--newline--                    time++;--newline--                }--newline--            }--newline--            for (int cnt : tmp) {--newline--                if (--cnt) {--newline--                    pq.push(cnt);--newline--                }--newline--            }--newline--            alltime += !pq.empty() ? cycle : time;--newline--        }--newline--        return alltime;--newline--    }--newline--};--newline--"
+        },
+        {
+            "java": "public class Solution {--newline--    public int leastInterval(char[] tasks, int n) {--newline--         Map<Character, Integer> map = new HashMap<>();--newline--        for (int i = 0; i < tasks.length; i++) {--newline--            map.put(tasks[i], map.getOrDefault(tasks[i], 0) + 1); // map key is TaskName, and value is number of times to be executed.--newline--        }--newline--        PriorityQueue<Map.Entry<Character, Integer>> q = new PriorityQueue<>( //frequency sort--newline--                (a,b) -> a.getValue() != b.getValue() ? b.getValue() - a.getValue() : a.getKey() - b.getKey());--newline--    --newline--        q.addAll(map.entrySet());--newline--    --newline--        int count = 0;--newline--        while (!q.isEmpty()) {--newline--            int k = n + 1;--newline--            List<Map.Entry> tempList = new ArrayList<>();--newline--            while (k > 0 && !q.isEmpty()) {--newline--                Map.Entry<Character, Integer> top = q.poll(); // most frequency task--newline--                top.setValue(top.getValue() - 1); // decrease frequency, meaning it got executed--newline--                tempList.add(top); // collect task to add back to queue--newline--                k--;--newline--                count++; //successfully executed task--newline--            }--newline--    --newline--            for (Map.Entry<Character, Integer> e : tempList) {--newline--                if (e.getValue() > 0) q.add(e); // add valid tasks --newline--            }--newline--    --newline--            if (q.isEmpty()) break;--newline--            count = count + k; // if k > 0, then it means we need to be idle--newline--        }--newline--        return count;--newline--    }--newline--}",
+            "topic_title": "Java PriorityQueue solution - Similar problem Rearrange string K distance apart",
+            "python": null,
+            "is_locked": false,
+            "cpp": null
+        },
+        {
+            "java": "public class Solution {--newline--    public int leastInterval(char[] tasks, int n) {--newline--        if (n == 0) return tasks.length;--newline--        --newline--        Map<Character, Integer> taskToCount = new HashMap<>();--newline--        for (char c : tasks) {--newline--            taskToCount.put(c, taskToCount.getOrDefault(c, 0) + 1);--newline--        }--newline--        --newline--        Queue<Integer> queue = new PriorityQueue<>((i1, i2) -> i2 - i1);--newline--        for (char c : taskToCount.keySet()) queue.offer(taskToCount.get(c));--newline--        --newline--        Map<Integer, Integer> coolDown = new HashMap<>();--newline--        int currTime = 0;--newline--        while (!queue.isEmpty() || !coolDown.isEmpty()) {--newline--            if (coolDown.containsKey(currTime - n - 1)) {--newline--                queue.offer(coolDown.remove(currTime - n - 1));--newline--            }--newline--            if (!queue.isEmpty()) {--newline--                int left = queue.poll() - 1;--newline--        --tab--if (left != 0) coolDown.put(currTime, left);--newline--            }--newline--            currTime++;--newline--        }--newline--        --newline--        return currTime;--newline--    }--newline--}--newline--",
+            "topic_title": "Java Solution, PriorityQueue and HashMap",
+            "python": null,
+            "is_locked": false,
+            "cpp": null
+        },
+        {
+            "java": null,
+            "topic_title": "C++ 8lines O(n)",
+            "python": null,
+            "is_locked": false,
+            "cpp": "class Solution {--newline--public:--newline--    int leastInterval(vector<char>& tasks, int n) {--newline--        unordered_map<char,int>mp;--newline--        int count = 0;--newline--        for(auto e : tasks)--newline--        {--newline--            mp[e]++;--newline--            count = max(count, mp[e]);--newline--        }--newline--        --newline--        int ans = (count-1)*(n+1);--newline--        for(auto e : mp) if(e.second == count) ans++;--newline--        return max((int)tasks.size(), ans);--newline--    }--newline--};"
+        }
+    ],
+    "qc": "621.json"
+}

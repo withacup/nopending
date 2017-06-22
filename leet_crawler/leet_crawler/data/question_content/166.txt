@@ -1,0 +1,18 @@
+---CONTENT_BEGIN---
+Given two integers representing the numerator and denominator of a fraction, return the fraction in string format.
+
+If the fractional part is repeating, enclose the repeating part in parentheses.
+
+For example,
+
+Given numerator = 1, denominator = 2, return "0.5".
+Given numerator = 2, denominator = 1, return "2".
+Given numerator = 2, denominator = 3, return "0.(6)".
+
+
+
+Credits:Special thanks to @Shangrila for adding this problem and creating all test cases.
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    string fractionToDecimal(int numerator, int denominator) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public String fractionToDecimal(int numerator, int denominator) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def fractionToDecimal(self, numerator, denominator):--newline--        '''--newline--        :type numerator: int--newline--        :type denominator: int--newline--        :rtype: str--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "char* fractionToDecimal(int numerator, int denominator) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public string FractionToDecimal(int numerator, int denominator) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {number} numerator--newline-- * @param {number} denominator--newline-- * @return {string}--newline-- */--newline--var fractionToDecimal = function(numerator, denominator) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {Integer} numerator--newline--# @param {Integer} denominator--newline--# @return {String}--newline--def fraction_to_decimal(numerator, denominator)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func fractionToDecimal(_ numerator: Int, _ denominator: Int) -> String {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func fractionToDecimal(numerator int, denominator int) string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

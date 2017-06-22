@@ -1,0 +1,26 @@
+---CONTENT_BEGIN---
+Given a List of words, return the words that can be typed using letters of alphabet on only one row's of American keyboard like the image below. 
+
+
+
+
+
+
+
+Example 1:
+
+Input: ["Hello", "Alaska", "Dad", "Peace"]
+Output: ["Alaska", "Dad"]
+
+
+
+Note:
+
+You may use one character in the keyboard more than once.
+You may assume the input string will only contain letters of alphabet.
+
+
+---CONTENT_END---
+---SCRIPT_BEGIN---
+[{"defaultCode": "class Solution {--newline--public:--newline--    vector<string> findWords(vector<string>& words) {--newline--        --newline--    }--newline--};", "value": "cpp", "text": "C++"}, {"defaultCode": "public class Solution {--newline--    public String[] findWords(String[] words) {--newline--        --newline--    }--newline--}", "value": "java", "text": "Java"}, {"defaultCode": "class Solution(object):--newline--    def findWords(self, words):--newline--        '''--newline--        :type words: List[str]--newline--        :rtype: List[str]--newline--        '''", "value": "python", "text": "Python"}, {"defaultCode": "/**--newline-- * Return an array of size *returnSize.--newline-- * Note: The returned array must be malloced, assume caller calls free().--newline-- */--newline--char** findWords(char** words, int wordsSize, int* returnSize) {--newline--    --newline--}", "value": "c", "text": "C"}, {"defaultCode": "public class Solution {--newline--    public string[] FindWords(string[] words) {--newline--        --newline--    }--newline--}", "value": "csharp", "text": "C#"}, {"defaultCode": "/**--newline-- * @param {string[]} words--newline-- * @return {string[]}--newline-- */--newline--var findWords = function(words) {--newline--    --newline--};", "value": "javascript", "text": "JavaScript"}, {"defaultCode": "# @param {String[]} words--newline--# @return {String[]}--newline--def find_words(words)--newline--    --newline--end", "value": "ruby", "text": "Ruby"}, {"defaultCode": "class Solution {--newline--    func findWords(_ words: [String]) -> [String] {--newline--        --newline--    }--newline--}", "value": "swift", "text": "Swift"}, {"defaultCode": "func findWords(words []string) []string {--newline--    --newline--}", "value": "golang", "text": "Go"}]
+---SCRIPT_END---

@@ -1,0 +1,40 @@
+{
+    "posts": [
+        {
+            "java": "public class Solution {--newline--    public int integerReplacement(int n) {--newline--        int c = 0;--newline--        while (n != 1) {--newline--            if ((n & 1) == 0) {--newline--                n >>>= 1;--newline--            } else if (n == 3 || ((n >>> 1) & 1) == 0) {--newline--                --n;--newline--            } else {--newline--                ++n;--newline--            }--newline--            ++c;--newline--        }--newline--        return c;--newline--    }--newline--    --newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "A couple of Java solutions with explanations"
+        },
+        {
+            "java": "public class Solution {--newline--    public int integerReplacement(int n) {--newline--        if(n==Integer.MAX_VALUE) return 32; //n = 2^31-1;--newline--        int count = 0;--newline--        while(n>1){--newline--            if(n%2==0) n/=2;--newline--            else{--newline--                if((n+1)%4==0&&(n-1!=2)) n++;--newline--                else n--;--newline--            }--newline--            count++;--newline--        }--newline--        return count;--newline--    }--newline--}",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "Java 12 line 4(5)ms iterative solution with explanations. No other data structures."
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": null,
+            "python": "class Solution(object):--newline----tab--    def integerReplacement(self, n):--newline----tab--        rtn = 0--newline----tab--        while n > 1:--newline----tab--            rtn += 1--newline----tab--            if n % 2 == 0:--newline----tab--                n //= 2--newline----tab--            elif n % 4 == 1 or n == 3:--newline----tab--                n -= 1--newline----tab--            else:--newline----tab--                n += 1--newline----tab--        return rtn--newline----tab--",
+            "topic_title": "Python O(log n) time, O(1) space with explanation and proof"
+        },
+        {
+            "java": "public class Solution {--newline--    public int integerReplacement(int n) {--newline--        long N = n;--newline--        long small,big;--newline--        int cnt = 0;--newline--        while( N != 1){--newline--        --tab--small = (N  & ( N -1));--newline--        --tab--big = ( N & (N + 1));--newline--        --tab--if( (N & 1) == 0){--newline--        --tab----tab--N >>= 1;--newline--        --tab--}--newline--        --tab--else if ( (small & (small-1)) <= (big & (big-1))){--newline--        --tab----tab--N = N - 1;--newline--        --tab--}--newline--        --tab--else{--newline--        --tab----tab--N = N +1;--newline--        --tab--}--newline--        --tab--cnt++;--newline--        }--newline--        return cnt;--newline--    }--newline--}--newline--",
+            "is_locked": false,
+            "cpp": null,
+            "python": null,
+            "topic_title": "JAVA 3ms Bit Manipulation Solution"
+        },
+        {
+            "java": null,
+            "is_locked": false,
+            "cpp": "class Solution --newline--{--newline--    // date: 2016-09-11     location: Vista Del Lago III Apartments--newline--    int res = 0;--newline--public:--newline--    int integerReplacement(int n) --newline--    {--newline--        if (n == 1)--newline--            return res;--newline--        if (n == 3)--newline--        {--newline--            res += 2;--newline--            return res;--newline--        }--newline--        if (n == INT_MAX)--newline--            return 32;--newline--        --newline--        res ++;--newline--        if (n & 1)--newline--            if ((n + 1) % 4 == 0)--newline--                integerReplacement(n + 1);--newline--            else--newline--                integerReplacement(n - 1);--newline--        else--newline--            integerReplacement(n / 2);--newline--            --newline--        return res;--newline--    }--newline--};--newline--",
+            "python": null,
+            "topic_title": "0 ms C++ recursion solution with Explanation"
+        }
+    ],
+    "qc": "397.json"
+}
