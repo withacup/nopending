@@ -1,6 +1,6 @@
-#这是一个失败了的项目
+# 这是一个失败了的项目
 
-##OVERVIEW
+## OVERVIEW
 
 我最近学了一下scrapy，想写个爬虫之类的练练手，加上一直接触的网站就是leetcode，就有了写一个关于leetcode的项目的念头。
 
@@ -32,33 +32,33 @@
 
 **scrapy爬到题目 ---> 去leetcode的discuss区域爬取solution ---> 验证正确的solution，生成记录的case的代码，插入到正确的solution里面 ---> 提交solution，获得case**
 
-##IMPLEMENTATION
+## IMPLEMENTATION
 
 本来我以为大概也就是个小的python的程序，结果发现要实现的逻辑远远超过我的想象。
 
-###solutions_spider.py
+### solutions_spider.py
 第一个实现的文件是solutions_spider.py，这是在scrapy框架下运行的一个爬虫，它先会在lc首页弄到所有question的meta data，meta里面会有每一道题的id、name、url，在question对应的url里面可以找到它的description，已经所有语言的default code，也就是平时在leetcode.com上面看到的```class Solution {} ```初始化代码。
 我通过抓包看到了一些lc的api，在不登陆的情况下可以得到的信息：题目的介绍，题目的discuss里面的topics。这两个信息是爬虫所需要得到的。
 
-###questionmeta.py 
+### questionmeta.py 
 这个文件是用来维持得到的meta信息的，因为meta信息在几乎在任何一个module里面都会用到，所以在这里把它封装一下。
 
-###questioncontent.py
+### questioncontent.py
 这个文件用来维持question的description和default code，最麻烦的事情是处理编码问题，也可能是我对python的编码处理包不熟悉，写起来很麻烦，从web上弄来的字符串编码总是很蛋疼。
 
-###questionsolutionservice.py
+### questionsolutionservice.py
 从讨论区得到topic之后，可以分析topic里面的post得到\<code\>tag里面的代码，简单的根据pl分类，大概判断一下答案code是否可用，这些全是hard code进去的，主要也是用来维持data，提供接口给其他的文件使用。里面的方法基本上都是static或者class方法，因为我不想把几百个文件一次性加载到内存里（其实就是强迫症，这几百个文件也没多大）。
 
-###user.py
+### user.py
 经过抓包得到了lc关于提交代码的api，提交代码的过程大概是：向题目对应的url提交post请求，如果没有cookie之类的错误，lc会返回对应的submission\_id，拿到这个id就可以反复的check submission的结果，结果会以status\_code的形式描述，大概分成wrong answer，time limit exeeded，runtime error，accepted等结果。User类的instance可以维持一个session，可以模拟用户登录或者提交代码、查看结果。
 
-###usermanager.py
+### usermanager.py
 用来封装User instance的行为，因为lc在服务器端会检查同一个lc账号的提交次数，11s之内重复提交很大概率会被驳回，而且提交的代码也是需要其他的module管理的，所以封装user的行为很重要。因为question有500+，在这里我申请了十个账号多线程提交从discuss里面爬下来的代码，manager也有责任控制多个user的提交行为。
 
-###verifiedsolutionservice.py
+### verifiedsolutionservice.py
 这个文件里的类是用来维持通过user提交成功的代码的，我写到这里的时候已经有点烦了，加上之前没有写文档，接口名字写的乱七八糟，同时它也维持modified\_code，也就是插入了爬取case代码的solution，可能是我写的最垃圾的类了。
 
-###codegen.py
+### codegen.py
 这个文件的类是用来生成对应id的题目的test case爬取代码的，它被VerifiedSolutionService直接使用，这个类我写了一个下午，最后惊奇的发现我的代码很像lisp，突然领悟了functional的魅力，下面是核心代码：
 
 ```
@@ -73,10 +73,10 @@ func_body =
 ```
 我只实现了java的生成器，生成的代码可以把input按照一定的格式print到stdout里面，经过解析就可以实现自动输入case。
 
-###syntaxparser.py
+### syntaxparser.py
 语法分析器用来分析default code的代码，分析出input 和 output type，以及input的变量名，从而可以交给CodeGenerator来生成目标代码，type都是以树的形式记录的，因为lc上输入的数据结构比较有限，所以TypeTree也就不是很难写，也就处理了一点情况，甚至可以同时处理java和cpp的type，python不存在type，也就没有对应的TypeTree。
 
-##ISSUES
+## ISSUES
 * 以上的代码写完之后，基本可以拿到90%题目的test case，但是依旧没有办法实现完全的自动化。
 最大的问题就是design的题目，lc在做design题目的测试的时候，对每个case它都会生成一个你的solution的object，然后按照一定的顺序调用你写的方法，这个顺序是因case而异的，无法确定，也就意味着我不知道该什么时候抛出错误使程序停止，这个是我程序无法完成的原因。
 
